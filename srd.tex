@@ -1,0 +1,85 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[frenchb]{babel} % Global stuff set to french
+\usepackage[margin=2.5cm]{geometry} % The margin of the page
+%\usepackage{amsmath}  % to include math formulas
+\usepackage{graphicx} % to include pictures
+\usepackage[hidelinks]{hyperref} % To include hyperlinks in a PDF
+\usepackage{fancyhdr} % to be able to make the page fancy looking
+\usepackage{lastpage} % so latex knows what is the last page...
+\usepackage{appendix} % To make appendixes
+\usepackage{color} % For text colors
+\usepackage{palatino} % Change font
+%\usepackage{tabularx}
+\usepackage{changepage}
+\usepackage{subcaption}
+\usepackage{enumitem}
+
+%% Fancy layout
+\pagestyle{fancy}
+    \lhead{Projet d'année - Partie 1}
+    \chead{}
+    \rhead{Groupe 2}
+    \lfoot{}
+    \cfoot{}
+    \rfoot{Page \thepage\ de \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+
+%%% --- %%% --- DOCUMENT START --- %%% --- %%%
+\begin{document}
+    \input{titlepage.tex}
+    \pagestyle{empty}
+\tableofcontents
+\newpage
+ %%% Counting pages now %%%
+\pagestyle{fancy}
+
+\setcounter{page}{1}
+
+\section{Introduction}
+\label{sec:intro}
+
+\subsection{But du projet}
+\label{sec:but}
+
+\subsection{Glossaire}
+\label{sec:glo}
+
+\subsection{Historique du document}
+\label{sec:hist}
+
+\section{Besoins de l'utilisateur}
+\label{sec:besoins}
+
+\subsection{Exigences fonctionnelles}
+\label{sec:exi-fonc}
+
+\subsection{Exigences non fonctionnelles}
+\label{sec:exi-nonfonc}
+
+\subsection{Exigences de domaine}
+\label{sec:exi-dom}
+
+\section{Besoins du systeme}
+\label{sec:besoins-sys}
+
+\subsection{Exigences fonctionnelles}
+\label{sec:exi-fonc-sys}
+
+\subsection{Exigences non fonctionnelles}
+\label{sec:exi-nonfonc-sys}
+
+\subsection{Design et fonctionnement du systeme}
+\label{sec:design}
+
+
+\appendix
+
+\section{Index des termes utilisés}
+\label{sec:index}
+
+\end{document}
