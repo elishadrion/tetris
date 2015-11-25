@@ -1,0 +1,343 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc} % Setup for LaTeX!
+\usepackage[frenchb]{babel} % Global stuff set to french
+\usepackage[margin=2.5cm]{geometry} % The margin of the page
+%\usepackage{amsmath}  % to include math formulas
+\usepackage{graphicx} % to include pictures
+\usepackage{hyperref} % To include hyperlinks in a PDF
+\usepackage{fancyhdr} % to be able to make the page fancy looking
+\usepackage{lastpage} % so latex knows what is the last page...
+\usepackage{appendix} % To make appendixes
+\usepackage{listings} % This is needed to insert MATLAB or other code
+\usepackage{color} % For text colors
+\usepackage{palatino} % Change font
+%\usepackage{tabularx}
+\usepackage{changepage}
+\usepackage{subcaption}
+\usepackage{enumitem}
+
+% Wikibooks page on lstlisting
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+
+%% Fancy layout
+\pagestyle{fancy}
+    \lhead{Projet d'année - Partie 1}
+    \chead{}
+    \rhead{Group 2 - \emph{410031}}
+    \lfoot{}
+    \cfoot{}
+    \rfoot{Page \thepage\ de \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+
+%%% --- %%% --- DOCUMENT START --- %%% --- %%%
+\begin{document}
+    \input{titlepage.tex}
+    \pagestyle{empty}
+\tableofcontents
+\newpage
+ %%% Counting pages now %%%
+\pagestyle{fancy}
+\setcounter{page}{1}
+
+\section{Introduction}
+
+Ce projet s'attaque à la simulation de la propagation d'une rumeur dans un
+réseau social. Une certaine personne commence à diffuser une rumeur dans un
+premier temps, étant limité par la relation avec les autres gens du
+réseau. Après une valeur discrète de tours (unités de temps), la rumeur aura
+voyagé et peut être changé.
+
+
+Il est réalisé avec \textsc{\footnotesize{PYTHON 3}}. Comportant
+quatre parties, chacune devrait ajouter quelques fonctionnalités à la
+précédente.
+
+
+\section{Réalisation}
+
+\subsection{Première partie}
+
+Dans la première partie de ce projet, la fonctionnalité de base a été mise en
+place. Ayant une liste de personnes et leurs amitiés, on peut simuler la
+propagation d'une rumeur (qui n'est pas déterminée) à travers le temps.
+
+Les fonctions de base comme \texttt{update()}, \texttt{printState()} et
+\texttt{inputData()} servent à donner un squelette centrale, et seront gardés
+(dans une certaine mesure) pour la partie 2. Par contre, la création des
+structures de données est lente et ennuyant (aussi à cause de la troisième
+fonction mentionnée) et devra être changée.
+
+Les structures de données implémentées ici sont:
+
+\begin{itemize}
+\item \texttt{stagesNumber}: donne le temps de simulation (le nombre d'unités de
+  temps à faire travailler le simulateur)
+\item \texttt{names}: liste de noms des personnes composant notre réseau social
+\item \texttt{network}: matrice de dimension \texttt{names \(\times\) names} qui donne les amitiés et relations du réseau
+\item \texttt{informedPeople}: liste booléenne indiquant si les gens connaissent la rumeur ou pas
+\item \texttt{theGossiper}: personne qui commence à diffuser une rumeur
+\item \texttt{rumorSpread}: nombre de personnes ayant appris la rumeur lors
+  d'une mise à jour
+\texttt{}
+\end{itemize}
+
+Il faut mentionner que la source de la rumeur n'est pas tenue en compte, et
+plusieurs personnes peuvent raconter la rumeur à un de ses amis au même temps.
+
+
+\subsection{Deuxième partie}
+
+Cette deuxième partie s'occupe des différents aspects, comme le chargement du
+réseau à partir d'un fichier, la modification de la rumeur, la propagation de la
+rumeur selon des nouveaux protocoles, et la récupération de paramètres en ligne
+de commande à l'aide de la librairie \texttt{argparse}. L'utilisateur a beaucoup
+plus de pouvoir et d'options avec les arguments en ligne de commande. Le contenu
+de la première partie est non seulement agrandi mais aussi amélioré.
+
+Par exemple, la rumeur (qui est maintenant bien définie), peut subir des
+modifications, avec un pourcentage de probabilité \emph{-p}, et en différentes formes, selon \emph{-m}.
+
+Aussi, le simulateur peut s'arrêter dès que tout le monde connait la
+rumeur. Ceci est fait en utilisant une boucle \texttt{while} et non pas
+\texttt{for}. On pose: \emph{ne t'arrête pas jusqu'à ce que tout le monde connaît une rumeur}. Dans ce cas, en utilisant \emph{-d}.
+
+
+En effet, il existe un grand choix parmi les options disponibles, voir Table
+\ref{tab:options} pour une liste complète.
+
+
+\begin{table}[ht]
+\begin{adjustwidth}{-16em}{-16em}
+\centering
+\begin{tabular}{|p{2cm}|p{4cm}|p{3cm}|p{6cm}|}
+\hline
+ Option & Paramètre & Comportement par défaut & Description \\ \hline \hline
+ -s & nom d'une personne & personne choisie aléatoirement & La personne qui commence à diffuser la rumeur.\\ \hline
+ -r & rumeur initiale & rumeur choisie aléatoirement & La rumeur doit être un entier sur 8 bits.\\ \hline
+ -t & temps de simulation & s’arrêter dès que tout le monde connaît la rumeur &
+ Le temps de simulation est aussi le nombre de fois que le simulateur va être appelé\\ \hline
+ -d & Pas de paramètre & \texttt{store\_false} & Ignorer les gens qui connaissent déjà la rumeur\\ \hline
+ -m & type de modification de la rumeur & \texttt{None} & type de modification éventuelle de la rumeur lorsqu’elle est racontée (choix : incremental, bitflip, none)\\ \hline
+ -p & probabilité de modification & 0.1 & probabilité qu’une rumeur soit modifiée lorsqu’elle est racontée (réel entre 0 et 1)\\ \hline
+ -u & règle de mise à jour & \texttt{stable} & règle de mise à jour lorsqu’une personne apprend une nouvelle version de la rumeur (choix : stable, rewrite, mixture)\\ \hline
+\end{tabular}
+\end{adjustwidth}
+\caption{Options disponibles dans la partie 2}
+\label{tab:options}
+\end{table}
+
+Un changement important dans cette deuxième partie, c'est l'ajout des rumeurs à \texttt{informed People}. Si la personne ne connaît pas la rumeur, alors \texttt{None} est la valeur par défaut. Cet objet, étant une séquence mutable, était un bon candidat pour garder les valeur des rumeurs.
+
+Tous les algorithmes implémentés sont expliqués dans la section \ref{section:algos}.
+
+\subsection{Difficultés rencontrées, analyse et solution}
+
+Plusieurs enjeux ont été retrouvés tout au long de la réalisation de cette partie:
+
+\begin{itemize}
+\item \textbf{Charger le fichier réseaux}: Le fichier contient des lignes qui
+  terminent par \texttt{\textbackslash n} et elles sont lues tout au début avec
+  la fonction \texttt{open()}, qui donne un flux de texte tamponné
+  (\texttt{TextIOWrapper}). Il n'est pas impératif d'utiliser la méthode
+  \texttt{readlines()} ici. Ces lignes vont être séparées en utilisant la
+  méthode \texttt{.split()} en sachant que les séparateurs sont le deux-points
+  ":" et la virgule ",". Étant donné qu'il y a un seule deux-points, l'élément qui se trouve à gauche sera un nom qui appartient à \texttt{names} et le reste sont ses amis (\texttt{friends}). À partir de ce moment, la création de la matrice d'amitiés est simple; pour toute personne dans \texttt{names} d'indice \emph{i} et ami(e) d'indice \emph{j} qui se trouve dans \texttt{friends}, on marque \texttt{True} à l'endroit \texttt{[i][j]} dans matrice . La fonction \texttt{loadNetwork()} renvoie à la fois cette liste des noms et la matrice énoncée.
+
+\item \texttt{\textbf{argparse}}: un objet est tout d'abord assigné à la méthode \texttt{argparse.ArgumentParser}, et ensuite il faut spécifier quels sont les arguments que le programme prévoit attend de l'utilisateur, avec \texttt{argparse.addArgument()}. Cette méthode intègre plusieurs arguments mots-clés très utiles. A savoir:
+
+  \begin{description}[labelindent=2em, leftmargin=4em]
+  \item[\texttt{action}]  \hfill \\
+    Donne l'instruction de quoi faire avec le paramètre.
+  \item[\texttt{dest}]    \hfill \\
+    Indique où enregistrer le paramètre indiqué. Sera accessible par:
+    \texttt{args.dest}, si \texttt{args} est l'objet assigné au parser.
+  \item[\texttt{type}]    \hfill \\
+    Parfois, les chaînes de caractères en ligne de commande doivent être
+    interprétées comme un autre type de donnée. Ceci, ainsi que \texttt{choices},
+    fait la plus part de la gestion d'erreurs. Deux types (classes) de données ont été créés pour vérifier le bon typage de la rumeur (ne doit pas dépasser 0 ou 255) et la probabilité (réelle entre 0 et 1).
+  \item[\texttt{default}] \hfill \\
+    La valeur par défaut du paramètre
+  \item[\texttt{choices}] \hfill \\
+    L'utilisateur peut choisir entre ces options.
+  \item[\texttt{help}]    \hfill \\
+    Ce message s'affichera à côté de l'argument en question.
+  \end{description}
+
+  Le module \texttt{argparse} s'occupe de toute la gestion d'erreurs, sauf pour la
+  personne qui commence la rumeur, car la liste \texttt{names} est chargée après
+  'parser' les arguments, et on ne peut pas savoir si le nom est dans la liste ou
+  pas à ce moment. Donc, pour vérifier cela, et pour générer un nom aléatoire (pas fait avec \texttt{default}) qui se trouve dans la liste \texttt{names}, une structure conditionnelle extra est implémentée.
+
+
+\item \textbf{L'affichage}: la longueur maximale d'un des noms est recherchée, pour pouvoir afficher toute l'information en conséquence dans le terminal. La valeur booléenne de \texttt{informedPeople} est testé pour afficher convenablement (\texttt{None} résultera en \texttt{False} et n'importe quelle rumeur - 0 incluse - résultera en \texttt{True}). La méthode \texttt{.format()} contrôle le bon affichage des nombres en binaires et les espaces.
+
+\item \textbf{La mise à jour}: les fonction \texttt{update()} et \texttt{predictRumor} sont en charge de faire ceci. Les options suivantes doivent être gérer:
+\begin{itemize}
+\item Le paramètre \emph{dontTell}, option \emph{-d}: pour arriver à ignorer les gens qui connaissent déjà la rumeur, la portée des gens doit être réduite. L'ami concerné doit avoir \texttt{None} dans \texttt{informedPeople}, pour pouvoir être informé.
+\item Le paramètre \emph{modifType}, option \emph{-m}: selon le type de modification, la fonction \texttt{predictRumor} choisira une modification (qui, à son tour, se fera seulement avec un probabilité \emph{-p}) pour changer la rumeur avec.
+\item Le paramètre \emph{updateRule}, option \emph{-u}: est traité de la même façon que \emph{modifType}. L'ami adoptera cette nouvelle version de la rumeur selon l'option donné.
+\end{itemize}
+
+Remarquons aussi quelques points importants:
+
+\begin{itemize}
+\item Pour contrôler d'où viennent les rumeurs, la rumeur passée à \texttt{predictRumor} est \texttt{informedPeople[i]} et non pas la rumeur initiale.
+\item Si l'option \emph{-d} est présente, l'option \emph{-u} n'aura pas d'effet, puisque les gens qui connaissent déjà la rumeur sont automatiquement exclus de l'éventail des gens possibles.
+\item Deux personnes peuvent choisir le même ami en commun pour transmettre la rumeur.
+\end{itemize}
+
+\end{itemize}
+
+
+\subsection{Découpage algorithmes}
+\label{section:algos}
+
+Quelques structures de code pas si évidentes sont décrites ci-dessous:
+
+
+\begin{lstlisting}[label={code:network},language=Python, caption=Bout de code de la fonction loadNetwork]
+for i = 0 to lenght names do
+    network[i][i] = True
+    for j = 0 to len(friends[i])
+        indexOfFriend = names.index(friends[i][j])
+        network[i][indexOfFriend] = True
+\end{lstlisting}
+
+Le pseudo-code \ref{code:network} montre comment la matrice d'amitiés est crée.
+
+\begin{lstlisting}[label={code:bitflip},language=Python, caption=Fonction bitflip]
+function bitflip(rumor):
+    return rumor XOR 2 ^ (random(0, 7))
+end
+\end{lstlisting}
+
+Dans le pseudo-code \ref{code:bitflip} on apprécie la fonction bitflip. Un bit de la rumeur peut être ainsi renversé. La porte logique XOR en combinaison avec une puissance de deux laisse tous les bits inchangés sauf celui qui correspond au 1, qui est renversé.
+
+\begin{lstlisting}[label={code:incremental},language=Python, caption=Fonction incremental]
+function incremental(rumor)
+    if random() > 0.5:
+        rumor += 1
+    else:
+        rumor -= 1
+    return rumor MOD 256
+end
+\end{lstlisting}
+
+Le listing \ref{code:update} montre (en version simplifiée) comment la fonction \texttt{update} gère la création et transmission des rumeurs.
+
+\begin{lstlisting}[label={code:update},language=Python, caption=Fonction update]
+for i = 0 to lenght of informedPeople
+    if informedPeople[i]:
+        <Guess friend range according to dontTell flag>
+        if dontTell:
+            possibleRange = [ses ami(e)s, et si ils/elles ne sont deja informe(e)s]
+        else:
+            possibleRange = [tous ses ami(e)s]
+        if possibleRange:   # Checking for non-empty sequence
+            chosenOne = possibleRange[randint (0, len(possibleRange))]
+            <Guess rumor modification according to modifType>
+            rumor = predictRumor(informedPeople[i])
+            <Write rumor to person according to updateRule>
+            rumorSpread += eval(updateRule)()
+            .
+            .
+
+informedPeople[:] = newInformedPeople
+\end{lstlisting}
+
+Et comme dernier exemple, le code \ref{code:mixture} montre le fonctionnement de la fonction \texttt{mixture}. Dans ce cas ci, la rumeur a du être transformé dans un string (et puis liste) binaire pour sa manipulation.
+
+\begin{lstlisting}[label={code:mixture},language=Python, caption=Fonction mixture]
+function mixture(newInformedPeople, chosenOne, rumor):
+    rumorSpread = 0
+    if newInformedPeople[chosenOne] does not know any rumor:
+        rumorSpread += 1
+    try:
+        ownRumor = list en binaire de la rumeur que la personne connait
+    except Exceptions that can occur:
+        pass
+    else:
+        rumor = meme format que ownRumor, avec la rumor (peut etre changee)
+        for i  = 0 to lenght rumor - 1:
+            if ownRumor[i] is different from rumor[i]:
+                if random() > 0.1:
+                    rumor[i] = ownRumor[i] # Change this bit
+        rumor = integer(rumor, 2)
+
+    newInformedPeople[chosenOne] = rumor
+    return rumorSpread
+end
+\end{lstlisting}
+
+\section{Conclusion}
+
+Le projet essaie de modéliser un phénomène, comme la propagation d'une rumeur, dans un réseau social. Même s'il n'est pas très précis ou spécifique, il nous donne une idée approximative de la propagation d'une rumeur dans un environnement comme celui décrit.
+
+
+%\begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width=3in]{yes.png}
+%   \caption{Image from a game application}
+%   \label{algo}
+%\end{figure}
+
+
+\nocite{*}
+\bibliographystyle{acm}
+\bibliography{references.bib}
+
+\newpage
+
+\appendix
+
+\section{Exécution}
+
+Des exemples d'exécution du programme ont été ajoutés sous forme de capture d'écran.
+
+\begin{figure}[!ht]
+        \centering
+        \begin{subfigure}[b]{0.5\textwidth}
+                \includegraphics[width=\textwidth]{code11.png}
+        \end{subfigure}%
+        ~
+        \begin{subfigure}[b]{0.35\textwidth}
+                \includegraphics[width=\textwidth]{code12.png}
+        \end{subfigure}
+        \caption{Exécution du programme}\label{fig:code1}
+\end{figure}
+
+\begin{figure}[!ht]
+        \centering
+        \begin{subfigure}[b]{0.5\textwidth}
+                \includegraphics[width=\textwidth]{code21.png}
+        \end{subfigure}%
+        ~ % Spacing can take values ~, \quad, \qquad and \hfill
+        \begin{subfigure}[b]{0.37\textwidth}
+                \includegraphics[width=\textwidth]{code22.png}
+        \end{subfigure}
+        \caption{Exécution du programme}\label{fig:code2}
+\end{figure}
+
+\clearpage
+
+\section{Propositions de fonctionnalités}
+
+\begin{enumerate}
+\item Les quatre premiers bits (MSB) de la rumeur pourraient indiquer qui est la personne concernée par cette rumeur. Ceci sera fait sur 8 ou 12 (au cas où on veut garder le format rumeur à 8 bits). Ce sera une sorte de système d'adressage, où le nombre maximale de gens à qui la rumeur peut affecter (et à une seule à la fois) sera une puissance de deux. $ 2^4 $ dans ce cas.
+
+\item Le fichier texte pourrait être enrichi pour contenir plus d'informations sur les gens. Par exemple, il pourrait contenir le type de modification et règle de mise à jour que chaque personne souhaite adopter. Tous ces options extra sont plus facilement maniable en créant une instance de class (Person par exemple) pour chaque personne.
+
+\item Pour finir, on pourrait connecter en quelque sorte, notre programme avec un vrai réseau social, comme Facebook, Google+ ou un autre logiciel de réseautage  pour évaluer l'impact de la propagation d'une rumeur.
+
+\end{enumerate}
+
+
+\end{document}
