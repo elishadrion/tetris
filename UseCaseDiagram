@@ -1,0 +1,40 @@
+@startuml
+
+title Package - Use Case Diagram
+
+
+rectangle Wizard_Poker {
+    (Créer un compte lié à un pseudo) as create
+    (Se connecter à son compte) as login
+    (Consulter sa collection de cartes) as view_carte
+    (Gestion de decks) as gest_deck
+    (Créer un deck) as create_deck
+    (Consulter/modifier deck) as modif_deck
+    (Supprimer un deck) as delete_deck
+    (Gérer une liste d'amis) as gest_amis
+    (Trouver un adversaire pour un duel) as find_player
+    (Jouer une partie) as play
+    (Discuter avec ses amis) as discut_friends
+    (Consulter le classement des joueurs) as classement
+}
+
+
+:Joueur: 
+:Visiteur:
+
+Visiteur --> create
+Joueur --> login
+Joueur --> view_carte
+Joueur --> gest_deck
+Joueur --> gest_amis
+Joueur --> find_player
+Joueur --> play
+Joueur --> discut_friends
+Joueur --> classement
+gest_deck --> modif_deck
+gest_deck --> delete_deck
+gest_deck --> create_deck
+find_player --> play
+
+
+@enduml
