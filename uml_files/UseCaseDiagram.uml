@@ -2,6 +2,11 @@
 
 title Package - Use Case Diagram
 
+skinparam packageStyle rect
+left to right direction
+
+:Joueur: 
+:Visiteur:
 
 rectangle Wizard_Poker {
     (Créer un compte lié à un pseudo) as create
@@ -13,28 +18,26 @@ rectangle Wizard_Poker {
     (Supprimer un deck) as delete_deck
     (Gérer une liste d'amis) as gest_amis
     (Trouver un adversaire pour un duel) as find_player
+    (Proposer à un ami une partie) as friend_player
     (Jouer une partie) as play
     (Discuter avec ses amis) as discut_friends
     (Consulter le classement des joueurs) as classement
 }
 
-
-:Joueur: 
-:Visiteur:
-
-Visiteur --> create
-Joueur --> login
-Joueur --> view_carte
-Joueur --> gest_deck
-Joueur --> gest_amis
-Joueur --> find_player
-Joueur --> play
-Joueur --> discut_friends
-Joueur --> classement
-gest_deck --> modif_deck
-gest_deck --> delete_deck
-gest_deck --> create_deck
+Visiteur -l- create
+create -[hidden]u- login
+Joueur -- login
+Joueur -- view_carte
+Joueur -- gest_deck
+Joueur -- gest_amis
+Joueur -- find_player
+Joueur -- friend_player
+Joueur -- discut_friends
+Joueur -- classement
+gest_deck .d-> modif_deck : include
+gest_deck .d-> delete_deck : include
+gest_deck .d-> create_deck : include
 find_player --> play
-
+friend_player --> play
 
 @enduml
