@@ -8,16 +8,21 @@ class Joueur {
   +Deck
   +Amis
 }
-
+class JoueurEnPartie {
+  +Energie
+  +PointDeVie
+  +Deck
+  +CarteEnMain
+}
 class Collection
 class Carte {
-  +Cout_en_energie
-  +Effet_special
+  +CoutEnEnergie
+  +EffetSpecial
 }
 class Deck
 class Creature {
-  +Point_de_vie
-  +Valeur_d_attaque
+  +PointDeVie
+  +ValeurDAttaque
 }
 class Sort
 class PartieManager {
@@ -26,17 +31,18 @@ class PartieManager {
   +Plateau
 }
 class Plateau {
-  +Cartes_posées
+  +CartesPosées
 }
 
 Carte <|-down- Creature
 Carte <|-down- Sort
 PartieManager -- Plateau
-PartieManager -- Joueur
+PartieManager -up- JoueurEnPartie
 Joueur -- Collection
 Joueur -- Deck
+Joueur o-down- JoueurEnPartie
 
-Deck "0..*" *-down- "20" Carte
+Deck "0..2" *-down- "20" Carte
 Collection "1" *-down- "20..*" Carte
 
 
