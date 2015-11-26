@@ -1,0 +1,43 @@
+@startuml
+
+title Relationships - Class Diagram
+
+
+class Joueur {
+  +String Pseudo
+  +Deck
+  +Amis
+}
+
+class Collection
+class Carte {
+  +Cout_en_energie
+  +Effet_special
+}
+class Deck
+class Creature {
+  +Point_de_vie
+  +Valeur_d_attaque
+}
+class Sort
+class PartieManager {
+  +Joueurs
+  +JoueurQuiDoitJouer
+  +Plateau
+}
+class Plateau {
+  +Cartes_posées
+}
+
+Carte <|-down- Creature
+Carte <|-down- Sort
+PartieManager -- Plateau
+PartieManager -- Joueur
+Joueur -- Collection
+Joueur -- Deck
+
+Deck "0..*" *-down- "20" Carte
+Collection "1" *-down- "20..*" Carte
+
+
+@enduml
