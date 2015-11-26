@@ -1,6 +1,6 @@
 @startuml
 
-title Relationships - Class Diagram
+title Wizard - Class Diagram
 
 
 class Joueur {
