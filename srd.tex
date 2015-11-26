@@ -43,23 +43,81 @@
 \section{Introduction}
 \label{sec:intro}
 
+
+
 \subsection{But du projet}
 \label{sec:but}
+
+% Texte (d’une demi-page approximativement) décrivant les tenants et
+% aboutissants du projet, et énumérant les différents types de
+% personnes qui vont bénéficier de la réalisation du projet.
 
 \subsection{Glossaire}
 \label{sec:glo}
 
+% Définition des termes, des acronymes et des abréviations utilisés
+% dans le présent document.
+
+
+
+
 \subsection{Historique du document}
 \label{sec:hist}
+
+% Tableau reprenant tous les changements effectués sur le
+% document. Chaque ligne de celui-ci contiendra les champs suivants :
+% numéro de version, auteur et date de la modification, description
+% des changements. Le tableau sera trié de manière décroissante sur le
+% numéro de version.
+
+% Example de versioning:
+
+
+    % 0 for alpha (status)
+    % 1 for beta (status)
+    % 2 for release candidate
+    % 3 for (final) release
+
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}[ht]{|l|l|l|p{18em}|}
+    \hline
+
+    \textbf{Version}
+    & \textbf{Auteur}
+    & \textbf{Date modification}
+    & \textbf{Description des changements}\\ \hline \hline
+    NEXT &  &  &  \\ \hline
+    NEXT &  &  &  \\ \hline
+    v0.0 & Carlos Requena & 26/11/15 22:30
+    & Mis en place. Diagrammes realisés en groupe le 25/11/15 ajoutés\\ \hline
+  \end{tabular}
+  \caption{Changements document}
+  \label{tab:hist}
+\end{table}
 
 \section{Besoins de l'utilisateur}
 \label{sec:besoins}
 
+% Cette deuxième section reprend les services que le système doit
+% fournir aux utilisateurs, ainsi que les contraintes de
+% fonctionnement du système. Elle doit être complète et consistante,
+% et il faut qu’elle soit rédigée dans un langage spécialement
+% compréhensible pour le client, c’est-à-dire en évitant entre autres
+% tout terme ou détail techniques.
+
 \subsection{Exigences fonctionnelles}
 \label{sec:exi-fonc}
 
+% Ce type d’exigences sera décrit en utilisant des diagrammes use case
+% et en fournissant une description pour chacun d’entre eux (comme vu
+% au cours théorique et aux exercices).
+
 \subsection{Exigences non fonctionnelles}
 \label{sec:exi-nonfonc}
+
+
 
 \subsection{Exigences de domaine}
 \label{sec:exi-dom}
@@ -67,14 +125,41 @@
 \section{Besoins du systeme}
 \label{sec:besoins-sys}
 
+% Cette troisième section décrit en détail les fonctionnalités du
+% système (à partir de celles décrites à la section précédente), sans
+% aborder (dans la mesure du possible) *comment* elles doivent être
+% réalisées.
+
 \subsection{Exigences fonctionnelles}
 \label{sec:exi-fonc-sys}
+
+% Ce type d’exigences sera décrit en utilisant des diagrammes use
+% case et en fournissant une description *plus détaillée* pour
+% chacun d’entre eux (comme vu au cours théorique et aux exercices).
+
 
 \subsection{Exigences non fonctionnelles}
 \label{sec:exi-nonfonc-sys}
 
+
+
 \subsection{Design et fonctionnement du systeme}
 \label{sec:design}
+
+% Cette partie sera décrite à l’aide des différents diagrammes UML
+% vus au cours théorique et aux exercices.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.8\textwidth]{uml_files/UseCaseDiagram.png}
+  \caption{\label{fig:usecase} Use Case Diagram du jeu en question}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.7\textwidth]{uml_files/ClassDiagram.png}
+  \caption{\label{fig:class} Diagramme des classes}
+\end{figure}
 
 
 \appendix
