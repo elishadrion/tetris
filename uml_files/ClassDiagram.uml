@@ -1,6 +1,7 @@
 @startuml
 
 title Wizard - Class Diagram
+skinparam dpi 300
 
 
 class Joueur {

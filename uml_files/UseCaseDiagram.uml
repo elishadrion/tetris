@@ -4,6 +4,7 @@ title Package - Use Case Diagram
 
 skinparam packageStyle rect
 left to right direction
+skinparam dpi 300
 
 :Joueur: 
 :Visiteur:
