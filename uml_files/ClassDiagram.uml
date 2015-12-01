@@ -1,7 +1,20 @@
 @startuml
 
 title Wizard - Class Diagram
-skinparam dpi 300
+
+'accessibilité
+skinparam classAttributeIconSize 0
+
+'taille de l'image
+skinparam dpi 300 
+
+'couleurs
+skinparam class {
+  BackgroundColor AliceBlue
+  ArrowColor CornflowerBlue
+  BorderColor CornflowerBlue
+}
+skinparam stereotypeCBackgroundColor OldLace
 
 
 class Joueur {

@@ -1,5 +1,12 @@
-\documentclass[a\documentclass[a4paper,10pt]{report}
+\documentclass[11pt]{article}
+\usepackage[french]{babel}
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{hyperref}
+
 
 %opening
 \title{Projet d'année}
@@ -12,36 +19,42 @@
 
 
 \section{Question}
-  \begin{enumerate}
-   \item Discussion en partie
-   \item Discussion: channel public, avec l'adversaire, que avec ses amis
-   \item Pouvoir bloquer une personne (que conséquences)
-   \item Spectateur à la partie (et que peut il voir)
-   \item Indiquer qu'en fonction du niveau d'énergie il peut encore joué ou non
-   \item classement peut être affiché par quelqu'un qui n'est pas (connecté)
-   \item authentification du compte (mot de passe)
-   \item Tri des cartes lorsqu'on les consultes (si oui, comment: alpha, niveau d'énergie, ... ?)
-   \item mettre un nom à un deck (numéro par défaut ?)
-   \item (fichier qui enregistre en général doivent ils être exportable)
-   \item choisir qui on veut avoir en duel (et non passer par le choix automatique)
-  \end{enumerate}
+  \subsection{Général}
+    \begin{enumerate}
+    \item Discussion en partie
+    \item Discussion: channel public, avec l'adversaire, que avec ses amis
+    \item Pouvoir bloquer une personne (que conséquences)
+    \item Spectateur à la partie (et que peut il voir)
+    \item Indiquer qu'en fonction du niveau d'énergie il peut encore joué ou non
+    \item classement peut être affiché par quelqu'un qui n'est pas (connecté)
+    \item authentification du compte (mot de passe)
+    \item Tri des cartes lorsqu'on les consultes (si oui, comment: alpha, niveau d'énergie, ... ?)
+    \item mettre un nom à un deck (numéro par défaut ?)
+    \item (fichier qui enregistre en général doivent ils être exportable)
+    \item choisir qui on veut avoir en duel (et non passer par le choix automatique)
+    \item consulter la collection/deck de carte que quelqu'un d'autre (amis, n'importe qui)
+    \item comment on choisir l'adversaire ?  N'importe qui ou en fonction du classement, du niveau, ... pour que des joueurs du même niveau se battent
+    \end{enumerate}
   
-  Concernant le jeu
-  \begin{enumerate}
-   \item maximum de cartes que l'on peut avoir en main
-   \item carte joué sont elles défaussées (pourraient être récupérée) ou retiré du jeu
-   \item avoir des cartes autrement que avec une victoire ?
-   \item en cas de victoire quel carte gagne-t-on ?  Comment est elle choisie ?
-   \item 20 cartes du début tirée aux hasard ou paquet par défaut
-   \item lorsque l'on a 20 cartes est-ce que on a un deck automatique
-   \item niveau pour les joueurs (en fonction de point qu'il gagnerait avec ses matches) et bonus si il change de niveau
-   \item peut-on perdre des cartes (dans quel contexte/situation) et si oui peut-on descendre en dessous de 20 cartes.
-  \end{enumerate}
-  
-  En plus
-  \begin{enumerate}
-   \item échange de carte avec ses amis ou autre
-  \end{enumerate}
+  \subsection{Concernant le jeu}
+    \begin{enumerate}
+    \item maximum de cartes que l'on peut avoir en main
+    \item carte joué sont elles défaussées (pourraient être récupérée) ou retiré du jeu
+    \item avoir des cartes autrement que avec une victoire ?
+    \item en cas de victoire quel carte gagne-t-on ?  Comment est elle choisie ?
+    \item 20 cartes du début tirée aux hasard ou paquet par défaut
+    \item lorsque l'on a 20 cartes est-ce que on a un deck automatique
+    \item niveau pour les joueurs (en fonction de point qu'il gagnerait avec ses matches) et bonus si il change de niveau
+    \item peut-on perdre des cartes (dans quel contexte/situation) et si oui peut-on descendre en dessous de 20 cartes.
+    \item nombre maximum de créature sur le plateau
+    \item attaque possible dès que la carte est posée ?
+    \item ordre de priorité sur les attaques (choisir qui on attaque, dépendant des effets ?)
+    \end{enumerate}
+    
+  \subsection{En plus}
+    \begin{enumerate}
+    \item échange de carte avec ses amis ou autre
+    \end{enumerate}
 
 
 
