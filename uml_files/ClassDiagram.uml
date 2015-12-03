@@ -1,66 +1,60 @@
 @startuml
 
-title Wizard - Class Diagram
-
-'accessibilité
-skinparam classAttributeIconSize 0
+title Package - Use Case Diagram
 
 'pas d'ombre
 skinparam shadowing false
 
-'taille de l'image
-skinparam dpi 300 
+skinparam packageStyle rect
 
-'couleurs
-skinparam class {
+skinparam usecase {
   BackgroundColor AliceBlue
   ArrowColor CornflowerBlue
   BorderColor CornflowerBlue
 }
-skinparam stereotypeCBackgroundColor OldLace
 
+skinparam {
+  ActorBackgroundColor LightGray
+  ActorFontColor SlateGray
+  actorBorderColor SlateGray
+}
+  
+left to right direction
+skinparam dpi 300
 
-class Joueur {
-  +String Pseudo
-  +Deck
-  +Amis
-}
-class JoueurEnPartie {
-  +Energie
-  +PointDeVie
-  +Deck
-  +CarteEnMain
-}
-class Collection
-class Carte {
-  +CoutEnEnergie
-  +EffetSpecial
-}
-class Deck
-class Creature {
-  +PointDeVie
-  +ValeurDAttaque
-}
-class Sort
-class PartieManager {
-  +Joueurs
-  +JoueurQuiDoitJouer
-  +Plateau
-}
-class Plateau {
-  +CartesPosées
+:Joueur: 
+:Visiteur:
+
+rectangle Wizard_Poker {
+    (Créer un compte lié à un pseudo) as create
+    (Se connecter à son compte) as login
+    (Consulter sa collection de cartes) as view_carte
+    (Gestion de decks) as gest_deck
+    (Créer un deck) as create_deck
+    (Consulter/modifier deck) as modif_deck
+    (Supprimer un deck) as delete_deck
+    (Gérer une liste d'amis) as gest_amis
+    (Trouver un adversaire pour un duel) as find_player
+    (Proposer à un ami une partie) as friend_player
+    (Jouer une partie) as play
+    (Discuter avec ses amis) as discut_friends
+    (Consulter le classement des joueurs) as classement
 }
 
-Carte <|-down- Creature
-Carte <|-down- Sort
-PartieManager -- Plateau
-PartieManager -up- JoueurEnPartie
-Joueur -- Collection
-Joueur -- Deck
-Joueur o-down- JoueurEnPartie
-
-Deck "0..2" *-down- "20" Carte
-Collection "1" *-down- "20..*" Carte
-
+Visiteur -l- create
+create -[hidden]u- login
+Joueur -- login
+Joueur -- view_carte
+Joueur -- gest_deck
+Joueur -- gest_amis
+Joueur -- find_player
+Joueur -- friend_player
+Joueur -- discut_friends
+Joueur -- classement
+gest_deck .d-> modif_deck : include
+gest_deck .d-> delete_deck : include
+gest_deck .d-> create_deck : include
+find_player --> play
+friend_player --> play
 
 @enduml
