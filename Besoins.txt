@@ -1,0 +1,14 @@
+
+Fonctionnel:
+U. Tchat
+S. Connexion au serveur
+U. Jouer (piocher, poser des cartes)
+U. Consulter le classement
+S. Architecure serveur/client
+
+
+Non Fonctionnel:
+U. Ergonomique
+U. S'amuser
+U. Design
+S. Robustesse (gestion d'erreur, pas de crash, ...)
