@@ -5,6 +5,9 @@ title Wizard - Class Diagram
 'accessibilité
 skinparam classAttributeIconSize 0
 
+'pas d'ombre
+skinparam shadowing false
+
 'taille de l'image
 skinparam dpi 300 
 

@@ -2,7 +2,23 @@
 
 title Package - Use Case Diagram
 
+'pas d'ombre
+skinparam shadowing false
+
 skinparam packageStyle rect
+
+skinparam usecase {
+  BackgroundColor AliceBlue
+  ArrowColor CornflowerBlue
+  BorderColor CornflowerBlue
+}
+
+skinparam {
+  ActorBackgroundColor LightGray
+  ActorFontColor SlateGray
+  actorBorderColor SlateGray
+}
+  
 left to right direction
 skinparam dpi 300
 
