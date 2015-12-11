@@ -1,0 +1,48 @@
+@startuml
+
+
+title Wizard - Activity Diagram
+
+'accessibilité
+skinparam classAttributeIconSize 0
+
+'pas d'ombre
+skinparam shadowing false
+
+'taille de l'image
+skinparam dpi 300 
+
+'couleurs
+skinparam activity {
+  BackgroundColor AliceBlue
+  ArrowColor CornflowerBlue
+  BorderColor CornflowerBlue
+}
+skinparam stereotypeCBackgroundColor OldLace
+
+
+repeat
+  :Joueur suivant;
+  start
+  if (Assez de cartes) then (oui)
+    :Pioche;
+  else (non)
+    :Moins 5 PointsDeVie;
+    if (Joueur mort ?) then (oui)
+      stop
+    else (non)
+    endif
+  endif
+  :Jouer;
+  note
+    Voir l'autre diagram pour 
+    avoir les détails de "jouer"
+    qui contient 2 sorties
+  end note
+repeat while (Jouer)
+
+
+:Fin de la parti;
+stop
+
+@enduml
