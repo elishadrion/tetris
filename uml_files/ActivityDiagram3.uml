@@ -30,7 +30,7 @@ repeat
     split
       :Jouer un sort;
     split again
-      :Demaner à poser un monstre;
+      :Demander à poser un monstre;
       if(Place sur le plateau) then (oui)
         :Pose le monstre;
       else (non)
