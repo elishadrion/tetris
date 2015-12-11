@@ -1,0 +1,60 @@
+@startuml
+
+
+title Wizard - Activity Diagram 3
+
+'accessibilité
+skinparam classAttributeIconSize 0
+
+'pas d'ombre
+skinparam shadowing false
+
+'taille de l'image
+skinparam dpi 300 
+
+'couleurs
+skinparam activity {
+  BackgroundColor AliceBlue
+  ArrowColor CornflowerBlue
+  BorderColor CornflowerBlue
+}
+skinparam stereotypeCBackgroundColor OldLace
+
+
+
+start
+
+repeat
+  if(Continuer ?) then (oui)
+    :Action;
+    split
+      :Jouer un sort;
+    split again
+      :Demaner à poser un monstre;
+      if(Place sur le plateau) then (oui)
+        :Pose le monstre;
+      else (non)
+      endif
+    split again
+      :Demander à utiliser un monstre;
+      if(Monstre posé à ce tour ?) then (oui)
+      else (non)
+        :Utiliser un monstre;
+        note right
+          A préciser:
+          Le monstre pourrait 
+          avoir un effet
+        end note
+      endif
+    end split
+  else (non)
+    :Fin du tour;
+    :Joueur Suivant;
+    stop
+  endif
+repeat while (Joueur Mort ?)
+
+:Fin de la partie;
+stop
+
+@enduml
