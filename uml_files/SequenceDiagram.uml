@@ -1,0 +1,48 @@
+@startuml
+
+title Wizard - Sequence Diagram
+
+'pas d'ombre
+skinparam shadowing false
+
+skinparam dpi 300
+
+skinparam sequence {
+  ArrowColor CornflowerBlue
+  LifeLineBorderColor CornflowerBlue
+  LifeLineBackgroundColor AliceBlue
+  
+  ParticipantBorderColor CornflowerBlue
+  ParticipantBackgroundColor AliceBlue
+  
+  ActorBackgroundColor LightGray
+  ActorFontColor SlateGray
+  actorBorderColor SlateGray
+}
+
+actor Joueur
+participant "Interface" as I
+participant "Gestionnaire de partie" as G
+
+Joueur -> I : trouver une partie
+activate I
+
+I -> G : initialisation
+activate G
+
+G ->> I : partie créée (adversaire trouvé)
+
+I ->> Joueur : demande de choisir un deck
+
+Joueur -> I : choix d'un deck
+
+I -> G : indique le deck
+
+G ->> I : affichage de l'énergie
+G ->> I : indique la carte piochée
+
+I ->> Joueur : demande de jouer
+
+Joueur -> I : joue
+
+@enduml

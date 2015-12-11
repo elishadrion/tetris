@@ -1,0 +1,34 @@
+@startuml
+
+
+title Wizard - Activity Diagram (fin de tour de jeu d'un joueur)
+
+'accessibilité
+skinparam classAttributeIconSize 0
+
+'pas d'ombre
+skinparam shadowing false
+
+'taille de l'image
+skinparam dpi 300 
+
+'couleurs
+skinparam activity {
+  StartColor Navy
+  BackgroundColor AliceBlue
+  ArrowColor CornflowerBlue
+  BorderColor CornflowerBlue
+  EndColor Navy
+}
+skinparam stereotypeCBackgroundColor OldLace
+
+start
+:Energie = 0;
+if (plus de 7 cartes) then (oui)
+  :Défausse;
+else(non)
+endif
+stop
+
+
+@enduml
