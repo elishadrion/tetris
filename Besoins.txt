@@ -12,3 +12,4 @@ U. Ergonomique
 U. S'amuser
 U. Design
 S. Robustesse (gestion d'erreur, pas de crash, ...)
+S. Stoquer de manière durable les informations
