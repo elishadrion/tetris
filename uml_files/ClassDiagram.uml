@@ -19,48 +19,77 @@ skinparam class {
 }
 skinparam stereotypeCBackgroundColor OldLace
 
+class Tchat {
+  message
+}
+
+class Classement {
+}
 
 class Joueur {
-  +String Pseudo
-  +Deck
-  +Amis
+  pseudo
+  victoires
+  defaites
 }
+
+class GestionnaireDAmis {
+  listeDAmi
+  supprimer()
+  ajouter()
+}
+
 class JoueurEnPartie {
-  +Energie
-  +PointDeVie
-  +Deck
-  +CarteEnMain
+  deck
+  pointDeVie
+  energie
+  main
+  defausse
+  cartePosees
 }
-class Collection
+
+class Deck {
+
+}
+
+class Collection {
+
+}
+
 class Carte {
-  +CoutEnEnergie
-  +EffetSpecial
+  coutEnEnergie
+  effetSpecial
 }
-class Deck
+
 class Creature {
-  +PointDeVie
-  +ValeurDAttaque
+  pointDeVie
+  valeurDAttaque
 }
-class Sort
-class PartieManager {
-  +Joueurs
-  +JoueurQuiDoitJouer
-  +Plateau
+
+class Sort {
+
 }
+
+class GestionnaireDePartie {
+  log
+}
+
 class Plateau {
-  +CartesPosées
+
 }
 
-Carte <|-down- Creature
-Carte <|-down- Sort
-PartieManager -- Plateau
-PartieManager -up- JoueurEnPartie
-Joueur -- Collection
-Joueur -- Deck
-Joueur o-down- JoueurEnPartie
 
-Deck "0..2" *-down- "20" Carte
-Collection "1" *-down- "20..*" Carte
+Joueur "2" *-- "1" Classement
+Joueur "2" o-- "0..*" Tchat
+Joueur <|-- JoueurEnPartie
+JoueurEnPartie -- Deck
+JoueurEnPartie -- GestionnaireDAmis
+Joueur -- Collection
+Collection "1" *-- "100..*" Carte
+Collection --> Deck: <<extend>> [Contient 20 cartes] >
+Carte <|-- Creature
+Carte <|-- Sort
+JoueurEnPartie -- GestionnaireDePartie
+GestionnaireDePartie "1" *-- "1" Plateau
 
 
 @enduml
