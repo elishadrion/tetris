@@ -15,7 +15,10 @@
 \usepackage{subcaption}
 \usepackage{enumitem}
 \usepackage{changepage}
-\usepackage[nonumberlist]{glossaries}
+\usepackage[nonumberlist, nopostdot]{glossaries}
+\usepackage{imakeidx}
+\makeindex
+\makenoidxglossaries
 
 %% Fancy layout
 \pagestyle{fancy}
@@ -30,21 +33,17 @@
 
 %%% Glossary
 
-\glstoctrue
-\makenoidxglossaries
 \newglossaryentry{deck}{
   name=Deck,
   description=Un deck est un ensemble de 20 cartes
 }
 
-\makenoidxglossaries
 \newglossaryentry{collection}{
   name=Collection,
   description=Ensemble qui contient toutes les cartes disponibles et
   connues par le jeu
 }
 
-\makenoidxglossaries
 \newglossaryentry{tchat}{
   name=Tchat,
   description=Messagerie instantanée permettant à 2 personnes de
@@ -109,6 +108,12 @@ de consulter ce classement et de s'enregistrer en tant que nouveau
 joueur. Dans ce cas, le joueur recevra ses premières cartes et sera
 invité à confectionner son premier deck avant d'affronter son premier
 adversaire.
+
+\subsection{Glossaire}
+\label{sec:glo}
+
+\glsaddall
+\printnoidxglossaries
 
 \subsection{Historique du document}
 \label{sec:hist}
@@ -253,8 +258,8 @@ ce deuxième point.
 Sequence diagram pour interaction??
 
 Le système doit interagir avec l'utilisateur, et lui proposer
-certaines actions, comme commencer un duel, gérer ses decks, consulter
-le classement des joueurs, etc.
+certaines actions, comme commencer un duel, gérer ses \index{deck}s,
+consulter le classement des joueurs, etc.
 
 Pour les nouveaux joueurs, l'application doit offrir la possibilité de
 s'enregistrer, avec un pseudonyme et un mot de passe.
@@ -315,7 +320,6 @@ utilisateur du jeu.
 \end{figure}
 
 \clearpage
-\glsaddall
-\printnoidxglossaries
+\printindex
 
 \end{document}
