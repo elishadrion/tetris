@@ -20,6 +20,7 @@ skinparam class {
 skinparam stereotypeCBackgroundColor OldLace
 
 class Visiteur {
+  IP
 }
 
 class Tchat {
@@ -82,7 +83,6 @@ class Plateau {
 
 
 Visiteur <|-- Joueur
-Visiteur --> Classement : Consulter
 Joueur "2" *-- "1" Classement
 Joueur "2" o-- "0..*" Tchat
 Joueur <|-- JoueurEnPartie

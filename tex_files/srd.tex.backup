@@ -50,11 +50,6 @@
   s'échanger des messages écrit
 }
 
-\newglossaryentry{visiteur} {
-  name=Visiteur,
-  description=Personne n'ayant pas encore de compte
-}
-
 \newglossaryentry{label1}{name=example1, description=description1}
 \newglossaryentry{label2}{name=example2, description=description2}
 
@@ -108,7 +103,7 @@ partie ni aucun des autres services.
 
 Le Wizard Poker sera disponible à n'importe quel joueurs enregistré
 pour jouer contre d'autres joueurs et essayer de gagner des places
-dans le classement générale. Il permettra aussi à de nouveaux joueurs
+dans le classement générale. Il permetra aussi à de nouveaux joueurs
 de consulter ce classement et de s'enregistrer en tant que nouveau
 joueur. Dans ce cas, le joueur recevra ses premières cartes et sera
 invité à confectionner son premier deck avant d'affronter son premier
@@ -135,7 +130,6 @@ adversaire.
     & \textbf{Description des changements}\\ \hline \hline
     NEXT &  &  &  \\ \hline
     NEXT &  &  &  \\ \hline
-    v0.5 & Rémy Detobel & 14/12/15 & Première relecture, diverses petites corrections \\ \hline
     v0.4 & Carlos Requena  & 13/12/15 22h00 & Ajout d'un système de glossaire \\ \hline
     v0.3 & Rémy et Lucie  & 11/12/15 16h20 & Ajout de diagrammes, ajout de ``Exigences du domaine'' \\ \hline
     v0.2 & Amin Abdelkefi & 10/12/15 23:45 & Ajout de la partie ``Exigences fonctionnelles''\\ \hline
@@ -149,95 +143,82 @@ adversaire.
 \section{Besoins de l'utilisateur}
 \label{sec:besoins}
 
-Le UseCaseDiagram montre les différentes interaction entre les utilisateurs et le programme.  Nous pouvons voir ici deux utilisateurs différents.  Le visiteur est un utilisateur n'ayant 
-
 \subsection{Exigences fonctionnelles}
 \label{sec:exi-fonc}
 \begin{figure}[ht]
   \centering
   \includegraphics[width=1\textwidth]{../uml_files/UseCaseDiagram.png}
-  \caption{\label{fig:usecase} Use Case Diagram}
+  \caption{\label{fig:usecase} Use Case Diagram du jeu en question}
 \end{figure}
 
-\subsubsection*{Créer un compte lié à un pseudo}
+\subsubsection{Créer un compte lié à un pseudo}
 
-Tout visiteur se verra offert l'opportunité de se créer un compte
+Tout visiteur se verra offerte l'opportunité de se créer un compte
 lié à un pseudo (si ce dernier est disponible) afin de pouvoir
 profiter pleinement du jeu.
 
-
-\subsubsection*{Se connecter à son compte}
+\subsubsection{Se connecter à son compte}
 
 Le joueur devra se connecter à son compte s'il souhaite effectuer
 les différentes actions répertoriées ci-dessous.
 
-
-\subsubsection*{Consulter sa collection de cartes}
+\subsubsection{Consulter sa collection de cartes}
 
 Le joueur peut consulter l'ensemble des cartes présentes dans sa
 collection. Pour cela, il devra au préalable s'être connecté.
 
-
-\subsubsection*{Gestion de decks}
+\subsubsection{Gestion de decks}
 
 Un deck est un ensemble de cartes qui sera utilisé par le joueur
 lors d'un duel. Plusieurs actions peuvent être effectuées sur les
 decks telle qu'en supprimer un ou plusieurs, les consulter, les
 modifier ou tout simplement en créer un nouveau.
 
-
-\subsubsection*{Gérer une liste d'amis}
+\subsubsection{Gérer une liste d'amis}
 
 Chaque joueur aura une liste d'amis avec lesquels il pourra
 interagir s'il le souhaite. Il pourra aussi ajouter un amis à sa
 liste ou en supprimer.
 
-
-\subsubsection*{Discuter avec ses amis}
+\subsubsection{Discuter avec ses amis}
 
 Le joueur pourra, à tout moment, parler avec un ou plusieurs de ses
 amis actuellement connectés. Pour cela, un tchat sera mis à
 disposition du joueur.  Le joueur pourra donc communiquer avec ses
 amis par message à tout moment.
 
-
-\subsubsection*{Proposer une partie à un ami}
+\subsubsection{Proposer une partie à un ami}
 
 Si le joueur le souhaite, il peut proposer une partie avec un de ses
 amis connectés si ce dernier accepte cette demande.
 
-
-\subsubsection*{Trouver un adversaire pour un duel}
+\subsubsection{Trouver un adversaire pour un duel}
 
 Lorsqu'un joueur voudra lancer une partie, le jeu trouvera
 automatiquement un adversaire dans la liste des personnes
 connectées.  Le choix est totalement aléatoire.
 
-
-\subsubsection*{Consulter le classement}
+\subsubsection{Consulter le classement}
 
 Le classement va permettre de classer les joueurs en fonction de
 leur nombre de victoires et de leurs défaites. Ce classement se
-basera donc sur le ratio victoires/défaites.
+basera donc sur le ratio victoire/défaites.
 
 
 \subsection{Exigences non fonctionnelles}
 \label{sec:exi-nonfonc}
 
-Dans le cadre de ce projet nous allons d'abord implémenter les exigences fonctionnelles.  Nous verrons ensuite pour ajouter les exigences non fonctionnelles.
-
-
-\subsubsection*{Ergonomie}
+% Question: ne nous a t'on pas dit que cela devait être secondaire ? :/
+% J'ai l'impression qu'on s'engage à faire beaucoup de choses ici mais en même temps je vois pas quoi mettre d'autre...
+\subsubsection{Ergonomie}
 Créer un jeu qui sera simple d'utilisation et facilement compréhensible pour un utilisateur n'ayant jamais joué à un jeu de ce genre.\\
 Pour cela, on peut rendre l'interface intuitive à l'aide de ``boutons'' décrivant exactement leurs utilités ou encore à l'aide d'un rapide tutoriel après la création du compte expliquant les différentes caractéristiques du jeu.
 
-
-\subsubsection*{Design}
+\subsubsection{Design}
 Le design est l'apparence qu'aura l'interface graphique. Comme pour le point précédent, une belle interface va permettre à l'utilisateur de facilement voir les différentes possibilités offertes par le jeu en plus d'apprécier l’esthétique.\\
 Le design est un ``domaine'' (vague) c'est-à-dire qu'il définit l'apparence du jeu mais aussi les différents sons et/ou musiques.
 
-
-\subsubsection*{S'amuser}
+\subsubsection{S'amuser}
 Qu'est-ce qu'un bon jeu?\\
 Un bon jeu est un jeu attractif, beau, facile à comprendre mais avant tout, un bon jeu est jeu où l'on s'amuse. Notre principal objectif sera de réaliser ce jeu et de permettre à tout les joueurs de s'amuser. (?????? A changer si vous le souhaitez)
 
@@ -247,10 +228,13 @@ Un bon jeu est un jeu attractif, beau, facile à comprendre mais avant tout, un 
 
 Le domaine du jeux vidéo laisse beaucoup de liberté.  En effet, chaque créateur essaye de créé son univers, de développer son concept.  Cependant, tous les jeux doivent permettre à leur utilisateur de trouver du plaisir ou une certaines forme de satisfaction.  Il faut également éviter que le joueur soit interrompu durant sa partie.  Les exigences du domaine ne sont donc pas nombreuses mais compliqué à satisfaire complètement.
 
-Le Wizard Poker est un jeu de carte.  Ce type de jeux impose lui aussi quelques contraintes.  Il faut éviter que les cartes soient trop fortes.  Pour la durée de vie du jeu il faut aussi faire en sorte qu'il y ai un nombre conséquent de cartes.  N'oublions pas enfin le temps de jeu.  En effet, une partie de carte dure rarement longtemps pour éviter l'ennui.
 
-Pour résumé, un utilisateur attend de l'amusement, un jeu équilibré et une stabilité acceptable (voir infaillible coté serveur).  Nous nous concentrerons dans un premier temps (dans le cadre de ce projet) à ce troisième point et nous verrons pour satisfaire à 100\% les ``gamers`` dans un second temps.
+Pour résumé, un utilisateur attend de l'amusement et une stabilité acceptable (voir infaillible coté serveur).  Nous nous concentrerons dans un premier temps (dans le cadre de ce projet) à ce deuxième point et nous verrons pour satisfaire à 100\% les ``gamers`` dans un second temps.
 
+% TO DO: à compléter/modifier
+
+% Equilibre jeu (cartes pas trop fortes, la partie de dure pas 5
+% heures...) et aussi mentioner que c'est un JEU DE CARTES et developer.
 
 
 \section{Besoins du système}
@@ -310,16 +294,6 @@ A fin de mieux présenter le fonction du programme voici quelques diagrammes où
   \caption{\label{fig:class} Diagramme des classes}
 \end{figure}
 
-\subsubsection{Diagramme de séquence}
-Ce diagramme de séquence vise à montrer la manière dont un joueur va pouvoir initialiser une partie.  Les diagrammes d'activités vont permettre de détaillé la manière dont une partie se déroule.
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=1\textwidth]{../uml_files/SequenceDiagram.png}
-  \caption{\label{fig:class} Diagramme de séquence}
-\end{figure}
-
-\subsubsection{Diagramme d'activité}
-Le but de ces deux diagrammes d'activité est de décrire comment va se dérouler une partie.
 \begin{figure}[ht]
   \centering
   \includegraphics[width=1\textwidth]{../uml_files/ActivityDiagram.png}
@@ -330,6 +304,12 @@ Le but de ces deux diagrammes d'activité est de décrire comment va se déroule
   \centering
   \includegraphics[width=1\textwidth]{../uml_files/ActivityDiagram2.png}
   \caption{\label{fig:class} Diagramme d'activité 2}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=1\textwidth]{../uml_files/SequenceDiagram.png}
+  \caption{\label{fig:class} Diagramme de séquence}
 \end{figure}
 
 \clearpage
