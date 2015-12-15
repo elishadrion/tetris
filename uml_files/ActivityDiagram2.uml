@@ -1,5 +1,6 @@
 @startuml
 
+'On ne peut pas directement l'intégré avec l'autre diagrame ???
 
 title Wizard - Activity Diagram (fin de tour de jeu d'un joueur)
 
@@ -24,10 +25,9 @@ skinparam stereotypeCBackgroundColor OldLace
 
 start
 :Energie = 0;
-if (plus de 7 cartes) then (oui)
+while (plus de 7 cartes ?) is (oui)
   :Défausse;
-else(non)
-endif
+endwhile (non)
 stop
 
 
