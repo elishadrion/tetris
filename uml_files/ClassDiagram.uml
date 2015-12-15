@@ -83,7 +83,7 @@ class Plateau {
 
 
 Visiteur <|-- Joueur
-Joueur "2" *-- "1" Classement
+Joueur "0..*" *-- "1" Classement
 Joueur "2" o-- "0..*" Tchat
 Joueur <|-- JoueurEnPartie
 JoueurEnPartie -- Deck
