@@ -1,6 +1,5 @@
-DIR = tex_files
-FILE = $(DIR)/srd
-OPTIONS = -pdf -output-directory=$(DIR)
+FILE = srd
+OPTIONS = -pdf
 PDF_V = evince			#open, okular, skim, adobe...
 
 auto: $(FILE).tex

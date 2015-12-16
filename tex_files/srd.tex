@@ -15,7 +15,7 @@
 \usepackage{subcaption}
 \usepackage{enumitem}
 \usepackage{changepage}
-\usepackage[nonumberlist, nopostdot]{glossaries}
+\usepackage[nonumberlist, nopostdot, numberedsection, toc]{glossaries}
 \usepackage{imakeidx}
 \makeindex
 \makenoidxglossaries
@@ -114,12 +114,6 @@ joueur. Dans ce cas, le joueur recevra ses premières cartes et sera
 invité à confectionner son premier deck avant d'affronter son premier
 adversaire.
 
-\subsection{Glossaire}
-\label{sec:glo}
-
-\glsaddall
-\printnoidxglossaries
-
 \subsection{Historique du document}
 \label{sec:hist}
 
@@ -146,17 +140,24 @@ adversaire.
   \label{tab:hist}
 \end{table}
 
+
+\glsaddall
+\printnoidxglossaries
+
+
 \section{Besoins de l'utilisateur}
 \label{sec:besoins}
 
-Le UseCaseDiagram montre les différentes interaction entre les utilisateurs et le programme.  Nous pouvons voir ici deux utilisateurs différents.  Le visiteur est un utilisateur n'ayant 
+Le UseCaseDiagram montre les différentes interaction entre les
+utilisateurs et le programme.  Nous pouvons voir ici deux utilisateurs
+différents.  Le visiteur est un utilisateur n'ayant
 
 \subsection{Exigences fonctionnelles}
 \label{sec:exi-fonc}
 \begin{figure}[ht]
   \centering
   \includegraphics[width=1\textwidth]{../uml_files/UseCaseDiagram.png}
-  \caption{\label{fig:usecase} Use Case Diagram}
+  \caption{\label{fig:usecasebesoin} Use Case Diagram}
 \end{figure}
 
 \subsubsection*{Créer un compte lié à un pseudo}
@@ -315,7 +316,7 @@ Ce diagramme de séquence vise à montrer la manière dont un joueur va pouvoir 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=1\textwidth]{../uml_files/SequenceDiagram.png}
-  \caption{\label{fig:class} Diagramme de séquence}
+  \caption{\label{fig:seq} Diagramme de séquence}
 \end{figure}
 
 \subsubsection{Diagramme d'activité}
@@ -323,13 +324,13 @@ Le but de ces deux diagrammes d'activité est de décrire comment va se déroule
 \begin{figure}[ht]
   \centering
   \includegraphics[width=1\textwidth]{../uml_files/ActivityDiagram.png}
-  \caption{\label{fig:class} Diagramme d'activité}
+  \caption{\label{fig:act1} Diagramme d'activité}
 \end{figure}
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=1\textwidth]{../uml_files/ActivityDiagram2.png}
-  \caption{\label{fig:class} Diagramme d'activité 2}
+  \caption{\label{fig:act2} Diagramme d'activité 2}
 \end{figure}
 
 \clearpage
