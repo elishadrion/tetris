@@ -23,7 +23,7 @@ skinparam stereotypeCBackgroundColor OldLace
 
 
 start
-
+:Pioche une carte;
 repeat
   if(Continuer ?) then (oui)
     :Action;
@@ -31,7 +31,7 @@ repeat
       :Jouer un sort;
     split again
       :Demander à poser un monstre;
-      if(Place sur le plateau) then (oui)
+      if(Moins de 7 cartes déjà dépossée sur le plateau ?) then (oui)
         :Pose le monstre;
       else (non)
       endif

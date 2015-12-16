@@ -37,9 +37,10 @@ class Joueur {
 }
 
 class GestionnaireDAmis {
-  listeDAmi
+  listeDAmis
   supprimer()
   ajouter()
+  parler()
 }
 
 class JoueurEnPartie {
@@ -49,14 +50,18 @@ class JoueurEnPartie {
   main
   defausse
   cartePosees
+  trouverAdversaire()
 }
 
 class Deck {
-
+  supprimer()
+  consulter()
+  modifier()
+  créer()
 }
 
 class Collection {
-
+  consuter()
 }
 
 class Carte {
@@ -78,7 +83,7 @@ class GestionnaireDePartie {
 }
 
 class Plateau {
-
+  refresh()
 }
 
 

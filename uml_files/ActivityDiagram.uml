@@ -35,14 +35,14 @@ repeat
   endif
   :Jouer;
   note
-    Voir l'autre diagram pour 
+    Voir le diagram 3 pour 
     avoir les détails de "jouer"
     qui contient 2 sorties
   end note
 repeat while (Jouer)
 
 
-:Fin de la parti;
+:Fin de la partie;
 stop
 
 @enduml
