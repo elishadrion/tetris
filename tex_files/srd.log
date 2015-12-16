@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Arch Linux) (preloaded format=pdflatex 2015.9.18)  16 DEC 2015 16:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Arch Linux) (preloaded format=pdflatex 2015.9.18)  16 DEC 2015 23:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1114,49 +1114,36 @@ Package: multicol 2015/03/31 v1.8m multicolumn formatting (FMi)
 
 
 Writing index file srd.idx
-(./srd.aux
-
-LaTeX Warning: Label `fig:usecase' multiply defined.
-
-
-LaTeX Warning: Label `fig:class' multiply defined.
-
-
-LaTeX Warning: Label `fig:class' multiply defined.
-
-
-LaTeX Warning: Label `fig:class' multiply defined.
-
-)
+(./srd.aux)
 \openout1 = `srd.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Try loading font information for T1+ppl on input line 63.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Try loading font information for T1+ppl on input line 82.
  (/usr/share/texmf-dist/tex/latex/psnfss/t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 )
-LaTeX Info: Redefining \degres on input line 63.
-LaTeX Info: Redefining \dots on input line 63.
+LaTeX Info: Redefining \degres on input line 82.
+LaTeX Info: Redefining \dots on input line 82.
 Package frenchb.ldf Info: Setting StandardItemizeEnv=true for
 (frenchb.ldf)             compatibility with enumitem package,
-(frenchb.ldf)              on input line 63.
+(frenchb.ldf)              on input line 82.
 Package frenchb.ldf Info: Setting StandardEnumerateEnv=true for
 (frenchb.ldf)             compatibility with enumitem package,
-(frenchb.ldf)              on input line 63.
-LaTeX Info: Redefining \up on input line 63.
+(frenchb.ldf)              on input line 82.
+LaTeX Info: Redefining \up on input line 82.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1221,7 +1208,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box76
-Package hyperref Info: Link coloring OFF on input line 63.
+Package hyperref Info: Link coloring OFF on input line 82.
 
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1231,9 +1218,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count198
 )
-LaTeX Info: Redefining \ref on input line 63.
-LaTeX Info: Redefining \pageref on input line 63.
-LaTeX Info: Redefining \nameref on input line 63.
+LaTeX Info: Redefining \ref on input line 82.
+LaTeX Info: Redefining \pageref on input line 82.
+LaTeX Info: Redefining \nameref on input line 82.
  (./srd.out)
 (./srd.out)
 \@outlinefile=\write4
@@ -1251,7 +1238,7 @@ Package caption Info: End \AtBeginDocument code.
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}])
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 66.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 85.
 
 (./srd.toc
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10.95> not available
@@ -1264,13 +1251,34 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.67 \newpage
+l.86 \newpage
               [1]
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <12> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 76.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 95.
 
-Underfull \hbox (badness 1496) in paragraph at lines 134--134
+Overfull \hbox (6.83495pt too wide) in paragraph at lines 128--135
+[]\T1/ppl/m/n/10.95 Le Wi-zard Po-ker sera dis-po-nible à n'im-porte quel joueu
+r en-re-gis-tré pour jouer contre d'autres
+ []
+
+
+Underfull \hbox (badness 1297) in paragraph at lines 151--151
+[]\T1/ppl/m/n/10.95 Deuxième re-lec-ture, cor-rec-tions or-tho-
+ []
+
+
+Underfull \hbox (badness 1496) in paragraph at lines 154--154
 []\T1/ppl/m/n/10.95 Ajout de dia-grammes, ajout de ``Exi-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 157--157
+[]\T1/ppl/m/n/10.95 Mise en place du do-cu-ment.Ajout
+ []
+
+
+Overfull \hbox (5.72202pt too wide) in paragraph at lines 142--159
+ [][] 
  []
 
 
@@ -1283,95 +1291,92 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.145 \printnoidxglossaries
+l.165 \printnoidxglossaries
                             [1]
-Overfull \hbox (1.41467pt too wide) in paragraph at lines 151--154
-[]\T1/ppl/m/n/10.95 Le Use-Ca-se-Dia-gram montre les dif-fé-rentes in-ter-ac-ti
-on entre les uti-li-sa-teurs et le pro-gramme.
+Overfull \hbox (3.2337pt too wide) in paragraph at lines 171--177
+\T1/ppl/m/n/10.95 gramme. Nous pou-vons voir ici deux uti-li-sa-teurs dif-fé-re
+nts. Le vi-si-teur est un uti-li-sa-teur n'ayant
  []
 
-<../uml_files/UseCaseDiagram.png, id=92, 2710.125pt x 2317.65875pt>
+<../uml_files/UseCaseDiagram.png, id=91, 2710.125pt x 2317.65875pt>
 File: ../uml_files/UseCaseDiagram.png Graphic file (type png)
 
 <use ../uml_files/UseCaseDiagram.png>
-Package pdftex.def Info: ../uml_files/UseCaseDiagram.png used on input line 159
+Package pdftex.def Info: ../uml_files/UseCaseDiagram.png used on input line 182
 .
 (pdftex.def)             Requested size: 455.24411pt x 389.29329pt.
- [2 <../uml_files/UseCaseDiagram.png (PNG copy)>] [3]
+ [2] [3 <../uml_files/UseCaseDiagram.png (PNG copy)>] [4]
+Overfull \hbox (17.12646pt too wide) in paragraph at lines 302--305
+[]\T1/ppl/m/n/10.95 Il doit par ailleurs être agréable d'uti-li-sa-tion pour l'
+uti-li-sa-teur (er-go-no-mie et es-thé-tique/design)
+ []
+
 File: ../uml_files/UseCaseDiagram.png Graphic file (type png)
- <use ../uml_files/UseCaseDiagram.png>
-Package pdftex.def Info: ../uml_files/UseCaseDiagram.png used on input line 304
+<use ../uml_files/UseCaseDiagram.png>
+Package pdftex.def Info: ../uml_files/UseCaseDiagram.png used on input line 321
 .
 (pdftex.def)             Requested size: 455.24411pt x 389.29329pt.
- [4]
-<../uml_files/ClassDiagram.png, id=123, 2591.6825pt x 2294.5725pt>
+
+<../uml_files/ClassDiagram.png, id=128, 2601.72pt x 2375.87625pt>
 File: ../uml_files/ClassDiagram.png Graphic file (type png)
 
 <use ../uml_files/ClassDiagram.png>
-Package pdftex.def Info: ../uml_files/ClassDiagram.png used on input line 310.
-(pdftex.def)             Requested size: 455.24411pt x 403.02672pt.
+Package pdftex.def Info: ../uml_files/ClassDiagram.png used on input line 327.
+(pdftex.def)             Requested size: 455.24411pt x 415.71207pt.
 
-<../uml_files/SequenceDiagram.png, id=124, 1798.72pt x 1599.9775pt>
+<../uml_files/SequenceDiagram.png, id=129, 1798.72pt x 1599.9775pt>
 File: ../uml_files/SequenceDiagram.png Graphic file (type png)
 
 <use ../uml_files/SequenceDiagram.png>
-Package pdftex.def Info: ../uml_files/SequenceDiagram.png used on input line 31
-8.
+Package pdftex.def Info: ../uml_files/SequenceDiagram.png used on input line 33
+5.
 (pdftex.def)             Requested size: 455.24411pt x 404.94937pt.
 
-<../uml_files/ActivityDiagram.png, id=125, 1332.98pt x 1879.02pt>
+<../uml_files/ActivityDiagram.png, id=130, 1357.07pt x 1753.55125pt>
 File: ../uml_files/ActivityDiagram.png Graphic file (type png)
 
 <use ../uml_files/ActivityDiagram.png>
-Package pdftex.def Info: ../uml_files/ActivityDiagram.png used on input line 32
-6.
-(pdftex.def)             Requested size: 455.24411pt x 641.72551pt.
-
-<../uml_files/ActivityDiagram2.png, id=126, 1662.21pt x 901.3675pt>
+Package pdftex.def Info: ../uml_files/ActivityDiagram.png used on input line 34
+3.
+(pdftex.def)             Requested size: 455.24411pt x 588.22595pt.
+ [5]
+<../uml_files/ActivityDiagram2.png, id=138, 1662.21pt x 901.3675pt>
 File: ../uml_files/ActivityDiagram2.png Graphic file (type png)
 
 <use ../uml_files/ActivityDiagram2.png>
 Package pdftex.def Info: ../uml_files/ActivityDiagram2.png used on input line 3
-32.
+49.
 (pdftex.def)             Requested size: 455.24411pt x 246.86592pt.
- [5] [6 <../uml_files/ClassDiagram.png (PNG copy)>] [7 <../uml_files/SequenceDi
-agram.png (PNG copy)>] [8 <../uml_files/ActivityDiagram.png (PNG copy)>] [9 <..
-/uml_files/ActivityDiagram2.png (PNG copy)>]
+ [6 <../uml_files/ClassDiagram.png (PNG copy)>] [7 <../uml_files/SequenceDiagra
+m.png (PNG copy)>] [8 <../uml_files/ActivityDiagram.png (PNG copy)>] [9 <../uml
+_files/ActivityDiagram2.png (PNG copy)>]
 runsystem(makeindex srd.idx)...executed safely (allowed).
 
- (./srd.ind)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 339.
- [10
-
-
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 339.
+(./srd.ind)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 356.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 356.
  (./srd.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 339.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 339.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 356.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 356.
 Package rerunfilecheck Info: File `srd.out' has not changed.
 (rerunfilecheck)             Checksum: D677E1386B32AF3E702340B6D53826E6;965.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 339.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 356.
  ) 
 Here is how much of TeX's memory you used:
- 19859 strings out of 493089
- 333552 string characters out of 6140694
- 477365 words of memory out of 5000000
- 22992 multiletter control sequences out of 15000+600000
+ 19989 strings out of 493089
+ 335382 string characters out of 6140694
+ 478574 words of memory out of 5000000
+ 23120 multiletter control sequences out of 15000+600000
  23040 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 46i,11n,75p,10439b,714s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 46i,12n,75p,10439b,722s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fon
 ts/type1/urw/palatino/uplb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatin
 o/uplr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on srd.pdf (12 pages, 800975 bytes).
+Output written on srd.pdf (11 pages, 822935 bytes).
 PDF statistics:
- 186 PDF objects out of 1000 (max. 8388607)
- 162 compressed objects within 2 object streams
- 53 named destinations out of 1000 (max. 500000)
+ 187 PDF objects out of 1000 (max. 8388607)
+ 164 compressed objects within 2 object streams
+ 55 named destinations out of 1000 (max. 500000)
  138 words of extra memory for PDF output out of 10000 (max. 10000000)
 

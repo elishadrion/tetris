@@ -38,6 +38,16 @@
   description=Un deck est un ensemble de 20 cartes
 }
 
+\newglossaryentry{carte}{
+  name=Carte,
+  description= asdfasdf Wizard Poker
+}
+
+\newglossaryentry{app}{
+  name=Application/système,
+  description=Le jeu Wizard Poker à déveloper.
+}
+
 \newglossaryentry{collection}{
   name=Collection,
   description=Ensemble qui contient toutes les cartes disponibles et
@@ -55,6 +65,21 @@
   description=Personne n'ayant pas encore de compte
 }
 
+\newglossaryentry{sort} {
+  name=Sort,
+  description=Carte ayant un côut en énergie et un effet spécial.
+}
+
+\newglossaryentry{crea} {
+  name=Créature,
+  description=Carte ayant un côut en énergie, valeur d'attaque et des
+  points de vie. Aussi (optionellement) un effet spécial.
+}
+
+\newglossaryentry{e} {
+  name=Énergie,
+  description=Permet de jouer des cartes. Quantité, entier.
+}
 \newglossaryentry{label1}{name=example1, description=description1}
 \newglossaryentry{label2}{name=example2, description=description2}
 
@@ -126,7 +151,7 @@ adversaire.
     \textbf{Version}
     & \textbf{Auteur}
     & \textbf{Date modification}
-    & \textbf{Description des changements}\\ \hline \hline
+    & \textbf{Changelog}\\ \hline \hline
     NEXT &  &  &  \\ \hline
     NEXT &  &  &  \\ \hline
      v0.6 & Corentin Candeur & 16/12/15 & Deuxième relecture, corrections orthographiques/syntaxiques et diverses petites corrections \\ \hline
@@ -252,7 +277,7 @@ Le domaine du jeu vidéo laisse beaucoup de liberté.  En effet, chaque créateu
 
 Le Wizard Poker est un jeu de cartes.  Ce type de jeu impose lui aussi quelques contraintes.  Il faut éviter que les cartes soient trop fortes.  Pour la durée de vie du jeu il faut aussi faire en sorte qu'il y ait un nombre conséquent de cartes.  N'oublions pas enfin le temps de jeu.  En effet, une partie de cartes dure rarement longtemps pour éviter l'ennui.
 
-Pour résumer, un utilisateur attend de l'amusement, un jeu équilibré et une stabilité acceptable (voir infaillible coté serveur).  Nous nous concentrerons dans un premier temps (dans le cadre de ce projet) à ce troisième point et nous verrons pour satisfaire à 100\% les ``gamers`` dans un second temps.
+Pour résumer, un utilisateur attend de l'amusement, un jeu équilibré et une stabilité acceptable (voir infaillible coté serveur).  Nous nous concentrerons dans un premier temps (dans le cadre de ce projet) à ce troisième point et nous verrons pour satisfaire à 100\% les ``gamers'' dans un second temps.
 
 
 
@@ -262,18 +287,12 @@ Pour résumer, un utilisateur attend de l'amusement, un jeu équilibré et une s
 \subsection{Exigences fonctionnelles}
 \label{sec:exi-fonc-sys}
 
-% Ce type d’exigences sera décrit en utilisant des diagrammes use
-% case et en fournissant une description *plus détaillée* pour
-% chacun d’entre eux (comme vu au cours théorique et aux exercices).
+Les exigences fonctionnelles expliquent ce que l'application doit
+faire pour interagir avec l'utilisateur, et lui proposer toutes les
+actions mentionés ci-dessus (voir \ref{sec:exi-fonc}).
 
-Sequence diagram pour interaction??
-
-Le système doit interagir avec l'utilisateur, et lui proposer
-certaines actions, comme commencer un duel, gérer ses \index{deck}s,
-consulter le classement des joueurs, etc.
-
-Pour les nouveaux joueurs, l'application doit offrir la possibilité de
-s'enregistrer, avec un pseudonyme et un mot de passe.
+Dans cette partie on détaillera comment le système va se debrouiller
+pour réaliser ces tâches.
 
 
 \subsection{Exigences non fonctionnelles}
@@ -283,10 +302,12 @@ Les exigences non fonctionnelles décrivent le comportement de
 l'application.
 
 Le système doit être tout d'abord robuste et stable, c'est-à-dire
-gérer les erreurs et éviter les crashs et les déconnexions... Il doit
-par ailleurs être agréable d'utilisation pour l'utilisateur (ergonomie
-et esthétique/design) et garantir que celui-ci ne puisse pas tricher
-pendant une partie.
+gérer tous les erreurs possibles et éviter les crashs et eventuelles
+déconnexions.
+
+Il doit par ailleurs être agréable d'utilisation pour l'utilisateur
+(ergonomie et esthétique/design) et garantir que celui-ci ne puisse
+pas tricher pendant une partie.
 
 Donc en résumé, robuste, stable, sûr, et excessivement amusant. Des
 heures de franche rigolade, en toute sécurité, sont assurées à tout
@@ -295,9 +316,9 @@ utilisateur du jeu.
 \subsection{Design et fonctionnement du système}
 \label{sec:design}
 
-Afin de mieux présenter le fonctionnement du programme voici quelques diagrammes où vous pouvez voir la manière dont nous allons essayer de développer Wizard Poker.
-% Cette partie sera décrite à l’aide des différents diagrammes UML
-% vus au cours théorique et aux exercices.
+Afin de mieux présenter le fonctionnement du programme voici quelques
+diagrammes où vous pouvez voir la manière dont nous allons essayer de
+développer Wizard Poker.
 
 
 % Peut être le supprimer vu qu'il est déjà  plus haut
