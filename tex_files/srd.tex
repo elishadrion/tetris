@@ -76,13 +76,13 @@
 \subsection{But du projet}
 \label{sec:but}
 
-Dans le cadre du projet d'analyse et méthode et de système
-d'exploitation, il est demandé d'implémenter un jeu de carte en ligne
+Dans le cadre du projet d'analyse et méthodes et de systèmes
+d'exploitation, il est demandé d'implémenter un jeu de cartes en ligne
 basé sur une architecture client/serveur en C/C++.
 
 \medbreak
 
-Ce projet devra fournir un jeu de carte symétrique où deux joueurs
+Ce projet devra fournir un jeu de cartes symétrique où deux joueurs
 pourront s'affronter et gagner des points pour un classement
 général. Chaque joueur disposera d'une collection de cartes à partir
 de laquelle il pourra construire des decks. Ces decks contiendront des
@@ -91,24 +91,24 @@ sort qui lanceront des événements spéciaux.
 
 \medbreak
 
-Le projet requière la mise en place d'une architecture client/serveur
+Le projet requiert la mise en place d'une architecture client/serveur
 avec le client qui sert principalement d'interface de jeu (graphique
 ou console) et les calculs qui seront effectués côté serveur. Il est
 donc important de développer un serveur robuste, efficace et rapide
 qui soit en mesure de gérer plusieurs parties simultanément tout en
 fournissant des services tels que le classement général, un service de
-compte et de connexion ainsi qu'un service de messagerie instantané entre
-deux joueurs. Pour cela, nous seront amené à développer une
+compte et de connexion ainsi qu'un service de messagerie instantanée entre
+deux joueurs. Pour cela, nous serons amenés à développer une
 application capable de gérer un maximum de cas de figures pour garantir
 la continuité et la stabilité de ces différents services. La gestion
-d'erreurs devra être telle que cette erreur ne perturbera aucune autre
+d'erreurs devra être telle que les erreurs ne perturbent aucune autre
 partie ni aucun des autres services.
 
 \medbreak
 
-Le Wizard Poker sera disponible à n'importe quel joueurs enregistré
+Le Wizard Poker sera disponible à n'importe quel joueur enregistré
 pour jouer contre d'autres joueurs et essayer de gagner des places
-dans le classement générale. Il permettra aussi à de nouveaux joueurs
+dans le classement général. Il permettra aussi à des invités
 de consulter ce classement et de s'enregistrer en tant que nouveau
 joueur. Dans ce cas, le joueur recevra ses premières cartes et sera
 invité à confectionner son premier deck avant d'affronter son premier
@@ -129,12 +129,13 @@ adversaire.
     & \textbf{Description des changements}\\ \hline \hline
     NEXT &  &  &  \\ \hline
     NEXT &  &  &  \\ \hline
+     v0.6 & Corentin Candeur & 16/12/15 & Deuxième relecture, corrections orthographiques/syntaxiques et diverses petites corrections \\ \hline
     v0.5 & Rémy Detobel & 14/12/15 & Première relecture, diverses petites corrections \\ \hline
     v0.4 & Carlos Requena  & 13/12/15 22h00 & Ajout d'un système de glossaire \\ \hline
     v0.3 & Rémy et Lucie  & 11/12/15 16h20 & Ajout de diagrammes, ajout de ``Exigences du domaine'' \\ \hline
     v0.2 & Amin et Maxime & 10/12/15 23:45 & Ajout de la partie ``Exigences fonctionnelles''\\ \hline
     v0.1 & Jonas et Raphaël & 10/12/15 13:28 & Ajout de la partie ``But du projet''\\ \hline
-    v0.0 & Carlos Requena & 26/11/15 22:30 & Mis en place. Diagrammes realisés en groupe le 25/11/15 ajoutés\\ \hline
+    v0.0 & Carlos Requena & 26/11/15 22:30 & Mise en place du document.Ajout des diagrammes réalisés en groupe le 25/11/15.\\ \hline
   \end{tabular}
   \caption{Changements document}
   \label{tab:hist}
@@ -148,11 +149,11 @@ adversaire.
 \section{Besoins de l'utilisateur}
 \label{sec:besoins}
 
-Le UseCaseDiagram montre les différentes interactions entre les
+Le Use Case Diagram montre les différentes interactions entre les
 utilisateurs et le programme.  Nous pouvons voir ici deux utilisateurs
 différents.  Le visiteur est un utilisateur n'ayant pas de compte et ses
-actions sont donc très limitées et consiste seulement en la création d'un compte.
-Nous avons aussi le joueur qui est l'utilisateur principale du Wizard Poker.
+actions sont donc très limitées et consistent seulement en la création d'un compte.
+Nous avons aussi le joueur qui est l'utilisateur principal du Wizard Poker.
 C'est lui qui va interagir avec le jeu.
 
 \subsection{Exigences fonctionnelles}
@@ -165,7 +166,7 @@ C'est lui qui va interagir avec le jeu.
 
 \subsubsection*{Créer un compte lié à un pseudo}
 
-Tout visiteur se verra offert l'opportunité de se créer un compte
+Tout visiteur se aura la possibilité de se créer un compte
 lié à un pseudo (si ce dernier est disponible) afin de pouvoir
 profiter pleinement du jeu.
 
@@ -186,15 +187,14 @@ collection. Pour cela, il devra au préalable s'être connecté.
 
 Un deck est un ensemble de cartes qui sera utilisé par le joueur
 lors d'un duel. Plusieurs actions peuvent être effectuées sur les
-decks telle qu'en supprimer un ou plusieurs, les consulter, les
+decks telles qu'en supprimer un ou plusieurs, les consulter, les
 modifier ou tout simplement en créer un nouveau.
 
 
 \subsubsection*{Gérer une liste d'amis}
 
 Chaque joueur aura une liste d'amis avec lesquels il pourra
-interagir s'il le souhaite. Il pourra aussi ajouter un amis à sa
-liste ou en supprimer.
+interagir s'il le souhaite. Il pourra aussi ajouter ou supprimer un ami de sa liste.
 
 
 \subsubsection*{Discuter avec ses amis}
@@ -202,26 +202,25 @@ liste ou en supprimer.
 Le joueur pourra, à tout moment, parler avec un ou plusieurs de ses
 amis actuellement connectés. Pour cela, un tchat sera mis à
 disposition du joueur.  Le joueur pourra donc communiquer avec ses
-amis par message à tout moment.
-
-
+amis par message à tout moment. Cependant un joueur ne peut communiquer qu'avec une personne à la fois.
 \subsubsection*{Proposer une partie à un ami}
 
-Si le joueur le souhaite, il peut proposer une partie avec un de ses
-amis connectés si ce dernier accepte cette demande.
+Si le joueur le souhaite, il peut proposer une partie à un de ses
+amis connectés. Ce dernier est libre d'accepter ou non cette demande.
+S'il l'accepte la partie est lancée entre les deux joueurs.
 
 
 \subsubsection*{Trouver un adversaire pour un duel}
 
 Lorsqu'un joueur voudra lancer une partie, le jeu trouvera
 automatiquement un adversaire dans la liste des personnes
-connectées.  Le choix est totalement aléatoire.
+connectées. Le choix de l'adversaire est totalement aléatoire.
 
 
 \subsubsection*{Consulter le classement}
 
 Le classement va permettre de classer les joueurs en fonction de
-leur nombre de victoires et de leurs défaites. Ce classement se
+leur nombre de victoires et de défaites. Ce classement se
 basera donc sur le ratio victoires/défaites.
 
 
@@ -233,27 +232,27 @@ Dans le cadre de ce projet nous allons d'abord implémenter les exigences foncti
 
 \subsubsection*{Ergonomie}
 Créer un jeu qui sera simple d'utilisation et facilement compréhensible pour un utilisateur n'ayant jamais joué à un jeu de ce genre.\\
-Pour cela, on peut rendre l'interface intuitive à l'aide de ``boutons'' décrivant exactement leurs utilités ou encore à l'aide d'un rapide tutoriel après la création du compte expliquant les différentes caractéristiques du jeu.
+Pour cela, on peut rendre l'interface intuitive à l'aide de ``boutons'' décrivant exactement leur utilité ou encore à l'aide d'un rapide tutoriel après la création du compte expliquant les différentes caractéristiques du jeu.
 
 
 \subsubsection*{Design}
-Le design est l'apparence qu'aura l'interface graphique. Comme pour le point précédent, une belle interface va permettre à l'utilisateur de facilement voir les différentes possibilités offertes par le jeu en plus d'apprécier l’esthétique.\\
+Le design est l'apparence qu'aura l'interface graphique. Comme pour le point précédent, une belle interface va permettre à l'utilisateur de facilement voir les différentes possibilités offertes par le jeu en plus d'apprécier l'esthétique.\\
 Le design est un ``domaine'' (vague) c'est-à-dire qu'il définit l'apparence du jeu mais aussi les différents sons et/ou musiques.
 
 
 \subsubsection*{S'amuser}
 Qu'est-ce qu'un bon jeu?\\
-Un bon jeu est un jeu attractif, beau, facile à comprendre mais avant tout, un bon jeu est jeu où l'on s'amuse. Notre principal objectif sera de réaliser ce jeu et de permettre à tout les joueurs de s'amuser.
+Un bon jeu est un jeu attractif, beau, facile à comprendre mais avant tout, un bon jeu est un jeu où l'on s'amuse. Notre principal objectif sera de réaliser ce jeu et de permettre à tous les joueurs de s'amuser.
 
 
 \subsection{Exigences de domaine}
 \label{sec:exi-dom}
 
-Le domaine du jeux vidéo laisse beaucoup de liberté.  En effet, chaque créateur essaye de créé son univers, de développer son concept.  Cependant, tous les jeux doivent permettre à leur utilisateur de trouver du plaisir ou une certaines forme de satisfaction.  Il faut également éviter que le joueur soit interrompu durant sa partie.  Les exigences du domaine ne sont donc pas nombreuses mais compliqué à satisfaire complètement.
+Le domaine du jeu vidéo laisse beaucoup de liberté.  En effet, chaque créateur essaye de créer son univers, de développer son concept.  Cependant, tous les jeux doivent permettre à leur utilisateur de trouver du plaisir ou une certaine forme de satisfaction.  Il faut également éviter que le joueur soit interrompu durant sa partie.  Les exigences du domaine ne sont donc pas nombreuses mais compliquées à satisfaire complètement.
 
-Le Wizard Poker est un jeu de carte.  Ce type de jeux impose lui aussi quelques contraintes.  Il faut éviter que les cartes soient trop fortes.  Pour la durée de vie du jeu il faut aussi faire en sorte qu'il y ai un nombre conséquent de cartes.  N'oublions pas enfin le temps de jeu.  En effet, une partie de carte dure rarement longtemps pour éviter l'ennui.
+Le Wizard Poker est un jeu de cartes.  Ce type de jeu impose lui aussi quelques contraintes.  Il faut éviter que les cartes soient trop fortes.  Pour la durée de vie du jeu il faut aussi faire en sorte qu'il y ait un nombre conséquent de cartes.  N'oublions pas enfin le temps de jeu.  En effet, une partie de cartes dure rarement longtemps pour éviter l'ennui.
 
-Pour résumé, un utilisateur attend de l'amusement, un jeu équilibré et une stabilité acceptable (voir infaillible coté serveur).  Nous nous concentrerons dans un premier temps (dans le cadre de ce projet) à ce troisième point et nous verrons pour satisfaire à 100\% les ``gamers`` dans un second temps.
+Pour résumer, un utilisateur attend de l'amusement, un jeu équilibré et une stabilité acceptable (voir infaillible coté serveur).  Nous nous concentrerons dans un premier temps (dans le cadre de ce projet) à ce troisième point et nous verrons pour satisfaire à 100\% les ``gamers`` dans un second temps.
 
 
 
@@ -296,7 +295,7 @@ utilisateur du jeu.
 \subsection{Design et fonctionnement du système}
 \label{sec:design}
 
-A fin de mieux présenter le fonction du programme voici quelques diagrammes où vous pouvez voir la manière donc nous allons essayer de développer Wizard Poker.
+Afin de mieux présenter le fonctionnement du programme voici quelques diagrammes où vous pouvez voir la manière dont nous allons essayer de développer Wizard Poker.
 % Cette partie sera décrite à l’aide des différents diagrammes UML
 % vus au cours théorique et aux exercices.
 
@@ -315,7 +314,7 @@ A fin de mieux présenter le fonction du programme voici quelques diagrammes où
 \end{figure}
 
 \subsubsection{Diagramme de séquence}
-Ce diagramme de séquence vise à montrer la manière dont un joueur va pouvoir initialiser une partie.  Les diagrammes d'activités vont permettre de détaillé la manière dont une partie se déroule.
+Ce diagramme de séquence vise à montrer la manière dont un joueur va pouvoir initialiser une partie.  Les diagrammes d'activités vont permettre de détailler la manière dont une partie se déroule.
 \begin{figure}[ht]
   \centering
   \includegraphics[width=1\textwidth]{../uml_files/SequenceDiagram.png}
