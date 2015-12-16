@@ -149,6 +149,21 @@ adversaire.
 \section{Besoins de l'utilisateur}
 \label{sec:besoins}
 
+En tant que jeu de carte fantastique, le Wizard Poker doit fournir un minium de services. Avant de pouvoir jouer, le joueur devra donc se créer un compte et se connecter à celui-ci.  Lors de la création d'un compte, le joueur aura 100 cartes dans sa \gls{collection}.  A chaque fois qu'il gagne une partie il gagnera une carte.  Cette carte sera choisie aléatoirement parmi toutes les cartes disponible dans le jeu.  Une même carte peut se retrouver plusieurs fois dans la \gls{collection} d'un joueur.  Avec cette \gls{collection} le joueur pourra créer un \gls{deck}.  Un \gls{deck} est composé de 20 cartes.  Il peut y avoir au maximum deux fois la même carte dans un \gls{deck} mais il faudra alors que le joueur ai au moins deux fois la carte dans sa \gls{collection}.\\
+Toutes les cartes ont un coût en énergie.\\ % TO DO : continuer ici
+Il y a 2 types de cartes différentes.
+Pour permettre à l'utilisateur de jouer avec des personnes qu'il connait, le Wizard Poker propose un système d'amis.  Un joueur pourra donc ajouter et retirer des amis dans sa liste.\\
+Le Wizard Poker propose également un système de Tchat permettant à deux joueurs de s'échanger des messages.  Ce tchat est disponible à tout moment.  Le joueur ne pourra discuter que avec ses amis.
+Une fois son \gls{deck} créé le joueur peut jouer une partie contre quelqu'un d'autre.  Avant de joueur contre une personne connecté choisie arbitrairement par le programme le joueur sera invité à choisir son \gls{deck}.  Il s'agit d'un jeu de carte au tour par tour.  Ce qui signifie que chaque utilisateur joue à son tour.  Ils ne jouent donc jamais en même temps.  Lorsque c'est son tour le joueur à le choix entre plusieurs actions. Il peut:
+\begin{itemize}
+ \item[\textbullet] Poser une carte sort
+ \item[\textbullet] Poser une carte Monstre
+ \item[\textbullet] Demander à une carte Monstre de faire un sort
+ \item[\textbullet] Finir son tour
+\end{itemize}
+
+
+% Ancien texte
 Le Use Case Diagram montre les différentes interactions entre les
 utilisateurs et le programme.  Nous pouvons voir ici deux utilisateurs
 différents.  Le visiteur est un utilisateur n'ayant pas de compte et ses
