@@ -101,39 +101,31 @@
 \subsection{But du projet}
 \label{sec:but}
 
-Dans le cadre du projet d'analyse et méthodes et de systèmes
-d'exploitation, il est demandé d'implémenter un jeu de cartes en ligne
-basé sur une architecture client/serveur en C/C++.
+Dans le cadre du projet d'analyse et méthode et de système
+d'exploitation, il est demandé d'implémenter un jeu de carte en ligne
+de type HeartStone.
 
 \medbreak
 
-Ce projet devra fournir un jeu de cartes symétrique où deux joueurs
+Ce projet devra fournir un jeu de carte symétrique où deux joueurs
 pourront s'affronter et gagner des points pour un classement
-général. Chaque joueur disposera d'une collection de cartes à partir
-de laquelle il pourra construire des decks. Ces decks contiendront des
-cartes de type créature qui peuvent attaquer et des cartes de type
+général. Chaque joueur disposera d'un ensemble de cartes avec lequelles
+il pourra affronter ses adversaires. Ces cartes pourront être des
+créature qui peuvent attaquer et des cartes de type
 sort qui lanceront des événements spéciaux.
 
 \medbreak
 
-Le projet requiert la mise en place d'une architecture client/serveur
-avec le client qui sert principalement d'interface de jeu (graphique
-ou console) et les calculs qui seront effectués côté serveur. Il est
-donc important de développer un serveur robuste, efficace et rapide
-qui soit en mesure de gérer plusieurs parties simultanément tout en
-fournissant des services tels que le classement général, un service de
-compte et de connexion ainsi qu'un service de messagerie instantanée entre
-deux joueurs. Pour cela, nous serons amenés à développer une
-application capable de gérer un maximum de cas de figures pour garantir
-la continuité et la stabilité de ces différents services. La gestion
-d'erreurs devra être telle que les erreurs ne perturbent aucune autre
-partie ni aucun des autres services.
+Le projet fournira à l'utilisateur une interface intuitive, un gestionnaire
+d'amis, un service de tcaht pour pouvoir rester en contact avec eux ainsi
+qu'un classement générale où chaque joueurs pourra comparer ses résultas avec
+les autres.
 
 \medbreak
 
-Le Wizard Poker sera disponible à n'importe quel joueur enregistré
+Le Wizard Poker sera disponible à n'importe quel joueurs enregistré
 pour jouer contre d'autres joueurs et essayer de gagner des places
-dans le classement général. Il permettra aussi à des invités
+dans le classement générale. Il permettra aussi à de nouveaux joueurs
 de consulter ce classement et de s'enregistrer en tant que nouveau
 joueur. Dans ce cas, le joueur recevra ses premières cartes et sera
 invité à confectionner son premier deck avant d'affronter son premier
