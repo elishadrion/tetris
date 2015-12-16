@@ -25,26 +25,36 @@ skinparam stereotypeCBackgroundColor OldLace
 start
 :Pioche une carte;
 repeat
-  if(Continuer ?) then (oui)
+  if(Continuer et énergie > 0 ?) then (oui)
     :Action;
     split
-      :Jouer un sort;
+      :Demander pour jouer un sort;
+      if(Assez d'énergie ?) then (oui)
+        :Jouer un sort;
+      else (non)
+      endif
     split again
       :Demander à poser un monstre;
-      if(Moins de 7 cartes déjà dépossée sur le plateau ?) then (oui)
-        :Pose le monstre;
+      if(Assez d'énergie ?) then (oui)
+        if(Moins de 7 cartes déjà dépossée sur le plateau ?) then (oui)
+          :Pose le monstre;
+        else (non)
+        endif
       else (non)
       endif
     split again
       :Demander à utiliser un monstre;
-      if(Monstre posé à ce tour ?) then (oui)
+      if(Assez d'énergie ?) then (oui)
+        if(Monstre posé à ce tour ?) then (oui)
+        else (non)
+          :Utiliser un monstre;
+          note right
+            A préciser:
+            Le monstre pourrait 
+            avoir un effet
+          end note
+        endif
       else (non)
-        :Utiliser un monstre;
-        note right
-          A préciser:
-          Le monstre pourrait 
-          avoir un effet
-        end note
       endif
     end split
   else (non)
