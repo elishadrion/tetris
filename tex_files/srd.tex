@@ -87,7 +87,6 @@
 }
 
 
-
 %%% --- %%% --- DOCUMENT START --- %%% --- %%%
 \begin{document}
 \input{titlepage.tex}
@@ -226,6 +225,9 @@ La partie se termine lorsqu'un joueur arrive à 0 (ou moins) point de vie.  Il a
 
 
 \subsection{Exigences fonctionnelles}
+
+Les exigences fonctionnelles ne sont autres, ici, que celles présentées dans la Figure \ref{fig:usecasebesoin}. Nous y voyons, d'ailleurs deux types d'acteurs agissant sur le système : le joueur et le visiteur. Les actions possibles par ceux-ci sur l'application sont décrites ci-dessous.
+
 \label{sec:exi-fonc}
 \begin{figure}[ht]
   \centering
@@ -296,7 +298,7 @@ basera donc sur le ratio victoires/défaites.
 \subsection{Exigences non fonctionnelles}
 \label{sec:exi-nonfonc}
 
-Dans le cadre de ce projet nous allons d'abord implémenter les exigences fonctionnelles.  Nous verrons ensuite pour ajouter les exigences non fonctionnelles.
+Les exigences non fonctionnelles, n'étant, pour la plupart, pas indispensables à la mise en oeuvre de l'application, ne seront pas mises en oeuvre en priorité.
 
 
 \subsubsection*{Ergonomie}
@@ -309,9 +311,8 @@ Le design est l'apparence qu'aura l'interface graphique. Comme pour le point pr�
 Le design est un ``domaine'' (vague) c'est-à-dire qu'il définit l'apparence du jeu mais aussi les différents sons et/ou musiques.
 
 
-\subsubsection*{S'amuser}
-Qu'est-ce qu'un bon jeu?\\
-Un bon jeu est un jeu attractif, beau, facile à comprendre mais avant tout, un bon jeu est un jeu où l'on s'amuse. Notre principal objectif sera de réaliser ce jeu et de permettre à tous les joueurs de s'amuser.
+\subsubsection*{Amusement}
+Un des objectifs, même s'il est loin d'être le prioritaire dans ce contexte, est de créer une application attractive. Par ailleurs, plus les utilisateurs s'amuseront en jouant au Wizard Poker, plus elle sera attractive.
 
 
 \subsection{Exigences de domaine}
@@ -363,13 +364,6 @@ utilisateur du jeu.
 Afin de mieux présenter le fonctionnement du programme voici quelques
 diagrammes où vous pouvez voir la manière dont nous allons essayer de
 développer Wizard Poker.
-
-% Peut être le supprimer vu qu'il est déjà  plus haut
-\begin{figure}
-  \centering
-  \includegraphics[width=1\textwidth]{../uml_files/UseCaseDiagram.png}
-  \caption{\label{fig:usecase} Use Case Diagram du jeu en question}
-\end{figure}
 
 \begin{figure}[ht]
   \centering
