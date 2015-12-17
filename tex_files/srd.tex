@@ -165,24 +165,48 @@ Dans le cas d'une inscription, le nouveau joueur recevra ses premières cartes. 
 \section{Besoins de l'utilisateur}
 \label{sec:besoins}
 
-% TO DO
-(Proposition à terminer: Rémy Detobel)\\
-En tant que jeu de cartes fantastique, le Wizard Poker doit fournir un minimum de services. Avant de pouvoir jouer, le joueur devra donc se créer un compte et se connecter à celui-ci.  Lors de la création d'un compte, le joueur aura 100 cartes dans sa \gls{collection}.  À chaque fois qu'il gagne une partie il gagnera une carte.  Cette carte sera choisie aléatoirement parmi toutes les cartes disponibles dans le jeu.  Une même carte peut se retrouver plusieurs fois dans la \gls{collection} d'un joueur.  Avec cette \gls{collection} le joueur pourra créer un \gls{deck}.  Un \gls{deck} est composé de 20 cartes.  Il peut y avoir au maximum deux fois la même carte dans un \gls{deck} mais il faudra alors que le joueur ait au moins deux fois la carte dans sa \gls{collection}.\\
-Toutes les cartes ont un coût en énergie. L'énergie est primordiale dans un duel. C'est grâce à elle que le joueur pourra jouer ses cartes. Pour cela, il faut que le coût en énergie de la carte soit inférieur ou égal aux points d'énergie encore disponibles pendant son tour.
-Il y a 2 types de cartes différentes. Il y a les cartes Monstres et les cartes Sorts. Les sorts sont des cartes à effets, c'est-à-dire que dès qu'une carte sort a été jouée, elle est directement défaussée et son effet est immédiat, pour la majorité des cas.
-Les cartes monstres sont des cartes que le joueur doit poser sur le plateau. Pour pouvoir attaquer avec les monstres, ces derniers doivent être sur le terrain depuis plus d'un tour au minimum. Certains monstres peuvent aussi avoir un ou plusieurs effets spéciaux.\\
-Pour permettre à l'utilisateur de jouer avec des personnes qu'il connaît, le Wizard Poker propose un système d'amis.  Un joueur pourra donc ajouter et retirer des amis dans sa liste.\\
-Le Wizard Poker propose également un système de Tchat permettant à deux joueurs de s'échanger des messages.  Ce tchat est disponible à tout moment.  Le joueur ne pourra discuter qu'avec ses amis.\\
-Une fois son \gls{deck} créé le joueur peut jouer une partie contre quelqu'un d'autre.  Avant de jouer contre une personne connectée choisie arbitrairement par le programme, le joueur sera invité à choisir son \gls{deck}. Quant au mode de jeu, il s'agit d'un jeu de cartes au tour par tour.  Ce qui signifie que chaque utilisateur joue à son tour.  Ils ne jouent donc jamais en même temps.  Lorsque c'est son tour le joueur a le choix entre plusieurs actions. Il peut:
+En tant que jeu de cartes fantastique en ligne, le Wizard Poker doit fournir un minimum de services. Avant de pouvoir jouer, le joueur devra donc se créer un compte et se connecter à celui-ci.  
+
+\medbreak
+
+Lors de la création d'un compte, le joueur recevra 100 cartes dans sa \gls{collection}.  À chaque fois qu'il gagnera une partie, il gagnera également une carte.  Cette carte sera choisie aléatoirement parmi toutes les cartes disponibles dans le jeu.  Notons qu'une même carte peut se retrouver plusieurs fois dans la \gls{collection} d'un joueur.  
+
+\medbreak
+
+Il existe deux types de cartes dans le jeu. D'une part, on retouve les cartes Sorts qui sont des cartes à effets. Cepedant, dès qu'une carte sort aura été jouée, elle sera directement défaussée et son effet sera immédiat (dans la majorité des cas). D'autre part, on retrouve les cartes monstres qui sont des cartes devant être posées sur le plateau par le joueur. Pour pouvoir attaquer avec les monstres, ces derniers doivent être sur le terrain depuis plus d'un tour au minimum. Certains monstres peuvent aussi avoir un voire plusieurs effets spéciaux.
+
+\medbreak
+
+Avec cette \gls{collection} le joueur pourra créer un, voire, des \gls{deck}s.  Un \gls{deck} est composé d'exactement 20 cartes.  De plus, il peut y avoir au maximum deux fois la même carte dans un \gls{deck} mais seulement si le joueur possède au moins deux exemplaire de la-dite carte dans sa \gls{collection}.
+
+\medbreak
+
+Toutes les cartes ayant un coût en énergie, celle-ci est primordiale dans un duel. En effet, c'est grâce à sa jauge d'énergie que le joueur pourra jouer ses cartes. Pour cela, il faut que le coût en énergie de la carte soit inférieur ou égal aux points d'énergie encore disponibles pendant son tour de jeu.
+
+\medbreak
+
+Le Wizard Poker étant un jeu en ligne, il permet donc de mettre les joueurs en contact. Premièrement, chaque joueur a la possibilité de gérer une liste d'amis. Un joueur pourra donc ajouter et retirer des amis dans sa liste. Mais il pourra également jouer des matchs avec un de ses amis. Deuxièmement, le Wizard Poker propose un système de Tchat permettant à deux joueurs étant amis de s'échanger des messages.  Ce tchat est disponible à tout moment. 
+
+\medbreak
+
+Lorsqu'un joueur souhaitera lancer une partie, le programme choisira arbitrairement une personne connectée pour lancer un duel. Il est à noter que si le joueur ne possède pas encore de deck, il sera invité à créer son deck et pourra ensuite jouer. Sinon, il devra simplement choisir un deck avant de commencer la partie.
+
+\medbreak
+
+Lors de chaque début de partie, chaque joueur commence avec 20 points de vie, 0 point d'énergie et 5 cartes en main. À chaque début de tour, le joueur en question gagnera un point d'énergie supplémentaire jusqu'à atteindre un maximum de 10 points. 
+
+\medbreak
+
+En ce qui concerne le mode de jeu, il s'agit ici d'un jeu de cartes au tour par tour.  Cela signifie que chaque utilisateur joue à son tour.  Les joueurs ne jouent donc jamais au même instant.  Lorsque vient le tour d'un jour, celui-ci se voit offrir le choix entre plusieurs actions. Il peut:
+
 \begin{itemize}
- \item[\textbullet] Poser une carte sort
- \item[\textbullet] Poser une carte Monstre
- \item[\textbullet] Demander à une carte Monstre d'attaquer une carte Monstre adverse ou l'autre joueur directement
- \item[\textbullet] Finir son tour
+ \item[\textbullet] poser une carte sort ;
+ \item[\textbullet] poser une carte monstre ;
+ \item[\textbullet] demander à une carte monstre d'attaquer  soit une carte Monstre adverse, soit le joueur adverse lui-même ;
+ \item[\textbullet] finir son tour.
 \end{itemize}
-Dans une partie, chaque joueur commence avec 20 points de vie, 0 point d'énergie et 5 cartes en main. Chaque joueur gagne un point d'énergie, au début de son tour, jusqu'à un maximum de 10.
-Ils peuvent chacun poser 7 cartes monstres sur le plateau et ils ne peuvent avoir plus de 7 cartes en main.  À la fin d'un tour, si un joueur a plus de 7 cartes en main, il devra décider de quelles cartes il souhaite se défausser pour arriver à nouveau à cette limite de 7 cartes.
-Si un des joueurs ne possède plus de cartes dans son deck, il perdra 3 points de vie à chaque début de tour.
+
+Les joueurs pourront chacun poser au maximum 7 cartes monstres sur le plateau ainsi que n'avoir au maximum 7 cartes en main. Si à la fin du tour du joueur, ce dernier a plus de 7 cartes en main, il devra décider quelles cartes il souhaite défausser. De plus, si un joueur a épuisé toutes les cartes de son deck, il perdra 3 points de vie à chaque début de tour.
 
 
 \subsection{Exigences fonctionnelles}
