@@ -72,7 +72,7 @@
 
 \newglossaryentry{crea} {
   name=Créature,
-  description={Carte ayant un côut en énergie, valeur d'attaque et des
+  description={Carte ayant un coût en énergie, une valeur d'attaque et des
   points de vie. Aussi (optionellement)  un effet spécial.}
 }
 
@@ -169,19 +169,24 @@ adversaire.
 
 % TO DO
 (Proposition à terminer: Rémy Detobel)\\
+<<<<<<< HEAD
 En tant que jeu de cartes fantastique, le Wizard Poker doit fournir un minium de services. Avant de pouvoir jouer, le joueur devra donc se créer un compte et se connecter à celui-ci.  Lors de la création d'un compte, le joueur aura 100 cartes dans sa \gls{collection}. À chaque fois qu'il gagne une partie il gagnera une carte.  Cette carte sera choisie aléatoirement parmi toutes les cartes disponibles dans le jeu.  Une même carte peut se retrouver plusieurs fois dans la \gls{collection} d'un joueur.  Avec cette \gls{collection} le joueur pourra créer un \gls{deck}.  Un \gls{deck} est composé de 20 cartes.  Il peut y avoir au maximum deux fois la même carte dans un \gls{deck} mais il faudra alors que le joueur ait au moins deux fois la carte dans sa \gls{collection}.\\
-Toutes les cartes ont un coût en énergie.\\ % TO DO : continuer ici
-Il y a 2 types de cartes différentes. Les créatures qui peuvent attaquer le joueur adverse ou ses créatures, et les sorts qui déclenchent des événements spéciaux. % TO DO : Expliquer la différence entre les 2
+Toutes les cartes ont un coût en énergie. L'énergie est primordiale dans un duel. C'est grâce à elle que le joueur pourra jouer ses cartes. Pour cela, il faut que le coût en énergie de la carte soit inférieur ou égal aux points d'énergie encore disponibles pendant son tour.
+Il y a 2 types de cartes différentes. Il y a les cartes Monstres et les cartes Sorts. Les sorts sont des cartes à effets, c'est-à-dire que dès qu'une carte sort a été jouée, elle est directement défaussée et son effet est immédiat, pour la majorité des cas.
+Les cartes monstres sont des cartes que le joueur doit poser sur le plateau. Pour pouvoir attaquer avec les monstres, ces derniers doivent être sur le terrain depuis plus d'un tour au minimum. Certains monstres peuvent aussi avoir un ou plusieurs effets spéciaux.
 Pour permettre à l'utilisateur de jouer avec des personnes qu'il connaît, le Wizard Poker propose un système d'amis.  Un joueur pourra donc ajouter et retirer des amis dans sa liste.\\
 Le Wizard Poker propose également un système de Tchat permettant à deux joueurs de s'échanger des messages.  Ce tchat est disponible à tout moment.  Le joueur ne pourra discuter qu'avec ses amis.
-Une fois son \gls{deck} créé le joueur peut jouer une partie contre quelqu'un d'autre.  Avant de jouer contre une personne connectée choisie arbitrairement par le programme, le joueur sera invité à choisir son \gls{deck}.  Quant au mode de jeu, il s'agit d'un jeu de cartes au tour par tour.  Ce qui signifie que chaque utilisateur joue à son tour.  Ils ne jouent donc jamais en même temps.  Lorsque c'est son tour le joueur a le choix entre plusieurs actions. Il peut:
+Une fois son \gls{deck} créé le joueur peut jouer une partie contre quelqu'un d'autre.  Avant de jouer contre une personne connectée choisie arbitrairement par le programme le joueur sera invité à choisir son \gls{deck}. Quant au mode de jeu,  il s'agit d'un jeu de cartes au tour par tour.  Ce qui signifie que chaque utilisateur joue à son tour.  Ils ne jouent donc jamais en même temps.  Lorsque c'est son tour le joueur à le choix entre plusieurs actions. Il peut:
+>>>>>>> 9e68c64a5db8845bfea66cc2b27a22e1ab8d30b4
 \begin{itemize}
  \item[\textbullet] Poser une carte sort
  \item[\textbullet] Poser une carte Monstre
  \item[\textbullet] Demander à une carte Monstre d'attaquer une carte Monstre adverse ou l'autre joueur directement
  \item[\textbullet] Finir son tour
 \end{itemize}
-% TO DO : expliquer les contraintes: nombre de cartes, point de vie, ...
+Dans une partie, chaque joueur commence avec 20 points de vie, 0 point d'énergie et 5 cartes en main. Chaque joueur gagne un point d'énergie, au début de son tour, jusqu'à un maximum de 10.
+Ils peuvent chacun poser 7 cartes monstres sur le plateau et ils ne peuvent avoir plus de 7 cartes en main. Si à la fin du tour du joueur, ce dernier a plus de 7 cartes en main, il devra décider de quelles cartes il souhaite se défausser.
+Si un des joueurs ne possède plus de cartes dans son deck, il perdra 3 (?) points de vie à chaque fois qu'il devra piocher.
 
 
 
