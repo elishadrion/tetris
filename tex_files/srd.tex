@@ -81,6 +81,12 @@
   description={est une quantité (de type nombre entier) représentant le coût pour jouer une carte.}
 }
 
+\newglossaryentry{defausser} {
+  name=Défausser,
+  description={Action de se débarrasser d'une carte qui sera elle-même placée dans une défausse en vue d'être récupérée par le joueur qui l'a possède.}
+}
+
+
 
 %%% --- %%% --- DOCUMENT START --- %%% --- %%%
 \begin{document}
@@ -144,6 +150,7 @@ Dans le cas d'une inscription, le nouveau joueur recevra ses premières cartes. 
     & \textbf{Date modification}
     & \textbf{Description des changements}\\ \hline \hline
     %NEXT &  &  &  \\ \hline
+    v0.8 & Rémy Detobel & 18/12/15 & Correction de la partie ``Besoins de l'utilisateur'' \\ \hline
     v0.7 & Lucie Borremans & 17/12/15 & Relecture, mise en page, corrections \\ \hline
      v0.6 & Corentin Candeur & 16/12/15 & Deuxième relecture, corrections orthographiques/syntaxiques et diverses petites corrections \\ \hline
     v0.5 & Rémy Detobel & 14/12/15 & Première relecture, diverses petites corrections \\ \hline
@@ -173,11 +180,11 @@ Lors de la création d'un compte, le joueur recevra 100 cartes dans sa \gls{coll
 
 \medbreak
 
-Il existe deux types de cartes dans le jeu. D'une part, on retouve les cartes Sorts qui sont des cartes à effets. Cepedant, dès qu'une carte sort aura été jouée, elle sera directement défaussée et son effet sera immédiat (dans la majorité des cas). D'autre part, on retrouve les cartes monstres qui sont des cartes devant être posées sur le plateau par le joueur. Pour pouvoir attaquer avec les monstres, ces derniers doivent être sur le terrain depuis plus d'un tour au minimum. Certains monstres peuvent aussi avoir un voire plusieurs effets spéciaux.
+Il existe deux types de cartes dans le jeu. D'une part, on retrouve les cartes sorts qui sont des cartes à effets. Cependant, dès qu'une carte \gls{sort} aura été jouée, elle sera directement défaussée et son effet sera immédiat (dans la majorité des cas). D'autre part, on retrouve les cartes monstres qui sont des cartes devant être posées sur le plateau par le joueur. Pour pouvoir attaquer avec les monstres, ces derniers doivent être sur le terrain depuis plus d'un tour au minimum. Certains monstres peuvent aussi avoir plusieurs effets spéciaux.
 
 \medbreak
 
-Avec cette \gls{collection} le joueur pourra créer un, voire, des \gls{deck}s.  Un \gls{deck} est composé d'exactement 20 cartes.  De plus, il peut y avoir au maximum deux fois la même carte dans un \gls{deck} mais seulement si le joueur possède au moins deux exemplaire de la-dite carte dans sa \gls{collection}.
+Avec cette \gls{collection} le joueur pourra créer un, voire, des \gls{deck}s.  Un \gls{deck} est composé d'exactement 20 cartes.  De plus, il peut y avoir au maximum deux fois la même carte dans un \gls{deck} mais seulement si le joueur possède au moins deux exemplaire de la-dite carte dans sa \gls{collection}.  Les Decks sont indépendants.  Cela signifie qu'une carte peut appartenir à plusieurs deck.
 
 \medbreak
 
@@ -185,7 +192,7 @@ Toutes les cartes ayant un coût en énergie, celle-ci est primordiale dans un d
 
 \medbreak
 
-Le Wizard Poker étant un jeu en ligne, il permet donc de mettre les joueurs en contact. Premièrement, chaque joueur a la possibilité de gérer une liste d'amis. Un joueur pourra donc ajouter et retirer des amis dans sa liste. Mais il pourra également jouer des matchs avec un de ses amis. Deuxièmement, le Wizard Poker propose un système de Tchat permettant à deux joueurs étant amis de s'échanger des messages.  Ce tchat est disponible à tout moment. 
+Le Wizard Poker étant un jeu en ligne, il permet donc de mettre les joueurs en contact. Premièrement, chaque joueur a la possibilité de gérer une liste d'amis. Un joueur pourra donc ajouter et retirer des amis dans sa liste. Mais il pourra également jouer des duels avec un de ses amis. Deuxièmement, le Wizard Poker propose un système de Tchat permettant à deux joueurs étant amis de s'échanger des messages.  Ce tchat est disponible à tout moment. 
 
 \medbreak
 
@@ -193,7 +200,7 @@ Lorsqu'un joueur souhaitera lancer une partie, le programme choisira arbitrairem
 
 \medbreak
 
-Lors de chaque début de partie, chaque joueur commence avec 20 points de vie, 0 point d'énergie et 5 cartes en main. À chaque début de tour, le joueur en question gagnera un point d'énergie supplémentaire jusqu'à atteindre un maximum de 10 points. 
+Lors de chaque début de partie, chaque joueur commence avec 20 points de vie, 1 point d'énergie et 5 cartes en main. À chaque début de tour, le joueur en question gagnera un point d'énergie supplémentaire jusqu'à atteindre un maximum de 10 points. 
 
 \medbreak
 
@@ -202,11 +209,20 @@ En ce qui concerne le mode de jeu, il s'agit ici d'un jeu de cartes au tour par 
 \begin{itemize}
  \item[\textbullet] poser une carte sort ;
  \item[\textbullet] poser une carte monstre ;
- \item[\textbullet] demander à une carte monstre d'attaquer  soit une carte Monstre adverse, soit le joueur adverse lui-même ;
+ \item[\textbullet] demander à une carte monstre d'attaquer soit une carte Monstre adverse, soit le joueur adverse lui-même ;
  \item[\textbullet] finir son tour.
 \end{itemize}
 
-Les joueurs pourront chacun poser au maximum 7 cartes monstres sur le plateau ainsi que n'avoir au maximum 7 cartes en main. Si à la fin du tour du joueur, ce dernier a plus de 7 cartes en main, il devra décider quelles cartes il souhaite défausser. De plus, si un joueur a épuisé toutes les cartes de son deck, il perdra 3 points de vie à chaque début de tour.
+Pour pouvoir demander à une carte monstre d'attaquer il faut que celle-ci ai été placée au tour précédent.  Lorsqu'une carte monstre attaque un élément adverse (que ça soit une carte monstre ou le joueur adverse) les deux éléments perdent le nombre de points de vie égal à la valeur d'attaque de la carte attaquante.  Lorsqu'une carte monstre à 0 (ou moins) point de vie, elle meurt et est défaussée.
+
+\medbreak
+
+
+Les joueurs pourront chacun poser au maximum 7 cartes monstres sur le plateau ainsi que n'avoir au maximum 7 cartes en main. Si à la fin du tour du joueur, ce dernier a plus de 7 cartes en main, il devra décider quelles cartes il souhaite \gls{defausser}. De plus, si un joueur a épuisé toutes les cartes de son deck, il perdra 3 points de vie à chaque début de tour.
+
+\medbreak
+
+La partie se termine lorsqu'un joueur arrive à 0 (ou moins) point de vie.  Il aura donc perdu la partie.  Le joueur vainqueur recevra une carte.  Cette carte sera choisie aléatoirement parmi toutes les cartes disponibles dans le jeux.
 
 
 \subsection{Exigences fonctionnelles}
