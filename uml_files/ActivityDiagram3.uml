@@ -1,7 +1,7 @@
 @startuml
 
 
-title Wizard - Activity Diagram 3
+title Wizard Poker - Activity Diagram 3
 
 'accessibilité
 skinparam classAttributeIconSize 0
@@ -14,10 +14,14 @@ skinparam dpi 300
 
 'couleurs
 skinparam activity {
+  StartColor Navy
   BackgroundColor AliceBlue
   ArrowColor CornflowerBlue
   BorderColor CornflowerBlue
+  EndColor Navy
 }
+skinparam NoteBackgroundColor PapayaWhip
+skinparam NoteBorderColor LightSalmon
 skinparam stereotypeCBackgroundColor OldLace
 
 
@@ -68,3 +72,4 @@ repeat while (Joueur Mort ?)
 stop
 
 @enduml
+
