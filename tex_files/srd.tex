@@ -17,6 +17,7 @@
 \usepackage{changepage}
 \usepackage[nonumberlist, nopostdot, numberedsection, toc]{glossaries}
 \usepackage{imakeidx}
+\usepackage{rotating}
 \makeindex
 \makenoidxglossaries
 
@@ -113,8 +114,8 @@ Ce projet devra fournir un jeu de cartes symétrique où deux joueurs
 pourront s'affronter et gagner des points pour un classement
 général. Chaque joueur disposera d'un ensemble de cartes avec lesquelles
 il pourra affronter ses adversaires. Ces cartes pourront être des
-créatures pouvant attaquer et des cartes de type
-sort qui lanceront des événements spéciaux.
+\index{créature}s pouvant attaquer et des cartes de type
+\index{sort} qui lanceront des événements spéciaux.
 
 \medbreak
 
@@ -126,14 +127,16 @@ les autres.
 \medbreak
 
 Le Wizard Poker sera disponible à n'importe quel joueur enregistré
-pour jouer contre d'autres joueurs (également enregistrés), lui 
-permettant d'essayer de gagner des places dans le classement 
-général. Il permettra aussi à des invités de consulter ce classement 
-et de s'enregistrer en tant que nouveau joueur. 
+pour jouer contre d'autres joueurs (également enregistrés), lui
+permettant d'essayer de gagner des places dans le classement
+général. Il permettra aussi à des invités de consulter ce classement
+et de s'enregistrer en tant que nouveau joueur.
 
 \medbreak
 
-Dans le cas d'une inscription, le nouveau joueur recevra ses premières cartes. De plus, tout joueur sera invité à confectionner son premier deck avant d'affronter son premier adversaire.
+Dans le cas d'une inscription, le nouveau joueur recevra ses premières
+cartes. De plus, tout joueur sera invité à confectionner son premier
+\index{deck} avant d'affronter son premier adversaire.
 
 \subsection{Historique du document}
 \label{sec:hist}
@@ -148,7 +151,8 @@ Dans le cas d'une inscription, le nouveau joueur recevra ses premières cartes. 
     & \textbf{Auteur}
     & \textbf{Date modification}
     & \textbf{Description des changements}\\ \hline \hline
-    %NEXT &  &  &  \\ \hline
+    v1.0 & Dream Team & 18/12/15 & Delivrable phase 1 \\ \hline
+    qqch? &  &  &  \\ \hline
     v0.8 & Rémy Detobel & 18/12/15 & Correction de la partie ``Besoins de l'utilisateur'' \\ \hline
     v0.7 & Lucie Borremans & 17/12/15 & Relecture, mise en page, corrections \\ \hline
      v0.6 & Corentin Candeur & 16/12/15 & Deuxième relecture, corrections orthographiques/syntaxiques et diverses petites corrections \\ \hline
@@ -171,11 +175,11 @@ Dans le cas d'une inscription, le nouveau joueur recevra ses premières cartes. 
 \section{Besoins de l'utilisateur}
 \label{sec:besoins}
 
-En tant que jeu de cartes fantastique en ligne, le Wizard Poker doit fournir un minimum de services. Avant de pouvoir jouer, le joueur devra donc se créer un compte et se connecter à celui-ci.  
+En tant que jeu de cartes fantastique en ligne, le Wizard Poker doit fournir un minimum de services. Avant de pouvoir jouer, le joueur devra donc se créer un compte et se connecter à celui-ci.
 
 \medbreak
 
-Lors de la création d'un compte, le joueur recevra 100 cartes dans sa \gls{collection}.  À chaque fois qu'il gagnera une partie, il gagnera également une carte.  Cette carte sera choisie aléatoirement parmi toutes les cartes disponibles dans le jeu.  Notons qu'une même carte peut se retrouver plusieurs fois dans la \gls{collection} d'un joueur.  
+Lors de la création d'un compte, le joueur recevra 100 cartes dans sa \gls{collection}.  À chaque fois qu'il gagnera une partie, il gagnera également une carte.  Cette carte sera choisie aléatoirement parmi toutes les cartes disponibles dans le jeu.  Notons qu'une même carte peut se retrouver plusieurs fois dans la \gls{collection} d'un joueur.
 
 \medbreak
 
@@ -191,7 +195,7 @@ Toutes les cartes ayant un coût en énergie, celle-ci est primordiale dans un d
 
 \medbreak
 
-Le Wizard Poker étant un jeu en ligne, il permet donc de mettre les joueurs en contact. Premièrement, chaque joueur a la possibilité de gérer une liste d'amis. Un joueur pourra donc ajouter et retirer des amis dans sa liste. Mais il pourra également jouer des duels avec un de ses amis. Deuxièmement, le Wizard Poker propose un système de Tchat permettant à deux joueurs étant amis de s'échanger des messages.  Ce tchat est disponible à tout moment. 
+Le Wizard Poker étant un jeu en ligne, il permet donc de mettre les joueurs en contact. Premièrement, chaque joueur a la possibilité de gérer une liste d'amis. Un joueur pourra donc ajouter et retirer des amis dans sa liste. Mais il pourra également jouer des duels avec un de ses amis. Deuxièmement, le Wizard Poker propose un système de Tchat permettant à deux joueurs étant amis de s'échanger des messages.  Ce tchat est disponible à tout moment.
 
 \medbreak
 
@@ -199,14 +203,14 @@ Lorsqu'un joueur souhaitera lancer une partie, le programme choisira arbitrairem
 
 \medbreak
 
-Lors de chaque début de partie, chaque joueur commence avec 20 points de vie, 1 point d'énergie et 5 cartes en main. À chaque début de tour, le joueur en question gagnera un point d'énergie supplémentaire jusqu'à atteindre un maximum de 10 points. 
+Lors de chaque début de partie, chaque joueur commence avec 20 points de vie, 1 point d'énergie et 5 cartes en main. À chaque début de tour, le joueur en question gagnera un point d'énergie supplémentaire jusqu'à atteindre un maximum de 10 points.
 
 \medbreak
 
 En ce qui concerne le mode de jeu, il s'agit ici d'un jeu de cartes au tour par tour.  Cela signifie que chaque utilisateur joue à son tour.  Les joueurs ne jouent donc jamais au même instant.  Lorsque vient le tour d'un jour, celui-ci se voit offrir le choix entre plusieurs actions. Il peut:
 
 \begin{itemize}
- \item[\textbullet] poser une carte sort ;
+ \item[\textbullet] poser une carte \index{sort} ;
  \item[\textbullet] poser une carte monstre ;
  \item[\textbullet] demander à une carte monstre d'attaquer soit une carte Monstre adverse, soit le joueur adverse lui-même ;
  \item[\textbullet] finir son tour.
@@ -256,9 +260,9 @@ collection. Pour rappel, il devra au préalable s'être connecté.
 
 \subsubsection*{Gestion de decks}
 
-Plusieurs actions peuvent être effectuées sur les
-decks telles qu'en supprimer un ou plusieurs, les consulter, les
-modifier ou tout simplement en créer un nouveau.
+Plusieurs actions peuvent être effectuées sur les \index{deck}s telles
+qu'en supprimer un ou plusieurs, les consulter, les modifier ou tout
+simplement en créer un nouveau.
 
 
 \subsubsection*{Gérer une liste d'amis}
@@ -269,10 +273,11 @@ intéragir s'il le souhaite. Il pourra donc ajouter ou supprimer un ami de sa li
 
 \subsubsection*{Discuter avec ses amis}
 
-Le joueur pourra, à tout moment, parler avec un de ses
-amis actuellement connectés. Pour cela, un tchat sera mis à la 
-disposition du joueur.  Le joueur pourra donc communiquer avec ses
-amis par message à tout moment. Cependant un joueur ne peut communiquer qu'avec une personne à la fois.
+Le joueur pourra, à tout moment, parler avec un de ses amis
+actuellement connectés. Pour cela, un tchat sera mis à la disposition
+du joueur.  Le joueur pourra donc communiquer avec ses amis par
+message à tout moment. Cependant un joueur ne peut communiquer qu'avec
+une personne à la fois.
 
 \subsubsection*{Proposer une partie à un ami}
 
@@ -340,7 +345,7 @@ En conclusion, on peut dire qu'un utilisateur attend un jeu équilibré et une s
 
 Dans cette partie, nous nous intéresserons sur ce que l'application doit
 faire pour interagir avec l'utilisateur et lui proposer toutes les
-actions mentionnées ci-dessus (voir \ref{sec:exi-fonc}). Nous détaillerons 
+actions mentionnées ci-dessus (voir \ref{sec:exi-fonc}). Nous détaillerons
 donc comment le système réalisera toutes ces tâches.
 
 
@@ -400,21 +405,21 @@ pouvoir initialiser une partie.
 L'objectif de ces trois diagrammes d'activité, présentés aux Figure \ref{fig:act1}, \ref{fig:act2}, \ref{fig:act3}, est de décrire comment va se dérouler une partie.
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=1\textwidth]{../uml_files/ActivityDiagram.png}
+  \includegraphics[width=0.7\textwidth]{../uml_files/ActivityDiagram.png}
   \caption{\label{fig:act1} Diagramme d'activité 1}
 \end{figure}
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=1\textwidth]{../uml_files/ActivityDiagram2.png}
+  \includegraphics[width=0.5\textwidth]{../uml_files/ActivityDiagram2.png}
   \caption{\label{fig:act2} Diagramme d'activité 2}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{sidewaysfigure}[ht]
   \centering
   \includegraphics[width=1\textwidth]{../uml_files/ActivityDiagram3.png}
   \caption{\label{fig:act3} Diagramme d'activité 3}
-\end{figure}
+\end{sidewaysfigure}
 
 \clearpage
 \printindex
