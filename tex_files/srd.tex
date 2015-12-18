@@ -35,7 +35,7 @@
 
 \newglossaryentry{deck}{
   name=Deck,
-  description=est un ensemble de 20 cartes.
+  description=est un ensemble de 20 cartes constitué par un joueur à partir de sa collection afin d'être utilisé par ce dernier lors d'un duel.
 }
 
 \newglossaryentry{carte}{
@@ -51,7 +51,7 @@
 \newglossaryentry{collection}{
   name=Collection,
   description=est un ensemble qui contient toutes les cartes disponibles et
-  connues par le jeu.
+  connues par un joueur.
 }
 
 \newglossaryentry{tchat}{
@@ -83,7 +83,7 @@
 
 \newglossaryentry{defausser} {
   name=Défausser,
-  description={Action de se débarrasser d'une carte qui sera elle-même placée dans une défausse en vue d'être récupérée par le joueur qui l'a possède.}
+  description={Action de se débarrasser d'une carte qui sera elle-même placée dans une défausse en vue d'être récupérée par le joueur qui la possède.}
 }
 
 
@@ -221,7 +221,7 @@ Les joueurs pourront chacun poser au maximum 7 cartes monstres sur le plateau ai
 
 \medbreak
 
-La partie se termine lorsqu'un joueur arrive à 0 (ou moins) point de vie.  Il aura donc perdu la partie.  Le joueur vainqueur recevra une carte.  Cette carte sera choisie aléatoirement parmi toutes les cartes disponibles dans le jeux.
+Une partie se termine lorsqu'un des deux joueurs arrive à 0 (ou moins) point de vie.  Celui-ci aura donc perdu la partie.  Par contre, le joueur vainqueur recevra une carte qui sera choisie aléatoirement parmi toutes les cartes disponibles dans le jeux.
 
 
 \subsection{Exigences fonctionnelles}
@@ -239,7 +239,7 @@ Les exigences fonctionnelles ne sont autres, ici, que celles présentées dans l
 
 Tout visiteur aura la possibilité de se créer un compte
 lié à un pseudo (si ce dernier est disponible) afin de pouvoir
-profiter pleinement du jeu.
+accéder pleinement au jeu.
 
 
 \subsubsection*{Se connecter à son compte}
@@ -251,13 +251,12 @@ les différentes actions répertoriées ci-dessous.
 \subsubsection*{Consulter sa collection de cartes}
 
 Le joueur peut consulter l'ensemble des cartes présentes dans sa
-collection. Pour cela, il devra au préalable s'être connecté.
+collection. Pour rappel, il devra au préalable s'être connecté.
 
 
 \subsubsection*{Gestion de decks}
 
-Un deck est un ensemble de cartes qui sera utilisé par le joueur
-lors d'un duel. Plusieurs actions peuvent être effectuées sur les
+Plusieurs actions peuvent être effectuées sur les
 decks telles qu'en supprimer un ou plusieurs, les consulter, les
 modifier ou tout simplement en créer un nouveau.
 
@@ -265,15 +264,16 @@ modifier ou tout simplement en créer un nouveau.
 \subsubsection*{Gérer une liste d'amis}
 
 Chaque joueur aura une liste d'amis avec lesquels il pourra
-interagir s'il le souhaite. Il pourra aussi ajouter ou supprimer un ami de sa liste.
+intéragir s'il le souhaite. Il pourra donc ajouter ou supprimer un ami de sa liste.
 
 
 \subsubsection*{Discuter avec ses amis}
 
-Le joueur pourra, à tout moment, parler avec un ou plusieurs de ses
-amis actuellement connectés. Pour cela, un tchat sera mis à
+Le joueur pourra, à tout moment, parler avec un de ses
+amis actuellement connectés. Pour cela, un tchat sera mis à la 
 disposition du joueur.  Le joueur pourra donc communiquer avec ses
 amis par message à tout moment. Cependant un joueur ne peut communiquer qu'avec une personne à la fois.
+
 \subsubsection*{Proposer une partie à un ami}
 
 Si le joueur le souhaite, il peut proposer une partie à un de ses
@@ -292,23 +292,25 @@ connectées. Le choix de l'adversaire est totalement aléatoire.
 
 Le classement va permettre de classer les joueurs en fonction de
 leur nombre de victoires et de défaites. Ce classement se
-basera donc sur le ratio victoires/défaites.
+basera donc sur un ratio victoires/défaites.
 
 
 \subsection{Exigences non fonctionnelles}
 \label{sec:exi-nonfonc}
 
-Les exigences non fonctionnelles, n'étant, pour la plupart, pas indispensables à la mise en oeuvre de l'application, ne seront pas mises en oeuvre en priorité.
+Les exigences non fonctionnelles, n'étant, pour la plupart, pas indispensables au fonctionnement de l'application, ne seront pas mises en oeuvre en priorité.
 
 
 \subsubsection*{Ergonomie}
-Créer un jeu qui sera simple d'utilisation et facilement compréhensible pour un utilisateur n'ayant jamais joué à un jeu de ce genre.\\
-Pour cela, on peut rendre l'interface intuitive à l'aide de ``boutons'' décrivant exactement leur utilité ou encore à l'aide d'un rapide tutoriel après la création du compte expliquant les différentes caractéristiques du jeu.
+Il s'agit de créer un jeu qui sera simple d'utilisation et facilement compréhensible pour un utilisateur n'ayant jamais joué à un jeu de ce genre.
+\medbreak
+Une des solutions trouvées est de rendre l'interface intuitive à l'aide de ``boutons'' décrivant exactement leur utilité ou encore à l'aide d'un rapide tutoriel expliquant au joueur, après la création de son compte, les différentes caractéristiques du jeu.
 
 
 \subsubsection*{Design}
-Le design est l'apparence qu'aura l'interface graphique. Comme pour le point précédent, une belle interface va permettre à l'utilisateur de facilement voir les différentes possibilités offertes par le jeu en plus d'apprécier l'esthétique.\\
-Le design est un ``domaine'' (vague) c'est-à-dire qu'il définit l'apparence du jeu mais aussi les différents sons et/ou musiques.
+Le design est l'apparence qu'aura l'interface graphique. Elle est en partie liée au point précédent puisqu'une belle interface permettra à l'utilisateur de facilement repérer les différentes possibilités offertes par le jeu en plus d'en apprécier l'esthétique.
+\medbreak
+Le design est un large ``domaine'' : c'est-à-dire qu'il définit aussi bien l'apparence du jeu  que les effets spéciaux (comme les différents sons et/ou musiques pouvant être intégrées au jeu).
 
 
 \subsubsection*{Amusement}
@@ -318,11 +320,15 @@ Un des objectifs, même s'il est loin d'être le prioritaire dans ce contexte, e
 \subsection{Exigences de domaine}
 \label{sec:exi-dom}
 
-Le domaine du jeu vidéo laisse beaucoup de liberté.  En effet, chaque créateur essaye de créer son univers, de développer son concept.  Cependant, tous les jeux doivent permettre à leur utilisateur de trouver du plaisir ou une certaine forme de satisfaction.  Il faut également éviter que le joueur soit interrompu durant sa partie.  Les exigences du domaine ne sont donc pas nombreuses mais compliquées à satisfaire complètement.
+Le domaine du jeu vidéo laissant beaucoup de liberté, chaque créateur a la possibilité de développer son univers, ses concepts, etc.  Cependant, les jeux doivent permettre à leurs utilisateurs de trouver du plaisirs ou une certaine forme de satisfaction.  Il faut donc éviter, par exemple, qu'un joueur soit interrompu durant sa partie.  Les exigences du domaine ne sont pas nombreuses mais il peut être compliqué de toutes les satisfaire.
 
-Le Wizard Poker est un jeu de cartes.  Ce type de jeu impose lui aussi quelques contraintes.  Il faut éviter que les cartes soient trop fortes.  Pour la durée de vie du jeu il faut aussi faire en sorte qu'il y ait un nombre conséquent de cartes.  N'oublions pas enfin le temps de jeu.  En effet, une partie de cartes dure rarement longtemps pour éviter l'ennui.
+\medbreak
 
-Pour résumer, un utilisateur attend de l'amusement, un jeu équilibré et une stabilité acceptable (voir infaillible coté serveur).  Nous nous concentrerons dans un premier temps (dans le cadre de ce projet) à ce troisième point et nous verrons pour satisfaire à 100\% les ``gamers'' dans un second temps.
+Nous mettons en place ici un jeu de cartes et ce type de jeu impose quelques contraintes.  En effet, il faut que le jeu soit le plus équilibré possible : il faut donc, par exemple, éviter que certaines cartes ne soient trop "fortes" par rapport à d'autres.  En ce qui concerne le temps de jeu d'une partie, il faut veiller à ce que ce ne soit ni trop long (et donc éviter les abandons de partie), ni trop court (pour ne pas rendre le jeu lassant). Finalement, pour ce qui est de la durée de vie globale du jeu, il faut faire en sorte qu'il y ait un nombre conséquent de cartes afin que les joueurs puissent régulièrement renouveler leur collection.
+
+\medbreak
+
+En conclusion, on peut dire qu'un utilisateur attend un jeu équilibré et une stabilité acceptable (voire infaillible coté serveur).  Nous nous concentrerons dans un premier temps à ce deuxième point.
 
 
 
@@ -332,12 +338,10 @@ Pour résumer, un utilisateur attend de l'amusement, un jeu équilibré et une s
 \subsection{Exigences fonctionnelles}
 \label{sec:exi-fonc-sys}
 
-Les exigences fonctionnelles expliquent ce que l'application doit
-faire pour interagir avec l'utilisateur, et lui proposer toutes les
-actions mentionnées ci-dessus (voir \ref{sec:exi-fonc}).
-
-Dans cette partie on détaillera comment le système va se débrouiller
-pour réaliser ces tâches.
+Dans cette partie, nous nous intéresserons sur ce que l'application doit
+faire pour interagir avec l'utilisateur et lui proposer toutes les
+actions mentionnées ci-dessus (voir \ref{sec:exi-fonc}). Nous détaillerons 
+donc comment le système réalisera toutes ces tâches.
 
 
 \subsection{Exigences non fonctionnelles}
@@ -346,36 +350,45 @@ pour réaliser ces tâches.
 Les exigences non fonctionnelles décrivent le comportement de
 l'application.
 
+\medbreak
+
 Le système doit être tout d'abord robuste et stable, c'est-à-dire
-gérer toutes les erreurs possibles et éviter les crashs et les éventuelles
+gérer toutes les erreurs possibles, éviter les crashs et les éventuelles
 déconnexions.
 
+\medbreak
+
 Il doit par ailleurs être agréable d'utilisation pour l'utilisateur
-(ergonomie et esthétique/design) et garantir que celui-ci ne puisse
+(ergonomique et esthétique) et garantir que celui-ci ne puisse
 pas tricher pendant une partie.
 
-Donc en résumé, robuste, stable, sûr, et excessivement amusant. Des
+\medbreak
+
+En résumé, le système doit être robuste, stable, sûr, et excessivement amusant. Des
 heures de franche rigolade, en toute sécurité, sont assurées à tout
 utilisateur du jeu.
 
 \subsection{Design et fonctionnement du système}
 \label{sec:design}
 
-Afin de mieux présenter le fonctionnement du programme voici quelques
-diagrammes où vous pouvez voir la manière dont nous allons essayer de
-développer Wizard Poker.
+Afin de mieux présenter le fonctionnement du programme, voici quelques
+diagrammes sur lesquels nous nous baserons lors du
+développement du Wizard Poker.
+
+\medbreak
+
+Le diagramme de classe présenté à la Figure \ref{fig:class} sera celui sur lequel nous nous baserons le plus lors de l'écriture du code.
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=1\textwidth]{../uml_files/ClassDiagram.png}
-  \caption{\label{fig:class} Diagramme des classes}
+  \caption{\label{fig:class} Diagramme de classes}
 \end{figure}
 
 \subsubsection{Diagramme de séquence}
 
-Ce diagramme de séquence vise à montrer la manière dont un joueur va
-pouvoir initialiser une partie.  Les diagrammes d'activités vont
-permettre de détailler la manière dont une partie se déroule.
+Le diagramme de séquence, présenté à la Figure \ref{fig:seq}, vise à montrer la manière dont un joueur va
+pouvoir initialiser une partie.
 
 \begin{figure}[ht]
   \centering
@@ -383,12 +396,12 @@ permettre de détailler la manière dont une partie se déroule.
   \caption{\label{fig:seq} Diagramme de séquence}
 \end{figure}
 
-\subsubsection{Diagramme d'activité}
-Le but de ces deux diagrammes d'activité est de décrire comment va se dérouler une partie.
+\subsubsection{Diagrammes d'activité}
+L'objectif de ces trois diagrammes d'activité, présentés aux Figure \ref{fig:act1}, \ref{fig:act2}, \ref{fig:act3}, est de décrire comment va se dérouler une partie.
 \begin{figure}[ht]
   \centering
   \includegraphics[width=1\textwidth]{../uml_files/ActivityDiagram.png}
-  \caption{\label{fig:act1} Diagramme d'activité}
+  \caption{\label{fig:act1} Diagramme d'activité 1}
 \end{figure}
 
 \begin{figure}[ht]
