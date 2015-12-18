@@ -31,6 +31,8 @@
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
 
+
+
 %%% Glossary
 
 \newglossaryentry{deck}{
@@ -70,8 +72,8 @@
   description=est un type de carte ayant un coût en énergie et un effet spécial.
 }
 
-\newglossaryentry{crea} {
-  name=Créature,
+\newglossaryentry{monstre} {
+  name=Monstre,
   description={est un type de carte ayant un coût en énergie, une valeur d'attaque et des
   points de vie, ainsi que, optionnellement,  un effet spécial.}
 }
@@ -81,9 +83,14 @@
   description={est une quantité (de type nombre entier) représentant le coût pour jouer une carte.}
 }
 
-\newglossaryentry{defausser} {
-  name=Défausser,
+\newglossaryentry{defausse} {
+  name=Défaussé,
   description={Action de se débarrasser d'une carte qui sera elle-même placée dans une défausse en vue d'être récupérée par le joueur qui la possède.}
+}
+
+\newglossaryentry{pseudo} {
+  name=Pseudo,
+  description={Nom qu'une personne peut prendre en jeu à fin de remplacer son vrai prénom.}
 }
 
 
@@ -175,23 +182,30 @@ En tant que jeu de cartes fantastique en ligne, le Wizard Poker doit fournir un 
 
 \medbreak
 
+\index{Collection}
 Lors de la création d'un compte, le joueur recevra 100 cartes dans sa \gls{collection}.  À chaque fois qu'il gagnera une partie, il gagnera également une carte.  Cette carte sera choisie aléatoirement parmi toutes les cartes disponibles dans le jeu.  Notons qu'une même carte peut se retrouver plusieurs fois dans la \gls{collection} d'un joueur.  
 
 \medbreak
-
-Il existe deux types de cartes dans le jeu. D'une part, on retrouve les cartes sorts qui sont des cartes à effets. Cependant, dès qu'une carte \gls{sort} aura été jouée, elle sera directement défaussée et son effet sera immédiat (dans la majorité des cas). D'autre part, on retrouve les cartes monstres qui sont des cartes devant être posées sur le plateau par le joueur. Pour pouvoir attaquer avec les monstres, ces derniers doivent être sur le terrain depuis plus d'un tour au minimum. Certains monstres peuvent aussi avoir plusieurs effets spéciaux.
-
-\medbreak
-
-Avec cette \gls{collection} le joueur pourra créer un, voire, des \gls{deck}s.  Un \gls{deck} est composé d'exactement 20 cartes.  De plus, il peut y avoir au maximum deux fois la même carte dans un \gls{deck} mais seulement si le joueur possède au moins deux exemplaire de la-dite carte dans sa \gls{collection}.  Les Decks sont indépendants.  Cela signifie qu'une carte peut appartenir à plusieurs deck.
-
-\medbreak
-
-Toutes les cartes ayant un coût en énergie, celle-ci est primordiale dans un duel. En effet, c'est grâce à sa jauge d'énergie que le joueur pourra jouer ses cartes. Pour cela, il faut que le coût en énergie de la carte soit inférieur ou égal aux points d'énergie encore disponibles pendant son tour de jeu.
+\index{Cartes}
+\index{Sort}
+\index{Défausser}
+\index{Monstre}
+Il existe deux types de \gls{carte}s dans le jeu. D'une part, on retrouve les cartes \gls{sort}s qui sont des cartes à effets. Cependant, dès qu'une carte \gls{sort} aura été jouée, elle sera directement \gls{defausse}e et son effet sera immédiat (dans la majorité des cas). D'autre part, on retrouve les cartes \gls{monstre}s qui sont des cartes devant être posées sur le plateau par le joueur. Pour pouvoir attaquer avec les monstres, ces derniers doivent être sur le terrain depuis plus d'un tour au minimum. Certains monstres peuvent aussi avoir plusieurs effets spéciaux.
 
 \medbreak
 
-Le Wizard Poker étant un jeu en ligne, il permet donc de mettre les joueurs en contact. Premièrement, chaque joueur a la possibilité de gérer une liste d'amis. Un joueur pourra donc ajouter et retirer des amis dans sa liste. Mais il pourra également jouer des duels avec un de ses amis. Deuxièmement, le Wizard Poker propose un système de Tchat permettant à deux joueurs étant amis de s'échanger des messages.  Ce tchat est disponible à tout moment. 
+\index{Deck}
+Avec cette \gls{collection} le joueur pourra créer un, voire, des \gls{deck}s.  Un \gls{deck} est composé d'exactement 20 cartes.  De plus, il peut y avoir au maximum deux fois la même carte dans un \gls{deck} mais seulement si le joueur possède au moins deux exemplaire de la-dite carte dans sa \gls{collection}.  Les Decks sont indépendants.  Cela signifie qu'une carte peut appartenir à plusieurs decks.
+
+\medbreak
+
+\index{Énergie}
+Toutes les cartes ayant un coût en \gls{energie}, celle-ci est primordiale dans un duel. En effet, c'est grâce à sa jauge d'énergie que le joueur pourra jouer ses cartes. Pour cela, il faut que le coût en énergie de la carte soit inférieur ou égal aux points d'énergie encore disponibles pendant son tour de jeu.
+
+\medbreak
+
+\index{Tchat}
+Le Wizard Poker étant un jeu en ligne, il permet donc de mettre les joueurs en contact. Premièrement, chaque joueur a la possibilité de gérer une liste d'amis. Un joueur pourra donc ajouter et retirer des amis dans sa liste. Mais il pourra également jouer des duels avec un de ses amis. Deuxièmement, le Wizard Poker propose un système de \gls{tchat} permettant à deux joueurs étant amis de s'échanger des messages.  Ce tchat est disponible à tout moment. 
 
 \medbreak
 
@@ -217,7 +231,7 @@ Pour pouvoir demander à une carte monstre d'attaquer il faut que celle-ci ai é
 \medbreak
 
 
-Les joueurs pourront chacun poser au maximum 7 cartes monstres sur le plateau ainsi que n'avoir au maximum 7 cartes en main. Si à la fin du tour du joueur, ce dernier a plus de 7 cartes en main, il devra décider quelles cartes il souhaite \gls{defausser}. De plus, si un joueur a épuisé toutes les cartes de son deck, il perdra 3 points de vie à chaque début de tour.
+Les joueurs pourront chacun poser au maximum 7 cartes monstres sur le plateau ainsi que n'avoir au maximum 7 cartes en main. Si à la fin du tour du joueur, ce dernier a plus de 7 cartes en main, il devra décider quelles cartes il souhaite défausser. De plus, si un joueur a épuisé toutes les cartes de son deck, il perdra 3 points de vie à chaque début de tour.
 
 \medbreak
 
@@ -226,7 +240,7 @@ Une partie se termine lorsqu'un des deux joueurs arrive à 0 (ou moins) point de
 
 \subsection{Exigences fonctionnelles}
 
-Les exigences fonctionnelles ne sont autres, ici, que celles présentées dans la Figure \ref{fig:usecasebesoin}. Nous y voyons, d'ailleurs deux types d'acteurs agissant sur le système : le joueur et le visiteur. Les actions possibles par ceux-ci sur l'application sont décrites ci-dessous.
+Les exigences fonctionnelles ne sont autres, ici, que celles présentées dans la Figure \ref{fig:usecasebesoin}. Nous y voyons, d'ailleurs deux types d'acteurs agissant sur le système : le joueur et le \gls{visiteur}. Les actions possibles par ceux-ci sur l'application sont décrites ci-dessous.
 
 \label{sec:exi-fonc}
 \begin{figure}[ht]
@@ -237,8 +251,10 @@ Les exigences fonctionnelles ne sont autres, ici, que celles présentées dans l
 
 \subsubsection*{Créer un compte lié à un pseudo}
 
+\index{Compte}
+\index{Pseudo}
 Tout visiteur aura la possibilité de se créer un compte
-lié à un pseudo (si ce dernier est disponible) afin de pouvoir
+lié à un \gls{pseudo} (si ce dernier est disponible) afin de pouvoir
 accéder pleinement au jeu.
 
 
@@ -250,27 +266,31 @@ les différentes actions répertoriées ci-dessous.
 
 \subsubsection*{Consulter sa collection de cartes}
 
+\index{Collection}
 Le joueur peut consulter l'ensemble des cartes présentes dans sa
-collection. Pour rappel, il devra au préalable s'être connecté.
+\gls{collection}. Pour rappel, il devra au préalable s'être connecté.
 
 
 \subsubsection*{Gestion de decks}
 
+\index{Deck}
 Plusieurs actions peuvent être effectuées sur les
-decks telles qu'en supprimer un ou plusieurs, les consulter, les
+\gls{deck}s telles qu'en supprimer un ou plusieurs, les consulter, les
 modifier ou tout simplement en créer un nouveau.
 
 
 \subsubsection*{Gérer une liste d'amis}
 
+\index{Liste d'amis}
 Chaque joueur aura une liste d'amis avec lesquels il pourra
 intéragir s'il le souhaite. Il pourra donc ajouter ou supprimer un ami de sa liste.
 
 
 \subsubsection*{Discuter avec ses amis}
 
+\index{Tchat}
 Le joueur pourra, à tout moment, parler avec un de ses
-amis actuellement connectés. Pour cela, un tchat sera mis à la 
+amis actuellement connectés. Pour cela, un \gls{tchat} sera mis à la 
 disposition du joueur.  Le joueur pourra donc communiquer avec ses
 amis par message à tout moment. Cependant un joueur ne peut communiquer qu'avec une personne à la fois.
 
@@ -290,6 +310,7 @@ connectées. Le choix de l'adversaire est totalement aléatoire.
 
 \subsubsection*{Consulter le classement}
 
+\index{Classement}
 Le classement va permettre de classer les joueurs en fonction de
 leur nombre de victoires et de défaites. Ce classement se
 basera donc sur un ratio victoires/défaites.
@@ -387,6 +408,7 @@ Le diagramme de classe présenté à la Figure \ref{fig:class} sera celui sur le
 
 \subsubsection{Diagramme de séquence}
 
+\index{Initialiser une partie}
 Le diagramme de séquence, présenté à la Figure \ref{fig:seq}, vise à montrer la manière dont un joueur va
 pouvoir initialiser une partie.
 
