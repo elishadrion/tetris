@@ -31,11 +31,11 @@ rectangle Wizard_Poker {
     (Consulter sa collection de cartes) as view_carte
     (Gestion de decks) as gest_deck
     (Créer un deck) as create_deck
-    (Consulter/modifier deck) as modif_deck
+    (Consulter/modifier un deck) as modif_deck
     (Supprimer un deck) as delete_deck
     (Gérer une liste d'amis) as gest_amis
     (Trouver un adversaire pour un duel) as find_player
-    (Proposer à un ami une partie) as friend_player
+    (Proposer une partie à un ami) as friend_player
     (Jouer une partie) as play
     (Discuter avec ses amis) as discut_friends
     (Consulter le classement des joueurs) as classement

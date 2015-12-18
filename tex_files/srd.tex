@@ -117,33 +117,36 @@ d'exploitation, il est demandé d'implémenter un jeu de cartes en ligne.
 
 \medbreak
 
+\index{Créature}
+\index{Sort}
 Ce projet devra fournir un jeu de cartes symétrique où deux joueurs
 pourront s'affronter et gagner des points pour un classement
 général. Chaque joueur disposera d'un ensemble de cartes avec lesquelles
 il pourra affronter ses adversaires. Ces cartes pourront être des
-\index{Créature}s pouvant attaquer et des cartes de type
-\index{Sort} qui lanceront des événements spéciaux.
+créatures pouvant attaquer et des cartes de type
+sort qui lanceront des événements spéciaux.
 
 \medbreak
 
 Le système fournira à l'utilisateur une interface intuitive, un gestionnaire
 d'amis, un service de tchat pour pouvoir rester en contact avec eux ainsi
 qu'un classement général où chaque joueur pourra comparer ses résultats avec
-les autres.
+ceux des autres.
 
 \medbreak
 
-Le Wizard Poker sera disponible à n'importe quel joueur enregistré
-pour jouer contre d'autres joueurs (également enregistrés), lui
+Le Wizard Poker sera disponible pour n'importe quel joueur enregistré
+afin de jouer contre d'autres joueurs (également enregistrés), lui
 permettant d'essayer de gagner des places dans le classement
 général. Il permettra aussi à des invités de consulter ce classement
 et de s'enregistrer en tant que nouveau joueur.
 
 \medbreak
 
+\index{Deck}
 Dans le cas d'une inscription, le nouveau joueur recevra ses premières
 cartes. De plus, tout joueur sera invité à confectionner son premier
-\index{Deck} avant d'affronter son premier adversaire.
+Deck avant d'affronter son premier adversaire.
 
 \subsection{Historique du document}
 \label{sec:hist}
@@ -153,7 +156,6 @@ cartes. De plus, tout joueur sera invité à confectionner son premier
   \centering
   \begin{tabular}[ht]{|l|l|l|p{18em}|}
     \hline
-
     \textbf{Version}
     & \textbf{Auteur}
     & \textbf{Date modification}
@@ -194,7 +196,7 @@ Lors de la création d'un compte, le joueur recevra 100 cartes dans sa \gls{coll
 \index{Sort}
 \index{Défausser}
 \index{Monstre}
-Il existe deux types de \gls{carte}s dans le jeu. D'une part, on retrouve les cartes \gls{sort}s qui sont des cartes à effets. Cependant, dès qu'une carte \gls{sort} aura été jouée, elle sera directement \gls{defausse}e et son effet sera immédiat (dans la majorité des cas). D'autre part, on retrouve les cartes \gls{monstre}s qui sont des cartes devant être posées sur le plateau par le joueur. Pour pouvoir attaquer avec les monstres, ces derniers doivent être sur le terrain depuis plus d'un tour au minimum. Certains monstres peuvent aussi avoir plusieurs effets spéciaux.
+Il existe deux types de \gls{carte}s dans le jeu. D'une part, on retrouve les cartes \gls{sort}s qui sont des cartes à effets. Cependant, dès qu'une carte \gls{sort} aura été jouée, elle sera directement \gls{defausse}e et son effet sera immédiat (dans la majorité des cas). D'autre part, on retrouve les cartes \gls{monstre}s qui sont des cartes devant être posées sur le plateau par le joueur. Pour pouvoir attaquer avec les monstres, ces derniers doivent être sur le terrain au minimum depuis plus d'un tour. Certains monstres peuvent aussi avoir plusieurs effets spéciaux.
 
 \medbreak
 
@@ -221,16 +223,17 @@ Lors de chaque début de partie, chaque joueur commence avec 20 points de vie, 1
 
 \medbreak
 
-En ce qui concerne le mode de jeu, il s'agit ici d'un jeu de cartes au tour par tour.  Cela signifie que chaque utilisateur joue à son tour.  Les joueurs ne jouent donc jamais au même instant.  Lorsque vient le tour d'un jour, celui-ci se voit offrir le choix entre plusieurs actions. Il peut:
+En ce qui concerne le mode de jeu, il s'agit ici d'un jeu de cartes au tour par tour.  Cela signifie que chaque utilisateur joue à son tour.  Les joueurs ne jouent donc jamais au même instant.  Lorsque vient le tour d'un joueur, celui-ci se voit offrir le choix entre plusieurs actions. Il peut:
 
+\index{Sort}
 \begin{itemize}
- \item[\textbullet] poser une carte \index{Sort} ;
- \item[\textbullet] poser une carte monstre ;
+ \item[\textbullet] poser une carte Sort;
+ \item[\textbullet] poser une carte Monstre;
  \item[\textbullet] demander à une carte monstre d'attaquer soit une carte Monstre adverse, soit le joueur adverse lui-même ;
  \item[\textbullet] finir son tour.
 \end{itemize}
 
-Pour pouvoir demander à une carte monstre d'attaquer il faut que celle-ci ai été placée au tour précédent.  Lorsqu'une carte monstre attaque un élément adverse (que ça soit une carte monstre ou le joueur adverse) les deux éléments perdent le nombre de points de vie égal à la valeur d'attaque de la carte attaquante.  Lorsqu'une carte monstre à 0 (ou moins) point de vie, elle meurt et est défaussée.
+Pour pouvoir demander à une carte monstre d'attaquer il faut que celle-ci ait été placée au tour précédent.  Lorsqu'une carte monstre attaque un élément adverse (que ça soit une carte monstre ou le joueur adverse) les deux éléments perdent le nombre de points de vie égal à la valeur d'attaque de la carte attaquante.  Lorsqu'une carte monstre à 0 (ou moins) point de vie, elle meurt et est défaussée.
 
 \medbreak
 
@@ -239,7 +242,7 @@ Les joueurs pourront chacun poser au maximum 7 cartes monstres sur le plateau ai
 
 \medbreak
 
-Une partie se termine lorsqu'un des deux joueurs arrive à 0 (ou moins) point de vie.  Celui-ci aura donc perdu la partie.  Par contre, le joueur vainqueur recevra une carte qui sera choisie aléatoirement parmi toutes les cartes disponibles dans le jeux.
+Une partie se termine lorsqu'un des deux joueurs arrive à 0 (ou moins) point de vie.  Celui-ci aura donc perdu la partie.  Par contre, le joueur vainqueur recevra une carte qui sera choisie aléatoirement parmi toutes les cartes disponibles dans le jeu.
 
 
 \subsection{Exigences fonctionnelles}
@@ -278,7 +281,7 @@ Le joueur peut consulter l'ensemble des cartes présentes dans sa
 \subsubsection*{Gestion de decks}
 
 \index{Deck}
-Plusieurs actions peuvent être effectuées sur les \index{Deck}s telles
+Plusieurs actions peuvent être effectuées sur les decks telles
 qu'en supprimer un ou plusieurs, les consulter, les modifier ou tout
 simplement en créer un nouveau.
 
@@ -287,7 +290,7 @@ simplement en créer un nouveau.
 
 \index{Liste d'amis}
 Chaque joueur aura une liste d'amis avec lesquels il pourra
-intéragir s'il le souhaite. Il pourra donc ajouter ou supprimer un ami de sa liste.
+interagir s'il le souhaite. Il pourra donc ajouter ou supprimer un ami de sa liste.
 
 
 \subsubsection*{Discuter avec ses amis}
@@ -295,8 +298,8 @@ intéragir s'il le souhaite. Il pourra donc ajouter ou supprimer un ami de sa li
 \index{Tchat}
 Le joueur pourra, à tout moment, parler avec un de ses amis
 actuellement connectés. Pour cela, un \gls{tchat} sera mis à la disposition
-du joueur.  Le joueur pourra donc communiquer avec ses amis par
-message à tout moment. Cependant un joueur ne peut communiquer qu'avec
+du joueur.  Le joueur pourra donc à tout moment communiquer avec ses amis par
+message. Cependant un joueur ne pourra communiquer qu'avec
 une personne à la fois.
 
 \subsubsection*{Proposer une partie à un ami}
@@ -334,9 +337,9 @@ Une des solutions trouvées est de rendre l'interface intuitive à l'aide de ``b
 
 
 \subsubsection*{Design}
-Le design est l'apparence qu'aura l'interface graphique. Elle est en partie liée au point précédent puisqu'une belle interface permettra à l'utilisateur de facilement repérer les différentes possibilités offertes par le jeu en plus d'en apprécier l'esthétique.
+Le design est l'apparence qu'aura l'interface graphique. Elle est en partie liée au point précédent puisqu'une interface attrayante permettra à l'utilisateur de facilement repérer les différentes possibilités offertes par le jeu en plus d'en apprécier l'esthétique.
 \medbreak
-Le design est un large ``domaine'' : c'est-à-dire qu'il définit aussi bien l'apparence du jeu  que les effets spéciaux (comme les différents sons et/ou musiques pouvant être intégrées au jeu).
+Le design est un large ``domaine'' : c'est-à-dire qu'il définit aussi bien l'apparence du jeu  que les effets spéciaux (comme les différents sons et/ou musiques pouvant être intégrés au jeu).
 
 
 \subsubsection*{Amusement}
@@ -346,7 +349,7 @@ Un des objectifs, même s'il est loin d'être le prioritaire dans ce contexte, e
 \subsection{Exigences de domaine}
 \label{sec:exi-dom}
 
-Le domaine du jeu vidéo laissant beaucoup de liberté, chaque créateur a la possibilité de développer son univers, ses concepts, etc.  Cependant, les jeux doivent permettre à leurs utilisateurs de trouver du plaisirs ou une certaine forme de satisfaction.  Il faut donc éviter, par exemple, qu'un joueur soit interrompu durant sa partie.  Les exigences du domaine ne sont pas nombreuses mais il peut être compliqué de toutes les satisfaire.
+Le domaine du jeu vidéo laissant beaucoup de liberté, chaque créateur a la possibilité de développer son univers, ses concepts, etc.  Cependant, les jeux doivent permettre à leurs utilisateurs de trouver du plaisir ou une certaine forme de satisfaction.  Il faut donc éviter, par exemple, qu'un joueur soit interrompu durant sa partie.  Les exigences du domaine ne sont pas nombreuses mais il peut être compliqué de toutes les satisfaire.
 
 \medbreak
 
@@ -354,7 +357,7 @@ Nous mettons en place ici un jeu de cartes et ce type de jeu impose quelques con
 
 \medbreak
 
-En conclusion, on peut dire qu'un utilisateur attend un jeu équilibré et une stabilité acceptable (voire infaillible coté serveur).  Nous nous concentrerons dans un premier temps à ce deuxième point.
+En conclusion, on peut dire qu'un utilisateur attend un jeu équilibré et une stabilité acceptable (voire infaillible côté serveur).  Nous nous concentrerons dans un premier temps sur ce deuxième point.
 
 
 
@@ -364,7 +367,7 @@ En conclusion, on peut dire qu'un utilisateur attend un jeu équilibré et une s
 \subsection{Exigences fonctionnelles}
 \label{sec:exi-fonc-sys}
 
-Dans cette partie, nous nous intéresserons sur ce que l'application doit
+Dans cette partie, nous nous intéresserons à ce que l'application doit
 faire pour interagir avec l'utilisateur et lui proposer toutes les
 actions mentionnées ci-dessus (voir \ref{sec:exi-fonc}). Nous détaillerons
 donc comment le système réalisera toutes ces tâches.
@@ -378,21 +381,20 @@ l'application.
 
 \medbreak
 
-Le système doit être tout d'abord robuste et stable, c'est-à-dire
+Le système doit tout d'abord être robuste et stable, c'est-à-dire
 gérer toutes les erreurs possibles, éviter les crashs et les éventuelles
 déconnexions.
 
 \medbreak
 
-Il doit par ailleurs être agréable d'utilisation pour l'utilisateur
+Par ailleurs, il doit être agréable d'utilisation pour le joueur
 (ergonomique et esthétique) et garantir que celui-ci ne puisse
 pas tricher pendant une partie.
 
 \medbreak
 
 En résumé, le système doit être robuste, stable, sûr, et excessivement amusant. Des
-heures de franche rigolade, en toute sécurité, sont assurées à tout
-utilisateur du jeu.
+heures de détente, en toute sécurité, sont assurées à tout utilisateur du jeu.
 
 \subsection{Design et fonctionnement du système}
 \label{sec:design}
@@ -424,7 +426,7 @@ pouvoir initialiser une partie.
 \end{figure}
 
 \subsubsection{Diagrammes d'activité}
-L'objectif de ces trois diagrammes d'activité, présentés aux Figure \ref{fig:act1}, \ref{fig:act2}, \ref{fig:act3}, est de décrire comment va se dérouler une partie.
+L'objectif de ces trois diagrammes d'activité, présentés aux Figure \ref{fig:act1}, \ref{fig:act2}, \ref{fig:act3}, est de décrire le déroulement de la partie.
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.7\textwidth]{../uml_files/ActivityDiagram.png}
