@@ -138,8 +138,8 @@ ceux des autres.
 Le Wizard Poker sera disponible pour n'importe quel joueur enregistré
 afin de jouer contre d'autres joueurs (également enregistrés), lui
 permettant d'essayer de gagner des places dans le classement
-général. Il permettra aussi à des invités de consulter ce classement
-et de s'enregistrer en tant que nouveau joueur.
+général. Il permettra aussi à des visiteurs de s'enregistrer en tant que nouveaux joueurs.
+
 
 \medbreak
 
@@ -169,7 +169,7 @@ Deck avant d'affronter son premier adversaire.
     v0.3 & Rémy et Lucie  & 11/12/15 16h20 & Ajout de diagrammes, ajout de ``Exigences du domaine'' \\ \hline
     v0.2 & Amin et Maxime & 10/12/15 23h45 & Ajout de la partie ``Exigences fonctionnelles''\\ \hline
     v0.1 & Jonas et Raphaël & 10/12/15 13h28 & Ajout de la partie ``But du projet''\\ \hline
-    v0.0 & Carlos Requena & 26/11/15 22h30 & Mise en place du document.Ajout des diagrammes réalisés en groupe le 25/11/15.\\ \hline
+    v0.0 & Carlos Requena & 26/11/15 22h30 & Mise en place du document. Ajout des diagrammes réalisés en groupe le 25/11/15.\\ \hline
   \end{tabular}
   \caption{Changements apportés au document.}
   \label{tab:hist}
@@ -195,12 +195,12 @@ Lors de la création d'un compte, le joueur recevra 100 cartes dans sa \gls{coll
 \index{Sort}
 \index{Défausser}
 \index{Monstre}
-Il existe deux types de \gls{carte}s dans le jeu. D'une part, on retrouve les cartes \gls{sort}s qui sont des cartes à effets. Cependant, dès qu'une carte \gls{sort} aura été jouée, elle sera directement \gls{defausse}e et son effet sera immédiat (dans la majorité des cas). D'autre part, on retrouve les cartes \gls{monstre}s qui sont des cartes devant être posées sur le plateau par le joueur. Pour pouvoir attaquer avec les monstres, ces derniers doivent être sur le terrain au minimum depuis plus d'un tour. Certains monstres peuvent aussi avoir plusieurs effets spéciaux.
+Il existe deux types de \gls{carte}s dans le jeu. D'une part, on retrouve les cartes \gls{sort}s qui sont des cartes à effets. Cependant, dès qu'une carte \gls{sort} aura été jouée, elle sera directement \gls{defausse}e et son effet sera immédiat (dans la majorité des cas). D'autre part, on retrouve les cartes \gls{monstre}s qui sont des cartes devant être posées sur le plateau par le joueur. Pour pouvoir attaquer avec les monstres, ces derniers doivent être sur le terrain au minimum depuis un tour. Certains monstres peuvent aussi avoir plusieurs effets spéciaux.
 
 \medbreak
 
 \index{Deck}
-Avec cette \gls{collection} le joueur pourra créer un, voire, des \gls{deck}s.  Un \gls{deck} est composé d'exactement 20 cartes.  De plus, il peut y avoir au maximum deux fois la même carte dans un \gls{deck} mais seulement si le joueur possède au moins deux exemplaire de la-dite carte dans sa \gls{collection}.  Les Decks sont indépendants.  Cela signifie qu'une carte peut appartenir à plusieurs decks.
+Avec cette \gls{collection} le joueur pourra créer un, voire, des \gls{deck}s.  Un \gls{deck} est composé d'exactement 20 cartes.  De plus, il peut y avoir au maximum deux fois la même carte dans un \gls{deck} mais seulement si le joueur possède au moins deux exemplaires de la-dite carte dans sa \gls{collection}.  Les Decks sont indépendants.  Cela signifie qu'une carte peut appartenir à plusieurs decks.
 
 \medbreak
 
@@ -210,7 +210,7 @@ Toutes les cartes ayant un coût en \gls{energie}, celle-ci est primordiale dans
 \medbreak
 
 \index{Tchat}
-Le Wizard Poker étant un jeu en ligne, il permet donc de mettre les joueurs en contact. Premièrement, chaque joueur a la possibilité de gérer une liste d'amis. Un joueur pourra donc ajouter et retirer des amis dans sa liste. Mais il pourra également jouer des duels avec un de ses amis. Deuxièmement, le Wizard Poker propose un système de \gls{tchat} permettant à deux joueurs étant amis de s'échanger des messages.  Ce tchat est disponible à tout moment.
+Le Wizard Poker étant un jeu en ligne, il permet donc de mettre les joueurs en contact. Premièrement, chaque joueur a la possibilité de gérer une liste d'amis. Un joueur pourra donc ajouter et retirer des amis dans sa liste. Mais il pourra également jouer des duels avec ses amis. Deuxièmement, le Wizard Poker propose un système de \gls{tchat} permettant à deux joueurs étant amis de s'échanger des messages.  Ce tchat est disponible à tout moment.
 
 \medbreak
 
@@ -222,7 +222,7 @@ Lors de chaque début de partie, chaque joueur commence avec 20 points de vie, 1
 
 \medbreak
 
-En ce qui concerne le mode de jeu, il s'agit ici d'un jeu de cartes au tour par tour.  Cela signifie que chaque utilisateur joue à son tour.  Les joueurs ne jouent donc jamais au même instant.  Lorsque vient le tour d'un joueur, celui-ci se voit offrir le choix entre plusieurs actions. Il peut:
+En ce qui concerne le mode de jeu, il s'agit ici d'un jeu de cartes au tour par tour.  Cela signifie que chaque utilisateur joue à son tour.  Les joueurs ne jouent donc jamais en même temps.  Lorsque vient le tour d'un joueur, celui-ci se voit offrir le choix entre plusieurs actions. Il peut:
 
 \index{Sort}
 \begin{itemize}
@@ -232,12 +232,12 @@ En ce qui concerne le mode de jeu, il s'agit ici d'un jeu de cartes au tour par 
  \item[\textbullet] finir son tour.
 \end{itemize}
 
-Pour pouvoir demander à une carte monstre d'attaquer il faut que celle-ci ait été placée au tour précédent.  Lorsqu'une carte monstre attaque un élément adverse (que ça soit une carte monstre ou le joueur adverse) les deux éléments perdent le nombre de points de vie égal à la valeur d'attaque de la carte attaquante.  Lorsqu'une carte monstre à 0 (ou moins) point de vie, elle meurt et est défaussée.
+Pour pouvoir demander à une carte monstre d'attaquer il faut que celle-ci ait été placée au tour précédent (ou encore avant).  Lorsqu'une carte monstre attaque un élément adverse (que ça soit une carte monstre ou le joueur adverse) l'élément attaqué perd un nombre de points de vie égal à la valeur d'attaque de la carte attaquante. Lorsqu'une carte monstre a 0 (ou moins) point de vie, elle meurt et est défaussée.
 
 \medbreak
 
 
-Les joueurs pourront chacun poser au maximum 7 cartes monstres sur le plateau ainsi que n'avoir au maximum 7 cartes en main. Si à la fin du tour du joueur, ce dernier a plus de 7 cartes en main, il devra décider quelles cartes il souhaite défausser. De plus, si un joueur a épuisé toutes les cartes de son deck, il perdra 3 points de vie à chaque début de tour.
+Les joueurs pourront chacun poser au maximum 7 cartes monstres sur le plateau ainsi qu'avoir au maximum 7 cartes en main. Si à la fin du tour du joueur, ce dernier a plus de 7 cartes en main, il devra décider quelles cartes il souhaite défausser. De plus, si un joueur a épuisé toutes les cartes de son deck, il perdra 3 points de vie à chaque début de tour.
 
 \medbreak
 
@@ -246,7 +246,7 @@ Une partie se termine lorsqu'un des deux joueurs arrive à 0 (ou moins) point de
 
 \subsection{Exigences fonctionnelles}
 
-Les exigences fonctionnelles ne sont autres, ici, que celles présentées dans la Figure \ref{fig:usecasebesoin}. Nous y voyons, d'ailleurs deux types d'acteurs agissant sur le système : le joueur et le \gls{visiteur}. Les actions possibles par ceux-ci sur l'application sont décrites ci-dessous.
+Les exigences fonctionnelles ne sont autres, ici, que celles présentées dans la Figure \ref{fig:usecasebesoin}. Nous y voyons, d'ailleurs deux types d'acteurs agissant sur le système : le Joueur et le \gls{visiteur}. Les actions possibles par ceux-ci sur l'application sont décrites ci-dessous.
 
 \label{sec:exi-fonc}
 \begin{figure}[ht]
@@ -298,7 +298,7 @@ interagir s'il le souhaite. Il pourra donc ajouter ou supprimer un ami de sa lis
 Le joueur pourra, à tout moment, parler avec un de ses amis
 actuellement connectés. Pour cela, un \gls{tchat} sera mis à la disposition
 du joueur.  Le joueur pourra donc à tout moment communiquer avec ses amis par
-message. Cependant un joueur ne pourra communiquer qu'avec
+messagerie instantanée. Cependant un joueur ne pourra communiquer qu'avec
 une personne à la fois.
 
 \subsubsection*{Proposer une partie à un ami}
@@ -326,7 +326,7 @@ basera donc sur un ratio victoires/défaites.
 \subsection{Exigences non fonctionnelles}
 \label{sec:exi-nonfonc}
 
-Les exigences non fonctionnelles, n'étant, pour la plupart, pas indispensables au fonctionnement de l'application, ne seront pas mises en oeuvre en priorité.
+Les exigences non fonctionnelles, n'étant, pour la plupart, pas indispensables au fonctionnement de l'application, elles ne seront pas mises en œuvre en priorité.
 
 
 \subsubsection*{Ergonomie}
@@ -342,7 +342,7 @@ Le design est un large ``domaine'' : c'est-à-dire qu'il définit aussi bien l'a
 
 
 \subsubsection*{Amusement}
-Un des objectifs, même s'il est loin d'être le prioritaire dans ce contexte, est de créer une application attractive. Par ailleurs, plus les utilisateurs s'amuseront en jouant au Wizard Poker, plus elle sera attractive.
+Un des objectifs, même s'il est loin d'être le plus prioritaire dans ce contexte, est de créer une application attirante. Par ailleurs, plus les utilisateurs s'amuseront en jouant au Wizard Poker, plus elle sera attractive.
 
 
 \subsection{Exigences de domaine}
