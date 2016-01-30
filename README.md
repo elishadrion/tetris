@@ -1,13 +1,3 @@
-# Wizard Poker
+# INFO-F-209 Projet d'année
 
-wizaaaaaaard
-
-
-# UML
-
-Installer PlantUML ou http://www.planttext.com/planttext
-
-# SDR
-
-Faites des changements au fichier source autant que vous voulez pour
-modifier le layout etc.
+Wizard Poker: jeu de cartes fantastique dans lequel des joueurs s'affrontent dans des duels un contre un. Application client-serveur en C/C++.
