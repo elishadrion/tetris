@@ -6,13 +6,18 @@
  */
 
 #include <cstdlib>
+#include<istream>
 
-using namespace std;
 
-/*
+/**
+ * Main function
  * 
+ * @param argc the number of argument
+ * @param argv list of argument
  */
 int main(int argc, char** argv) {
+   
+    
     
     
     
