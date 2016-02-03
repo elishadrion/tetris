@@ -16,10 +16,10 @@
  */
 class Package {
     
-    static std::string separation = "|#|"; // string to separate informations
+    static std::string _separation = "|#|"; // string to separate informations
     
-    std::string channel; // identify the type of informations
-    void * data;
+    std::string _channel; // identify the type of informations
+    void * _data;
     
     
     

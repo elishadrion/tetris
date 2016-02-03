@@ -19,13 +19,11 @@ class Card {
     
     static std::map<int, Card> listCard; // List of card (with id and card)
     
+    
 public:
     Card(int id); // Load a card with his id (and stock it in listCard)
     Card(Card card); // copy contructor
     virtual Card copy(); // copy a card
-    
-    ///// STATIC /////
-    static virtual Card getCard(int id); // get a card with his id
     
     
 private:
