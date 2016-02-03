@@ -1,19 +1,10 @@
-/* 
- * File:   main.cpp
- * Author: Detobel36
- *
- * Created on 2 février 2016, 17:55
- */
-
 #include <cstdlib>
+#include <iostream>
 
-using namespace std;
+#include "Connection.hpp"
 
-/*
- * 
- */
 int main(int argc, char** argv) {
-
+    Connection ServerConnection;
+    std::cout << "Compiled" << "\n";
     return 0;
 }
-
