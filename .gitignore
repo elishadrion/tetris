@@ -182,3 +182,7 @@ pythontex-files-*/
 # endfloat
 *.ttt
 *.fff
+
+# netbeans
+nbproject/**
+**/nbproject
