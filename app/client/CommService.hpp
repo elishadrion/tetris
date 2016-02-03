@@ -60,7 +60,12 @@ int CommService::makeLoginRequest(String pseudo, String password) {
     
     //TODO we inform sendFunction to send a struct of size = 2*sizeof(int) + size
     //PROTOTYPE, wait for Carlos to see how send it (we return succes code ?)
-    return sendToServer((void*) loginRequestPacket, packetSize + loginRequestPacket->size);
+    int successCode = sendToServer((void*) loginRequestPacket, packetSize + loginRequestPacket->size);
+    
+    /* We must free the memory now, packet is not needed anymore */
+    delete loginRequestPacket;
+    
+    return successCode;
 }
 
 /* Create a packet for disconnection info and send it to the server througt socketManager
@@ -80,7 +85,12 @@ int CommService::sendDisconnection() {
     
     //TODO we inform sendFunction to send a struct of size = 2*sizeof(int)
     //PROTOTYPE, wait for Carlos to see how send it (we return succes code ?)
-    return sendToServer((void*) disconnectInfoPacket, packetSize);
+    int successCode = sendToServer((void*) disconnectInfoPacket, packetSize);
+    
+    /* We must free the memory now, packet is not needed anymore */
+    delete disconnectInfoPacket;
+    
+    return successCode;
 }
 
 
