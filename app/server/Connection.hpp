@@ -23,11 +23,14 @@
  * threading them to treat them separately.
  */
 class Connection {
+    socklen_t sin_size;
+    pthread_t thread_id;
     struct sockaddr_in6 guest;
-    struct addrinfo *get_client_info(void);
-    int prepare_socket(struct addrinfo*);
+
+    struct addrinfo* get_client_info(void) const;
+    int prepare_socket(struct addrinfo*) const;
 public:
-    int listen();
+    void run();
 };
 
 #endif /* CONNECTION_H */
