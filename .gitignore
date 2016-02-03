@@ -4,6 +4,9 @@
 *.o
 *.obj
 
+# Mac OS X debug
+*.o.dSYM
+
 # Precompiled Headers
 *.gch
 *.pch
