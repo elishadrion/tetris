@@ -6,7 +6,7 @@
  */
 
 #include <cstdlib>
-#include<istream>
+#include <istream>
 
 
 /**
