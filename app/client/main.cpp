@@ -1,26 +1,11 @@
-/* 
- * File:   main.cpp
- * Author: Detobel36
- *
- * Created on 2 février 2016, 16:08
- */
-
 #include <cstdlib>
-#include <istream>
+#include <iostream>
 
+#include "Connection.cpp"
 
-/**
- * Main function
- * 
- * @param argc the number of argument
- * @param argv list of argument
- */
 int main(int argc, char** argv) {
-   
-    
-    
-    
-    
+    Connection ConnectionService;
+    ConnectionService.connect_to_host(argv[1]);
+
     return 0;
 }
-

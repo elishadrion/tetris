@@ -30,7 +30,7 @@ class Connection {
     struct addrinfo* get_client_info(void) const;
     int prepare_socket(struct addrinfo*) const;
 public:
-    void run();
+    void mainloop();
 };
 
 #endif /* CONNECTION_H */

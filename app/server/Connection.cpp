@@ -11,7 +11,8 @@ struct addrinfo* Connection::get_client_info(void) const {
     int ecode;
     if((ecode = getaddrinfo(NULL, PORT, &suggestions, &client_info)) != 0) {
 	printf("server - Failed getting address information: %s\n" , gai_strerror(ecode));
-    } /* status should be 0, not -1 */
+	exit(EXIT_FAILURE);
+    }
 
     return client_info;
 }
@@ -62,10 +63,11 @@ void* handler(void* new_fd) {
     return 0;
 }
 
-void Connection::run() {
+void Connection::mainloop() {
     // setup
     int sockfd = prepare_socket(get_client_info());
 
+    // loop
     while (1) {
 	int new_fd;		// where stuff happens
 	sin_size = sizeof guest;

@@ -7,6 +7,6 @@
 int main(int argc, char** argv) {
     Connection ServerConnection;
     std::cout << "Compiled" << "\n";
-    ServerConnection.run();
+    ServerConnection.mainloop();
     return 0;
 }
