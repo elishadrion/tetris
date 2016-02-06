@@ -3,6 +3,7 @@
 *.lo
 *.o
 *.obj
+*.d
 
 # Mac OS X debug
 *.o.dSYM

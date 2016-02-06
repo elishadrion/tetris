@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   Collection.hpp
  * Author: Detobel36
  *
@@ -12,11 +12,11 @@
 
 
 class Collection {
-    
-    std::vector<Card> _listAllCard;
-    
-    
-    
+
+    //std::vector<Card> _listAllCard;
+
+
+
 };
 
 
@@ -24,4 +24,3 @@ class Collection {
 
 
 #endif	/* COLLECTION_HPP */
-
