@@ -189,3 +189,12 @@ pythontex-files-*/
 # netbeans
 nbproject/**
 **/nbproject
+
+
+# build client
+/app/client/build/
+/app/client/dist/
+
+# build server
+/app/server/build/
+/app/server/dist/
