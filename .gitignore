@@ -191,6 +191,10 @@ pythontex-files-*/
 nbproject/**
 **/nbproject
 
+# codeblock
+*.cbp
+*.depend
+
 
 # build client
 /app/client/build/

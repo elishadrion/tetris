@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   MainMenu.hpp
  * Author: Detobel36
  *
@@ -8,26 +8,30 @@
 #ifndef MAINMENU_HPP
 #define	MAINMENU_HPP
 
+#include "Display.hpp"
+
 
 class MainMenu : public Display {
-    
-    static Display menu[5];
-    
+
+    static Display *menu[5];
+
     MainMenu();
-    
+
     /**
      * function when the player have chose he menu
-     * 
+     *
      * @param number the button
      */
     void choseButton(int number);
-    
-    
+
+    ~MainMenu() = default;
+
+
 public:
     virtual void print();
-    
-    
-    
+
+
+
 };
 
 

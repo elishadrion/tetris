@@ -1,4 +1,10 @@
+
+#ifndef CONNECTION_CPP
+#define	CONNECTION_CPP
+
+
 #include "Connection.hpp"
+
 
 struct addrinfo* Connection::get_server_info(char* server) const {
     struct addrinfo *server_info;
@@ -10,8 +16,8 @@ struct addrinfo* Connection::get_server_info(char* server) const {
 
     int ecode;
     if((ecode = getaddrinfo(server, PORT, &suggestions, &server_info)) != 0) {
-	printf("client - Failed getting address information: %s\n" , gai_strerror(ecode));
-	exit(EXIT_FAILURE);
+        printf("client - Failed getting address information: %s\n" , gai_strerror(ecode));
+        exit(EXIT_FAILURE);
     }
 
     return server_info;
@@ -21,15 +27,17 @@ int Connection::prepare_socket(struct addrinfo* server_info) const {
     int sockfd;
     if ((sockfd = socket(server_info->ai_family, server_info->ai_socktype,
 			 server_info->ai_protocol)) == -1) {
-	perror("client: Failed to create socket");
-	exit(EXIT_FAILURE);
+
+        perror("client: Failed to create socket");
+        exit(EXIT_FAILURE);
     }
 
     if (connect(sockfd, server_info->ai_addr,
 		server_info->ai_addrlen) == -1) {
-	close(sockfd);
-	perror("client: Failed to connect using socket");
-	exit(EXIT_FAILURE);
+
+        close(sockfd);
+        perror("client: Failed to connect using socket");
+        exit(EXIT_FAILURE);
     }
     freeaddrinfo(server_info); // all done with this structure
 
@@ -44,3 +52,7 @@ void Connection::connect_to_host(char* hostname) {
 
     printf("Connecting to %s\n", to);
 }
+
+
+
+#endif	/* CONNECTION_HPP */

@@ -1,5 +1,5 @@
-#ifndef CONNECTION_H
-#define CONNECTION_H
+#ifndef CONNECTION_HPP
+#define CONNECTION_HPP
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -25,7 +25,8 @@ class Connection {
     int prepare_socket(struct addrinfo*) const;
 public:
     void connect_to_host(char*);
+
 };
 
 
-#endif /* CONNECTION_H */
+#endif /* CONNECTION_HPP */

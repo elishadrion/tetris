@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   Display.hpp
  * Author: Detobel36
  *
@@ -14,13 +14,13 @@
  * somethink
  */
 class Display {
-    
-    
+
+public:
     virtual void print() = 0; // Console mode
     // virtual void view() = 0;
-    
-    
-    
+
+
+
     virtual ~Display() = 0;
 };
 
