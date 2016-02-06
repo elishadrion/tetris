@@ -18,6 +18,13 @@ class CommService {
     /* Default size of all packet (without data) */
     const int packetSize = sizeof(int)*2;
     
+    /* default packet struct (can be use for empty data) */
+    typedef struct {
+        int ID;
+        int size;
+        struct data;
+    } packet;
+    
     /* Login packet */
     typedef struct {
         int ID;
@@ -28,25 +35,17 @@ class CommService {
         }; /* We only define data struct, we must include it */
         struct loginData data;
     } loginPacket;
-    
-    /* Logout packet (only optional) */
-    typedef struct {
-        int ID;
-        int size;
-        struct data;
-    } disconnectPacket;
 public:
     /* API for other service */
-    int makeLoginRequest(const String, const String);
-    int sendDisconnection();
+    void makeLoginRequest(const String, const String);
+    void sendDisconnection();
 }
 
 /* Create a packet for login request and send it to the server througt socketManager
  * @param pseudo : the user's pseudo to test
  * @param password : the user's password for the user's pseudo
- * @return an error code or 0 if success, you can test these to catch error
  */
-int CommService::makeLoginRequest(String pseudo, String password) {
+void CommService::makeLoginRequest(String pseudo, String password) {
     /* Packet to send to the server ton make a login request :
      * int ID : ID of the packet (for receiver to know how the read data)
      * int size : size of the data struct to see if we have all packet
@@ -54,24 +53,22 @@ int CommService::makeLoginRequest(String pseudo, String password) {
      */
     loginPacket *loginRequestPacket = new loginPacket();
     loginRequestPacket->ID = LOGIN_REQ_ID;
-    loginRequestPacket->size = pseudo.size() + password.size();
+    loginRequestPacket->size = sizeof(pseudo)+sizeof(password);
     loginRequestPacket->data.pseudo = pseudo;
     loginRequestPacket->data.password = password;
     
     //TODO we inform sendFunction to send a struct of size = 2*sizeof(int) + size
     //PROTOTYPE, wait for Carlos to see how send it (we return succes code ?)
-    int successCode = sendToServer((void*) loginRequestPacket, packetSize + loginRequestPacket->size);
+    sendToServer((void*) loginRequestPacket, packetSize + loginRequestPacket->size);
     
     /* We must free the memory now, packet is not needed anymore */
     delete loginRequestPacket;
-    
-    return successCode;
 }
 
 /* Create a packet for disconnection info and send it to the server througt socketManager
- * @return an error code or 0 if success, you can test these to catch error
+ * So server can see a difference between timeout, conneciton crash and volontary disconnection
  */
-int CommService::sendDisconnection() {
+void CommService::sendDisconnection() {
     int sizeOfData = 0;
 
     /* Packet to send to the server ton make a login request :
@@ -79,19 +76,16 @@ int CommService::sendDisconnection() {
      * int size : size of the data struct to see if we have all packet
      * struct data : contains arguments for request. Here, pseudo and password
      */
-    disconnectPacket *disconnectInfoPacket = new disconnectPacket();
-    disconnectInfoPacket->ID = DISCONNECT_ID;
-    disconnectInfoPacket->size = 0;
+    packet *disconnectInfoPacket = new packet();
+    packet->ID = DISCONNECT_ID;
+    packet->size = 0;
     
     //TODO we inform sendFunction to send a struct of size = 2*sizeof(int)
     //PROTOTYPE, wait for Carlos to see how send it (we return succes code ?)
-    int successCode = sendToServer((void*) disconnectInfoPacket, packetSize);
+    sendToServer((void*) disconnectInfoPacket, packetSize);
     
     /* We must free the memory now, packet is not needed anymore */
     delete disconnectInfoPacket;
-    
-    return successCode;
 }
-
 
 #endif	/* COMMSERVICE_HPP */
