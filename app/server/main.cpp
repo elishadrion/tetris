@@ -1,8 +1,7 @@
 #include <cstdlib>
 #include <iostream>
 
-//#include "Connection.hpp"
-#include "Connection.cpp"
+#include "Connection.hpp"
 
 int main(int argc, char** argv) {
     Connection ServerConnection;
