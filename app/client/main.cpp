@@ -9,3 +9,12 @@ int main(int argc, char** argv) {
 
     return 0;
 }
+
+void handler(int sockfd) {
+    std::string line;
+    char buf[MAXDATASIZE];
+    while (std::getline(std::cin, line)) {
+	strcpy(buf, line.c_str());
+	send(sockfd, buf, sizeof line, 0);
+    }
+}
