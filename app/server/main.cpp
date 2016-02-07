@@ -1,9 +1,16 @@
 #include <cstdlib>
 #include <iostream>
 
-#include "Connection.cpp"
+#include "Connection.hpp"
 
 int main(int argc, char** argv) {
+
+    std::cout << "-=- Starting server -=-" << std::endl;
+
+    // Load card
+    CardManager.loadCards();
+
+    // Start listener
     Connection ServerConnection;
     ServerConnection.mainloop();
     return 0;

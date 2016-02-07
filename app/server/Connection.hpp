@@ -1,5 +1,5 @@
-#ifndef CONNECTION_H
-#define CONNECTION_H
+#ifndef CONNECTION_HPP
+#define CONNECTION_HPP
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -17,7 +17,7 @@
 #include <pthread.h>
 
 #define PORT "5555"
-#define BACKLOG 5 		/* Pending connections the queue will hold */
+#define BACKLOG 5       /* Pending connections the queue will hold */
 #define MAXDATASIZE 200
 
 /**
@@ -35,4 +35,4 @@ public:
     void mainloop();
 };
 
-#endif /* CONNECTION_H */
+#endif /* CONNECTION_HPP */

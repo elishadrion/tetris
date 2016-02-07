@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   CardCreature.hpp
  * Author: Detobel36
  *
@@ -9,15 +9,15 @@
 #define	CARDCREATURE_HPP
 
 class CardCreature : public Card {
-    
-    int _heal;
-    int _attack;
-    
+
+    std::size_t _heal;
+    std::size_t _attack;
+
 public:
     virtual void attack();
-    
-    
-    
+
+
+
 };
 
 

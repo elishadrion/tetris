@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   CardManager.hpp
  * Author: Detobel36
  *
@@ -14,16 +14,16 @@
  * (Must not be a Class #JavaPower)
  */
 class CardManager {
-    
+
     static std::map<int, Card> listCard; // List of card (with id and card)
-    
-    
+
+
 public:
-    virtual void loadCards();
-    
-    
-    
-    
+    static void loadCards();
+    virtual Card loadCard(std::size_t id);
+
+
+
 };
 
 

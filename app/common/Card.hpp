@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   Cards.hpp
  * Author: Detobel36
  *
@@ -10,30 +10,40 @@
 
 #include <string>
 #include <map>
+#include <cstddef>
 
 
 /**
  * One class per card.  Contain all informations of the card
  */
 class Card {
-    
-    static std::map<int, Card> listCard; // List of card (with id and card)
-    
-    
+
+    static std::map<std::size_t, Card> listCard; // List of card (with id and card)
+
+
 public:
-    Card(int id); // Load a card with his id (and stock it in listCard)
+    // Default constructor ?
+    Card(std::size_t id, std::string name, std::size_t energy, std::size_t heal,
+        std::string effect);
+
     Card(Card card); // copy contructor
     virtual Card copy(); // copy a card
-    
-    
+
+    void placeCard(); // call when we place this card
+
+
+    ///// STATIC /////
+    static Card getCard(std::size_t id); // Get a specific card (identified by ID)
+
+
 private:
-    int _id; // id or the cards
+    std::size_t _id; // id or the cards
     std::string _name; // name of the cards
-    int _energyCost;
-    int _heal;
-    Effect effect; // His special effect
-    
-    
+    std::size_t _energyCost;
+    std::size_t _heal;
+    Effect _effect; // His special effect
+
+
     virtual ~Card() = 0; // Abstract class because we cann't instance it
 };
 
