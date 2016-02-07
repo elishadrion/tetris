@@ -8,6 +8,11 @@
 #ifndef CARDMANAGER_HPP
 #define	CARDMANAGER_HPP
 
+#include <map>
+
+
+#include "Effect.hpp"
+#include "../common/Card.hpp"
 
 /**
  * Load and save Card on file
@@ -15,15 +20,15 @@
  */
 class CardManager {
 
-    static std::map<int, Card> listCard; // List of card (with id and card)
+    static std::map<int, Card&> listCard; // List of card (with id and card)
 
 
 public:
     static void loadCards();
-    virtual Card loadCard(std::size_t id);
+    virtual Card& loadCard(std::size_t id);
 
 
-
+    virtual ~CardManager() = default;
 };
 
 

@@ -18,22 +18,19 @@
  */
 class Card {
 
-    static std::map<std::size_t, Card> listCard; // List of card (with id and card)
+    static std::map<std::size_t, Card*> listCard; // List of card (with id and card)
 
 
 public:
     // Default constructor ?
     Card(std::size_t id, std::string name, std::size_t energy, std::size_t heal,
-        std::string effect);
+        std::string effect, bool);
 
-    Card(Card card); // copy contructor
-    virtual Card copy(); // copy a card
-
-    void placeCard(); // call when we place this card
+    Card(Card& card); // copy contructor
 
 
     ///// STATIC /////
-    static Card getCard(std::size_t id); // Get a specific card (identified by ID)
+    static Card* getCard(std::size_t id); // Get a specific card (identified by ID)
 
 
 private:
@@ -41,9 +38,10 @@ private:
     std::string _name; // name of the cards
     std::size_t _energyCost;
     std::size_t _heal;
-    Effect _effect; // His special effect
+    std::string _effect; // His special effect
 
 
+public:
     virtual ~Card() = 0; // Abstract class because we cann't instance it
 };
 

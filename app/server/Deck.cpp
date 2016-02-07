@@ -1,7 +1,9 @@
 
-#include "Deck.hpp"
 #include <algorithm>    // std::find
 #include <stdexcept>
+
+#include "Deck.hpp"
+
 
 /**
  * Check if the deck is valide.
