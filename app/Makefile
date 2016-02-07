@@ -1,10 +1,11 @@
-CC = g++-5
-CPPFLAGS = -std=c++14 -ggdb3 -Wpedantic -Wall -Wextra -Wconversion	\
+CXX = g++-5
+CXXFLAGS = -std=c++14 -ggdb3 -Wpedantic -Wall -Wextra -Wconversion	\
 -Weffc++ -Wstrict-null-sentinel -Wold-style-cast -Wnoexcept		\
 -Wctor-dtor-privacy -Woverloaded-virtual -Wsign-promo			\
 -Wzero-as-null-pointer-constant -Wsuggest-final-types			\
 -Wsuggest-final-methods -Wsuggest-override -pthread
-CPPFLAGS += -MMD -MP		# Gen dependencies
+CXXFLAGS += -MMD -MP		# Gen dependencies
+
 S_DIR = server
 C_DIR = client
 
@@ -17,7 +18,7 @@ DEP_S=$(SRC_S:.cpp=.d)
 -include $(DEP_S)		# Hyphen ignores errors
 
 server_wizard: $(OBJ_S)
-	$(CC) -lpthread -o $@ $^
+	$(CXX) -o $@ $^
 
 SRC_C = $(wildcard $(C_DIR)/*.cpp)
 OBJ_C = $(SRC_C:.cpp=.o)
@@ -25,7 +26,7 @@ DEP_C = $(SRC_C:.cpp=.d)
 -include $(DEP_C)		# Hyphen ignores errors
 
 client_wizard: $(OBJ_C)
-	$(CC) -o $@ $^
+	$(CXX) -o $@ $^
 
 
 clean:
