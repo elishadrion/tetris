@@ -1,4 +1,3 @@
-
 #ifndef CONNECTION_CPP
 #define	CONNECTION_CPP
 
@@ -39,18 +38,30 @@ int Connection::prepare_socket(struct addrinfo* server_info) const {
         perror("client: Failed to connect using socket");
         exit(EXIT_FAILURE);
     }
+
     freeaddrinfo(server_info); // all done with this structure
 
     return sockfd;
 }
 
 void Connection::connect_to_host(char* hostname) {
+
     char to[INET6_ADDRSTRLEN];
     struct addrinfo* server_info = get_server_info(hostname);
     /* Network to presentation of address, not clean! */
     inet_ntop(AF_INET6, &(((struct sockaddr_in6*)(struct sockaddr *)server_info->ai_addr)->sin6_addr), to, INET6_ADDRSTRLEN);
 
+    int sockfd = prepare_socket(server_info);
+
     printf("Connecting to %s\n", to);
+    std::string line;
+    char buf[MAXDATASIZE];
+    while (std::getline(std::cin, line)) {
+	strcpy(buf, line.c_str());
+	send(sockfd, buf, sizeof line, 0);
+    }
+
+    close(sockfd);
 }
 
 

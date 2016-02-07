@@ -3,6 +3,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <iostream>
 #include <unistd.h>
 #include <errno.h>
 #include <string.h>
@@ -17,6 +18,7 @@
 
 #define PORT "5555"
 #define BACKLOG 5 		/* Pending connections the queue will hold */
+#define MAXDATASIZE 200
 
 /**
  * Helper class to handle all incoming connections from clients and
@@ -27,7 +29,7 @@ class Connection {
     pthread_t thread_id;
     struct sockaddr_in6 guest;
 
-    struct addrinfo* get_client_info(void) const;
+    struct addrinfo* get_machine_info(void) const;
     int prepare_socket(struct addrinfo*) const;
 public:
     void mainloop();

@@ -3,6 +3,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <iostream>
 #include <unistd.h>
 #include <errno.h>
 #include <string.h>
@@ -18,8 +19,6 @@
 
 class Connection {
     char hostname[INET6_ADDRSTRLEN];
-    //struct addrinfo *server_info, *p;
-
 
     struct addrinfo* get_server_info(char*) const;
     int prepare_socket(struct addrinfo*) const;

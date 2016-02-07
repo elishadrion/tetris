@@ -30,6 +30,7 @@
 *.exe
 *.out
 *.app
+*_wizard
 
 # Backup files
 *.tex~
@@ -196,6 +197,8 @@ nbproject/**
 *.depend
 *.layout
 
+# Emacs files
+.dir-locals.el
 
 # build client
 /app/client/build/

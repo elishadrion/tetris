@@ -1,4 +1,4 @@
-CC = g++
+CC = g++-5
 CPPFLAGS = -std=c++14 -ggdb3 -Wpedantic -Wall -Wextra -Wconversion	\
 -Weffc++ -Wstrict-null-sentinel -Wold-style-cast -Wnoexcept		\
 -Wctor-dtor-privacy -Woverloaded-virtual -Wsign-promo			\
@@ -11,14 +11,13 @@ C_DIR = client
 .PHONY: clean tests all
 all: server_wizard client_wizard
 
-
 SRC_S=$(wildcard $(S_DIR)/*.cpp)
 OBJ_S=$(SRC_S:.cpp=.o)
 DEP_S=$(SRC_S:.cpp=.d)
 -include $(DEP_S)		# Hyphen ignores errors
 
 server_wizard: $(OBJ_S)
-	$(CC) -o $@ $^
+	$(CC) -lpthread -o $@ $^
 
 SRC_C = $(wildcard $(C_DIR)/*.cpp)
 OBJ_C = $(SRC_C:.cpp=.o)
@@ -27,7 +26,6 @@ DEP_C = $(SRC_C:.cpp=.d)
 
 client_wizard: $(OBJ_C)
 	$(CC) -o $@ $^
-
 
 
 clean:
