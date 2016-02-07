@@ -194,6 +194,7 @@ nbproject/**
 # codeblock
 *.cbp
 *.depend
+*.layout
 
 
 # build client
