@@ -44,6 +44,8 @@ int Connection::prepare_socket(struct addrinfo* server_info) const {
     return sockfd;
 }
 
+void handler(int);
+
 void Connection::connect_to_host(char* hostname) {
 
     char to[INET6_ADDRSTRLEN];
@@ -54,13 +56,8 @@ void Connection::connect_to_host(char* hostname) {
     int sockfd = prepare_socket(server_info);
 
     printf("Connecting to %s\n", to);
-    std::string line;
-    char buf[MAXDATASIZE];
-    while (std::getline(std::cin, line)) {
-	strcpy(buf, line.c_str());
-	send(sockfd, buf, sizeof line, 0);
-    }
 
+    handler(sockfd);
     close(sockfd);
 }
 

@@ -53,35 +53,18 @@ int Connection::prepare_socket(struct addrinfo* machine_info) const {
 
 }
 
-// This could be an external function!!
-void* handler(void* new_fd) {
-    // sockfd to communicate with client.
-    int sockfd = *(int*)new_fd;
-
-    // Game, login, etc... different calls
-    // Example: stream server printing what the clients are saying
-
-    int numbytes;
-    char buf[MAXDATASIZE];
-    while ((numbytes = recv(sockfd, buf, MAXDATASIZE, 0))) {
-        buf[numbytes] = '\0';
-
-        printf("server - received '%s'\n", buf);
-    }
-
-    close(sockfd);
-    return 0;
-}
+// Forward declaration
+void* handler(void* new_fd);
 
 void Connection::mainloop() {
     // setup
     int sockfd = prepare_socket(get_machine_info());
 
+    std::cout << "Server listening..." << "\n";
     // loop
     while (1) {
         int new_fd;		// where stuff happens
         sin_size = sizeof guest;
-        printf("Listening on socket %i ..... | ", sockfd);
         if ((new_fd = accept(sockfd, (struct sockaddr *)&guest, &sin_size)) == -1) {
             perror("server - Error extracting connection request");
             exit(EXIT_FAILURE);
@@ -95,7 +78,5 @@ void Connection::mainloop() {
             perror("server - Could not create thread");
             exit(EXIT_FAILURE);
         }
-
-        pthread_join(thread_id , NULL);
     }
 }
