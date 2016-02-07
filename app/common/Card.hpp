@@ -46,10 +46,9 @@ public:
 };
 
 
-Card::~Card() = default;
+//Card::~Card() = default;
 
 
 
 
 #endif	/* CARD_HPP */
-

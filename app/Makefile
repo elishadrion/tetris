@@ -18,7 +18,7 @@ DEP_S=$(SRC_S:.cpp=.d)
 -include $(DEP_S)		# Hyphen ignores errors
 
 server_wizard: $(OBJ_S)
-	$(CC) -o $@ $^ -lpthread
+	$(CXX) -o $@ $^ -lpthread
 
 SRC_C = $(wildcard $(C_DIR)/*.cpp)
 OBJ_C = $(SRC_C:.cpp=.o)
