@@ -17,11 +17,11 @@ class Game {
 
 
 
-    Game(Player p1, Player p2);
+    Game(Player* p1, Player* p2);
 
     PlayerInGame* _player1;
     PlayerInGame* _player2;
-    int currentPlayer = 1; // Player the must play now (0 or 1)
+    unsigned int _currentPlayer = 0; // Player the must play now (0 or 1)
     // Add log (file ?)
 
 
@@ -34,7 +34,7 @@ public:
     virtual ~Game() = default;
 
 
-    static void findAdversary(Player player); // Find a other player to play a game
+    static void addPlayerWaitGame(Player player); // Add a player to the PlayerWait list
 
 };
 
