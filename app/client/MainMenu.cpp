@@ -5,13 +5,19 @@
 
 MainMenu::MainMenu() {
 
+
     // menu[0] = new PlayMenu();
     // ect
 
 }
 
+/**
+ * function when the player have chose he menu
+ *
+ * @param number the button
+ */
 void MainMenu::choseButton(int number) {
-    menu[number]->print();
+    (menu[number])->print();
 }
 
 

@@ -13,23 +13,16 @@
 
 class MainMenu : public Display {
 
-    static Display *menu[5];
+    // STATIC ?
+    Display** menu = new Display*[5];
 
-    MainMenu();
 
-    /**
-     * function when the player have chose he menu
-     *
-     * @param number the button
-     */
     void choseButton(int number);
-
-    ~MainMenu() = default;
 
 
 public:
-    virtual void print();
-
+    virtual void print() override;
+    MainMenu();
 
 
 };

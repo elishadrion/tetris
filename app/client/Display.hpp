@@ -21,10 +21,10 @@ public:
 
 
 
-    virtual ~Display() = 0;
+    virtual ~Display() = default;
 };
 
-Display::~Display() = default;
+//Display::~Display() = default;
 
 
 

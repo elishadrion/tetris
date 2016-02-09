@@ -42,7 +42,7 @@ void Deck::removeIdCard(const int id) {
  * @return index of the card (-1 if not found)
  */
 int Deck::indexOfCard(const int id) {
-    std::vector<int>::iterator it = std::find(_listCard.begin(), _listCard.end(), id);
+    std::vector<unsigned int>::iterator it = std::find(_listCard.begin(), _listCard.end(), id);
     if(it != _listCard.end()) {
         return *it;
     }

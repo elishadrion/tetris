@@ -1,10 +1,3 @@
-/*
- * File:   Deck.hpp
- * Author: Detobel36
- *
- * Created on 3 février 2016, 9:45
- */
-
 #ifndef DECK_HPP
 #define	DECK_HPP
 
@@ -16,7 +9,7 @@
  */
 class Deck {
 
-    std::vector<int>_listCard;
+    std::vector<unsigned int>_listCard;
     std::string _name; // name of the deck
 
 private:

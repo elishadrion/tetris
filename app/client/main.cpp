@@ -1,6 +1,9 @@
 #include <cstdlib>
 #include <iostream>
 
+#define CLIENT
+
+
 #include "Connection.hpp"
 
 int main(int argc, char** argv) {

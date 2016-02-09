@@ -1,3 +1,6 @@
+
+#include <iostream>
+
 #include "Connection.hpp"
 
 struct addrinfo* Connection::get_machine_info(void) const {

@@ -1,9 +1,3 @@
-/*
- * File:   Cards.hpp
- * Author: Detobel36
- *
- * Created on 3 février 2016, 9:01
- */
 
 #ifndef CARD_HPP
 #define	CARD_HPP
