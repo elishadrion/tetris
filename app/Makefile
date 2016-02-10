@@ -15,7 +15,7 @@ CLIENT_DIR = client
 COMMON_DIR = common
 
 .PHONY: clean tests all
-all: liblog4cpp server_wizard client_wizard
+all: server_wizard client_wizard
 
 SRC_S = $(wildcard $(SERVER_DIR)/*.cpp)
 SRC_S += $(wildcard $(COMMON_DIR)/*.cpp)
