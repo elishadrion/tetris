@@ -2,7 +2,9 @@
 #ifndef GAME_HPP
 #define	GAME_HPP
 
+#include <queue>
 #include <vector>
+
 #include "Player.hpp"
 #include "PlayerInGame.hpp"
 
@@ -13,24 +15,30 @@
  */
 class Game {
 
-    static std::vector<Player*> PlayerWaitGame;
+    static std::queue<Player*> PlayerWaitGame;
 
+    unsigned int _currentPlayer; // Player the must play now (0 or 1)
+    unsigned int _turn;
+    PlayerInGame* _player1;
+    PlayerInGame* _player2;
+    // Add log (file ?)
 
 
     Game(Player* p1, Player* p2);
 
-    PlayerInGame* _player1;
-    PlayerInGame* _player2;
-    unsigned int _currentPlayer = 0; // Player the must play now (0 or 1)
-    // Add log (file ?)
-
-
     virtual void nextPlayer();
+    void sendInformation();
+    void sendInformation(PlayerInGame* player);
+    PlayerInGame* getAdversePlayer(PlayerInGame* player);
+    std::vector<Card*> getAdversePlacedCard(PlayerInGame* player);
 
 
 public:
     //virtual void play();  // function when a player play. Call Listener.onPlayerPlay
 
+    Game(); // Default constuctor
+    Game(const Game&); // Copy constructor
+    Game& operator=(const Game&); // Copy operator
     virtual ~Game() = default;
 
 
@@ -38,7 +46,7 @@ public:
 
 };
 
-std::vector<Player*> Game::PlayerWaitGame;
+std::queue<Player*> Game::PlayerWaitGame;
 
 
 

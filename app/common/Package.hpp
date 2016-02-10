@@ -20,7 +20,7 @@ class Package {
 
 };
 
-std::string Package::separation = "|#|";
+//std::string Package::separation = "|#|";
 
 
 
