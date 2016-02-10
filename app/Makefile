@@ -3,7 +3,8 @@ CXXFLAGS = -std=c++14 -ggdb3 -Wpedantic -Wall -Wextra -Wconversion	\
 -Weffc++ -Wstrict-null-sentinel -Wold-style-cast -Wnoexcept		\
 -Wctor-dtor-privacy -Woverloaded-virtual -Wsign-promo			\
 -Wzero-as-null-pointer-constant -Wsuggest-final-types			\
--Wsuggest-final-methods -Wsuggest-override -pthread
+-Wsuggest-final-methods -Wsuggest-override
+LINKERFLAGS = -Llib -llog4cpp -pthread
 GEN_DEPS = -MMD -MP
 INCLUDE_ROOT_DIR = -I./
 
@@ -11,25 +12,26 @@ CXXFLAGS += $(GEN_DEPS) $(INCLUDE_ROOT_DIR)
 
 S_DIR = server
 C_DIR = client
+COMMON_DIR = common
 
 .PHONY: clean tests all
 all: server_wizard client_wizard
 
-SRC_S=$(wildcard $(S_DIR)/*.cpp)
+SRC_S=$(wildcard $(S_DIR)/*.cpp $(COMMON_DIR)/*.cpp)
 OBJ_S=$(SRC_S:.cpp=.o)
 DEP_S=$(SRC_S:.cpp=.d)
 -include $(DEP_S)		# Hyphen ignores errors
 
 server_wizard: $(OBJ_S)
-	$(CXX) -o $@ $^ -lpthread
+	$(CXX) -o $@ $^ $(LINKERFLAGS)
 
-SRC_C = $(wildcard $(C_DIR)/*.cpp)
-OBJ_C = $(SRC_C:.cpp=.o)
+SRC_C = $(wildcard $(C_DIR)/*.cpp)+$(wildcard $(COMMON_DIR)/*.cpp)
+OBJ_C = $(SRC_C:.cpp=.o)+
 DEP_C = $(SRC_C:.cpp=.d)
 -include $(DEP_C)		# Hyphen ignores errors
 
 client_wizard: $(OBJ_C)
-	$(CXX) -o $@ $^
+	$(CXX) -o $@ $^ $(LINKERFLAGS)
 
 
 clean:
