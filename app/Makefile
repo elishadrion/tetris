@@ -39,6 +39,7 @@ client_wizard: $(OBJ_C)
 clean:
 	rm -f $(OBJ_S) $(DEP_S) 2> /dev/null
 	rm -f $(OBJ_C) $(DEP_C) 2> /dev/null
+	rm -f *.log 2> /dev/null
 
 # Tests
 tests:
