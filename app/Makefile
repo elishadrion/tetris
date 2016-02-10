@@ -4,7 +4,10 @@ CXXFLAGS = -std=c++14 -ggdb3 -Wpedantic -Wall -Wextra -Wconversion	\
 -Wctor-dtor-privacy -Woverloaded-virtual -Wsign-promo			\
 -Wzero-as-null-pointer-constant -Wsuggest-final-types			\
 -Wsuggest-final-methods -Wsuggest-override -pthread
-CXXFLAGS += -MMD -MP		# Gen dependencies
+GEN_DEPS = -MMD -MP
+INCLUDE_ROOT_DIR = -I./
+
+CXXFLAGS += $(GEN_DEPS) $(INCLUDE_ROOT_DIR)
 
 S_DIR = server
 C_DIR = client

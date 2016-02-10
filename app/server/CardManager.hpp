@@ -6,7 +6,7 @@
 
 
 #include "Effect.hpp"
-#include "../common/Card.hpp"
+#include "common/Card.hpp"
 
 /**
  * Load and save Card on file
@@ -29,4 +29,3 @@ public:
 
 
 #endif	/* CARDMANAGER_HPP */
-
