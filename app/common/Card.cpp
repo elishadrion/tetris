@@ -1,7 +1,3 @@
-
-#ifndef CARD_CPP
-#define	CARD_CPP
-
 #include "Card.hpp"
 
 /**
@@ -45,7 +41,3 @@ Card* Card::getCard(const std::size_t id) {
         return listCard[id];
     }
 }
-
-
-
-#endif	/* CARD_CPP */

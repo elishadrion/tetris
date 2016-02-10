@@ -9,21 +9,24 @@ INCLUDE_ROOT_DIR = -I./
 
 CXXFLAGS += $(GEN_DEPS) $(INCLUDE_ROOT_DIR)
 
-S_DIR = server
-C_DIR = client
+SERVER_DIR = server
+CLIENT_DIR = client
+COMMON_DIR = common
 
 .PHONY: clean tests all
 all: server_wizard client_wizard
 
-SRC_S=$(wildcard $(S_DIR)/*.cpp)
-OBJ_S=$(SRC_S:.cpp=.o)
-DEP_S=$(SRC_S:.cpp=.d)
+SRC_S = $(wildcard $(SERVER_DIR)/*.cpp)
+SRC_S += $(wildcard $(COMMON_DIR)/*.cpp)
+OBJ_S = $(SRC_S:.cpp=.o)
+DEP_S = $(SRC_S:.cpp=.d)
 -include $(DEP_S)		# Hyphen ignores errors
 
 server_wizard: $(OBJ_S)
 	$(CXX) -o $@ $^ -lpthread
 
-SRC_C = $(wildcard $(C_DIR)/*.cpp)
+SRC_C = $(wildcard $(CLIENT_DIR)/*.cpp)
+SRC_C += $(wildcard $(COMMON_DIR)/*.cpp)
 OBJ_C = $(SRC_C:.cpp=.o)
 DEP_C = $(SRC_C:.cpp=.d)
 -include $(DEP_C)		# Hyphen ignores errors
