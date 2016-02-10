@@ -4,7 +4,10 @@
 #include <string>
 #include <list>
 
+using namespace std;
+
 class Packet {
+public:
     /* All packet ID */
     enum IDList {
         LOGIN_REQ_ID = 0,
@@ -39,11 +42,11 @@ class Packet {
         int ID;
         int size;
         struct collectionListData {
-            list collection;
-            list deck;
+            //list collection;
+            //list deck;
         }; /* We only define data struct, we must include it */
         struct collectionListData data;
     } collectionListPacket;
-}
+};
 
 #endif	/* PACKET_HPP */

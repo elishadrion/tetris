@@ -10,11 +10,11 @@ using namespace std;
 
 class CommService {
     
-    void manageCollectionListPacket(collectionListPacket*);
+    void manageCollectionListPacket(Packet::collectionListPacket*);
 public:
     /* API for other service */
-    void managePacket(void*);
-    void makeLoginRequest(const String, const String);
+    void managePacket(Packet::packet*);
+    void makeLoginRequest(const string, const string);
     void sendDisconnection();
     void requestCollection();
 };
