@@ -6,15 +6,19 @@
  * @param clientConsole : is the client in console mode ? fileAppender only : both
  */
 Logger::Logger(bool clientConsole = false) : _canUseStreamAppender(!clientConsole) {
+    /* We define the layout for the logger, e.g. "2016-02-10 17:58:22,255 [INFO] test" */
+    log4cpp::PatternLayout *customLayout = new log4cpp::PatternLayout();
+    customLayout->setConversionPattern("%d [%p] %m%n");
+    
     /* We define the stream appender */
     _streamAppender = new log4cpp::OstreamAppender("console", &std::cout);
-    _streamAppender->setLayout(new log4cpp::BasicLayout());
+    _streamAppender->setLayout(customLayout);
 	_root.addAppender(_streamAppender);
     
     /* We define the file appender only if we can use it */
     if (_canUseStreamAppender) {
-        _fileAppender = new log4cpp::FileAppender("default", "Wizard Poker.log");
-        _fileAppender->setLayout(new log4cpp::BasicLayout());
+        _fileAppender = new log4cpp::FileAppender("file", LOGFILE);
+        _fileAppender->setLayout(customLayout);
 	    _root.addAppender(_fileAppender);
     }
 }

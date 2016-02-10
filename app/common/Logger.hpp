@@ -10,8 +10,14 @@
 #include "log4cpp/FileAppender.hh"
 #include "log4cpp/OstreamAppender.hh"
 #include "log4cpp/Layout.hh"
-#include "log4cpp/BasicLayout.hh"
+#include "log4cpp/PatternLayout.hh"
 #include "log4cpp/Priority.hh"
+
+#ifdef SERVER
+#define LOGFILE "WizardPoker_server.log"
+#else
+#define LOGFILE "WizardPoker.log"
+#endif
 
 class Logger {
     log4cpp::Appender *_streamAppender;
