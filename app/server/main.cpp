@@ -4,9 +4,15 @@
 
 #include "Connection.hpp"
 #include "CardManager.hpp"
+#include "common/Logger.hpp"
 
 
 int main(int argc, char** argv) {
+    /* Init the logger system */
+    Logger *log = new Logger(false);
+    log->printInfo("Je suis une info");
+    log->printWarn("Je suis un warning");
+    log->printError("Je suis une erreur");
 
     std::cout << "-=- Starting server -=-" << std::endl;
 
