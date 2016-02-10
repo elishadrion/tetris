@@ -15,7 +15,7 @@ CLIENT_DIR = client
 COMMON_DIR = common
 
 .PHONY: clean tests all
-all: server_wizard client_wizard
+all: liblog4cpp server_wizard client_wizard
 
 SRC_S = $(wildcard $(SERVER_DIR)/*.cpp)
 SRC_S += $(wildcard $(COMMON_DIR)/*.cpp)
@@ -35,11 +35,9 @@ DEP_C = $(SRC_C:.cpp=.d)
 client_wizard: $(OBJ_C)
 	$(CXX) -o $@ $^ $(LINKERFLAGS)
 
-
 clean:
 	rm -f $(OBJ_S) $(DEP_S) 2> /dev/null
 	rm -f $(OBJ_C) $(DEP_C) 2> /dev/null
-	rm -f *.log 2> /dev/null
 
 # Tests
 tests:
