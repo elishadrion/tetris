@@ -1,31 +1,25 @@
 #ifndef CONNECTION_HPP
 #define CONNECTION_HPP
 
-#include <stdlib.h>
-#include <stdio.h>
+#include <cstdlib>
+#include <cstdio>
 #include <iostream>
 #include <unistd.h>
-#include <errno.h>
-#include <string.h>
+#include <cerrno>
+#include <cstring>
 #include <netdb.h>
 #include <sys/types.h>
 #include <netinet/in.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
-#include <string>
 
 #define PORT "5555"
 #define MAXDATASIZE 200
 
-class Connection {
-    char hostname[INET6_ADDRSTRLEN];
-
-    struct addrinfo* get_server_info(char*) const;
-    int prepare_socket(struct addrinfo*) const;
-public:
+namespace Connection {
+    struct addrinfo* get_server_info(char*);
+    int prepare_socket(struct addrinfo*);
     void connect_to_host(char*);
-
-};
-
+}
 
 #endif /* CONNECTION_HPP */

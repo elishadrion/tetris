@@ -4,8 +4,9 @@
 
 #include "Connection.hpp"
 
+void handler(int);
 
-struct addrinfo* Connection::get_server_info(char* server) const {
+struct addrinfo* Connection::get_server_info(char* server) {
     struct addrinfo *server_info;
     struct addrinfo suggestions;		  /* Main data structure */
     memset(&suggestions, 0, sizeof(suggestions));
@@ -22,7 +23,7 @@ struct addrinfo* Connection::get_server_info(char* server) const {
     return server_info;
 }
 
-int Connection::prepare_socket(struct addrinfo* server_info) const {
+int Connection::prepare_socket(struct addrinfo* server_info) {
     int sockfd;
     if ((sockfd = socket(server_info->ai_family, server_info->ai_socktype,
 			 server_info->ai_protocol)) == -1) {
@@ -43,8 +44,6 @@ int Connection::prepare_socket(struct addrinfo* server_info) const {
 
     return sockfd;
 }
-
-void handler(int);
 
 void Connection::connect_to_host(char* hostname) {
 

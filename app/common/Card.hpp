@@ -1,10 +1,10 @@
-
 #ifndef CARD_HPP
 #define	CARD_HPP
 
 #include <string>
 #include <map>
 #include <cstddef>
+
 
 
 /**
@@ -38,6 +38,7 @@ private:
 public:
     virtual ~Card() = 0; // Abstract class because we cann't instance it
 };
+
 
 
 //Card::~Card() = default;

@@ -5,12 +5,12 @@
 #include "Connection.hpp"
 
 int main(int argc, char** argv) {
-    Connection ConnectionService;
-    ConnectionService.connect_to_host(argv[1]);
+    Connection::connect_to_host(argv[1]);
 
     return 0;
 }
 
+// Il faut remplacer ca!!!
 void handler(int sockfd) {
     std::string line;
     char buf[MAXDATASIZE];

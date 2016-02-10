@@ -1,8 +1,7 @@
-
-#ifndef CARD_CPP
-#define	CARD_CPP
-
 #include "Card.hpp"
+
+std::map<std::size_t, Card*> Card::listCard;
+
 
 /**
  * Constructor
@@ -45,7 +44,3 @@ Card* Card::getCard(const std::size_t id) {
         return listCard[id];
     }
 }
-
-
-
-#endif	/* CARD_CPP */

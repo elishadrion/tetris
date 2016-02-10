@@ -33,11 +33,14 @@ class Player {
 
 
 public:
+    Player() {} // TO DO
     // Create the player (and open the file (if it exist) to complete the informations)
     // Stock the new player in the allPlayer list
     Player(int sockfd, std::string username);
 
-    virtual bool login(std::string pass); // Try to login
+    virtual bool login(std::string pass) {return true;} // Try to login
+
+    virtual ~Player() = default;
 
 
     ///// STATIC /////
@@ -45,10 +48,8 @@ public:
     static Player createPlayer(std::string username, std::string password);
 
 
-    virtual ~Player() = default;
-
 private:
-    virtual void save(); // Save the player in a file
+    virtual void save() {} // Save the player in a file TO DO
 
 
 };
