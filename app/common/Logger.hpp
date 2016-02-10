@@ -31,7 +31,7 @@ public:
     Logger(bool);
     ~Logger() = default;
     
-    /* API to log messages */
+    /* API to log messages (see cpp for doc) */
     void printInfo(std::string);
     void printWarn(std::string);
     void printError(std::string);

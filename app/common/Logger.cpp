@@ -23,14 +23,23 @@ Logger::Logger(bool clientConsole = false) : _canUseStreamAppender(!clientConsol
     }
 }
 
+/* Print an INFO message
+ * @param message : the string to log
+ */
 void Logger::printInfo(std::string message) {
     _root.info(message);
 }
 
+/* Print a WARNING message
+ * @param message : the string to log
+ */
 void Logger::printWarn(std::string message) {
     _root.warn(message);
 }
 
+/* Print an ERROR message
+ * @param message : the string to log
+ */
 void Logger::printError(std::string message) {
     _root.error(message);
 }
