@@ -8,9 +8,9 @@ using namespace std;
 /* Check ID of the packet to see where to send it
  * @param packet : a void pointer to the struct
  */
-void CommService::managePacket(Packet::packet* packet) {
-    /* We get ID of the packet */
-    switch(packet->ID) {
+void CommService::managePacket(void* packet) {
+    /* We get ID of the packet after cast void* to packet* */
+    switch(reinterpret_cast<Packet::packet*>(packet)->ID) {
         case Packet::LOGIN_REQ_ID : //TODO error why client get this ?
                             break;
         case Packet::DISCONNECT_ID : //TODO error why client get this ?

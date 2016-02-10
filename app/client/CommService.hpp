@@ -13,7 +13,7 @@ class CommService {
     void manageCollectionListPacket(Packet::collectionListPacket*);
 public:
     /* API for other service */
-    void managePacket(Packet::packet*);
+    void managePacket(void*);
     void makeLoginRequest(const string, const string);
     void sendDisconnection();
     void requestCollection();

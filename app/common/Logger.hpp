@@ -14,9 +14,9 @@
 #include "log4cpp/Priority.hh"
 
 #ifdef SERVER
-#define LOGFILE "WizardPoker_server.log"
+    #define LOGFILE "WizardPoker_server.log"
 #else
-#define LOGFILE "WizardPoker.log"
+    #define LOGFILE "WizardPoker.log"
 #endif
 
 class Logger {

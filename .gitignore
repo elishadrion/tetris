@@ -1,5 +1,5 @@
 # Lib src stuff
-/app/other/log4cpp-src/build
+/app/other/log4cpp-src/build/
 
 # Compiled Object files
 *.slo
