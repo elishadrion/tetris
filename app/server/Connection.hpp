@@ -20,19 +20,11 @@
 #define BACKLOG 5       /* Pending connections the queue will hold */
 #define MAXDATASIZE 200
 
-/**
- * Helper class to handle all incoming connections from clients and
- * threading them to treat them separately.
- */
-class Connection {
-    socklen_t sin_size;
-    pthread_t thread_id;
-    struct sockaddr_in6 guest;
-
-    struct addrinfo* get_machine_info(void) const;
-    int prepare_socket(struct addrinfo*) const;
-public:
+namespace Connection {
+    struct addrinfo* get_machine_info(void);
+    int prepare_socket(struct addrinfo* machine_info);
     void mainloop();
-};
+}
+
 
 #endif /* CONNECTION_HPP */

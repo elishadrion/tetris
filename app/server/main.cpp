@@ -6,8 +6,6 @@
 #include "CardManager.hpp"
 
 
-
-
 int main(int argc, char** argv) {
 
     std::cout << "-=- Starting server -=-" << std::endl;
@@ -16,8 +14,7 @@ int main(int argc, char** argv) {
     //CardManager::loadCards();
 
     // Start listener
-    Connection ServerConnection;
-    ServerConnection.mainloop();
+    Connection::mainloop();
     return 0;
 }
 
@@ -26,6 +23,8 @@ void* handler(void* new_fd) {
     int sockfd = *static_cast<int*>(new_fd);
 
     // Game, login, etc... different calls
+
+
     // Example: stream server printing what the clients are saying
 
     size_t numbytes;
