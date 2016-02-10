@@ -1,5 +1,8 @@
 #include "Card.hpp"
 
+std::map<std::size_t, Card*> Card::listCard;
+
+
 /**
  * Constructor
  *

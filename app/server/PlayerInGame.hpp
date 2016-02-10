@@ -1,10 +1,3 @@
-/*
- * File:   PlayerInGame.hpp
- * Author: Detobel36
- *
- * Created on 3 février 2016, 8:51
- */
-
 #ifndef PLAYERINGAME_HPP
 #define	PLAYERINGAME_HPP
 

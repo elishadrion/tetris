@@ -6,6 +6,7 @@
 #include <cstddef>
 
 
+
 /**
  * One class per card.  Contain all informations of the card
  */
@@ -37,6 +38,7 @@ private:
 public:
     virtual ~Card() = 0; // Abstract class because we cann't instance it
 };
+
 
 
 //Card::~Card() = default;
