@@ -1,6 +1,8 @@
 
 #include "PlayerInGame.hpp"
 
+
+
 /**
  * Default constructor
  */
@@ -11,21 +13,49 @@ PlayerInGame::PlayerInGame() {
 /**
  * Create a PlayerInGame and ask to the player witch Deck he would like to play
  */
-PlayerInGame::PlayerInGame(Player player) {
+PlayerInGame::PlayerInGame(Player player, Game* game) {
     // TO DO
+    // askDesck(getListDeck());
+    // @tutul
 }
 
 /**
- * Send all information about the player and the game
+ * Get data information from this player to send it
  *
- * @param currentPlayer who must play
- * @param turn of the game
- * @param adversePlacedCards list of card placed by adverse player
+ * @param isTurn of the current player
  */
-void PlayerInGame::sendData(unsigned int currentPlayer, unsigned int turn,
-    std::vector<Card*> adversePlacedCards) {
-    // to do
+dataIGPlayer PlayerInGame::getDataPlayer() {
+    dataIGPlayer data;
+
+    data.playerHeal = this->_playerHeal;
+    data.energy = this->_energy;
+    data.cardsInHand = this->_cardsInHand;
+    data.cardsPlaced = this->_cardsPlaced;
+
+    return data;
 }
+
+/**
+ * Set the player deck and notify it at the game object
+ *
+ * @param deck The selected deck
+ */
+void PlayerInGame::setDeck(Deck *deck) {
+    _deck = deck;
+    game->checkDeckAndStart();
+}
+// @tutul méthode à appeller lorsque l'on recoit un deck
+
+
+/**
+ * Check if the deck of this player is define
+ *
+ * @return True if the deck is define
+ */
+bool PlayerInGame::isDeckDefine() {
+    return _deck != nullptr;
+}
+
 
 /**
  * Return the placed card

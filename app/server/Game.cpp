@@ -2,12 +2,14 @@
 #include "Game.hpp"
 
 
+std::queue<Player*> Game::PlayerWaitGame;
+
 
 /**
  * Switch turn player
  */
 void Game::nextPlayer() {
-    _currentPlayer = (_currentPlayer+1)%2;
+    (_currentPlayer == _player1) ? _currentPlayer = _player2 : _currentPlayer = _player1;
 }
 
 
@@ -17,13 +19,12 @@ void Game::nextPlayer() {
  * @param p1 the first player
  * @param p2 the second player
  */
-Game::Game(Player* p1, Player* p2): _currentPlayer(0),
-    _turn(0) {
+Game::Game(Player* p1, Player* p2): _turn(0) {
 
-    _player1 = new PlayerInGame(*p1);
-    _player2 = new PlayerInGame(*p2);
-
-
+    // Constructeur ask player whitch deck he would like
+    _player1 = new PlayerInGame(*p1, this);
+    _player2 = new PlayerInGame(*p2, this);
+    _currentPlayer = _player1;
 }
 
 /**
@@ -37,7 +38,7 @@ Game::Game(const Game& game): _currentPlayer(game._currentPlayer),
 /**
  * Default constructor
  */
-Game::Game(): _currentPlayer(0), _turn(0),
+Game::Game(): _currentPlayer(nullptr), _turn(0),
     _player1(nullptr), _player2(nullptr) {}
 
 
@@ -66,18 +67,32 @@ void Game::addPlayerWaitGame(Player player) {
         PlayerWaitGame.pop(); // remove first player
         new Game(p1, &player); // create game
 
-
     } else {
         PlayerWaitGame.push(&player); // add to the wait list
     }
 }
 
 /**
+ * Check if the player have set he deck
+ * If all is ok, the game start
+ */
+void Game::checkDeckAndStart() {
+    if(_player1->isDeckDefine() && _player2->isDeckDefine()) {
+        sendInformation();
+    }
+}
+
+
+/**
  * Send information about the game to all player
  */
 void Game::sendInformation() {
-    sendInformation(_player1);
-    sendInformation(_player2);
+
+    dataIGPlayer dataPlayer1 = _player1->getDataPlayer();
+    dataIGPlayer dataPlayer2 = _player2->getDataPlayer();
+
+    sendInformation(_player1, dataPlayer1, dataPlayer2);
+    sendInformation(_player2, dataPlayer2, dataPlayer1);
 }
 
 
@@ -99,11 +114,7 @@ std::vector<Card*> Game::getAdversePlacedCard(PlayerInGame* player) {
 PlayerInGame* Game::getAdversePlayer(PlayerInGame* player) {
     PlayerInGame* res;
 
-    if(player == _player1) {
-        res = _player2;
-    } else if(player == _player2) {
-        res = _player1;
-    }
+    (player == _player1) ? res = _player2 : res = _player1;
     // If not player1 or player2 then return null :/
 
     return res;
@@ -114,10 +125,17 @@ PlayerInGame* Game::getAdversePlayer(PlayerInGame* player) {
  *
  * @param player who recieve the information
  */
-void Game::sendInformation(PlayerInGame* player) {
-    player->sendData(_currentPlayer, _turn, getAdversePlacedCard(player));
+void Game::sendInformation(PlayerInGame* player,
+    dataIGPlayer dataPlayer, dataIGPlayer dataAdvPlayer) {
+
+    // init turn
+    dataPlayer.turn = (player == _currentPlayer);
+    dataAdvPlayer.turn = (player != _currentPlayer); // can be remove ?
+
+    dataAdvPlayer.cardsInHand.clear();
+
+    // send information to the player
+    // @tutul
 }
-
-
 
 

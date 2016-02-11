@@ -12,6 +12,7 @@
 #include <vector>
 
 #include "Collection.hpp"
+#include "Deck.hpp"
 
 
 /**
@@ -29,7 +30,11 @@ class Player {
     int _victory;
     int _defeat;
     Collection _collection;
+    std::vector<Deck*> _listDeck;
     bool _online;
+
+protected:
+    std::vector<Deck*> getListDeck() {return _listDeck;}
 
 
 public:

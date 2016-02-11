@@ -17,7 +17,7 @@ class Game {
 
     static std::queue<Player*> PlayerWaitGame;
 
-    unsigned int _currentPlayer; // Player the must play now (0 or 1)
+    PlayerInGame* _currentPlayer; // Player the must play now (0 or 1)
     unsigned int _turn;
     PlayerInGame* _player1;
     PlayerInGame* _player2;
@@ -28,7 +28,7 @@ class Game {
 
     virtual void nextPlayer();
     void sendInformation();
-    void sendInformation(PlayerInGame* player);
+    void sendInformation(PlayerInGame*,dataIGPlayer, dataIGPlayer);
     PlayerInGame* getAdversePlayer(PlayerInGame* player);
     std::vector<Card*> getAdversePlacedCard(PlayerInGame* player);
 
@@ -41,12 +41,12 @@ public:
     Game& operator=(const Game&); // Copy operator
     virtual ~Game() = default;
 
+    void checkDeckAndStart();
+
 
     static void addPlayerWaitGame(Player player); // Add a player to the PlayerWait list
 
 };
-
-std::queue<Player*> Game::PlayerWaitGame;
 
 
 
