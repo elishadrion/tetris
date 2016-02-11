@@ -35,6 +35,9 @@ public:
     void printInfo(std::string);
     void printWarn(std::string);
     void printError(std::string);
+    void printError(std::string, std::exception);
+    void printFatal(std::string);
+    void printFatal(std::string, std::exception);
 };
 
 #endif	/* LOGGER_HPP */

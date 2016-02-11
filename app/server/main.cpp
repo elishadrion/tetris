@@ -13,6 +13,7 @@ int main(int argc, char** argv) {
     log->printInfo("Je suis une info");
     log->printWarn("Je suis un warning");
     log->printError("Je suis une erreur");
+    log->printFatal("Je suis une erreur fatal");
 
     std::cout << "-=- Starting server -=-" << std::endl;
 
