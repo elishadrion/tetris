@@ -1,5 +1,6 @@
 #include <cstdlib>
 #include <iostream>
+#include <exception>
 
 
 #include "Connection.hpp"
@@ -8,14 +9,16 @@
 
 
 int main(int argc, char** argv) {
-    /* Init the logger system */
-    Logger *log = new Logger(false);
-    log->printInfo("Je suis une info");
-    log->printWarn("Je suis un warning");
-    log->printError("Je suis une erreur");
-    log->printFatal("Je suis une erreur fatal");
+    /* Init the logger system (must be in a try-catch statment) */
+    WizardLogger *log = new WizardLogger(true);
+    log->debug("Je suis un debug");
+    log->info("Je suis une info");
+    log->warn("Je suis un warning");
+    log->error("Je suis une erreur");
+    log->fatal("Je suis une fatal");
+    /* END OF DEMO */
 
-    std::cout << "-=- Starting server -=-" << std::endl;
+    log->info("Starting server");
 
     // Load card
     //CardManager::loadCards();

@@ -3,41 +3,34 @@
 #define	LOGGER_HPP
 
 #include <iostream>
+#include <stdexcept>
 #include <string>
 
-#include "log4cpp/Category.hh"
-#include "log4cpp/Appender.hh"
-#include "log4cpp/FileAppender.hh"
-#include "log4cpp/OstreamAppender.hh"
-#include "log4cpp/Layout.hh"
-#include "log4cpp/PatternLayout.hh"
-#include "log4cpp/Priority.hh"
+#include "include/spdlog/spdlog.h"
 
+//TODO not working... why ?
 #ifdef SERVER
-    #define LOGFILE "WizardPoker_server.log"
+    #define LOGFILE "WizardPokerServer"
 #else
-    #define LOGFILE "WizardPoker.log"
+    #define LOGFILE "WizardPoker"
 #endif
 
-class Logger {
-    log4cpp::Appender *_streamAppender;
-    log4cpp::Appender *_fileAppender;
-    bool _canUseStreamAppender;
-    
-    /* Must be define here because it's a reference */
-    log4cpp::Category& _root = log4cpp::Category::getRoot();
+#define LOGGER "MainLogger"
+
+class WizardLogger {
 public:
     /* Constructor and destructor */
-    Logger(bool);
-    ~Logger() = default;
+    WizardLogger(bool);
+    ~WizardLogger() = default;
     
     /* API to log messages (see cpp for doc) */
-    void printInfo(std::string);
-    void printWarn(std::string);
-    void printError(std::string);
-    void printError(std::string, std::exception);
-    void printFatal(std::string);
-    void printFatal(std::string, std::exception);
+    void debug(std::string);
+    void info(std::string);
+    void warn(std::string);
+    void error(std::string);
+    void error(std::string, std::exception);
+    void fatal(std::string);
+    void fatal(std::string, std::exception);
 };
 
 #endif	/* LOGGER_HPP */

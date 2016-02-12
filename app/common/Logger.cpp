@@ -4,71 +4,144 @@
  * Actually, we define a file appender and a stream appender
  * But only file appender is used when we are the client (in console mode)
  * @param clientConsole : is the client in console mode ? fileAppender only : both
+ * @throw exception : cannot initialize logger
  */
-Logger::Logger(bool clientConsole = false) : _canUseStreamAppender(!clientConsole) {
-    /* We define the layout for the logger, e.g. "2016-02-10 17:58:22,255 [INFO] test" */
-    log4cpp::PatternLayout *customLayout = new log4cpp::PatternLayout();
-    customLayout->setConversionPattern("%d (thread : %t) [%p] %m%n");
-    
-    /* We define the stream appender */
-    _streamAppender = new log4cpp::OstreamAppender("console", &std::cout);
-    _streamAppender->setLayout(customLayout);
-	_root.addAppender(_streamAppender);
-    
-    /* We define the file appender only if we can use it */
-    if (_canUseStreamAppender) {
-        _fileAppender = new log4cpp::FileAppender("file", LOGFILE);
-        _fileAppender->setLayout(customLayout);
-	    _root.addAppender(_fileAppender);
+WizardLogger::WizardLogger(bool clientConsole = false) {
+    try {
+        /* Active async logger with a queue size of 1048576 (must be power of 2)
+         * Lets default blocking policy when queue is full
+         * If error occure, it's throw at the next call of the logger
+         */
+        spdlog::set_async_mode(1048576);
+        
+        /* We prepare to use combined logger (file and console)
+         * So we only need to call once and both logger get message
+         */
+         std::vector<spdlog::sink_ptr> sinks;
+        
+        /* Create a log file with rotation
+         * with these parameters : 
+         * <file's name>, <file's extention>
+         * <max size before rotate (here 5 Mib)>, <max rotation (here only one)>
+         * <force flush>
+         */
+        sinks.push_back(std::make_shared<spdlog::sinks::rotating_file_sink_mt>(LOGFILE, "log", 1048576 * 5, 2, true));
+        
+        /* If we can, we create some console logger */
+        if (clientConsole) {
+            sinks.push_back(std::make_shared<spdlog::sinks::stdout_sink_st>());
+        }
+        
+        /* We register combined logger to use it */
+        spdlog::register_logger(std::make_shared<spdlog::logger>(LOGGER, begin(sinks), end(sinks)));
+        
+        /* We define formating for logger
+         * "[YYYY-MM-DD HH:mm:ss.ms] [log level] message"
+         */
+        spdlog::get(LOGGER)->set_pattern("[%Y-%m-%d %H:%M:%S.%e] [%l]\t%v");
+        
+    } catch (const spdlog::spdlog_ex& ex) {
+        std::cerr << "[FATAL ERROR] Impossible d'initialiser le Logger :\n" << ex.what() << std::endl;
+        throw; 
+    }
+}
+
+/* Print an DEBUG message
+ * Use it for log like "error append here or after ?"
+ * @param message : the string to log
+ * @throw exception : cannot log "message"
+ */
+void WizardLogger::debug(std::string message) {
+    try {
+        spdlog::get(LOGGER)->debug(message);
+    } catch (const spdlog::spdlog_ex& ex) {
+        std::cerr << "[ERREUR] Impossible d'afficher le log :\n" << ex.what() << std::endl;
+        throw; 
     }
 }
 
 /* Print an INFO message
  * Use it for log like "send login request"
  * @param message : the string to log
+ * @throw exception : cannot log "message"
  */
-void Logger::printInfo(std::string message) {
-    _root.info(message);
+void WizardLogger::info(std::string message) {
+    try {
+        spdlog::get(LOGGER)->info(message);
+    } catch (const spdlog::spdlog_ex& ex) {
+        std::cerr << "[ERREUR] Impossible d'afficher le log :\n" << ex.what() << std::endl;
+        throw; 
+    }
 }
 
 /* Print a WARNING message
  * Use it for minor error like "no user found"
  * @param message : the string to log
+ * @throw exception : cannot log "message"
  */
-void Logger::printWarn(std::string message) {
-    _root.warn(message);
+void WizardLogger::warn(std::string message) {
+   try {
+        spdlog::get(LOGGER)->warn(message);
+    } catch (const spdlog::spdlog_ex& ex) {
+        std::cerr << "[ERREUR] Impossible d'afficher le log :\n" << ex.what() << std::endl;
+        throw; 
+    }
 }
 
 /* Print an ERROR message
  * Use it for major error like "client socket close unexpectedly"
  * @param message : the string to log
+ * @throw exception : cannot log "message"
  */
-void Logger::printError(std::string message) {
-    _root.error(message);
+void WizardLogger::error(std::string message) {
+    try {
+        spdlog::get(LOGGER)->error(message);
+    } catch (const spdlog::spdlog_ex& ex) {
+        std::cerr << "[ERREUR] Impossible d'afficher le log :\n" << ex.what() << std::endl;
+        throw; 
+    }
 }
 
 /* Print an ERROR message
  * Use it for major error like "client socket close unexpectedly"
  * @param message : the string to log
  * @param exception : exception to print
+ * @throw exception : cannot log "message"
  */
-void Logger::printError(std::string message, std::exception exception) {
-    _root.error(message+"\n"+exception.what());
+void WizardLogger::error(std::string message, std::exception ex) {
+    try {
+        spdlog::get(LOGGER)->error(message+"\n***\n"+ex.what()+"\n***");
+    } catch (const spdlog::spdlog_ex& ex) {
+        std::cerr << "[ERREUR] Impossible d'afficher le log :\n" << ex.what() << std::endl;
+        throw; 
+    }
 }
 
 /* Print an FATAL message
  * Use it for fatal error like "cannot write/read the HDD"
  * @param message : the string to log
+ * @throw exception : cannot log "message"
  */
-void Logger::printFatal(std::string message) {
-    _root.fatal(message);
+void WizardLogger::fatal(std::string message) {
+    try {
+        spdlog::get(LOGGER)->emerg(message);
+    } catch (const spdlog::spdlog_ex& ex) {
+        std::cerr << "[ERREUR] Impossible d'afficher le log :\n" << ex.what() << std::endl;
+        throw; 
+    }
 }
 
 /* Print an FATAL message
  * Use it for fatal error like "cannot write/read the HDD"
  * @param message : the string to log
  * @param exception : exception to print
+ * @throw exception : cannot log "message"
  */
-void Logger::printFatal(std::string message, std::exception exception) {
-    _root.fatal(message+"\n"+exception.what());
+void WizardLogger::fatal(std::string message, std::exception ex) {
+    try {
+        spdlog::get(LOGGER)->emerg(message+"\n***\n"+ex.what()+"\n***");
+    } catch (const spdlog::spdlog_ex& ex) {
+        std::cerr << "[ERREUR] Impossible d'afficher le log :\n" << ex.what() << std::endl;
+        throw; 
+    }
 }
