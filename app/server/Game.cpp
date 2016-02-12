@@ -19,7 +19,8 @@ void Game::nextPlayer() {
  * @param p1 the first player
  * @param p2 the second player
  */
-Game::Game(Player* p1, Player* p2): _turn(0) {
+Game::Game(Player* p1, Player* p2):
+    _gameStatut(GameStatut::WAIT_DEC), _turn(0) {
 
     // Constructeur ask player whitch deck he would like
     _player1 = new PlayerInGame(*p1, this);
@@ -32,13 +33,15 @@ Game::Game(Player* p1, Player* p2): _turn(0) {
  *
  * @param game who muste be copy
  */
-Game::Game(const Game& game): _currentPlayer(game._currentPlayer),
-    _player1(game._player1), _player2(game._player2) {}
+Game::Game(const Game& game): _gameStatut(game._gameStatut),
+    _currentPlayer(game._currentPlayer), _player1(game._player1),
+    _player2(game._player2) {}
 
 /**
  * Default constructor
  */
-Game::Game(): _currentPlayer(nullptr), _turn(0),
+Game::Game(): _gameStatut(GameStatut::WAIT_DEC),
+    _currentPlayer(nullptr), _turn(0),
     _player1(nullptr), _player2(nullptr) {}
 
 
@@ -49,6 +52,7 @@ Game& Game::operator=(const Game& game) {
     _currentPlayer = game._currentPlayer;
     _player1 = game._player1;
     _player2 = game._player2;
+    _gameStatut = game._gameStatut;
 
     return *this;
 }
@@ -80,6 +84,15 @@ void Game::checkDeckAndStart() {
     if(_player1->isDeckDefine() && _player2->isDeckDefine()) {
         sendInformation();
     }
+}
+
+/**
+ * Know if the game have begin
+ *
+ * @return True if the game is begin
+ */
+bool Game::isInGame() {
+    return _gameStatut == GameStatut::IN_GAME;
 }
 
 
