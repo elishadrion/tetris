@@ -26,7 +26,7 @@
 # Compiled Static libraries
 *.lai
 *.la
-#*.a We need them for log4j
+*.a
 *.lib
 
 # Executables

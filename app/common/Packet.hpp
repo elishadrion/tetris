@@ -26,27 +26,11 @@ public:
         struct data;
     } packet;
     
-    /* Login packet */
+    /* Login data with 30 as max size for string*/
     typedef struct {
-        int ID;
-        int size;
-        struct loginData {
-            string pseudo;
-            string password;
-        }; /* We only define data struct, we must include it */
-        struct loginData data;
-    } loginPacket;
-    
-    /* Collection list packet */
-    typedef struct {
-        int ID;
-        int size;
-        struct collectionListData {
-            //list collection;
-            //list deck;
-        }; /* We only define data struct, we must include it */
-        struct collectionListData data;
-    } collectionListPacket;
+        char pseudo[30];
+        char password[30];
+    } loginData;
 };
 
 #endif	/* PACKET_HPP */
