@@ -49,8 +49,9 @@ public:
     Game(const Game&); // Copy constructor
     Game& operator=(const Game&); // Copy operator
     virtual ~Game() = default;
+    void draw() {}
 
-    void    checkDeckAndStart();
+    void checkDeckAndStart();
 
 
     static void addPlayerWaitGame(Player player); // Add a player to the PlayerWait list

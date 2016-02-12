@@ -1,5 +1,5 @@
 #ifndef PLAYER_HPP
-#define	PLAYER_HPP
+#define PLAYER_HPP
 
 #include <string>
 #include <vector>
@@ -25,16 +25,17 @@ protected:
     std::vector<Deck*> getListDeck() {return _listDeck;}
 
 public:
+    Player() {}
     // Create the player (and open the file (if it exist) to complete the informations)
     // Stock the new player in the allPlayer list
-    Player(int sockfd, int playerID);
+    Player(int sockfd, int playerID) {}
     virtual ~Player() = default;
 
 private:
-    virtual void save() const;
+    virtual void save() const {}
 
 };
 
 
 
-#endif	/* PLAYER_HPP */
+#endif  /* PLAYER_HPP */

@@ -28,7 +28,8 @@ Card::Card(std::size_t id, std::string name, std::size_t energy, std::size_t hea
  *
  * @param card original
  */
-Card::Card(Card& card) : _id(card._id), _name(card._name), _energyCost(card._energyCost),
+Card::Card(Card& card) : 
+    _id(card._id), _name(card._name), _energyCost(card._energyCost),
     _heal(card._heal), _effect(card._effect) { }
 
 
