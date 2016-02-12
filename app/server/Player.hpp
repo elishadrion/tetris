@@ -32,7 +32,7 @@ public:
     virtual ~Player() = default;
 
 private:
-    virtual void save() const {}
+    virtual void save() const;
 
 };
 
