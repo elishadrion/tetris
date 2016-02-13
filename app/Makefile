@@ -6,7 +6,7 @@ CXXFLAGS = -std=c++14 -ggdb3 -Wpedantic -Wall -Wextra -Wconversion	\
 -Wsuggest-final-methods -Wsuggest-override
 LINKERFLAGS = -pthread
 GEN_DEPS = -MMD -MP
-INCLUDE_ROOT_DIR = -I./
+INCLUDE_ROOT_DIR = -isystem./include/ -idirafter.
 
 CXXFLAGS += $(GEN_DEPS) $(INCLUDE_ROOT_DIR)
 
