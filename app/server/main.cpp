@@ -5,20 +5,22 @@
 
 #include "Connection.hpp"
 #include "CardManager.hpp"
-#include "common/Logger.hpp"
+#include "common/WizardLogger.hpp"
+
+/* Public WizardLogger pointer to use it everywhere */
+WizardLogger *logger;
 
 
 int main(int argc, char** argv) {
-    /* Init the logger system (must be in a try-catch statment) */
-    WizardLogger *log = new WizardLogger(true);
-    log->debug("Je suis un debug");
-    log->info("Je suis une info");
-    log->warn("Je suis un warning");
-    log->error("Je suis une erreur");
-    log->fatal("Je suis une fatal");
-    /* END OF DEMO */
+    /* Init Logger with both file and console log */
+    try {
+        logger = new WizardLogger(true);
+    } catch (std::exception ex) {
+        std::cerr << ex.what() << std::endl;
+        return EXIT_FAILURE;
+    }
 
-    log->info("Starting server");
+    logger->info("Starting server");
 
     // Load card
     //CardManager::loadCards();

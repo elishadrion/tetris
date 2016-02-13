@@ -1,4 +1,4 @@
-#include "Logger.hpp"
+#include "WizardLogger.hpp"
 
 /* We create and configure a new Log4cpp instance for all the program
  * Actually, we define a file appender and a stream appender

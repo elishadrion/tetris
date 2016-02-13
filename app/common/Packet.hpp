@@ -19,18 +19,19 @@ public:
     /* Default size of all packet (without data) */
     const int packetSize = sizeof(int)*2;
     
-    /* default packet struct (can be use for empty data) */
+    /* default packet struct (without data member) */
     typedef struct {
         int ID;
         int size;
-        struct data;
     } packet;
     
     /* Login data with 30 as max size for string*/
     typedef struct {
+        int ID;
+        int size;
         char pseudo[30];
         char password[30];
-    } loginData;
+    } loginPacket;
 };
 
 #endif	/* PACKET_HPP */

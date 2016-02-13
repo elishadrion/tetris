@@ -1,6 +1,6 @@
 
-#ifndef LOGGER_HPP
-#define	LOGGER_HPP
+#ifndef WIZARDLOGGER_HPP
+#define	WIZARDLOGGER_HPP
 
 #include <iostream>
 #include <stdexcept>
@@ -33,4 +33,4 @@ public:
     void fatal(std::string, std::exception);
 };
 
-#endif	/* LOGGER_HPP */
+#endif	/* WIZARDLOGGER_HPP */
