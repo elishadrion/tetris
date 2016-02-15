@@ -17,6 +17,7 @@
 #define MAXDATASIZE 200
 
 namespace Connection {
+    void* get_in_addr(struct sockaddr*);
     struct addrinfo* get_server_info(char*);
     int prepare_socket(struct addrinfo*);
     void connect_to_host(char*);

@@ -16,11 +16,14 @@
 #include <csignal>
 #include <pthread.h>
 
+#include "common/WizardLogger.hpp"
+
 #define PORT "5555"
 #define BACKLOG 5       /* Pending connections the queue will hold */
 #define MAXDATASIZE 200
 
 namespace Connection {
+    void* get_in_addr(struct sockaddr *sa);
     struct addrinfo* get_machine_info(void);
     int prepare_socket(struct addrinfo* machine_info);
     void mainloop();
