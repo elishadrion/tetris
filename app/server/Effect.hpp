@@ -19,7 +19,7 @@ public:
 
 /////////////////TAUNT//////////////////////
 
-class Taunt : virtual public Effect{
+class Taunt : public Effect{
 public:
     Taunt(){};
 
@@ -29,7 +29,7 @@ public:
 
 /////////////////HEAL///////////////////////
 
-class Heal : virtual public Effect{
+class Heal : public Effect{
 
     std::size_t _healValue;
 public:
@@ -44,7 +44,7 @@ void Heal::apply(Card* target) {
 
 /////////////////DAMAGE/////////////////////
 
-class Damage : virtual public Effect{
+class Damage : public Effect{
 
     std::size_t _damageValue;
 public:
@@ -59,7 +59,7 @@ void Damage::apply(Card* target){
 
 /////////////////LIFEBLESSING/////////////////////
 
-class LifeBlessing : virtual public Effect{
+class LifeBlessing : public Effect{
 
     std::size_t _lifeValue;
 public:
@@ -75,7 +75,7 @@ void LifeBlessing::apply(Card* target){
 
 /////////////////ATTACKBLESSING/////////////////////
 
-class AttackBlessing : virtual public Effect{
+class AttackBlessing : public Effect{
 
     std::size_t _attackValue;
 public:
@@ -90,7 +90,7 @@ void AttackBlessing::apply(Card* target){
 
 /////////////////LIFECURSE/////////////////////
 
-class LifeCurse : virtual public Effect{
+class LifeCurse : public Effect{
 
     std::size_t _lifeValue;
 public:
@@ -108,7 +108,7 @@ void LifeCurse::apply(Card* target){
 
 /////////////////ATTACKCURSE/////////////////////
 
-class AttackCurse : virtual public Effect{
+class AttackCurse : public Effect{
 
     std::size_t _attackValue;
 public:
@@ -123,7 +123,7 @@ void AttackCurse::apply(Card* target){
 
 /////////////////DRAW/////////////////////
 
-class Draw : virtual public Effect{
+class Draw : public Effect{
 
     std::size_t _nDraw;
 public:
