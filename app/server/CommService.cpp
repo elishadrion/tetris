@@ -5,7 +5,7 @@ void CommService::managePacket(Packet::packet* customPacket) {
     switch(customPacket->ID) {
         case Packet::LOGIN_REQ_ID :       CommService::manageDisconnectRequest(customPacket);
                                           break;
-        case Packet::DISCONNECT_ID :      CommService::manageLoginRequest((Packet::loginPacket*) customPacket);
+        case Packet::DISCONNECT_ID :      CommService::manageLoginRequest((Packet::loginRequestPacket*) customPacket);
                                           break;
         case Packet::COLLECTION_REQ_ID :  //TODO
                                           break;
@@ -20,6 +20,6 @@ void CommService::manageDisconnectRequest(Packet::packet* disconnectReqPacket) {
     
 }
 
-void CommService::manageLoginRequest(Packet::loginPacket* loginReqPacket) {
+void CommService::manageLoginRequest(Packet::loginRequestPacket* loginReqPacket) {
     
 }

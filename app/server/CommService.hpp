@@ -8,7 +8,7 @@ extern WizardLogger *logger;
 
 class CommService {
     void manageDisconnectRequest(Packet::packet*);
-    void manageLoginRequest(Packet::loginPacket*);
+    void manageLoginRequest(Packet::loginRequestPacket*);
 public:
     /* API for other service */
     void managePacket(Packet::packet*);
