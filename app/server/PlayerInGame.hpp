@@ -7,7 +7,7 @@
 #include "Player.hpp"
 
 #include "common/Card.hpp"
-#include "common/Package.hpp"
+#include "common/Packet.hpp"
 
 
 struct dataIGPlayer {
