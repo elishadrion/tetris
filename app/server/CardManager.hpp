@@ -21,7 +21,7 @@ public:
     static void loadCards();
     virtual Card& loadCard(std::size_t id);
 
-
+    //static Card* getCardById(unsigned) {}
     virtual ~CardManager() = default;
 };
 

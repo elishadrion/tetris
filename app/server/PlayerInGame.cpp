@@ -56,6 +56,16 @@ bool PlayerInGame::isDeckDefine() {
     return _deck != nullptr;
 }
 
+/**
+ * Get random cart of deck
+ *
+ * @return a random card
+ */
+//Card* PlayerInGame::draw() {
+//    return CardManager::getCardById(_deck->pickup());
+//}
+
+
 
 /**
  * Return the placed card

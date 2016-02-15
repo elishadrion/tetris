@@ -49,7 +49,7 @@ public:
     Game(const Game&); // Copy constructor
     Game& operator=(const Game&); // Copy operator
     virtual ~Game() = default;
-    void draw() {}
+    void draw();
 
     void checkDeckAndStart();
 

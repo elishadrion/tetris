@@ -147,8 +147,13 @@ void Game::sendInformation(PlayerInGame* player,
 
     dataAdvPlayer.cardsInHand.clear();
 
-    // send information to the player
+    // send information to the player (dataPlayer and dataAdvPlayer)
     // @tutul
+}
+
+void Game::draw() {
+    // TO DO
+
 }
 
 
