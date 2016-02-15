@@ -2,7 +2,6 @@
 #include <iostream>
 #include <exception>
 
-
 #include "Connection.hpp"
 #include "CardManager.hpp"
 #include "common/WizardLogger.hpp"
@@ -11,7 +10,7 @@
 int main(int argc, char** argv) {
     /* Init Logger with both file and console log */
     try {
-        WizardLogger::initLogger(false);
+        WizardLogger::initLogger(true, "WizardLoggerServer");
     } catch (std::exception ex) {
         std::cerr << ex.what() << std::endl;
         return EXIT_FAILURE;

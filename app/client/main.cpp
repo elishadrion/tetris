@@ -2,7 +2,6 @@
 #include <iostream>
 #include <stdexcept>
 
-
 #include "Connection.hpp"
 #include "common/WizardLogger.hpp"
 
@@ -11,11 +10,13 @@ int main(int argc, char** argv) {
      * So we cannot use console log (for now)
      */
     try {
-        WizardLogger::initLogger(true);
+        WizardLogger::initLogger(false, "WizardLogger");
     } catch (std::exception ex) {
         std::cerr << ex.what() << std::endl;
         return EXIT_FAILURE;
     }
+
+    WizardLogger::info("Starting client");
     
     Connection::connect_to_host(argv[1]);
 

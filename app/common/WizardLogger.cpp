@@ -3,10 +3,11 @@
 /* We create and configure a new Log4cpp instance for all the program
  * Actually, we define a file appender and a stream appender
  * But only file appender is used when we are the client (in console mode)
- * @param clientConsole : is the client in console mode ? fileAppender only : both
+ * @param useConsole : if we are client, can we use console log ?
+ * @param logFileName : name for the log file
  * @throw exception : cannot initialize logger
  */
-void WizardLogger::initLogger(bool clientConsole = false) {
+void WizardLogger::initLogger(bool useConsole, std::string logFileName) {
     try {
         /* Active async logger with a queue size of 1048576 (must be power of 2)
          * Lets default blocking policy when queue is full
@@ -22,13 +23,13 @@ void WizardLogger::initLogger(bool clientConsole = false) {
         /* Create a log file with rotation
          * with these parameters : 
          * <file's name>, <file's extention>
-         * <max size before rotate (here 5 Mib)>, <max rotation (here only one)>
+         * <max size before rotate (here 5 Mib)>, <max file (with rotation)>
          * <force flush>
          */
-        sinks.push_back(std::make_shared<spdlog::sinks::rotating_file_sink_mt>(LOGFILE, "log", 1048576 * 5, 2, true));
+        sinks.push_back(std::make_shared<spdlog::sinks::rotating_file_sink_mt>(logFileName, "log", 1048576 * 5, 2, true));
         
         /* If we can, we create some console logger */
-        if (!clientConsole) {
+        if (useConsole) {
             sinks.push_back(std::make_shared<spdlog::sinks::stdout_sink_st>());
         }
         
