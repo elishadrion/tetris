@@ -19,18 +19,21 @@
 
 class WizardLogger {
 public:
-    /* Constructor and destructor */
-    WizardLogger(bool);
+    /* We don't need Constructor and destructor */
+    WizardLogger() = default;
     ~WizardLogger() = default;
     
+    /* Initialization of the static logger */
+    static void initLogger(bool);
+    
     /* API to log messages (see cpp for doc) */
-    void debug(std::string);
-    void info(std::string);
-    void warn(std::string);
-    void error(std::string);
-    void error(std::string, std::exception);
-    void fatal(std::string);
-    void fatal(std::string, std::exception);
+    static void debug(std::string);
+    static void info(std::string);
+    static void warn(std::string);
+    static void error(std::string);
+    static void error(std::string, std::exception);
+    static void fatal(std::string);
+    static void fatal(std::string, std::exception);
 };
 
 #endif	/* WIZARDLOGGER_HPP */

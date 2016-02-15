@@ -7,20 +7,17 @@
 #include "CardManager.hpp"
 #include "common/WizardLogger.hpp"
 
-/* Public WizardLogger pointer to use it everywhere */
-WizardLogger *logger;
-
 
 int main(int argc, char** argv) {
     /* Init Logger with both file and console log */
     try {
-        logger = new WizardLogger(true);
+        WizardLogger::initLogger(false);
     } catch (std::exception ex) {
         std::cerr << ex.what() << std::endl;
         return EXIT_FAILURE;
     }
 
-    logger->info("Starting server");
+    WizardLogger::info("Starting server");
 
     // Load card
     //CardManager::loadCards();

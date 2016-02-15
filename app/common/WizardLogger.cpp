@@ -6,7 +6,7 @@
  * @param clientConsole : is the client in console mode ? fileAppender only : both
  * @throw exception : cannot initialize logger
  */
-WizardLogger::WizardLogger(bool clientConsole = false) {
+void WizardLogger::initLogger(bool clientConsole = false) {
     try {
         /* Active async logger with a queue size of 1048576 (must be power of 2)
          * Lets default blocking policy when queue is full
@@ -28,7 +28,7 @@ WizardLogger::WizardLogger(bool clientConsole = false) {
         sinks.push_back(std::make_shared<spdlog::sinks::rotating_file_sink_mt>(LOGFILE, "log", 1048576 * 5, 2, true));
         
         /* If we can, we create some console logger */
-        if (clientConsole) {
+        if (!clientConsole) {
             sinks.push_back(std::make_shared<spdlog::sinks::stdout_sink_st>());
         }
         
