@@ -4,3 +4,7 @@ Wizard Poker: jeu de cartes fantastique dans lequel des joueurs s'affrontent dan
 
 
 ### Message important: arretez de faire les Git Tits et http://kernowsoul.com/blog/2012/06/20/4-ways-to-avoid-merge-commits-in-git/
+
+
+# Librairies incluses
+* spdlog - par gabime - MIT License (https://github.com/gabime/spdlog)
