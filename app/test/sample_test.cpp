@@ -1,12 +1,18 @@
-#include "gtest/gtest.h"
+#include "include/catch.hpp"
 
-TEST(SquareRootTest, PositiveNos) {
-    EXPECT_EQ (18.0, square-root (324.0));
-    EXPECT_EQ (25.4, square-root (645.16));
-    EXPECT_EQ (50.3321, square-root (2533.310224));
-}
+#include "server/PlayerInGame.hpp"
 
-int main(int argc, char *argv[]) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
+TEST_CASE("PlayerInGame reacts to attacks, heal, etc...") {
+    PlayerInGame pig;
+
+    SECTION("Player is being attacked with creature") {
+	pig.receiveAttack(5);
+	REQUIRE(pig.getlifepts() == 15);
+    }
+
+    SECTION("Healing player") {
+	REQUIRE(pig.getlifepts() == 15);
+	pig.heal();
+	REQUIRE(pig.getlifepts() == 20);
+    }
 }
