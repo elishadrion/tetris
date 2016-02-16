@@ -15,15 +15,15 @@
 
 namespace WizardLogger {
     /* Initialization of the static logger */
-    static void initLogger(bool, std::string);
+    void initLogger(bool, std::string);
     
     /* API to log messages (see cpp for doc) */
-    static void info(std::string);
-    static void warn(std::string);
-    static void error(std::string);
-    static void error(std::string, std::exception);
-    static void fatal(std::string);
-    static void fatal(std::string, std::exception);
+    void info(std::string);
+    void warn(std::string);
+    void error(std::string);
+    void error(std::string, std::exception);
+    void fatal(std::string);
+    void fatal(std::string, std::exception);
 };
 
 #endif	/* WIZARDLOGGER_HPP */

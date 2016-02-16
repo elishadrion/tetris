@@ -9,9 +9,9 @@ void CommService::managePacket(Packet::packet* customPacket) {
                                           break;
         case Packet::COLLECTION_REQ_ID :  //TODO
                                           break;
-        case Packet::COLLECTION_LIST_ID : logger->warn("Paquet invalide reçu : CollectionList");
+        case Packet::COLLECTION_LIST_ID : WizardLogger::warn("Paquet invalide reçu : CollectionList");
                                           break;
-        default :                         logger->warn("Paquet inconnue reçu");
+        default :                         WizardLogger::warn("Paquet inconnue reçu");
                                           break;
     }
 }
