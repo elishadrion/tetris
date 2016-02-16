@@ -35,7 +35,7 @@
 
 /* Define maximum of the mainWindow */
 #define LINES 37
-#define COLLONNES 40
+#define COLLONNES 96
 
 /* Define commandListPanel size (take all window width) */
 #define COMMANDE_PANEL_HEIGTH 1
