@@ -1,21 +1,17 @@
 #include "Card.hpp"
 
-std::map<std::size_t, Card*> Card::listCard;
-
-
 /**
  * Constructor
  *
  * @param id of the card
  * @param name of the card
  * @param energy of the card
- * @param heal of the card
  * @param effect name of the specific effect
  * @param save True if save in cache
  */
-Card::Card(std::size_t id, std::string name, std::size_t energy, std::size_t heal,
-        std::string effect, bool save = true):
-        _id(id), _name(name), _energyCost(energy), _heal(heal), _effect(effect) {
+Card::Card(std::size_t id, std::string name, std::size_t energy,
+        Effect effect, bool save = true):
+        _id(id), _name(name), _energyCost(energy), _effect(effect) {
 
     if(save) {
         listCard.insert(std::pair<std::size_t,Card*>(id,this));
@@ -28,20 +24,10 @@ Card::Card(std::size_t id, std::string name, std::size_t energy, std::size_t hea
  *
  * @param card original
  */
-Card::Card(Card& card) : 
-    _id(card._id), _name(card._name), _energyCost(card._energyCost),
-    _heal(card._heal), _effect(card._effect) { }
+Card::Card(Card& card) : _id(card.getId()), _name(card.getName()), _energyCost(card.getEnergyCost()),
+     _effect(card.getEffect()) { }
 
 
-/**
- * Get the card object in cache
- *
- * @param id of the card
- * @return the card or nullptr if not exist
- */
-Card* Card::getCard(const std::size_t id) {
-    std::map<std::size_t, Card*>::iterator it = listCard.find(id);
-    if(it != listCard.end()) { // If card "cached"
-        return listCard[id];
-    }
+void Card::applyEffect(Card& card){
+    this.Effect::apply(Card& card);
 }

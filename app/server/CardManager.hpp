@@ -1,31 +1,17 @@
-
 #ifndef CARDMANAGER_HPP
-#define	CARDMANAGER_HPP
+#define CARDMANAGER_HPP
 
-#include <map>
+#include "Card.hpp"
 
-
-#include "Effect.hpp"
-#include "common/Card.hpp"
-
-/**
- * Load and save Card on file
- * (Must not be a Class #JavaPower)
- */
-class CardManager {
-
-    static std::map<int, Card&> listCard; // List of card (with id and card)
-
+class CardManager{
+private:
+	static std::map<std::size_t, Card*> listCard; // List of card (with id and card)
 
 public:
-    static void loadCards();
-    virtual Card& loadCard(std::size_t id);
+	 ///// STATIC /////
+    static Card* getCardById(std::size_t id); // Get a specific card (identified by ID)
 
-    //static Card* getCardById(unsigned) {}
-    virtual ~CardManager() = default;
+    static Effect* getEffectByID(std::size_t id);
 };
 
-
-
-
-#endif	/* CARDMANAGER_HPP */
+#endif
