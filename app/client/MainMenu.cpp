@@ -17,7 +17,7 @@ MainMenu::MainMenu() {
  * @param number the button
  */
 void MainMenu::choseButton(int number) {
-    (menu[number])->print();
+    //(menu[number])->print();
 }
 
 

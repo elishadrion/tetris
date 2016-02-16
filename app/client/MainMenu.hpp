@@ -11,17 +11,17 @@
 #include "Display.hpp"
 
 
-class MainMenu : public Display {
+class MainMenu {
 
     // STATIC ?
-    Display** menu = new Display*[5];
+    //Display** menu = new Display*[5];
 
 
     void choseButton(int number);
 
 
 public:
-    virtual void print() override;
+    virtual void print();
     MainMenu();
 
 
