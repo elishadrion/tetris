@@ -13,7 +13,7 @@
 class Card {
 public:
     // Default constructor ?
-    Card(std::size_t id, std::string name, std::size_t energy,Effect effect, bool);
+    Card(std::size_t id, std::string name, std::size_t energy,/*Effect effect, //TODO tmp patch*/ bool);
 
     Card(Card& card); // copy contructor
 
@@ -22,7 +22,7 @@ private:
     std::size_t _id; // id or the cards
     std::string _name; // name of the cards
     std::size_t _energyCost;
-    Effect _effect; // His special effect
+    int _effect;//TODO tmp patch Effect _effect; // His special effect
 
 
 public:
@@ -32,7 +32,7 @@ public:
     std::size_t getId(){return _id;}
     std::string getName(){return _name;}
     std::size_t getEnergyCost(){return _energyCost;}
-    Effect getEffect(){return _effect;}
+    //TODO tmp patch Effect getEffect(){return _effect;}
 
     //void setEnergyCost(std::size_t newCost){_energyCost = newCost}
     // maybe be able to change with spell cards (see that later)

@@ -10,11 +10,11 @@
  * @param save True if save in cache
  */
 Card::Card(std::size_t id, std::string name, std::size_t energy,
-        Effect effect, bool save = true):
-        _id(id), _name(name), _energyCost(energy), _effect(effect) {
+        /*Effect effect, //TODO tmp patch */ bool save = true):
+        _id(id), _name(name), _energyCost(energy) { //TODO , tmp patch _effect(effect) {
 
     if(save) {
-        listCard.insert(std::pair<std::size_t,Card*>(id,this));
+        //TODO tmp patch listCard.insert(std::pair<std::size_t,Card*>(id,this));
     }
 }
 
@@ -24,10 +24,10 @@ Card::Card(std::size_t id, std::string name, std::size_t energy,
  *
  * @param card original
  */
-Card::Card(Card& card) : _id(card.getId()), _name(card.getName()), _energyCost(card.getEnergyCost()),
-     _effect(card.getEffect()) { }
+Card::Card(Card& card) : _id(card.getId()), _name(card.getName()), _energyCost(card.getEnergyCost())
+     {} //TODO , tmp patch_effect(card.getEffect()) { }
 
 
 void Card::applyEffect(Card& card){
-    this.Effect::apply(Card& card);
+    //TODO tmp patch this.Effect::apply(Card& card);
 }

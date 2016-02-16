@@ -14,6 +14,6 @@ Card* CardManager::getCardById(const std::size_t id) {
     }
 }
 
-Effect* CardManager::getEffectById(const std::size_t id) {
-	return getCard(id).getEffect();
-}
+//TODO tmp patchEffect* CardManager::getEffectById(const std::size_t id) {
+	//TODO tmp patchreturn getCard(id).getEffect();
+//TODO tmp patch}
