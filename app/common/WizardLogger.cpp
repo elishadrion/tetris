@@ -47,20 +47,6 @@ void WizardLogger::initLogger(bool useConsole, std::string logFileName) {
     }
 }
 
-/* Print an DEBUG message
- * Use it for log like "error append here or after ?"
- * @param message : the string to log
- * @throw exception : cannot log "message"
- */
-void WizardLogger::debug(std::string message) {
-    try {
-        spdlog::get(LOGGER)->debug(message);
-    } catch (const spdlog::spdlog_ex& ex) {
-        std::cerr << "[ERREUR] Impossible d'afficher le log :\n" << ex.what() << std::endl;
-        throw; 
-    }
-}
-
 /* Print an INFO message
  * Use it for log like "send login request"
  * @param message : the string to log
