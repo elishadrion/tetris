@@ -4,6 +4,7 @@
 
 #include "Connection.hpp"
 #include "common/WizardLogger.hpp"
+#include "Console.hpp"
 
 int main(int argc, char** argv) {
     /* Init Logger, actually we are only console mode
@@ -17,6 +18,8 @@ int main(int argc, char** argv) {
     }
 
     WizardLogger::info("Starting client");
+    
+    new Console();
     
     Connection::connect_to_host(argv[1]);
 
