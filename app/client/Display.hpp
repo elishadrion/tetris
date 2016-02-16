@@ -1,33 +1,9 @@
-/*
- * File:   Display.hpp
- * Author: Detobel36
- *
- * Created on 3 février 2016, 20:14
- */
-
 #ifndef DISPLAY_HPP
-#define	DISPLAY_HPP
+#define DISPLAY_HPP
 
+//TODO Can be used as interface between program and GUI/console
+//TODO must define methode that can be call to refresh some info
+//TODO e.g. : for the tchat, call to signal "you must display new text"
+// @assigned : Tutul
 
-/**
- * Abstract class for the futur display mode. Inherit of this class to display
- * somethink
- */
-class Display {
-
-public:
-    virtual void print() = 0; // Console mode
-    // virtual void view() = 0;
-
-
-
-    virtual ~Display() = default;
-};
-
-//Display::~Display() = default;
-
-
-
-
-#endif	/* DISPLAY_HPP */
-
+#endif /* DISPLAY_HPP */

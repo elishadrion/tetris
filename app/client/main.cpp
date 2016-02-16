@@ -4,7 +4,7 @@
 
 #include "Connection.hpp"
 #include "common/WizardLogger.hpp"
-#include "Console.hpp"
+#include "console/Console.hpp"
 
 int main(int argc, char** argv) {
     /* Init Logger, actually we are only console mode

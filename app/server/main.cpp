@@ -6,7 +6,6 @@
 #include "CardManager.hpp"
 #include "common/WizardLogger.hpp"
 
-
 int main(int argc, char** argv) {
     /* Init Logger with both file and console log */
     try {
