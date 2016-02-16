@@ -74,33 +74,78 @@ int Connection::prepare_socket(struct addrinfo* all_options) {
     return sockfd;
 }
 
+int Connection::accept_connection(int listening_socket, struct sockaddr_storage * guest) {
+    socklen_t sin_size;
+    sin_size = sizeof guest;
+    char from[INET6_ADDRSTRLEN];
+    int new_fd;
+
+    if ((new_fd = accept(listening_socket,
+			 reinterpret_cast<struct sockaddr *>(&guest),
+			 &sin_size)) == -1) {
+	perror("server - Failed accepting connection request");
+	exit(EXIT_FAILURE);
+    } else {
+	FD_SET(new_fd, &master); // add to master set
+	if (new_fd > fdmax) {    // keep track of the max
+	    fdmax = new_fd;
+	}
+
+	// network to presentation address
+	inet_ntop(guest -> ss_family,
+		  get_in_addr(reinterpret_cast<struct sockaddr*>(&guest)),
+		  from,
+		  INET6_ADDRSTRLEN);
+	printf("server - Got connection from: %s\n", from);
+    }
+
+    return new_fd;
+
+}
+
+fd_set Connection::master;    // master file descriptor list
+fd_set Connection::read_fds;  // temp file descriptor list for select()
+int Connection::fdmax;        // maximum file descriptor number
+
+
+
 void Connection::mainloop() {
     // setup
-    int sockfd = prepare_socket(get_machine_info());
-    socklen_t sin_size;
+    int listening_socket = prepare_socket(get_machine_info());
     pthread_t thread_id;
     struct sockaddr_storage guest; // can hold IPv4 or IPv6 addrs.
 
+    FD_ZERO(&master);    // clear the master and temp sets
+    FD_ZERO(&read_fds);
 
-    std::cout << "Server listening..." << "\n";
+    // add the listener to the master set
+    FD_SET(listening_socket, &master);
+
+    // keep track of the biggest file descriptor
+    fdmax = listening_socket; // so far, it's this one
+
+    WizardLogger::info("Server listening...");
     // loop
     while (1) {
-	int new_fd;     // where stuff happens
-	sin_size = sizeof guest;
-	if ((new_fd = accept(sockfd, (struct sockaddr *)&guest, &sin_size)) == -1) {
-	    perror("server - Error extracting connection request");
+        read_fds = master; // copy it
+        if (select(fdmax+1, &read_fds, nullptr, nullptr, nullptr) == -1) {
+            perror("server - Could not select any socket");
 	    exit(EXIT_FAILURE);
-	}
+        }
 
-	char from[INET6_ADDRSTRLEN];
-	// network to presentation address
-	inet_ntop(guest.ss_family, Connection::get_in_addr((struct sockaddr*)(&guest)),
-		  from, INET6_ADDRSTRLEN);
-	printf("server - Got connection from: %s\n", from);
-
-	if (pthread_create(&thread_id, NULL, handler, &new_fd) < 0) {
-	    perror("server - Could not create thread");
-	    exit(EXIT_FAILURE);
+        // run through the existing connections looking for data to read
+        for(int i = 0; i <= fdmax; i++) {
+            if (FD_ISSET(i, &read_fds)) { // we got one!!
+                if (i == listening_socket) {
+                    // handle new connections
+		    accept_connection(listening_socket, &guest);
+                } else {
+		    if (pthread_create(&thread_id, NULL, handler, &i) < 0) {
+			perror("server - Could not create thread");
+			exit(EXIT_FAILURE);
+		    }
+                }
+            }
 	}
     }
 }

@@ -23,9 +23,14 @@
 #define MAXDATASIZE 200
 
 namespace Connection {
+    extern fd_set master;    // master file descriptor list
+    extern fd_set read_fds;  // temp file descriptor list for select()
+    extern int fdmax;        // maximum file descriptor number
+
     void* get_in_addr(struct sockaddr *sa);
     struct addrinfo* get_machine_info(void);
     int prepare_socket(struct addrinfo* machine_info);
+    int accept_connection(int, struct sockaddr_storage*);
     void mainloop();
 }
 

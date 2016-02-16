@@ -31,3 +31,5 @@ Card::Card(Card& card) : _id(card.getId()), _name(card.getName()), _energyCost(c
 void Card::applyEffect(Card& card){
     //TODO tmp patch this.Effect::apply(Card& card);
 }
+
+Card::~Card() {};

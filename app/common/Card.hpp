@@ -40,7 +40,6 @@ public:
 };
 
 
-//Card::~Card() = default;
 
 
 
