@@ -9,8 +9,8 @@
 
 
 /**
- * One class per player.  This object stock the socket to communicate with player
- * When the server start, he must load all Player
+ * One class per player.  This object stocks the socket to communicate with player
+ * When the server starts, he must load all Players
  */
 class Player {
 
@@ -26,8 +26,8 @@ protected:
 
 public:
     Player() {}
-    // Create the player (and open the file (if it exist) to complete the informations)
-    // Stock the new player in the allPlayer list
+    // Creates the player (and opens the file (if it exists) to complete the information)
+    // Stocks the new player in the allPlayers list
     Player(int sockfd, int playerID) {}
     virtual ~Player() = default;
 

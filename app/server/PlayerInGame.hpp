@@ -18,7 +18,7 @@ struct dataIGPlayer {
     bool turn;
 };
 
-// Declare before to avoid errors :/
+// Declares before to avoid errors :/
 class Game;
 class PlayerInGame;
 #include "Game.hpp"
@@ -38,7 +38,7 @@ class PlayerInGame : public Player {
 
 public:
 
-    PlayerInGame(); // not valide but better for less of Warning :D
+    PlayerInGame(); // not valide but better for less Warnings :D
     PlayerInGame(Player player, Game* game);
 
     dataIGPlayer getDataPlayer();

@@ -17,10 +17,10 @@ int main(int argc, char** argv) {
 
     WizardLogger::info("Starting server");
 
-    // Load card
+    // Loads card
     //CardManager::loadCards();
 
-    // Start listener
+    // Starts listener
     Connection::mainloop();
     return 0;
 }

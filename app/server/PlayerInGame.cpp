@@ -11,7 +11,7 @@ PlayerInGame::PlayerInGame() {
 }
 
 /**
- * Create a PlayerInGame and ask to the player witch Deck he would like to play
+ * Creates a PlayerInGame and asks to the player which Deck he would like to play with
  */
 PlayerInGame::PlayerInGame(Player player, Game* game) {
     // TO DO
@@ -20,7 +20,7 @@ PlayerInGame::PlayerInGame(Player player, Game* game) {
 }
 
 /**
- * Get data information from this player to send it
+ * Gets data information from this player to send it
  *
  * @param isTurn of the current player
  */
@@ -36,7 +36,7 @@ dataIGPlayer PlayerInGame::getDataPlayer() {
 }
 
 /**
- * Set the player deck and notify it at the game object
+ * Sets the player deck and notify it at the game object
  *
  * @param deck The selected deck
  */
@@ -44,20 +44,20 @@ void PlayerInGame::setDeck(Deck *deck) {
     _deck = deck;
     game->checkDeckAndStart();
 }
-// @tutul méthode à appeller lorsque l'on recoit un deck
+// @tutul méthode à appeler lorsque l'on recoit un deck
 
 
 /**
- * Check if the deck of this player is define
+ * Checks if the deck of this player is defined
  *
- * @return True if the deck is define
+ * @return True if the deck is defined
  */
 bool PlayerInGame::isDeckDefine() {
     return _deck != nullptr;
 }
 
 /**
- * Get random cart of deck
+ * Gets random card of deck
  *
  * @return a random card
  */
@@ -68,7 +68,7 @@ bool PlayerInGame::isDeckDefine() {
 
 
 /**
- * Return the placed card
+ * Returns the placed cards
  */
 std::vector<Card*> PlayerInGame::getCardPlaced() {
     return _cardsPlaced;

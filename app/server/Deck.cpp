@@ -6,8 +6,8 @@
 
 
 /**
- * Check if the deck is valide.
- * He must to have 100 cards
+ * Checks if the deck is valide.
+ * He must have 100 cards
  *
  * @return True if the deck is valide
  */
@@ -16,7 +16,7 @@ bool Deck::isValide() {
 }
 
 /**
- * Remove a card from the deck
+ * Removes a card from the deck
  *
  * @param i position of the card in the deck
  */
@@ -26,7 +26,7 @@ void Deck::removeCard(const int i) {
 
 
 /**
- * Remove a card from the deck
+ * Removes a card from the deck
  *
  * @param id the id of the card in the deck
  * @see removeCard (better)
@@ -36,7 +36,7 @@ void Deck::removeIdCard(const int id) {
 }
 
 /**
- * Get the index of a card in the deck
+ * Gets the index of a card in the deck
  *
  * @param id the card id
  * @return index of the card (-1 if not found)
@@ -50,7 +50,7 @@ int Deck::indexOfCard(const int id) {
 }
 
 /**
- * Get the id of the card at the position in parameter
+ * Gets the id of the card at the position in parameter
  *
  * @param i the position
  * @return the id of the card
@@ -61,20 +61,20 @@ int Deck::getIdOnIndex(const int i) {
 
 
 /**
- * Return the last card of the deck
+ * Returns the last card of the deck
  *
  * @return the id of the card
  */
 int Deck::pickup() {
     int chooseCard = rand() % static_cast<int>(_listCard.size()); // Chose random index
-    int id = getIdOnIndex(chooseCard); // get id
-    removeCard(chooseCard); // Remove the card
-    return id; // Return the id
+    int id = getIdOnIndex(chooseCard); // gets id
+    removeCard(chooseCard); // Removes the card
+    return id; // Returns the id
 }
 
 /**
- * Add a card on the deck
- * Error: OverFlow if mutch than 100 cards
+ * Adds a card in the deck
+ * Error: OverFlow if more than 100 cards
  *
  * @param id of the card
  */

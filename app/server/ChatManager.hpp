@@ -11,14 +11,12 @@ class ChatManager {
     Player _p2;
 
 public:
-    // Call when a player send a message
+    // Called when a player sends a message
     sendMessage(Player player, std::string message);
 
 
 
 };
-
-
 
 
 #endif	/* CHATMANAGER_HPP */

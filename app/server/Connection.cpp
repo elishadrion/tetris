@@ -86,8 +86,8 @@ int Connection::accept_connection(int listening_socket, struct sockaddr_storage 
 	perror("server - Failed accepting connection request");
 	exit(EXIT_FAILURE);
     } else {
-	FD_SET(new_fd, &master); // add to master set
-	if (new_fd > fdmax) {    // keep track of the max
+	FD_SET(new_fd, &master); // adds to master set
+	if (new_fd > fdmax) {    // keeps track of the max
 	    fdmax = new_fd;
 	}
 
@@ -115,29 +115,29 @@ void Connection::mainloop() {
     pthread_t thread_id;
     struct sockaddr_storage guest; // can hold IPv4 or IPv6 addrs.
 
-    FD_ZERO(&master);    // clear the master and temp sets
+    FD_ZERO(&master);    // clears the master and temp sets
     FD_ZERO(&read_fds);
 
-    // add the listener to the master set
+    // adds the listener to the master set
     FD_SET(listening_socket, &master);
 
-    // keep track of the biggest file descriptor
+    // keeps track of the biggest file descriptor
     fdmax = listening_socket; // so far, it's this one
 
     WizardLogger::info("Server listening...");
     // loop
     while (1) {
-        read_fds = master; // copy it
+        read_fds = master; // copies it
         if (select(fdmax+1, &read_fds, nullptr, nullptr, nullptr) == -1) {
             perror("server - Could not select any socket");
 	    exit(EXIT_FAILURE);
         }
 
-        // run through the existing connections looking for data to read
+        // runs through the existing connections looking for data to read
         for(int i = 0; i <= fdmax; i++) {
             if (FD_ISSET(i, &read_fds)) { // we got one!!
                 if (i == listening_socket) {
-                    // handle new connections
+                    // handles new connections
 		    accept_connection(listening_socket, &guest);
                 } else {
 		    if (pthread_create(&thread_id, NULL, handler, &i) < 0) {

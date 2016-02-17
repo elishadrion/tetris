@@ -5,7 +5,7 @@
 
 class CardManager{
 private:
-	static std::map<std::size_t, Card*> listCard; // List of card (with id and card)
+	static std::map<std::size_t, Card*> listCard; // List of cards (with id and card)
 
 public:
 	 ///// STATIC /////

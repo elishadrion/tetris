@@ -17,7 +17,7 @@ enum GameStatut {
 
 
 /**
- * One class per game.  Contain the two players and all other informations for
+ * One class per game.  Contains the two players and all other information for
  * the game
  */
 class Game {
@@ -25,7 +25,7 @@ class Game {
     static std::queue<Player*> PlayerWaitGame;
 
     GameStatut _gameStatut;
-    PlayerInGame* _currentPlayer; // Player the must play now (0 or 1)
+    PlayerInGame* _currentPlayer; // Player that must play now (0 or 1)
     unsigned int _turn;
     PlayerInGame* _player1;
     PlayerInGame* _player2;
@@ -43,7 +43,7 @@ class Game {
 
 
 public:
-    //virtual void play();  // function when a player play. Call Listener.onPlayerPlay
+    //virtual void play();  // function when a player plays. Calls Listener.onPlayerPlay
 
     Game(); // Default constuctor
     Game(const Game&); // Copy constructor
@@ -54,7 +54,7 @@ public:
     void checkDeckAndStart();
 
 
-    static void addPlayerWaitGame(Player player); // Add a player to the PlayerWait list
+    static void addPlayerWaitGame(Player player); // Adds a player to the PlayerWait list
 
 };
 

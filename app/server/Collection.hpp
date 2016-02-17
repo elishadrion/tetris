@@ -7,7 +7,7 @@
 
 class Collection {
 
-    //std::vector<Card> _listAllCard;
+    //std::vector<Card> _listAllCards;
 
 
 
