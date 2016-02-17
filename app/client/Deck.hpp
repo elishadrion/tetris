@@ -1,9 +1,3 @@
-/* 
- * File:   Deck.hpp
- * Author: Detobel36
- *
- * Created on 4 février 2016, 9:42
- */
 
 #ifndef DECK_HPP
 #define	DECK_HPP
@@ -14,11 +8,11 @@
 class Deck : public Display {
     
     /**
-     * Open the default deck
+     * Opens the default deck
      */
     void print();
     /**
-     * Open the specific deck
+     * Opens the specific deck
      * 
      * @param name the name of the deck
      */

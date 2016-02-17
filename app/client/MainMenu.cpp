@@ -12,7 +12,7 @@ MainMenu::MainMenu() {
 }
 
 /**
- * function when the player have chose he menu
+ * function when the player have chosen the menu
  *
  * @param number the button
  */
@@ -30,7 +30,7 @@ void MainMenu::print() {
     std::cout << "1. Play" << std::endl;
     std::cout << "2. Collection" << std::endl;
     std::cout << "3. Friends"  << std::endl;
-    std::cout << "4. Classement"  << std::endl;
+    std::cout << "4. Ranking"  << std::endl;
     std::cout << "5. Exit"  << std::endl;
 
     std::cin >> choise;

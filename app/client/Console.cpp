@@ -6,7 +6,7 @@ void Console::init() {
     initscr();
     
     /* We block default behavior for special key like CTRL-Z
-     * So we must implement our methode
+     * So we must implement our method
      * But like this, we are certain to shutdown ncurse terminal specification
      */
     raw();
@@ -17,7 +17,7 @@ void Console::init() {
     /* Dont print why user input directly, we manage it */
     noecho();
     
-    /* Create the main windows of the program */
+    /* Creates the main windows of the program */
     WINDOW *mainWindow = newwin(LINES, COLLONNES, 0, 0);
     
     /* We create a bordure on the windows */
@@ -26,7 +26,7 @@ void Console::init() {
     /* At startup, we display the login panel */
     PANEL *loginPanel = new_panel(mainWindow);
     
-    /* Update panel and display window */
+    /* Updates panel and displays window */
     update_panels();
     doupdate();
     

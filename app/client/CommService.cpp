@@ -11,7 +11,7 @@ void CommService::managePacket(Packet::packet* customPacket) {
                                           break;
         case Packet::COLLECTION_LIST_ID : //TODO
                                           break;
-        default :                         WizardLogger::warn("Paquet inconnue reçu");
+        default :                         WizardLogger::warn("Paquet inconnu reçu");
                                           break;
     }
 }

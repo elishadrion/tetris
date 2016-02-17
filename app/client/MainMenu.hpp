@@ -1,9 +1,3 @@
-/*
- * File:   MainMenu.hpp
- * Author: Detobel36
- *
- * Created on 3 février 2016, 20:09
- */
 
 #ifndef MAINMENU_HPP
 #define	MAINMENU_HPP

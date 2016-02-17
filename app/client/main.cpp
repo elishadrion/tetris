@@ -7,7 +7,7 @@
 #include "Console.hpp"
 
 int main(int argc, char** argv) {
-    /* Init Logger, actually we are only console mode
+    /* Init Logger, actually we are only in console mode
      * So we cannot use console log (for now)
      */
     try {
