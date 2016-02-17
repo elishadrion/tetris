@@ -22,17 +22,17 @@
 **/
 
 class LoginPanel {
-    PANEL *panel;
     FORM  *form;
     FIELD *field[2];
     int input;
+    
+    void setFocus();
 public:
-    LoginPanel(WINDOW*);
+    LoginPanel();
     ~LoginPanel();
     
-    void printError(std::string);
-    void setVisibility(bool);
     void askLogin();
+    void printError(std::string);
 };
 
 #endif /* PANEL_HPP */

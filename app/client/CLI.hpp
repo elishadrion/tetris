@@ -75,13 +75,12 @@
 #define CARD_INFO_WIDTH TCHAT_INPUT_WIDTH
 
 class CLI : public Display {
-    WINDOW *mainWindow;
-    
     /* All panel used by the CLI */
     LoginPanel *loginPanel;
 public:
     CLI();
     ~CLI();
+    void displayLoginPrompt();
 };
 
 #endif /* CONSOLE_HPP */

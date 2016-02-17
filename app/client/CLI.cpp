@@ -24,26 +24,21 @@ CLI::CLI() {
         refresh();
     }
     
-    /* Creates the main windows of the program */
-    WINDOW *mainWindow = newwin(LINES, COLLONNES, 0, 0);
-    
-    /* We create a bordure on the windows */
-    box(mainWindow, 0, 0);
-    
-    /* We create all panel now (hidden by default except loginPanel) */
-    loginPanel = new LoginPanel(mainWindow);
+    /* Create panel and form view */
+    loginPanel = new LoginPanel();
     
     /* Updates panel and displays window */
     update_panels();
     doupdate();
-    
-    /* Display login request */
-    loginPanel->setVisibility(true);
-    loginPanel->askLogin();
 }
 
 CLI::~CLI() {
     /* End curses mode */
     WizardLogger::info("Désactivation du mode ncurses");
     endwin();
+}
+
+void CLI::displayLoginPrompt() {
+    /* We create all panel now (hidden by default except loginPanel) */
+    loginPanel->askLogin();
 }

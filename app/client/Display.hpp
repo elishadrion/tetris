@@ -6,6 +6,8 @@ public:
     /* Create or remove interface */
     Display() = default;
     virtual ~Display() = default;
+    
+    virtual void displayLoginPrompt() =0;
 };
 
 #endif	/* DISPLAY_HPP */

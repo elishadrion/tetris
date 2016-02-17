@@ -24,6 +24,12 @@ int main(int argc, char** argv) {
     /* We init in CLI mode */
     Display *display = new CLI();
     
+    /* Display login prompt
+     * Only call it after all backround service are ready
+     * User become the only one to can modify program state
+     */
+    display->displayLoginPrompt();
+    
     //Connection::connect_to_host(argv[1]);
     
     /* We close all interface */
