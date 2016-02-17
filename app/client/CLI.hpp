@@ -4,9 +4,16 @@
 #include <ncurses.h>
 #include <panel.h>
 
+/* Logger */
 #include "common/WizardLogger.hpp"
 
-/**
+/* Main type */
+#include "Display.hpp"
+
+/* All used panel */
+#include "LoginPanel.hpp"
+
+/** in-game layout
 #################################### ############
 #                                  # #          #
 #                                  # # cardInfo #
@@ -67,9 +74,14 @@
 #define CARD_INFO_HEIGTH 5
 #define CARD_INFO_WIDTH TCHAT_INPUT_WIDTH
 
-namespace Console {
-    void init();
-    void close();
-}
+class CLI : public Display {
+    WINDOW *mainWindow;
+    
+    /* All panel used by the CLI */
+    LoginPanel *loginPanel;
+public:
+    CLI();
+    ~CLI();
+};
 
 #endif /* CONSOLE_HPP */

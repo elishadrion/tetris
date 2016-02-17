@@ -4,7 +4,9 @@
 
 #include "Connection.hpp"
 #include "common/WizardLogger.hpp"
-#include "Console.hpp"
+#include "Display.hpp"
+#include "CLI.hpp"
+//#include "GUI.hpp"
 
 int main(int argc, char** argv) {
     /* Init Logger, actually we are only in console mode
@@ -19,11 +21,13 @@ int main(int argc, char** argv) {
 
     WizardLogger::info("Starting client");
     
-    Console::init();
+    /* We init in CLI mode */
+    Display *display = new CLI();
     
     //Connection::connect_to_host(argv[1]);
     
-    Console::close();
+    /* We close all interface */
+    delete display;
 
     return 0;
 }

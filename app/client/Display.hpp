@@ -1,7 +1,11 @@
 #ifndef DISPLAY_HPP
 #define	DISPLAY_HPP
 
-//TODO can be used as an interface between program and CLI/GUI
-//TODO e.g. tchat can call to refresh for display message
+class Display {
+public:
+    /* Create or remove interface */
+    Display() = default;
+    virtual ~Display() = default;
+};
 
 #endif	/* DISPLAY_HPP */
