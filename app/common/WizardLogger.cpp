@@ -11,7 +11,7 @@ void WizardLogger::initLogger(bool useConsole, std::string logFileName) {
     try {
         /* Active async logger with a queue size of 1048576 (must be power of 2)
          * Lets default blocking policy when queue is full
-         * If error occure, it's throw at the next call of the logger
+         * If error occurs, it's thrown at the next call of the logger
          */
         spdlog::set_async_mode(1048576);
         
@@ -20,7 +20,7 @@ void WizardLogger::initLogger(bool useConsole, std::string logFileName) {
          */
          std::vector<spdlog::sink_ptr> sinks;
         
-        /* Create a log file with rotation
+        /* Creates a log file with rotation
          * with these parameters : 
          * <file's name>, <file's extention>
          * <max size before rotate (here 5 Mib)>, <max file (with rotation)>
@@ -47,7 +47,7 @@ void WizardLogger::initLogger(bool useConsole, std::string logFileName) {
     }
 }
 
-/* Print an INFO message
+/* Prints an INFO message
  * Use it for log like "send login request"
  * @param message : the string to log
  * @throw exception : cannot log "message"
@@ -104,7 +104,7 @@ void WizardLogger::error(std::string message, std::exception ex) {
     }
 }
 
-/* Print an FATAL message
+/* Print a FATAL message
  * Use it for fatal error like "cannot write/read the HDD"
  * @param message : the string to log
  * @throw exception : cannot log "message"
@@ -118,7 +118,7 @@ void WizardLogger::fatal(std::string message) {
     }
 }
 
-/* Print an FATAL message
+/* Print a FATAL message
  * Use it for fatal error like "cannot write/read the HDD"
  * @param message : the string to log
  * @param exception : exception to print

@@ -8,7 +8,7 @@
 
 
 /**
- * One class per card.  Contain all informations of the card
+ * One class per card.  Contain all information of the card
  */
 class Card {
 public:
@@ -19,15 +19,15 @@ public:
 
 
 private:
-    std::size_t _id; // id or the cards
-    std::string _name; // name of the cards
+    std::size_t _id; // id of the card
+    std::string _name; // name of the card
     std::size_t _energyCost;
-    int _effect;//TODO tmp patch Effect _effect; // His special effect
+    int _effect;//TODO tmp patch Effect _effect; // Its special effect
 
 
 public:
     virtual void applyEffect(Card& card);
-    virtual ~Card() = 0; // Abstract class because we cann't instance it
+    virtual ~Card() = 0; // Abstract class because we can't instance it
 
     std::size_t getId(){return _id;}
     std::string getName(){return _name;}

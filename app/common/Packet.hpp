@@ -6,7 +6,7 @@
 
 using namespace std;
 
-//TODO must be implement somewhere else (global so in main ?)
+//TODO must be implemented somewhere else (global so in main ?)
 #define MAX_PSEUDO_SIZE 30
 #define MAX_CARTES 200
 #define DECK_SIZE 20
@@ -20,7 +20,7 @@ public:
         LOGIN_REQ_ID = 0,
         LOGIN_RES_ID = 1,
         DISCONNECT_ID = 2,
-        /* COLLECTIONS/DECKS/CARTES PROCESS */
+        /* COLLECTIONS/DECKS/CARDS PROCESS */
         COLLECTION_REQ_ID = 3,
         COLLECTION_LIST_ID = 4,
         DECK_REQ_ID = 5,
@@ -36,10 +36,10 @@ public:
         //TODO launch game + game process
     };
     
-    /* Default size of all packet (without data) */
+    /* Default size of all packets (without data) */
     const int packetSize = sizeof(int)*2;
     
-    /* default packet struct (without data member) */
+    /* Default packet struct (without data member) */
     typedef struct {
         int ID;
         int size = 0;
@@ -82,14 +82,14 @@ public:
         int cartesList[DECK_SIZE];
     } deckContentPacket;
     
-    /* Carte info request */
+    /* Card info request */
     typedef struct {
         int ID = CARTE_REQ_ID;
         int size = sizeof(int);
         int carteID;
     } carteRequestPacket;
     
-    /* Carte info */
+    /* Card info */
     typedef struct {
         int ID = CARTE_INFO_ID;
         int size = sizeof(int)+sizeof(char)*MAX_CARTE_DESCRITION_SIZE;
