@@ -2,6 +2,7 @@
 #define CARDMANAGER_HPP
 
 #include "common/Card.hpp" //TODO tmp patch
+#include <map>
 
 class CardManager{
 private:
@@ -11,7 +12,7 @@ public:
 	 ///// STATIC /////
     static Card* getCardById(std::size_t id); // Get a specific card (identified by ID)
 
-    //TODO tmp patch static Effect* getEffectByID(std::size_t id);
+    static void loadAllCards();
 };
 
 #endif
