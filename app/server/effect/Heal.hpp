@@ -4,15 +4,17 @@
 #include "common/Card.hpp"
 #include "common/CardCreature.hpp"
 #include "server/Effect.hpp"
+#include "server/PlayerInGame.hpp"
 
 class Heal : public Effect{
 
     std::size_t _healValue;
 public:
-    Heal(std::size_t healValue=2):_healValue(healValue){};
+    Heal(std::size_t healValue):_healValue(healValue){};
     ~Heal(){};
 
     virtual void apply(Card* target) override;
+    virtual void apply(PlayerInGame* target);
 };
 
 void Heal::apply(Card* target) {
@@ -21,6 +23,16 @@ void Heal::apply(Card* target) {
     if (target->getlife() > target->getMaxLife()){
     	//Target's life can't be higher than its maximum hp
     	target->setLife(target->getMaxLife());
+    }
+}
+
+void Heal::apply(PlayerInGame* target) {
+	std::size_t maxHpPlayer=20;
+    target->setLife(target->getLife()+_healValue);
+
+    if (target->getlife() > maxHpPlayer){
+    	//Target's life can't be higher than its maximum hp
+    	target->setLife(maxHpPlayer);
     }
 }
 

@@ -9,7 +9,7 @@ class AttackCurse : public Effect{
 
     std::size_t _attackValue;
 public:
-    AttackCurse(std::size_t attackValue=1):_attackValue(attackValue){};
+    AttackCurse(std::size_t attackValue):_attackValue(attackValue){};
     ~AttackCurse(){};
 
     virtual void apply(Card*) override;

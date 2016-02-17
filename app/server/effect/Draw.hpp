@@ -10,7 +10,7 @@ class Draw : public Effect{
 
     std::size_t _nDraw;
 public:
-    Draw(std::size_t nDraw=1):_nDraw(nDraw){};
+    Draw(std::size_t nDraw):_nDraw(nDraw){};
     ~Draw(){};
 
     //Soit on suit le meme principe que Taunt avec une fonction isDraw qui est gérée dans le jeu

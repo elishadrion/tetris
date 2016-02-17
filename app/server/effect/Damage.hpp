@@ -4,6 +4,7 @@
 #include "common/Card.hpp"
 #include "common/CardCreature.hpp"
 #include "server/Effect.hpp"
+#include "server/PlayerInGame.hpp"
 
 class Damage : public Effect{
 
@@ -13,9 +14,15 @@ public:
     ~Damage(){};
 
     virtual void apply(Card*) override;
+    virtual void apply(PlayerInGame*);
 };
 
 void Damage::apply(Card* target){
     target->setLife(target->getLife()-_damageValue);
 }
+
+void Damage::apply(PlayerInGame* target){
+    target->setLife(target->getLife()-_damageValue);
+}
+
 #endif	/* DAMAGE_HPP */

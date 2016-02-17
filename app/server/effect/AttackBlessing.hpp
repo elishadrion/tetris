@@ -9,7 +9,7 @@ class AttackBlessing : public Effect{
 
     std::size_t _attackValue;
 public:
-    AttackBlessing(std::size_t attackValue=2):_attackValue(attackValue){};
+    AttackBlessing(std::size_t attackValue):_attackValue(attackValue){};
     ~AttackBlessing(){};
 
     virtual void apply(Card*) override;

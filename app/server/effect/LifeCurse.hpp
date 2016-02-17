@@ -9,7 +9,7 @@ class LifeCurse : public Effect{
 
     std::size_t _lifeValue;
 public:
-    LifeCurse(std::size_t lifeValue=1):_lifeValue(lifeValue){};
+    LifeCurse(std::size_t lifeValue):_lifeValue(lifeValue){};
     ~LifeCurse(){};
 
     virtual void apply(Card*) override;
