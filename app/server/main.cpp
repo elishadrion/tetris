@@ -16,15 +16,24 @@ int main() {
     }
 
     WizardLogger::info("Starting server");
+    Connection *conn = new Connection();
+    if (!conn->isReady()) {
+        WizardLogger::fatal("Impossible d'écouter les clients");
+        return EXIT_FAILURE;
+    }
+    
+    conn->mainLoop();
 
     // Loads card
     //CardManager::loadCards();
 
     // Starts listener
-    Connection::mainloop();
+    //Connection::mainloop();
+    
+    delete conn;
     return 0;
 }
-
+/**
 void* handler(int &new_fd, int &listening_socket) {
     size_t numbytes;
     char buf[MAXDATASIZE];
@@ -45,4 +54,4 @@ void* handler(int &new_fd, int &listening_socket) {
     }
 
     return nullptr;
-}
+}**/

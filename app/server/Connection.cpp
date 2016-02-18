@@ -1,5 +1,80 @@
 #include "Connection.hpp"
 
+Connection::Connection() : ready(false) {
+    /* We create informations for use with a socket */
+    server_addr.sin_family = AF_INET;
+    server_addr.sin_port = htons(PORT);
+    server_addr.sin_addr.s_addr = INADDR_ANY;
+
+    /* We check/fix size */
+    memset(&(server_addr.sin_zero), '\0', 8);
+
+
+    /* SYS_CALL to create a new socket */
+    serverSocket = socket(AF_INET, SOCK_STREAM, 0);
+    if (serverSocket == -1) {
+        WizardLogger::error("Impossible d'avoir un nouveau socket pour le serveur");
+        return;
+    }
+
+    /* We bind socket with informations */
+    if (bind(serverSocket, (struct sockaddr *)&server_addr, sizeof(struct sockaddr)) == -1) {
+        WizardLogger::error("Impossible d'initialiser le socket du serveur");
+        return;
+    }
+
+    /* We configure waiting list for the socket */
+    if (listen(serverSocket, BACKLOG) == -1) {
+        WizardLogger::error("Impossible de mettre en place la file d'attende de connexion");
+        return;
+    }
+
+    sin_size = sizeof(struct sockaddr_in);
+    ready = true;
+}
+
+Connection::~Connection() {
+    close(serverSocket);
+}
+
+bool Connection::isReady() {
+    return ready;
+}
+
+void Connection::mainLoop() {
+    /* We wait for client connection */
+    WizardLogger::info("Serveur en attente de connexion client");
+    while(1) {
+        /* Accept connection and create a new clientSocket */
+        int clientSocket = accept(serverSocket, (struct sockaddr *)&client_addr, &sin_size);
+        if (clientSocket == -1) {
+            WizardLogger::error("Impossible d'accepter la connexion d'un client");
+        } else {
+            WizardLogger::info("Nouvelle connexion pour le client ");//%s\n", inet_ntoa(client_addr.sin_addr));
+            
+            //TODO
+            int size;
+            if (recv(clientSocket, &size, sizeof(int), 0) == 0) {
+                WizardLogger::error("Pas de réponse de la part du client");
+            }
+            WizardLogger::warn("Réception d'un packet de taille : "+std::to_string(size));
+            void *packet = malloc(size);
+            if (recv(clientSocket, packet, size, 0) == 0) {
+                WizardLogger::error("Pas de réponse de la part du client");
+            }
+            WizardLogger::warn("Tentative d'inderprétation");
+            CommService::managePacket(reinterpret_cast<Packet::packet*>(packet));
+
+            /* We create a new Thread for these client and launch it
+            if (pthread_create(&thread, NULL, &thread_main, &clientSocket) == -1) {
+                perror("Impossible de créer un nouveau thread pour le client");
+                close(clientSocket);
+            }*/
+        }
+    }
+}
+
+/**
 fd_set Connection::master;    // master file descriptor list
 fd_set Connection::read_fds;  // temp file descriptor list for select()
 int Connection::fdmax;        // maximum file descriptor number
@@ -76,8 +151,8 @@ int Connection::prepare_socket(struct addrinfo* all_options) {
 
         break;
     }
-
-    freeaddrinfo(all_options);     /* No need for this anymore */
+/
+    freeaddrinfo(all_options);     // No need for this anymore
 
     if (helper == NULL)  {
         fprintf(stderr, "server - Could not bind to any address\n");
@@ -155,3 +230,4 @@ void Connection::mainloop() {
 	}
     }
 }
+**/

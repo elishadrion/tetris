@@ -37,7 +37,7 @@ public:
     };
     
     /* Default size of all packets (without data) */
-    const int packetSize = sizeof(int)*2;
+    static const int packetSize = sizeof(int)*2;
     
     /* Default packet struct (without data member) */
     typedef struct {

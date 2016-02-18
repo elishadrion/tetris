@@ -1,20 +1,33 @@
 #include "LoginPanel.hpp"
 
 LoginPanel::LoginPanel() {
-    WizardLogger::info("Affichage du la demande de login");
     /* Initialize field and set some options
      * <height> <width> <toprow> <leftcol> <offscreen> <nbuffers>
      */
-    field[0] = new_field(1, 30, 4, 24, 0, 0);
+    field[0] = new_field(1, 31, 4, 24, 0, 0);
     field_opts_off(field[0], O_AUTOSKIP);  /* Don't go to the next field when full */
-    field[1] = new_field(1, 30, 6, 24, 0, 0);
+    field[1] = new_field(1, 31, 6, 24, 0, 0);
     field_opts_off(field[1], O_AUTOSKIP);
+    //field_opts_off(field[1], O_PUBLIC); /* Don't display password character */
     
-    /* Create the form and post it */
+    /* Create the form and calculate size needed */
+    int rows, cols;
     form = new_form(field);
+    scale_form(form, &rows, &cols);
+    
+    /* Create a window with box and put form in it */
+    win = newwin(rows + 6, cols + 8, 0, 6);
+    keypad(win, TRUE);
+    set_form_win(form, win);
+    //set_form_sub(form, derwin(win, rows, cols, 2, 2));
+    box(win, 0, 0);
+    
+    /* Post form and refresh window */
     post_form(form);
+    wrefresh(win);
     
     /* Add some label */
+    mvprintw(2, 10, DEFAULT_LABEL);
     mvprintw(4, 10, "Pseudo       :");
     mvprintw(6, 10, "Mot de passe :");
     mvprintw(8, 10, "(Utilisez les flèches pour changer de champs)");
@@ -36,46 +49,112 @@ void LoginPanel::setFocus() {
     refresh();
 }
 
+void LoginPanel::doLogin(int pseudoSize, int passwordSize) {
+    /* Get the pseudo from the first field */
+    string pseudo = "";
+    char *tmp = field_buffer(field[0], 0);
+    for (int i = 0 ; i < pseudoSize ; ++i) {
+        pseudo += tmp[i];
+    }
+    
+    /*TODO Get the password from the second field */
+    std::string password = "";
+    tmp = field_buffer(field[1], 0);
+    for (int i = 0 ; i < passwordSize ; ++i) {
+        password += tmp[i];
+    }
+    
+    CommService::makeLoginRequest(pseudo, password);
+}
+
 /* Ask user login informations
  * Also provides button to login or register
  */
 void LoginPanel::askLogin() {
-    /* Loop through to get user requests */
+    /* Define work variable using for verification and beep */
+    int indexA = 0;
+    int sizeA = 0;
+    int indexB = 0;
+    int sizeB = 0;
+    bool passwordForm = false; /* false: pseudo | true: password */
+    
+    /* Set focus on the fist form */
     setFocus();
+    
+    /* Loop through to get user requests */
     while((input = getch())) {
         switch(input) {
             case KEY_DOWN:
                 /* Go to the next field (at the end of the buffer) */
                 form_driver(form, REQ_NEXT_FIELD);
                 form_driver(form, REQ_END_LINE);
+                passwordForm = !passwordForm;
                 break;
             case KEY_UP:
                 /* Go to the previous field (at the end of the buffer) */
                 form_driver(form, REQ_PREV_FIELD);
                 form_driver(form, REQ_END_LINE);
+                passwordForm = !passwordForm;
                 break;
             case KEY_LEFT:
                 /* Go to the previous character (if available) */
-                form_driver(form,REQ_LEFT_CHAR);
+                if ((!passwordForm && (indexA == 0 || sizeA == 0)) ||
+                    (passwordForm && (indexB == 0 || sizeB == 0))) {
+                    beep();
+                } else {
+                    form_driver(form,REQ_LEFT_CHAR);
+                    if (passwordForm) {
+                        indexB -= 1;
+                    } else {
+                        indexA -= 1;
+                    }
+                }
                 break;
             case KEY_RIGHT:
                 /* Go to the next character (if available) */
-                form_driver(form,REQ_RIGHT_CHAR);
+                if ((!passwordForm && (indexA == sizeA || sizeA == 0)) ||
+                    (passwordForm && (indexB == sizeB || sizeB == 0))) {
+                    beep();
+                } else {
+                    form_driver(form,REQ_RIGHT_CHAR);
+                    if (passwordForm) {
+                        indexB += 1;
+                    } else {
+                        indexA += 1;
+                    }
+                }
                 break;
             case KEY_BACKSPACE:
                 /* Remove previous character (if available) */
-                form_driver(form,REQ_LEFT_CHAR); 
-                form_driver(form,REQ_DEL_CHAR);
+                if ((!passwordForm && (indexA == 0 || sizeA == 0)) ||
+                    (passwordForm && (indexB == 0 || sizeB == 0))) {
+                    beep();
+                } else {
+                    form_driver(form,REQ_LEFT_CHAR); 
+                    form_driver(form,REQ_DEL_CHAR);
+                    if (passwordForm) {
+                        indexB -= 1;
+                        sizeB -= 1;
+                    } else {
+                        indexA -= 1;
+                        sizeA -= 1;
+                    }
+                }
                 break;
             case KEY_F(1):
-                /* Clean all field */
+                /* Clean all field and reset work variable */
                 form_driver(form,REQ_CLR_FIELD);
                 form_driver(form, REQ_NEXT_FIELD);
                 form_driver(form,REQ_CLR_FIELD);
+                indexA = 0;
+                sizeA = 0;
+                indexB = 0;
+                sizeB = 0;
+                passwordForm = false;
                 setFocus();
                 break;
             case KEY_F(2):
-                printError("   LOGIN NON IMPLEMENTE   ");
+                doLogin(sizeA, sizeB);
                 break;
             case KEY_F(3):
                 printError("INSCRIPTION NON IMPLEMENTE");
@@ -84,10 +163,21 @@ void LoginPanel::askLogin() {
                 /* If it's the SPACEBAR, we beep */
                 if (input == ' ') {
                     beep();
+                } else if ((!passwordForm && sizeA == 30) ||
+                    (passwordForm && sizeB == 30)) {
+                    printError("TAILLE MAXIMUM DE 30 CHAR ");
+                    beep();
                 } else {
-                    /* We reset error message before display input */
-                    mvprintw(2, 10, "                          ");
+                    /* Reset error and print character */
+                    mvprintw(2, 10, DEFAULT_LABEL);
                     form_driver(form, input);
+                    if (passwordForm) {
+                        indexB += 1;
+                        sizeB += 1;
+                    } else {
+                        indexA += 1;
+                        sizeA += 1;
+                    }
                 }
                 break;
         }

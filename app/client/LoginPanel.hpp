@@ -10,6 +10,9 @@
 /* Logger */
 #include "common/WizardLogger.hpp"
 
+/* To call the login process */
+#include "CommService.hpp"
+
 /**
 #####################################
 #                                   #
@@ -21,11 +24,15 @@
 #####################################
 **/
 
+#define DEFAULT_LABEL "   LOGIN/REGISTRATION     "
+
 class LoginPanel {
     FORM  *form;
     FIELD *field[2];
+    WINDOW *win;
     int input;
     
+    void doLogin(int, int);
     void setFocus();
 public:
     LoginPanel();

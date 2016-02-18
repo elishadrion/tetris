@@ -8,6 +8,8 @@
 #include "CLI.hpp"
 //#include "GUI.hpp"
 
+Connection *conn;
+
 int main(int argc, char** argv) {
     /* Init Logger, actually we are only in console mode
      * So we cannot use console log (for now)
@@ -21,6 +23,19 @@ int main(int argc, char** argv) {
 
     WizardLogger::info("Starting client");
     
+    //Connection::connect_to_host(argv[1]);
+    
+    if (argc > 1) {
+        conn = new Connection(argv[1]);
+    } else {
+        conn = new Connection("localhost");
+    }
+    
+    if (!conn->isConnected()) {
+        WizardLogger::fatal("Impossible d'établire une connection avec le serveur");
+        return EXIT_FAILURE;
+    }
+    
     /* We init in CLI mode */
     Display *display = new CLI();
     
@@ -30,10 +45,9 @@ int main(int argc, char** argv) {
      */
     display->displayLoginPrompt();
     
-    //Connection::connect_to_host(argv[1]);
-    
     /* We close all interface */
     delete display;
+    delete conn;
 
     return 0;
 }

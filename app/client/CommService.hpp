@@ -2,9 +2,9 @@
 
 #include "common/Packet.hpp"
 #include "common/WizardLogger.hpp"
+#include "Connection.hpp"
 
-class CommService {
-public:
+namespace CommService {
     /* API for other service */
     void managePacket(Packet::packet*);
     void makeLoginRequest(const string, const string);

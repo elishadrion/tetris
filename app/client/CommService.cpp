@@ -1,5 +1,7 @@
 #include "CommService.hpp"
 
+extern Connection *conn;
+
 void CommService::managePacket(Packet::packet* customPacket) {
     /* We get ID of the packet after cast void* to packet* */
     switch(customPacket->ID) {
@@ -16,10 +18,18 @@ void CommService::managePacket(Packet::packet* customPacket) {
     }
 }
 
-void makeLoginRequest(const string pseudo, const string password) {
+void CommService::makeLoginRequest(const string pseudo, const string password) {
+    Packet::loginRequestPacket *loginPacket = new Packet::loginRequestPacket();
+    for (int i = 0 ; i < pseudo.size() ; ++i) {
+        loginPacket->pseudo[i] = pseudo.at(i);
+    }
+    for (int i = 0 ; i < password.size() ; ++i) {
+        loginPacket->password[i] = password.at(i);
+    }
     
+    conn->sendPacket((Packet*) loginPacket, sizeof(char)*60+Packet::packetSize);
 }
 
-void sendDisconnection() {
+void CommService::sendDisconnection() {
     
 }
