@@ -5,7 +5,7 @@ fd_set Connection::read_fds;  // temp file descriptor list for select()
 int Connection::fdmax;        // maximum file descriptor number
 
 // Forward declaration. Gateway.
-void* handler(void* new_fd);
+void* handler(int &new_fd, int &listening_socket);
 
 int Connection::proper_fd_set(int fd, fd_set* fds, int* fdmax) {
     FD_SET(fd, fds);
@@ -149,10 +149,7 @@ void Connection::mainloop() {
                     // handle new connections
 		    accept_connection(listening_socket, guest);
                 } else {
-		    if (pthread_create(&thread_id, nullptr, handler, &i) < 0) {
-			perror("server - Could not create thread");
-			exit(EXIT_FAILURE);
-		    }
+		    handler(i, listening_socket);
                 }
             }
 	}
