@@ -27,10 +27,17 @@ namespace Connection {
     extern fd_set read_fds;  // temp file descriptor list for select()
     extern int fdmax;        // maximum file descriptor number
 
-    void* get_in_addr(struct sockaddr *sa);
+    // Helpers
+    int proper_fd_set(int, fd_set*, int*);
+    int proper_fd_clr(int, fd_set*, int*);
+    void* get_in_addr(struct sockaddr_storage *);
+
+    // Connection functions
     struct addrinfo* get_machine_info(void);
-    int prepare_socket(struct addrinfo* machine_info);
-    int accept_connection(int, struct sockaddr_storage*);
+    int prepare_socket(struct addrinfo*);
+    int accept_connection(int, struct sockaddr_storage&);
+
+    // Main
     void mainloop();
 }
 

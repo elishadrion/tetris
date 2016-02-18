@@ -1,13 +1,33 @@
 #include "Connection.hpp"
 
+fd_set Connection::master;    // master file descriptor list
+fd_set Connection::read_fds;  // temp file descriptor list for select()
+int Connection::fdmax;        // maximum file descriptor number
+
 // Forward declaration. Gateway.
 void* handler(void* new_fd);
 
+int Connection::proper_fd_set(int fd, fd_set* fds, int* fdmax) {
+    FD_SET(fd, fds);
+    if (fd > *fdmax) {
+        *fdmax = fd;
+    }
+    return 0;
+}
+
+int Connection::proper_fd_clr(int fd, fd_set* fds, int* fdmax) {
+    FD_CLR(fd, fds);
+    if (fd == *fdmax) {
+        (*fdmax)--;
+    }
+    return 0;
+}
+
 // get sockaddr, IPv4 or IPv6:
-void* Connection::get_in_addr(struct sockaddr *sa) {
-    if (sa -> sa_family == AF_INET)
-        return &(((struct sockaddr_in*) sa) -> sin_addr);
-    return &(((struct sockaddr_in6*) sa) -> sin6_addr);
+void* Connection::get_in_addr(struct sockaddr_storage * sa) {
+    if (sa -> ss_family == AF_INET)
+	return &(reinterpret_cast<struct sockaddr_in*>(sa) -> sin_addr);
+    return &(reinterpret_cast<struct sockaddr_in6*>(sa) -> sin6_addr);
 }
 
 
@@ -20,12 +40,10 @@ struct addrinfo* Connection::get_machine_info(void) {
     suggestions.ai_socktype = SOCK_STREAM; // TCP is connection oriented
 
     int ecode;
-    if((ecode = getaddrinfo(NULL, PORT, &suggestions, &all_options)) != 0) {
+    if((ecode = getaddrinfo(nullptr, PORT, &suggestions, &all_options)) != 0) {
 	printf("server - Failed getting address information: %s\n" , gai_strerror(ecode));
 	exit(EXIT_FAILURE);
     }
-
-
     return all_options;
 }
 
@@ -74,7 +92,7 @@ int Connection::prepare_socket(struct addrinfo* all_options) {
     return sockfd;
 }
 
-int Connection::accept_connection(int listening_socket, struct sockaddr_storage * guest) {
+int Connection::accept_connection(int listening_socket, struct sockaddr_storage &guest) {
     socklen_t sin_size;
     sin_size = sizeof guest;
     char from[INET6_ADDRSTRLEN];
@@ -86,14 +104,10 @@ int Connection::accept_connection(int listening_socket, struct sockaddr_storage 
 	perror("server - Failed accepting connection request");
 	exit(EXIT_FAILURE);
     } else {
-	FD_SET(new_fd, &master); // adds to master set
-	if (new_fd > fdmax) {    // keeps track of the max
-	    fdmax = new_fd;
-	}
-
+	proper_fd_set(new_fd, &master, &fdmax);
 	// network to presentation address
-	inet_ntop(guest -> ss_family,
-		  get_in_addr(reinterpret_cast<struct sockaddr*>(&guest)),
+	inet_ntop(guest.ss_family,
+		  get_in_addr(&guest),
 		  from,
 		  INET6_ADDRSTRLEN);
 	printf("server - Got connection from: %s\n", from);
@@ -102,11 +116,6 @@ int Connection::accept_connection(int listening_socket, struct sockaddr_storage 
     return new_fd;
 
 }
-
-fd_set Connection::master;    // master file descriptor list
-fd_set Connection::read_fds;  // temp file descriptor list for select()
-int Connection::fdmax;        // maximum file descriptor number
-
 
 
 void Connection::mainloop() {
@@ -127,8 +136,8 @@ void Connection::mainloop() {
     WizardLogger::info("Server listening...");
     // loop
     while (1) {
-        read_fds = master; // copies it
-        if (select(fdmax+1, &read_fds, nullptr, nullptr, nullptr) == -1) {
+        read_fds = master; // copy it
+        if (select(fdmax + 1, &read_fds, nullptr, nullptr, nullptr) == -1) {
             perror("server - Could not select any socket");
 	    exit(EXIT_FAILURE);
         }
@@ -137,10 +146,10 @@ void Connection::mainloop() {
         for(int i = 0; i <= fdmax; i++) {
             if (FD_ISSET(i, &read_fds)) { // we got one!!
                 if (i == listening_socket) {
-                    // handles new connections
-		    accept_connection(listening_socket, &guest);
+                    // handle new connections
+		    accept_connection(listening_socket, guest);
                 } else {
-		    if (pthread_create(&thread_id, NULL, handler, &i) < 0) {
+		    if (pthread_create(&thread_id, nullptr, handler, &i) < 0) {
 			perror("server - Could not create thread");
 			exit(EXIT_FAILURE);
 		    }
