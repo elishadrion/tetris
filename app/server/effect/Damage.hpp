@@ -15,6 +15,7 @@ public:
 
     virtual void apply(Card*) override;
     virtual void apply(PlayerInGame*);
+    virtual bool canBeApplyOnPlayer() override {return true;};
 };
 
 void Damage::apply(Card* target){

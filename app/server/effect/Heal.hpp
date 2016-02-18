@@ -15,6 +15,7 @@ public:
 
     virtual void apply(Card* target) override;
     virtual void apply(PlayerInGame* target);
+    virtual bool canBeApplyOnPlayer() override {return true;};
 };
 
 void Heal::apply(Card* target) {

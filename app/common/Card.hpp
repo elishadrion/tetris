@@ -22,7 +22,7 @@ private:
     std::size_t _id; // id of the card
     std::string _name; // name of the card
     std::size_t _energyCost;
-    int _effect;//TODO tmp patch Effect _effect; // Its special effect
+    int _effect;// Its special effect ID
 
 
 public:
@@ -32,7 +32,8 @@ public:
     std::size_t getId(){return _id;}
     std::string getName(){return _name;}
     std::size_t getEnergyCost(){return _energyCost;}
-    //TODO tmp patch Effect getEffect(){return _effect;}
+    bool gotEffect();
+    int getEffectID(){return _effect;}
 
     //void setEnergyCost(std::size_t newCost){_energyCost = newCost}
     // maybe be able to change with spell cards (see that later)
