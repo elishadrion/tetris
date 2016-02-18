@@ -33,7 +33,7 @@ void Card::applyEffect(Card& card){
 }
 
 Card::gotEffect(){
-	if (this->getEffectID() == -1){
+	if (this.getEffectID() == -1){
 		return false;
 	}
 	else {
