@@ -7,6 +7,7 @@
 
 #include "Player.hpp"
 #include "PlayerInGame.hpp"
+#include "common/WizardLogger.hpp"
 
 
 enum GameStatut {
@@ -39,7 +40,7 @@ class Game {
     void sendInformation();
     void sendInformation(PlayerInGame*,dataIGPlayer, dataIGPlayer);
     PlayerInGame* getAdversePlayer(PlayerInGame* player);
-    std::vector<Card*> getAdversePlacedCard(PlayerInGame* player);
+    std::vector<CardMonster*> getAdversePlacedCard(PlayerInGame* player);
 
 
 public:
@@ -49,12 +50,17 @@ public:
     Game(const Game&); // Copy constructor
     Game& operator=(const Game&); // Copy operator
     virtual ~Game() = default;
-    void draw();
 
+    // Function before the game
     void checkDeckAndStart();
-
-
     static void addPlayerWaitGame(Player player); // Adds a player to the PlayerWait list
+
+    // Function during the game
+    void draw(); // current player draw a card
+    void placeCard(PlayerInGame*, Card*, Card*);
+    void attackWithCard(PlayerInGame*, unsigned idCard, unsigned targetCard);
+private:
+    void beginTurn(); // function when the turn begin
 
 };
 

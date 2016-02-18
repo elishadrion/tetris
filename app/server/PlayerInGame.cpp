@@ -70,7 +70,7 @@ bool PlayerInGame::isDeckDefine() {
 /**
  * Returns the placed cards
  */
-std::vector<Card*> PlayerInGame::getCardPlaced() {
+std::vector<CardMonster*> PlayerInGame::getCardPlaced() {
     return _cardsPlaced;
 }
 

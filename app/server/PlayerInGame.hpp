@@ -7,6 +7,7 @@
 #include "Player.hpp"
 
 #include "common/Card.hpp"
+#include "common/CardMonster.hpp"
 #include "common/Packet.hpp"
 
 
@@ -14,7 +15,7 @@ struct dataIGPlayer {
     int playerHeal;
     int energy;
     std::vector<Card*> cardsInHand;
-    std::vector<Card*> cardsPlaced;
+    std::vector<CardMonster*> cardsPlaced;
     bool turn;
 };
 
@@ -29,7 +30,7 @@ class PlayerInGame : public Player {
 
     std::vector<Card*> _cardsInHand;
     std::vector<Card*> _deffause;
-    std::vector<Card*> _cardsPlaced;
+    std::vector<CardMonster*> _cardsPlaced;
     Deck *_deck;
     int _playerHeal;
     int _energy;
@@ -42,7 +43,9 @@ public:
     PlayerInGame(Player player, Game* game);
 
     dataIGPlayer getDataPlayer();
-    std::vector<Card*> getCardPlaced();
+    std::vector<CardMonster*> getCardPlaced();
+    // std::vector<Card*> getCardInHand() {} not used now
+    unsigned nbrCardInHand() {return _cardsInHand.size();}
 
     void setDeck(Deck *deck);
     bool isDeckDefine();

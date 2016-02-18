@@ -10,6 +10,9 @@ std::queue<Player*> Game::PlayerWaitGame;
  */
 void Game::nextPlayer() {
     (_currentPlayer == _player1) ? _currentPlayer = _player2 : _currentPlayer = _player1;
+    WizardLogger::info("C'est maintenant au tour de " + _currentPlayer->getUsername());
+
+    beginTurn();
 }
 
 
@@ -26,6 +29,9 @@ Game::Game(Player* p1, Player* p2):
     _player1 = new PlayerInGame(*p1, this);
     _player2 = new PlayerInGame(*p2, this);
     _currentPlayer = _player1;
+    WizardLogger::info("Création d'une partie opposant " + _player1->getUsername() +
+        " et " + _player2->getUsername());
+
 }
 
 /**
@@ -114,7 +120,7 @@ void Game::sendInformation() {
  *
  * @param player the current player
  */
-std::vector<Card*> Game::getAdversePlacedCard(PlayerInGame* player) {
+std::vector<CardMonster*> Game::getAdversePlacedCard(PlayerInGame* player) {
     return getAdversePlayer(player)->getCardPlaced();
 }
 
@@ -156,4 +162,21 @@ void Game::draw() {
 
 }
 
+/**
+ * Function when the turn begin
+ */
+void Game::beginTurn() {
+    // Increment number of turn
+    vector<CardMonster*> cardPlaced = _currentPlayer->getCardPlaced();
+    for (size_t i = 0; i < cardPlaced.size(); ++i) {
+        cardPlaced[i]->incrementTour();
+    }
+
+
+    while(_currentPlayer->nbrCardInHand() < 7) {
+        draw();
+    }
+
+
+}
 

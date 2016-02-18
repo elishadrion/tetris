@@ -29,6 +29,7 @@ public:
     // Creates the player (and opens the file (if it exists) to complete the information)
     // Stocks the new player in the allPlayers list
     Player(int sockfd, int playerID) {}
+    std::string getUsername() {return _username;}
     virtual ~Player() = default;
 
 private:
