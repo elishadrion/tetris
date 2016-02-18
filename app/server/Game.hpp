@@ -58,9 +58,12 @@ public:
     // Function during the game
     void draw(); // current player draw a card
     void placeCard(PlayerInGame*, Card*, Card*);
-    void attackWithCard(PlayerInGame*, unsigned idCard, unsigned targetCard);
+    //void placeCard(PlayerInGame*, Card*, PlayerInGame*);
+    void attackWithCard(PlayerInGame*, CardMonster*, CardMonster*);
+    //void attackWithCard(PlayerInGame*, CardMonster*, PlayerInGame*);
 private:
     void beginTurn(); // function when the turn begin
+    void endTurn();
 
 };
 

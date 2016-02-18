@@ -80,9 +80,27 @@ int Deck::pickup() {
  */
 void Deck::addCard(const int id) {
     if(_listCard.size() == 100) {
+        WizardLogger::error("Un deck a maximum 100 cartes");
         throw std::overflow_error("A deck has maximum 100 cards");
     }
     _listCard.push_back(id);
 }
 
+/**
+ * Copy Constructor
+ *
+ * @param deck to copy
+ */
+Deck::Deck(const Deck& deck):
+    _listCard(deck._listCard), _name(deck._name) {}
 
+
+/**
+ * Copy operator
+ *
+ * @param deck to copy
+ */
+Deck& Deck::operator=(const Deck& deck) {
+    _name = deck._name;
+    _listCard = deck._listCard;
+}

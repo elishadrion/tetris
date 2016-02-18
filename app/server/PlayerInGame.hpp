@@ -49,6 +49,7 @@ public:
 
     void setDeck(Deck *deck);
     bool isDeckDefine();
+    void draw();
 
 
     virtual ~PlayerInGame() = default;

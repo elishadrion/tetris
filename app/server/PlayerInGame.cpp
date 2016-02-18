@@ -41,7 +41,7 @@ dataIGPlayer PlayerInGame::getDataPlayer() {
  * @param deck The selected deck
  */
 void PlayerInGame::setDeck(Deck *deck) {
-    _deck = deck;
+    _deck = new Deck(*deck); // copy the desk
     game->checkDeckAndStart();
 }
 // @tutul méthode à appeler lorsque l'on recoit un deck
@@ -61,9 +61,11 @@ bool PlayerInGame::isDeckDefine() {
  *
  * @return a random card
  */
-//Card* PlayerInGame::draw() {
-//    return CardManager::getCardById(_deck->pickup());
-//}
+void PlayerInGame::draw() {
+    // TO DO
+    // Card* card = CardManager::getCardById(_deck->pickup());
+    // _cardsInHand.push_back(card);
+}
 
 
 

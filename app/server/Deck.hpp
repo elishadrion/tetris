@@ -4,6 +4,8 @@
 #include<string>
 #include<vector>
 
+#include "common/WizardLogger.hpp"
+
 /**
  * A deck is a list of 100 Cards (or less).  Deck only manipulates id (not Cards)
  */
@@ -19,6 +21,8 @@ private:
     int getIdOnIndex(int i); // the id of the card at a specific index
 
 public:
+    Deck(const Deck&); // Copy constructor
+    Deck& operator=(const Deck&); // Copy operator
     bool isValide(); // True if there is 100 cards and other information are true
     void addCard(int id); // adds a card in the deck
     int pickup();  // Returns a random Card

@@ -158,8 +158,7 @@ void Game::sendInformation(PlayerInGame* player,
 }
 
 void Game::draw() {
-    // TO DO
-
+    _currentPlayer->draw();
 }
 
 /**
@@ -179,4 +178,57 @@ void Game::beginTurn() {
 
 
 }
+
+/**
+ * Function when the turn is finish
+ */
+void Game::endTurn() {
+
+    while(_currentPlayer->nbrCardInHand() > 7) {
+        // askDefausse(...
+        // @tutul
+    }
+
+}
+
+/**
+ * Function when player place card
+ *
+ * @param pIG player who place the card
+ * @param placeCard the card the must be place
+ * @param targetCard the card who will have the effect if
+ * the placed card have it
+ */
+void Game::placeCard(PlayerInGame* pIG, Card* placeCard,
+    Card* targetCard) {
+
+    if(pIG == _currentPlayer) {
+        // vérifier assez de place sur le plateau
+        // vérifier que le joueur à assez d'énergie
+        // voir si la carte à un effet
+    } else {
+        // error
+    }
+
+}
+
+/**
+ * Funciton when player attack a card
+ */
+void Game::attackWithCard(PlayerInGame* pIG, CardMonster* card,
+    CardMonster* targetCard) {
+
+    if(card->getNbrTourPose() > 1) {
+        //
+    } else {
+        // erreur
+    }
+}
+
+
+
+
+
+
+
 
