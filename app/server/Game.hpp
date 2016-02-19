@@ -71,6 +71,7 @@ private:
     bool canPlayerPlay(PlayerInGame*,CardMonster*);
     bool verifyTaunt(PlayerInGame*,CardMonster*);
     bool verifyTaunt(PlayerInGame*);
+    bool havePlace(PlayerInGame*);
 
 };
 

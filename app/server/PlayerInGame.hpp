@@ -63,7 +63,7 @@ public:
     void resetEnergy();
     bool haveEnoughtEnergy(Card* card);
     void removeCardPlaced(CardMonster*);
-
+    void placeCard(CardMonster*);
 
     virtual ~PlayerInGame() = default;
 };

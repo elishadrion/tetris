@@ -221,14 +221,43 @@ void Game::placeCard(PlayerInGame* pIG, Card* placeCard,
     CardMonster* targetCard) {
 
     if(pIG == _currentPlayer) {
-        // vérifier assez de place sur le plateau
-        // vérifier que le joueur à assez d'énergie
+        if(!placeCard->isMonster() || havePlace(pIG)) {
+            if(pIG->haveEnoughEnergy(placeCard)) {
+                // if placed card have an effect
+                if(placeCard->gotEffect()) {
+                    // if taunt
+
+                    // placeCard->applyEffect(targetCard);
+                }
+
+                if(placeCard->isMonster()) {
+                    pIG->placeCard(dynamic_cast<CardMonster*>(placeCard));
+                }
+
+            } else {
+                // error, not enought energy
+            }
+
+        } else {
+            // error, not enought place
+        }
         // voir si la carte à un effet
     } else {
-        // error
+        // error, not his turn
     }
 
 }
+
+/**
+ * Indicate whether the still has place on his game board
+ *
+ * @param pIG where we must make verification
+ * @return True if the have place
+ */
+bool Game::havePlace(PlayerInGame* pIG) {
+    return _currentPlayer->getCardsPlaced().size() < 7;
+}
+
 
 /**
  * Funciton when player attack a card

@@ -125,3 +125,8 @@ void PlayerInGame::removeCardPlaced(CardMonster* card) {
     }
 }
 
+void PlayerInGame::placeCard(CardMonster* card) {
+    _cardsPlaced.push_back(card);
+}
+
+
