@@ -1,0 +1,63 @@
+\hypertarget{LoginPanel_8hpp}{}\section{Référence du fichier client/\+Login\+Panel.hpp}
+\label{LoginPanel_8hpp}\index{client/\+Login\+Panel.\+hpp@{client/\+Login\+Panel.\+hpp}}
+{\ttfamily \#include $<$ncurses.\+h$>$}\\*
+{\ttfamily \#include $<$panel.\+h$>$}\\*
+{\ttfamily \#include $<$form.\+h$>$}\\*
+{\ttfamily \#include $<$string$>$}\\*
+{\ttfamily \#include \char`\"{}common/\+Wizard\+Logger.\+hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Comm\+Service.\+hpp\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classLoginPanel}{Login\+Panel}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{LoginPanel_8hpp_a0e94fbb5650e23baab50dcf7fe35ca38}{D\+E\+F\+A\+U\+L\+T\+\_\+\+L\+A\+B\+E\+L}~\char`\"{}   L\+O\+G\+I\+N/R\+E\+G\+I\+S\+T\+R\+A\+T\+I\+O\+N     \char`\"{}
+\item 
+\#define \hyperlink{LoginPanel_8hpp_a5f74bc043db923045304e0be96b453f4}{P\+S\+E\+U\+D\+O\+\_\+\+E\+R\+R\+O\+R}~\char`\"{}     P\+S\+E\+U\+D\+O I\+N\+C\+O\+N\+U\+E       \char`\"{}
+\item 
+\#define \hyperlink{LoginPanel_8hpp_a5b63dc32c005d3b59aa6a5b9163f33d6}{P\+A\+S\+S\+W\+O\+R\+D\+\_\+\+E\+R\+R\+O\+R}~\char`\"{}   M\+A\+U\+V\+A\+I\+S M\+O\+T D\+E P\+A\+S\+S    \char`\"{}
+\item 
+\#define \hyperlink{LoginPanel_8hpp_a10e516dbcea58c24ba5f68862d457f9c}{M\+A\+X\+\_\+\+S\+I\+Z\+E\+\_\+\+E\+R\+R\+O\+R}~\char`\"{}T\+A\+I\+L\+L\+E M\+A\+X\+I\+M\+U\+M D\+E 30 C\+H\+A\+R \char`\"{}
+\item 
+\#define \hyperlink{LoginPanel_8hpp_aefc48d416c882f06edaf6d01779d4d74}{T\+I\+M\+E\+O\+U\+T\+\_\+\+E\+R\+R\+O\+R}~\char`\"{}L\+E S\+E\+R\+V\+E\+U\+R N\textquotesingle{}A P\+A\+S R\+E\+P\+O\+N\+D\+U\char`\"{}
+\item 
+\#define \hyperlink{LoginPanel_8hpp_aae275189f1736dc9504916deff88ba2d}{U\+N\+K\+O\+W\+\_\+\+E\+R\+R\+O\+R}~\char`\"{} M\+A\+U\+V\+A\+I\+S\+E R\+E\+P\+O\+N\+S\+E S\+E\+R\+V\+E\+U\+R \char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des macros}
+\hypertarget{LoginPanel_8hpp_a0e94fbb5650e23baab50dcf7fe35ca38}{}\index{Login\+Panel.\+hpp@{Login\+Panel.\+hpp}!D\+E\+F\+A\+U\+L\+T\+\_\+\+L\+A\+B\+E\+L@{D\+E\+F\+A\+U\+L\+T\+\_\+\+L\+A\+B\+E\+L}}
+\index{D\+E\+F\+A\+U\+L\+T\+\_\+\+L\+A\+B\+E\+L@{D\+E\+F\+A\+U\+L\+T\+\_\+\+L\+A\+B\+E\+L}!Login\+Panel.\+hpp@{Login\+Panel.\+hpp}}
+\subsubsection[{D\+E\+F\+A\+U\+L\+T\+\_\+\+L\+A\+B\+E\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+E\+F\+A\+U\+L\+T\+\_\+\+L\+A\+B\+E\+L~\char`\"{}   L\+O\+G\+I\+N/R\+E\+G\+I\+S\+T\+R\+A\+T\+I\+O\+N     \char`\"{}}\label{LoginPanel_8hpp_a0e94fbb5650e23baab50dcf7fe35ca38}
+\subparagraph*{}
+
+\subsection*{}
+
+\subsection*{E\+R\+R\+O\+R M\+S\+G}
+
+\subsection*{Pseudo\+:\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+}
+
+\subsection*{Pasww \+:\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+}
+
+\subsection*{}
+
+\subsection*{F1\+:ann F2\+:login F3\+:reg}
+
+\subparagraph*{}\hypertarget{LoginPanel_8hpp_a10e516dbcea58c24ba5f68862d457f9c}{}\index{Login\+Panel.\+hpp@{Login\+Panel.\+hpp}!M\+A\+X\+\_\+\+S\+I\+Z\+E\+\_\+\+E\+R\+R\+O\+R@{M\+A\+X\+\_\+\+S\+I\+Z\+E\+\_\+\+E\+R\+R\+O\+R}}
+\index{M\+A\+X\+\_\+\+S\+I\+Z\+E\+\_\+\+E\+R\+R\+O\+R@{M\+A\+X\+\_\+\+S\+I\+Z\+E\+\_\+\+E\+R\+R\+O\+R}!Login\+Panel.\+hpp@{Login\+Panel.\+hpp}}
+\subsubsection[{M\+A\+X\+\_\+\+S\+I\+Z\+E\+\_\+\+E\+R\+R\+O\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+\_\+\+S\+I\+Z\+E\+\_\+\+E\+R\+R\+O\+R~\char`\"{}T\+A\+I\+L\+L\+E M\+A\+X\+I\+M\+U\+M D\+E 30 C\+H\+A\+R \char`\"{}}\label{LoginPanel_8hpp_a10e516dbcea58c24ba5f68862d457f9c}
+\hypertarget{LoginPanel_8hpp_a5b63dc32c005d3b59aa6a5b9163f33d6}{}\index{Login\+Panel.\+hpp@{Login\+Panel.\+hpp}!P\+A\+S\+S\+W\+O\+R\+D\+\_\+\+E\+R\+R\+O\+R@{P\+A\+S\+S\+W\+O\+R\+D\+\_\+\+E\+R\+R\+O\+R}}
+\index{P\+A\+S\+S\+W\+O\+R\+D\+\_\+\+E\+R\+R\+O\+R@{P\+A\+S\+S\+W\+O\+R\+D\+\_\+\+E\+R\+R\+O\+R}!Login\+Panel.\+hpp@{Login\+Panel.\+hpp}}
+\subsubsection[{P\+A\+S\+S\+W\+O\+R\+D\+\_\+\+E\+R\+R\+O\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+A\+S\+S\+W\+O\+R\+D\+\_\+\+E\+R\+R\+O\+R~\char`\"{}   M\+A\+U\+V\+A\+I\+S M\+O\+T D\+E P\+A\+S\+S    \char`\"{}}\label{LoginPanel_8hpp_a5b63dc32c005d3b59aa6a5b9163f33d6}
+\hypertarget{LoginPanel_8hpp_a5f74bc043db923045304e0be96b453f4}{}\index{Login\+Panel.\+hpp@{Login\+Panel.\+hpp}!P\+S\+E\+U\+D\+O\+\_\+\+E\+R\+R\+O\+R@{P\+S\+E\+U\+D\+O\+\_\+\+E\+R\+R\+O\+R}}
+\index{P\+S\+E\+U\+D\+O\+\_\+\+E\+R\+R\+O\+R@{P\+S\+E\+U\+D\+O\+\_\+\+E\+R\+R\+O\+R}!Login\+Panel.\+hpp@{Login\+Panel.\+hpp}}
+\subsubsection[{P\+S\+E\+U\+D\+O\+\_\+\+E\+R\+R\+O\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+S\+E\+U\+D\+O\+\_\+\+E\+R\+R\+O\+R~\char`\"{}     P\+S\+E\+U\+D\+O I\+N\+C\+O\+N\+U\+E       \char`\"{}}\label{LoginPanel_8hpp_a5f74bc043db923045304e0be96b453f4}
+\hypertarget{LoginPanel_8hpp_aefc48d416c882f06edaf6d01779d4d74}{}\index{Login\+Panel.\+hpp@{Login\+Panel.\+hpp}!T\+I\+M\+E\+O\+U\+T\+\_\+\+E\+R\+R\+O\+R@{T\+I\+M\+E\+O\+U\+T\+\_\+\+E\+R\+R\+O\+R}}
+\index{T\+I\+M\+E\+O\+U\+T\+\_\+\+E\+R\+R\+O\+R@{T\+I\+M\+E\+O\+U\+T\+\_\+\+E\+R\+R\+O\+R}!Login\+Panel.\+hpp@{Login\+Panel.\+hpp}}
+\subsubsection[{T\+I\+M\+E\+O\+U\+T\+\_\+\+E\+R\+R\+O\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+I\+M\+E\+O\+U\+T\+\_\+\+E\+R\+R\+O\+R~\char`\"{}L\+E S\+E\+R\+V\+E\+U\+R N\textquotesingle{}A P\+A\+S R\+E\+P\+O\+N\+D\+U\char`\"{}}\label{LoginPanel_8hpp_aefc48d416c882f06edaf6d01779d4d74}
+\hypertarget{LoginPanel_8hpp_aae275189f1736dc9504916deff88ba2d}{}\index{Login\+Panel.\+hpp@{Login\+Panel.\+hpp}!U\+N\+K\+O\+W\+\_\+\+E\+R\+R\+O\+R@{U\+N\+K\+O\+W\+\_\+\+E\+R\+R\+O\+R}}
+\index{U\+N\+K\+O\+W\+\_\+\+E\+R\+R\+O\+R@{U\+N\+K\+O\+W\+\_\+\+E\+R\+R\+O\+R}!Login\+Panel.\+hpp@{Login\+Panel.\+hpp}}
+\subsubsection[{U\+N\+K\+O\+W\+\_\+\+E\+R\+R\+O\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\+N\+K\+O\+W\+\_\+\+E\+R\+R\+O\+R~\char`\"{} M\+A\+U\+V\+A\+I\+S\+E R\+E\+P\+O\+N\+S\+E S\+E\+R\+V\+E\+U\+R \char`\"{}}\label{LoginPanel_8hpp_aae275189f1736dc9504916deff88ba2d}

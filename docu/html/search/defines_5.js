@@ -1,0 +1,8 @@
+var searchData=
+[
+  ['max_5fcarte_5fdescrition_5fsize',['MAX_CARTE_DESCRITION_SIZE',['../Packet_8hpp.html#a1de6746763761071cb33e1fbbe574f62',1,'Packet.hpp']]],
+  ['max_5fcartes',['MAX_CARTES',['../Packet_8hpp.html#a6e39296d8aea63f64e88541e9ffadc56',1,'Packet.hpp']]],
+  ['max_5fpseudo_5fsize',['MAX_PSEUDO_SIZE',['../Packet_8hpp.html#a5dc814636bf1234a5bb49481556476d1',1,'Packet.hpp']]],
+  ['max_5fsize_5ferror',['MAX_SIZE_ERROR',['../LoginPanel_8hpp.html#a10e516dbcea58c24ba5f68862d457f9c',1,'LoginPanel.hpp']]],
+  ['maxdatasize',['MAXDATASIZE',['../server_2Connection_8hpp.html#a16c16f9369be4a374a3e621f6d13bb16',1,'Connection.hpp']]]
+];

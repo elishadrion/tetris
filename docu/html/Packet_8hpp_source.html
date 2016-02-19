@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.10"/>
+<title>Wizard Poker:  Fichier source de common/Packet.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Wizard Poker
+   &#160;<span id="projectnumber">0.0.1</span>
+   </div>
+   <div id="projectbrief">ULB-BA-2-INFO : Projet d&#39;année</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.10 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="namespaces.html"><span>Espaces&#160;de&#160;nommage</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_bdd9a5d540de89e9fe90efdfc6973a4f.html">common</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Packet.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="Packet_8hpp.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef PACKET_HPP</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define PACKET_HPP</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;list&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">//TODO must be implemented somewhere else (global so in main ?)</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="Packet_8hpp.html#a5dc814636bf1234a5bb49481556476d1">   10</a></span>&#160;<span class="preprocessor">#define MAX_PSEUDO_SIZE 30</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="Packet_8hpp.html#a6e39296d8aea63f64e88541e9ffadc56">   11</a></span>&#160;<span class="preprocessor">#define MAX_CARTES 200</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="Packet_8hpp.html#ab48a679225d82ec51e09e62d14313b34">   12</a></span>&#160;<span class="preprocessor">#define DECK_SIZE 20</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="Packet_8hpp.html#a1de6746763761071cb33e1fbbe574f62">   13</a></span>&#160;<span class="preprocessor">#define MAX_CARTE_DESCRITION_SIZE 120</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classPacket.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="classPacket.html">Packet</a> {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="comment">/* All packet ID */</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classPacket.html#ae91c1d355e4c8f0bef5f893747473661">   18</a></span>&#160;    <span class="keyword">enum</span> <a class="code" href="classPacket.html#ae91c1d355e4c8f0bef5f893747473661">IDList</a> {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="comment">/* LOGIN PROCESS */</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classPacket.html#ae91c1d355e4c8f0bef5f893747473661aeadd6545e8dfd8e15000a99a5d8346a1">   20</a></span>&#160;        LOGIN_REQ_ID = 0,</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classPacket.html#ae91c1d355e4c8f0bef5f893747473661adfad7675a2d1418c82df295276cbe695">   21</a></span>&#160;        LOGIN_RES_ID = 1,</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classPacket.html#ae91c1d355e4c8f0bef5f893747473661ae4ec5a8eaa644872b70450eeb6e66ec2">   22</a></span>&#160;        DISCONNECT_ID = 2,</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="comment">/* COLLECTIONS/DECKS/CARDS PROCESS */</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classPacket.html#ae91c1d355e4c8f0bef5f893747473661ad94d178cd47baea6d1345dfb581182f3">   24</a></span>&#160;        COLLECTION_REQ_ID = 3,</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classPacket.html#ae91c1d355e4c8f0bef5f893747473661a257c56805034a2a1288c8b627f7c4e42">   25</a></span>&#160;        COLLECTION_LIST_ID = 4,</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classPacket.html#ae91c1d355e4c8f0bef5f893747473661aa0822f1f646c2ea8411b06af9f6fc40c">   26</a></span>&#160;        DECK_REQ_ID = 5,</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classPacket.html#ae91c1d355e4c8f0bef5f893747473661ac6762b082af175037f3df2c4079553df">   27</a></span>&#160;        DECK_CONT_ID = 6,</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classPacket.html#ae91c1d355e4c8f0bef5f893747473661a1afad4125bf1222a1b4f3201cb29ab3b">   28</a></span>&#160;        CARTE_REQ_ID = 7,</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classPacket.html#ae91c1d355e4c8f0bef5f893747473661aa61d9c1d39512a3a4054cbfc15a60b48">   29</a></span>&#160;        CARTE_INFO_ID = 8,</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="comment">/* TODO TCHAT PROCESS */</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classPacket.html#ae91c1d355e4c8f0bef5f893747473661aea1cc863253ebe274fefcedada1bb62b">   31</a></span>&#160;        TCHAT_CONV_REQ_ID = 9,</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classPacket.html#ae91c1d355e4c8f0bef5f893747473661ab503c0a36e7fd992a13db8a4934586ef">   32</a></span>&#160;        TCHAT_NEW_CONV_ID = 10,</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classPacket.html#ae91c1d355e4c8f0bef5f893747473661adb5bc9e3b5eb4003e95130132c1162a0">   33</a></span>&#160;        TCHAT_MESSAGE_ID = 11,</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classPacket.html#ae91c1d355e4c8f0bef5f893747473661a81b67eb89eaf62145743464b6df6ad5c">   34</a></span>&#160;        TCHAT_END_REQ_ID = 12,</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classPacket.html#ae91c1d355e4c8f0bef5f893747473661ac0e468e4743cc6b8642f5207ef4cb59a">   35</a></span>&#160;        TCHAT_END_CONV_ID = 13,</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="comment">//TODO launch game + game process</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    };</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">/* Default size of all packets (without data) */</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classPacket.html#a4d3ec46364b14d6f59e550920ec9a78a">   40</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> packetSize = <span class="keyword">sizeof</span>(int)*2;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="comment">/* Default packet struct (without data member) */</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="structPacket_1_1packet.html">   43</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="structPacket_1_1packet.html#a6a964ed4653dedd272f901fa77fc98b0">   44</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="structPacket_1_1packet.html#a6a964ed4653dedd272f901fa77fc98b0">ID</a>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="structPacket_1_1packet.html#a4acd14895382f87f51cb4c0465de0397">   45</a></span>&#160;        <span class="keywordtype">int</span> size = 0;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    } <a class="code" href="structPacket_1_1packet.html">packet</a>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment">/* Login data with 30 as max size for string */</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="structPacket_1_1loginRequestPacket.html">   49</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="structPacket_1_1loginRequestPacket.html#a868cc858137d02dfcec0ab588311881c">   50</a></span>&#160;        <span class="keywordtype">int</span> ID = LOGIN_REQ_ID;</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="structPacket_1_1loginRequestPacket.html#ae39055594bd945531dae9e02448dc084">   51</a></span>&#160;        <span class="keywordtype">int</span> size = <span class="keyword">sizeof</span>(char)*<a class="code" href="Packet_8hpp.html#a5dc814636bf1234a5bb49481556476d1">MAX_PSEUDO_SIZE</a>*2;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="structPacket_1_1loginRequestPacket.html#aaa36718e5f1c5d8ac6c13e6065502268">   52</a></span>&#160;        <span class="keywordtype">char</span> pseudo[<a class="code" href="Packet_8hpp.html#a5dc814636bf1234a5bb49481556476d1">MAX_PSEUDO_SIZE</a>];</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="structPacket_1_1loginRequestPacket.html#a85c2b868828d558ac942eadfc8c29523">   53</a></span>&#160;        <span class="keywordtype">char</span> password[<a class="code" href="Packet_8hpp.html#a5dc814636bf1234a5bb49481556476d1">MAX_PSEUDO_SIZE</a>];</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    } <a class="code" href="structPacket_1_1loginRequestPacket.html">loginRequestPacket</a>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment">/* Login result code */</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="structPacket_1_1loginResultPacket.html">   57</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="structPacket_1_1loginResultPacket.html#a9fd277c829ba18e929a71a1c0f5fbc60">   58</a></span>&#160;        <span class="keywordtype">int</span> ID = LOGIN_RES_ID;</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="structPacket_1_1loginResultPacket.html#a270afae616b7a7399c2d4c483fcffec6">   59</a></span>&#160;        <span class="keywordtype">int</span> size = <span class="keyword">sizeof</span>(int);</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="structPacket_1_1loginResultPacket.html#a148ad144908a219d1b6adde5c3337a2f">   60</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="structPacket_1_1loginResultPacket.html#a148ad144908a219d1b6adde5c3337a2f">resultCode</a>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    } <a class="code" href="structPacket_1_1loginResultPacket.html">loginResultPacket</a>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="comment">/* Collection list */</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="structPacket_1_1collectionListPacket.html">   64</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="structPacket_1_1collectionListPacket.html#af8e389e458f39647b120772359f4799d">   65</a></span>&#160;        <span class="keywordtype">int</span> ID = COLLECTION_LIST_ID;</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="structPacket_1_1collectionListPacket.html#a7e5da725f1892d00962cd8526e4959d7">   66</a></span>&#160;        <span class="keywordtype">int</span> size = <span class="keyword">sizeof</span>(int)*<a class="code" href="Packet_8hpp.html#a6e39296d8aea63f64e88541e9ffadc56">MAX_CARTES</a>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="structPacket_1_1collectionListPacket.html#a54a300514d3c4f5e37c721db03a2afb4">   67</a></span>&#160;        <span class="keywordtype">int</span> cartesList[<a class="code" href="Packet_8hpp.html#a6e39296d8aea63f64e88541e9ffadc56">MAX_CARTES</a>];</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    } <a class="code" href="structPacket_1_1collectionListPacket.html">collectionListPacket</a>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="comment">/* Deck content request */</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="structPacket_1_1deckRequestPacket.html">   71</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="structPacket_1_1deckRequestPacket.html#a50b1afe744dfe580cee9c9add401f15d">   72</a></span>&#160;        <span class="keywordtype">int</span> ID = DECK_REQ_ID;</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="structPacket_1_1deckRequestPacket.html#a21f7ca382cdcd158f55feddfde07149f">   73</a></span>&#160;        <span class="keywordtype">int</span> size = <span class="keyword">sizeof</span>(int);</div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="structPacket_1_1deckRequestPacket.html#a4ef744c30568bf6ceaeb99411bc8c845">   74</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="structPacket_1_1deckRequestPacket.html#a4ef744c30568bf6ceaeb99411bc8c845">deckID</a>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    } <a class="code" href="structPacket_1_1deckRequestPacket.html">deckRequestPacket</a>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="comment">/* Deck content list */</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="structPacket_1_1deckContentPacket.html">   78</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="structPacket_1_1deckContentPacket.html#a00cd7c008d480f9dd7e7347e8d6d0842">   79</a></span>&#160;        <span class="keywordtype">int</span> ID = DECK_CONT_ID;</div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="structPacket_1_1deckContentPacket.html#a35c756dcec8f7d81db66f2d188451f38">   80</a></span>&#160;        <span class="keywordtype">int</span> size = <span class="keyword">sizeof</span>(int)*<a class="code" href="Packet_8hpp.html#ab48a679225d82ec51e09e62d14313b34">DECK_SIZE</a>+<span class="keyword">sizeof</span>(<span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="structPacket_1_1deckContentPacket.html#a3964261af7fcc399035c6d6f78215619">   81</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="structPacket_1_1deckContentPacket.html#a3964261af7fcc399035c6d6f78215619">deckID</a>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="structPacket_1_1deckContentPacket.html#afe4a24bc025d967a88eceb0510cea04a">   82</a></span>&#160;        <span class="keywordtype">int</span> cartesList[<a class="code" href="Packet_8hpp.html#ab48a679225d82ec51e09e62d14313b34">DECK_SIZE</a>];</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    } <a class="code" href="structPacket_1_1deckContentPacket.html">deckContentPacket</a>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="comment">/* Card info request */</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="structPacket_1_1carteRequestPacket.html">   86</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="structPacket_1_1carteRequestPacket.html#a02b110bcccb9143360e0fab7650dc142">   87</a></span>&#160;        <span class="keywordtype">int</span> ID = CARTE_REQ_ID;</div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="structPacket_1_1carteRequestPacket.html#a9ceed268bd66ee87f7f7ce9735f7cac5">   88</a></span>&#160;        <span class="keywordtype">int</span> size = <span class="keyword">sizeof</span>(int);</div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="structPacket_1_1carteRequestPacket.html#a22754892275a0a29e5ccde5fe26ecd14">   89</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="structPacket_1_1carteRequestPacket.html#a22754892275a0a29e5ccde5fe26ecd14">carteID</a>;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    } <a class="code" href="structPacket_1_1carteRequestPacket.html">carteRequestPacket</a>;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="comment">/* Card info */</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="structPacket_1_1carteInfosPacket.html">   93</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="structPacket_1_1carteInfosPacket.html#aa385cf584f070650fa90455a9e4d9f90">   94</a></span>&#160;        <span class="keywordtype">int</span> ID = CARTE_INFO_ID;</div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="structPacket_1_1carteInfosPacket.html#a5b1c8a614c8dcfa1d01d59210bab4d85">   95</a></span>&#160;        <span class="keywordtype">int</span> size = <span class="keyword">sizeof</span>(int)+<span class="keyword">sizeof</span>(<span class="keywordtype">char</span>)*<a class="code" href="Packet_8hpp.html#a1de6746763761071cb33e1fbbe574f62">MAX_CARTE_DESCRITION_SIZE</a>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="structPacket_1_1carteInfosPacket.html#ac936145974d445b5476f4dec4583498f">   96</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="structPacket_1_1carteInfosPacket.html#ac936145974d445b5476f4dec4583498f">carteID</a>;</div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="structPacket_1_1carteInfosPacket.html#a3b02e4ea49980ee77d5882fcf5f258ba">   97</a></span>&#160;        <span class="keywordtype">char</span> cartesDescription[<a class="code" href="Packet_8hpp.html#a1de6746763761071cb33e1fbbe574f62">MAX_CARTE_DESCRITION_SIZE</a>]; <span class="comment">//TODO description has name ??</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    } <a class="code" href="structPacket_1_1carteInfosPacket.html">carteInfosPacket</a>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;};</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* PACKET_HPP */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="Packet_8hpp_html_a5dc814636bf1234a5bb49481556476d1"><div class="ttname"><a href="Packet_8hpp.html#a5dc814636bf1234a5bb49481556476d1">MAX_PSEUDO_SIZE</a></div><div class="ttdeci">#define MAX_PSEUDO_SIZE</div><div class="ttdef"><b>Definition:</b> Packet.hpp:10</div></div>
+<div class="ttc" id="structPacket_1_1packet_html_a6a964ed4653dedd272f901fa77fc98b0"><div class="ttname"><a href="structPacket_1_1packet.html#a6a964ed4653dedd272f901fa77fc98b0">Packet::packet::ID</a></div><div class="ttdeci">int ID</div><div class="ttdef"><b>Definition:</b> Packet.hpp:44</div></div>
+<div class="ttc" id="classPacket_html_ae91c1d355e4c8f0bef5f893747473661"><div class="ttname"><a href="classPacket.html#ae91c1d355e4c8f0bef5f893747473661">Packet::IDList</a></div><div class="ttdeci">IDList</div><div class="ttdef"><b>Definition:</b> Packet.hpp:18</div></div>
+<div class="ttc" id="namespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div></div>
+<div class="ttc" id="structPacket_1_1carteRequestPacket_html"><div class="ttname"><a href="structPacket_1_1carteRequestPacket.html">Packet::carteRequestPacket</a></div><div class="ttdef"><b>Definition:</b> Packet.hpp:86</div></div>
+<div class="ttc" id="structPacket_1_1collectionListPacket_html"><div class="ttname"><a href="structPacket_1_1collectionListPacket.html">Packet::collectionListPacket</a></div><div class="ttdef"><b>Definition:</b> Packet.hpp:64</div></div>
+<div class="ttc" id="Packet_8hpp_html_a6e39296d8aea63f64e88541e9ffadc56"><div class="ttname"><a href="Packet_8hpp.html#a6e39296d8aea63f64e88541e9ffadc56">MAX_CARTES</a></div><div class="ttdeci">#define MAX_CARTES</div><div class="ttdef"><b>Definition:</b> Packet.hpp:11</div></div>
+<div class="ttc" id="structPacket_1_1deckRequestPacket_html_a4ef744c30568bf6ceaeb99411bc8c845"><div class="ttname"><a href="structPacket_1_1deckRequestPacket.html#a4ef744c30568bf6ceaeb99411bc8c845">Packet::deckRequestPacket::deckID</a></div><div class="ttdeci">int deckID</div><div class="ttdef"><b>Definition:</b> Packet.hpp:74</div></div>
+<div class="ttc" id="structPacket_1_1packet_html"><div class="ttname"><a href="structPacket_1_1packet.html">Packet::packet</a></div><div class="ttdef"><b>Definition:</b> Packet.hpp:43</div></div>
+<div class="ttc" id="structPacket_1_1deckContentPacket_html_a3964261af7fcc399035c6d6f78215619"><div class="ttname"><a href="structPacket_1_1deckContentPacket.html#a3964261af7fcc399035c6d6f78215619">Packet::deckContentPacket::deckID</a></div><div class="ttdeci">int deckID</div><div class="ttdef"><b>Definition:</b> Packet.hpp:81</div></div>
+<div class="ttc" id="structPacket_1_1loginResultPacket_html"><div class="ttname"><a href="structPacket_1_1loginResultPacket.html">Packet::loginResultPacket</a></div><div class="ttdef"><b>Definition:</b> Packet.hpp:57</div></div>
+<div class="ttc" id="structPacket_1_1carteRequestPacket_html_a22754892275a0a29e5ccde5fe26ecd14"><div class="ttname"><a href="structPacket_1_1carteRequestPacket.html#a22754892275a0a29e5ccde5fe26ecd14">Packet::carteRequestPacket::carteID</a></div><div class="ttdeci">int carteID</div><div class="ttdef"><b>Definition:</b> Packet.hpp:89</div></div>
+<div class="ttc" id="structPacket_1_1carteInfosPacket_html_ac936145974d445b5476f4dec4583498f"><div class="ttname"><a href="structPacket_1_1carteInfosPacket.html#ac936145974d445b5476f4dec4583498f">Packet::carteInfosPacket::carteID</a></div><div class="ttdeci">int carteID</div><div class="ttdef"><b>Definition:</b> Packet.hpp:96</div></div>
+<div class="ttc" id="classPacket_html"><div class="ttname"><a href="classPacket.html">Packet</a></div><div class="ttdef"><b>Definition:</b> Packet.hpp:15</div></div>
+<div class="ttc" id="structPacket_1_1carteInfosPacket_html"><div class="ttname"><a href="structPacket_1_1carteInfosPacket.html">Packet::carteInfosPacket</a></div><div class="ttdef"><b>Definition:</b> Packet.hpp:93</div></div>
+<div class="ttc" id="structPacket_1_1deckContentPacket_html"><div class="ttname"><a href="structPacket_1_1deckContentPacket.html">Packet::deckContentPacket</a></div><div class="ttdef"><b>Definition:</b> Packet.hpp:78</div></div>
+<div class="ttc" id="structPacket_1_1deckRequestPacket_html"><div class="ttname"><a href="structPacket_1_1deckRequestPacket.html">Packet::deckRequestPacket</a></div><div class="ttdef"><b>Definition:</b> Packet.hpp:71</div></div>
+<div class="ttc" id="structPacket_1_1loginRequestPacket_html"><div class="ttname"><a href="structPacket_1_1loginRequestPacket.html">Packet::loginRequestPacket</a></div><div class="ttdef"><b>Definition:</b> Packet.hpp:49</div></div>
+<div class="ttc" id="structPacket_1_1loginResultPacket_html_a148ad144908a219d1b6adde5c3337a2f"><div class="ttname"><a href="structPacket_1_1loginResultPacket.html#a148ad144908a219d1b6adde5c3337a2f">Packet::loginResultPacket::resultCode</a></div><div class="ttdeci">int resultCode</div><div class="ttdef"><b>Definition:</b> Packet.hpp:60</div></div>
+<div class="ttc" id="Packet_8hpp_html_ab48a679225d82ec51e09e62d14313b34"><div class="ttname"><a href="Packet_8hpp.html#ab48a679225d82ec51e09e62d14313b34">DECK_SIZE</a></div><div class="ttdeci">#define DECK_SIZE</div><div class="ttdef"><b>Definition:</b> Packet.hpp:12</div></div>
+<div class="ttc" id="Packet_8hpp_html_a1de6746763761071cb33e1fbbe574f62"><div class="ttname"><a href="Packet_8hpp.html#a1de6746763761071cb33e1fbbe574f62">MAX_CARTE_DESCRITION_SIZE</a></div><div class="ttdeci">#define MAX_CARTE_DESCRITION_SIZE</div><div class="ttdef"><b>Definition:</b> Packet.hpp:13</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.10
+</small></address>
+</body>
+</html>

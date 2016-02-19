@@ -1,0 +1,136 @@
+\hypertarget{classCard}{}\section{Référence de la classe Card}
+\label{classCard}\index{Card@{Card}}
+
+
+{\ttfamily \#include $<$Card.\+hpp$>$}
+
+Graphe d\textquotesingle{}héritage de Card\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classCard}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classCard_adacf4b8bbaa2a417e458b70c99019a39}{Card} (std\+::size\+\_\+t id, std\+::string name, std\+::size\+\_\+t energy, bool)
+\item 
+\hyperlink{classCard_a88211ebea56b896a7f43b8aa600cb74e}{Card} (\hyperlink{classCard}{Card} \&card)
+\item 
+virtual void \hyperlink{classCard_a85e099caac46055618988d81a5001708}{apply\+Effect} (\hyperlink{classCard}{Card} \&card)
+\item 
+virtual \hyperlink{classCard_abf30649dca6b7398b7500e41fd6767e0}{$\sim$\+Card} ()=0
+\item 
+std\+::size\+\_\+t \hyperlink{classCard_a6eec742565ded028a7f2737c53ae4507}{get\+Id} ()
+\item 
+std\+::string \hyperlink{classCard_ad060fe107bfaf4741c671615885b314a}{get\+Name} ()
+\item 
+std\+::size\+\_\+t \hyperlink{classCard_a56f0050aa1cbc799b4481431163f5a90}{get\+Energy\+Cost} ()
+\item 
+bool \hyperlink{classCard_a9932401135454db169e1e4d678103917}{got\+Effect} ()
+\item 
+int \hyperlink{classCard_a6f6c3220c269eef98fe84ffbcffd9371}{get\+Effect\+I\+D} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+One class per card. Contain all information of the card 
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classCard_adacf4b8bbaa2a417e458b70c99019a39}{}\index{Card@{Card}!Card@{Card}}
+\index{Card@{Card}!Card@{Card}}
+\subsubsection[{Card(std\+::size\+\_\+t id, std\+::string name, std\+::size\+\_\+t energy, bool)}]{\setlength{\rightskip}{0pt plus 5cm}Card\+::\+Card (
+\begin{DoxyParamCaption}
+\item[{std\+::size\+\_\+t}]{id, }
+\item[{std\+::string}]{name, }
+\item[{std\+::size\+\_\+t}]{energy, }
+\item[{bool}]{save = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\label{classCard_adacf4b8bbaa2a417e458b70c99019a39}
+Constructor
+
+
+\begin{DoxyParams}{Paramètres}
+{\em id} & of the card \\
+\hline
+{\em name} & of the card \\
+\hline
+{\em energy} & of the card \\
+\hline
+{\em effect} & name of the specific effect \\
+\hline
+{\em save} & True if save in cache \\
+\hline
+\end{DoxyParams}
+\hypertarget{classCard_a88211ebea56b896a7f43b8aa600cb74e}{}\index{Card@{Card}!Card@{Card}}
+\index{Card@{Card}!Card@{Card}}
+\subsubsection[{Card(\+Card \&card)}]{\setlength{\rightskip}{0pt plus 5cm}Card\+::\+Card (
+\begin{DoxyParamCaption}
+\item[{{\bf Card} \&}]{card}
+\end{DoxyParamCaption}
+)}\label{classCard_a88211ebea56b896a7f43b8aa600cb74e}
+Copy contructor
+
+
+\begin{DoxyParams}{Paramètres}
+{\em card} & original \\
+\hline
+\end{DoxyParams}
+\hypertarget{classCard_abf30649dca6b7398b7500e41fd6767e0}{}\index{Card@{Card}!````~Card@{$\sim$\+Card}}
+\index{````~Card@{$\sim$\+Card}!Card@{Card}}
+\subsubsection[{$\sim$\+Card()=0}]{\setlength{\rightskip}{0pt plus 5cm}Card\+::$\sim$\+Card (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classCard_abf30649dca6b7398b7500e41fd6767e0}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classCard_a85e099caac46055618988d81a5001708}{}\index{Card@{Card}!apply\+Effect@{apply\+Effect}}
+\index{apply\+Effect@{apply\+Effect}!Card@{Card}}
+\subsubsection[{apply\+Effect(\+Card \&card)}]{\setlength{\rightskip}{0pt plus 5cm}void Card\+::apply\+Effect (
+\begin{DoxyParamCaption}
+\item[{{\bf Card} \&}]{card}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classCard_a85e099caac46055618988d81a5001708}
+\hypertarget{classCard_a6f6c3220c269eef98fe84ffbcffd9371}{}\index{Card@{Card}!get\+Effect\+I\+D@{get\+Effect\+I\+D}}
+\index{get\+Effect\+I\+D@{get\+Effect\+I\+D}!Card@{Card}}
+\subsubsection[{get\+Effect\+I\+D()}]{\setlength{\rightskip}{0pt plus 5cm}int Card\+::get\+Effect\+I\+D (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classCard_a6f6c3220c269eef98fe84ffbcffd9371}
+\hypertarget{classCard_a56f0050aa1cbc799b4481431163f5a90}{}\index{Card@{Card}!get\+Energy\+Cost@{get\+Energy\+Cost}}
+\index{get\+Energy\+Cost@{get\+Energy\+Cost}!Card@{Card}}
+\subsubsection[{get\+Energy\+Cost()}]{\setlength{\rightskip}{0pt plus 5cm}std\+::size\+\_\+t Card\+::get\+Energy\+Cost (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classCard_a56f0050aa1cbc799b4481431163f5a90}
+\hypertarget{classCard_a6eec742565ded028a7f2737c53ae4507}{}\index{Card@{Card}!get\+Id@{get\+Id}}
+\index{get\+Id@{get\+Id}!Card@{Card}}
+\subsubsection[{get\+Id()}]{\setlength{\rightskip}{0pt plus 5cm}std\+::size\+\_\+t Card\+::get\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classCard_a6eec742565ded028a7f2737c53ae4507}
+\hypertarget{classCard_ad060fe107bfaf4741c671615885b314a}{}\index{Card@{Card}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Card@{Card}}
+\subsubsection[{get\+Name()}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Card\+::get\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classCard_ad060fe107bfaf4741c671615885b314a}
+\hypertarget{classCard_a9932401135454db169e1e4d678103917}{}\index{Card@{Card}!got\+Effect@{got\+Effect}}
+\index{got\+Effect@{got\+Effect}!Card@{Card}}
+\subsubsection[{got\+Effect()}]{\setlength{\rightskip}{0pt plus 5cm}bool Card\+::got\+Effect (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classCard_a9932401135454db169e1e4d678103917}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+common/\hyperlink{Card_8hpp}{Card.\+hpp}\item 
+common/\hyperlink{Card_8cpp}{Card.\+cpp}\end{DoxyCompactItemize}

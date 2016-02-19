@@ -1,0 +1,95 @@
+\hypertarget{classEffect}{}\section{Référence de la classe Effect}
+\label{classEffect}\index{Effect@{Effect}}
+
+
+{\ttfamily \#include $<$Effect.\+hpp$>$}
+
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{classEffect_ae70bfffd7ffd1538c33a2b4590fec0da}{Effect} ()
+\item 
+virtual \hyperlink{classEffect_ab0f471df484d3ef351b704fef39a7072}{$\sim$\+Effect} ()
+\item 
+virtual void \hyperlink{classEffect_a9ba9e7f094e4ca074f12ed246923671f}{apply} (\hyperlink{classCard}{Card} $\ast$)=0
+\item 
+virtual bool \hyperlink{classEffect_adb7655cc87e0602f6f608103ff388a6f}{is\+Taunt} ()
+\item 
+virtual bool \hyperlink{classEffect_a23e7eba966b28f051ec12865f53cd092}{can\+Be\+Apply\+On\+Player} ()
+\item 
+virtual bool \hyperlink{classEffect_a81611bfcbbd800ac40b3c38146fb7277}{can\+Be\+Apply\+On\+P\+Card} ()
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classEffect_ae185e5fd1219ac1d7ffbcd51d0ace58c}{load\+All\+Effect} ()
+\item 
+static \hyperlink{classEffect}{Effect} $\ast$ \hyperlink{classEffect_a146cdf511868872b7e1879c07c6eb367}{get\+Effect\+By\+I\+D} (std\+::size\+\_\+t)
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classEffect_ae70bfffd7ffd1538c33a2b4590fec0da}{}\index{Effect@{Effect}!Effect@{Effect}}
+\index{Effect@{Effect}!Effect@{Effect}}
+\subsubsection[{Effect()}]{\setlength{\rightskip}{0pt plus 5cm}virtual Effect\+::\+Effect (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classEffect_ae70bfffd7ffd1538c33a2b4590fec0da}
+\hypertarget{classEffect_ab0f471df484d3ef351b704fef39a7072}{}\index{Effect@{Effect}!````~Effect@{$\sim$\+Effect}}
+\index{````~Effect@{$\sim$\+Effect}!Effect@{Effect}}
+\subsubsection[{$\sim$\+Effect()}]{\setlength{\rightskip}{0pt plus 5cm}virtual Effect\+::$\sim$\+Effect (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classEffect_ab0f471df484d3ef351b704fef39a7072}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classEffect_a9ba9e7f094e4ca074f12ed246923671f}{}\index{Effect@{Effect}!apply@{apply}}
+\index{apply@{apply}!Effect@{Effect}}
+\subsubsection[{apply(\+Card $\ast$)=0}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Effect\+::apply (
+\begin{DoxyParamCaption}
+\item[{{\bf Card} $\ast$}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classEffect_a9ba9e7f094e4ca074f12ed246923671f}
+\hypertarget{classEffect_a81611bfcbbd800ac40b3c38146fb7277}{}\index{Effect@{Effect}!can\+Be\+Apply\+On\+P\+Card@{can\+Be\+Apply\+On\+P\+Card}}
+\index{can\+Be\+Apply\+On\+P\+Card@{can\+Be\+Apply\+On\+P\+Card}!Effect@{Effect}}
+\subsubsection[{can\+Be\+Apply\+On\+P\+Card()}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Effect\+::can\+Be\+Apply\+On\+P\+Card (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classEffect_a81611bfcbbd800ac40b3c38146fb7277}
+\hypertarget{classEffect_a23e7eba966b28f051ec12865f53cd092}{}\index{Effect@{Effect}!can\+Be\+Apply\+On\+Player@{can\+Be\+Apply\+On\+Player}}
+\index{can\+Be\+Apply\+On\+Player@{can\+Be\+Apply\+On\+Player}!Effect@{Effect}}
+\subsubsection[{can\+Be\+Apply\+On\+Player()}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Effect\+::can\+Be\+Apply\+On\+Player (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classEffect_a23e7eba966b28f051ec12865f53cd092}
+\hypertarget{classEffect_a146cdf511868872b7e1879c07c6eb367}{}\index{Effect@{Effect}!get\+Effect\+By\+I\+D@{get\+Effect\+By\+I\+D}}
+\index{get\+Effect\+By\+I\+D@{get\+Effect\+By\+I\+D}!Effect@{Effect}}
+\subsubsection[{get\+Effect\+By\+I\+D(std\+::size\+\_\+t)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Effect} $\ast$ Effect\+::get\+Effect\+By\+I\+D (
+\begin{DoxyParamCaption}
+\item[{std\+::size\+\_\+t}]{id}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classEffect_a146cdf511868872b7e1879c07c6eb367}
+\hypertarget{classEffect_adb7655cc87e0602f6f608103ff388a6f}{}\index{Effect@{Effect}!is\+Taunt@{is\+Taunt}}
+\index{is\+Taunt@{is\+Taunt}!Effect@{Effect}}
+\subsubsection[{is\+Taunt()}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Effect\+::is\+Taunt (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classEffect_adb7655cc87e0602f6f608103ff388a6f}
+\hypertarget{classEffect_ae185e5fd1219ac1d7ffbcd51d0ace58c}{}\index{Effect@{Effect}!load\+All\+Effect@{load\+All\+Effect}}
+\index{load\+All\+Effect@{load\+All\+Effect}!Effect@{Effect}}
+\subsubsection[{load\+All\+Effect()}]{\setlength{\rightskip}{0pt plus 5cm}void Effect\+::load\+All\+Effect (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classEffect_ae185e5fd1219ac1d7ffbcd51d0ace58c}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+server/\hyperlink{Effect_8hpp}{Effect.\+hpp}\end{DoxyCompactItemize}

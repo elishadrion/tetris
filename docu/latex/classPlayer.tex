@@ -1,0 +1,79 @@
+\hypertarget{classPlayer}{}\section{Référence de la classe Player}
+\label{classPlayer}\index{Player@{Player}}
+
+
+{\ttfamily \#include $<$Player.\+hpp$>$}
+
+Graphe d\textquotesingle{}héritage de Player\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classPlayer}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classPlayer_affe0cc3cb714f6deb4e62f0c0d3f1fd8}{Player} ()
+\item 
+\hyperlink{classPlayer_aa4306941986269f0c9237348d2b65d07}{Player} (int sockfd, int player\+I\+D)
+\item 
+std\+::string \hyperlink{classPlayer_a73c00480e9459d52998262f23f6fc5dc}{get\+Username} ()
+\item 
+virtual \hyperlink{classPlayer_a11017c0ed8a639f3b1308ab167fbeca2}{$\sim$\+Player} ()=default
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres protégées}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \hyperlink{classDeck}{Deck} $\ast$ $>$ \hyperlink{classPlayer_ad3e0232a0013556f3dc6a7cf3219c5e3}{get\+List\+Deck} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+One class per player. This object stocks the socket to communicate with player When the server starts, he must load all Players 
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classPlayer_affe0cc3cb714f6deb4e62f0c0d3f1fd8}{}\index{Player@{Player}!Player@{Player}}
+\index{Player@{Player}!Player@{Player}}
+\subsubsection[{Player()}]{\setlength{\rightskip}{0pt plus 5cm}Player\+::\+Player (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classPlayer_affe0cc3cb714f6deb4e62f0c0d3f1fd8}
+\hypertarget{classPlayer_aa4306941986269f0c9237348d2b65d07}{}\index{Player@{Player}!Player@{Player}}
+\index{Player@{Player}!Player@{Player}}
+\subsubsection[{Player(int sockfd, int player\+I\+D)}]{\setlength{\rightskip}{0pt plus 5cm}Player\+::\+Player (
+\begin{DoxyParamCaption}
+\item[{int}]{sockfd, }
+\item[{int}]{player\+I\+D}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classPlayer_aa4306941986269f0c9237348d2b65d07}
+\hypertarget{classPlayer_a11017c0ed8a639f3b1308ab167fbeca2}{}\index{Player@{Player}!````~Player@{$\sim$\+Player}}
+\index{````~Player@{$\sim$\+Player}!Player@{Player}}
+\subsubsection[{$\sim$\+Player()=default}]{\setlength{\rightskip}{0pt plus 5cm}virtual Player\+::$\sim$\+Player (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}\label{classPlayer_a11017c0ed8a639f3b1308ab167fbeca2}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classPlayer_ad3e0232a0013556f3dc6a7cf3219c5e3}{}\index{Player@{Player}!get\+List\+Deck@{get\+List\+Deck}}
+\index{get\+List\+Deck@{get\+List\+Deck}!Player@{Player}}
+\subsubsection[{get\+List\+Deck()}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<${\bf Deck}$\ast$$>$ Player\+::get\+List\+Deck (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\label{classPlayer_ad3e0232a0013556f3dc6a7cf3219c5e3}
+\hypertarget{classPlayer_a73c00480e9459d52998262f23f6fc5dc}{}\index{Player@{Player}!get\+Username@{get\+Username}}
+\index{get\+Username@{get\+Username}!Player@{Player}}
+\subsubsection[{get\+Username()}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Player\+::get\+Username (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classPlayer_a73c00480e9459d52998262f23f6fc5dc}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+server/\hyperlink{Player_8hpp}{Player.\+hpp}\item 
+server/\hyperlink{Player_8cpp}{Player.\+cpp}\end{DoxyCompactItemize}

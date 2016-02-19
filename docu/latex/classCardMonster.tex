@@ -1,0 +1,141 @@
+\hypertarget{classCardMonster}{}\section{Référence de la classe Card\+Monster}
+\label{classCardMonster}\index{Card\+Monster@{Card\+Monster}}
+
+
+{\ttfamily \#include $<$Card\+Monster.\+hpp$>$}
+
+Graphe d\textquotesingle{}héritage de Card\+Monster\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classCardMonster}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classCardMonster_aaf28396b394a9400d257eddfa09e4567}{deal\+Damage} (\hyperlink{classCardMonster}{Card\+Monster} \&other\+Monster)
+\item 
+virtual void \hyperlink{classCardMonster_aef45590287342f0a5d484c1228bae76d}{deal\+Damage} (\hyperlink{classPlayer}{Player} \&player)
+\item 
+virtual void \hyperlink{classCardMonster_a2d55cf30d111437486e2b1bacefcbf79}{increment\+Tour} ()
+\item 
+\hyperlink{classCardMonster_acb8d195232b735700c2068b001d5278d}{Card\+Monster} (std\+::size\+\_\+t id, std\+::string name, std\+::size\+\_\+t energy, bool, std\+::size\+\_\+t life, std\+::size\+\_\+t attack, std\+::size\+\_\+t nbr\+Tour=0)
+\item 
+\hyperlink{classCardMonster_a5f577cbecdf0d1c6a6ccbc848793ddef}{Card\+Monster} (\hyperlink{classCardMonster}{Card\+Monster} \&other\+Monster)
+\item 
+std\+::size\+\_\+t \hyperlink{classCardMonster_a01f20967b3b350e8430c30396c8cd0c9}{get\+Life} ()
+\item 
+std\+::size\+\_\+t \hyperlink{classCardMonster_a38fd3549de7e606f73e836ba98ed4f24}{get\+Attack} ()
+\item 
+std\+::size\+\_\+t \hyperlink{classCardMonster_a0e963cc2c613826e28891f00a9787e58}{get\+Max\+Life} ()
+\item 
+std\+::size\+\_\+t \hyperlink{classCardMonster_a8f3fd5d1e30a520aaa0c282bd84aa5d5}{get\+Nbr\+Tour\+Pose} ()
+\item 
+void \hyperlink{classCardMonster_aa70aa05b038da703524b82df5608734b}{set\+Life} (std\+::size\+\_\+t new\+Life)
+\item 
+void \hyperlink{classCardMonster_a358474586372d6b2b83301cceae34347}{set\+Attack} (std\+::size\+\_\+t new\+Attack)
+\item 
+void \hyperlink{classCardMonster_a9860956677866c7adbcda61c9951dd35}{set\+Max\+Life} (std\+::size\+\_\+t new\+Max)
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classCardMonster_acb8d195232b735700c2068b001d5278d}{}\index{Card\+Monster@{Card\+Monster}!Card\+Monster@{Card\+Monster}}
+\index{Card\+Monster@{Card\+Monster}!Card\+Monster@{Card\+Monster}}
+\subsubsection[{Card\+Monster(std\+::size\+\_\+t id, std\+::string name, std\+::size\+\_\+t energy, bool, std\+::size\+\_\+t life, std\+::size\+\_\+t attack, std\+::size\+\_\+t nbr\+Tour=0)}]{\setlength{\rightskip}{0pt plus 5cm}Card\+Monster\+::\+Card\+Monster (
+\begin{DoxyParamCaption}
+\item[{std\+::size\+\_\+t}]{id, }
+\item[{std\+::string}]{name, }
+\item[{std\+::size\+\_\+t}]{energy, }
+\item[{bool}]{a\+Bool, }
+\item[{std\+::size\+\_\+t}]{life, }
+\item[{std\+::size\+\_\+t}]{attack, }
+\item[{std\+::size\+\_\+t}]{nbr\+Tour = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classCardMonster_acb8d195232b735700c2068b001d5278d}
+\hypertarget{classCardMonster_a5f577cbecdf0d1c6a6ccbc848793ddef}{}\index{Card\+Monster@{Card\+Monster}!Card\+Monster@{Card\+Monster}}
+\index{Card\+Monster@{Card\+Monster}!Card\+Monster@{Card\+Monster}}
+\subsubsection[{Card\+Monster(\+Card\+Monster \&other\+Monster)}]{\setlength{\rightskip}{0pt plus 5cm}Card\+Monster\+::\+Card\+Monster (
+\begin{DoxyParamCaption}
+\item[{{\bf Card\+Monster} \&}]{other\+Monster}
+\end{DoxyParamCaption}
+)}\label{classCardMonster_a5f577cbecdf0d1c6a6ccbc848793ddef}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classCardMonster_aaf28396b394a9400d257eddfa09e4567}{}\index{Card\+Monster@{Card\+Monster}!deal\+Damage@{deal\+Damage}}
+\index{deal\+Damage@{deal\+Damage}!Card\+Monster@{Card\+Monster}}
+\subsubsection[{deal\+Damage(\+Card\+Monster \&other\+Monster)}]{\setlength{\rightskip}{0pt plus 5cm}void Card\+Monster\+::deal\+Damage (
+\begin{DoxyParamCaption}
+\item[{{\bf Card\+Monster} \&}]{other\+Monster}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classCardMonster_aaf28396b394a9400d257eddfa09e4567}
+\hypertarget{classCardMonster_aef45590287342f0a5d484c1228bae76d}{}\index{Card\+Monster@{Card\+Monster}!deal\+Damage@{deal\+Damage}}
+\index{deal\+Damage@{deal\+Damage}!Card\+Monster@{Card\+Monster}}
+\subsubsection[{deal\+Damage(\+Player \&player)}]{\setlength{\rightskip}{0pt plus 5cm}void Card\+Monster\+::deal\+Damage (
+\begin{DoxyParamCaption}
+\item[{{\bf Player} \&}]{player}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classCardMonster_aef45590287342f0a5d484c1228bae76d}
+\hypertarget{classCardMonster_a38fd3549de7e606f73e836ba98ed4f24}{}\index{Card\+Monster@{Card\+Monster}!get\+Attack@{get\+Attack}}
+\index{get\+Attack@{get\+Attack}!Card\+Monster@{Card\+Monster}}
+\subsubsection[{get\+Attack()}]{\setlength{\rightskip}{0pt plus 5cm}std\+::size\+\_\+t Card\+Monster\+::get\+Attack (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classCardMonster_a38fd3549de7e606f73e836ba98ed4f24}
+\hypertarget{classCardMonster_a01f20967b3b350e8430c30396c8cd0c9}{}\index{Card\+Monster@{Card\+Monster}!get\+Life@{get\+Life}}
+\index{get\+Life@{get\+Life}!Card\+Monster@{Card\+Monster}}
+\subsubsection[{get\+Life()}]{\setlength{\rightskip}{0pt plus 5cm}std\+::size\+\_\+t Card\+Monster\+::get\+Life (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classCardMonster_a01f20967b3b350e8430c30396c8cd0c9}
+\hypertarget{classCardMonster_a0e963cc2c613826e28891f00a9787e58}{}\index{Card\+Monster@{Card\+Monster}!get\+Max\+Life@{get\+Max\+Life}}
+\index{get\+Max\+Life@{get\+Max\+Life}!Card\+Monster@{Card\+Monster}}
+\subsubsection[{get\+Max\+Life()}]{\setlength{\rightskip}{0pt plus 5cm}std\+::size\+\_\+t Card\+Monster\+::get\+Max\+Life (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classCardMonster_a0e963cc2c613826e28891f00a9787e58}
+\hypertarget{classCardMonster_a8f3fd5d1e30a520aaa0c282bd84aa5d5}{}\index{Card\+Monster@{Card\+Monster}!get\+Nbr\+Tour\+Pose@{get\+Nbr\+Tour\+Pose}}
+\index{get\+Nbr\+Tour\+Pose@{get\+Nbr\+Tour\+Pose}!Card\+Monster@{Card\+Monster}}
+\subsubsection[{get\+Nbr\+Tour\+Pose()}]{\setlength{\rightskip}{0pt plus 5cm}std\+::size\+\_\+t Card\+Monster\+::get\+Nbr\+Tour\+Pose (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classCardMonster_a8f3fd5d1e30a520aaa0c282bd84aa5d5}
+\hypertarget{classCardMonster_a2d55cf30d111437486e2b1bacefcbf79}{}\index{Card\+Monster@{Card\+Monster}!increment\+Tour@{increment\+Tour}}
+\index{increment\+Tour@{increment\+Tour}!Card\+Monster@{Card\+Monster}}
+\subsubsection[{increment\+Tour()}]{\setlength{\rightskip}{0pt plus 5cm}void Card\+Monster\+::increment\+Tour (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classCardMonster_a2d55cf30d111437486e2b1bacefcbf79}
+\hypertarget{classCardMonster_a358474586372d6b2b83301cceae34347}{}\index{Card\+Monster@{Card\+Monster}!set\+Attack@{set\+Attack}}
+\index{set\+Attack@{set\+Attack}!Card\+Monster@{Card\+Monster}}
+\subsubsection[{set\+Attack(std\+::size\+\_\+t new\+Attack)}]{\setlength{\rightskip}{0pt plus 5cm}void Card\+Monster\+::set\+Attack (
+\begin{DoxyParamCaption}
+\item[{std\+::size\+\_\+t}]{new\+Attack}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classCardMonster_a358474586372d6b2b83301cceae34347}
+\hypertarget{classCardMonster_aa70aa05b038da703524b82df5608734b}{}\index{Card\+Monster@{Card\+Monster}!set\+Life@{set\+Life}}
+\index{set\+Life@{set\+Life}!Card\+Monster@{Card\+Monster}}
+\subsubsection[{set\+Life(std\+::size\+\_\+t new\+Life)}]{\setlength{\rightskip}{0pt plus 5cm}void Card\+Monster\+::set\+Life (
+\begin{DoxyParamCaption}
+\item[{std\+::size\+\_\+t}]{new\+Life}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classCardMonster_aa70aa05b038da703524b82df5608734b}
+\hypertarget{classCardMonster_a9860956677866c7adbcda61c9951dd35}{}\index{Card\+Monster@{Card\+Monster}!set\+Max\+Life@{set\+Max\+Life}}
+\index{set\+Max\+Life@{set\+Max\+Life}!Card\+Monster@{Card\+Monster}}
+\subsubsection[{set\+Max\+Life(std\+::size\+\_\+t new\+Max)}]{\setlength{\rightskip}{0pt plus 5cm}void Card\+Monster\+::set\+Max\+Life (
+\begin{DoxyParamCaption}
+\item[{std\+::size\+\_\+t}]{new\+Max}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classCardMonster_a9860956677866c7adbcda61c9951dd35}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+common/\hyperlink{CardMonster_8hpp}{Card\+Monster.\+hpp}\item 
+common/\hyperlink{CardMonster_8cpp}{Card\+Monster.\+cpp}\end{DoxyCompactItemize}

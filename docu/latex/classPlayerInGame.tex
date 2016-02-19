@@ -1,0 +1,134 @@
+\hypertarget{classPlayerInGame}{}\section{Référence de la classe Player\+In\+Game}
+\label{classPlayerInGame}\index{Player\+In\+Game@{Player\+In\+Game}}
+
+
+{\ttfamily \#include $<$Player\+In\+Game.\+hpp$>$}
+
+Graphe d\textquotesingle{}héritage de Player\+In\+Game\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classPlayerInGame}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classPlayerInGame_aef3887730c6e58e3ffa4b8636f5a1fd4}{Player\+In\+Game} ()
+\item 
+\hyperlink{classPlayerInGame_a64e5c60c2e6106c9dda8c7d79fc36d8b}{Player\+In\+Game} (\hyperlink{classPlayer}{Player} player, \hyperlink{classGame}{Game} $\ast$game)
+\item 
+\hyperlink{structdataIGPlayer}{data\+I\+G\+Player} \hyperlink{classPlayerInGame_addeeee2e42cf2009fc21511624414146}{get\+Data\+Player} ()
+\item 
+std\+::vector$<$ \hyperlink{classCardMonster}{Card\+Monster} $\ast$ $>$ \hyperlink{classPlayerInGame_ad97fa91b1e26e88db5b62bc71f233709}{get\+Card\+Placed} ()
+\item 
+unsigned \hyperlink{classPlayerInGame_a9f8df0a2ef00955f318b41149f57fcb7}{nbr\+Card\+In\+Hand} ()
+\item 
+void \hyperlink{classPlayerInGame_a399370210526407c4234d19815a5fa44}{set\+Deck} (\hyperlink{classDeck}{Deck} $\ast$deck)
+\item 
+bool \hyperlink{classPlayerInGame_ae0fe37f43dd1c3d164041fdc4a668a32}{is\+Deck\+Define} ()
+\item 
+void \hyperlink{classPlayerInGame_a646d88b36595c2754ce33555b867c012}{draw} ()
+\item 
+virtual \hyperlink{classPlayerInGame_a75256787f26b0d264a929e61889caba1}{$\sim$\+Player\+In\+Game} ()=default
+\end{DoxyCompactItemize}
+\subsection*{Membres hérités additionnels}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classPlayerInGame_aef3887730c6e58e3ffa4b8636f5a1fd4}{}\index{Player\+In\+Game@{Player\+In\+Game}!Player\+In\+Game@{Player\+In\+Game}}
+\index{Player\+In\+Game@{Player\+In\+Game}!Player\+In\+Game@{Player\+In\+Game}}
+\subsubsection[{Player\+In\+Game()}]{\setlength{\rightskip}{0pt plus 5cm}Player\+In\+Game\+::\+Player\+In\+Game (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classPlayerInGame_aef3887730c6e58e3ffa4b8636f5a1fd4}
+Default constructor \hypertarget{classPlayerInGame_a64e5c60c2e6106c9dda8c7d79fc36d8b}{}\index{Player\+In\+Game@{Player\+In\+Game}!Player\+In\+Game@{Player\+In\+Game}}
+\index{Player\+In\+Game@{Player\+In\+Game}!Player\+In\+Game@{Player\+In\+Game}}
+\subsubsection[{Player\+In\+Game(\+Player player, Game $\ast$game)}]{\setlength{\rightskip}{0pt plus 5cm}Player\+In\+Game\+::\+Player\+In\+Game (
+\begin{DoxyParamCaption}
+\item[{{\bf Player}}]{player, }
+\item[{{\bf Game} $\ast$}]{game}
+\end{DoxyParamCaption}
+)}\label{classPlayerInGame_a64e5c60c2e6106c9dda8c7d79fc36d8b}
+Creates a \hyperlink{classPlayerInGame}{Player\+In\+Game} and asks to the player which \hyperlink{classDeck}{Deck} he would like to play with \hypertarget{classPlayerInGame_a75256787f26b0d264a929e61889caba1}{}\index{Player\+In\+Game@{Player\+In\+Game}!````~Player\+In\+Game@{$\sim$\+Player\+In\+Game}}
+\index{````~Player\+In\+Game@{$\sim$\+Player\+In\+Game}!Player\+In\+Game@{Player\+In\+Game}}
+\subsubsection[{$\sim$\+Player\+In\+Game()=default}]{\setlength{\rightskip}{0pt plus 5cm}virtual Player\+In\+Game\+::$\sim$\+Player\+In\+Game (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}\label{classPlayerInGame_a75256787f26b0d264a929e61889caba1}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classPlayerInGame_a646d88b36595c2754ce33555b867c012}{}\index{Player\+In\+Game@{Player\+In\+Game}!draw@{draw}}
+\index{draw@{draw}!Player\+In\+Game@{Player\+In\+Game}}
+\subsubsection[{draw()}]{\setlength{\rightskip}{0pt plus 5cm}void Player\+In\+Game\+::draw (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classPlayerInGame_a646d88b36595c2754ce33555b867c012}
+Gets random card of deck
+
+\begin{DoxyReturn}{Renvoie}
+a random card 
+\end{DoxyReturn}
+\hypertarget{classPlayerInGame_ad97fa91b1e26e88db5b62bc71f233709}{}\index{Player\+In\+Game@{Player\+In\+Game}!get\+Card\+Placed@{get\+Card\+Placed}}
+\index{get\+Card\+Placed@{get\+Card\+Placed}!Player\+In\+Game@{Player\+In\+Game}}
+\subsubsection[{get\+Card\+Placed()}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ {\bf Card\+Monster} $\ast$ $>$ Player\+In\+Game\+::get\+Card\+Placed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classPlayerInGame_ad97fa91b1e26e88db5b62bc71f233709}
+Returns the placed cards \hypertarget{classPlayerInGame_addeeee2e42cf2009fc21511624414146}{}\index{Player\+In\+Game@{Player\+In\+Game}!get\+Data\+Player@{get\+Data\+Player}}
+\index{get\+Data\+Player@{get\+Data\+Player}!Player\+In\+Game@{Player\+In\+Game}}
+\subsubsection[{get\+Data\+Player()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf data\+I\+G\+Player} Player\+In\+Game\+::get\+Data\+Player (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classPlayerInGame_addeeee2e42cf2009fc21511624414146}
+Gets data information from this player to send it
+
+
+\begin{DoxyParams}{Paramètres}
+{\em is\+Turn} & of the current player \\
+\hline
+\end{DoxyParams}
+\hypertarget{classPlayerInGame_ae0fe37f43dd1c3d164041fdc4a668a32}{}\index{Player\+In\+Game@{Player\+In\+Game}!is\+Deck\+Define@{is\+Deck\+Define}}
+\index{is\+Deck\+Define@{is\+Deck\+Define}!Player\+In\+Game@{Player\+In\+Game}}
+\subsubsection[{is\+Deck\+Define()}]{\setlength{\rightskip}{0pt plus 5cm}bool Player\+In\+Game\+::is\+Deck\+Define (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classPlayerInGame_ae0fe37f43dd1c3d164041fdc4a668a32}
+Checks if the deck of this player is defined
+
+\begin{DoxyReturn}{Renvoie}
+True if the deck is defined 
+\end{DoxyReturn}
+\hypertarget{classPlayerInGame_a9f8df0a2ef00955f318b41149f57fcb7}{}\index{Player\+In\+Game@{Player\+In\+Game}!nbr\+Card\+In\+Hand@{nbr\+Card\+In\+Hand}}
+\index{nbr\+Card\+In\+Hand@{nbr\+Card\+In\+Hand}!Player\+In\+Game@{Player\+In\+Game}}
+\subsubsection[{nbr\+Card\+In\+Hand()}]{\setlength{\rightskip}{0pt plus 5cm}unsigned Player\+In\+Game\+::nbr\+Card\+In\+Hand (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classPlayerInGame_a9f8df0a2ef00955f318b41149f57fcb7}
+\hypertarget{classPlayerInGame_a399370210526407c4234d19815a5fa44}{}\index{Player\+In\+Game@{Player\+In\+Game}!set\+Deck@{set\+Deck}}
+\index{set\+Deck@{set\+Deck}!Player\+In\+Game@{Player\+In\+Game}}
+\subsubsection[{set\+Deck(\+Deck $\ast$deck)}]{\setlength{\rightskip}{0pt plus 5cm}void Player\+In\+Game\+::set\+Deck (
+\begin{DoxyParamCaption}
+\item[{{\bf Deck} $\ast$}]{deck}
+\end{DoxyParamCaption}
+)}\label{classPlayerInGame_a399370210526407c4234d19815a5fa44}
+Sets the player deck and notify it at the game object
+
+
+\begin{DoxyParams}{Paramètres}
+{\em deck} & The selected deck \\
+\hline
+\end{DoxyParams}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+server/\hyperlink{PlayerInGame_8hpp}{Player\+In\+Game.\+hpp}\item 
+server/\hyperlink{PlayerInGame_8cpp}{Player\+In\+Game.\+cpp}\end{DoxyCompactItemize}

@@ -14,6 +14,8 @@ SERVER_DIR = server
 CLIENT_DIR = client
 COMMON_DIR = common
 
+DOCU_DIR = ../docu
+
 .PHONY: clean tests all
 all: server_wizard client_wizard
 
@@ -38,7 +40,12 @@ client_wizard: $(OBJ_C)
 clean:
 	rm -f $(OBJ_S) $(DEP_S) 2> /dev/null
 	rm -f $(OBJ_C) $(DEP_C) 2> /dev/null
+	rm -rf $(DOCU_DIR) 2> /dev/null
 
 # Tests
 tests:
 	@echo Hello world
+
+# Documentation
+docu:
+	doxygen doxygen.conf
