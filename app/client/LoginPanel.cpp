@@ -165,7 +165,7 @@ void LoginPanel::askLogin() {
                     beep();
                 } else if ((!passwordForm && sizeA == 30) ||
                     (passwordForm && sizeB == 30)) {
-                    printError("TAILLE MAXIMUM DE 30 CHAR ");
+                    printError(MAX_SIZE_ERROR);
                     beep();
                 } else {
                     /* Reset error and print character */
