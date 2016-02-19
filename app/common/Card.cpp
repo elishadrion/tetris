@@ -32,8 +32,8 @@ void Card::applyEffect(Card& card){
     //TODO tmp patch this.Effect::apply(Card& card);
 }
 
-Card::gotEffect(){
-	if (this.getEffectID() == -1){
+bool Card::gotEffect(){
+	if (this->getEffectID() == -1){
 		return false;
 	}
 	else {
