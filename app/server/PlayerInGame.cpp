@@ -81,29 +81,29 @@ std::vector<CardMonster*> PlayerInGame::getCardsPlaced() {
     return _cardsPlaced;
 }
 
-//Checks if the player have currently enough energy to play a certain card 
+//Checks if the player have currently enough energy to play a certain card
 bool PlayerInGame::haveEnoughEnergy(Card* card){
     bool enoughEnergy;
     int energyCost = card->getEnergyCost();
-    
+
     if (_energy >= energyCost) {
         enoughEnergy = true;
     }
-    
+
     else {
         enoughEnergy = false;
     }
-    
+
     return enoughEnergy;
 }
-    
+
 void PlayerInGame::addMaxEnergy() {
     if (_maxEnergy < _limitEnergy) {
      _maxEnergy++;
     }
 }
-    
-    
+
+
 void PlayerInGame::resetEnergy() {
     _energy = _maxEnergy;
 }
@@ -112,3 +112,16 @@ void PlayerInGame::resetEnergy() {
 unsigned PlayerInGame::nbrCardInHand() {
     return _cardsInHand.size();
 }
+
+
+bool PlayerInGame::haveEnoughtEnergy(Card* card) {
+    return card->getEnergyCost() <= this->_energy;
+}
+
+void PlayerInGame::removeCardPlaced(CardMonster* card) {
+    auto it = std::find(_cardsPlaced.begin(), _cardsPlaced.end(), card);
+    if(it != _cardsPlaced.end()) {
+        _cardsPlaced.erase(it);
+    }
+}
+

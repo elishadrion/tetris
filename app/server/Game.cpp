@@ -140,6 +140,23 @@ PlayerInGame* Game::getAdversePlayer(PlayerInGame* player) {
     return res;
 }
 
+
+/**
+ * Get the ennemy player (adversary)
+ *
+ * @return the ennemy player
+ */
+PlayerInGame* Game::getAdversePlayer() {
+    PlayerInGame* res;
+    PlayerInGame* player = this->_currentPlayer;
+
+    (player == _player1) ? res = _player2 : res = _player1;
+    // If not player1 or player2 then return null :/
+
+    return res;
+}
+
+
 /**
  * Sends information about the game
  *
@@ -215,21 +232,84 @@ void Game::placeCard(PlayerInGame* pIG, Card* placeCard,
 
 /**
  * Funciton when player attack a card
+ * @param pIG who play
+ * @param card which play
+ * @param targetCard card which is attack
  */
 void Game::attackWithCard(PlayerInGame* pIG, CardMonster* card,
     CardMonster* targetCard) {
 
-    if(card->getNbrTourPose() > 1) {
-        //
-    } else {
-        // erreur
+    if(canPlayerPlay(pIG, card)) {
+        if(verifyTaunt(pIG, card)) {
+            card->dealDamage(*targetCard);
+            if(targetCard->isDeath()) {
+                this->getAdversePlayer()->removeCardPlaced(targetCard);
+            }
+        } else {
+            // error, must attack Taunt card
+        }
     }
 }
 
+/**
+ * Verify that player can play
+ * /!\ Error send to advert client if not valide
+ *
+ * @param pIG player that play
+ * @param card card that is play
+ * @return True if the player can play
+ */
+bool Game::canPlayerPlay(PlayerInGame* pIG, CardMonster* card) {
+    bool res = false;
+
+    if(pIG == _currentPlayer) {
+        if(card->getNbrTourPose() > 1) {
+            if(pIG->haveEnoughEnergy(card)) {
+                res = true;
+            } else {
+                // error, not enough energy
+            }
+        } else {
+             // error, not place on board game
+        }
+    } else {
+        // error, not his turn
+    }
+
+    return res;
+}
 
 
+/**
+ * Verify that the player havn't an taunt effect
+ *
+ * @param pIG player the must be verified
+ * @param card that is attack
+ * @return True if all is ok, False if a card is taunt
+ * and isn't the card that we attack
+ */
+bool Game::verifyTaunt(PlayerInGame* pIG, CardMonster *card) {
+    return card->isTaunt() || verifyTaunt(pIG);
+}
 
 
+/**
+ * Verify that the player havn't an taunt effect
+ *
+ * @param pIG player the must be verified
+ * @return True if all is ok, False if a card is taunt
+ */
+bool Game::verifyTaunt(PlayerInGame* pIG) {
+    bool res = true;
 
+    vector<CardMonster*> cardPlaced = pIG->getCardsPlaced();
+    size_t i = 0;
+    while(i < cardPlaced.size() && res) {
+        res = !(cardPlaced[i]->isTaunt());
+        ++i;
+    }
+
+    return res;
+}
 
 

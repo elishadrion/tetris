@@ -2,6 +2,8 @@
 #define	PLAYERINGAME_HPP
 
 #include <vector>
+#include <algorithm>
+
 
 #include "Deck.hpp"
 #include "Player.hpp"
@@ -55,10 +57,12 @@ public:
     void setDeck(Deck *deck);
     bool isDeckDefined();
     void draw();
-    
+
     bool haveEnoughEnergy(Card* card);
     void addMaxEnergy();
     void resetEnergy();
+    bool haveEnoughtEnergy(Card* card);
+    void removeCardPlaced(CardMonster*);
 
 
     virtual ~PlayerInGame() = default;

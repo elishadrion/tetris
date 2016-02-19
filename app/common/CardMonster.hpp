@@ -32,6 +32,7 @@ public:
     void setLife(std::size_t newLife){_life = newLife;}
     void setAttack(std::size_t newAttack){_attack = newAttack;}
     void setMaxLife(std::size_t newMax){_maxLife = newMax;}
+    bool isDeath();
 
 };
 

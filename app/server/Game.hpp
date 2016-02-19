@@ -40,6 +40,7 @@ class Game {
     void sendInformation();
     void sendInformation(PlayerInGame*,dataIGPlayer, dataIGPlayer);
     PlayerInGame* getAdversePlayer(PlayerInGame* player);
+    PlayerInGame* getAdversePlayer();
     std::vector<CardMonster*> getAdversePlacedCard(PlayerInGame* player);
 
 
@@ -61,9 +62,15 @@ public:
     //void placeCard(PlayerInGame*, Card*, PlayerInGame*);
     void attackWithCard(PlayerInGame*, CardMonster*, CardMonster*);
     //void attackWithCard(PlayerInGame*, CardMonster*, PlayerInGame*);
+
+
 private:
     void beginTurn(); // function when the turn begin
     void endTurn();
+
+    bool canPlayerPlay(PlayerInGame*,CardMonster*);
+    bool verifyTaunt(PlayerInGame*,CardMonster*);
+    bool verifyTaunt(PlayerInGame*);
 
 };
 

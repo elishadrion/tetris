@@ -11,7 +11,7 @@ CardMonster::CardMonster(std::size_t id, std::string name, std::size_t energy,
 CardMonster::CardMonster(CardMonster& otherMonster): _life(otherMonster.getLife()),
 		_attack(otherMonster.getAttack()), _maxLife(otherMonster.getMaxLife()),
 		_nbrTourPose(otherMonster.getNbrTourPose()),Card::Card(otherMonster.getId(),
-		 otherMonster.getName(),otherMonster.getEnergyCost(), 
+		 otherMonster.getName(),otherMonster.getEnergyCost(),
 		 /* //TODO tmp patch otherMonster.getEffect(), bool */ false) { }
 
 
@@ -25,4 +25,8 @@ void CardMonster::dealDamage(Player& player){
 
 void CardMonster::incrementTour(){
 	this->_nbrTourPose++;
+}
+
+bool CardMonster::isDeath() {
+    return this->_life >= 0;
 }

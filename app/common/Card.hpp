@@ -23,6 +23,7 @@ private:
     std::string _name; // name of the card
     std::size_t _energyCost;
     int _effect;// Its special effect ID
+    bool _taunt;
 
 
 public:
@@ -35,6 +36,7 @@ public:
     bool gotEffect();
     int getEffectID(){return _effect;}
     virtual bool isMonster() { return false; }
+    bool isTaunt() { return _taunt; }
 
     //void setEnergyCost(std::size_t newCost){_energyCost = newCost}
     // maybe be able to change with spell cards (see that later)
