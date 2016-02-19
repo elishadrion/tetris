@@ -1,6 +1,6 @@
 #include <cstdlib>
 #include <iostream>
-#include <stdexcept>
+#include <system_error>
 
 #include "Connection.hpp"
 #include "common/WizardLogger.hpp"
@@ -8,11 +8,12 @@
 #include "CLI.hpp"
 //#include "GUI.hpp"
 
+/* Main is not an object so we must use global namespace instead of main->conn */
 Connection *conn;
 
 int main(int argc, char** argv) {
-    /* Init Logger, actually we are only in console mode
-     * So we cannot use console log (for now)
+    /* We initialise the static logger system
+     * If it fail, client must to stop because log is important !
      */
     try {
         WizardLogger::initLogger(false, "WizardLogger");
@@ -23,16 +24,15 @@ int main(int argc, char** argv) {
 
     WizardLogger::info("Starting client");
     
-    //Connection::connect_to_host(argv[1]);
-    
-    if (argc > 1) {
-        conn = new Connection(argv[1]);
-    } else {
-        conn = new Connection("localhost");
-    }
-    
-    if (!conn->isConnected()) {
-        WizardLogger::fatal("Impossible d'établire une connection avec le serveur");
+    /* We initialise the connection between client and server
+     * By the way, we initialise tchat socket
+     * If agument is provide, use it as hostName, if not we try localhost
+     * If it fail, client can't go farther
+     */
+    try {
+        argc > 1 ? conn = new Connection(argv[1]) : conn = new Connection("localhost");
+    } catch (std::system_error &error) {
+        WizardLogger::fatal("Impossible d'établire une connection avec le serveur", error);
         return EXIT_FAILURE;
     }
     
@@ -48,16 +48,5 @@ int main(int argc, char** argv) {
     /* We close all interface */
     delete display;
     delete conn;
-
-    return 0;
-}
-
-// Il faut remplacer ca!!!
-void handler(int sockfd) {
-    std::string line;
-    char buf[MAXDATASIZE];
-    while (std::getline(std::cin, line)) {
-	strcpy(buf, line.c_str());
-	send(sockfd, buf, sizeof line, 0);
-    }
+    return EXIT_SUCCESS;
 }
