@@ -25,16 +25,21 @@ protected:
     std::vector<Deck*> getListDeck() {return _listDeck;}
 
 public:
-    Player() {}
+    Player(); // {}
     // Creates the player (and opens the file (if it exists) to complete the information)
     // Stocks the new player in the allPlayers list
-    Player(int sockfd, int playerID) {}
-    std::string getUsername() {return _username;}
+    //Player(int sockfd, int playerID) {}
+    std::string getUsername() const; // {return _username;}
+    
+    int getVictories() const;
+
+    int getDefeats() const;
+    
     virtual ~Player() = default;
 
 private:
     virtual void save() const;
-
+    virtual void signUp(); //When the player registers his account
 };
 
 

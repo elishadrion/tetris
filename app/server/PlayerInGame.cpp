@@ -1,23 +1,26 @@
 
 #include "PlayerInGame.hpp"
-
-
+/*
 
 /**
  * Default constructor
  */
 PlayerInGame::PlayerInGame() {
     // TO DO
+     _playerHeal = 20; //Player starts with 20 health points
+     _energy = 0; //The current energy of the player
+    _maxEnergy = 1; //Every turn the maximum energy is increased up to a maximum of 10
+    _limitEnergy = 10; //The maximum energy can't go further than this
 }
 
 /**
  * Creates a PlayerInGame and asks to the player which Deck he would like to play with
  */
-PlayerInGame::PlayerInGame(Player player, Game* game) {
+//PlayerInGame::PlayerInGame(Player player, Game* game) {
     // TO DO
-    // askDesck(getListDeck());
+    // askDeck(getListDeck());
     // @tutul
-}
+//}
 
 /**
  * Gets data information from this player to send it
@@ -31,6 +34,8 @@ dataIGPlayer PlayerInGame::getDataPlayer() {
     data.energy = this->_energy;
     data.cardsInHand = this->_cardsInHand;
     data.cardsPlaced = this->_cardsPlaced;
+    data.maxEnergy = this->_maxEnergy;
+    data.limitEnergy = this-> _limitEnergy;
 
     return data;
 }
@@ -52,7 +57,7 @@ void PlayerInGame::setDeck(Deck *deck) {
  *
  * @return True if the deck is defined
  */
-bool PlayerInGame::isDeckDefine() {
+bool PlayerInGame::isDeckDefined() {
     return _deck != nullptr;
 }
 
@@ -72,7 +77,38 @@ void PlayerInGame::draw() {
 /**
  * Returns the placed cards
  */
-std::vector<CardMonster*> PlayerInGame::getCardPlaced() {
+std::vector<CardMonster*> PlayerInGame::getCardsPlaced() {
     return _cardsPlaced;
 }
 
+//Checks if the player have currently enough energy to play a certain card 
+bool PlayerInGame::haveEnoughEnergy(Card* card){
+    bool enoughEnergy;
+    int energyCost = card.getEnergyCost();
+    
+    if (_energy >= energyCost) {
+        enoughEnergy = true;
+    }
+    
+    else {
+        enoughEnergy = false;
+    }
+    
+    return enoughEnergy;
+}
+    
+void PlayerInGame::addMaxEnergy() {
+    if (_maxEnergy < _limitEnergy) {
+     _maxEnergy++;
+    }
+}
+    
+    
+void PlayerInGame::resetEnergy() {
+    _energy = _maxEnergy;
+}
+
+
+unsigned PlayerInGame::nbrCardInHand() {
+    return _cardsInHand.size();
+}
