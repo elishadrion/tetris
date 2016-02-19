@@ -19,7 +19,7 @@ namespace WizardLogger {
     
     /* API to log messages (see cpp for doc) */
     void info(std::string);
-    void warn(std::string);
+    void warning(std::string);
     void error(std::string);
     void error(std::string, std::exception);
     void fatal(std::string);

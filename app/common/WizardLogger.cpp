@@ -66,7 +66,7 @@ void WizardLogger::info(std::string message) {
  * @param message : the string to log
  * @throw exception : cannot log "message"
  */
-void WizardLogger::warn(std::string message) {
+void WizardLogger::warning(std::string message) {
    try {
         spdlog::get(LOGGER)->warn(message);
     } catch (const spdlog::spdlog_ex& ex) {
