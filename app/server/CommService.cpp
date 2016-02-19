@@ -9,9 +9,9 @@ void CommService::managePacket(Packet::packet* customPacket) {
                                           break;
         case Packet::COLLECTION_REQ_ID :  //TODO
                                           break;
-        case Packet::COLLECTION_LIST_ID : WizardLogger::warn("Paquet invalide reçu : CollectionList");
-                                          break;
-        default :                         WizardLogger::warn("Paquet inconnue reçu");
+        //case Packet::COLLECTION_LIST_ID : WizardLogger::warn("Paquet invalide reçu : CollectionList");
+          //                                break;
+        default :                        // WizardLogger::warn("Paquet inconnue reçu");
                                           break;
     }
 }
@@ -41,6 +41,6 @@ void CommService::manageLoginRequest(Packet::loginRequestPacket* loginReqPacket)
     }
     
     //TODO
-    WizardLogger::warn("TEST PSEUDO : "+pseudo);
-    WizardLogger::warn("TEST PASSWORD : "+password);
+    //WizardLogger::warn("TEST PSEUDO : "+pseudo);
+   // WizardLogger::warn("TEST PASSWORD : "+password);
 }

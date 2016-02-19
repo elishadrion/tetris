@@ -37,7 +37,7 @@ class PlayerInGame : public Player {
     int _playerHeal;
     int _energy;
     int _maxEnergy;
-    int const _limitEnergy;
+    int const _limitEnergy = 10; //The maximum energy can't go further than this
     Game* game;
 
 

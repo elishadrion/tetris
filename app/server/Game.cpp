@@ -22,6 +22,7 @@ void Game::nextPlayer() {
  * @param p1 the first player
  * @param p2 the second player
  */
+ /*
 Game::Game(Player* p1, Player* p2):
     _gameStatut(GameStatut::WAIT_DEC), _turn(0) {
 
@@ -32,7 +33,7 @@ Game::Game(Player* p1, Player* p2):
     WizardLogger::info("Création d'une partie opposant " + _player1->getUsername() +
         " et " + _player2->getUsername());
 
-}
+}*/
 
 /**
  * Copy constructor
@@ -75,7 +76,7 @@ void Game::addPlayerWaitGame(Player player) {
     if(!PlayerWaitGame.empty()) {
         Player* p1 = PlayerWaitGame.front(); // gets first player
         PlayerWaitGame.pop(); // removes first player
-        new Game(p1, &player); // creates game
+     //   new Game(p1, &player); // creates game
 
     } else {
         PlayerWaitGame.push(&player); // adds player to the waiting list
@@ -87,7 +88,7 @@ void Game::addPlayerWaitGame(Player player) {
  * If all is ok, the game starts
  */
 void Game::checkDeckAndStart() {
-    if(_player1->isDeckDefine() && _player2->isDeckDefine()) {
+    if(_player1->isDeckDefined() && _player2->isDeckDefined()) {
         sendInformation();
     }
 }
@@ -121,7 +122,7 @@ void Game::sendInformation() {
  * @param player the current player
  */
 std::vector<CardMonster*> Game::getAdversePlacedCard(PlayerInGame* player) {
-    return getAdversePlayer(player)->getCardPlaced();
+    return getAdversePlayer(player)->getCardsPlaced();
 }
 
 /**
@@ -166,7 +167,7 @@ void Game::draw() {
  */
 void Game::beginTurn() {
     // Increment number of turn
-    vector<CardMonster*> cardPlaced = _currentPlayer->getCardPlaced();
+    vector<CardMonster*> cardPlaced = _currentPlayer->getCardsPlaced();
     for (size_t i = 0; i < cardPlaced.size(); ++i) {
         cardPlaced[i]->incrementTour();
     }

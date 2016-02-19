@@ -6,12 +6,15 @@
 
 #include "Collection.hpp"
 #include "Deck.hpp"
+#include <fstream> //For the I/O
 
 
 /**
  * One class per player.  This object stocks the socket to communicate with player
  * When the server starts, he must load all Players
  */
+ 
+ 
 class Player {
 
     int _sockfd;
@@ -29,7 +32,7 @@ public:
     // Creates the player (and opens the file (if it exists) to complete the information)
     // Stocks the new player in the allPlayers list
     //Player(int sockfd, int playerID) {}
-    std::string getUsername() const; // {return _username;}
+    std::string getUsername() const; 
     
     int getVictories() const;
 
@@ -39,7 +42,7 @@ public:
 
 private:
     virtual void save() const;
-    virtual void signUp(); //When the player registers his account
+    virtual void signUp(); //When the player connects for the first time (and registers)
 };
 
 

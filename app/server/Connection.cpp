@@ -57,12 +57,12 @@ void Connection::mainLoop() {
             if (recv(clientSocket, &size, sizeof(int), 0) == 0) {
                 WizardLogger::error("Pas de réponse de la part du client");
             }
-            WizardLogger::warn("Réception d'un packet de taille : "+std::to_string(size));
+            //WizardLogger::warn("Réception d'un packet de taille : "+std::to_string(size));
             void *packet = malloc(size);
             if (recv(clientSocket, packet, size, 0) == 0) {
                 WizardLogger::error("Pas de réponse de la part du client");
             }
-            WizardLogger::warn("Tentative d'inderprétation");
+           // WizardLogger::warn("Tentative d'inderprétation");
             CommService::managePacket(reinterpret_cast<Packet::packet*>(packet));
 
             /* We create a new Thread for these client and launch it
