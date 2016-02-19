@@ -1,10 +1,9 @@
 var searchData=
 [
-  ['senddisconnection',['sendDisconnection',['../namespaceCommService.html#ab3752d7f2a9988e86fdbdf1fef3caa47',1,'CommService']]],
-  ['sendmessage',['sendMessage',['../classChatManager.html#a0e6244940d990c4e0366d7097d41a26d',1,'ChatManager']]],
-  ['sendpacket',['sendPacket',['../classConnection.html#acf311ea2f3df77851711daf40a07fc17',1,'Connection']]],
-  ['setattack',['setAttack',['../classCardMonster.html#a358474586372d6b2b83301cceae34347',1,'CardMonster']]],
-  ['setdeck',['setDeck',['../classPlayerInGame.html#a399370210526407c4234d19815a5fa44',1,'PlayerInGame']]],
-  ['setlife',['setLife',['../classCardMonster.html#aa70aa05b038da703524b82df5608734b',1,'CardMonster']]],
-  ['setmaxlife',['setMaxLife',['../classCardMonster.html#a9860956677866c7adbcda61c9951dd35',1,'CardMonster']]]
+  ['pickup',['pickup',['../classDeck.html#af6338f8f48dadecb079446b698468735',1,'Deck']]],
+  ['placecard',['placeCard',['../classGame.html#afd94cc603b38bcb8e7f195581d014044',1,'Game']]],
+  ['player',['Player',['../classPlayer.html#affe0cc3cb714f6deb4e62f0c0d3f1fd8',1,'Player']]],
+  ['playeringame',['PlayerInGame',['../classPlayerInGame.html#aef3887730c6e58e3ffa4b8636f5a1fd4',1,'PlayerInGame::PlayerInGame()'],['../classPlayerInGame.html#a64e5c60c2e6106c9dda8c7d79fc36d8b',1,'PlayerInGame::PlayerInGame(Player player, Game *game)']]],
+  ['print',['print',['../classMainMenu.html#a3b1c39183c2242fa560b551ae0e0fb68',1,'MainMenu']]],
+  ['printerror',['printError',['../classLoginPanel.html#aa922d0e3e7ba3ca5de429bb5022badb9',1,'LoginPanel']]]
 ];

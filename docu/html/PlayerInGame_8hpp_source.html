@@ -107,74 +107,89 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="structdataIGPlayer.html">   14</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structdataIGPlayer.html">dataIGPlayer</a> {</div>
 <div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="structdataIGPlayer.html#addf0349de6577e21e1697b0853f37afb">   15</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structdataIGPlayer.html#addf0349de6577e21e1697b0853f37afb">playerHeal</a>;</div>
 <div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structdataIGPlayer.html#a62d62c03941a981f96ae02098ae8d2e2">   16</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structdataIGPlayer.html#a62d62c03941a981f96ae02098ae8d2e2">energy</a>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structdataIGPlayer.html#a7b7ae3550424bffaff4cba98fdd2e39b">   17</a></span>&#160;    std::vector&lt;Card*&gt; <a class="code" href="structdataIGPlayer.html#a7b7ae3550424bffaff4cba98fdd2e39b">cardsInHand</a>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structdataIGPlayer.html#a32709b71453d54100f95fae5535c0cb5">   18</a></span>&#160;    std::vector&lt;CardMonster*&gt; <a class="code" href="structdataIGPlayer.html#a32709b71453d54100f95fae5535c0cb5">cardsPlaced</a>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structdataIGPlayer.html#a42cbe10f46e1e6bbd514e624cf6e1526">   19</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="structdataIGPlayer.html#a42cbe10f46e1e6bbd514e624cf6e1526">turn</a>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;};</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">// Declares before to avoid errors :/</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">class </span><a class="code" href="classGame.html">Game</a>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">class </span><a class="code" href="classPlayerInGame.html">PlayerInGame</a>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Game_8hpp.html">Game.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structdataIGPlayer.html#a27dcb13892444b5fcfebe7d01d05141a">   17</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structdataIGPlayer.html#a27dcb13892444b5fcfebe7d01d05141a">maxEnergy</a>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structdataIGPlayer.html#ae0958559747cb2ebad4e6c7ba6095c3f">   18</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structdataIGPlayer.html#ae0958559747cb2ebad4e6c7ba6095c3f">limitEnergy</a>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structdataIGPlayer.html#a7b7ae3550424bffaff4cba98fdd2e39b">   19</a></span>&#160;    std::vector&lt;Card*&gt; <a class="code" href="structdataIGPlayer.html#a7b7ae3550424bffaff4cba98fdd2e39b">cardsInHand</a>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structdataIGPlayer.html#a32709b71453d54100f95fae5535c0cb5">   20</a></span>&#160;    std::vector&lt;CardMonster*&gt; <a class="code" href="structdataIGPlayer.html#a32709b71453d54100f95fae5535c0cb5">cardsPlaced</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="structdataIGPlayer.html#a42cbe10f46e1e6bbd514e624cf6e1526">   21</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="structdataIGPlayer.html#a42cbe10f46e1e6bbd514e624cf6e1526">turn</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">// Declares before to avoid errors :/</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">class </span><a class="code" href="classGame.html">Game</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">class </span><a class="code" href="classPlayerInGame.html">PlayerInGame</a>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Game_8hpp.html">Game.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classPlayerInGame.html">   29</a></span>&#160;<span class="keyword">class </span><a class="code" href="classPlayerInGame.html">PlayerInGame</a> : <span class="keyword">public</span> <a class="code" href="classPlayer.html">Player</a> {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    std::vector&lt;Card*&gt; _cardsInHand;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    std::vector&lt;Card*&gt; _deffause;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    std::vector&lt;CardMonster*&gt; _cardsPlaced;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="classDeck.html">Deck</a> *_deck;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">int</span> _playerHeal;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">int</span> _energy;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="classGame.html">Game</a>* game;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="classPlayerInGame.html#aef3887730c6e58e3ffa4b8636f5a1fd4">PlayerInGame</a>(); <span class="comment">// not valide but better for less Warnings :D</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="classPlayerInGame.html#aef3887730c6e58e3ffa4b8636f5a1fd4">PlayerInGame</a>(<a class="code" href="classPlayer.html">Player</a> player, <a class="code" href="classGame.html">Game</a>* game);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="structdataIGPlayer.html">dataIGPlayer</a> <a class="code" href="classPlayerInGame.html#addeeee2e42cf2009fc21511624414146">getDataPlayer</a>();</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    std::vector&lt;CardMonster*&gt; <a class="code" href="classPlayerInGame.html#ad97fa91b1e26e88db5b62bc71f233709">getCardPlaced</a>();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="comment">// std::vector&lt;Card*&gt; getCardInHand() {} not used now</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classPlayerInGame.html#a9f8df0a2ef00955f318b41149f57fcb7">   48</a></span>&#160;    <span class="keywordtype">unsigned</span> <a class="code" href="classPlayerInGame.html#a9f8df0a2ef00955f318b41149f57fcb7">nbrCardInHand</a>() {<span class="keywordflow">return</span> _cardsInHand.size();}</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classPlayerInGame.html#a399370210526407c4234d19815a5fa44">setDeck</a>(<a class="code" href="classDeck.html">Deck</a> *deck);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classPlayerInGame.html#ae0fe37f43dd1c3d164041fdc4a668a32">isDeckDefine</a>();</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classPlayerInGame.html#a646d88b36595c2754ce33555b867c012">draw</a>();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classPlayerInGame.html">   31</a></span>&#160;<span class="keyword">class </span><a class="code" href="classPlayerInGame.html">PlayerInGame</a> : <span class="keyword">public</span> <a class="code" href="classPlayer.html">Player</a> {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    std::vector&lt;Card*&gt; _cardsInHand;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    std::vector&lt;Card*&gt; _defausse;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    std::vector&lt;CardMonster*&gt; _cardsPlaced;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="classDeck.html">Deck</a> *_deck;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">int</span> _playerHeal;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">int</span> _energy;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">int</span> _maxEnergy;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">int</span> <span class="keyword">const</span> _limitEnergy;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="classGame.html">Game</a>* game;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="classPlayerInGame.html#aef3887730c6e58e3ffa4b8636f5a1fd4">PlayerInGame</a>(); <span class="comment">// not valide but better for less Warnings :D</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="classPlayerInGame.html#aef3887730c6e58e3ffa4b8636f5a1fd4">PlayerInGame</a>(<a class="code" href="classPlayer.html">Player</a> player, <a class="code" href="classGame.html">Game</a>* game);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="structdataIGPlayer.html">dataIGPlayer</a> <a class="code" href="classPlayerInGame.html#addeeee2e42cf2009fc21511624414146">getDataPlayer</a>();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    std::vector&lt;CardMonster*&gt; <a class="code" href="classPlayerInGame.html#a519fc525decf5af1217b93749cd9ae99">getCardsPlaced</a>();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment">// std::vector&lt;Card*&gt; getCardInHand() {} not used now</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="comment">//unsigned nbrCardInHand() {return _cardsInHand.size();}</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">unsigned</span> <a class="code" href="classPlayerInGame.html#a9f8df0a2ef00955f318b41149f57fcb7">nbrCardInHand</a>();</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classPlayerInGame.html#a75256787f26b0d264a929e61889caba1">~PlayerInGame</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;};</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* PLAYERINGAME_HPP */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classPlayerInGame.html#a399370210526407c4234d19815a5fa44">setDeck</a>(<a class="code" href="classDeck.html">Deck</a> *deck);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classPlayerInGame.html#af4d06834c260aebb66c113f397ba3c86">isDeckDefined</a>();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classPlayerInGame.html#a646d88b36595c2754ce33555b867c012">draw</a>();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classPlayerInGame.html#ac1629d9cadf7445be42eb3245daef6c4">haveEnoughEnergy</a>(<a class="code" href="classCard.html">Card</a>* card);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classPlayerInGame.html#aedc8c0d75e0d249fde42329dc0a59557">addMaxEnergy</a>();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classPlayerInGame.html#ad18e833fa982d9db29521b49c74b1fa0">resetEnergy</a>();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classPlayerInGame.html#a75256787f26b0d264a929e61889caba1">~PlayerInGame</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;};</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* PLAYERINGAME_HPP */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
 <div class="ttc" id="Packet_8hpp_html"><div class="ttname"><a href="Packet_8hpp.html">Packet.hpp</a></div></div>
-<div class="ttc" id="structdataIGPlayer_html_a7b7ae3550424bffaff4cba98fdd2e39b"><div class="ttname"><a href="structdataIGPlayer.html#a7b7ae3550424bffaff4cba98fdd2e39b">dataIGPlayer::cardsInHand</a></div><div class="ttdeci">std::vector&lt; Card * &gt; cardsInHand</div><div class="ttdef"><b>Definition:</b> PlayerInGame.hpp:17</div></div>
+<div class="ttc" id="structdataIGPlayer_html_a7b7ae3550424bffaff4cba98fdd2e39b"><div class="ttname"><a href="structdataIGPlayer.html#a7b7ae3550424bffaff4cba98fdd2e39b">dataIGPlayer::cardsInHand</a></div><div class="ttdeci">std::vector&lt; Card * &gt; cardsInHand</div><div class="ttdef"><b>Definition:</b> PlayerInGame.hpp:19</div></div>
+<div class="ttc" id="classPlayerInGame_html_ac1629d9cadf7445be42eb3245daef6c4"><div class="ttname"><a href="classPlayerInGame.html#ac1629d9cadf7445be42eb3245daef6c4">PlayerInGame::haveEnoughEnergy</a></div><div class="ttdeci">bool haveEnoughEnergy(Card *card)</div><div class="ttdef"><b>Definition:</b> PlayerInGame.cpp:85</div></div>
 <div class="ttc" id="classDeck_html"><div class="ttname"><a href="classDeck.html">Deck</a></div><div class="ttdef"><b>Definition:</b> Deck.hpp:8</div></div>
-<div class="ttc" id="classPlayerInGame_html_addeeee2e42cf2009fc21511624414146"><div class="ttname"><a href="classPlayerInGame.html#addeeee2e42cf2009fc21511624414146">PlayerInGame::getDataPlayer</a></div><div class="ttdeci">dataIGPlayer getDataPlayer()</div><div class="ttdef"><b>Definition:</b> PlayerInGame.cpp:27</div></div>
+<div class="ttc" id="classPlayerInGame_html_af4d06834c260aebb66c113f397ba3c86"><div class="ttname"><a href="classPlayerInGame.html#af4d06834c260aebb66c113f397ba3c86">PlayerInGame::isDeckDefined</a></div><div class="ttdeci">bool isDeckDefined()</div><div class="ttdef"><b>Definition:</b> PlayerInGame.cpp:60</div></div>
+<div class="ttc" id="classPlayerInGame_html_addeeee2e42cf2009fc21511624414146"><div class="ttname"><a href="classPlayerInGame.html#addeeee2e42cf2009fc21511624414146">PlayerInGame::getDataPlayer</a></div><div class="ttdeci">dataIGPlayer getDataPlayer()</div><div class="ttdef"><b>Definition:</b> PlayerInGame.cpp:30</div></div>
 <div class="ttc" id="structdataIGPlayer_html"><div class="ttname"><a href="structdataIGPlayer.html">dataIGPlayer</a></div><div class="ttdef"><b>Definition:</b> PlayerInGame.hpp:14</div></div>
 <div class="ttc" id="structdataIGPlayer_html_addf0349de6577e21e1697b0853f37afb"><div class="ttname"><a href="structdataIGPlayer.html#addf0349de6577e21e1697b0853f37afb">dataIGPlayer::playerHeal</a></div><div class="ttdeci">int playerHeal</div><div class="ttdef"><b>Definition:</b> PlayerInGame.hpp:15</div></div>
-<div class="ttc" id="structdataIGPlayer_html_a32709b71453d54100f95fae5535c0cb5"><div class="ttname"><a href="structdataIGPlayer.html#a32709b71453d54100f95fae5535c0cb5">dataIGPlayer::cardsPlaced</a></div><div class="ttdeci">std::vector&lt; CardMonster * &gt; cardsPlaced</div><div class="ttdef"><b>Definition:</b> PlayerInGame.hpp:18</div></div>
-<div class="ttc" id="classPlayerInGame_html_aef3887730c6e58e3ffa4b8636f5a1fd4"><div class="ttname"><a href="classPlayerInGame.html#aef3887730c6e58e3ffa4b8636f5a1fd4">PlayerInGame::PlayerInGame</a></div><div class="ttdeci">PlayerInGame()</div><div class="ttdef"><b>Definition:</b> PlayerInGame.cpp:9</div></div>
+<div class="ttc" id="structdataIGPlayer_html_a32709b71453d54100f95fae5535c0cb5"><div class="ttname"><a href="structdataIGPlayer.html#a32709b71453d54100f95fae5535c0cb5">dataIGPlayer::cardsPlaced</a></div><div class="ttdeci">std::vector&lt; CardMonster * &gt; cardsPlaced</div><div class="ttdef"><b>Definition:</b> PlayerInGame.hpp:20</div></div>
+<div class="ttc" id="classPlayerInGame_html_aef3887730c6e58e3ffa4b8636f5a1fd4"><div class="ttname"><a href="classPlayerInGame.html#aef3887730c6e58e3ffa4b8636f5a1fd4">PlayerInGame::PlayerInGame</a></div><div class="ttdeci">PlayerInGame()</div><div class="ttdef"><b>Definition:</b> PlayerInGame.cpp:8</div></div>
 <div class="ttc" id="CardMonster_8hpp_html"><div class="ttname"><a href="CardMonster_8hpp.html">CardMonster.hpp</a></div></div>
 <div class="ttc" id="classGame_html"><div class="ttname"><a href="classGame.html">Game</a></div><div class="ttdef"><b>Definition:</b> Game.hpp:24</div></div>
-<div class="ttc" id="classPlayerInGame_html_a399370210526407c4234d19815a5fa44"><div class="ttname"><a href="classPlayerInGame.html#a399370210526407c4234d19815a5fa44">PlayerInGame::setDeck</a></div><div class="ttdeci">void setDeck(Deck *deck)</div><div class="ttdef"><b>Definition:</b> PlayerInGame.cpp:43</div></div>
-<div class="ttc" id="classPlayerInGame_html_a646d88b36595c2754ce33555b867c012"><div class="ttname"><a href="classPlayerInGame.html#a646d88b36595c2754ce33555b867c012">PlayerInGame::draw</a></div><div class="ttdeci">void draw()</div><div class="ttdef"><b>Definition:</b> PlayerInGame.cpp:64</div></div>
-<div class="ttc" id="classPlayerInGame_html"><div class="ttname"><a href="classPlayerInGame.html">PlayerInGame</a></div><div class="ttdef"><b>Definition:</b> PlayerInGame.hpp:29</div></div>
-<div class="ttc" id="classPlayerInGame_html_a9f8df0a2ef00955f318b41149f57fcb7"><div class="ttname"><a href="classPlayerInGame.html#a9f8df0a2ef00955f318b41149f57fcb7">PlayerInGame::nbrCardInHand</a></div><div class="ttdeci">unsigned nbrCardInHand()</div><div class="ttdef"><b>Definition:</b> PlayerInGame.hpp:48</div></div>
+<div class="ttc" id="classPlayerInGame_html_a399370210526407c4234d19815a5fa44"><div class="ttname"><a href="classPlayerInGame.html#a399370210526407c4234d19815a5fa44">PlayerInGame::setDeck</a></div><div class="ttdeci">void setDeck(Deck *deck)</div><div class="ttdef"><b>Definition:</b> PlayerInGame.cpp:48</div></div>
+<div class="ttc" id="classPlayerInGame_html_a646d88b36595c2754ce33555b867c012"><div class="ttname"><a href="classPlayerInGame.html#a646d88b36595c2754ce33555b867c012">PlayerInGame::draw</a></div><div class="ttdeci">void draw()</div><div class="ttdef"><b>Definition:</b> PlayerInGame.cpp:69</div></div>
+<div class="ttc" id="classPlayerInGame_html"><div class="ttname"><a href="classPlayerInGame.html">PlayerInGame</a></div><div class="ttdef"><b>Definition:</b> PlayerInGame.hpp:31</div></div>
+<div class="ttc" id="classPlayerInGame_html_a9f8df0a2ef00955f318b41149f57fcb7"><div class="ttname"><a href="classPlayerInGame.html#a9f8df0a2ef00955f318b41149f57fcb7">PlayerInGame::nbrCardInHand</a></div><div class="ttdeci">unsigned nbrCardInHand()</div><div class="ttdef"><b>Definition:</b> PlayerInGame.cpp:112</div></div>
 <div class="ttc" id="classPlayerInGame_html_a75256787f26b0d264a929e61889caba1"><div class="ttname"><a href="classPlayerInGame.html#a75256787f26b0d264a929e61889caba1">PlayerInGame::~PlayerInGame</a></div><div class="ttdeci">virtual ~PlayerInGame()=default</div></div>
-<div class="ttc" id="structdataIGPlayer_html_a42cbe10f46e1e6bbd514e624cf6e1526"><div class="ttname"><a href="structdataIGPlayer.html#a42cbe10f46e1e6bbd514e624cf6e1526">dataIGPlayer::turn</a></div><div class="ttdeci">bool turn</div><div class="ttdef"><b>Definition:</b> PlayerInGame.hpp:19</div></div>
+<div class="ttc" id="structdataIGPlayer_html_ae0958559747cb2ebad4e6c7ba6095c3f"><div class="ttname"><a href="structdataIGPlayer.html#ae0958559747cb2ebad4e6c7ba6095c3f">dataIGPlayer::limitEnergy</a></div><div class="ttdeci">int limitEnergy</div><div class="ttdef"><b>Definition:</b> PlayerInGame.hpp:18</div></div>
+<div class="ttc" id="structdataIGPlayer_html_a42cbe10f46e1e6bbd514e624cf6e1526"><div class="ttname"><a href="structdataIGPlayer.html#a42cbe10f46e1e6bbd514e624cf6e1526">dataIGPlayer::turn</a></div><div class="ttdeci">bool turn</div><div class="ttdef"><b>Definition:</b> PlayerInGame.hpp:21</div></div>
+<div class="ttc" id="classCard_html"><div class="ttname"><a href="classCard.html">Card</a></div><div class="ttdef"><b>Definition:</b> Card.hpp:13</div></div>
+<div class="ttc" id="structdataIGPlayer_html_a27dcb13892444b5fcfebe7d01d05141a"><div class="ttname"><a href="structdataIGPlayer.html#a27dcb13892444b5fcfebe7d01d05141a">dataIGPlayer::maxEnergy</a></div><div class="ttdeci">int maxEnergy</div><div class="ttdef"><b>Definition:</b> PlayerInGame.hpp:17</div></div>
 <div class="ttc" id="structdataIGPlayer_html_a62d62c03941a981f96ae02098ae8d2e2"><div class="ttname"><a href="structdataIGPlayer.html#a62d62c03941a981f96ae02098ae8d2e2">dataIGPlayer::energy</a></div><div class="ttdeci">int energy</div><div class="ttdef"><b>Definition:</b> PlayerInGame.hpp:16</div></div>
 <div class="ttc" id="Game_8hpp_html"><div class="ttname"><a href="Game_8hpp.html">Game.hpp</a></div></div>
-<div class="ttc" id="classPlayerInGame_html_ae0fe37f43dd1c3d164041fdc4a668a32"><div class="ttname"><a href="classPlayerInGame.html#ae0fe37f43dd1c3d164041fdc4a668a32">PlayerInGame::isDeckDefine</a></div><div class="ttdeci">bool isDeckDefine()</div><div class="ttdef"><b>Definition:</b> PlayerInGame.cpp:55</div></div>
+<div class="ttc" id="classPlayerInGame_html_aedc8c0d75e0d249fde42329dc0a59557"><div class="ttname"><a href="classPlayerInGame.html#aedc8c0d75e0d249fde42329dc0a59557">PlayerInGame::addMaxEnergy</a></div><div class="ttdeci">void addMaxEnergy()</div><div class="ttdef"><b>Definition:</b> PlayerInGame.cpp:100</div></div>
 <div class="ttc" id="Card_8hpp_html"><div class="ttname"><a href="Card_8hpp.html">Card.hpp</a></div></div>
 <div class="ttc" id="Player_8hpp_html"><div class="ttname"><a href="Player_8hpp.html">Player.hpp</a></div></div>
+<div class="ttc" id="classPlayerInGame_html_ad18e833fa982d9db29521b49c74b1fa0"><div class="ttname"><a href="classPlayerInGame.html#ad18e833fa982d9db29521b49c74b1fa0">PlayerInGame::resetEnergy</a></div><div class="ttdeci">void resetEnergy()</div><div class="ttdef"><b>Definition:</b> PlayerInGame.cpp:107</div></div>
+<div class="ttc" id="classPlayerInGame_html_a519fc525decf5af1217b93749cd9ae99"><div class="ttname"><a href="classPlayerInGame.html#a519fc525decf5af1217b93749cd9ae99">PlayerInGame::getCardsPlaced</a></div><div class="ttdeci">std::vector&lt; CardMonster * &gt; getCardsPlaced()</div><div class="ttdef"><b>Definition:</b> PlayerInGame.cpp:80</div></div>
 <div class="ttc" id="server_2Deck_8hpp_html"><div class="ttname"><a href="server_2Deck_8hpp.html">Deck.hpp</a></div></div>
 <div class="ttc" id="classPlayer_html"><div class="ttname"><a href="classPlayer.html">Player</a></div><div class="ttdef"><b>Definition:</b> Player.hpp:15</div></div>
-<div class="ttc" id="classPlayerInGame_html_ad97fa91b1e26e88db5b62bc71f233709"><div class="ttname"><a href="classPlayerInGame.html#ad97fa91b1e26e88db5b62bc71f233709">PlayerInGame::getCardPlaced</a></div><div class="ttdeci">std::vector&lt; CardMonster * &gt; getCardPlaced()</div><div class="ttdef"><b>Definition:</b> PlayerInGame.cpp:75</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

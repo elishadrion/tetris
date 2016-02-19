@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['turn',['turn',['../structdataIGPlayer.html#a42cbe10f46e1e6bbd514e624cf6e1526',1,'dataIGPlayer']]]
+  ['resultcode',['resultCode',['../structPacket_1_1loginResultPacket.html#a148ad144908a219d1b6adde5c3337a2f',1,'Packet::loginResultPacket']]]
 ];

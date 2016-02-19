@@ -48,5 +48,6 @@ tests:
 # Documentation
 docu:
 	doxygen doxygen.conf
+	$(MAKE) -C $(DOCU_DIR)/latex
 clean-docu:
 	rm -rf $(DOCU_DIR) 2> /dev/null

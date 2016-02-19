@@ -19,15 +19,21 @@ Graphe d\textquotesingle{}héritage de Player\+In\+Game\+:\begin{figure}[H]
 \item 
 \hyperlink{structdataIGPlayer}{data\+I\+G\+Player} \hyperlink{classPlayerInGame_addeeee2e42cf2009fc21511624414146}{get\+Data\+Player} ()
 \item 
-std\+::vector$<$ \hyperlink{classCardMonster}{Card\+Monster} $\ast$ $>$ \hyperlink{classPlayerInGame_ad97fa91b1e26e88db5b62bc71f233709}{get\+Card\+Placed} ()
+std\+::vector$<$ \hyperlink{classCardMonster}{Card\+Monster} $\ast$ $>$ \hyperlink{classPlayerInGame_a519fc525decf5af1217b93749cd9ae99}{get\+Cards\+Placed} ()
 \item 
 unsigned \hyperlink{classPlayerInGame_a9f8df0a2ef00955f318b41149f57fcb7}{nbr\+Card\+In\+Hand} ()
 \item 
 void \hyperlink{classPlayerInGame_a399370210526407c4234d19815a5fa44}{set\+Deck} (\hyperlink{classDeck}{Deck} $\ast$deck)
 \item 
-bool \hyperlink{classPlayerInGame_ae0fe37f43dd1c3d164041fdc4a668a32}{is\+Deck\+Define} ()
+bool \hyperlink{classPlayerInGame_af4d06834c260aebb66c113f397ba3c86}{is\+Deck\+Defined} ()
 \item 
 void \hyperlink{classPlayerInGame_a646d88b36595c2754ce33555b867c012}{draw} ()
+\item 
+bool \hyperlink{classPlayerInGame_ac1629d9cadf7445be42eb3245daef6c4}{have\+Enough\+Energy} (\hyperlink{classCard}{Card} $\ast$card)
+\item 
+void \hyperlink{classPlayerInGame_aedc8c0d75e0d249fde42329dc0a59557}{add\+Max\+Energy} ()
+\item 
+void \hyperlink{classPlayerInGame_ad18e833fa982d9db29521b49c74b1fa0}{reset\+Energy} ()
 \item 
 virtual \hyperlink{classPlayerInGame_a75256787f26b0d264a929e61889caba1}{$\sim$\+Player\+In\+Game} ()=default
 \end{DoxyCompactItemize}
@@ -42,7 +48,7 @@ virtual \hyperlink{classPlayerInGame_a75256787f26b0d264a929e61889caba1}{$\sim$\+
 {}
 \end{DoxyParamCaption}
 )}\label{classPlayerInGame_aef3887730c6e58e3ffa4b8636f5a1fd4}
-Default constructor \hypertarget{classPlayerInGame_a64e5c60c2e6106c9dda8c7d79fc36d8b}{}\index{Player\+In\+Game@{Player\+In\+Game}!Player\+In\+Game@{Player\+In\+Game}}
+\hypertarget{classPlayerInGame_a64e5c60c2e6106c9dda8c7d79fc36d8b}{}\index{Player\+In\+Game@{Player\+In\+Game}!Player\+In\+Game@{Player\+In\+Game}}
 \index{Player\+In\+Game@{Player\+In\+Game}!Player\+In\+Game@{Player\+In\+Game}}
 \subsubsection[{Player\+In\+Game(\+Player player, Game $\ast$game)}]{\setlength{\rightskip}{0pt plus 5cm}Player\+In\+Game\+::\+Player\+In\+Game (
 \begin{DoxyParamCaption}
@@ -50,7 +56,7 @@ Default constructor \hypertarget{classPlayerInGame_a64e5c60c2e6106c9dda8c7d79fc3
 \item[{{\bf Game} $\ast$}]{game}
 \end{DoxyParamCaption}
 )}\label{classPlayerInGame_a64e5c60c2e6106c9dda8c7d79fc36d8b}
-Creates a \hyperlink{classPlayerInGame}{Player\+In\+Game} and asks to the player which \hyperlink{classDeck}{Deck} he would like to play with \hypertarget{classPlayerInGame_a75256787f26b0d264a929e61889caba1}{}\index{Player\+In\+Game@{Player\+In\+Game}!````~Player\+In\+Game@{$\sim$\+Player\+In\+Game}}
+\hypertarget{classPlayerInGame_a75256787f26b0d264a929e61889caba1}{}\index{Player\+In\+Game@{Player\+In\+Game}!````~Player\+In\+Game@{$\sim$\+Player\+In\+Game}}
 \index{````~Player\+In\+Game@{$\sim$\+Player\+In\+Game}!Player\+In\+Game@{Player\+In\+Game}}
 \subsubsection[{$\sim$\+Player\+In\+Game()=default}]{\setlength{\rightskip}{0pt plus 5cm}virtual Player\+In\+Game\+::$\sim$\+Player\+In\+Game (
 \begin{DoxyParamCaption}
@@ -60,6 +66,13 @@ Creates a \hyperlink{classPlayerInGame}{Player\+In\+Game} and asks to the player
 
 
 \subsection{Documentation des fonctions membres}
+\hypertarget{classPlayerInGame_aedc8c0d75e0d249fde42329dc0a59557}{}\index{Player\+In\+Game@{Player\+In\+Game}!add\+Max\+Energy@{add\+Max\+Energy}}
+\index{add\+Max\+Energy@{add\+Max\+Energy}!Player\+In\+Game@{Player\+In\+Game}}
+\subsubsection[{add\+Max\+Energy()}]{\setlength{\rightskip}{0pt plus 5cm}void Player\+In\+Game\+::add\+Max\+Energy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classPlayerInGame_aedc8c0d75e0d249fde42329dc0a59557}
 \hypertarget{classPlayerInGame_a646d88b36595c2754ce33555b867c012}{}\index{Player\+In\+Game@{Player\+In\+Game}!draw@{draw}}
 \index{draw@{draw}!Player\+In\+Game@{Player\+In\+Game}}
 \subsubsection[{draw()}]{\setlength{\rightskip}{0pt plus 5cm}void Player\+In\+Game\+::draw (
@@ -72,13 +85,13 @@ Gets random card of deck
 \begin{DoxyReturn}{Renvoie}
 a random card 
 \end{DoxyReturn}
-\hypertarget{classPlayerInGame_ad97fa91b1e26e88db5b62bc71f233709}{}\index{Player\+In\+Game@{Player\+In\+Game}!get\+Card\+Placed@{get\+Card\+Placed}}
-\index{get\+Card\+Placed@{get\+Card\+Placed}!Player\+In\+Game@{Player\+In\+Game}}
-\subsubsection[{get\+Card\+Placed()}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ {\bf Card\+Monster} $\ast$ $>$ Player\+In\+Game\+::get\+Card\+Placed (
+\hypertarget{classPlayerInGame_a519fc525decf5af1217b93749cd9ae99}{}\index{Player\+In\+Game@{Player\+In\+Game}!get\+Cards\+Placed@{get\+Cards\+Placed}}
+\index{get\+Cards\+Placed@{get\+Cards\+Placed}!Player\+In\+Game@{Player\+In\+Game}}
+\subsubsection[{get\+Cards\+Placed()}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ {\bf Card\+Monster} $\ast$ $>$ Player\+In\+Game\+::get\+Cards\+Placed (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}\label{classPlayerInGame_ad97fa91b1e26e88db5b62bc71f233709}
+)}\label{classPlayerInGame_a519fc525decf5af1217b93749cd9ae99}
 Returns the placed cards \hypertarget{classPlayerInGame_addeeee2e42cf2009fc21511624414146}{}\index{Player\+In\+Game@{Player\+In\+Game}!get\+Data\+Player@{get\+Data\+Player}}
 \index{get\+Data\+Player@{get\+Data\+Player}!Player\+In\+Game@{Player\+In\+Game}}
 \subsubsection[{get\+Data\+Player()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf data\+I\+G\+Player} Player\+In\+Game\+::get\+Data\+Player (
@@ -86,20 +99,27 @@ Returns the placed cards \hypertarget{classPlayerInGame_addeeee2e42cf2009fc21511
 {}
 \end{DoxyParamCaption}
 )}\label{classPlayerInGame_addeeee2e42cf2009fc21511624414146}
-Gets data information from this player to send it
+Creates a \hyperlink{classPlayerInGame}{Player\+In\+Game} and asks to the player which \hyperlink{classDeck}{Deck} he would like to play with Gets data information from this player to send it
 
 
 \begin{DoxyParams}{Paramètres}
 {\em is\+Turn} & of the current player \\
 \hline
 \end{DoxyParams}
-\hypertarget{classPlayerInGame_ae0fe37f43dd1c3d164041fdc4a668a32}{}\index{Player\+In\+Game@{Player\+In\+Game}!is\+Deck\+Define@{is\+Deck\+Define}}
-\index{is\+Deck\+Define@{is\+Deck\+Define}!Player\+In\+Game@{Player\+In\+Game}}
-\subsubsection[{is\+Deck\+Define()}]{\setlength{\rightskip}{0pt plus 5cm}bool Player\+In\+Game\+::is\+Deck\+Define (
+\hypertarget{classPlayerInGame_ac1629d9cadf7445be42eb3245daef6c4}{}\index{Player\+In\+Game@{Player\+In\+Game}!have\+Enough\+Energy@{have\+Enough\+Energy}}
+\index{have\+Enough\+Energy@{have\+Enough\+Energy}!Player\+In\+Game@{Player\+In\+Game}}
+\subsubsection[{have\+Enough\+Energy(\+Card $\ast$card)}]{\setlength{\rightskip}{0pt plus 5cm}bool Player\+In\+Game\+::have\+Enough\+Energy (
+\begin{DoxyParamCaption}
+\item[{{\bf Card} $\ast$}]{card}
+\end{DoxyParamCaption}
+)}\label{classPlayerInGame_ac1629d9cadf7445be42eb3245daef6c4}
+\hypertarget{classPlayerInGame_af4d06834c260aebb66c113f397ba3c86}{}\index{Player\+In\+Game@{Player\+In\+Game}!is\+Deck\+Defined@{is\+Deck\+Defined}}
+\index{is\+Deck\+Defined@{is\+Deck\+Defined}!Player\+In\+Game@{Player\+In\+Game}}
+\subsubsection[{is\+Deck\+Defined()}]{\setlength{\rightskip}{0pt plus 5cm}bool Player\+In\+Game\+::is\+Deck\+Defined (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}\label{classPlayerInGame_ae0fe37f43dd1c3d164041fdc4a668a32}
+)}\label{classPlayerInGame_af4d06834c260aebb66c113f397ba3c86}
 Checks if the deck of this player is defined
 
 \begin{DoxyReturn}{Renvoie}
@@ -111,7 +131,14 @@ True if the deck is defined
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\label{classPlayerInGame_a9f8df0a2ef00955f318b41149f57fcb7}
+)}\label{classPlayerInGame_a9f8df0a2ef00955f318b41149f57fcb7}
+\hypertarget{classPlayerInGame_ad18e833fa982d9db29521b49c74b1fa0}{}\index{Player\+In\+Game@{Player\+In\+Game}!reset\+Energy@{reset\+Energy}}
+\index{reset\+Energy@{reset\+Energy}!Player\+In\+Game@{Player\+In\+Game}}
+\subsubsection[{reset\+Energy()}]{\setlength{\rightskip}{0pt plus 5cm}void Player\+In\+Game\+::reset\+Energy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classPlayerInGame_ad18e833fa982d9db29521b49c74b1fa0}
 \hypertarget{classPlayerInGame_a399370210526407c4234d19815a5fa44}{}\index{Player\+In\+Game@{Player\+In\+Game}!set\+Deck@{set\+Deck}}
 \index{set\+Deck@{set\+Deck}!Player\+In\+Game@{Player\+In\+Game}}
 \subsubsection[{set\+Deck(\+Deck $\ast$deck)}]{\setlength{\rightskip}{0pt plus 5cm}void Player\+In\+Game\+::set\+Deck (
