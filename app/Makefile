@@ -40,7 +40,6 @@ client_wizard: $(OBJ_C)
 clean:
 	rm -f $(OBJ_S) $(DEP_S) 2> /dev/null
 	rm -f $(OBJ_C) $(DEP_C) 2> /dev/null
-	rm -rf $(DOCU_DIR) 2> /dev/null
 
 # Tests
 tests:
@@ -49,3 +48,5 @@ tests:
 # Documentation
 docu:
 	doxygen doxygen.conf
+clean-docu:
+	rm -rf $(DOCU_DIR) 2> /dev/null
