@@ -57,7 +57,7 @@ public:
 
     // Function during the game
     void draw(); // current player draw a card
-    void placeCard(PlayerInGame*, Card*, Card*);
+    void placeCard(PlayerInGame*, Card*, CardMonster*);
     //void placeCard(PlayerInGame*, Card*, PlayerInGame*);
     void attackWithCard(PlayerInGame*, CardMonster*, CardMonster*);
     //void attackWithCard(PlayerInGame*, CardMonster*, PlayerInGame*);

@@ -201,7 +201,7 @@ void Game::endTurn() {
  * the placed card have it
  */
 void Game::placeCard(PlayerInGame* pIG, Card* placeCard,
-    Card* targetCard) {
+    CardMonster* targetCard) {
 
     if(pIG == _currentPlayer) {
         // vérifier assez de place sur le plateau
