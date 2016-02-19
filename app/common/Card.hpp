@@ -34,6 +34,7 @@ public:
     std::size_t getEnergyCost(){return _energyCost;}
     bool gotEffect();
     int getEffectID(){return _effect;}
+    virtual bool isMonster() { return false; }
 
     //void setEnergyCost(std::size_t newCost){_energyCost = newCost}
     // maybe be able to change with spell cards (see that later)

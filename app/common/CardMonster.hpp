@@ -27,6 +27,8 @@ public:
     std::size_t getMaxLife(){return _maxLife;}
     std::size_t getNbrTourPose(){return _nbrTourPose;}
 
+    virtual bool isMonster() override { return false; }
+
     void setLife(std::size_t newLife){_life = newLife;}
     void setAttack(std::size_t newAttack){_attack = newAttack;}
     void setMaxLife(std::size_t newMax){_maxLife = newMax;}
