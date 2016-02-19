@@ -5,15 +5,15 @@ extern Connection *conn;
 void CommService::managePacket(Packet::packet* customPacket) {
     /* We get ID of the packet after cast void* to packet* */
     switch(customPacket->ID) {
-        case Packet::LOGIN_REQ_ID :       WizardLogger::warn("Paquet invalide reçu : LoginRequest");
+        case Packet::LOGIN_REQ_ID :       WizardLogger::warning("Paquet invalide reçu : LoginRequest");
                                           break;
-        case Packet::DISCONNECT_ID :      WizardLogger::warn("Paquet invalide reçu : DisconnectInfo");
+        case Packet::DISCONNECT_ID :      WizardLogger::warning("Paquet invalide reçu : DisconnectInfo");
                                           break;
-        case Packet::COLLECTION_REQ_ID :  WizardLogger::warn("Paquet invalide reçu : CollectionRequest");
+        case Packet::COLLECTION_REQ_ID :  WizardLogger::warning("Paquet invalide reçu : CollectionRequest");
                                           break;
         case Packet::COLLECTION_LIST_ID : //TODO
                                           break;
-        default :                         WizardLogger::warn("Paquet inconnu reçu");
+        default :                         WizardLogger::warning("Paquet inconnu reçu");
                                           break;
     }
 }
