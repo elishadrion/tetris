@@ -5,7 +5,7 @@
 #include <map>
 #include <cstddef>
 
-//#include "Effect.hpp"
+#include "server/Effect.hpp"
 
 
 class CardMonster;
