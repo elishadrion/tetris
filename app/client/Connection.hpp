@@ -20,8 +20,9 @@
 class Connection {
     struct sockaddr_in server_addr;
     struct hostent *host;
-    int clientSocket;
-    pthread_t recvThread;
+    int _clientSocket;
+    pthread_t _recvThread;
+    
     static void* recvLoop(void* data);
 public:
     Connection(char*);

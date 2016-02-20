@@ -16,42 +16,24 @@ int main() {
     }
 
     WizardLogger::info("Starting server");
-    Connection *conn = new Connection();
-    if (!conn->isReady()) {
-        WizardLogger::fatal("Impossible d'écouter les clients");
-        return EXIT_FAILURE;
-    }
-    
-    conn->mainLoop();
 
     // Loads card
     //CardManager::loadCards();
-
-    // Starts listener
-    //Connection::mainloop();
     
-    delete conn;
-    return 0;
-}
-/**
-void* handler(int &new_fd, int &listening_socket) {
-    size_t numbytes;
-    char buf[MAXDATASIZE];
-
-    // Example: stream server printing what the clients are saying
-    if ((numbytes = recv(new_fd, buf, sizeof buf, 0)) <= 0) {
-	// got error or connection closed by client
-	if (numbytes == 0) {
-	    WizardLogger::warn("Connection closed by client, socket: %i");
-	} else {
-	    perror("server - error receiving - recv()");
-	}
-	close(new_fd);
-	Connection::proper_fd_clr(new_fd, &Connection::master, &Connection::fdmax);
-    } else {
-	// everything is fine. let's check what the client sent
-	// analysepacket();
+    /* We initialise the listening server socket
+     * If it fail, server can't go farther
+     */
+    Connection *conn;
+    try {
+        conn = new Connection();
+    } catch (std::system_error &error) {
+        WizardLogger::fatal("Impossible d'écouter les clients", error);
+        return EXIT_FAILURE;
     }
 
-    return nullptr;
-}**/
+    WizardLogger::info("Ecoute des tentatives de connexion des clients...");
+    conn->mainLoop();
+    
+    delete conn;
+    return EXIT_SUCCESS;
+}

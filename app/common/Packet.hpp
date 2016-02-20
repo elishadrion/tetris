@@ -17,27 +17,31 @@ public:
     /* All packet ID */
     enum IDList {
         /* LOGIN PROCESS */
-        LOGIN_REQ_ID = 0,
-        LOGIN_RES_ID = 1,
-        DISCONNECT_ID = 2,
+        LOGIN_REQ_ID = 11,
+        REGIST_REQ_ID = 12,
+        LOGIN_RES_ID = 13,
+        DISCONNECT_ID = 14,
         /* COLLECTIONS/DECKS/CARDS PROCESS */
-        COLLECTION_REQ_ID = 3,
-        COLLECTION_LIST_ID = 4,
-        DECK_REQ_ID = 5,
-        DECK_CONT_ID = 6,
-        CARTE_REQ_ID = 7,
-        CARTE_INFO_ID = 8,
+        COLLECTION_REQ_ID = 21,
+        COLLECTION_LIST_ID = 22,
+        DECK_REQ_ID = 23,
+        DECK_CONT_ID = 24,
+        CARTE_REQ_ID = 25,
+        CARTE_INFO_ID = 26,
         /* TODO TCHAT PROCESS */
-        TCHAT_CONV_REQ_ID = 9,
-        TCHAT_NEW_CONV_ID = 10,
-        TCHAT_MESSAGE_ID = 11,
-        TCHAT_END_REQ_ID = 12,
-        TCHAT_END_CONV_ID = 13,
+        TCHAT_CONV_REQ_ID = 31,
+        TCHAT_NEW_CONV_ID = 32,
+        TCHAT_MESSAGE_ID = 33,
+        TCHAT_END_REQ_ID = 34,
+        TCHAT_END_CONV_ID = 35,
         //TODO launch game + game process
     };
     
     /* Default size of all packets (without data) */
     static const int packetSize = sizeof(int)*2;
+    
+    /* Maximum size of a packets TODO */
+    static const int packetMaxSize = sizeof(int[200])+packetSize;
     
     /* Default packet struct (without data member) */
     typedef struct {

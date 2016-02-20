@@ -1,6 +1,6 @@
 #include "LoginPanel.hpp"
 
-LoginPanel::LoginPanel() {
+LoginPanel::LoginPanel() : isWainting(false) {
     /* Initialize field and set some options
      * <height> <width> <toprow> <leftcol> <offscreen> <nbuffers>
      */
@@ -15,12 +15,10 @@ LoginPanel::LoginPanel() {
     form = new_form(field);
     scale_form(form, &rows, &cols);
     
-    /* Create a window with box and put form in it */
+    /* Create a window and put form in it */
     win = newwin(rows + 6, cols + 8, 0, 6);
     keypad(win, TRUE);
     set_form_win(form, win);
-    //set_form_sub(form, derwin(win, rows, cols, 2, 2));
-    box(win, 0, 0);
     
     /* Post form and refresh window */
     post_form(form);
@@ -49,22 +47,30 @@ void LoginPanel::setFocus() {
     refresh();
 }
 
-void LoginPanel::doLogin(int pseudoSize, int passwordSize) {
+void LoginPanel::proceed(bool registration) {
     /* Get the pseudo from the first field */
-    string pseudo = "";
-    char *tmp = field_buffer(field[0], 0);
-    for (int i = 0 ; i < pseudoSize ; ++i) {
-        pseudo += tmp[i];
-    }
+    char *pseudo = field_buffer(field[0], 0);
     
-    /*TODO Get the password from the second field */
-    std::string password = "";
-    tmp = field_buffer(field[1], 0);
-    for (int i = 0 ; i < passwordSize ; ++i) {
-        password += tmp[i];
-    }
+    /*TODO (why empty ?) Get the password from the second field */
+    char *password = field_buffer(field[1], 0);
     
-    CommService::makeLoginRequest(pseudo, password);
+    if (registration) {
+        printWait(REGISTRATION_IN_PROGRESS);
+        CommService::makeRegistrationRequest(pseudo, password);
+    } else {
+        printWait(LOGIN_IN_PROGRESS);
+        CommService::makeLoginRequest(pseudo, password);
+    }
+}
+
+void LoginPanel::printWait(std::string message) {
+    isWainting = true;
+    attron(COLOR_PAIR(2));
+    mvprintw(2, 10, (char*)message.c_str());
+    attroff(COLOR_PAIR(2));
+    refresh();
+    
+    while(isWainting);
 }
 
 /* Ask user login informations
@@ -154,11 +160,11 @@ void LoginPanel::askLogin() {
                 setFocus();
                 break;
             case KEY_F(2):
-                doLogin(sizeA, sizeB);
-                break;
+                proceed();
+                return;
             case KEY_F(3):
-                printError("INSCRIPTION NON IMPLEMENTE");
-                break;
+                proceed(true);
+                return;
             default:
                 /* If it's the SPACEBAR, we beep */
                 if (input == ' ') {
@@ -194,4 +200,5 @@ void LoginPanel::printError(std::string message) {
     mvprintw(2, 10, (char*)message.c_str());
     attroff(COLOR_PAIR(1));
     setFocus();
+    refresh();
 }

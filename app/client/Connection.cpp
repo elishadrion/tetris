@@ -14,8 +14,8 @@ Connection::Connection(char *hostName) {
         }
 
         /* SYS_CALL to create a new socket */
-        clientSocket = socket(AF_INET, SOCK_STREAM, 0);
-        if (clientSocket == -1) {
+        _clientSocket = socket(AF_INET, SOCK_STREAM, 0);
+        if (_clientSocket == -1) {
             WizardLogger::error("Impossible d'avoir un nouveau socket pour le serveur");
             throw std::system_error(EFAULT, std::system_category());
         }
@@ -30,29 +30,29 @@ Connection::Connection(char *hostName) {
         
         /* We connect to the server using socket informations */
         WizardLogger::info("Tentative de connexion au serveur");
-        if (connect(clientSocket, (struct sockaddr *)&server_addr, sizeof(struct sockaddr)) == -1) {
+        if (connect(_clientSocket, (struct sockaddr *)&server_addr, sizeof(struct sockaddr)) == -1) {
             WizardLogger::error("Impossible de se connecter au serveur");
             throw std::system_error(EFAULT, std::system_category());
         }
 
         /* We create a new Thread for listen the server informations */
-        if (pthread_create(&recvThread, NULL, recvLoop, (void*)&clientSocket) == -1) {
+        if (pthread_create(&_recvThread, NULL, recvLoop, (void*)&_clientSocket) == -1) {
             WizardLogger::error("Impossible de créer un nouveau thread pour écouter le serveur");
             throw std::system_error(EFAULT, std::system_category());
         }
         
         WizardLogger::info("Connexion réussie");
     } catch (const std::system_error &error) {
-        /* We try the error, program must close after that so all memory will be clear */
+        /* We throw the error, program must close after that so all memory will be clear */
         throw;
     }
 }
 
 Connection::~Connection() {
     /* Close thread and socket */
-    if (recvThread != NULL)
-        pthread_cancel(recvThread);
-    close(clientSocket);
+    if (_recvThread != NULL)
+        pthread_cancel(_recvThread);
+    close(_clientSocket);
 }
 
 /* Send a packet to the server trought the socket
@@ -62,10 +62,10 @@ Connection::~Connection() {
  */
 void Connection::sendPacket(Packet *packet, long unsigned int size) {
     try {
-        if (send(clientSocket, &size, sizeof(int), 0) != sizeof(int)) {
+        if (send(_clientSocket, &size, sizeof(int), 0) != sizeof(int)) {
             throw std::string("Impossible de renseigner la taille du packet à envoyer");
         }
-        if (send(clientSocket, packet, size, 0) != size) {
+        if (send(_clientSocket, packet, size, 0) != size) {
             throw std::string("Tout le packet n'a pas été envoyé");
         }
     } catch (const std::string &message) {
@@ -82,28 +82,25 @@ void* Connection::recvLoop(void* data) {
     /* Enable asynchronous cancel (thread can be canceled at any time) from deferred */
     pthread_setcanceltype(PTHREAD_CANCEL_ASYNCHRONOUS, (int*) PTHREAD_CANCEL_DEFERRED);
     
-    /* Convert to get clientSocket addr */
-    int clientSocket = *((int *)data);
+    /* Convert to get _clientSocket addr */
+    int _clientSocket = *((int *)data);
     
-    /* To know how much memory we need */
-    int packetSize;
+    /* Read data from buffer */
+    int readSize;
     
     /* Loop to wait with select server messages */
     while(1) {
-        /* Try to get next packet size, maybe it's a default one ? */
-        if (recv(clientSocket, &packetSize, sizeof(int), 0) == 0) {
-            WizardLogger::warning("Impossible de connaître la taille du packet");
-            packetSize = Packet::packetSize;
-        }
-        
-        /* Allocate precise size for packet */
-        void *packet = malloc(packetSize);
+        /* Allocate maximum size for an unknow incoming packet */
+        void *packet = malloc(Packet::packetMaxSize);
         
         /* Try to get packet from server */
-        if (recv(clientSocket, packet, packetSize, 0) == 0) {
+        if ((readSize = recv(_clientSocket, packet, Packet::packetMaxSize, 0)) == 0) {
             WizardLogger::error("Impossible de récupérer le packet du serveur");
         } else {
-            /* We send the packet to the CommService for interpretation */
+            /* We terminate resize memory alloc */
+            realloc(packet, readSize);
+            
+            /* We send the packet to the CommService for verification and interpretation */
             CommService::managePacket(reinterpret_cast<Packet::packet*>(packet));
         }
         

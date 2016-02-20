@@ -30,15 +30,19 @@
 #define MAX_SIZE_ERROR "TAILLE MAXIMUM DE 30 CHAR "
 #define TIMEOUT_ERROR "LE SERVEUR N'A PAS REPONDU"
 #define UNKOW_ERROR " MAUVAISE REPONSE SERVEUR "
+#define LOGIN_IN_PROGRESS "      LOGIN EN COURS      "
+#define REGISTRATION_IN_PROGRESS " ENREGISTREMENT EN COURS  "
 
 class LoginPanel {
     FORM  *form;
     FIELD *field[2];
     WINDOW *win;
     int input;
+    bool isWainting;
     
-    void doLogin(int, int);
+    void proceed(bool=false);
     void setFocus();
+    void printWait(std::string);
 public:
     LoginPanel();
     ~LoginPanel();
