@@ -106,12 +106,14 @@ Graphe d'héritage de Card:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
-<tr class="memitem:adacf4b8bbaa2a417e458b70c99019a39"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCard.html#adacf4b8bbaa2a417e458b70c99019a39">Card</a> (std::size_t id, std::string name, std::size_t energy, bool)</td></tr>
-<tr class="separator:adacf4b8bbaa2a417e458b70c99019a39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a1f6635176ec49f837327b1f849e979"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCard.html#a5a1f6635176ec49f837327b1f849e979">Card</a> (std::size_t id, std::string name, std::size_t energy, int effect, bool)</td></tr>
+<tr class="separator:a5a1f6635176ec49f837327b1f849e979"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88211ebea56b896a7f43b8aa600cb74e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCard.html#a88211ebea56b896a7f43b8aa600cb74e">Card</a> (<a class="el" href="classCard.html">Card</a> &amp;card)</td></tr>
 <tr class="separator:a88211ebea56b896a7f43b8aa600cb74e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85e099caac46055618988d81a5001708"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCard.html#a85e099caac46055618988d81a5001708">applyEffect</a> (<a class="el" href="classCard.html">Card</a> &amp;card)</td></tr>
-<tr class="separator:a85e099caac46055618988d81a5001708"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0a0d8d7c477b09c5adecdd57db84c0c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCard.html#af0a0d8d7c477b09c5adecdd57db84c0c">applyEffect</a> (<a class="el" href="classCardMonster.html">CardMonster</a> &amp;cardmonster)</td></tr>
+<tr class="separator:af0a0d8d7c477b09c5adecdd57db84c0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add526d506b074687e3940cda6d3e6d80"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCard.html#add526d506b074687e3940cda6d3e6d80">applyEffect</a> (<a class="el" href="classPlayerInGame.html">PlayerInGame</a> &amp;player)</td></tr>
+<tr class="separator:add526d506b074687e3940cda6d3e6d80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf30649dca6b7398b7500e41fd6767e0"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCard.html#abf30649dca6b7398b7500e41fd6767e0">~Card</a> ()=0</td></tr>
 <tr class="separator:abf30649dca6b7398b7500e41fd6767e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6eec742565ded028a7f2737c53ae4507"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCard.html#a6eec742565ded028a7f2737c53ae4507">getId</a> ()</td></tr>
@@ -124,11 +126,15 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="separator:a9932401135454db169e1e4d678103917"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f6c3220c269eef98fe84ffbcffd9371"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCard.html#a6f6c3220c269eef98fe84ffbcffd9371">getEffectID</a> ()</td></tr>
 <tr class="separator:a6f6c3220c269eef98fe84ffbcffd9371"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75c94d383b9710efb023de601b7103c5"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCard.html#a75c94d383b9710efb023de601b7103c5">isMonster</a> ()</td></tr>
+<tr class="separator:a75c94d383b9710efb023de601b7103c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae68d1105abd6827736e759add5c1651f"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCard.html#ae68d1105abd6827736e759add5c1651f">isTaunt</a> ()</td></tr>
+<tr class="separator:ae68d1105abd6827736e759add5c1651f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>One class per card. Contain all information of the card </p>
 </div><h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
-<a class="anchor" id="adacf4b8bbaa2a417e458b70c99019a39"></a>
+<a class="anchor" id="a5a1f6635176ec49f837327b1f849e979"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -149,6 +155,12 @@ Fonctions membres publiques</h2></td></tr>
           <td></td>
           <td class="paramtype">std::size_t&#160;</td>
           <td class="paramname"><em>energy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>effect</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -224,7 +236,7 @@ Fonctions membres publiques</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Documentation des fonctions membres</h2>
-<a class="anchor" id="a85e099caac46055618988d81a5001708"></a>
+<a class="anchor" id="af0a0d8d7c477b09c5adecdd57db84c0c"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -234,8 +246,32 @@ Fonctions membres publiques</h2></td></tr>
         <tr>
           <td class="memname">void Card::applyEffect </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classCard.html">Card</a> &amp;&#160;</td>
-          <td class="paramname"><em>card</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classCardMonster.html">CardMonster</a> &amp;&#160;</td>
+          <td class="paramname"><em>cardmonster</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="add526d506b074687e3940cda6d3e6d80"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Card::applyEffect </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPlayerInGame.html">PlayerInGame</a> &amp;&#160;</td>
+          <td class="paramname"><em>player</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -351,6 +387,54 @@ Fonctions membres publiques</h2></td></tr>
           <td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a75c94d383b9710efb023de601b7103c5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool Card::isMonster </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Réimplémentée dans <a class="el" href="classCardMonster.html#add70449c1bc34baee852fe07cc7d39cc">CardMonster</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae68d1105abd6827736e759add5c1651f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool Card::isTaunt </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>

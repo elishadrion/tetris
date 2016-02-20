@@ -112,30 +112,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="LoginPanel_8hpp.html#a10e516dbcea58c24ba5f68862d457f9c">   30</a></span>&#160;<span class="preprocessor">#define MAX_SIZE_ERROR &quot;TAILLE MAXIMUM DE 30 CHAR &quot;</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="LoginPanel_8hpp.html#aefc48d416c882f06edaf6d01779d4d74">   31</a></span>&#160;<span class="preprocessor">#define TIMEOUT_ERROR &quot;LE SERVEUR N&#39;A PAS REPONDU&quot;</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="LoginPanel_8hpp.html#aae275189f1736dc9504916deff88ba2d">   32</a></span>&#160;<span class="preprocessor">#define UNKOW_ERROR &quot; MAUVAISE REPONSE SERVEUR &quot;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classLoginPanel.html">   34</a></span>&#160;<span class="keyword">class </span><a class="code" href="classLoginPanel.html">LoginPanel</a> {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    FORM  *form;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    FIELD *field[2];</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    WINDOW *win;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">int</span> input;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> doLogin(<span class="keywordtype">int</span>, <span class="keywordtype">int</span>);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> setFocus();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="classLoginPanel.html#ab9de458a8d6c5316f22ab21172b737a4">LoginPanel</a>();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="classLoginPanel.html#a3ce13dd38eb3806bcadff0253f2b1c76">~LoginPanel</a>();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classLoginPanel.html#ac5b0c7fb0d44b55afa9b193d873cc7b4">askLogin</a>();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classLoginPanel.html#aa922d0e3e7ba3ca5de429bb5022badb9">printError</a>(std::string);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;};</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* PANEL_HPP */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="classLoginPanel_html_a3ce13dd38eb3806bcadff0253f2b1c76"><div class="ttname"><a href="classLoginPanel.html#a3ce13dd38eb3806bcadff0253f2b1c76">LoginPanel::~LoginPanel</a></div><div class="ttdeci">~LoginPanel()</div><div class="ttdef"><b>Definition:</b> LoginPanel.cpp:37</div></div>
-<div class="ttc" id="classLoginPanel_html_aa922d0e3e7ba3ca5de429bb5022badb9"><div class="ttname"><a href="classLoginPanel.html#aa922d0e3e7ba3ca5de429bb5022badb9">LoginPanel::printError</a></div><div class="ttdeci">void printError(std::string)</div><div class="ttdef"><b>Definition:</b> LoginPanel.cpp:191</div></div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="LoginPanel_8hpp.html#a0823e8cee489cbf6ea2119d232e97266">   33</a></span>&#160;<span class="preprocessor">#define LOGIN_IN_PROGRESS &quot;      LOGIN EN COURS      &quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="LoginPanel_8hpp.html#a34db09e698a9096488e6d24a10d90626">   34</a></span>&#160;<span class="preprocessor">#define REGISTRATION_IN_PROGRESS &quot; ENREGISTREMENT EN COURS  &quot;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classLoginPanel.html">   36</a></span>&#160;<span class="keyword">class </span><a class="code" href="classLoginPanel.html">LoginPanel</a> {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    FORM  *form;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    FIELD *field[2];</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    WINDOW *win;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">int</span> input;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">bool</span> isWainting;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> proceed(<span class="keywordtype">bool</span>=<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> setFocus();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> printWait(std::string);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="classLoginPanel.html#ab9de458a8d6c5316f22ab21172b737a4">LoginPanel</a>();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="classLoginPanel.html#a3ce13dd38eb3806bcadff0253f2b1c76">~LoginPanel</a>();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classLoginPanel.html#ac5b0c7fb0d44b55afa9b193d873cc7b4">askLogin</a>();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classLoginPanel.html#aa922d0e3e7ba3ca5de429bb5022badb9">printError</a>(std::string);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;};</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* PANEL_HPP */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="classLoginPanel_html_a3ce13dd38eb3806bcadff0253f2b1c76"><div class="ttname"><a href="classLoginPanel.html#a3ce13dd38eb3806bcadff0253f2b1c76">LoginPanel::~LoginPanel</a></div><div class="ttdeci">~LoginPanel()</div><div class="ttdef"><b>Definition:</b> LoginPanel.cpp:35</div></div>
+<div class="ttc" id="classLoginPanel_html_aa922d0e3e7ba3ca5de429bb5022badb9"><div class="ttname"><a href="classLoginPanel.html#aa922d0e3e7ba3ca5de429bb5022badb9">LoginPanel::printError</a></div><div class="ttdeci">void printError(std::string)</div><div class="ttdef"><b>Definition:</b> LoginPanel.cpp:197</div></div>
 <div class="ttc" id="client_2CommService_8hpp_html"><div class="ttname"><a href="client_2CommService_8hpp.html">CommService.hpp</a></div></div>
-<div class="ttc" id="classLoginPanel_html_ac5b0c7fb0d44b55afa9b193d873cc7b4"><div class="ttname"><a href="classLoginPanel.html#ac5b0c7fb0d44b55afa9b193d873cc7b4">LoginPanel::askLogin</a></div><div class="ttdeci">void askLogin()</div><div class="ttdef"><b>Definition:</b> LoginPanel.cpp:73</div></div>
+<div class="ttc" id="classLoginPanel_html_ac5b0c7fb0d44b55afa9b193d873cc7b4"><div class="ttname"><a href="classLoginPanel.html#ac5b0c7fb0d44b55afa9b193d873cc7b4">LoginPanel::askLogin</a></div><div class="ttdeci">void askLogin()</div><div class="ttdef"><b>Definition:</b> LoginPanel.cpp:79</div></div>
 <div class="ttc" id="classLoginPanel_html_ab9de458a8d6c5316f22ab21172b737a4"><div class="ttname"><a href="classLoginPanel.html#ab9de458a8d6c5316f22ab21172b737a4">LoginPanel::LoginPanel</a></div><div class="ttdeci">LoginPanel()</div><div class="ttdef"><b>Definition:</b> LoginPanel.cpp:3</div></div>
-<div class="ttc" id="classLoginPanel_html"><div class="ttname"><a href="classLoginPanel.html">LoginPanel</a></div><div class="ttdef"><b>Definition:</b> LoginPanel.hpp:34</div></div>
+<div class="ttc" id="classLoginPanel_html"><div class="ttname"><a href="classLoginPanel.html">LoginPanel</a></div><div class="ttdef"><b>Definition:</b> LoginPanel.hpp:36</div></div>
 <div class="ttc" id="WizardLogger_8hpp_html"><div class="ttname"><a href="WizardLogger_8hpp.html">WizardLogger.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

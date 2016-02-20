@@ -113,16 +113,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classConnection.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="classConnection.html">Connection</a> {</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">struct </span>sockaddr_in server_addr;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">struct </span>hostent *host;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">int</span> clientSocket;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    pthread_t recvThread;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span>* recvLoop(<span class="keywordtype">void</span>* data);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="classConnection.html#a9de94289ca6259f94ef6aeba3b134a77">Connection</a>(<span class="keywordtype">char</span>*);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="classConnection.html#a2e4352edf667bea83001569e9da8a24d">~Connection</a>();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classConnection.html#acf311ea2f3df77851711daf40a07fc17">sendPacket</a>(<a class="code" href="classPacket.html">Packet</a>*, <span class="keywordtype">long</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;};</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* CONNECTION_HPP */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">int</span> _clientSocket;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    pthread_t _recvThread;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span>* recvLoop(<span class="keywordtype">void</span>* data);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="classConnection.html#a9de94289ca6259f94ef6aeba3b134a77">Connection</a>(<span class="keywordtype">char</span>*);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="classConnection.html#a2e4352edf667bea83001569e9da8a24d">~Connection</a>();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classConnection.html#acf311ea2f3df77851711daf40a07fc17">sendPacket</a>(<a class="code" href="classPacket.html">Packet</a>*, <span class="keywordtype">long</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;};</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* CONNECTION_HPP */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="Packet_8hpp_html"><div class="ttname"><a href="Packet_8hpp.html">Packet.hpp</a></div></div>
 <div class="ttc" id="classConnection_html_acf311ea2f3df77851711daf40a07fc17"><div class="ttname"><a href="classConnection.html#acf311ea2f3df77851711daf40a07fc17">Connection::sendPacket</a></div><div class="ttdeci">void sendPacket(Packet *, long unsigned int)</div><div class="ttdef"><b>Definition:</b> Connection.cpp:63</div></div>
 <div class="ttc" id="classConnection_html_a2e4352edf667bea83001569e9da8a24d"><div class="ttname"><a href="classConnection.html#a2e4352edf667bea83001569e9da8a24d">Connection::~Connection</a></div><div class="ttdeci">~Connection()</div><div class="ttdef"><b>Definition:</b> Connection.cpp:51</div></div>

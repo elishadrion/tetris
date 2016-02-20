@@ -5,9 +5,13 @@
 \item 
 void \hyperlink{namespaceCommService_a75d4ea798dccc4d942d01a349e142228}{manage\+Packet} (\hyperlink{structPacket_1_1packet}{Packet\+::packet} $\ast$)
 \item 
-void \hyperlink{namespaceCommService_a8f51fbde0f0b73acf05e2fd76a55b9eb}{make\+Login\+Request} (const string, const string)
+void \hyperlink{namespaceCommService_a681699e974f10c8789b9f313828f4d67}{make\+Login\+Request} (const char $\ast$, const char $\ast$)
+\item 
+void \hyperlink{namespaceCommService_a19694e7c4e4aa507ad1adad9fa5a683a}{make\+Registration\+Request} (const char $\ast$, const char $\ast$)
 \item 
 void \hyperlink{namespaceCommService_ab3752d7f2a9988e86fdbdf1fef3caa47}{send\+Disconnection} ()
+\item 
+void \hyperlink{namespaceCommService_a26e0f6999a7cfbf4b27d83d456b4e2dd}{login\+Result} (const \hyperlink{structPacket_1_1loginResultPacket}{Packet\+::login\+Result\+Packet} $\ast$)
 \item 
 void \hyperlink{namespaceCommService_a247de3986a2c319e5eafd853c6703dd4}{manage\+Disconnect\+Request} (\hyperlink{structPacket_1_1packet}{Packet\+::packet} $\ast$)
 \item 
@@ -16,14 +20,29 @@ void \hyperlink{namespaceCommService_a99ab7b26f5af67c088acb5c6b2dff1c5}{manage\+
 
 
 \subsection{Documentation des fonctions}
-\hypertarget{namespaceCommService_a8f51fbde0f0b73acf05e2fd76a55b9eb}{}\index{Comm\+Service@{Comm\+Service}!make\+Login\+Request@{make\+Login\+Request}}
-\index{make\+Login\+Request@{make\+Login\+Request}!Comm\+Service@{Comm\+Service}}
-\subsubsection[{make\+Login\+Request(const string, const string)}]{\setlength{\rightskip}{0pt plus 5cm}void Comm\+Service\+::make\+Login\+Request (
+\hypertarget{namespaceCommService_a26e0f6999a7cfbf4b27d83d456b4e2dd}{}\index{Comm\+Service@{Comm\+Service}!login\+Result@{login\+Result}}
+\index{login\+Result@{login\+Result}!Comm\+Service@{Comm\+Service}}
+\subsubsection[{login\+Result(const Packet\+::login\+Result\+Packet $\ast$)}]{\setlength{\rightskip}{0pt plus 5cm}void Comm\+Service\+::login\+Result (
 \begin{DoxyParamCaption}
-\item[{const string}]{pseudo, }
-\item[{const string}]{password}
+\item[{const {\bf Packet\+::login\+Result\+Packet} $\ast$}]{result\+Packet}
 \end{DoxyParamCaption}
-)}\label{namespaceCommService_a8f51fbde0f0b73acf05e2fd76a55b9eb}
+)}\label{namespaceCommService_a26e0f6999a7cfbf4b27d83d456b4e2dd}
+\hypertarget{namespaceCommService_a681699e974f10c8789b9f313828f4d67}{}\index{Comm\+Service@{Comm\+Service}!make\+Login\+Request@{make\+Login\+Request}}
+\index{make\+Login\+Request@{make\+Login\+Request}!Comm\+Service@{Comm\+Service}}
+\subsubsection[{make\+Login\+Request(const char $\ast$, const char $\ast$)}]{\setlength{\rightskip}{0pt plus 5cm}void Comm\+Service\+::make\+Login\+Request (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{pseudo, }
+\item[{const char $\ast$}]{password}
+\end{DoxyParamCaption}
+)}\label{namespaceCommService_a681699e974f10c8789b9f313828f4d67}
+\hypertarget{namespaceCommService_a19694e7c4e4aa507ad1adad9fa5a683a}{}\index{Comm\+Service@{Comm\+Service}!make\+Registration\+Request@{make\+Registration\+Request}}
+\index{make\+Registration\+Request@{make\+Registration\+Request}!Comm\+Service@{Comm\+Service}}
+\subsubsection[{make\+Registration\+Request(const char $\ast$, const char $\ast$)}]{\setlength{\rightskip}{0pt plus 5cm}void Comm\+Service\+::make\+Registration\+Request (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{pseudo, }
+\item[{const char $\ast$}]{password}
+\end{DoxyParamCaption}
+)}\label{namespaceCommService_a19694e7c4e4aa507ad1adad9fa5a683a}
 \hypertarget{namespaceCommService_a247de3986a2c319e5eafd853c6703dd4}{}\index{Comm\+Service@{Comm\+Service}!manage\+Disconnect\+Request@{manage\+Disconnect\+Request}}
 \index{manage\+Disconnect\+Request@{manage\+Disconnect\+Request}!Comm\+Service@{Comm\+Service}}
 \subsubsection[{manage\+Disconnect\+Request(\+Packet\+::packet $\ast$)}]{\setlength{\rightskip}{0pt plus 5cm}void Comm\+Service\+::manage\+Disconnect\+Request (

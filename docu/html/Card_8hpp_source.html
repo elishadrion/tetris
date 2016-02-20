@@ -97,54 +97,67 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;cstddef&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">//#include &quot;Effect.hpp&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">//#include &quot;Effect.hpp&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classCard.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCard.html">Card</a> {</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="comment">// Default constructor ?</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classCard.html#adacf4b8bbaa2a417e458b70c99019a39">Card</a>(std::size_t <span class="keywordtype">id</span>, std::string name, std::size_t energy,<span class="comment">/*Effect effect, //TODO tmp patch*/</span> <span class="keywordtype">bool</span>);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="classCard.html#adacf4b8bbaa2a417e458b70c99019a39">Card</a>(<a class="code" href="classCard.html">Card</a>&amp; card); <span class="comment">// copy contructor</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    std::size_t _id; <span class="comment">// id of the card</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    std::string _name; <span class="comment">// name of the card</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    std::size_t _energyCost;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">int</span> _effect;<span class="comment">// Its special effect ID</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCard.html#a85e099caac46055618988d81a5001708">applyEffect</a>(<a class="code" href="classCard.html">Card</a>&amp; card);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classCard.html#abf30649dca6b7398b7500e41fd6767e0">~Card</a>() = 0; <span class="comment">// Abstract class because we can&#39;t instance it</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classCard.html#a6eec742565ded028a7f2737c53ae4507">   32</a></span>&#160;    std::size_t <a class="code" href="classCard.html#a6eec742565ded028a7f2737c53ae4507">getId</a>(){<span class="keywordflow">return</span> _id;}</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classCard.html#ad060fe107bfaf4741c671615885b314a">   33</a></span>&#160;    std::string <a class="code" href="classCard.html#ad060fe107bfaf4741c671615885b314a">getName</a>(){<span class="keywordflow">return</span> _name;}</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classCard.html#a56f0050aa1cbc799b4481431163f5a90">   34</a></span>&#160;    std::size_t <a class="code" href="classCard.html#a56f0050aa1cbc799b4481431163f5a90">getEnergyCost</a>(){<span class="keywordflow">return</span> _energyCost;}</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classCard.html#a9932401135454db169e1e4d678103917">gotEffect</a>();</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classCard.html#a6f6c3220c269eef98fe84ffbcffd9371">   36</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classCard.html#a6f6c3220c269eef98fe84ffbcffd9371">getEffectID</a>(){<span class="keywordflow">return</span> _effect;}</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">//void setEnergyCost(std::size_t newCost){_energyCost = newCost}</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">// maybe be able to change with spell cards (see that later)</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;};</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">class </span><a class="code" href="classCardMonster.html">CardMonster</a>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">class </span><a class="code" href="classPlayerInGame.html">PlayerInGame</a>;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classCard.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCard.html">Card</a> {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="comment">// Default constructor ?</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="classCard.html#a5a1f6635176ec49f837327b1f849e979">Card</a>(std::size_t <span class="keywordtype">id</span>, std::string name, std::size_t energy,<span class="keywordtype">int</span> effect, <span class="keywordtype">bool</span>);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="classCard.html#a5a1f6635176ec49f837327b1f849e979">Card</a>(<a class="code" href="classCard.html">Card</a>&amp; card); <span class="comment">// copy contructor</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    std::size_t _id; <span class="comment">// id of the card</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    std::string _name; <span class="comment">// name of the card</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    std::size_t _energyCost;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">int</span> _effect;<span class="comment">// Its special effect ID</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">bool</span> _taunt;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCard.html#af0a0d8d7c477b09c5adecdd57db84c0c">applyEffect</a>(<a class="code" href="classCardMonster.html">CardMonster</a>&amp; cardmonster);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCard.html#af0a0d8d7c477b09c5adecdd57db84c0c">applyEffect</a>(<a class="code" href="classPlayerInGame.html">PlayerInGame</a>&amp; player);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classCard.html#abf30649dca6b7398b7500e41fd6767e0">~Card</a>() = 0; <span class="comment">// Abstract class because we can&#39;t instance it</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classCard.html#a6eec742565ded028a7f2737c53ae4507">   39</a></span>&#160;    std::size_t <a class="code" href="classCard.html#a6eec742565ded028a7f2737c53ae4507">getId</a>(){<span class="keywordflow">return</span> _id;}</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classCard.html#ad060fe107bfaf4741c671615885b314a">   40</a></span>&#160;    std::string <a class="code" href="classCard.html#ad060fe107bfaf4741c671615885b314a">getName</a>(){<span class="keywordflow">return</span> _name;}</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="classCard.html#a56f0050aa1cbc799b4481431163f5a90">   41</a></span>&#160;    std::size_t <a class="code" href="classCard.html#a56f0050aa1cbc799b4481431163f5a90">getEnergyCost</a>(){<span class="keywordflow">return</span> _energyCost;}</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classCard.html#a9932401135454db169e1e4d678103917">gotEffect</a>();</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classCard.html#a6f6c3220c269eef98fe84ffbcffd9371">   43</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classCard.html#a6f6c3220c269eef98fe84ffbcffd9371">getEffectID</a>(){<span class="keywordflow">return</span> _effect;}</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classCard.html#a75c94d383b9710efb023de601b7103c5">   44</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classCard.html#a75c94d383b9710efb023de601b7103c5">isMonster</a>() { <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classCard.html#ae68d1105abd6827736e759add5c1651f">   45</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classCard.html#ae68d1105abd6827736e759add5c1651f">isTaunt</a>() { <span class="keywordflow">return</span> _taunt; }</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* CARD_HPP */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="classCard_html_a9932401135454db169e1e4d678103917"><div class="ttname"><a href="classCard.html#a9932401135454db169e1e4d678103917">Card::gotEffect</a></div><div class="ttdeci">bool gotEffect()</div><div class="ttdef"><b>Definition:</b> Card.cpp:35</div></div>
-<div class="ttc" id="classCard_html_a56f0050aa1cbc799b4481431163f5a90"><div class="ttname"><a href="classCard.html#a56f0050aa1cbc799b4481431163f5a90">Card::getEnergyCost</a></div><div class="ttdeci">std::size_t getEnergyCost()</div><div class="ttdef"><b>Definition:</b> Card.hpp:34</div></div>
-<div class="ttc" id="classCard_html_a6eec742565ded028a7f2737c53ae4507"><div class="ttname"><a href="classCard.html#a6eec742565ded028a7f2737c53ae4507">Card::getId</a></div><div class="ttdeci">std::size_t getId()</div><div class="ttdef"><b>Definition:</b> Card.hpp:32</div></div>
-<div class="ttc" id="classCard_html_a6f6c3220c269eef98fe84ffbcffd9371"><div class="ttname"><a href="classCard.html#a6f6c3220c269eef98fe84ffbcffd9371">Card::getEffectID</a></div><div class="ttdeci">int getEffectID()</div><div class="ttdef"><b>Definition:</b> Card.hpp:36</div></div>
-<div class="ttc" id="classCard_html_a85e099caac46055618988d81a5001708"><div class="ttname"><a href="classCard.html#a85e099caac46055618988d81a5001708">Card::applyEffect</a></div><div class="ttdeci">virtual void applyEffect(Card &amp;card)</div><div class="ttdef"><b>Definition:</b> Card.cpp:31</div></div>
-<div class="ttc" id="classCard_html_adacf4b8bbaa2a417e458b70c99019a39"><div class="ttname"><a href="classCard.html#adacf4b8bbaa2a417e458b70c99019a39">Card::Card</a></div><div class="ttdeci">Card(std::size_t id, std::string name, std::size_t energy, bool)</div><div class="ttdef"><b>Definition:</b> Card.cpp:12</div></div>
-<div class="ttc" id="classCard_html_ad060fe107bfaf4741c671615885b314a"><div class="ttname"><a href="classCard.html#ad060fe107bfaf4741c671615885b314a">Card::getName</a></div><div class="ttdeci">std::string getName()</div><div class="ttdef"><b>Definition:</b> Card.hpp:33</div></div>
-<div class="ttc" id="classCard_html_abf30649dca6b7398b7500e41fd6767e0"><div class="ttname"><a href="classCard.html#abf30649dca6b7398b7500e41fd6767e0">Card::~Card</a></div><div class="ttdeci">virtual ~Card()=0</div><div class="ttdef"><b>Definition:</b> Card.cpp:44</div></div>
-<div class="ttc" id="classCard_html"><div class="ttname"><a href="classCard.html">Card</a></div><div class="ttdef"><b>Definition:</b> Card.hpp:13</div></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="comment">//void setEnergyCost(std::size_t newCost){_energyCost = newCost}</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment">// maybe be able to change with spell cards (see that later)</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;};</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* CARD_HPP */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="classCard_html_a9932401135454db169e1e4d678103917"><div class="ttname"><a href="classCard.html#a9932401135454db169e1e4d678103917">Card::gotEffect</a></div><div class="ttdeci">bool gotEffect()</div><div class="ttdef"><b>Definition:</b> Card.cpp:43</div></div>
+<div class="ttc" id="classCard_html_af0a0d8d7c477b09c5adecdd57db84c0c"><div class="ttname"><a href="classCard.html#af0a0d8d7c477b09c5adecdd57db84c0c">Card::applyEffect</a></div><div class="ttdeci">virtual void applyEffect(CardMonster &amp;cardmonster)</div><div class="ttdef"><b>Definition:</b> Card.cpp:31</div></div>
+<div class="ttc" id="classCard_html_a56f0050aa1cbc799b4481431163f5a90"><div class="ttname"><a href="classCard.html#a56f0050aa1cbc799b4481431163f5a90">Card::getEnergyCost</a></div><div class="ttdeci">std::size_t getEnergyCost()</div><div class="ttdef"><b>Definition:</b> Card.hpp:41</div></div>
+<div class="ttc" id="classCard_html_ae68d1105abd6827736e759add5c1651f"><div class="ttname"><a href="classCard.html#ae68d1105abd6827736e759add5c1651f">Card::isTaunt</a></div><div class="ttdeci">virtual bool isTaunt()</div><div class="ttdef"><b>Definition:</b> Card.hpp:45</div></div>
+<div class="ttc" id="classCard_html_a6eec742565ded028a7f2737c53ae4507"><div class="ttname"><a href="classCard.html#a6eec742565ded028a7f2737c53ae4507">Card::getId</a></div><div class="ttdeci">std::size_t getId()</div><div class="ttdef"><b>Definition:</b> Card.hpp:39</div></div>
+<div class="ttc" id="classCard_html_a75c94d383b9710efb023de601b7103c5"><div class="ttname"><a href="classCard.html#a75c94d383b9710efb023de601b7103c5">Card::isMonster</a></div><div class="ttdeci">virtual bool isMonster()</div><div class="ttdef"><b>Definition:</b> Card.hpp:44</div></div>
+<div class="ttc" id="classCard_html_a6f6c3220c269eef98fe84ffbcffd9371"><div class="ttname"><a href="classCard.html#a6f6c3220c269eef98fe84ffbcffd9371">Card::getEffectID</a></div><div class="ttdeci">int getEffectID()</div><div class="ttdef"><b>Definition:</b> Card.hpp:43</div></div>
+<div class="ttc" id="classCard_html_a5a1f6635176ec49f837327b1f849e979"><div class="ttname"><a href="classCard.html#a5a1f6635176ec49f837327b1f849e979">Card::Card</a></div><div class="ttdeci">Card(std::size_t id, std::string name, std::size_t energy, int effect, bool)</div><div class="ttdef"><b>Definition:</b> Card.cpp:12</div></div>
+<div class="ttc" id="classCard_html_ad060fe107bfaf4741c671615885b314a"><div class="ttname"><a href="classCard.html#ad060fe107bfaf4741c671615885b314a">Card::getName</a></div><div class="ttdeci">std::string getName()</div><div class="ttdef"><b>Definition:</b> Card.hpp:40</div></div>
+<div class="ttc" id="classCardMonster_html"><div class="ttname"><a href="classCardMonster.html">CardMonster</a></div><div class="ttdef"><b>Definition:</b> CardMonster.hpp:7</div></div>
+<div class="ttc" id="classPlayerInGame_html"><div class="ttname"><a href="classPlayerInGame.html">PlayerInGame</a></div><div class="ttdef"><b>Definition:</b> PlayerInGame.hpp:33</div></div>
+<div class="ttc" id="classCard_html_abf30649dca6b7398b7500e41fd6767e0"><div class="ttname"><a href="classCard.html#abf30649dca6b7398b7500e41fd6767e0">Card::~Card</a></div><div class="ttdeci">virtual ~Card()=0</div><div class="ttdef"><b>Definition:</b> Card.cpp:52</div></div>
+<div class="ttc" id="classCard_html"><div class="ttname"><a href="classCard.html">Card</a></div><div class="ttdef"><b>Definition:</b> Card.hpp:18</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

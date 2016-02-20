@@ -1,14 +1,14 @@
 var searchData=
 [
-  ['tchat_5fconv_5freq_5fid',['TCHAT_CONV_REQ_ID',['../classPacket.html#ae91c1d355e4c8f0bef5f893747473661aea1cc863253ebe274fefcedada1bb62b',1,'Packet']]],
-  ['tchat_5fend_5fconv_5fid',['TCHAT_END_CONV_ID',['../classPacket.html#ae91c1d355e4c8f0bef5f893747473661ac0e468e4743cc6b8642f5207ef4cb59a',1,'Packet']]],
-  ['tchat_5fend_5freq_5fid',['TCHAT_END_REQ_ID',['../classPacket.html#ae91c1d355e4c8f0bef5f893747473661a81b67eb89eaf62145743464b6df6ad5c',1,'Packet']]],
-  ['tchat_5fheigth',['TCHAT_HEIGTH',['../CLI_8hpp.html#a660ed6f3a09f7f39be7913f8496191ce',1,'CLI.hpp']]],
-  ['tchat_5finput_5fheigth',['TCHAT_INPUT_HEIGTH',['../CLI_8hpp.html#aff8fff0c2f56d7c64318738a596e0387',1,'CLI.hpp']]],
-  ['tchat_5finput_5fwidth',['TCHAT_INPUT_WIDTH',['../CLI_8hpp.html#ab8b1f21cb0908481707de677bf3bb596',1,'CLI.hpp']]],
-  ['tchat_5fmessage_5fid',['TCHAT_MESSAGE_ID',['../classPacket.html#ae91c1d355e4c8f0bef5f893747473661adb5bc9e3b5eb4003e95130132c1162a0',1,'Packet']]],
-  ['tchat_5fnew_5fconv_5fid',['TCHAT_NEW_CONV_ID',['../classPacket.html#ae91c1d355e4c8f0bef5f893747473661ab503c0a36e7fd992a13db8a4934586ef',1,'Packet']]],
-  ['tchat_5fwidth',['TCHAT_WIDTH',['../CLI_8hpp.html#a63d094e74ed0640235cbfc26479e3706',1,'CLI.hpp']]],
-  ['timeout_5ferror',['TIMEOUT_ERROR',['../LoginPanel_8hpp.html#aefc48d416c882f06edaf6d01779d4d74',1,'LoginPanel.hpp']]],
-  ['turn',['turn',['../structdataIGPlayer.html#a42cbe10f46e1e6bbd514e624cf6e1526',1,'dataIGPlayer']]]
+  ['senddisconnection',['sendDisconnection',['../namespaceCommService.html#ab3752d7f2a9988e86fdbdf1fef3caa47',1,'CommService']]],
+  ['sendmessage',['sendMessage',['../classChatManager.html#a0e6244940d990c4e0366d7097d41a26d',1,'ChatManager']]],
+  ['sendpacket',['sendPacket',['../classConnection.html#acf311ea2f3df77851711daf40a07fc17',1,'Connection']]],
+  ['server_5flogfile',['SERVER_LOGFILE',['../WizardLogger_8hpp.html#a03121550cedeb6f0b1ec7edf4fcadfb7',1,'WizardLogger.hpp']]],
+  ['setattack',['setAttack',['../classCardMonster.html#a358474586372d6b2b83301cceae34347',1,'CardMonster']]],
+  ['setdeck',['setDeck',['../classPlayerInGame.html#a399370210526407c4234d19815a5fa44',1,'PlayerInGame']]],
+  ['setlife',['setLife',['../classCardMonster.html#aa70aa05b038da703524b82df5608734b',1,'CardMonster']]],
+  ['setmaxlife',['setMaxLife',['../classCardMonster.html#a9860956677866c7adbcda61c9951dd35',1,'CardMonster']]],
+  ['signin',['signIn',['../classPlayerManager.html#a53fb9718498329bc76b0f8dd199a888e',1,'PlayerManager']]],
+  ['signup',['signUp',['../classPlayerManager.html#a6442da86b2908a726fc9a4fcad8a35d6',1,'PlayerManager']]],
+  ['size',['size',['../structPacket_1_1packet.html#a4acd14895382f87f51cb4c0465de0397',1,'Packet::packet::size()'],['../structPacket_1_1loginRequestPacket.html#ae39055594bd945531dae9e02448dc084',1,'Packet::loginRequestPacket::size()'],['../structPacket_1_1loginResultPacket.html#a270afae616b7a7399c2d4c483fcffec6',1,'Packet::loginResultPacket::size()'],['../structPacket_1_1collectionListPacket.html#a7e5da725f1892d00962cd8526e4959d7',1,'Packet::collectionListPacket::size()'],['../structPacket_1_1deckRequestPacket.html#a21f7ca382cdcd158f55feddfde07149f',1,'Packet::deckRequestPacket::size()'],['../structPacket_1_1deckContentPacket.html#a35c756dcec8f7d81db66f2d188451f38',1,'Packet::deckContentPacket::size()'],['../structPacket_1_1carteRequestPacket.html#a9ceed268bd66ee87f7f7ce9735f7cac5',1,'Packet::carteRequestPacket::size()'],['../structPacket_1_1carteInfosPacket.html#a5b1c8a614c8dcfa1d01d59210bab4d85',1,'Packet::carteInfosPacket::size()']]]
 ];

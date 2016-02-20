@@ -76,6 +76,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
       <li><a href="functions_vars.html"><span>Variables</span></a></li>
       <li><a href="functions_enum.html"><span>Énumérations</span></a></li>
       <li><a href="functions_eval.html"><span>Valeurs&#160;énumérées</span></a></li>
+      <li><a href="functions_rela.html"><span>Fonctions&#160;associées</span></a></li>
     </ul>
   </div>
   <div id="navrow4" class="tabs3">
@@ -126,10 +127,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 : <a class="el" href="classGame.html#ab308d4f03590d8b2b6796f6eaa8a33b3">Game</a>
 </li>
 <li>apply()
-: <a class="el" href="classEffect.html#a9ba9e7f094e4ca074f12ed246923671f">Effect</a>
+: <a class="el" href="classEffect.html#af75b9e3f53aba579f37cd2a0e30a0296">Effect</a>
 </li>
 <li>applyEffect()
-: <a class="el" href="classCard.html#a85e099caac46055618988d81a5001708">Card</a>
+: <a class="el" href="classCard.html#af0a0d8d7c477b09c5adecdd57db84c0c">Card</a>
 </li>
 <li>askLogin()
 : <a class="el" href="classLoginPanel.html#ac5b0c7fb0d44b55afa9b193d873cc7b4">LoginPanel</a>
@@ -151,7 +152,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 : <a class="el" href="classCard.html#a88211ebea56b896a7f43b8aa600cb74e">Card</a>
 </li>
 <li>CardMonster()
-: <a class="el" href="classCardMonster.html#acb8d195232b735700c2068b001d5278d">CardMonster</a>
+: <a class="el" href="classCardMonster.html#a0a48a188d85c6e95a109638be09ddbca">CardMonster</a>
 </li>
 <li>checkDeckAndStart()
 : <a class="el" href="classGame.html#a41a8233a0473e2e3687d0380c9b2bccb">Game</a>
@@ -171,6 +172,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </li>
 <li>Deck()
 : <a class="el" href="classDeck.html#a11233381fd5ea0b0b4e6288048f146fa">Deck</a>
+</li>
+<li>defausseCardPlaced()
+: <a class="el" href="classPlayerInGame.html#a86bc2f58c47405e97079425757cb3f62">PlayerInGame</a>
 </li>
 <li>Display()
 : <a class="el" href="classDisplay.html#a46094310ba411f6fea561f799c4d0754">Display</a>
@@ -209,9 +213,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <li>getDataPlayer()
 : <a class="el" href="classPlayerInGame.html#addeeee2e42cf2009fc21511624414146">PlayerInGame</a>
 </li>
-<li>getDefeats()
-: <a class="el" href="classPlayer.html#ab8a8f531e71dbf5bd5366cdd309bbbda">Player</a>
-</li>
 <li>getEffectByID()
 : <a class="el" href="classEffect.html#a146cdf511868872b7e1879c07c6eb367">Effect</a>
 </li>
@@ -242,12 +243,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <li>getNbrTourPose()
 : <a class="el" href="classCardMonster.html#a8f3fd5d1e30a520aaa0c282bd84aa5d5">CardMonster</a>
 </li>
-<li>getUsername()
-: <a class="el" href="classPlayer.html#aa03cfa2695b0b22dbfd2820484575113">Player</a>
-</li>
-<li>getVictories()
-: <a class="el" href="classPlayer.html#a25141f641ef132c8c3cb37060841ca4d">Player</a>
-</li>
 <li>gotEffect()
 : <a class="el" href="classCard.html#a9932401135454db169e1e4d678103917">Card</a>
 </li>
@@ -265,14 +260,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <li>incrementTour()
 : <a class="el" href="classCardMonster.html#a2d55cf30d111437486e2b1bacefcbf79">CardMonster</a>
 </li>
+<li>isDeath()
+: <a class="el" href="classCardMonster.html#a53aedfc1c1b823c775f3437685428d70">CardMonster</a>
+</li>
 <li>isDeckDefined()
 : <a class="el" href="classPlayerInGame.html#af4d06834c260aebb66c113f397ba3c86">PlayerInGame</a>
 </li>
-<li>isReady()
-: <a class="el" href="classConnection.html#a216b69187dbc0067c08b4d455e35d029">Connection</a>
+<li>isMonster()
+: <a class="el" href="classCard.html#a75c94d383b9710efb023de601b7103c5">Card</a>
+, <a class="el" href="classCardMonster.html#add70449c1bc34baee852fe07cc7d39cc">CardMonster</a>
 </li>
 <li>isTaunt()
-: <a class="el" href="classEffect.html#adb7655cc87e0602f6f608103ff388a6f">Effect</a>
+: <a class="el" href="classCard.html#ae68d1105abd6827736e759add5c1651f">Card</a>
+, <a class="el" href="classEffect.html#adb7655cc87e0602f6f608103ff388a6f">Effect</a>
 </li>
 <li>isValide()
 : <a class="el" href="classDeck.html#a66cfb2d1adfb6b0b94ed25c8f5ca29f9">Deck</a>
@@ -323,13 +323,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 : <a class="el" href="classDeck.html#af6338f8f48dadecb079446b698468735">Deck</a>
 </li>
 <li>placeCard()
-: <a class="el" href="classGame.html#afd94cc603b38bcb8e7f195581d014044">Game</a>
+: <a class="el" href="classGame.html#a407f859fd79905d6b868de21748123fb">Game</a>
+, <a class="el" href="classPlayerInGame.html#a5588d4c494560f20b2d58953cf8ebc1c">PlayerInGame</a>
 </li>
 <li>Player()
 : <a class="el" href="classPlayer.html#affe0cc3cb714f6deb4e62f0c0d3f1fd8">Player</a>
 </li>
 <li>PlayerInGame()
 : <a class="el" href="classPlayerInGame.html#a64e5c60c2e6106c9dda8c7d79fc36d8b">PlayerInGame</a>
+</li>
+<li>PlayerManager()
+: <a class="el" href="classPlayerManager.html#ae093e4e4e7eecdf5b46de72f5827d71d">PlayerManager</a>
 </li>
 <li>print()
 : <a class="el" href="classMainMenu.html#a3b1c39183c2242fa560b551ae0e0fb68">MainMenu</a>
@@ -366,6 +370,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <li>setMaxLife()
 : <a class="el" href="classCardMonster.html#a9860956677866c7adbcda61c9951dd35">CardMonster</a>
 </li>
+<li>signIn()
+: <a class="el" href="classPlayerManager.html#a53fb9718498329bc76b0f8dd199a888e">PlayerManager</a>
+</li>
+<li>signUp()
+: <a class="el" href="classPlayerManager.html#a6442da86b2908a726fc9a4fcad8a35d6">PlayerManager</a>
+</li>
 </ul>
 
 
@@ -396,6 +406,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </li>
 <li>~PlayerInGame()
 : <a class="el" href="classPlayerInGame.html#a75256787f26b0d264a929e61889caba1">PlayerInGame</a>
+</li>
+<li>~PlayerManager()
+: <a class="el" href="classPlayerManager.html#a0a1fc2128678093760c68e83e3896a2e">PlayerManager</a>
 </li>
 </ul>
 </div><!-- contents -->

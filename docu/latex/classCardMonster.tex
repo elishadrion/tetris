@@ -15,11 +15,11 @@ Graphe d\textquotesingle{}héritage de Card\+Monster\+:\begin{figure}[H]
 \item 
 virtual void \hyperlink{classCardMonster_aaf28396b394a9400d257eddfa09e4567}{deal\+Damage} (\hyperlink{classCardMonster}{Card\+Monster} \&other\+Monster)
 \item 
-virtual void \hyperlink{classCardMonster_aef45590287342f0a5d484c1228bae76d}{deal\+Damage} (\hyperlink{classPlayer}{Player} \&player)
+virtual void \hyperlink{classCardMonster_a829d68246c3af5f136cdf2cbc11284b0}{deal\+Damage} (\hyperlink{classPlayerInGame}{Player\+In\+Game} \&player)
 \item 
 virtual void \hyperlink{classCardMonster_a2d55cf30d111437486e2b1bacefcbf79}{increment\+Tour} ()
 \item 
-\hyperlink{classCardMonster_acb8d195232b735700c2068b001d5278d}{Card\+Monster} (std\+::size\+\_\+t id, std\+::string name, std\+::size\+\_\+t energy, bool, std\+::size\+\_\+t life, std\+::size\+\_\+t attack, std\+::size\+\_\+t nbr\+Tour=0)
+\hyperlink{classCardMonster_a0a48a188d85c6e95a109638be09ddbca}{Card\+Monster} (std\+::size\+\_\+t id, std\+::string name, std\+::size\+\_\+t energy, int effect, bool, std\+::size\+\_\+t life, std\+::size\+\_\+t attack, std\+::size\+\_\+t nbr\+Tour=0)
 \item 
 \hyperlink{classCardMonster_a5f577cbecdf0d1c6a6ccbc848793ddef}{Card\+Monster} (\hyperlink{classCardMonster}{Card\+Monster} \&other\+Monster)
 \item 
@@ -31,28 +31,33 @@ std\+::size\+\_\+t \hyperlink{classCardMonster_a0e963cc2c613826e28891f00a9787e58
 \item 
 std\+::size\+\_\+t \hyperlink{classCardMonster_a8f3fd5d1e30a520aaa0c282bd84aa5d5}{get\+Nbr\+Tour\+Pose} ()
 \item 
+virtual bool \hyperlink{classCardMonster_add70449c1bc34baee852fe07cc7d39cc}{is\+Monster} () override
+\item 
 void \hyperlink{classCardMonster_aa70aa05b038da703524b82df5608734b}{set\+Life} (std\+::size\+\_\+t new\+Life)
 \item 
 void \hyperlink{classCardMonster_a358474586372d6b2b83301cceae34347}{set\+Attack} (std\+::size\+\_\+t new\+Attack)
 \item 
 void \hyperlink{classCardMonster_a9860956677866c7adbcda61c9951dd35}{set\+Max\+Life} (std\+::size\+\_\+t new\+Max)
+\item 
+bool \hyperlink{classCardMonster_a53aedfc1c1b823c775f3437685428d70}{is\+Death} ()
 \end{DoxyCompactItemize}
 
 
 \subsection{Documentation des constructeurs et destructeur}
-\hypertarget{classCardMonster_acb8d195232b735700c2068b001d5278d}{}\index{Card\+Monster@{Card\+Monster}!Card\+Monster@{Card\+Monster}}
+\hypertarget{classCardMonster_a0a48a188d85c6e95a109638be09ddbca}{}\index{Card\+Monster@{Card\+Monster}!Card\+Monster@{Card\+Monster}}
 \index{Card\+Monster@{Card\+Monster}!Card\+Monster@{Card\+Monster}}
-\subsubsection[{Card\+Monster(std\+::size\+\_\+t id, std\+::string name, std\+::size\+\_\+t energy, bool, std\+::size\+\_\+t life, std\+::size\+\_\+t attack, std\+::size\+\_\+t nbr\+Tour=0)}]{\setlength{\rightskip}{0pt plus 5cm}Card\+Monster\+::\+Card\+Monster (
+\subsubsection[{Card\+Monster(std\+::size\+\_\+t id, std\+::string name, std\+::size\+\_\+t energy, int effect, bool, std\+::size\+\_\+t life, std\+::size\+\_\+t attack, std\+::size\+\_\+t nbr\+Tour=0)}]{\setlength{\rightskip}{0pt plus 5cm}Card\+Monster\+::\+Card\+Monster (
 \begin{DoxyParamCaption}
 \item[{std\+::size\+\_\+t}]{id, }
 \item[{std\+::string}]{name, }
 \item[{std\+::size\+\_\+t}]{energy, }
+\item[{int}]{effect, }
 \item[{bool}]{a\+Bool, }
 \item[{std\+::size\+\_\+t}]{life, }
 \item[{std\+::size\+\_\+t}]{attack, }
 \item[{std\+::size\+\_\+t}]{nbr\+Tour = {\ttfamily 0}}
 \end{DoxyParamCaption}
-)}\label{classCardMonster_acb8d195232b735700c2068b001d5278d}
+)}\label{classCardMonster_a0a48a188d85c6e95a109638be09ddbca}
 \hypertarget{classCardMonster_a5f577cbecdf0d1c6a6ccbc848793ddef}{}\index{Card\+Monster@{Card\+Monster}!Card\+Monster@{Card\+Monster}}
 \index{Card\+Monster@{Card\+Monster}!Card\+Monster@{Card\+Monster}}
 \subsubsection[{Card\+Monster(\+Card\+Monster \&other\+Monster)}]{\setlength{\rightskip}{0pt plus 5cm}Card\+Monster\+::\+Card\+Monster (
@@ -70,13 +75,13 @@ void \hyperlink{classCardMonster_a9860956677866c7adbcda61c9951dd35}{set\+Max\+Li
 \item[{{\bf Card\+Monster} \&}]{other\+Monster}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [virtual]}}\label{classCardMonster_aaf28396b394a9400d257eddfa09e4567}
-\hypertarget{classCardMonster_aef45590287342f0a5d484c1228bae76d}{}\index{Card\+Monster@{Card\+Monster}!deal\+Damage@{deal\+Damage}}
+\hypertarget{classCardMonster_a829d68246c3af5f136cdf2cbc11284b0}{}\index{Card\+Monster@{Card\+Monster}!deal\+Damage@{deal\+Damage}}
 \index{deal\+Damage@{deal\+Damage}!Card\+Monster@{Card\+Monster}}
-\subsubsection[{deal\+Damage(\+Player \&player)}]{\setlength{\rightskip}{0pt plus 5cm}void Card\+Monster\+::deal\+Damage (
+\subsubsection[{deal\+Damage(\+Player\+In\+Game \&player)}]{\setlength{\rightskip}{0pt plus 5cm}void Card\+Monster\+::deal\+Damage (
 \begin{DoxyParamCaption}
-\item[{{\bf Player} \&}]{player}
+\item[{{\bf Player\+In\+Game} \&}]{player}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classCardMonster_aef45590287342f0a5d484c1228bae76d}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classCardMonster_a829d68246c3af5f136cdf2cbc11284b0}
 \hypertarget{classCardMonster_a38fd3549de7e606f73e836ba98ed4f24}{}\index{Card\+Monster@{Card\+Monster}!get\+Attack@{get\+Attack}}
 \index{get\+Attack@{get\+Attack}!Card\+Monster@{Card\+Monster}}
 \subsubsection[{get\+Attack()}]{\setlength{\rightskip}{0pt plus 5cm}std\+::size\+\_\+t Card\+Monster\+::get\+Attack (
@@ -112,6 +117,24 @@ void \hyperlink{classCardMonster_a9860956677866c7adbcda61c9951dd35}{set\+Max\+Li
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [virtual]}}\label{classCardMonster_a2d55cf30d111437486e2b1bacefcbf79}
+\hypertarget{classCardMonster_a53aedfc1c1b823c775f3437685428d70}{}\index{Card\+Monster@{Card\+Monster}!is\+Death@{is\+Death}}
+\index{is\+Death@{is\+Death}!Card\+Monster@{Card\+Monster}}
+\subsubsection[{is\+Death()}]{\setlength{\rightskip}{0pt plus 5cm}bool Card\+Monster\+::is\+Death (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classCardMonster_a53aedfc1c1b823c775f3437685428d70}
+\hypertarget{classCardMonster_add70449c1bc34baee852fe07cc7d39cc}{}\index{Card\+Monster@{Card\+Monster}!is\+Monster@{is\+Monster}}
+\index{is\+Monster@{is\+Monster}!Card\+Monster@{Card\+Monster}}
+\subsubsection[{is\+Monster() override}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Card\+Monster\+::is\+Monster (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\label{classCardMonster_add70449c1bc34baee852fe07cc7d39cc}
+
+
+Réimplémentée à partir de \hyperlink{classCard_a75c94d383b9710efb023de601b7103c5}{Card}.
+
 \hypertarget{classCardMonster_a358474586372d6b2b83301cceae34347}{}\index{Card\+Monster@{Card\+Monster}!set\+Attack@{set\+Attack}}
 \index{set\+Attack@{set\+Attack}!Card\+Monster@{Card\+Monster}}
 \subsubsection[{set\+Attack(std\+::size\+\_\+t new\+Attack)}]{\setlength{\rightskip}{0pt plus 5cm}void Card\+Monster\+::set\+Attack (

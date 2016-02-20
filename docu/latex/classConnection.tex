@@ -17,20 +17,9 @@ void \hyperlink{classConnection_acf311ea2f3df77851711daf40a07fc17}{send\+Packet}
 \item 
 \hyperlink{classConnection_a2e4352edf667bea83001569e9da8a24d}{$\sim$\+Connection} ()
 \item 
-bool \hyperlink{classConnection_a216b69187dbc0067c08b4d455e35d029}{is\+Ready} ()
-\item 
 void \hyperlink{classConnection_af5678fe6f97c6c7f1258cd0972652374}{main\+Loop} ()
 \end{DoxyCompactItemize}
 
-
-\subsection{Description détaillée}
-namespace \hyperlink{classConnection}{Connection} \{ extern fd\+\_\+set master; // master file descriptor list extern fd\+\_\+set read\+\_\+fds; // temp file descriptor list for select() extern int fdmax; // maximum file descriptor number
-
-Helpers int proper\+\_\+fd\+\_\+set(int, fd\+\_\+set$\ast$, int$\ast$); int proper\+\_\+fd\+\_\+clr(int, fd\+\_\+set$\ast$, int$\ast$); void$\ast$ get\+\_\+in\+\_\+addr(struct sockaddr\+\_\+storage $\ast$);
-
-\hyperlink{classConnection}{Connection} functions struct addrinfo$\ast$ get\+\_\+machine\+\_\+info(void); int prepare\+\_\+socket(struct addrinfo$\ast$); int accept\+\_\+connection(int, struct sockaddr\+\_\+storage\&);
-
-Main void mainloop(); \} 
 
 \subsection{Documentation des constructeurs et destructeur}
 \hypertarget{classConnection_ab7b5c72eb0e2f7ce6f0e1f2c20b7389d}{}\index{Connection@{Connection}!Connection@{Connection}}
@@ -64,13 +53,6 @@ Main void mainloop(); \}
 
 
 \subsection{Documentation des fonctions membres}
-\hypertarget{classConnection_a216b69187dbc0067c08b4d455e35d029}{}\index{Connection@{Connection}!is\+Ready@{is\+Ready}}
-\index{is\+Ready@{is\+Ready}!Connection@{Connection}}
-\subsubsection[{is\+Ready()}]{\setlength{\rightskip}{0pt plus 5cm}bool Connection\+::is\+Ready (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\label{classConnection_a216b69187dbc0067c08b4d455e35d029}
 \hypertarget{classConnection_af5678fe6f97c6c7f1258cd0972652374}{}\index{Connection@{Connection}!main\+Loop@{main\+Loop}}
 \index{main\+Loop@{main\+Loop}!Connection@{Connection}}
 \subsubsection[{main\+Loop()}]{\setlength{\rightskip}{0pt plus 5cm}void Connection\+::main\+Loop (

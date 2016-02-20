@@ -96,22 +96,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Card_8hpp.html">common/Card.hpp</a>&quot;</span> <span class="comment">//TODO tmp patch</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="classCardManager.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCardManager.html">CardManager</a>{</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keyword">static</span> std::map&lt;std::size_t, Card*&gt; listCard; <span class="comment">// List of cards (with id and card)</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">static</span> <a class="code" href="classCard.html">Card</a>* <a class="code" href="classCardManager.html#a075716c971c02d023a54522f846d9e0a">getCardById</a>(std::size_t <span class="keywordtype">id</span>); <span class="comment">// Get a specific card (identified by ID)</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classCardManager.html#ad51c06332d328195fe84aff9aa526272">loadAllCards</a>();</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;};</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;include/json.hpp&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="CardManager_8hpp.html#ab701e3ac61a85b337ec5c1abaad6742d">    8</a></span>&#160;<span class="keyword">using</span> <a class="code" href="CardManager_8hpp.html#ab701e3ac61a85b337ec5c1abaad6742d">json</a> = <a class="code" href="CardManager_8hpp.html#ab701e3ac61a85b337ec5c1abaad6742d">nlohmann::json</a>;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classCardManager.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCardManager.html">CardManager</a>{</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">static</span> std::map&lt;std::size_t, Card*&gt; listCard; <span class="comment">// List of cards (with id and card)</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">static</span> <a class="code" href="classCard.html">Card</a>* <a class="code" href="classCardManager.html#a075716c971c02d023a54522f846d9e0a">getCardById</a>(std::size_t <span class="keywordtype">id</span>); <span class="comment">// Get a specific card (identified by ID)</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classCardManager.html#ad51c06332d328195fe84aff9aa526272">loadAllCards</a>();</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;};</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="classCardManager_html_a075716c971c02d023a54522f846d9e0a"><div class="ttname"><a href="classCardManager.html#a075716c971c02d023a54522f846d9e0a">CardManager::getCardById</a></div><div class="ttdeci">static Card * getCardById(std::size_t id)</div></div>
-<div class="ttc" id="classCardManager_html"><div class="ttname"><a href="classCardManager.html">CardManager</a></div><div class="ttdef"><b>Definition:</b> CardManager.hpp:7</div></div>
+<div class="ttc" id="classCardManager_html"><div class="ttname"><a href="classCardManager.html">CardManager</a></div><div class="ttdef"><b>Definition:</b> CardManager.hpp:10</div></div>
+<div class="ttc" id="CardManager_8hpp_html_ab701e3ac61a85b337ec5c1abaad6742d"><div class="ttname"><a href="CardManager_8hpp.html#ab701e3ac61a85b337ec5c1abaad6742d">json</a></div><div class="ttdeci">nlohmann::json json</div><div class="ttdef"><b>Definition:</b> CardManager.hpp:8</div></div>
 <div class="ttc" id="classCardManager_html_ad51c06332d328195fe84aff9aa526272"><div class="ttname"><a href="classCardManager.html#ad51c06332d328195fe84aff9aa526272">CardManager::loadAllCards</a></div><div class="ttdeci">static void loadAllCards()</div><div class="ttdef"><b>Definition:</b> CardManager.cpp:17</div></div>
-<div class="ttc" id="classCard_html"><div class="ttname"><a href="classCard.html">Card</a></div><div class="ttdef"><b>Definition:</b> Card.hpp:13</div></div>
+<div class="ttc" id="classCard_html"><div class="ttname"><a href="classCard.html">Card</a></div><div class="ttdef"><b>Definition:</b> Card.hpp:18</div></div>
 <div class="ttc" id="Card_8hpp_html"><div class="ttname"><a href="Card_8hpp.html">Card.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

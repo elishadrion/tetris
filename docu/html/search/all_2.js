@@ -2,7 +2,7 @@ var searchData=
 [
   ['canbeapplyonpcard',['canBeApplyOnPCard',['../classEffect.html#a81611bfcbbd800ac40b3c38146fb7277',1,'Effect']]],
   ['canbeapplyonplayer',['canBeApplyOnPlayer',['../classEffect.html#a23e7eba966b28f051ec12865f53cd092',1,'Effect']]],
-  ['card',['Card',['../classCard.html',1,'Card'],['../classCard.html#adacf4b8bbaa2a417e458b70c99019a39',1,'Card::Card(std::size_t id, std::string name, std::size_t energy, bool)'],['../classCard.html#a88211ebea56b896a7f43b8aa600cb74e',1,'Card::Card(Card &amp;card)']]],
+  ['card',['Card',['../classCard.html',1,'Card'],['../classCard.html#a5a1f6635176ec49f837327b1f849e979',1,'Card::Card(std::size_t id, std::string name, std::size_t energy, int effect, bool)'],['../classCard.html#a88211ebea56b896a7f43b8aa600cb74e',1,'Card::Card(Card &amp;card)']]],
   ['card_2ecpp',['Card.cpp',['../Card_8cpp.html',1,'']]],
   ['card_2ehpp',['Card.hpp',['../Card_8hpp.html',1,'']]],
   ['card_5fheigth',['CARD_HEIGTH',['../CLI_8hpp.html#ac9ff64cd26da3bb271e42ce913aebe82',1,'CLI.hpp']]],
@@ -12,7 +12,7 @@ var searchData=
   ['cardmanager',['CardManager',['../classCardManager.html',1,'']]],
   ['cardmanager_2ecpp',['CardManager.cpp',['../CardManager_8cpp.html',1,'']]],
   ['cardmanager_2ehpp',['CardManager.hpp',['../CardManager_8hpp.html',1,'']]],
-  ['cardmonster',['CardMonster',['../classCardMonster.html',1,'CardMonster'],['../classCardMonster.html#acb8d195232b735700c2068b001d5278d',1,'CardMonster::CardMonster(std::size_t id, std::string name, std::size_t energy, bool, std::size_t life, std::size_t attack, std::size_t nbrTour=0)'],['../classCardMonster.html#a5f577cbecdf0d1c6a6ccbc848793ddef',1,'CardMonster::CardMonster(CardMonster &amp;otherMonster)']]],
+  ['cardmonster',['CardMonster',['../classCardMonster.html',1,'CardMonster'],['../classCardMonster.html#a0a48a188d85c6e95a109638be09ddbca',1,'CardMonster::CardMonster(std::size_t id, std::string name, std::size_t energy, int effect, bool, std::size_t life, std::size_t attack, std::size_t nbrTour=0)'],['../classCardMonster.html#a5f577cbecdf0d1c6a6ccbc848793ddef',1,'CardMonster::CardMonster(CardMonster &amp;otherMonster)']]],
   ['cardmonster_2ecpp',['CardMonster.cpp',['../CardMonster_8cpp.html',1,'']]],
   ['cardmonster_2ehpp',['CardMonster.hpp',['../CardMonster_8hpp.html',1,'']]],
   ['cardsinhand',['cardsInHand',['../structdataIGPlayer.html#a7b7ae3550424bffaff4cba98fdd2e39b',1,'dataIGPlayer']]],

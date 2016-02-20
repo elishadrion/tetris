@@ -15,11 +15,7 @@ Graphe d\textquotesingle{}héritage de Player\+:\begin{figure}[H]
 \item 
 \hyperlink{classPlayer_affe0cc3cb714f6deb4e62f0c0d3f1fd8}{Player} ()
 \item 
-std\+::string \hyperlink{classPlayer_aa03cfa2695b0b22dbfd2820484575113}{get\+Username} () const 
-\item 
-int \hyperlink{classPlayer_a25141f641ef132c8c3cb37060841ca4d}{get\+Victories} () const 
-\item 
-int \hyperlink{classPlayer_ab8a8f531e71dbf5bd5366cdd309bbbda}{get\+Defeats} () const 
+\hyperlink{classPlayer_acc846c5b50dc8298462ae770d3d9622c}{Player} (\hyperlink{CardManager_8hpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann\+::json} info)
 \item 
 virtual \hyperlink{classPlayer_a11017c0ed8a639f3b1308ab167fbeca2}{$\sim$\+Player} ()=default
 \end{DoxyCompactItemize}
@@ -27,6 +23,11 @@ virtual \hyperlink{classPlayer_a11017c0ed8a639f3b1308ab167fbeca2}{$\sim$\+Player
 \begin{DoxyCompactItemize}
 \item 
 std\+::vector$<$ \hyperlink{classDeck}{Deck} $\ast$ $>$ \hyperlink{classPlayer_ad3e0232a0013556f3dc6a7cf3219c5e3}{get\+List\+Deck} ()
+\end{DoxyCompactItemize}
+\subsection*{Amis}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \hyperlink{classPlayer_a09ccce2cf3a3aaa6af4721b94eb301d9}{operator$<$$<$} (std\+::ostream \&, const \hyperlink{classPlayer}{Player} \&)
 \end{DoxyCompactItemize}
 
 
@@ -41,6 +42,13 @@ One class per player. This object stocks the socket to communicate with player W
 {}
 \end{DoxyParamCaption}
 )}\label{classPlayer_affe0cc3cb714f6deb4e62f0c0d3f1fd8}
+\hypertarget{classPlayer_acc846c5b50dc8298462ae770d3d9622c}{}\index{Player@{Player}!Player@{Player}}
+\index{Player@{Player}!Player@{Player}}
+\subsubsection[{Player(nlohmann\+::json info)}]{\setlength{\rightskip}{0pt plus 5cm}Player\+::\+Player (
+\begin{DoxyParamCaption}
+\item[{{\bf nlohmann\+::json}}]{info}
+\end{DoxyParamCaption}
+)}\label{classPlayer_acc846c5b50dc8298462ae770d3d9622c}
 \hypertarget{classPlayer_a11017c0ed8a639f3b1308ab167fbeca2}{}\index{Player@{Player}!````~Player@{$\sim$\+Player}}
 \index{````~Player@{$\sim$\+Player}!Player@{Player}}
 \subsubsection[{$\sim$\+Player()=default}]{\setlength{\rightskip}{0pt plus 5cm}virtual Player\+::$\sim$\+Player (
@@ -51,13 +59,6 @@ One class per player. This object stocks the socket to communicate with player W
 
 
 \subsection{Documentation des fonctions membres}
-\hypertarget{classPlayer_ab8a8f531e71dbf5bd5366cdd309bbbda}{}\index{Player@{Player}!get\+Defeats@{get\+Defeats}}
-\index{get\+Defeats@{get\+Defeats}!Player@{Player}}
-\subsubsection[{get\+Defeats() const }]{\setlength{\rightskip}{0pt plus 5cm}int Player\+::get\+Defeats (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const}\label{classPlayer_ab8a8f531e71dbf5bd5366cdd309bbbda}
 \hypertarget{classPlayer_ad3e0232a0013556f3dc6a7cf3219c5e3}{}\index{Player@{Player}!get\+List\+Deck@{get\+List\+Deck}}
 \index{get\+List\+Deck@{get\+List\+Deck}!Player@{Player}}
 \subsubsection[{get\+List\+Deck()}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<${\bf Deck}$\ast$$>$ Player\+::get\+List\+Deck (
@@ -65,20 +66,17 @@ One class per player. This object stocks the socket to communicate with player W
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\label{classPlayer_ad3e0232a0013556f3dc6a7cf3219c5e3}
-\hypertarget{classPlayer_aa03cfa2695b0b22dbfd2820484575113}{}\index{Player@{Player}!get\+Username@{get\+Username}}
-\index{get\+Username@{get\+Username}!Player@{Player}}
-\subsubsection[{get\+Username() const }]{\setlength{\rightskip}{0pt plus 5cm}string Player\+::get\+Username (
+
+
+\subsection{Documentation des fonctions amies et associées}
+\hypertarget{classPlayer_a09ccce2cf3a3aaa6af4721b94eb301d9}{}\index{Player@{Player}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Player@{Player}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std\+::ostream\& operator$<$$<$ (
 \begin{DoxyParamCaption}
-{}
+\item[{std\+::ostream \&}]{os, }
+\item[{const {\bf Player} \&}]{c}
 \end{DoxyParamCaption}
-) const}\label{classPlayer_aa03cfa2695b0b22dbfd2820484575113}
-\hypertarget{classPlayer_a25141f641ef132c8c3cb37060841ca4d}{}\index{Player@{Player}!get\+Victories@{get\+Victories}}
-\index{get\+Victories@{get\+Victories}!Player@{Player}}
-\subsubsection[{get\+Victories() const }]{\setlength{\rightskip}{0pt plus 5cm}int Player\+::get\+Victories (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const}\label{classPlayer_a25141f641ef132c8c3cb37060841ca4d}
+)\hspace{0.3cm}{\ttfamily [friend]}}\label{classPlayer_a09ccce2cf3a3aaa6af4721b94eb301d9}
 
 
 La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}

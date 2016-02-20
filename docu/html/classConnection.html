@@ -107,17 +107,10 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="separator:a9de94289ca6259f94ef6aeba3b134a77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e4352edf667bea83001569e9da8a24d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classConnection.html#a2e4352edf667bea83001569e9da8a24d">~Connection</a> ()</td></tr>
 <tr class="separator:a2e4352edf667bea83001569e9da8a24d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a216b69187dbc0067c08b4d455e35d029"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classConnection.html#a216b69187dbc0067c08b4d455e35d029">isReady</a> ()</td></tr>
-<tr class="separator:a216b69187dbc0067c08b4d455e35d029"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5678fe6f97c6c7f1258cd0972652374"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classConnection.html#af5678fe6f97c6c7f1258cd0972652374">mainLoop</a> ()</td></tr>
 <tr class="separator:af5678fe6f97c6c7f1258cd0972652374"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><p>namespace <a class="el" href="classConnection.html">Connection</a> { extern fd_set master; // master file descriptor list extern fd_set read_fds; // temp file descriptor list for select() extern int fdmax; // maximum file descriptor number</p>
-<p>Helpers int proper_fd_set(int, fd_set*, int*); int proper_fd_clr(int, fd_set*, int*); void* get_in_addr(struct sockaddr_storage *);</p>
-<p><a class="el" href="classConnection.html">Connection</a> functions struct addrinfo* get_machine_info(void); int prepare_socket(struct addrinfo*); int accept_connection(int, struct sockaddr_storage&amp;);</p>
-<p>Main void mainloop(); } </p>
-</div><h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
+<h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
 <a class="anchor" id="ab7b5c72eb0e2f7ce6f0e1f2c20b7389d"></a>
 <div class="memitem">
 <div class="memproto">
@@ -180,21 +173,6 @@ Fonctions membres publiques</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Documentation des fonctions membres</h2>
-<a class="anchor" id="a216b69187dbc0067c08b4d455e35d029"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Connection::isReady </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="af5678fe6f97c6c7f1258cd0972652374"></a>
 <div class="memitem">
 <div class="memproto">

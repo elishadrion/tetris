@@ -94,30 +94,76 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 Fonctions</h2></td></tr>
 <tr class="memitem:a75d4ea798dccc4d942d01a349e142228"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCommService.html#a75d4ea798dccc4d942d01a349e142228">managePacket</a> (<a class="el" href="structPacket_1_1packet.html">Packet::packet</a> *)</td></tr>
 <tr class="separator:a75d4ea798dccc4d942d01a349e142228"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f51fbde0f0b73acf05e2fd76a55b9eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCommService.html#a8f51fbde0f0b73acf05e2fd76a55b9eb">makeLoginRequest</a> (const string, const string)</td></tr>
-<tr class="separator:a8f51fbde0f0b73acf05e2fd76a55b9eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a681699e974f10c8789b9f313828f4d67"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCommService.html#a681699e974f10c8789b9f313828f4d67">makeLoginRequest</a> (const char *, const char *)</td></tr>
+<tr class="separator:a681699e974f10c8789b9f313828f4d67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19694e7c4e4aa507ad1adad9fa5a683a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCommService.html#a19694e7c4e4aa507ad1adad9fa5a683a">makeRegistrationRequest</a> (const char *, const char *)</td></tr>
+<tr class="separator:a19694e7c4e4aa507ad1adad9fa5a683a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3752d7f2a9988e86fdbdf1fef3caa47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCommService.html#ab3752d7f2a9988e86fdbdf1fef3caa47">sendDisconnection</a> ()</td></tr>
 <tr class="separator:ab3752d7f2a9988e86fdbdf1fef3caa47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26e0f6999a7cfbf4b27d83d456b4e2dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCommService.html#a26e0f6999a7cfbf4b27d83d456b4e2dd">loginResult</a> (const <a class="el" href="structPacket_1_1loginResultPacket.html">Packet::loginResultPacket</a> *)</td></tr>
+<tr class="separator:a26e0f6999a7cfbf4b27d83d456b4e2dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a247de3986a2c319e5eafd853c6703dd4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCommService.html#a247de3986a2c319e5eafd853c6703dd4">manageDisconnectRequest</a> (<a class="el" href="structPacket_1_1packet.html">Packet::packet</a> *)</td></tr>
 <tr class="separator:a247de3986a2c319e5eafd853c6703dd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99ab7b26f5af67c088acb5c6b2dff1c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCommService.html#a99ab7b26f5af67c088acb5c6b2dff1c5">manageLoginRequest</a> (<a class="el" href="structPacket_1_1loginRequestPacket.html">Packet::loginRequestPacket</a> *)</td></tr>
 <tr class="separator:a99ab7b26f5af67c088acb5c6b2dff1c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentation des fonctions</h2>
-<a class="anchor" id="a8f51fbde0f0b73acf05e2fd76a55b9eb"></a>
+<a class="anchor" id="a26e0f6999a7cfbf4b27d83d456b4e2dd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CommService::loginResult </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structPacket_1_1loginResultPacket.html">Packet::loginResultPacket</a> *&#160;</td>
+          <td class="paramname"><em>resultPacket</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a681699e974f10c8789b9f313828f4d67"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void CommService::makeLoginRequest </td>
           <td>(</td>
-          <td class="paramtype">const string&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>pseudo</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const string&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>password</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a19694e7c4e4aa507ad1adad9fa5a683a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CommService::makeRegistrationRequest </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>pseudo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>password</em>&#160;</td>
         </tr>
         <tr>

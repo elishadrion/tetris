@@ -110,10 +110,14 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="separator:a41a8233a0473e2e3687d0380c9b2bccb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d54497ce3a66f6dd45eacfdccc8d0bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a6d54497ce3a66f6dd45eacfdccc8d0bd">draw</a> ()</td></tr>
 <tr class="separator:a6d54497ce3a66f6dd45eacfdccc8d0bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd94cc603b38bcb8e7f195581d014044"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#afd94cc603b38bcb8e7f195581d014044">placeCard</a> (<a class="el" href="classPlayerInGame.html">PlayerInGame</a> *, <a class="el" href="classCard.html">Card</a> *, <a class="el" href="classCard.html">Card</a> *)</td></tr>
-<tr class="separator:afd94cc603b38bcb8e7f195581d014044"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a407f859fd79905d6b868de21748123fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a407f859fd79905d6b868de21748123fb">placeCard</a> (<a class="el" href="classPlayerInGame.html">PlayerInGame</a> *, <a class="el" href="classCard.html">Card</a> *, <a class="el" href="classCardMonster.html">CardMonster</a> *)</td></tr>
+<tr class="separator:a407f859fd79905d6b868de21748123fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78b7006c16663d938285c7fd28e6db6b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a78b7006c16663d938285c7fd28e6db6b">placeCard</a> (<a class="el" href="classPlayerInGame.html">PlayerInGame</a> *, <a class="el" href="classCard.html">Card</a> *, <a class="el" href="classPlayerInGame.html">PlayerInGame</a> *)</td></tr>
+<tr class="separator:a78b7006c16663d938285c7fd28e6db6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab0de361fcd868ab41245535447f128ec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#ab0de361fcd868ab41245535447f128ec">attackWithCard</a> (<a class="el" href="classPlayerInGame.html">PlayerInGame</a> *, <a class="el" href="classCardMonster.html">CardMonster</a> *, <a class="el" href="classCardMonster.html">CardMonster</a> *)</td></tr>
 <tr class="separator:ab0de361fcd868ab41245535447f128ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea86730a90afb69330ef43d1115a6a4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#aea86730a90afb69330ef43d1115a6a4f">attackWithCard</a> (<a class="el" href="classPlayerInGame.html">PlayerInGame</a> *, <a class="el" href="classCardMonster.html">CardMonster</a> *, <a class="el" href="classPlayerInGame.html">PlayerInGame</a> *)</td></tr>
+<tr class="separator:aea86730a90afb69330ef43d1115a6a4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Fonctions membres publiques statiques</h2></td></tr>
@@ -152,9 +156,11 @@ Fonctions membres publiques statiques</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Copy constructor</p>
+<p><a class="el" href="classGame.html">Game</a> constructor</p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
+    <tr><td class="paramname">p1</td><td>the first player </td></tr>
+    <tr><td class="paramname">p2</td><td>the second player Copy constructor</td></tr>
     <tr><td class="paramname">game</td><td>who must be copied </td></tr>
   </table>
   </dd>
@@ -246,7 +252,46 @@ Fonctions membres publiques statiques</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Funciton when player attack a card </p>
+<p>Funciton when player attack a card </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pIG</td><td>who play </td></tr>
+    <tr><td class="paramname">card</td><td>which play </td></tr>
+    <tr><td class="paramname">targetCard</td><td>card which is attack </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="aea86730a90afb69330ef43d1115a6a4f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::attackWithCard </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPlayerInGame.html">PlayerInGame</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCardMonster.html">CardMonster</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPlayerInGame.html">PlayerInGame</a> *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -298,7 +343,7 @@ Fonctions membres publiques statiques</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="afd94cc603b38bcb8e7f195581d014044"></a>
+<a class="anchor" id="a407f859fd79905d6b868de21748123fb"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -312,12 +357,12 @@ Fonctions membres publiques statiques</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="classCard.html">Card</a> *&#160;</td>
-          <td class="paramname"><em>placeCard</em>, </td>
+          <td class="paramname"><em>cardPlaced</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classCard.html">Card</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="classCardMonster.html">CardMonster</a> *&#160;</td>
           <td class="paramname"><em>targetCard</em>&#160;</td>
         </tr>
         <tr>
@@ -331,8 +376,49 @@ Fonctions membres publiques statiques</h2></td></tr>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">pIG</td><td>player who place the card </td></tr>
-    <tr><td class="paramname">placeCard</td><td>the card the must be place </td></tr>
-    <tr><td class="paramname">targetCard</td><td>the card who will have the effect if the placed card have it </td></tr>
+    <tr><td class="paramname">cardPlaced</td><td>the card the must be place </td></tr>
+    <tr><td class="paramname">targetCard</td><td>the card which will have the effect if the placed card have it </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a78b7006c16663d938285c7fd28e6db6b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::placeCard </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPlayerInGame.html">PlayerInGame</a> *&#160;</td>
+          <td class="paramname"><em>pIG</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCard.html">Card</a> *&#160;</td>
+          <td class="paramname"><em>cardPlaced</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPlayerInGame.html">PlayerInGame</a> *&#160;</td>
+          <td class="paramname"><em>targetPlayer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Function when player place card</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pIG</td><td>player who place the card </td></tr>
+    <tr><td class="paramname">cardPlaced</td><td>the card the must be place </td></tr>
+    <tr><td class="paramname">targetPlayer</td><td>player who will have the effect if the placed card have it </td></tr>
   </table>
   </dd>
 </dl>

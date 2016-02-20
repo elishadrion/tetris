@@ -19,9 +19,13 @@ void \hyperlink{classGame_a41a8233a0473e2e3687d0380c9b2bccb}{check\+Deck\+And\+S
 \item 
 void \hyperlink{classGame_a6d54497ce3a66f6dd45eacfdccc8d0bd}{draw} ()
 \item 
-void \hyperlink{classGame_afd94cc603b38bcb8e7f195581d014044}{place\+Card} (\hyperlink{classPlayerInGame}{Player\+In\+Game} $\ast$, \hyperlink{classCard}{Card} $\ast$, \hyperlink{classCard}{Card} $\ast$)
+void \hyperlink{classGame_a407f859fd79905d6b868de21748123fb}{place\+Card} (\hyperlink{classPlayerInGame}{Player\+In\+Game} $\ast$, \hyperlink{classCard}{Card} $\ast$, \hyperlink{classCardMonster}{Card\+Monster} $\ast$)
+\item 
+void \hyperlink{classGame_a78b7006c16663d938285c7fd28e6db6b}{place\+Card} (\hyperlink{classPlayerInGame}{Player\+In\+Game} $\ast$, \hyperlink{classCard}{Card} $\ast$, \hyperlink{classPlayerInGame}{Player\+In\+Game} $\ast$)
 \item 
 void \hyperlink{classGame_ab0de361fcd868ab41245535447f128ec}{attack\+With\+Card} (\hyperlink{classPlayerInGame}{Player\+In\+Game} $\ast$, \hyperlink{classCardMonster}{Card\+Monster} $\ast$, \hyperlink{classCardMonster}{Card\+Monster} $\ast$)
+\item 
+void \hyperlink{classGame_aea86730a90afb69330ef43d1115a6a4f}{attack\+With\+Card} (\hyperlink{classPlayerInGame}{Player\+In\+Game} $\ast$, \hyperlink{classCardMonster}{Card\+Monster} $\ast$, \hyperlink{classPlayerInGame}{Player\+In\+Game} $\ast$)
 \end{DoxyCompactItemize}
 \subsection*{Fonctions membres publiques statiques}
 \begin{DoxyCompactItemize}
@@ -48,10 +52,14 @@ Default constructor \hypertarget{classGame_aa79443880de5f26387c2a1c70c8c1aae}{}\
 \item[{const {\bf Game} \&}]{game}
 \end{DoxyParamCaption}
 )}\label{classGame_aa79443880de5f26387c2a1c70c8c1aae}
-Copy constructor
+\hyperlink{classGame}{Game} constructor
 
 
 \begin{DoxyParams}{Paramètres}
+{\em p1} & the first player \\
+\hline
+{\em p2} & the second player Copy constructor\\
+\hline
 {\em game} & who must be copied \\
 \hline
 \end{DoxyParams}
@@ -88,7 +96,25 @@ Adds a player to the waiting list If there is more than one player who is waitin
 \item[{{\bf Card\+Monster} $\ast$}]{target\+Card}
 \end{DoxyParamCaption}
 )}\label{classGame_ab0de361fcd868ab41245535447f128ec}
-Funciton when player attack a card \hypertarget{classGame_a41a8233a0473e2e3687d0380c9b2bccb}{}\index{Game@{Game}!check\+Deck\+And\+Start@{check\+Deck\+And\+Start}}
+Funciton when player attack a card 
+\begin{DoxyParams}{Paramètres}
+{\em p\+I\+G} & who play \\
+\hline
+{\em card} & which play \\
+\hline
+{\em target\+Card} & card which is attack \\
+\hline
+\end{DoxyParams}
+\hypertarget{classGame_aea86730a90afb69330ef43d1115a6a4f}{}\index{Game@{Game}!attack\+With\+Card@{attack\+With\+Card}}
+\index{attack\+With\+Card@{attack\+With\+Card}!Game@{Game}}
+\subsubsection[{attack\+With\+Card(\+Player\+In\+Game $\ast$, Card\+Monster $\ast$, Player\+In\+Game $\ast$)}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+::attack\+With\+Card (
+\begin{DoxyParamCaption}
+\item[{{\bf Player\+In\+Game} $\ast$}]{, }
+\item[{{\bf Card\+Monster} $\ast$}]{, }
+\item[{{\bf Player\+In\+Game} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{classGame_aea86730a90afb69330ef43d1115a6a4f}
+\hypertarget{classGame_a41a8233a0473e2e3687d0380c9b2bccb}{}\index{Game@{Game}!check\+Deck\+And\+Start@{check\+Deck\+And\+Start}}
 \index{check\+Deck\+And\+Start@{check\+Deck\+And\+Start}!Game@{Game}}
 \subsubsection[{check\+Deck\+And\+Start()}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+::check\+Deck\+And\+Start (
 \begin{DoxyParamCaption}
@@ -109,24 +135,44 @@ Checks if the player have set his deck If all is ok, the game starts \hypertarge
 \item[{const {\bf Game} \&}]{game}
 \end{DoxyParamCaption}
 )}\label{classGame_aec1439ca4c76f4a002c235134d590158}
-Copy operator \hypertarget{classGame_afd94cc603b38bcb8e7f195581d014044}{}\index{Game@{Game}!place\+Card@{place\+Card}}
+Copy operator \hypertarget{classGame_a407f859fd79905d6b868de21748123fb}{}\index{Game@{Game}!place\+Card@{place\+Card}}
 \index{place\+Card@{place\+Card}!Game@{Game}}
-\subsubsection[{place\+Card(\+Player\+In\+Game $\ast$, Card $\ast$, Card $\ast$)}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+::place\+Card (
+\subsubsection[{place\+Card(\+Player\+In\+Game $\ast$, Card $\ast$, Card\+Monster $\ast$)}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+::place\+Card (
 \begin{DoxyParamCaption}
 \item[{{\bf Player\+In\+Game} $\ast$}]{p\+I\+G, }
-\item[{{\bf Card} $\ast$}]{place\+Card, }
-\item[{{\bf Card} $\ast$}]{target\+Card}
+\item[{{\bf Card} $\ast$}]{card\+Placed, }
+\item[{{\bf Card\+Monster} $\ast$}]{target\+Card}
 \end{DoxyParamCaption}
-)}\label{classGame_afd94cc603b38bcb8e7f195581d014044}
+)}\label{classGame_a407f859fd79905d6b868de21748123fb}
 Function when player place card
 
 
 \begin{DoxyParams}{Paramètres}
 {\em p\+I\+G} & player who place the card \\
 \hline
-{\em place\+Card} & the card the must be place \\
+{\em card\+Placed} & the card the must be place \\
 \hline
-{\em target\+Card} & the card who will have the effect if the placed card have it \\
+{\em target\+Card} & the card which will have the effect if the placed card have it \\
+\hline
+\end{DoxyParams}
+\hypertarget{classGame_a78b7006c16663d938285c7fd28e6db6b}{}\index{Game@{Game}!place\+Card@{place\+Card}}
+\index{place\+Card@{place\+Card}!Game@{Game}}
+\subsubsection[{place\+Card(\+Player\+In\+Game $\ast$, Card $\ast$, Player\+In\+Game $\ast$)}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+::place\+Card (
+\begin{DoxyParamCaption}
+\item[{{\bf Player\+In\+Game} $\ast$}]{p\+I\+G, }
+\item[{{\bf Card} $\ast$}]{card\+Placed, }
+\item[{{\bf Player\+In\+Game} $\ast$}]{target\+Player}
+\end{DoxyParamCaption}
+)}\label{classGame_a78b7006c16663d938285c7fd28e6db6b}
+Function when player place card
+
+
+\begin{DoxyParams}{Paramètres}
+{\em p\+I\+G} & player who place the card \\
+\hline
+{\em card\+Placed} & the card the must be place \\
+\hline
+{\em target\+Player} & player who will have the effect if the placed card have it \\
 \hline
 \end{DoxyParams}
 

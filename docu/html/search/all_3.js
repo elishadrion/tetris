@@ -1,7 +1,7 @@
 var searchData=
 [
   ['dataigplayer',['dataIGPlayer',['../structdataIGPlayer.html',1,'']]],
-  ['dealdamage',['dealDamage',['../classCardMonster.html#aaf28396b394a9400d257eddfa09e4567',1,'CardMonster::dealDamage(CardMonster &amp;otherMonster)'],['../classCardMonster.html#aef45590287342f0a5d484c1228bae76d',1,'CardMonster::dealDamage(Player &amp;player)']]],
+  ['dealdamage',['dealDamage',['../classCardMonster.html#aaf28396b394a9400d257eddfa09e4567',1,'CardMonster::dealDamage(CardMonster &amp;otherMonster)'],['../classCardMonster.html#a829d68246c3af5f136cdf2cbc11284b0',1,'CardMonster::dealDamage(PlayerInGame &amp;player)']]],
   ['deck',['Deck',['../classDeck.html',1,'Deck'],['../classDeck.html#a11233381fd5ea0b0b4e6288048f146fa',1,'Deck::Deck()']]],
   ['deck_2ecpp',['Deck.cpp',['../Deck_8cpp.html',1,'']]],
   ['deck_2ehpp',['Deck.hpp',['../client_2Deck_8hpp.html',1,'']]],
@@ -14,6 +14,7 @@ var searchData=
   ['deckrequestpacket',['deckRequestPacket',['../structPacket_1_1deckRequestPacket.html',1,'Packet']]],
   ['default_5fempty_5fspace',['DEFAULT_EMPTY_SPACE',['../CLI_8hpp.html#a5c16299dfdf0a77b186ce91c8063bdb9',1,'CLI.hpp']]],
   ['default_5flabel',['DEFAULT_LABEL',['../LoginPanel_8hpp.html#a0e94fbb5650e23baab50dcf7fe35ca38',1,'LoginPanel.hpp']]],
+  ['defaussecardplaced',['defausseCardPlaced',['../classPlayerInGame.html#a86bc2f58c47405e97079425757cb3f62',1,'PlayerInGame']]],
   ['disconnect_5fid',['DISCONNECT_ID',['../classPacket.html#ae91c1d355e4c8f0bef5f893747473661ae4ec5a8eaa644872b70450eeb6e66ec2',1,'Packet']]],
   ['display',['Display',['../classDisplay.html',1,'Display'],['../classDisplay.html#a46094310ba411f6fea561f799c4d0754',1,'Display::Display()']]],
   ['display_2ehpp',['Display.hpp',['../Display_8hpp.html',1,'']]],
