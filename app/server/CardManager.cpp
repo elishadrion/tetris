@@ -24,11 +24,11 @@ void CardManager::loadAllCards(){ //TO IMPROVE
 	std::size_t attack;
 	bool cardMonster;
 
-	for (json::iterator i = j.begin(); i!=j.end(); ++i){
+	std::ifstream ifs("card.json");//Nom + chemin fichier ou les cartes sont stockés
+	json j(ifs); //Libre d'améliorer nom de variable
+	//Créer un objet json a partir d'un fichier
 
-		std::ifstream ifs("card.json");//Nom + chemin fichier ou les cartes sont stockés
-		json j(ifs); //Libre d'améliorer nom de variable
-		//Créer un objet json a partir d'un fichier
+	for (json::iterator i = j.begin(); i!=j.end(); ++i){
 
 		id = i.value()["id"]; //Récupere la valeur a l'iterateur (toute la structure d'une carte)
 		name = i.value()["name"]; //Verifier si appel entre [] fonctionne
