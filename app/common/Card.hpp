@@ -13,7 +13,7 @@
 class Card {
 public:
     // Default constructor ?
-    Card(std::size_t id, std::string name, std::size_t energy,/*Effect effect, //TODO tmp patch*/ bool);
+    Card(std::size_t id, std::string name, std::size_t energy,int effect, bool);
 
     Card(Card& card); // copy contructor
 
@@ -27,7 +27,8 @@ private:
 
 
 public:
-    virtual void applyEffect(Card& card);
+    virtual void applyEffect(CardMonster& cardmonster);
+    virtual void applyEffect(PlayerInGame& player);
     virtual ~Card() = 0; // Abstract class because we can't instance it
 
     std::size_t getId(){return _id;}

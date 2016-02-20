@@ -13,11 +13,11 @@ private:
 
 public:
     virtual void dealDamage(CardMonster& otherMonster);
-    virtual void dealDamage(Player& player);
+    virtual void dealDamage(PlayerInGame& player);
     virtual void incrementTour();
 
     CardMonster(std::size_t id, std::string name, std::size_t energy,
-    	/* Effect effect, //TODO tmp patch */ bool,std::size_t life, std::size_t attack,
+    	int effect, bool,std::size_t life, std::size_t attack,
     	std::size_t nbrTour=0);
 
     CardMonster(CardMonster& otherMonster);
