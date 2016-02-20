@@ -35,21 +35,24 @@ void CardManager::loadAllCards(){ //TO IMPROVE
 		energy = i.value()["energie"];
 		effect = i.value()["effect"];
 
-		cardMonster = i.value()["monster"];
-		//Ajout d'un booléen dans le json discernant monstre et sort
-		//A proposer au groupe
-
-		if (cardMonster){
-
-			life = i.value()["vie"];
-			attack = i.value()["attack"];
-			listCard[id]= new CardMonster(); //Ajout des attributs
-		}
-
-		else{
-		
-			listCard[id]= new Card();//Ajout des attributs
-		}
+		listCard[id]= new Card();//Ajout des attributs
 	}
+	
+	std::ifstream ifs("cardMonster.json");//Nom + chemin fichier ou les cartes sont stockés
+	json k(ifs); //Libre d'améliorer nom de variable
+	//Créer un objet json a partir d'un fichier
+
+	for (json::iterator i = k.begin(); i!=k.end(); ++i){
+
+		id = i.value()["id"]; //Récupere la valeur a l'iterateur (toute la structure d'une carte)
+		name = i.value()["name"]; //Verifier si appel entre [] fonctionne
+		energy = i.value()["energie"];
+		effect = i.value()["effect"];
+		life = i.value()["vie"];
+		attack = i.value()["attack"];
+
+		listCard[id]= new CardMonster(); //Ajout des attributs
+	}
+
 	*/
 }
