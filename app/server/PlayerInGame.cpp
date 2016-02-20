@@ -1,6 +1,6 @@
 
 #include "PlayerInGame.hpp"
-/*
+
 
 /**
  * Default constructor
@@ -10,7 +10,6 @@ PlayerInGame::PlayerInGame() {
      _playerHeal = 20; //Player starts with 20 health points
      _energy = 0; //The current energy of the player
     _maxEnergy = 1; //Every turn the maximum energy is increased up to a maximum of 10
-   // _limitEnergy = 10; //The maximum energy can't go further than this
 }
 
 /**
@@ -81,21 +80,6 @@ std::vector<CardMonster*> PlayerInGame::getCardsPlaced() {
     return _cardsPlaced;
 }
 
-//Checks if the player have currently enough energy to play a certain card
-bool PlayerInGame::haveEnoughEnergy(Card* card){
-    bool enoughEnergy;
-    int energyCost = card->getEnergyCost();
-
-    if (_energy >= energyCost) {
-        enoughEnergy = true;
-    }
-
-    else {
-        enoughEnergy = false;
-    }
-
-    return enoughEnergy;
-}
 
 void PlayerInGame::addMaxEnergy() {
     if (_maxEnergy < _limitEnergy) {
@@ -113,8 +97,8 @@ unsigned PlayerInGame::nbrCardInHand() {
     return _cardsInHand.size();
 }
 
-
-bool PlayerInGame::haveEnoughtEnergy(Card* card) {
+//Checks if the player have currently enough energy to play a certain card
+bool PlayerInGame::haveEnoughEnergy(Card* card) {
     return card->getEnergyCost() <= this->_energy;
 }
 
