@@ -13,12 +13,12 @@ public:
     Heal(std::size_t healValue):_healValue(healValue){};
     ~Heal(){};
 
-    virtual void apply(Card* target) override;
+    virtual void apply(CardMonster* target) override;
     virtual void apply(PlayerInGame* target);
     virtual bool canBeApplyOnPlayer() override {return true;};
 };
 
-void Heal::apply(Card* target) {
+void Heal::apply(CardMonster* target) {
     target->setLife(target->getLife()+_healValue);
 
     if (target->getlife() > target->getMaxLife()){

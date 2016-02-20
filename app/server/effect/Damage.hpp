@@ -13,12 +13,12 @@ public:
     Damage(std::size_t damageValue=2):_damageValue(damageValue){};
     ~Damage(){};
 
-    virtual void apply(Card*) override;
+    virtual void apply(CardMonster*) override;
     virtual void apply(PlayerInGame*);
     virtual bool canBeApplyOnPlayer() override {return true;};
 };
 
-void Damage::apply(Card* target){
+void Damage::apply(CardMonster* target){
     target->setLife(target->getLife()-_damageValue);
 }
 

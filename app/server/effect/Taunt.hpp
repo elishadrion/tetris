@@ -9,7 +9,7 @@ public:
     Taunt(){};
     ~Taunt(){};
 
-    virtual void apply(Card* target) override {};
+    virtual void apply(CardMonster* target) override {};
     virtual bool isTaunt() override {return true;};
 };
 

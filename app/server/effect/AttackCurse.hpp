@@ -12,10 +12,10 @@ public:
     AttackCurse(std::size_t attackValue):_attackValue(attackValue){};
     ~AttackCurse(){};
 
-    virtual void apply(Card*) override;
+    virtual void apply(CardMonster*) override;
 };
 
-void AttackCurse::apply(Card* target){
+void AttackCurse::apply(CardMonster* target){
     target->setAttack(_attackValue);
 }
 

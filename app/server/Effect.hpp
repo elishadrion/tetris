@@ -15,7 +15,7 @@ public:
 
     static void loadAllEffect();
     static Effect* getEffectByID(std::size_t);
-    virtual void apply(Card*) = 0;
+    virtual void apply(CardMonster*) = 0;
     virtual bool isTaunt(){return false;};
     virtual bool canBeApplyOnPlayer(){return false;};
     virtual bool canBeApplyOnPCard(){return true;};

@@ -12,10 +12,10 @@ public:
     AttackBlessing(std::size_t attackValue):_attackValue(attackValue){};
     ~AttackBlessing(){};
 
-    virtual void apply(Card*) override;
+    virtual void apply(CardMonster*) override;
 };
 
-void AttackBlessing::apply(Card* target){
+void AttackBlessing::apply(CardMonster* target){
     target->setAttack(target->getAttack()+_attackValue);
 }
 

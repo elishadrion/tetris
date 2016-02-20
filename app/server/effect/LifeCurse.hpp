@@ -12,10 +12,10 @@ public:
     LifeCurse(std::size_t lifeValue):_lifeValue(lifeValue){};
     ~LifeCurse(){};
 
-    virtual void apply(Card*) override;
+    virtual void apply(CardMonster*) override;
 };
 
-void LifeCurse::apply(Card* target){
+void LifeCurse::apply(CardMonster* target){
     target->setMaxLife(_lifeValue);
     if (target->getLife() > _lifeValue ){
         target->setLife(_lifeValue);

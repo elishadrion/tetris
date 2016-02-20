@@ -12,10 +12,10 @@ public:
     LifeBlessing(std::size_t lifeValue):_lifeValue(lifeValue){};
     ~LifeBlessing(){};
 
-    virtual void apply(Card*) override;
+    virtual void apply(CardMonster*) override;
 };
 
-void LifeBlessing::apply(Card* target){
+void LifeBlessing::apply(CardMonster* target){
     target->setMaxLife(target->getMaxLife()+_lifeValue);
     target->setLife(target->getLife()+_lifeValue);
 }

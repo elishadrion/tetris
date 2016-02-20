@@ -17,10 +17,10 @@ public:
     //Soit on peut peut-etre include Game (la fonction qui pioche)
     //et apply lancerait la fonction comme ci-dessous
 
-    virtual void apply(Card*) override;
+    virtual void apply(CardMonster*) override;
 };
 
-void Draw::apply(Card* target){
+void Draw::apply(CardMonster* target){
     for (std::size_t i=0; i<_nDraw; i++){
         // Game::draw();
         // @Rémy

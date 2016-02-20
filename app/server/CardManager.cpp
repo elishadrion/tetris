@@ -22,7 +22,6 @@ void CardManager::loadAllCards(){ //TO IMPROVE
 	std::size_t	effect;
 	std::size_t	life;
 	std::size_t attack;
-	bool cardMonster;
 
 	std::ifstream ifs("card.json");//Nom + chemin fichier ou les cartes sont stockés
 	json j(ifs); //Libre d'améliorer nom de variable
