@@ -212,22 +212,19 @@ void Game::endTurn() {
 /**
  * Function when player place card
  *
- * @param pIG player who place the card
- * @param placeCard the card the must be place
- * @param targetCard the card who will have the effect if
- * the placed card have it
+ * @param pIG who make the action
+ * @param placeCard which is place
+ * @return True if the card have an effect
  */
-void Game::placeCard(PlayerInGame* pIG, Card* placeCard,
-    CardMonster* targetCard) {
+bool Game::placeCard(PlayerInGame* pIG, Card* placeCard) {
 
     if(pIG == _currentPlayer) {
         if(!placeCard->isMonster() || havePlace(pIG)) {
             if(pIG->haveEnoughEnergy(placeCard)) {
+
                 // if placed card have an effect
                 if(placeCard->gotEffect()) {
-                    // if taunt
-
-                    // placeCard->applyEffect(targetCard);
+                    return true;
                 }
 
                 if(placeCard->isMonster()) {
@@ -241,12 +238,50 @@ void Game::placeCard(PlayerInGame* pIG, Card* placeCard,
         } else {
             // error, not enought place
         }
-        // voir si la carte à un effet
     } else {
         // error, not his turn
     }
 
+    return false;
 }
+
+
+
+/**
+ * Function when player place card
+ *
+ * @param pIG player who place the card
+ * @param cardPlaced the card the must be place
+ * @param targetCard the card which will have the effect if
+ * the placed card have it
+ */
+void Game::placeCard(PlayerInGame* pIG, Card* cardPlaced,
+    CardMonster* targetCard) {
+
+    if(placeCard(pIG, cardPlaced)) {
+        cardPlaced->applyEffect(*targetCard);
+    }
+
+}
+
+
+/**
+ * Function when player place card
+ *
+ * @param pIG player who place the card
+ * @param cardPlaced the card the must be place
+ * @param targetPlayer player who will have the effect if
+ * the placed card have it
+ */
+void Game::placeCard(PlayerInGame* pIG, Card* cardPlaced,
+    PlayerInGame* targetPlayer) {
+
+    if(placeCard(pIG, cardPlaced)) {
+        // cardPlaced->applyEffect(*targetPlayer);
+    }
+
+}
+
 
 /**
  * Indicate whether the still has place on his game board
@@ -268,7 +303,7 @@ bool Game::havePlace(PlayerInGame* pIG) {
 void Game::attackWithCard(PlayerInGame* pIG, CardMonster* card,
     CardMonster* targetCard) {
 
-    if(canPlayerPlay(pIG, card)) {
+    if(canPlayerAttack(pIG, card)) {
         if(verifyTaunt(pIG, card)) {
             card->dealDamage(*targetCard);
             if(targetCard->isDeath()) {
@@ -288,7 +323,7 @@ void Game::attackWithCard(PlayerInGame* pIG, CardMonster* card,
  * @param card card that is play
  * @return True if the player can play
  */
-bool Game::canPlayerPlay(PlayerInGame* pIG, CardMonster* card) {
+bool Game::canPlayerAttack(PlayerInGame* pIG, CardMonster* card) {
     bool res = false;
 
     if(pIG == _currentPlayer) {

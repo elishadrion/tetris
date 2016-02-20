@@ -59,7 +59,7 @@ public:
     // Function during the game
     void draw(); // current player draw a card
     void placeCard(PlayerInGame*, Card*, CardMonster*);
-    //void placeCard(PlayerInGame*, Card*, PlayerInGame*);
+    void placeCard(PlayerInGame*, Card*, PlayerInGame*);
     void attackWithCard(PlayerInGame*, CardMonster*, CardMonster*);
     //void attackWithCard(PlayerInGame*, CardMonster*, PlayerInGame*);
 
@@ -68,10 +68,12 @@ private:
     void beginTurn(); // function when the turn begin
     void endTurn();
 
-    bool canPlayerPlay(PlayerInGame*,CardMonster*);
+    bool canPlayerAttack(PlayerInGame*,CardMonster*);
     bool verifyTaunt(PlayerInGame*,CardMonster*);
     bool verifyTaunt(PlayerInGame*);
     bool havePlace(PlayerInGame*);
+
+    bool placeCard(PlayerInGame*, Card*);
 
 };
 
