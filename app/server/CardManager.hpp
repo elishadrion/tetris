@@ -3,6 +3,9 @@
 
 #include "common/Card.hpp" //TODO tmp patch
 #include <map>
+#include "include/json.hpp"
+
+using json = nlohmann::json;
 
 class CardManager{
 private:
