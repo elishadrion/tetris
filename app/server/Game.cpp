@@ -10,7 +10,8 @@ std::queue<Player*> Game::PlayerWaitGame;
  */
 void Game::nextPlayer() {
     (_currentPlayer == _player1) ? _currentPlayer = _player2 : _currentPlayer = _player1;
-    WizardLogger::info("C'est maintenant au tour de " + _currentPlayer->getUsername());
+    // WizardLogger::info("C'est maintenant au tour de " + _currentPlayer->getUsername());
+    // TO DO message de débug
 
     beginTurn();
 }
