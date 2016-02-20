@@ -202,6 +202,7 @@ nbproject/**
 
 # Emacs files
 .dir-locals.el
+.projectile
 
 # build client
 /app/client/build/

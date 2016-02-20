@@ -1,54 +1,25 @@
 #include "include/json.hpp"
 #include "Player.hpp"
 
-using namespace std;
-
-//player's constructor
-Player::Player() {
-   
-   //
-   signUp();
-   _victory = 0;
-   _defeat = 0;
-   //
-}
+Player::Player() {}
 
 //Saves player's data in a json file
 void Player::save() const {
 
-        ifstream fichierJson("server/assets/Players.json");  //Opening the Players.json file
+    std::ifstream fichierJson("server/assets/Players.json");
+    if(fichierJson) {
+        std::string ligne;
 
-        if(fichierJson) //Testing if everything went allright
-        {
-        std::string ligne; 
+	while(getline(fichierJson, ligne)) {
+            std::cout << ligne << std::endl;
 
-            while(getline(fichierJson, ligne)) //Reading all the file and stocking it into a string variable
-            {
-            std::cout << ligne << std::endl; //
-            //suite TBD ! 
-            }
-        }
-
-        else
-        {
+	}
+    } else {
         std::cout << "ERROR: Impossible to open the file." << std::endl;
-        }  
-    
+    }
 }
 
-//Sets the name and the password of the player (setter)
-void Player::signUp() {
-    cout << "What's your name? ";
-    cin >> _username;
-    
-    cout << "What's your password? ";
-    cin >> _pass;
-
+std::ostream& operator<<(std::ostream& os, const Player& c) {
+    os << c._username << c._victory << "\t" << c._defeat << "\n";
+    return os;
 }
-
-//Getters
-string Player::getUsername() const {return _username;}
-
-int Player::getVictories() const {return _victory;}
-
-int Player::getDefeats() const {return _defeat;}

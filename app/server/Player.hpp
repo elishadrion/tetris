@@ -3,18 +3,16 @@
 
 #include <string>
 #include <vector>
+#include <fstream>
 
 #include "Collection.hpp"
 #include "Deck.hpp"
-#include <fstream> //For the I/O
-
+#include "include/json.hpp"
 
 /**
  * One class per player.  This object stocks the socket to communicate with player
  * When the server starts, he must load all Players
  */
- 
- 
 class Player {
 
     int _sockfd;
@@ -24,25 +22,15 @@ class Player {
     int _defeat;
     std::vector<Deck*> _listDeck;
 
+    virtual void save() const;
 protected:
     std::vector<Deck*> getListDeck() {return _listDeck;}
 
 public:
-    Player(); // {}
-    // Creates the player (and opens the file (if it exists) to complete the information)
-    // Stocks the new player in the allPlayers list
-    //Player(int sockfd, int playerID) {}
-    std::string getUsername() const; 
-    
-    int getVictories() const;
+    Player(nlohmann::json info);
 
-    int getDefeats() const;
-    
+    friend std::ostream& operator<<(std::ostream&, const Player&);
     virtual ~Player() = default;
-
-private:
-    virtual void save() const;
-    virtual void signUp(); //When the player connects for the first time (and registers)
 };
 
 
