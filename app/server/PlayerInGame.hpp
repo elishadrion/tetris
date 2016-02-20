@@ -61,7 +61,7 @@ public:
     bool haveEnoughEnergy(Card* card);
     void addMaxEnergy();
     void resetEnergy();
-    void removeCardPlaced(CardMonster*);
+    void defausseCardPlaced(CardMonster*);
     void placeCard(CardMonster*);
 
     virtual ~PlayerInGame() = default;

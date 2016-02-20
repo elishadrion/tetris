@@ -102,10 +102,11 @@ bool PlayerInGame::haveEnoughEnergy(Card* card) {
     return card->getEnergyCost() <= this->_energy;
 }
 
-void PlayerInGame::removeCardPlaced(CardMonster* card) {
+void PlayerInGame::defausseCardPlaced(CardMonster* card) {
     auto it = std::find(_cardsPlaced.begin(), _cardsPlaced.end(), card);
     if(it != _cardsPlaced.end()) {
         _cardsPlaced.erase(it);
+        _defausse.push_back(card);
     }
 }
 

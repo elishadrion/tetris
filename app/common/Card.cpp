@@ -24,20 +24,20 @@ Card::Card(std::size_t id, std::string name, std::size_t energy,
  *
  * @param card original
  */
-Card::Card(Card& card) : _id(card.getId()), _name(card.getName()), _energyCost(card.getEnergyCost())
+Card::Card(Card& card) : _id(card.getId()), _name(card.getName()), _energyCost(card.getEnergyCost()),
       _effect(card.getEffectID()) { }
 
 
 void Card::applyEffect(CardMonster& cardmonster){
     if (this->gotEffect()){
-        Effect::getEffectByID(this->getEffectID()).Effect::apply(cardmonster);   
+        Effect::getEffectByID(this->getEffectID()).Effect::apply(cardmonster);
     }
 }
 
 void Card::applyEffect(PlayerInGame& player){
     if (this->gotEffect()){
-        Effect::getEffectByID(this->getEffectID()).Effect::apply(player);   
-    }  
+        Effect::getEffectByID(this->getEffectID()).Effect::apply(player);
+    }
 }
 
 bool Card::gotEffect(){

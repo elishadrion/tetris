@@ -4,7 +4,12 @@
 #include <string>
 #include <map>
 #include <cstddef>
+
 //#include "Effect.hpp"
+
+
+class CardMonster;
+class PlayerInGame;
 
 
 /**
@@ -37,7 +42,7 @@ public:
     bool gotEffect();
     int getEffectID(){return _effect;}
     virtual bool isMonster() { return false; }
-    bool isTaunt() { return _taunt; }
+    virtual bool isTaunt() { return _taunt; }
 
     //void setEnergyCost(std::size_t newCost){_energyCost = newCost}
     // maybe be able to change with spell cards (see that later)

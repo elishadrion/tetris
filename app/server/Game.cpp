@@ -260,7 +260,8 @@ void Game::placeCard(PlayerInGame* pIG, Card* cardPlaced,
     CardMonster* targetCard) {
 
     if(placeCard(pIG, cardPlaced)) {
-        cardPlaced->applyEffect(*targetCard);
+        // TO DO
+        // cardPlaced->applyEffect(*targetCard);
     }
 
 }
@@ -278,6 +279,8 @@ void Game::placeCard(PlayerInGame* pIG, Card* cardPlaced,
     PlayerInGame* targetPlayer) {
 
     if(placeCard(pIG, cardPlaced)) {
+        // TO DO
+        // Regarder que la carte peut attaquer le player
         // cardPlaced->applyEffect(*targetPlayer);
     }
 
@@ -308,7 +311,7 @@ void Game::attackWithCard(PlayerInGame* pIG, CardMonster* card,
         if(verifyTaunt(pIG, card)) {
             card->dealDamage(*targetCard);
             if(targetCard->isDeath()) {
-                this->getAdversePlayer()->removeCardPlaced(targetCard);
+                this->getAdversePlayer()->defausseCardPlaced(targetCard);
             }
         } else {
             // error, must attack Taunt card

@@ -7,7 +7,7 @@
 class Effect { //Abstract class
 	static std::vector<Effect*> listEffect;
 public:
-    virtual Effect(){ 
+    virtual Effect(){
     //Attention, vérifier si classes filles appellent cosntructeur parent
     	listEffect.push_back(this);
     };

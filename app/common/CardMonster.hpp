@@ -4,7 +4,7 @@
 #include "Card.hpp"
 #include "server/Player.hpp" //TODO tmp patch
 
-class CardMonster : virtual public Card {
+class CardMonster : public Card {
 private:
     std::size_t _life;
     std::size_t _attack;

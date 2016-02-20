@@ -61,7 +61,7 @@ public:
     void placeCard(PlayerInGame*, Card*, CardMonster*);
     void placeCard(PlayerInGame*, Card*, PlayerInGame*);
     void attackWithCard(PlayerInGame*, CardMonster*, CardMonster*);
-    //void attackWithCard(PlayerInGame*, CardMonster*, PlayerInGame*);
+    void attackWithCard(PlayerInGame*, CardMonster*, PlayerInGame*);
 
 
 private:
@@ -74,6 +74,7 @@ private:
     bool havePlace(PlayerInGame*);
 
     bool placeCard(PlayerInGame*, Card*);
+    bool attackWithCard(PlayerInGame*,CardMonster*);
 
 };
 
