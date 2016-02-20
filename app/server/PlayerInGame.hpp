@@ -61,7 +61,6 @@ public:
     bool haveEnoughEnergy(Card* card);
     void addMaxEnergy();
     void resetEnergy();
-    bool haveEnoughEnergy(Card* card);
     void removeCardPlaced(CardMonster*);
     void placeCard(CardMonster*);
 
