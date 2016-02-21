@@ -37,7 +37,6 @@ class Game {
     // Constructor
     Game(Player* p1, Player* p2);
 
-    void nextPlayer();
     bool isInGame();
     void sendInformation(); // Not use
     void sendInformation(PlayerInGame*,dataIGPlayer, dataIGPlayer); // Not use
@@ -64,6 +63,7 @@ public:
     Error placeCard(PlayerInGame*, Card*, CardMonster*);
     Error attackWithCard(PlayerInGame*, CardMonster*, CardMonster*);
     Error attackWithCardAffectPlayer(PlayerInGame*, CardMonster*);
+    void nextPlayer();
 
 
 private:
