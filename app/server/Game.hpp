@@ -9,6 +9,8 @@
 #include "PlayerInGame.hpp"
 #include "common/WizardLogger.hpp"
 
+#include "common/Error.hpp"
+
 
 enum GameStatut {
     WAIT_DEC,
@@ -58,23 +60,23 @@ public:
 
     // Function during the game
     void draw(); // current player draw a card
-    void placeCard(PlayerInGame*, Card*, CardMonster*);
-    void placeCard(PlayerInGame*, Card*, PlayerInGame*);
-    void attackWithCard(PlayerInGame*, CardMonster*, CardMonster*);
-    void attackWithCard(PlayerInGame*, CardMonster*, PlayerInGame*);
+    Error placeCard(PlayerInGame*, Card*, CardMonster*);
+    Error placeCard(PlayerInGame*, Card*, PlayerInGame*);
+    Error attackWithCard(PlayerInGame*, CardMonster*, CardMonster*);
+    Error attackWithCard(PlayerInGame*, CardMonster*, PlayerInGame*);
 
 
 private:
     void beginTurn(); // function when the turn begin
     void endTurn();
 
-    bool canPlayerAttack(PlayerInGame*,CardMonster*);
+    Error canPlayerAttack(PlayerInGame*,CardMonster*);
     bool verifyTaunt(PlayerInGame*,CardMonster*);
     bool verifyTaunt(PlayerInGame*);
     bool havePlace(PlayerInGame*);
 
-    bool placeCard(PlayerInGame*, Card*);
-    bool attackWithCard(PlayerInGame*,CardMonster*);
+    Error placeCard(PlayerInGame*, Card*);
+    Error attackWithCard(PlayerInGame*,CardMonster*);
 
 };
 

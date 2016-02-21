@@ -211,39 +211,35 @@ void Game::endTurn() {
 }
 
 /**
- * Function when player place card
+ * Function when player place card. This function place the card
+ * and verify that all is ok
  *
  * @param pIG who make the action
  * @param placeCard which is place
- * @return True if the card have an effect
+ * @return Error or "NoError" if all is ok
  */
-bool Game::placeCard(PlayerInGame* pIG, Card* placeCard) {
+Error Game::placeCard(PlayerInGame* pIG, Card* placeCard) {
+    Error res = Error::UnknowError;
 
     if(pIG == _currentPlayer) {
         if(!placeCard->isMonster() || havePlace(pIG)) {
             if(pIG->haveEnoughEnergy(placeCard)) {
-
-                // if placed card have an effect
-                if(placeCard->gotEffect()) {
-                    return true;
-                }
-
                 if(placeCard->isMonster()) {
                     pIG->placeCard(dynamic_cast<CardMonster*>(placeCard));
                 }
+                res = Error::NoError;
 
             } else {
-                // error, not enought energy
+                res = Error::NotEnoughEnergy;
             }
-
         } else {
-            // error, not enought place
+            res = Error::NotEnoughPlace;
         }
     } else {
-        // error, not his turn
+        res = Error::NotHisTurn;
     }
 
-    return false;
+    return res;
 }
 
 
@@ -256,14 +252,18 @@ bool Game::placeCard(PlayerInGame* pIG, Card* placeCard) {
  * @param targetCard the card which will have the effect if
  * the placed card have it
  */
-void Game::placeCard(PlayerInGame* pIG, Card* cardPlaced,
+Error Game::placeCard(PlayerInGame* pIG, Card* cardPlaced,
     CardMonster* targetCard) {
 
-    if(placeCard(pIG, cardPlaced)) {
+    Error res = placeCard(pIG, cardPlaced);
+
+    if(res == Error::NoError) {
+        // Verify effect and play it
         // TO DO
         // cardPlaced->applyEffect(*targetCard);
     }
 
+    return res;
 }
 
 
@@ -274,16 +274,22 @@ void Game::placeCard(PlayerInGame* pIG, Card* cardPlaced,
  * @param cardPlaced the card the must be place
  * @param targetPlayer player who will have the effect if
  * the placed card have it
+ * @return Error or "NoError" if all ok
  */
-void Game::placeCard(PlayerInGame* pIG, Card* cardPlaced,
+Error Game::placeCard(PlayerInGame* pIG, Card* cardPlaced,
     PlayerInGame* targetPlayer) {
 
-    if(placeCard(pIG, cardPlaced)) {
+    Error res = placeCard(pIG, cardPlaced);
+
+
+    if(res == Error::NoError) {
+        // Verify if card have effect and apply it
         // TO DO
         // Regarder que la carte peut attaquer le player
         // cardPlaced->applyEffect(*targetPlayer);
     }
 
+    return res;
 }
 
 
@@ -303,20 +309,25 @@ bool Game::havePlace(PlayerInGame* pIG) {
  * @param pIG who play
  * @param card which play
  * @param targetCard card which is attack
+ * @return Error or "NoError" if all is ok
  */
-void Game::attackWithCard(PlayerInGame* pIG, CardMonster* card,
+Error Game::attackWithCard(PlayerInGame* pIG, CardMonster* card,
     CardMonster* targetCard) {
 
-    if(canPlayerAttack(pIG, card)) {
+
+    Error res = canPlayerAttack(pIG, card);
+    if(res == Error::NoError) {
         if(verifyTaunt(pIG, card)) {
             card->dealDamage(*targetCard);
             if(targetCard->isDeath()) {
                 this->getAdversePlayer()->defausseCardPlaced(targetCard);
             }
         } else {
-            // error, must attack Taunt card
+            res = Error::MustAttackTaunt;
         }
     }
+
+    return res;
 }
 
 /**
@@ -325,23 +336,23 @@ void Game::attackWithCard(PlayerInGame* pIG, CardMonster* card,
  *
  * @param pIG player that play
  * @param card card that is play
- * @return True if the player can play
+ * @return the Error or "NoError"
  */
-bool Game::canPlayerAttack(PlayerInGame* pIG, CardMonster* card) {
-    bool res = false;
+Error Game::canPlayerAttack(PlayerInGame* pIG, CardMonster* card) {
+    Error res = Error::UnknowError;
 
     if(pIG == _currentPlayer) {
         if(card->getNbrTourPose() > 1) {
             if(pIG->haveEnoughEnergy(card)) {
-                res = true;
+                res = Error::NoError;
             } else {
-                // error, not enough energy
+                res = Error::NotEnoughEnergy;
             }
         } else {
-             // error, not place on board game
+             Error::NotEnoughPlace;
         }
     } else {
-        // error, not his turn
+        Error::NotHisTurn;
     }
 
     return res;
