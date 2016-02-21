@@ -1,8 +1,19 @@
 #ifndef EFFECT_HPP
 #define EFFECT_HPP
 
-#include "Card.hpp"
 #include <vector>
+/*
+#include "CardMonster.hpp"
+#include "PlayerInGame.hpp"
+#include "effect/Taunt.hpp"
+#include "effect/Heal.hpp"
+#include "effect/Damage.hpp"
+#include "effect/LifeBlessing.hpp"
+#include "effect/LifeCurse.hpp"
+#include "effect/AttackBlessing.hpp"
+#include "effect/AttackCurse.hpp"
+#include "effect/Draw.hpp"
+*/
 
 
 class CardMonster;
@@ -21,9 +32,10 @@ public:
     static Effect* getEffectByID(unsigned);
 
     virtual void apply(CardMonster*) = 0;
+    virtual void apply(PlayerInGame*) {}; //TO DO (error by default)
     virtual bool isTaunt(){return false;};
     virtual bool canBeApplyOnPlayer(){return false;};
-    virtual bool canBeApplyOnPCard(){return true;};
+    virtual bool canBeApplyOnCard(){return true;};
 };
 
 

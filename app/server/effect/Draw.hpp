@@ -1,8 +1,7 @@
 #ifndef DRAW_HPP
 #define	DRAW_HPP
 
-#include "server/Card.hpp"
-#include "server/CardCreature.hpp"
+#include "server/CardMonster.hpp"
 #include "server/Effect.hpp"
 #include "server/Game.hpp"
 

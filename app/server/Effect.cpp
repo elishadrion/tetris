@@ -4,9 +4,7 @@
 std::vector<Effect*> Effect::listEffect;
 
 void Effect::loadAllEffect() {
-    /*
-    TO DO import
-
+/*
     new Taunt();
     new Heal(1);
     new Heal(2);
@@ -23,7 +21,8 @@ void Effect::loadAllEffect() {
     new AttackCurse(1);
     new AttackCurse(2);
     new Draw(1);
-    new Draw(2);*/
+    new Draw(2);
+*/
 }
 
 

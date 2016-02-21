@@ -1,8 +1,7 @@
 #ifndef ATTACKBLESSING_HPP
 #define	ATTACKBLESSING_HPP
 
-#include "server/Card.hpp"
-#include "server/CardCreature.hpp"
+#include "server/CardMonster.hpp"
 #include "server/Effect.hpp"
 
 class AttackBlessing : public Effect{
@@ -12,7 +11,7 @@ public:
     AttackBlessing(std::size_t attackValue):_attackValue(attackValue){};
     ~AttackBlessing(){};
 
-    virtual void apply(CardMonster*) override;
+    void apply(CardMonster*) override;
 };
 
 void AttackBlessing::apply(CardMonster* target){
