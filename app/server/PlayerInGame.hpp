@@ -63,7 +63,8 @@ public:
     void resetEnergy();
     void defausseCardPlaced(CardMonster*);
     void placeCard(CardMonster*);
-    void takeDamage(unsigned int) {} // TO DO
+    void takeDamage(unsigned int);
+    void getHealed(unsigned int);
 
     virtual ~PlayerInGame() = default;
 };

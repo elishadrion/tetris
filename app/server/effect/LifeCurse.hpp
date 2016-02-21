@@ -6,9 +6,9 @@
 
 class LifeCurse : public Effect{
 
-    std::size_t _lifeValue;
+    unsigned int _lifeValue;
 public:
-    LifeCurse(std::size_t lifeValue):_lifeValue(lifeValue){};
+    LifeCurse(unsigned int lifeValue):_lifeValue(lifeValue){};
     ~LifeCurse(){};
 
     virtual void apply(CardMonster*) override;

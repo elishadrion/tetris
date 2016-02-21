@@ -6,9 +6,9 @@
 
 class LifeBlessing : public Effect{
 
-    std::size_t _lifeValue;
+    unsigned int _lifeValue;
 public:
-    LifeBlessing(std::size_t lifeValue):_lifeValue(lifeValue){};
+    LifeBlessing(unsigned int lifeValue):_lifeValue(lifeValue){};
     ~LifeBlessing(){};
 
     virtual void apply(CardMonster*) override;

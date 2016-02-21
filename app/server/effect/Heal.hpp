@@ -7,9 +7,9 @@
 
 class Heal : public Effect{
 
-    std::size_t _healValue;
+    unsigned int _healValue;
 public:
-    Heal(std::size_t healValue):_healValue(healValue){};
+    Heal(unsigned int healValue):_healValue(healValue){};
     ~Heal(){};
 
     virtual void apply(CardMonster* target) override;
@@ -27,13 +27,7 @@ void Heal::apply(CardMonster* target) {
 }
 
 void Heal::apply(PlayerInGame* target) {
-	std::size_t maxHpPlayer=20;
-    target->setLife(target->getLife()+_healValue);
-
-    if (target->getlife() > maxHpPlayer){
-    	//Target's life can't be higher than its maximum hp
-    	target->setLife(maxHpPlayer);
-    }
+    target->getHealed(_healValue);
 }
 
 #endif	/* HEAL_HPP */

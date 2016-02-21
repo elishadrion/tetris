@@ -114,4 +114,16 @@ void PlayerInGame::placeCard(CardMonster* card) {
     _cardsPlaced.push_back(card);
 }
 
+void PlayerInGame::takeDamage(unsigned int damage){
+    _playerHeal -= damage;
+}
+
+
+void PlayerInGame::getHealed(unsigned int heal){
+    unsigned int maxHP = 20;
+    _playerHeal += heal;
+    if(_playerHeal > maxHP){
+        _playerHeal = maxHP; //Can't go higher than the max
+    }
+}
 

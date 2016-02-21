@@ -6,9 +6,9 @@
 
 class AttackCurse : public Effect{
 
-    std::size_t _attackValue;
+    unsigned int _attackValue;
 public:
-    AttackCurse(std::size_t attackValue):_attackValue(attackValue){};
+    AttackCurse(unsigned int attackValue):_attackValue(attackValue){};
     ~AttackCurse(){};
 
     virtual void apply(CardMonster*) override;

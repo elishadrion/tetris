@@ -6,9 +6,9 @@
 
 class AttackBlessing : public Effect{
 
-    std::size_t _attackValue;
+    unsigned int _attackValue;
 public:
-    AttackBlessing(std::size_t attackValue):_attackValue(attackValue){};
+    AttackBlessing(unsigned int attackValue):_attackValue(attackValue){};
     ~AttackBlessing(){};
 
     void apply(CardMonster*) override;

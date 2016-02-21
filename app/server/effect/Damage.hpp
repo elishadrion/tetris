@@ -7,9 +7,9 @@
 
 class Damage : public Effect{
 
-    std::size_t _damageValue;
+    unsigned int _damageValue;
 public:
-    Damage(std::size_t damageValue=2):_damageValue(damageValue){};
+    Damage(unsigned int damageValue):_damageValue(damageValue){};
     ~Damage(){};
 
     virtual void apply(CardMonster*) override;
@@ -22,7 +22,7 @@ void Damage::apply(CardMonster* target){
 }
 
 void Damage::apply(PlayerInGame* target){
-    target->setLife(target->getLife()-_damageValue);
+    target->takeDamage(damageValue);
 }
 
 #endif	/* DAMAGE_HPP */
