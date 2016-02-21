@@ -60,10 +60,10 @@ public:
 
     // Function during the game
     void draw(); // current player draw a card
-    Error placeCard(PlayerInGame*, Card*, PlayerInGame*);
+    Error placeCardAffectPlayer(PlayerInGame*, Card*);
     Error placeCard(PlayerInGame*, Card*, CardMonster*);
     Error attackWithCard(PlayerInGame*, CardMonster*, CardMonster*);
-    Error attackWithCard(PlayerInGame*, CardMonster*, PlayerInGame*);
+    Error attackWithCardAffectPlayer(PlayerInGame*, CardMonster*);
 
 
 private:
@@ -76,7 +76,6 @@ private:
     bool havePlace(PlayerInGame*);
 
     Error placeCard(PlayerInGame*, Card*);
-    Error attackWithCard(PlayerInGame*,CardMonster*);
 
 };
 

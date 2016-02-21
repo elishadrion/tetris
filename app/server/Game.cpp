@@ -179,7 +179,7 @@ void Game::addPlayerWaitGame(Player player) {
     if(!PlayerWaitGame.empty()) {
         Player* p1 = PlayerWaitGame.front(); // gets first player
         PlayerWaitGame.pop(); // removes first player
-     //   new Game(p1, &player); // creates game
+        new Game(p1, &player); // creates game
 
     } else {
         PlayerWaitGame.push(&player); // adds player to the waiting list
@@ -197,7 +197,7 @@ void Game::draw() {
 
 
 /**
- * Function when player place card
+ * Function when player place card and attack player
  *
  * @param pIG player who place the card
  * @param cardPlaced the card the must be place
@@ -205,15 +205,13 @@ void Game::draw() {
  * the placed card have it
  * @return Error or "NoError" if all ok
  */
-Error Game::placeCard(PlayerInGame* pIG, Card* cardPlaced,
-    PlayerInGame* targetPlayer) {
+Error Game::placeCardAffectPlayer(PlayerInGame* pIG, Card* cardPlaced) {
 
     Error res = placeCard(pIG, cardPlaced);
 
-
     if(res == Error::NoError && cardPlaced->gotEffect()) {
         if(cardPlaced->canBeApplyOnPlayer()) {
-            cardPlaced->applyEffect(*targetPlayer);
+            cardPlaced->applyEffect(*getAdversePlayer(pIG));
         } else {
             res = Error::NotEffectForPlayer;
         }
@@ -238,9 +236,8 @@ Error Game::placeCard(PlayerInGame* pIG, Card* cardPlaced,
     Error res = placeCard(pIG, cardPlaced);
 
     if(res == Error::NoError) {
-        // Verify effect and play it
-        // TO DO
-        // cardPlaced->applyEffect(*targetCard);
+        // Verify if effect can be apply on monster
+        cardPlaced->applyEffect(*targetCard);
     }
 
     return res;
@@ -257,10 +254,9 @@ Error Game::placeCard(PlayerInGame* pIG, Card* cardPlaced,
 Error Game::attackWithCard(PlayerInGame* pIG, CardMonster* card,
     CardMonster* targetCard) {
 
-
     Error res = canPlayerAttack(pIG, card);
     if(res == Error::NoError) {
-        if(verifyTaunt(pIG, card)) {
+        if(verifyTaunt(pIG, targetCard)) {
             card->dealDamage(*targetCard);
             if(targetCard->isDead()) {
                 this->getAdversePlayer()->defausseCardPlaced(targetCard);
@@ -273,6 +269,7 @@ Error Game::attackWithCard(PlayerInGame* pIG, CardMonster* card,
     return res;
 }
 
+
 /**
  * Funciton when player attack a card
 
@@ -281,10 +278,19 @@ Error Game::attackWithCard(PlayerInGame* pIG, CardMonster* card,
  * @param targetCard card which is attack
  * @return Error or "NoError" if all is ok
  */
-Error Game::attackWithCard(PlayerInGame* pIG, CardMonster* card,
-    PlayerInGame* targetCard) {
+Error Game::attackWithCardAffectPlayer(PlayerInGame* pIG,
+    CardMonster* card) {
 
-    // TO DO
+    Error res = canPlayerAttack(pIG, card);
+    if(res == Error::NoError) {
+        if(verifyTaunt(pIG)) {
+            card->dealDamage(*pIG);
+        } else {
+            res = Error::MustAttackTaunt;
+        }
+    }
+
+    return res;
 }
 
 //////////// PRIVATE ////////////
@@ -424,9 +430,4 @@ Error Game::placeCard(PlayerInGame* pIG, Card* placeCard) {
     }
 
     return res;
-}
-
-
-Error Game::attackWithCard(PlayerInGame* pIG,CardMonster* card) {
-// TO DO
 }
