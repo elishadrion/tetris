@@ -1,8 +1,8 @@
 #ifndef LIFEBLESSING_HPP
 #define	LIFEBLESSING_HPP
 
-#include "common/Card.hpp"
-#include "common/CardCreature.hpp"
+#include "server/Card.hpp"
+#include "server/CardCreature.hpp"
 #include "server/Effect.hpp"
 
 class LifeBlessing : public Effect{

@@ -1,7 +1,7 @@
 #ifndef CARDMANAGER_HPP
 #define CARDMANAGER_HPP
 
-#include "common/Card.hpp" //TODO tmp patch
+#include "Card.hpp" //TODO tmp patch
 #include <map>
 #include "include/json.hpp"
 

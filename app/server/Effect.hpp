@@ -1,7 +1,7 @@
 #ifndef EFFECT_HPP
 #define	EFFECT_HPP
 
-#include "common/Card.hpp"
+#include "Card.hpp"
 #include <vector>
 
 class Effect { //Abstract class

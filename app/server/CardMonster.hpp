@@ -2,7 +2,7 @@
 #define	CARDMONSTER_HPP
 
 #include "Card.hpp"
-#include "server/Player.hpp" //TODO tmp patch
+#include "Player.hpp" //TODO tmp patch
 
 class CardMonster : public Card {
 private:

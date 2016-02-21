@@ -1,8 +1,8 @@
 #ifndef HEAL_HPP
 #define	HEAL_HPP
 
-#include "common/Card.hpp"
-#include "common/CardCreature.hpp"
+#include "server/Card.hpp"
+#include "server/CardCreature.hpp"
 #include "server/Effect.hpp"
 #include "server/PlayerInGame.hpp"
 

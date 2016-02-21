@@ -1,8 +1,8 @@
 #ifndef DAMAGE_HPP
 #define	DAMAGE_HPP
 
-#include "common/Card.hpp"
-#include "common/CardCreature.hpp"
+#include "server/Card.hpp"
+#include "server/CardCreature.hpp"
 #include "server/Effect.hpp"
 #include "server/PlayerInGame.hpp"
 
