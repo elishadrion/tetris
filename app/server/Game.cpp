@@ -266,7 +266,7 @@ Error Game::attackWithCard(PlayerInGame* pIG, CardMonster* card,
     if(res == Error::NoError) {
         if(verifyTaunt(pIG, card)) {
             card->dealDamage(*targetCard);
-            if(targetCard->isDeath()) {
+            if(targetCard->isDead()) {
                 this->getAdversePlayer()->defausseCardPlaced(targetCard);
             }
         } else {

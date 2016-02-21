@@ -26,6 +26,11 @@ void CardMonster::incrementTour(){
 	this->_nbrTourPose++;
 }
 
-bool CardMonster::isDeath() {
-    return this->_life >= 0;
+bool CardMonster::isDead() {
+	if (this->_life > 0){
+		return false;
+	}
+	else{
+		return true;
+	}
 }
