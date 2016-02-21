@@ -195,7 +195,6 @@ void Game::draw() {
 }
 
 
-
 /**
  * Function when player place card and attack player
  *
