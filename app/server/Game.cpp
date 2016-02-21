@@ -195,37 +195,33 @@ void Game::draw() {
 }
 
 
+
 /**
- * Function when player place card. This function place the card
- * and verify that all is ok
+ * Function when player place card
  *
- * @param pIG who make the action
- * @param placeCard which is place
- * @return Error or "NoError" if all is ok
+ * @param pIG player who place the card
+ * @param cardPlaced the card the must be place
+ * @param targetPlayer player who will have the effect if
+ * the placed card have it
+ * @return Error or "NoError" if all ok
  */
-Error Game::placeCard(PlayerInGame* pIG, Card* placeCard) {
-    Error res = Error::UnknowError;
+Error Game::placeCard(PlayerInGame* pIG, Card* cardPlaced,
+    PlayerInGame* targetPlayer) {
 
-    if(pIG == _currentPlayer) {
-        if(!placeCard->isMonster() || havePlace(pIG)) {
-            if(pIG->haveEnoughEnergy(placeCard)) {
-                if(placeCard->isMonster()) {
-                    pIG->placeCard(dynamic_cast<CardMonster*>(placeCard));
-                }
-                res = Error::NoError;
+    Error res = placeCard(pIG, cardPlaced);
 
-            } else {
-                res = Error::NotEnoughEnergy;
-            }
+
+    if(res == Error::NoError && cardPlaced->gotEffect()) {
+        if(cardPlaced->canBeApplyOnPlayer()) {
+            cardPlaced->applyEffect(targetPlayer);
         } else {
-            res = Error::NotEnoughPlace;
+            res = Error::NotEffectForPlayer;
         }
-    } else {
-        res = Error::NotHisTurn;
     }
 
     return res;
 }
+
 
 
 /**
@@ -399,25 +395,32 @@ bool Game::havePlace(PlayerInGame* pIG) {
 
 
 /**
- * Function when player place card
+ * Function when player place card. This function place the card
+ * and verify that all is ok
  *
- * @param pIG player who place the card
- * @param cardPlaced the card the must be place
- * @param targetPlayer player who will have the effect if
- * the placed card have it
- * @return Error or "NoError" if all ok
+ * @param pIG who make the action
+ * @param placeCard which is place
+ * @return Error or "NoError" if all is ok
  */
-Error Game::placeCard(PlayerInGame* pIG, Card* cardPlaced,
-    PlayerInGame* targetPlayer) {
+Error Game::placeCard(PlayerInGame* pIG, Card* placeCard) {
+    Error res = Error::UnknowError;
 
-    Error res = placeCard(pIG, cardPlaced);
+    if(pIG == _currentPlayer) {
+        if(!placeCard->isMonster() || havePlace(pIG)) {
+            if(pIG->haveEnoughEnergy(placeCard)) {
+                if(placeCard->isMonster()) {
+                    pIG->placeCard(dynamic_cast<CardMonster*>(placeCard));
+                }
+                res = Error::NoError;
 
-
-    if(res == Error::NoError) {
-        // Verify if card have effect and apply it
-        // TO DO
-        // Regarder que la carte peut attaquer le player
-        // cardPlaced->applyEffect(*targetPlayer);
+            } else {
+                res = Error::NotEnoughEnergy;
+            }
+        } else {
+            res = Error::NotEnoughPlace;
+        }
+    } else {
+        res = Error::NotHisTurn;
     }
 
     return res;

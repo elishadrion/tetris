@@ -7,7 +7,9 @@ enum Error {
     NotEnoughPlace = 2,
     NotHisTurn = 3,
     MustAttackTaunt = 4,
-    UnknowError = 5
+    UnknowError = 5,
+    NotEffectForPlayer = 6,
+    NotEffectForMonster = 7
 };
 
 
