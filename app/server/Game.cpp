@@ -5,16 +5,7 @@
 std::queue<Player*> Game::PlayerWaitGame;
 
 
-/**
- * Switches player turn
- */
-void Game::nextPlayer() {
-    (_currentPlayer == _player1) ? _currentPlayer = _player2 : _currentPlayer = _player1;
-    // WizardLogger::info("C'est maintenant au tour de " + _currentPlayer->getUsername());
-    // TO DO message de débug
-
-    beginTurn();
-}
+//////////// PRIVATE ////////////
 
 
 /**
@@ -35,63 +26,18 @@ Game::Game(Player* p1, Player* p2):
 
 }
 
-/**
- * Copy constructor
- *
- * @param game who must be copied
- */
-Game::Game(const Game& game): _gameStatut(game._gameStatut),
-    _currentPlayer(game._currentPlayer), _player1(game._player1),
-    _player2(game._player2) {}
 
 /**
- * Default constructor
+ * Switches player turn
  */
-Game::Game(): _gameStatut(GameStatut::WAIT_DEC),
-    _currentPlayer(nullptr), _turn(0),
-    _player1(nullptr), _player2(nullptr) {}
+void Game::nextPlayer() {
+    (_currentPlayer == _player1) ? _currentPlayer = _player2 : _currentPlayer = _player1;
+    // WizardLogger::info("C'est maintenant au tour de " + _currentPlayer->getUsername());
+    // TO DO message de débug
 
-
-/**
- * Copy operator
- */
-Game& Game::operator=(const Game& game) {
-    _currentPlayer = game._currentPlayer;
-    _player1 = game._player1;
-    _player2 = game._player2;
-    _gameStatut = game._gameStatut;
-
-    return *this;
+    beginTurn();
 }
 
-
-
-/**
- * Adds a player to the waiting list
- * If there is more than one player who is waiting, then it creates a Game
- *
- * @param player the new player waiting
- */
-void Game::addPlayerWaitGame(Player player) {
-    if(!PlayerWaitGame.empty()) {
-        Player* p1 = PlayerWaitGame.front(); // gets first player
-        PlayerWaitGame.pop(); // removes first player
-     //   new Game(p1, &player); // creates game
-
-    } else {
-        PlayerWaitGame.push(&player); // adds player to the waiting list
-    }
-}
-
-/**
- * Checks if the player have set his deck
- * If all is ok, the game starts
- */
-void Game::checkDeckAndStart() {
-    if(_player1->isDeckDefined() && _player2->isDeckDefined()) {
-        sendInformation();
-    }
-}
 
 /**
  * Know if the game has begun
@@ -117,13 +63,23 @@ void Game::sendInformation() {
 
 
 /**
- * Gets the ennemy placed card
+ * Sends information about the game
  *
- * @param player the current player
+ * @param player who receive the information
  */
-std::vector<CardMonster*> Game::getAdversePlacedCard(PlayerInGame* player) {
-    return getAdversePlayer(player)->getCardsPlaced();
+void Game::sendInformation(PlayerInGame* player,
+    dataIGPlayer dataPlayer, dataIGPlayer dataAdvPlayer) {
+
+    // init turn
+    dataPlayer.turn = (player == _currentPlayer);
+    dataAdvPlayer.turn = (player != _currentPlayer); // can be remove ?(=?)
+
+    dataAdvPlayer.cardsInHand.clear();
+
+    // sends information to the player (dataPlayer and dataAdvPlayer)
+    // @tutul
 }
+
 
 /**
  * Get the ennemy player (adversary)
@@ -158,56 +114,86 @@ PlayerInGame* Game::getAdversePlayer() {
 
 
 /**
- * Sends information about the game
+ * Gets the ennemy placed card
  *
- * @param player who receive the information
+ * @param player the current player
  */
-void Game::sendInformation(PlayerInGame* player,
-    dataIGPlayer dataPlayer, dataIGPlayer dataAdvPlayer) {
-
-    // init turn
-    dataPlayer.turn = (player == _currentPlayer);
-    dataAdvPlayer.turn = (player != _currentPlayer); // can be remove ?(=?)
-
-    dataAdvPlayer.cardsInHand.clear();
-
-    // sends information to the player (dataPlayer and dataAdvPlayer)
-    // @tutul
+std::vector<CardMonster*> Game::getAdversePlacedCard(PlayerInGame* player) {
+    return getAdversePlayer(player)->getCardsPlaced();
 }
 
+
+
+//////////// PUBLIC ////////////
+
+
+/**
+ * Default constructor
+ */
+Game::Game(): _gameStatut(GameStatut::WAIT_DEC),
+    _currentPlayer(nullptr), _turn(0),
+    _player1(nullptr), _player2(nullptr) {}
+
+
+/**
+ * Copy constructor
+ *
+ * @param game who must be copied
+ */
+Game::Game(const Game& game): _gameStatut(game._gameStatut),
+    _currentPlayer(game._currentPlayer), _player1(game._player1),
+    _player2(game._player2) {}
+
+
+/**
+ * Copy operator
+ */
+Game& Game::operator=(const Game& game) {
+    _currentPlayer = game._currentPlayer;
+    _player1 = game._player1;
+    _player2 = game._player2;
+    _gameStatut = game._gameStatut;
+
+    return *this;
+}
+
+
+/**
+ * Checks if the player have set his deck
+ * If all is ok, the game starts
+ */
+void Game::checkDeckAndStart() {
+    if(_player1->isDeckDefined() && _player2->isDeckDefined()) {
+        sendInformation();
+    }
+}
+
+
+/**
+ * Adds a player to the waiting list
+ * If there is more than one player who is waiting, then it creates a Game
+ *
+ * @param player the new player waiting
+ */
+void Game::addPlayerWaitGame(Player player) {
+    if(!PlayerWaitGame.empty()) {
+        Player* p1 = PlayerWaitGame.front(); // gets first player
+        PlayerWaitGame.pop(); // removes first player
+     //   new Game(p1, &player); // creates game
+
+    } else {
+        PlayerWaitGame.push(&player); // adds player to the waiting list
+    }
+}
+
+
+/**
+ * Current player draw a card
+ */
 void Game::draw() {
     _currentPlayer->draw();
 }
 
-/**
- * Function when the turn begin
- */
-void Game::beginTurn() {
-    // Increment number of turn
-    vector<CardMonster*> cardPlaced = _currentPlayer->getCardsPlaced();
-    for (size_t i = 0; i < cardPlaced.size(); ++i) {
-        cardPlaced[i]->incrementTour();
-    }
-
-
-    while(_currentPlayer->nbrCardInHand() < 7) {
-        draw();
-    }
-
-
-}
-
-/**
- * Function when the turn is finish
- */
-void Game::endTurn() {
-
-    while(_currentPlayer->nbrCardInHand() > 7) {
-        // askDefausse(...
-        // @tutul
-    }
-
-}
 
 /**
  * Function when player place card. This function place the card
@@ -242,7 +228,6 @@ Error Game::placeCard(PlayerInGame* pIG, Card* placeCard) {
 }
 
 
-
 /**
  * Function when player place card
  *
@@ -263,43 +248,6 @@ Error Game::placeCard(PlayerInGame* pIG, Card* cardPlaced,
     }
 
     return res;
-}
-
-
-/**
- * Function when player place card
- *
- * @param pIG player who place the card
- * @param cardPlaced the card the must be place
- * @param targetPlayer player who will have the effect if
- * the placed card have it
- * @return Error or "NoError" if all ok
- */
-Error Game::placeCard(PlayerInGame* pIG, Card* cardPlaced,
-    PlayerInGame* targetPlayer) {
-
-    Error res = placeCard(pIG, cardPlaced);
-
-
-    if(res == Error::NoError) {
-        // Verify if card have effect and apply it
-        // TO DO
-        // Regarder que la carte peut attaquer le player
-        // cardPlaced->applyEffect(*targetPlayer);
-    }
-
-    return res;
-}
-
-
-/**
- * Indicate whether the still has place on his game board
- *
- * @param pIG where we must make verification
- * @return True if the have place
- */
-bool Game::havePlace(PlayerInGame* pIG) {
-    return _currentPlayer->getCardsPlaced().size() < 7;
 }
 
 
@@ -328,6 +276,54 @@ Error Game::attackWithCard(PlayerInGame* pIG, CardMonster* card,
 
     return res;
 }
+
+/**
+ * Funciton when player attack a card
+
+ * @param pIG who play
+ * @param card which play
+ * @param targetCard card which is attack
+ * @return Error or "NoError" if all is ok
+ */
+Error Game::attackWithCard(PlayerInGame* pIG, CardMonster* card,
+    PlayerInGame* targetCard) {
+
+    // TO DO
+}
+
+//////////// PRIVATE ////////////
+
+/**
+ * Function when the turn begin
+ */
+void Game::beginTurn() {
+    // Increment number of turn
+    vector<CardMonster*> cardPlaced = _currentPlayer->getCardsPlaced();
+    for (size_t i = 0; i < cardPlaced.size(); ++i) {
+        cardPlaced[i]->incrementTour();
+    }
+
+
+    while(_currentPlayer->nbrCardInHand() < 7) {
+        draw();
+    }
+
+
+}
+
+
+/**
+ * Function when the turn is finish
+ */
+void Game::endTurn() {
+
+    while(_currentPlayer->nbrCardInHand() > 7) {
+        // askDefausse(...
+        // @tutul
+    }
+
+}
+
 
 /**
  * Verify that player can play
@@ -391,3 +387,43 @@ bool Game::verifyTaunt(PlayerInGame* pIG) {
 }
 
 
+/**
+ * Indicate whether the still has place on his game board
+ *
+ * @param pIG where we must make verification
+ * @return True if the have place
+ */
+bool Game::havePlace(PlayerInGame* pIG) {
+    return _currentPlayer->getCardsPlaced().size() < 7;
+}
+
+
+/**
+ * Function when player place card
+ *
+ * @param pIG player who place the card
+ * @param cardPlaced the card the must be place
+ * @param targetPlayer player who will have the effect if
+ * the placed card have it
+ * @return Error or "NoError" if all ok
+ */
+Error Game::placeCard(PlayerInGame* pIG, Card* cardPlaced,
+    PlayerInGame* targetPlayer) {
+
+    Error res = placeCard(pIG, cardPlaced);
+
+
+    if(res == Error::NoError) {
+        // Verify if card have effect and apply it
+        // TO DO
+        // Regarder que la carte peut attaquer le player
+        // cardPlaced->applyEffect(*targetPlayer);
+    }
+
+    return res;
+}
+
+
+Error Game::attackWithCard(PlayerInGame* pIG,CardMonster* card) {
+// TO DO
+}

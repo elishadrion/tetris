@@ -27,20 +27,20 @@ class Game {
 
     static std::queue<Player*> PlayerWaitGame;
 
+    // Attribut
     GameStatut _gameStatut;
     PlayerInGame* _currentPlayer; // Player that must play now (0 or 1)
     unsigned int _turn;
     PlayerInGame* _player1;
     PlayerInGame* _player2;
-    // Add log (file ?)
 
-
+    // Constructor
     Game(Player* p1, Player* p2);
 
-    virtual void nextPlayer();
+    void nextPlayer();
     bool isInGame();
-    void sendInformation();
-    void sendInformation(PlayerInGame*,dataIGPlayer, dataIGPlayer);
+    void sendInformation(); // Not use
+    void sendInformation(PlayerInGame*,dataIGPlayer, dataIGPlayer); // Not use
     PlayerInGame* getAdversePlayer(PlayerInGame* player);
     PlayerInGame* getAdversePlayer();
     std::vector<CardMonster*> getAdversePlacedCard(PlayerInGame* player);
