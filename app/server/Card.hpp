@@ -43,6 +43,8 @@ public:
     int getEffectID(){return _effect;}
     virtual bool isMonster() { return false; }
     virtual bool isTaunt() { return _taunt; }
+    virtual bool canBeApplyOnCard();
+    virtual bool canBeApplyOnPlayer();
 
     //void setEnergyCost(std::size_t newCost){_energyCost = newCost}
     // maybe be able to change with spell cards (see that later)

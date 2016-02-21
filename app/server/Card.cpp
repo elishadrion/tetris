@@ -31,24 +31,32 @@ Card::Card(Card& card) : _id(card.getId()), _name(card.getName()),
 
 
 void Card::applyEffect(CardMonster& cardmonster){
-    if (this->gotEffect() and Effect::getEffectByID(this->getEffectID())->canBeApplyOnCard()){
+    if (this->gotEffect() and this->canBeApplyOnCard()){
         Effect::getEffectByID(this->getEffectID())->apply(&cardmonster);
     }
 }
 
 void Card::applyEffect(PlayerInGame& player){
-    if (this->gotEffect() and Effect::getEffectByID(this->getEffectID())->canBeApplyOnPlayer()){
+    if (this->gotEffect() and this->canBeApplyOnPlayer()){
         Effect::getEffectByID(this->getEffectID())->apply(&player);
     }
 }
 
 bool Card::gotEffect(){
-	if (this->getEffectID() == -1){
-		return false;
-	}
-	else {
-		return true;
-	}
+    if (this->getEffectID() == -1){
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+
+bool Card::canBeApplyOnPlayer(){
+    return Effect::getEffectByID(this->getEffectID())->canBeApplyOnPlayer();
+}
+
+bool Card::canBeApplyOnCard(){
+    return Effect::getEffectByID(this->getEffectID())->canBeApplyOnCard();
 }
 
 Card::~Card() {}
