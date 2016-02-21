@@ -1,7 +1,7 @@
 
 #include "Effect.hpp"
 
-std::vector<Effect*> Effect::listEffect;
+std::vector<Effect*> Effect::_listEffect;
 
 void Effect::loadAllEffect() {
 /*
@@ -28,5 +28,5 @@ void Effect::loadAllEffect() {
 
 
 Effect* Effect::getEffectByID(unsigned id){
-    return Effect::listEffect[id];
+    return Effect::_listEffect[id];
 }

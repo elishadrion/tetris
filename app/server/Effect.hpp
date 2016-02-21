@@ -20,11 +20,11 @@ class CardMonster;
 class PlayerInGame;
 
 class Effect { //Abstract class
-    static std::vector<Effect*> listEffect;
+    static std::vector<Effect*> _listEffect;
 public:
     Effect(){
     //Attention, vérifier si classes filles appellent cosntructeur parent
-        listEffect.push_back(this);
+        _listEffect.push_back(this);
     };
     virtual ~Effect(){};
 
