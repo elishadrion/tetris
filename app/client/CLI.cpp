@@ -26,6 +26,7 @@ CLI::CLI() {
     
     /* Create panel and form view */
     loginPanel = new LoginPanel();
+    mainPanel = new MainPanel();
     
     /* Updates panel and displays window */
     update_panels();
@@ -39,6 +40,11 @@ CLI::~CLI() {
 }
 
 void CLI::displayLoginPrompt() {
-    /* We create all panel now (hidden by default except loginPanel) */
+    /* Create loginPanel and siplay it */
     loginPanel->askLogin();
+}
+
+void CLI::displayMainWindow() {
+    /* We create all panel now (hidden by default except loginPanel) */
+    //loginPanel->askLogin();
 }

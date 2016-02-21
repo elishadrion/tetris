@@ -12,6 +12,7 @@
 
 /* All used panel */
 #include "LoginPanel.hpp"
+#include "MainPanel.hpp"
 
 /** in-game layout
 #################################### ############
@@ -77,10 +78,12 @@
 class CLI : public Display {
     /* All panel used by the CLI */
     LoginPanel *loginPanel;
+    MainPanel *mainPanel;
 public:
     CLI();
     ~CLI();
     void displayLoginPrompt();
+    void displayMainWindow();
 };
 
 #endif /* CONSOLE_HPP */
