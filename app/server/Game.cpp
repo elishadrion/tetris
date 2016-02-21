@@ -213,7 +213,7 @@ Error Game::placeCard(PlayerInGame* pIG, Card* cardPlaced,
 
     if(res == Error::NoError && cardPlaced->gotEffect()) {
         if(cardPlaced->canBeApplyOnPlayer()) {
-            cardPlaced->applyEffect(targetPlayer);
+            cardPlaced->applyEffect(*targetPlayer);
         } else {
             res = Error::NotEffectForPlayer;
         }
