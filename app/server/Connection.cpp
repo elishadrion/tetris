@@ -50,7 +50,10 @@ void Connection::mainLoop() {
         if (clientSocket == -1) {
             WizardLogger::error("Impossible d'accepter la connexion d'un client", std::system_error(EFAULT, std::system_category()));
         } else {
-            WizardLogger::info(strcat("Nouvelle connexion pour le client : ", inet_ntoa(client_addr.sin_addr)));
+            /* We need to append a char* so we must use string to do that */
+            std::string *info = new std::string("Nouvelle connexion pour le client : ");
+            WizardLogger::info(info->append(inet_ntoa(client_addr.sin_addr))); //TODO don't support IPv6
+            delete info; /* Don't forget to free memory */
             
             //TODO create a new thread specific to the player to communicate with him
         }

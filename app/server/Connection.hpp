@@ -19,8 +19,8 @@
 #define BACKLOG 5       /* Pending connections the queue will hold */
 
 class Connection {
-    struct sockaddr_in server_addr;
-    struct sockaddr_in client_addr;
+    struct sockaddr_in server_addr; //TODO don't support IPv6
+    struct sockaddr_in client_addr; //TODO don't support IPv6
     int _serverSocket;
     unsigned int _sinSize;
 public:
