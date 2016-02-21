@@ -16,11 +16,11 @@ Player* PlayerManager::signIn(std::string username, std::string pass, int sockfd
 
     info["username"] = username;
     // etc etc with pass and sockfd
-
+    /*
     Player* signed_in = new Player(info);
     connected.push_back(signed_in);
 
-    return signed_in;
+    return signed_in;*/
 
 }
 

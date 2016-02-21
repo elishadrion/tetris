@@ -15,11 +15,11 @@ PlayerInGame::PlayerInGame() {
 /**
  * Creates a PlayerInGame and asks to the player which Deck he would like to play with
  */
-//PlayerInGame::PlayerInGame(Player player, Game* game) {
+PlayerInGame::PlayerInGame(Player& player, Game* game) {
     // TO DO
     // askDeck(getListDeck());
     // @tutul
-//}
+}
 
 /**
  * Gets data information from this player to send it

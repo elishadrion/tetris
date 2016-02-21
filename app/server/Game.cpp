@@ -23,7 +23,6 @@ void Game::nextPlayer() {
  * @param p1 the first player
  * @param p2 the second player
  */
- /*
 Game::Game(Player* p1, Player* p2):
     _gameStatut(GameStatut::WAIT_DEC), _turn(0) {
 
@@ -31,10 +30,10 @@ Game::Game(Player* p1, Player* p2):
     _player1 = new PlayerInGame(*p1, this);
     _player2 = new PlayerInGame(*p2, this);
     _currentPlayer = _player1;
-    WizardLogger::info("Création d'une partie opposant " + _player1->getUsername() +
-        " et " + _player2->getUsername());
+    //WizardLogger::info("Création d'une partie opposant " +
+    //    _player1->getUsername() + " et " + _player2->getUsername());
 
-}*/
+}
 
 /**
  * Copy constructor

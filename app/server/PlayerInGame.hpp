@@ -46,7 +46,7 @@ class PlayerInGame : public Player {
 public:
 
     PlayerInGame(); // not valide but better for less Warnings :D
-    PlayerInGame(Player player, Game* game);
+    PlayerInGame(Player &player, Game* game);
 
     dataIGPlayer getDataPlayer();
     std::vector<CardMonster*> getCardsPlaced();
