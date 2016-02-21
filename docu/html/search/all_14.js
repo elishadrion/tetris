@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['_7ecard',['~Card',['../classCard.html#abf30649dca6b7398b7500e41fd6767e0',1,'Card']]],
+  ['_7ecard',['~Card',['../classCard.html#a2914c3978ed065d99ec335bc6788e060',1,'Card::~Card()=default'],['../classCard.html#a79e6800c90dc22618f1c03247c7f19d5',1,'Card::~Card()=0']]],
   ['_7ecli',['~CLI',['../classCLI.html#a9f59d57abf434f7161fcf3f61b725752',1,'CLI']]],
   ['_7econnection',['~Connection',['../classConnection.html#a2e4352edf667bea83001569e9da8a24d',1,'Connection::~Connection()'],['../classConnection.html#a2e4352edf667bea83001569e9da8a24d',1,'Connection::~Connection()']]],
   ['_7edisplay',['~Display',['../classDisplay.html#a8c364e5ed02f311a695e9502773d1c74',1,'Display']]],

@@ -105,59 +105,65 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">/* All used panel */</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="LoginPanel_8hpp.html">LoginPanel.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">/* Nbr of space char used to seperate panel */</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="CLI_8hpp.html#a5c16299dfdf0a77b186ce91c8063bdb9">   41</a></span>&#160;<span class="preprocessor">#define DEFAULT_EMPTY_SPACE 2</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">/* Defines maximum of the mainWindow */</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="CLI_8hpp.html#a321ae946de24c36489276616d13c46cd">   44</a></span>&#160;<span class="preprocessor">#define LINES 37</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="CLI_8hpp.html#a628405768f066e7a73900678e622770c">   45</a></span>&#160;<span class="preprocessor">#define COLLONNES 96</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">/* Defines commandListPanel size (take all windows width) */</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="CLI_8hpp.html#a0aebff1da224d1b5d3e8e8d7d41300ec">   48</a></span>&#160;<span class="preprocessor">#define COMMANDE_PANEL_HEIGTH 1</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">/* Defines gamePanel size */</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="CLI_8hpp.html#a1022328666447f08e6841e68f93db36b">   51</a></span>&#160;<span class="preprocessor">#define GAME_HEIGTH 21</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="CLI_8hpp.html#a693f306b88f7336281e4d1f07754579c">   52</a></span>&#160;<span class="preprocessor">#define GAME_WIDTH 63</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">/* Defines card&#39;s size</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment"> * With 5 cards max on bord per player (and ico for trash and deck)</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment"> * And space for 3 cards from top to bottom (2 for player and one for spell action)</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="CLI_8hpp.html#ac9ff64cd26da3bb271e42ce913aebe82">   58</a></span>&#160;<span class="preprocessor">#define CARD_HEIGTH (GAME_HEIGTH%3)</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="CLI_8hpp.html#ad6ff324701f28fdcd04a8408f68a3f6c">   59</a></span>&#160;<span class="preprocessor">#define CARD_WIDTH (GAME_WIDTH%7)</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">/* Defines playersInfoPanel size (same width as gamePanel) */</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="CLI_8hpp.html#a97f6acaad01fed1c09886eac51f361db">   62</a></span>&#160;<span class="preprocessor">#define PLAYER_INFO_HEIGTH (3+2*DEFAULT_EMPTY_SPACE)</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="CLI_8hpp.html#a2f9f5939f8bbd2dc6365efdb99aacb83">   63</a></span>&#160;<span class="preprocessor">#define PLAYER_INFO_WIDTH GAME_WIDTH</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">/* Defines tchatInputPanel size (same height as playerInfoPanel) */</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="CLI_8hpp.html#aff8fff0c2f56d7c64318738a596e0387">   66</a></span>&#160;<span class="preprocessor">#define TCHAT_INPUT_HEIGTH PLAYER_INFO_HEIGTH</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="CLI_8hpp.html#ab8b1f21cb0908481707de677bf3bb596">   67</a></span>&#160;<span class="preprocessor">#define TCHAT_INPUT_WIDTH 27</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">/* Defines tchatLogPanel size (same width as tchatInputPanel) */</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="CLI_8hpp.html#a660ed6f3a09f7f39be7913f8496191ce">   70</a></span>&#160;<span class="preprocessor">#define TCHAT_HEIGTH 14</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="CLI_8hpp.html#a63d094e74ed0640235cbfc26479e3706">   71</a></span>&#160;<span class="preprocessor">#define TCHAT_WIDTH TCHAT_INPUT_WIDTH</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">/* Defines cardInfoPanel size (same width as tchatInputPanel) */</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="CLI_8hpp.html#abc246160f0fd6108f7045c098f5f500f">   74</a></span>&#160;<span class="preprocessor">#define CARD_INFO_HEIGTH 5</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="CLI_8hpp.html#a9621c1a5a13bee3200fb686675869d8b">   75</a></span>&#160;<span class="preprocessor">#define CARD_INFO_WIDTH TCHAT_INPUT_WIDTH</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="classCLI.html">   77</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCLI.html">CLI</a> : <span class="keyword">public</span> <a class="code" href="classDisplay.html">Display</a> {</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="comment">/* All panel used by the CLI */</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <a class="code" href="classLoginPanel.html">LoginPanel</a> *loginPanel;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <a class="code" href="classCLI.html#a1a5b0f7ec3b242c5c56e4745adbb391e">CLI</a>();</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <a class="code" href="classCLI.html#a9f59d57abf434f7161fcf3f61b725752">~CLI</a>();</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCLI.html#a6cf4acf9f7fa587cc49b892487c68f13">displayLoginPrompt</a>();</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;};</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* CONSOLE_HPP */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="MainPanel_8hpp.html">MainPanel.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">/* Nbr of space char used to seperate panel */</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="CLI_8hpp.html#a5c16299dfdf0a77b186ce91c8063bdb9">   42</a></span>&#160;<span class="preprocessor">#define DEFAULT_EMPTY_SPACE 2</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">/* Defines maximum of the mainWindow */</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="CLI_8hpp.html#a321ae946de24c36489276616d13c46cd">   45</a></span>&#160;<span class="preprocessor">#define LINES 37</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="CLI_8hpp.html#a628405768f066e7a73900678e622770c">   46</a></span>&#160;<span class="preprocessor">#define COLLONNES 96</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">/* Defines commandListPanel size (take all windows width) */</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="CLI_8hpp.html#a0aebff1da224d1b5d3e8e8d7d41300ec">   49</a></span>&#160;<span class="preprocessor">#define COMMANDE_PANEL_HEIGTH 1</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">/* Defines gamePanel size */</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="CLI_8hpp.html#a1022328666447f08e6841e68f93db36b">   52</a></span>&#160;<span class="preprocessor">#define GAME_HEIGTH 21</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="CLI_8hpp.html#a693f306b88f7336281e4d1f07754579c">   53</a></span>&#160;<span class="preprocessor">#define GAME_WIDTH 63</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">/* Defines card&#39;s size</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment"> * With 5 cards max on bord per player (and ico for trash and deck)</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment"> * And space for 3 cards from top to bottom (2 for player and one for spell action)</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="CLI_8hpp.html#ac9ff64cd26da3bb271e42ce913aebe82">   59</a></span>&#160;<span class="preprocessor">#define CARD_HEIGTH (GAME_HEIGTH%3)</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="CLI_8hpp.html#ad6ff324701f28fdcd04a8408f68a3f6c">   60</a></span>&#160;<span class="preprocessor">#define CARD_WIDTH (GAME_WIDTH%7)</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">/* Defines playersInfoPanel size (same width as gamePanel) */</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="CLI_8hpp.html#a97f6acaad01fed1c09886eac51f361db">   63</a></span>&#160;<span class="preprocessor">#define PLAYER_INFO_HEIGTH (3+2*DEFAULT_EMPTY_SPACE)</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="CLI_8hpp.html#a2f9f5939f8bbd2dc6365efdb99aacb83">   64</a></span>&#160;<span class="preprocessor">#define PLAYER_INFO_WIDTH GAME_WIDTH</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">/* Defines tchatInputPanel size (same height as playerInfoPanel) */</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="CLI_8hpp.html#aff8fff0c2f56d7c64318738a596e0387">   67</a></span>&#160;<span class="preprocessor">#define TCHAT_INPUT_HEIGTH PLAYER_INFO_HEIGTH</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="CLI_8hpp.html#ab8b1f21cb0908481707de677bf3bb596">   68</a></span>&#160;<span class="preprocessor">#define TCHAT_INPUT_WIDTH 27</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">/* Defines tchatLogPanel size (same width as tchatInputPanel) */</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="CLI_8hpp.html#a660ed6f3a09f7f39be7913f8496191ce">   71</a></span>&#160;<span class="preprocessor">#define TCHAT_HEIGTH 14</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="CLI_8hpp.html#a63d094e74ed0640235cbfc26479e3706">   72</a></span>&#160;<span class="preprocessor">#define TCHAT_WIDTH TCHAT_INPUT_WIDTH</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">/* Defines cardInfoPanel size (same width as tchatInputPanel) */</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="CLI_8hpp.html#abc246160f0fd6108f7045c098f5f500f">   75</a></span>&#160;<span class="preprocessor">#define CARD_INFO_HEIGTH 5</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="CLI_8hpp.html#a9621c1a5a13bee3200fb686675869d8b">   76</a></span>&#160;<span class="preprocessor">#define CARD_INFO_WIDTH TCHAT_INPUT_WIDTH</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="classCLI.html">   78</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCLI.html">CLI</a> : <span class="keyword">public</span> <a class="code" href="classDisplay.html">Display</a> {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="comment">/* All panel used by the CLI */</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <a class="code" href="classLoginPanel.html">LoginPanel</a> *loginPanel;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <a class="code" href="classMainPanel.html">MainPanel</a> *mainPanel;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <a class="code" href="classCLI.html#a1a5b0f7ec3b242c5c56e4745adbb391e">CLI</a>();</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <a class="code" href="classCLI.html#a9f59d57abf434f7161fcf3f61b725752">~CLI</a>();</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCLI.html#a6cf4acf9f7fa587cc49b892487c68f13">displayLoginPrompt</a>();</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCLI.html#abcf6f643c8a94e0451b4b6d9ab9546c7">displayMainWindow</a>();</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;};</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* CONSOLE_HPP */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="classCLI_html_a1a5b0f7ec3b242c5c56e4745adbb391e"><div class="ttname"><a href="classCLI.html#a1a5b0f7ec3b242c5c56e4745adbb391e">CLI::CLI</a></div><div class="ttdeci">CLI()</div><div class="ttdef"><b>Definition:</b> CLI.cpp:3</div></div>
+<div class="ttc" id="classCLI_html_abcf6f643c8a94e0451b4b6d9ab9546c7"><div class="ttname"><a href="classCLI.html#abcf6f643c8a94e0451b4b6d9ab9546c7">CLI::displayMainWindow</a></div><div class="ttdeci">void displayMainWindow()</div><div class="ttdef"><b>Definition:</b> CLI.cpp:47</div></div>
+<div class="ttc" id="classMainPanel_html"><div class="ttname"><a href="classMainPanel.html">MainPanel</a></div><div class="ttdef"><b>Definition:</b> MainPanel.hpp:6</div></div>
 <div class="ttc" id="LoginPanel_8hpp_html"><div class="ttname"><a href="LoginPanel_8hpp.html">LoginPanel.hpp</a></div></div>
-<div class="ttc" id="classCLI_html"><div class="ttname"><a href="classCLI.html">CLI</a></div><div class="ttdef"><b>Definition:</b> CLI.hpp:77</div></div>
-<div class="ttc" id="classCLI_html_a6cf4acf9f7fa587cc49b892487c68f13"><div class="ttname"><a href="classCLI.html#a6cf4acf9f7fa587cc49b892487c68f13">CLI::displayLoginPrompt</a></div><div class="ttdeci">void displayLoginPrompt()</div><div class="ttdef"><b>Definition:</b> CLI.cpp:41</div></div>
-<div class="ttc" id="classCLI_html_a9f59d57abf434f7161fcf3f61b725752"><div class="ttname"><a href="classCLI.html#a9f59d57abf434f7161fcf3f61b725752">CLI::~CLI</a></div><div class="ttdeci">~CLI()</div><div class="ttdef"><b>Definition:</b> CLI.cpp:35</div></div>
+<div class="ttc" id="classCLI_html"><div class="ttname"><a href="classCLI.html">CLI</a></div><div class="ttdef"><b>Definition:</b> CLI.hpp:78</div></div>
+<div class="ttc" id="MainPanel_8hpp_html"><div class="ttname"><a href="MainPanel_8hpp.html">MainPanel.hpp</a></div></div>
+<div class="ttc" id="classCLI_html_a6cf4acf9f7fa587cc49b892487c68f13"><div class="ttname"><a href="classCLI.html#a6cf4acf9f7fa587cc49b892487c68f13">CLI::displayLoginPrompt</a></div><div class="ttdeci">void displayLoginPrompt()</div><div class="ttdef"><b>Definition:</b> CLI.cpp:42</div></div>
+<div class="ttc" id="classCLI_html_a9f59d57abf434f7161fcf3f61b725752"><div class="ttname"><a href="classCLI.html#a9f59d57abf434f7161fcf3f61b725752">CLI::~CLI</a></div><div class="ttdeci">~CLI()</div><div class="ttdef"><b>Definition:</b> CLI.cpp:36</div></div>
 <div class="ttc" id="classDisplay_html"><div class="ttname"><a href="classDisplay.html">Display</a></div><div class="ttdef"><b>Definition:</b> Display.hpp:4</div></div>
 <div class="ttc" id="classLoginPanel_html"><div class="ttname"><a href="classLoginPanel.html">LoginPanel</a></div><div class="ttdef"><b>Definition:</b> LoginPanel.hpp:36</div></div>
 <div class="ttc" id="WizardLogger_8hpp_html"><div class="ttname"><a href="WizardLogger_8hpp.html">WizardLogger.hpp</a></div></div>

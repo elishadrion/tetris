@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mainmenu',['MainMenu',['../classMainMenu.html',1,'']]]
+  ['mainpanel',['MainPanel',['../classMainPanel.html',1,'']]]
 ];

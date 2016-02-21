@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.10"/>
+<title>Wizard Poker:  Fichier source de client/Card.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Wizard Poker
+   &#160;<span id="projectnumber">0.0.1</span>
+   </div>
+   <div id="projectbrief">ULB-BA-2-INFO : Projet d&#39;année</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.10 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="namespaces.html"><span>Espaces&#160;de&#160;nommage</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_db3a54907829b36871118d03417739cd.html">client</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Card.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="client_2Card_8hpp.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef CARD_HPP</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define CARD_HPP</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="classCard.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCard.html">Card</a> {</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="keywordtype">int</span> _id;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keywordtype">bool</span> _monster;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    std::string _name;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    std::string _description;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordtype">int</span> _energyCost;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classCard.html#af144dc4147acbd1e97031221ad6f3f03">   13</a></span>&#160;    <a class="code" href="classCard.html#af144dc4147acbd1e97031221ad6f3f03">Card</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">bool</span> <a class="code" href="classCard.html#a41da498b0822b35dcbb69293851b39fc">isMonster</a>, std::string name, std::string description, std::size_t energy) :</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        _id(id), _monster(isMonster), _name(name), _description(description), _energyCost(energy) {}</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="classCard.html#a2914c3978ed065d99ec335bc6788e060">~Card</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classCard.html#a017122109ae10b3c0cce6b267f323414">   17</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classCard.html#a017122109ae10b3c0cce6b267f323414">getId</a>() { <span class="keywordflow">return</span> _id; }</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classCard.html#a41da498b0822b35dcbb69293851b39fc">   18</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classCard.html#a41da498b0822b35dcbb69293851b39fc">isMonster</a>() { <span class="keywordflow">return</span> _monster; }</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classCard.html#ad060fe107bfaf4741c671615885b314a">   19</a></span>&#160;    std::string <a class="code" href="classCard.html#ad060fe107bfaf4741c671615885b314a">getName</a>() { <span class="keywordflow">return</span> _name; }</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classCard.html#a9ffcf78c4078240a1c454f972420e5ba">   20</a></span>&#160;    std::string <a class="code" href="classCard.html#a9ffcf78c4078240a1c454f972420e5ba">getDescription</a>() { <span class="keywordflow">return</span> _description; }</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classCard.html#a8e4e806367f17a15673abf8b9aea9503">   21</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classCard.html#a8e4e806367f17a15673abf8b9aea9503">getEnergyCost</a>() { <span class="keywordflow">return</span> _energyCost; }</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* CARD_HPP */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="classCard_html_a41da498b0822b35dcbb69293851b39fc"><div class="ttname"><a href="classCard.html#a41da498b0822b35dcbb69293851b39fc">Card::isMonster</a></div><div class="ttdeci">bool isMonster()</div><div class="ttdef"><b>Definition:</b> Card.hpp:18</div></div>
+<div class="ttc" id="classCard_html_a017122109ae10b3c0cce6b267f323414"><div class="ttname"><a href="classCard.html#a017122109ae10b3c0cce6b267f323414">Card::getId</a></div><div class="ttdeci">int getId()</div><div class="ttdef"><b>Definition:</b> Card.hpp:17</div></div>
+<div class="ttc" id="classCard_html_a2914c3978ed065d99ec335bc6788e060"><div class="ttname"><a href="classCard.html#a2914c3978ed065d99ec335bc6788e060">Card::~Card</a></div><div class="ttdeci">~Card()=default</div><div class="ttdef"><b>Definition:</b> Card.cpp:52</div></div>
+<div class="ttc" id="classCard_html_ad060fe107bfaf4741c671615885b314a"><div class="ttname"><a href="classCard.html#ad060fe107bfaf4741c671615885b314a">Card::getName</a></div><div class="ttdeci">std::string getName()</div><div class="ttdef"><b>Definition:</b> Card.hpp:19</div></div>
+<div class="ttc" id="classCard_html_a9ffcf78c4078240a1c454f972420e5ba"><div class="ttname"><a href="classCard.html#a9ffcf78c4078240a1c454f972420e5ba">Card::getDescription</a></div><div class="ttdeci">std::string getDescription()</div><div class="ttdef"><b>Definition:</b> Card.hpp:20</div></div>
+<div class="ttc" id="classCard_html_af144dc4147acbd1e97031221ad6f3f03"><div class="ttname"><a href="classCard.html#af144dc4147acbd1e97031221ad6f3f03">Card::Card</a></div><div class="ttdeci">Card(int id, bool isMonster, std::string name, std::string description, std::size_t energy)</div><div class="ttdef"><b>Definition:</b> Card.hpp:13</div></div>
+<div class="ttc" id="classCard_html"><div class="ttname"><a href="classCard.html">Card</a></div><div class="ttdef"><b>Definition:</b> Card.hpp:6</div></div>
+<div class="ttc" id="classCard_html_a8e4e806367f17a15673abf8b9aea9503"><div class="ttname"><a href="classCard.html#a8e4e806367f17a15673abf8b9aea9503">Card::getEnergyCost</a></div><div class="ttdeci">int getEnergyCost()</div><div class="ttdef"><b>Definition:</b> Card.hpp:21</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.10
+</small></address>
+</body>
+</html>

@@ -13,6 +13,20 @@ Graphe d\textquotesingle{}héritage de Card\+:\begin{figure}[H]
 \subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
+\hyperlink{classCard_af144dc4147acbd1e97031221ad6f3f03}{Card} (int id, bool \hyperlink{classCard_a41da498b0822b35dcbb69293851b39fc}{is\+Monster}, std\+::string name, std\+::string description, std\+::size\+\_\+t energy)
+\item 
+\hyperlink{classCard_a2914c3978ed065d99ec335bc6788e060}{$\sim$\+Card} ()=default
+\item 
+int \hyperlink{classCard_a017122109ae10b3c0cce6b267f323414}{get\+Id} ()
+\item 
+bool \hyperlink{classCard_a41da498b0822b35dcbb69293851b39fc}{is\+Monster} ()
+\item 
+std\+::string \hyperlink{classCard_ad060fe107bfaf4741c671615885b314a}{get\+Name} ()
+\item 
+std\+::string \hyperlink{classCard_a9ffcf78c4078240a1c454f972420e5ba}{get\+Description} ()
+\item 
+int \hyperlink{classCard_a8e4e806367f17a15673abf8b9aea9503}{get\+Energy\+Cost} ()
+\item 
 \hyperlink{classCard_a5a1f6635176ec49f837327b1f849e979}{Card} (std\+::size\+\_\+t id, std\+::string name, std\+::size\+\_\+t energy, int effect, bool)
 \item 
 \hyperlink{classCard_a88211ebea56b896a7f43b8aa600cb74e}{Card} (\hyperlink{classCard}{Card} \&card)
@@ -21,7 +35,7 @@ virtual void \hyperlink{classCard_af0a0d8d7c477b09c5adecdd57db84c0c}{apply\+Effe
 \item 
 virtual void \hyperlink{classCard_add526d506b074687e3940cda6d3e6d80}{apply\+Effect} (\hyperlink{classPlayerInGame}{Player\+In\+Game} \&player)
 \item 
-virtual \hyperlink{classCard_abf30649dca6b7398b7500e41fd6767e0}{$\sim$\+Card} ()=0
+virtual \hyperlink{classCard_a79e6800c90dc22618f1c03247c7f19d5}{$\sim$\+Card} ()=0
 \item 
 std\+::size\+\_\+t \hyperlink{classCard_a6eec742565ded028a7f2737c53ae4507}{get\+Id} ()
 \item 
@@ -43,6 +57,24 @@ virtual bool \hyperlink{classCard_ae68d1105abd6827736e759add5c1651f}{is\+Taunt} 
 One class per card. Contain all information of the card 
 
 \subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classCard_af144dc4147acbd1e97031221ad6f3f03}{}\index{Card@{Card}!Card@{Card}}
+\index{Card@{Card}!Card@{Card}}
+\subsubsection[{Card(int id, bool is\+Monster, std\+::string name, std\+::string description, std\+::size\+\_\+t energy)}]{\setlength{\rightskip}{0pt plus 5cm}Card\+::\+Card (
+\begin{DoxyParamCaption}
+\item[{int}]{id, }
+\item[{bool}]{is\+Monster, }
+\item[{std\+::string}]{name, }
+\item[{std\+::string}]{description, }
+\item[{std\+::size\+\_\+t}]{energy}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classCard_af144dc4147acbd1e97031221ad6f3f03}
+\hypertarget{classCard_a2914c3978ed065d99ec335bc6788e060}{}\index{Card@{Card}!````~Card@{$\sim$\+Card}}
+\index{````~Card@{$\sim$\+Card}!Card@{Card}}
+\subsubsection[{$\sim$\+Card()=default}]{\setlength{\rightskip}{0pt plus 5cm}Card\+::$\sim$\+Card (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [default]}}\label{classCard_a2914c3978ed065d99ec335bc6788e060}
 \hypertarget{classCard_a5a1f6635176ec49f837327b1f849e979}{}\index{Card@{Card}!Card@{Card}}
 \index{Card@{Card}!Card@{Card}}
 \subsubsection[{Card(std\+::size\+\_\+t id, std\+::string name, std\+::size\+\_\+t energy, int effect, bool)}]{\setlength{\rightskip}{0pt plus 5cm}Card\+::\+Card (
@@ -83,13 +115,13 @@ Copy contructor
 {\em card} & original \\
 \hline
 \end{DoxyParams}
-\hypertarget{classCard_abf30649dca6b7398b7500e41fd6767e0}{}\index{Card@{Card}!````~Card@{$\sim$\+Card}}
+\hypertarget{classCard_a79e6800c90dc22618f1c03247c7f19d5}{}\index{Card@{Card}!````~Card@{$\sim$\+Card}}
 \index{````~Card@{$\sim$\+Card}!Card@{Card}}
-\subsubsection[{$\sim$\+Card()=0}]{\setlength{\rightskip}{0pt plus 5cm}Card\+::$\sim$\+Card (
+\subsubsection[{$\sim$\+Card()=0}]{\setlength{\rightskip}{0pt plus 5cm}virtual Card\+::$\sim$\+Card (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classCard_abf30649dca6b7398b7500e41fd6767e0}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classCard_a79e6800c90dc22618f1c03247c7f19d5}
 
 
 \subsection{Documentation des fonctions membres}
@@ -107,6 +139,13 @@ Copy contructor
 \item[{{\bf Player\+In\+Game} \&}]{player}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [virtual]}}\label{classCard_add526d506b074687e3940cda6d3e6d80}
+\hypertarget{classCard_a9ffcf78c4078240a1c454f972420e5ba}{}\index{Card@{Card}!get\+Description@{get\+Description}}
+\index{get\+Description@{get\+Description}!Card@{Card}}
+\subsubsection[{get\+Description()}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Card\+::get\+Description (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classCard_a9ffcf78c4078240a1c454f972420e5ba}
 \hypertarget{classCard_a6f6c3220c269eef98fe84ffbcffd9371}{}\index{Card@{Card}!get\+Effect\+I\+D@{get\+Effect\+I\+D}}
 \index{get\+Effect\+I\+D@{get\+Effect\+I\+D}!Card@{Card}}
 \subsubsection[{get\+Effect\+I\+D()}]{\setlength{\rightskip}{0pt plus 5cm}int Card\+::get\+Effect\+I\+D (
@@ -114,6 +153,13 @@ Copy contructor
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}}\label{classCard_a6f6c3220c269eef98fe84ffbcffd9371}
+\hypertarget{classCard_a8e4e806367f17a15673abf8b9aea9503}{}\index{Card@{Card}!get\+Energy\+Cost@{get\+Energy\+Cost}}
+\index{get\+Energy\+Cost@{get\+Energy\+Cost}!Card@{Card}}
+\subsubsection[{get\+Energy\+Cost()}]{\setlength{\rightskip}{0pt plus 5cm}int Card\+::get\+Energy\+Cost (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classCard_a8e4e806367f17a15673abf8b9aea9503}
 \hypertarget{classCard_a56f0050aa1cbc799b4481431163f5a90}{}\index{Card@{Card}!get\+Energy\+Cost@{get\+Energy\+Cost}}
 \index{get\+Energy\+Cost@{get\+Energy\+Cost}!Card@{Card}}
 \subsubsection[{get\+Energy\+Cost()}]{\setlength{\rightskip}{0pt plus 5cm}std\+::size\+\_\+t Card\+::get\+Energy\+Cost (
@@ -121,6 +167,13 @@ Copy contructor
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}}\label{classCard_a56f0050aa1cbc799b4481431163f5a90}
+\hypertarget{classCard_a017122109ae10b3c0cce6b267f323414}{}\index{Card@{Card}!get\+Id@{get\+Id}}
+\index{get\+Id@{get\+Id}!Card@{Card}}
+\subsubsection[{get\+Id()}]{\setlength{\rightskip}{0pt plus 5cm}int Card\+::get\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classCard_a017122109ae10b3c0cce6b267f323414}
 \hypertarget{classCard_a6eec742565ded028a7f2737c53ae4507}{}\index{Card@{Card}!get\+Id@{get\+Id}}
 \index{get\+Id@{get\+Id}!Card@{Card}}
 \subsubsection[{get\+Id()}]{\setlength{\rightskip}{0pt plus 5cm}std\+::size\+\_\+t Card\+::get\+Id (
@@ -135,6 +188,13 @@ Copy contructor
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}}\label{classCard_ad060fe107bfaf4741c671615885b314a}
+\hypertarget{classCard_ad060fe107bfaf4741c671615885b314a}{}\index{Card@{Card}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Card@{Card}}
+\subsubsection[{get\+Name()}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Card\+::get\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classCard_ad060fe107bfaf4741c671615885b314a}
 \hypertarget{classCard_a9932401135454db169e1e4d678103917}{}\index{Card@{Card}!got\+Effect@{got\+Effect}}
 \index{got\+Effect@{got\+Effect}!Card@{Card}}
 \subsubsection[{got\+Effect()}]{\setlength{\rightskip}{0pt plus 5cm}bool Card\+::got\+Effect (
@@ -142,6 +202,13 @@ Copy contructor
 {}
 \end{DoxyParamCaption}
 )}\label{classCard_a9932401135454db169e1e4d678103917}
+\hypertarget{classCard_a41da498b0822b35dcbb69293851b39fc}{}\index{Card@{Card}!is\+Monster@{is\+Monster}}
+\index{is\+Monster@{is\+Monster}!Card@{Card}}
+\subsubsection[{is\+Monster()}]{\setlength{\rightskip}{0pt plus 5cm}bool Card\+::is\+Monster (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classCard_a41da498b0822b35dcbb69293851b39fc}
 \hypertarget{classCard_a75c94d383b9710efb023de601b7103c5}{}\index{Card@{Card}!is\+Monster@{is\+Monster}}
 \index{is\+Monster@{is\+Monster}!Card@{Card}}
 \subsubsection[{is\+Monster()}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Card\+::is\+Monster (
@@ -164,5 +231,5 @@ Réimplémentée dans \hyperlink{classCardMonster_add70449c1bc34baee852fe07cc7d3
 
 La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
 \item 
-common/\hyperlink{Card_8hpp}{Card.\+hpp}\item 
-common/\hyperlink{Card_8cpp}{Card.\+cpp}\end{DoxyCompactItemize}
+client/\hyperlink{client_2Card_8hpp}{Card.\+hpp}\item 
+server/\hyperlink{Card_8cpp}{Card.\+cpp}\end{DoxyCompactItemize}
