@@ -1,7 +1,7 @@
 #include "include/json.hpp"
 #include "Player.hpp"
 
-Player::Player() {}
+Player::Player() {} // TO DO ?
 
 //Saves player's data in a json file
 void Player::save() const {

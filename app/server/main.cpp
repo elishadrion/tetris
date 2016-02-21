@@ -4,7 +4,11 @@
 
 #include "Connection.hpp"
 #include "CardManager.hpp"
+
 #include "common/WizardLogger.hpp"
+
+#include "Effect.hpp"
+
 
 int main() {
     /* Init Logger with both file and console log */
@@ -19,7 +23,11 @@ int main() {
 
     // Loads card
     //CardManager::loadCards();
-    
+
+    // Load Effect
+    Effect::loadAllEffect();
+
+
     /* We initialise the listening server socket
      * If it fail, server can't go farther
      */
@@ -33,7 +41,7 @@ int main() {
 
     WizardLogger::info("Ecoute des tentatives de connexion des clients...");
     conn->mainLoop();
-    
+
     delete conn;
     return EXIT_SUCCESS;
 }

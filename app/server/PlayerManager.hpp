@@ -10,7 +10,7 @@
 #define PLAYERS_PATH "server/assets/"
 
 class PlayerManager {
-    std::vector<Player*> connected;
+    static std::vector<Player*> connected;
 public:
     PlayerManager();
     Player signUp();

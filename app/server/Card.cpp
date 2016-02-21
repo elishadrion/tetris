@@ -30,13 +30,13 @@ Card::Card(Card& card) : _id(card.getId()), _name(card.getName()), _energyCost(c
 
 void Card::applyEffect(CardMonster& cardmonster){
     if (this->gotEffect()){
-        Effect::getEffectByID(this->getEffectID()).Effect::apply(cardmonster);
+        Effect::getEffectByID(this->getEffectID())->apply(&cardmonster);
     }
 }
 
 void Card::applyEffect(PlayerInGame& player){
     if (this->gotEffect()){
-        Effect::getEffectByID(this->getEffectID()).Effect::apply(player);
+        //Effect::getEffectByID(this->getEffectID())->apply(&player);
     }
 }
 

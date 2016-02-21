@@ -28,7 +28,7 @@ protected:
 
 public:
     Player(); // Must exist for PlayerInGame()
-    Player(nlohmann::json info);
+    Player(nlohmann::json& info);
 
     friend std::ostream& operator<<(std::ostream&, const Player&);
     virtual ~Player() = default;

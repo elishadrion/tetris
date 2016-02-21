@@ -19,7 +19,7 @@ void CardMonster::dealDamage(CardMonster& otherMonster){
 }
 
 void CardMonster::dealDamage(PlayerInGame& player){
-	player.takeDamage(this->getAttack())
+	player.takeDamage(this->getAttack());
 }
 
 void CardMonster::incrementTour(){

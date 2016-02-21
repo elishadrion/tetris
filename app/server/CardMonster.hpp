@@ -3,6 +3,8 @@
 
 #include "Card.hpp"
 #include "Player.hpp" //TODO tmp patch
+#include "PlayerInGame.hpp"
+
 
 class CardMonster : public Card {
 private:
