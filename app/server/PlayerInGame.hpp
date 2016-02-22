@@ -11,6 +11,7 @@
 #include "Card.hpp"
 #include "CardMonster.hpp"
 #include "common/Packet.hpp"
+#include "CardManager.hpp"
 
 
 struct dataIGPlayer {
@@ -55,7 +56,7 @@ public:
 
     void setDeck(Deck *deck);
     bool isDeckDefined();
-    void draw();
+    bool draw();
 
     bool haveEnoughEnergy(Card* card);
     void addMaxEnergy();

@@ -194,7 +194,17 @@ void Game::addPlayerWaitGame(Player player) {
  * Current player draw a card
  */
 void Game::draw() {
-    _currentPlayer->draw();
+    bool res = _currentPlayer->draw();
+    if(!res) { // If no card
+        _currentPlayer->takeDamage(4);
+
+        // view if player dead
+    }
+
+
+
+    // @tutul
+    // Send new card to the player
 }
 
 
@@ -328,6 +338,7 @@ void Game::nextPlayer() {
  */
 void Game::sendInfoAction(PlayerInGame* pIG, int attackCard, unsigned heal) {
     // @tutul
+    // send all informations who is in parameter
 }
 
 

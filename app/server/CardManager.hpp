@@ -13,7 +13,7 @@ private:
 
 public:
 	 ///// STATIC /////
-    static Card* getCardById(std::size_t id); // Get a specific card (identified by ID)
+    static Card* getCardById(unsigned int id); // Get a specific card (identified by ID)
 
     static void loadAllCards();
 };

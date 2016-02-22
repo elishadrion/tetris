@@ -7,12 +7,13 @@
  * @param id of the card
  * @return the card or nullptr if doesn't exist
  */
-// Card* CardManager::getCardById(const std::size_t id) {
+ Card* CardManager::getCardById(const unsigned int id) {
 // 	std::map<std::size_t, Card*>::iterator it = listCard.find(id);
 // 	if(it != listCard.end()) { // If card "cached"
 // 		return listCard[id];
 // 	}
-// }
+//  TO DO
+}
 
 void CardManager::loadAllCards(){ //TO IMPROVE
 	/*
@@ -36,7 +37,7 @@ void CardManager::loadAllCards(){ //TO IMPROVE
 
 		listCard[id]= new Card();//Ajout des attributs
 	}
-	
+
 	std::ifstream ifs("cardMonster.json");//Nom + chemin fichier ou les cartes sont stockés
 	json k(ifs); //Libre d'améliorer nom de variable
 	//Créer un objet json a partir d'un fichier

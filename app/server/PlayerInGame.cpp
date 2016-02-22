@@ -63,12 +63,21 @@ bool PlayerInGame::isDeckDefined() {
 /**
  * Gets random card of deck
  *
- * @return a random card
+ * @return True if all is ok, False if he haven't card
  */
-void PlayerInGame::draw() {
+bool PlayerInGame::draw() {
+    bool res = true;
+
     // TO DO
-    // Card* card = CardManager::getCardById(_deck->pickup());
-    // _cardsInHand.push_back(card);
+    int randomCard = _deck->pickup();
+    if(randomCard != -1) {
+        Card* card = CardManager::getCardById(randomCard);
+        _cardsInHand.push_back(card);
+    } else {
+        res = false;
+    }
+
+    return res;
 }
 
 

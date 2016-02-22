@@ -63,12 +63,18 @@ int Deck::getIdOnIndex(const int i) {
 /**
  * Returns the last card of the deck
  *
- * @return the id of the card
+ * @return the id of the card or -1 if empty
  */
 int Deck::pickup() {
-    int chooseCard = rand() % static_cast<int>(_listCard.size()); // Chose random index
-    int id = getIdOnIndex(chooseCard); // gets id
-    removeCard(chooseCard); // Removes the card
+    int id;
+    if(_listCard.size() <= 0) {
+        id = -1;
+    } else {
+        int chooseCard = rand() % static_cast<int>(_listCard.size()); // Chose random index
+        id = getIdOnIndex(chooseCard); // gets id
+        removeCard(chooseCard); // Removes the card
+    }
+
     return id; // Returns the id
 }
 

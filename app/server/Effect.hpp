@@ -19,6 +19,7 @@
 class CardMonster;
 class PlayerInGame;
 
+
 class Effect { //Abstract class
     static std::vector<Effect*> _listEffect;
 public:
