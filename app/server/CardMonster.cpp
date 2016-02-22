@@ -9,7 +9,7 @@ CardMonster::CardMonster(unsigned int id, std::string name, unsigned int energy,
 
 CardMonster::CardMonster(CardMonster& otherMonster): _life(otherMonster.getLife()),
 		_attack(otherMonster.getAttack()), _maxLife(otherMonster.getMaxLife()),
-		_nbrTourPose(otherMonster.getNbrTourPose()),Card::Card(otherMonster.getId(),
+		_nbrTourPose(0),Card::Card(otherMonster.getId(),
 		 otherMonster.getName(),otherMonster.getEnergyCost(),
 		 otherMonster.getEffectID(), false) { }
 
