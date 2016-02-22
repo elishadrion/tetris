@@ -16,6 +16,7 @@ PlayerInGame::PlayerInGame() {
  * Creates a PlayerInGame and asks to the player which Deck he would like to play with
  */
 PlayerInGame::PlayerInGame(Player& player, Game* game) {
+    _game = game;
     // TO DO
     // askDeck(getListDeck());
     // @tutul
@@ -46,7 +47,7 @@ dataIGPlayer PlayerInGame::getDataPlayer() {
  */
 void PlayerInGame::setDeck(Deck *deck) {
     _deck = new Deck(*deck); // copy the desk
-    game->checkDeckAndStart();
+    _game->checkDeckAndStart();
 }
 // @tutul méthode à appeler lorsque l'on recoit un deck
 
