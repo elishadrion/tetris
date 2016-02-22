@@ -49,12 +49,7 @@ void Card::applyEffect(PlayerInGame& player){
 }
 
 bool Card::gotEffect(){
-    if (this->getEffectID() == -1){
-        return false;
-    }
-    else {
-        return true;
-    }
+    return this->getEffectID() != -1;
 }
 
 /**
