@@ -1,9 +1,9 @@
 #include "CardMonster.hpp"
 
 
-CardMonster::CardMonster(std::size_t id, std::string name, std::size_t energy,
-    	int effect, bool aBool,std::size_t life, std::size_t attack,
-    	std::size_t nbrTour): _life(life), _attack(attack),
+CardMonster::CardMonster(unsigned int id, std::string name, unsigned int energy,
+    	int effect, bool aBool,unsigned int life, unsigned int attack,
+    	unsigned int nbrTour): _life(life), _attack(attack),
     	 _maxLife(life), _nbrTourPose(nbrTour),
     	 Card::Card(id, name, energy, effect, aBool) { }
 

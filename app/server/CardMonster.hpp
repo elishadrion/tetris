@@ -8,32 +8,32 @@
 
 class CardMonster : public Card {
 private:
-    std::size_t _life;
-    std::size_t _attack;
-    std::size_t _maxLife;
-    std::size_t _nbrTourPose;
+    unsigned int _life;
+    unsigned int _attack;
+    unsigned int _maxLife;
+    unsigned int _nbrTourPose;
 
 public:
     virtual void dealDamage(CardMonster& otherMonster);
     virtual void dealDamage(PlayerInGame& player);
     virtual void incrementTour();
 
-    CardMonster(std::size_t id, std::string name, std::size_t energy,
-    	int effect, bool,std::size_t life, std::size_t attack,
-    	std::size_t nbrTour=0);
+    CardMonster(unsigned int id, std::string name, unsigned int energy,
+    	int effect, bool,unsigned int life, unsigned int attack,
+    	unsigned int nbrTour=0);
 
     CardMonster(CardMonster& otherMonster);
 
-    std::size_t getLife(){return _life;}
-    std::size_t getAttack(){return _attack;}
-    std::size_t getMaxLife(){return _maxLife;}
-    std::size_t getNbrTourPose(){return _nbrTourPose;}
+    unsigned int getLife(){return _life;}
+    unsigned int getAttack(){return _attack;}
+    unsigned int getMaxLife(){return _maxLife;}
+    unsigned int getNbrTourPose(){return _nbrTourPose;}
 
     virtual bool isMonster() override { return false; }
 
-    void setLife(std::size_t newLife){_life = newLife;}
-    void setAttack(std::size_t newAttack){_attack = newAttack;}
-    void setMaxLife(std::size_t newMax){_maxLife = newMax;}
+    void setLife(unsigned int newLife){_life = newLife;}
+    void setAttack(unsigned int newAttack){_attack = newAttack;}
+    void setMaxLife(unsigned int newMax){_maxLife = newMax;}
     bool isDead();
 
 };

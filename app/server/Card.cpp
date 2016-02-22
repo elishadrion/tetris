@@ -9,13 +9,13 @@
  * @param effect name of the specific effect
  * @param save True if save in cache
  */
-Card::Card(std::size_t id, std::string name, std::size_t energy,
+Card::Card(unsigned int id, std::string name, unsigned int energy,
         int effect, bool save = true):
         _id(id), _name(name), _energyCost(energy), _effect(effect),
         _taunt(Effect::getEffectByID(this->getEffectID())->isTaunt()) {
 
     if(save) {
-        //TODO tmp patch listCard.insert(std::pair<std::size_t,Card*>(id,this));
+        //TODO tmp patch listCard.insert(std::pair<unsigned int,Card*>(id,this));
     }
 }
 
