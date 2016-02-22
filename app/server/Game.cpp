@@ -93,13 +93,7 @@ PlayerInGame* Game::getAdversePlayer(PlayerInGame* player) {
  * @return the ennemy player
  */
 PlayerInGame* Game::getAdversePlayer() {
-    PlayerInGame* res;
-    PlayerInGame* player = this->_currentPlayer;
-
-    (player == _player1) ? res = _player2 : res = _player1;
-    // If not player1 or player2 then return null :/
-
-    return res;
+    return getAdversePlayer(_currentPlayer);
 }
 
 
@@ -132,7 +126,11 @@ Game::Game(): _gameStatut(GameStatut::WAIT_DEC),
  */
 Game::Game(const Game& game): _turn(game._turn), _gameStatut(game._gameStatut),
     _currentPlayer(game._currentPlayer), _player1(game._player1),
-    _player2(game._player2) {}
+    _player2(game._player2) {
+
+    WizardLogger::warning("Copie d'une partie. Attention à ne pas oublier de " +
+        "supprimer la précédente. Perte de mémoire potentiel");
+}
 
 
 /**
@@ -197,8 +195,7 @@ void Game::draw() {
     bool res = _currentPlayer->draw();
     if(!res) { // If no card
         _currentPlayer->takeDamage(4);
-
-        // view if player dead
+        isPlayerInLife();
     }
 
 
@@ -280,7 +277,8 @@ Error Game::attackWithCard(PlayerInGame* pIG, CardMonster* card,
             if(targetCard->isDead()) {
                 this->getAdversePlayer()->defausseCardPlaced(targetCard);
             }
-            // TO DO
+
+            sendInfoAction(pIG, targetCard, targetCard->getLife());
         } else {
             res = Error::MustAttackTaunt;
         }
@@ -306,7 +304,9 @@ Error Game::attackWithCardAffectPlayer(PlayerInGame* pIG,
         if(verifyTaunt(pIG)) {
             PlayerInGame* pAdverse = getAdversePlayer(pIG);
             card->dealDamage(*pAdverse);
+
             sendInfoAction(pIG, -1, pAdverse->getHeal());
+            isPlayerInLife(pAdverse);
         } else {
             res = Error::MustAttackTaunt;
         }
@@ -363,7 +363,6 @@ void Game::beginTurn() {
     while(_currentPlayer->nbrCardInHand() < 5) {
         draw();
     }
-
 
 }
 
