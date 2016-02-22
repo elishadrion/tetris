@@ -1,6 +1,6 @@
 
 #ifndef COLLECTION_HPP
-#define	COLLECTION_HPP
+#define COLLECTION_HPP
 
 #include <vector>
 #include "Card.hpp"
@@ -16,4 +16,4 @@ public:
 
 };
 
-#endif	/* COLLECTION_HPP */
+#endif  /* COLLECTION_HPP */

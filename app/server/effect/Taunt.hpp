@@ -1,5 +1,5 @@
 #ifndef TAUNT_HPP
-#define	TAUNT_HPP
+#define TAUNT_HPP
 
 #include "server/CardMonster.hpp"
 #include "server/Effect.hpp"
@@ -13,4 +13,4 @@ public:
     virtual bool isTaunt() override {return true;};
 };
 
-#endif	/* TAUNT_HPP */
+#endif  /* TAUNT_HPP */
