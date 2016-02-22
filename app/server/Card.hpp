@@ -27,7 +27,7 @@ private:
     unsigned int _id; // id of the card
     std::string _name; // name of the card
     unsigned int _energyCost;
-    int _effect;// Its special effect ID
+    Effect* _effect; // Its special effect
     bool _taunt;
 
 
@@ -40,7 +40,7 @@ public:
     std::string getName(){return _name;}
     unsigned int getEnergyCost(){return _energyCost;}
     bool gotEffect();
-    int getEffectID(){return _effect;}
+    int getEffectID();
     virtual bool isMonster() { return false; }
     virtual bool isTaunt() { return _taunt; }
     virtual bool canBeApplyOnCard();

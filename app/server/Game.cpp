@@ -223,8 +223,11 @@ Error Game::placeCardAffectPlayer(PlayerInGame* pIG, Card* cardPlaced) {
 
     if(res == Error::NoError && cardPlaced->gotEffect()) {
         if(cardPlaced->canBeApplyOnPlayer()) {
-            cardPlaced->applyEffect(*getAdversePlayer(pIG));
-            // TO DO
+            PlayerInGame* pAdverse = getAdversePlayer(pIG);
+            cardPlaced->applyEffect(*pAdverse);
+            // Send information to clients
+            sendInfoAction(pIG, -1, pAdverse->getHeal());
+            isPlayerInLife(pAdverse); // Is player inlife ?
         } else {
             res = Error::NotEffectForPlayer;
         }
@@ -251,7 +254,9 @@ Error Game::placeCard(PlayerInGame* pIG, Card* cardPlaced,
     if(res == Error::NoError) {
         // Verify if effect can be apply on monster
         cardPlaced->applyEffect(*targetCard);
-        // TO DO
+
+        // Send information to clients
+        sendInfoAction(pIG, targetCard->getId(), targetCard->getLife());
     }
 
     return res;

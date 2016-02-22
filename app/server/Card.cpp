@@ -11,8 +11,14 @@
  */
 Card::Card(unsigned int id, std::string name, unsigned int energy,
         int effect, bool save = true):
-        _id(id), _name(name), _energyCost(energy), _effect(effect),
-        _taunt(Effect::getEffectByID(this->getEffectID())->isTaunt()) {
+        _id(id), _name(name), _energyCost(energy),
+        _effect(Effect::getEffectByID(effect)), _taunt(false) {
+
+    if(effect != -1) {
+        _effect = Effect::getEffectByID(effect);
+
+        _taunt = _effect->isTaunt();
+    }
 
     if(save) {
         //TODO tmp patch listCard.insert(std::pair<unsigned int,Card*>(id,this));
@@ -25,20 +31,20 @@ Card::Card(unsigned int id, std::string name, unsigned int energy,
  *
  * @param card original
  */
-Card::Card(Card& card) : _id(card.getId()), _name(card.getName()), 
-	_energyCost(card.getEnergyCost()), _effect(card.getEffectID()),
-    _taunt(Effect::getEffectByID(this->getEffectID())->isTaunt()) { }
+Card::Card(Card& card) : _id(card._id), _name(card._name),
+    _energyCost(card._energyCost), _effect(card._effect),
+    _taunt(card._taunt) { }
 
 
 void Card::applyEffect(CardMonster& cardmonster){
     if (this->gotEffect() and this->canBeApplyOnCard()){
-        Effect::getEffectByID(this->getEffectID())->apply(&cardmonster);
+        _effect->apply(&cardmonster);
     }
 }
 
 void Card::applyEffect(PlayerInGame& player){
     if (this->gotEffect() and this->canBeApplyOnPlayer()){
-        Effect::getEffectByID(this->getEffectID())->apply(&player);
+        _effect->apply(&player);
     }
 }
 
@@ -51,12 +57,27 @@ bool Card::gotEffect(){
     }
 }
 
+/**
+ * Return the effect id
+ *
+ * @return -1 if no effect or the effect id
+ */
+int Card::getEffectID() {
+    int res = -1;
+    if(_effect != nullptr) {
+        res = _effect->getId();
+    }
+
+    return res;
+}
+
+
 bool Card::canBeApplyOnPlayer(){
-    return Effect::getEffectByID(this->getEffectID())->canBeApplyOnPlayer();
+    return _effect->canBeApplyOnPlayer();
 }
 
 bool Card::canBeApplyOnCard(){
-    return Effect::getEffectByID(this->getEffectID())->canBeApplyOnCard();
+    return _effect->canBeApplyOnCard();
 }
 
 Card::~Card() {}

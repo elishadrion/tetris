@@ -22,11 +22,15 @@ class PlayerInGame;
 
 class Effect { //Abstract class
     static std::vector<Effect*> _listEffect;
+    unsigned _id = -1;
+
 public:
     Effect(){
-    //Attention, vérifier si classes filles appellent cosntructeur parent
+        //Attention, vérifier si classes filles appellent cosntructeur parent
         _listEffect.push_back(this);
+        _id = (_listEffect.size()-1);
     };
+    unsigned getId() { return _id; }
     virtual ~Effect(){};
 
     static void loadAllEffect();
