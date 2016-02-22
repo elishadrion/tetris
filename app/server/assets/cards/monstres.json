@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "Nom du monstre",
+    "energie" : 4,
+    "vie" : 10,
+    "effect" : 2
+  },
+  {
+    "id": 2,
+    "name": "Nom du monstre2",
+    "energie" : 6,
+    "vie" : 9,
+    "effect" : 3
+  }
+]

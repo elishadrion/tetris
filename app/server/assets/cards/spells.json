@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Nom de l'effet",
+    "energie" : 4,
+    "effect" : 2
+  },
+  {
+    "id": 2,
+    "name": "Nom de l'effet2",
+    "energie" : 3,
+    "effect" : 1
+  }
+]

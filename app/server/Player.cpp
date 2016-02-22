@@ -1,7 +1,11 @@
 #include "include/json.hpp"
 #include "Player.hpp"
 
-Player::Player() {} // TO DO ?
+// Player::Player() {}
+
+Player::Player(nlohmann::json& info, int sockfd) {
+
+}
 
 //Saves player's data in a json file
 void Player::save() const {

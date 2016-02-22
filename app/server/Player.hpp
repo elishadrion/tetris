@@ -27,8 +27,8 @@ protected:
     std::vector<Deck*> getListDeck() {return _listDeck;}
 
 public:
-    Player(); // Must exist for PlayerInGame()
-    Player(nlohmann::json& info);
+    Player() = default; // Must exist for PlayerInGame()
+    Player(nlohmann::json&, int);
 
     friend std::ostream& operator<<(std::ostream&, const Player&);
     virtual ~Player() = default;
