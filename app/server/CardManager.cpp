@@ -1,6 +1,5 @@
 #include "CardManager.hpp"
 
-
 /**
  * Get the card object in cache
  *
@@ -16,13 +15,12 @@
 }
 
 void CardManager::loadAllCards(){ //TO IMPROVE
-	/*
-	std::size_t id;
-	string name;
-	std::size_t energy;
-	std::size_t	effect;
-	std::size_t	life;
-	std::size_t attack;
+	/*unsigned int id;
+	std::string name;
+	unsigned int energy;
+	unsigned int effect;
+	unsigned int life;
+	unsigned int attack;
 
 	std::ifstream ifs("card.json");//Nom + chemin fichier ou les cartes sont stockés
 	json j(ifs); //Libre d'améliorer nom de variable
@@ -35,11 +33,11 @@ void CardManager::loadAllCards(){ //TO IMPROVE
 		energy = i.value()["energie"];
 		effect = i.value()["effect"];
 
-		listCard[id]= new Card();//Ajout des attributs
+		listCard[id]= new Card(id,name,energy,effect,true);//Ajout des attributs
 	}
 
-	std::ifstream ifs("cardMonster.json");//Nom + chemin fichier ou les cartes sont stockés
-	json k(ifs); //Libre d'améliorer nom de variable
+	std::ifstream ifs2("cardMonster.json");//Nom + chemin fichier ou les cartes sont stockés
+	json k(ifs2); //Libre d'améliorer nom de variable
 	//Créer un objet json a partir d'un fichier
 
 	for (json::iterator i = k.begin(); i!=k.end(); ++i){
@@ -51,7 +49,7 @@ void CardManager::loadAllCards(){ //TO IMPROVE
 		life = i.value()["vie"];
 		attack = i.value()["attack"];
 
-		listCard[id]= new CardMonster(); //Ajout des attributs
+		listCard[id]= new CardMonster(id,name,energy,effect,true,life,attack,0); //Ajout des attributs
 	}
 
 	*/

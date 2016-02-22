@@ -34,3 +34,5 @@ bool CardMonster::isDead() {
 		return true;
 	}
 }
+
+CardMonster::~CardMonster() { }

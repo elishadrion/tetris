@@ -23,6 +23,8 @@ public:
     	unsigned int nbrTour=0);
 
     CardMonster(CardMonster& otherMonster);
+    
+    virtual ~CardMonster();
 
     unsigned int getLife(){return _life;}
     unsigned int getAttack(){return _attack;}

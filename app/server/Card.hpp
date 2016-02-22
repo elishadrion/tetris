@@ -34,7 +34,7 @@ private:
 public:
     virtual void applyEffect(CardMonster& cardmonster);
     virtual void applyEffect(PlayerInGame& player);
-    virtual ~Card() = 0; // Abstract class because we can't instance it
+    virtual ~Card(); // Abstract class because we can't instance it
 
     unsigned int getId(){return _id;}
     std::string getName(){return _name;}

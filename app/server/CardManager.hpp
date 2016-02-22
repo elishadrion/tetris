@@ -2,8 +2,10 @@
 #define CARDMANAGER_HPP
 
 #include "Card.hpp" //TODO tmp patch
+#include "CardMonster.hpp"
 #include <map>
 #include "include/json.hpp"
+#include <fstream>
 
 using json = nlohmann::json;
 
