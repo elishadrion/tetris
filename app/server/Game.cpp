@@ -39,38 +39,6 @@ bool Game::isInGame() {
 }
 
 
-/*
- * Sends information about the game to all players
- *
-void Game::sendInformation() {
-
-    dataIGPlayer dataPlayer1 = _player1->getDataPlayer();
-    dataIGPlayer dataPlayer2 = _player2->getDataPlayer();
-
-    sendInformation(_player1, dataPlayer1, dataPlayer2);
-    sendInformation(_player2, dataPlayer2, dataPlayer1);
-}*/
-
-
-/*
- * Sends information about the game
- *
- * @param player who receive the information
- *
-void Game::sendInformation(PlayerInGame* player,
-    dataIGPlayer dataPlayer, dataIGPlayer dataAdvPlayer) {
-
-    // init turn
-    dataPlayer.turn = (player == _currentPlayer);
-    dataAdvPlayer.turn = (player != _currentPlayer); // can be remove ?(=?)
-
-    dataAdvPlayer.cardsInHand.clear();
-
-    // sends information to the player (dataPlayer and dataAdvPlayer)
-    // @tutul
-}*/
-
-
 /**
  * Get the ennemy player (adversary)
  *
@@ -163,7 +131,7 @@ void Game::checkDeckAndStart() {
         /*
             send adverse player informations (username)
             send CardInHand
-            @tutul
+            TO DO @tutul
         */
 
     }
@@ -200,7 +168,7 @@ void Game::draw() {
 
 
 
-    // @tutul
+    // TO DO: @tutul
     // Send new card to the player
 }
 
@@ -328,7 +296,7 @@ void Game::nextPlayer() {
         ++_turn;
     }
 
-    // @tutul informer les joueurs du changement de joueur
+    // TO DO: @tutul informer les joueurs du changement de joueur
 
     beginTurn();
 }
@@ -342,7 +310,7 @@ void Game::nextPlayer() {
  * @param heal of the attack entity
  */
 void Game::sendInfoAction(PlayerInGame* pIG, int attackCard, unsigned heal) {
-    // @tutul
+    // TO DO @tutul
     // send all informations who is in parameter
 }
 
@@ -374,7 +342,7 @@ void Game::endTurn() {
 
     while(_currentPlayer->nbrCardInHand() > 7) {
         // askDefausse(...
-        // @tutul
+        // TO DO @tutul
     }
 
 }
@@ -399,7 +367,7 @@ void Game::sendInitInfo(PlayerInGame* pIG) {
     pIG->getCardsInHand(); // CardsInHand
     pIG == _currentPlayer; // His turn ?
     getAdversePlayer(pIG); // Adverse player
-    // @tutul
+    // TO DO @tutul
 }
 
 
@@ -496,7 +464,7 @@ void Game::isPlayerInLife(PlayerInGame* pIG) {
     if(pIG->isDead()) {
         pIG->addLose();
         getAdversePlayer(pIG)->addWin();
-        // @tutul send information to all player and back menu
+        // TO DO @tutul send information to all player and back menu
 
         delete this;
     }
