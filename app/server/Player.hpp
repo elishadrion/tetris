@@ -18,13 +18,13 @@ class Player {
     int _sockfd;
     std::string _username;
     std::string _pass;
-    int _victory;
-    int _defeat;
     std::vector<Deck*> _listDeck;
 
     virtual void save() const;
 protected:
     std::vector<Deck*> getListDeck() {return _listDeck;}
+    unsigned _victory;
+    unsigned _defeat;
 
 public:
     Player() = default; // Must exist for PlayerInGame()

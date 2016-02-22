@@ -67,6 +67,10 @@ public:
     void getHealed(unsigned int);
 
     int getHeal();
+    void addLose();
+    void addWin();
+    bool isDead();
+
 
     virtual ~PlayerInGame() = default;
 };

@@ -147,3 +147,28 @@ void PlayerInGame::getHealed(unsigned int heal){
 int PlayerInGame::getHeal() {
     return _playerHeal;
 }
+
+/**
+ * Add a lose to the player
+ */
+void PlayerInGame::addLose() {
+    ++_defeat;
+    // TO DO: @carlos save to JSON ?
+}
+
+/**
+ * Add a win to the player
+ */
+void PlayerInGame::addWin() {
+    ++_victory;
+    // TO DO: @carlos save to JSON ?
+}
+
+
+/**
+ * Check if the player is Dead
+ */
+bool PlayerInGame::isDead() {
+    return _playerHeal >= 0;
+}
+

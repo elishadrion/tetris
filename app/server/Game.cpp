@@ -473,6 +473,33 @@ bool Game::havePlace(PlayerInGame* pIG) {
 
 
 /**
+ * Check if the current player is in life and if he is dead,
+ * tell it and delete Game
+ */
+void Game::isPlayerInLife() {
+    isPlayerInLife(_currentPlayer);
+}
+
+
+
+/**
+ * Check if player is in life and if he is dead, tell it and
+ * delete Game
+ *
+ * @param pIG player to check
+ */
+void Game::isPlayerInLife(PlayerInGame* pIG) {
+    if(pIG->isDead()) {
+        pIG->addLose();
+        getAdversePlayer(pIG)->addWin();
+        // @tutul send information to all player and back menu
+
+        delete this;
+    }
+}
+
+
+/**
  * Function when player place card. This function place the card
  * and verify that all is ok
  *

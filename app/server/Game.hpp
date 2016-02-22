@@ -76,10 +76,13 @@ private:
     void sendInitInfo();
     void sendInitInfo(PlayerInGame*);
 
+    // During the game
     Error canPlayerAttack(PlayerInGame*,CardMonster*);
     bool verifyTaunt(PlayerInGame*,CardMonster*);
     bool verifyTaunt(PlayerInGame*);
     bool havePlace(PlayerInGame*);
+    void isPlayerInLife();
+    void isPlayerInLife(PlayerInGame* pIG);
 
     Error placeCard(PlayerInGame*, Card*);
 
