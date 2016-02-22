@@ -92,12 +92,13 @@ Game::Game(): _gameStatut(GameStatut::WAIT_DEC),
  *
  * @param game who must be copied
  */
-Game::Game(const Game& game): _turn(game._turn), _gameStatut(game._gameStatut),
-    _currentPlayer(game._currentPlayer), _player1(game._player1),
-    _player2(game._player2) {
+Game::Game(const Game& game): _gameStatut(game._gameStatut),
+    _currentPlayer(game._currentPlayer), _turn(game._turn),
+    _player1(game._player1), _player2(game._player2) {
 
-    WizardLogger::warning("Copie d'une partie. Attention à ne pas oublier de " +
-        "supprimer la précédente. Perte de mémoire potentiel");
+    std::string msg = "Copie d'une partie. Attention à ne pas oublier de ";
+    msg += "supprimer la précédente. Perte de mémoire potentiel";
+    WizardLogger::warning(msg);
 }
 
 
@@ -246,7 +247,7 @@ Error Game::attackWithCard(PlayerInGame* pIG, CardMonster* card,
                 this->getAdversePlayer()->defausseCardPlaced(targetCard);
             }
 
-            sendInfoAction(pIG, targetCard, targetCard->getLife());
+            sendInfoAction(pIG, targetCard->getId(), targetCard->getLife());
         } else {
             res = Error::MustAttackTaunt;
         }
