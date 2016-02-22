@@ -50,8 +50,7 @@ public:
 
     dataIGPlayer getDataPlayer();
     std::vector<CardMonster*> getCardsPlaced();
-    // std::vector<Card*> getCardInHand() {} not used now
-    //unsigned nbrCardInHand() {return _cardsInHand.size();}
+    std::vector<Card*> getCardsInHand();
     unsigned nbrCardInHand();
 
     void setDeck(Deck *deck);
@@ -65,6 +64,8 @@ public:
     void placeCard(CardMonster*);
     void takeDamage(unsigned int);
     void getHealed(unsigned int);
+
+    int getHeal();
 
     virtual ~PlayerInGame() = default;
 };

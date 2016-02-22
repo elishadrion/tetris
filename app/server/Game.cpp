@@ -21,21 +21,11 @@ Game::Game(Player* p1, Player* p2):
     _player1 = new PlayerInGame(*p1, this);
     _player2 = new PlayerInGame(*p2, this);
     _currentPlayer = _player1;
+    _turn = 0;
+    _gameStatut = GameStatut::WAIT_DEC;
     //WizardLogger::info("Création d'une partie opposant " +
     //    _player1->getUsername() + " et " + _player2->getUsername());
 
-}
-
-
-/**
- * Switches player turn
- */
-void Game::nextPlayer() {
-    (_currentPlayer == _player1) ? _currentPlayer = _player2 : _currentPlayer = _player1;
-    // WizardLogger::info("C'est maintenant au tour de " + _currentPlayer->getUsername());
-    // TO DO message de débug
-
-    beginTurn();
 }
 
 
@@ -49,9 +39,9 @@ bool Game::isInGame() {
 }
 
 
-/**
+/*
  * Sends information about the game to all players
- */
+ *
 void Game::sendInformation() {
 
     dataIGPlayer dataPlayer1 = _player1->getDataPlayer();
@@ -59,14 +49,14 @@ void Game::sendInformation() {
 
     sendInformation(_player1, dataPlayer1, dataPlayer2);
     sendInformation(_player2, dataPlayer2, dataPlayer1);
-}
+}*/
 
 
-/**
+/*
  * Sends information about the game
  *
  * @param player who receive the information
- */
+ *
 void Game::sendInformation(PlayerInGame* player,
     dataIGPlayer dataPlayer, dataIGPlayer dataAdvPlayer) {
 
@@ -78,7 +68,7 @@ void Game::sendInformation(PlayerInGame* player,
 
     // sends information to the player (dataPlayer and dataAdvPlayer)
     // @tutul
-}
+}*/
 
 
 /**
@@ -140,7 +130,7 @@ Game::Game(): _gameStatut(GameStatut::WAIT_DEC),
  *
  * @param game who must be copied
  */
-Game::Game(const Game& game): _gameStatut(game._gameStatut),
+Game::Game(const Game& game): _turn(game._turn), _gameStatut(game._gameStatut),
     _currentPlayer(game._currentPlayer), _player1(game._player1),
     _player2(game._player2) {}
 
@@ -164,7 +154,20 @@ Game& Game::operator=(const Game& game) {
  */
 void Game::checkDeckAndStart() {
     if(_player1->isDeckDefined() && _player2->isDeckDefined()) {
-        sendInformation();
+
+        _gameStatut = GameStatut::IN_GAME;
+        unsigned int i = 0;
+        while(i < 5) {
+            _player1->draw();
+            _player2->draw();
+        }
+
+        /*
+            send adverse player informations (username)
+            send CardInHand
+            @tutul
+        */
+
     }
 }
 
@@ -211,6 +214,7 @@ Error Game::placeCardAffectPlayer(PlayerInGame* pIG, Card* cardPlaced) {
     if(res == Error::NoError && cardPlaced->gotEffect()) {
         if(cardPlaced->canBeApplyOnPlayer()) {
             cardPlaced->applyEffect(*getAdversePlayer(pIG));
+            // TO DO
         } else {
             res = Error::NotEffectForPlayer;
         }
@@ -237,6 +241,7 @@ Error Game::placeCard(PlayerInGame* pIG, Card* cardPlaced,
     if(res == Error::NoError) {
         // Verify if effect can be apply on monster
         cardPlaced->applyEffect(*targetCard);
+        // TO DO
     }
 
     return res;
@@ -260,6 +265,7 @@ Error Game::attackWithCard(PlayerInGame* pIG, CardMonster* card,
             if(targetCard->isDead()) {
                 this->getAdversePlayer()->defausseCardPlaced(targetCard);
             }
+            // TO DO
         } else {
             res = Error::MustAttackTaunt;
         }
@@ -283,7 +289,9 @@ Error Game::attackWithCardAffectPlayer(PlayerInGame* pIG,
     Error res = canPlayerAttack(pIG, card);
     if(res == Error::NoError) {
         if(verifyTaunt(pIG)) {
-            card->dealDamage(*pIG);
+            PlayerInGame* pAdverse = getAdversePlayer(pIG);
+            card->dealDamage(*pAdverse);
+            sendInfoAction(pIG, -1, pAdverse->getHeal());
         } else {
             res = Error::MustAttackTaunt;
         }
@@ -291,6 +299,37 @@ Error Game::attackWithCardAffectPlayer(PlayerInGame* pIG,
 
     return res;
 }
+
+
+/**
+ * Switches player turn
+ */
+void Game::nextPlayer() {
+    (_currentPlayer == _player1) ? _currentPlayer = _player2 : _currentPlayer = _player1;
+    // WizardLogger::info("C'est maintenant au tour de " + _currentPlayer->getUsername());
+    // TO DO message de débug
+
+    if(_currentPlayer == _player1) {
+        ++_turn;
+    }
+
+    // @tutul informer les joueurs du changement de joueur
+
+    beginTurn();
+}
+
+
+/**
+ * Send information
+ *
+ * @param pIG who play
+ * @param attackCard card which is attack (-1 if player)
+ * @param heal of the attack entity
+ */
+void Game::sendInfoAction(PlayerInGame* pIG, int attackCard, unsigned heal) {
+    // @tutul
+}
+
 
 //////////// PRIVATE ////////////
 
@@ -305,7 +344,7 @@ void Game::beginTurn() {
     }
 
 
-    while(_currentPlayer->nbrCardInHand() < 7) {
+    while(_currentPlayer->nbrCardInHand() < 5) {
         draw();
     }
 
@@ -323,6 +362,29 @@ void Game::endTurn() {
         // @tutul
     }
 
+}
+
+/**
+ * Function when the game is init to
+ * send information to all players
+ */
+void Game::sendInitInfo() {
+    sendInitInfo(_player1);
+    sendInitInfo(_player2);
+}
+
+
+/**
+ * Function when the game is init to
+ * send informtaions to the player
+ *
+ * @param pIG to send message
+ */
+void Game::sendInitInfo(PlayerInGame* pIG) {
+    pIG->getCardsInHand(); // CardsInHand
+    pIG == _currentPlayer; // His turn ?
+    getAdversePlayer(pIG); // Adverse player
+    // @tutul
 }
 
 
@@ -345,10 +407,10 @@ Error Game::canPlayerAttack(PlayerInGame* pIG, CardMonster* card) {
                 res = Error::NotEnoughEnergy;
             }
         } else {
-             Error::NotEnoughPlace;
+             res = Error::NotEnoughPlace;
         }
     } else {
-        Error::NotHisTurn;
+        res = Error::NotHisTurn;
     }
 
     return res;
@@ -395,7 +457,7 @@ bool Game::verifyTaunt(PlayerInGame* pIG) {
  * @return True if the have place
  */
 bool Game::havePlace(PlayerInGame* pIG) {
-    return _currentPlayer->getCardsPlaced().size() < 7;
+    return pIG->getCardsPlaced().size() < 7;
 }
 
 

@@ -80,6 +80,13 @@ std::vector<CardMonster*> PlayerInGame::getCardsPlaced() {
     return _cardsPlaced;
 }
 
+/**
+ * Returns the cards in hand
+ */
+std::vector<Card*> PlayerInGame::getCardsInHand() {
+    return _cardsInHand;
+}
+
 
 void PlayerInGame::addMaxEnergy() {
     if (_maxEnergy < _limitEnergy) {
@@ -127,3 +134,7 @@ void PlayerInGame::getHealed(unsigned int heal){
     }
 }
 
+
+int PlayerInGame::getHeal() {
+    return _playerHeal;
+}

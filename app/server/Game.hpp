@@ -38,8 +38,8 @@ class Game {
     Game(Player* p1, Player* p2);
 
     bool isInGame();
-    void sendInformation(); // Not use
-    void sendInformation(PlayerInGame*,dataIGPlayer, dataIGPlayer); // Not use
+    //void sendInformation(); // Not use
+    //void sendInformation(PlayerInGame*,dataIGPlayer, dataIGPlayer); // Not use
     PlayerInGame* getAdversePlayer(PlayerInGame* player);
     PlayerInGame* getAdversePlayer();
     std::vector<CardMonster*> getAdversePlacedCard(PlayerInGame* player);
@@ -65,10 +65,16 @@ public:
     Error attackWithCardAffectPlayer(PlayerInGame*, CardMonster*);
     void nextPlayer();
 
+    void sendInfoAction(PlayerInGame*,int,unsigned int);
+
 
 private:
     void beginTurn(); // function when the turn begin
     void endTurn();
+
+    // Function to InitGame
+    void sendInitInfo();
+    void sendInitInfo(PlayerInGame*);
 
     Error canPlayerAttack(PlayerInGame*,CardMonster*);
     bool verifyTaunt(PlayerInGame*,CardMonster*);
