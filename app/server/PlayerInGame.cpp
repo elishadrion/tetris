@@ -65,7 +65,7 @@ bool PlayerInGame::isDeckDefined() {
 /**
  * Gets random card of deck
  *
- * @return True if all is ok, False if he haven't card
+ * @return True if all is ok, False if he hasn't any card to draw 
  */
 bool PlayerInGame::draw() {
     bool res = true;

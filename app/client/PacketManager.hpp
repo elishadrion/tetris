@@ -11,6 +11,6 @@ namespace PacketManager {
     void makeRegistrationRequest(const char*, const char*);
     void sendDisconnection();
     
-    /* recv analyse */
+    /* receives analyse */
     void loginResult(const Packet::loginResultPacket*);
-};
+}
