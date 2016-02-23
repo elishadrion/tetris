@@ -40,14 +40,14 @@ class PlayerInGame : public Player {
     Deck *_deck;
     int _playerHeal;
     int _energy;
-    int _maxEnergy;
-    int const _limitEnergy = 10; //The maximum energy can't go further than this
+    unsigned int _maxEnergy;
+    unsigned int const _limitEnergy = 10; //The maximum energy can't go further than this
     Game* _game;
 
 
 public:
 
-    PlayerInGame(); // not valide but better for less Warnings :D
+   // PlayerInGame(); // not valide but better for less Warnings :D
     PlayerInGame(Player &player, Game* game);
 
     dataIGPlayer getDataPlayer();
