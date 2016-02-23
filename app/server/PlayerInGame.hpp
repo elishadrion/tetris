@@ -76,7 +76,6 @@ public:
     void addWin();
     bool isDead();
 
-
     virtual ~PlayerInGame() = default;
 };
 

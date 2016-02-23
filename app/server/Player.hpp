@@ -43,6 +43,9 @@ public:
     inline unsigned getVictories() const {return _victories;}
     inline unsigned getDefeats() const {return _defeats;};
 
+    Deck* getDeck(std::string deckName);
+    bool removeDeck(Deck*);
+
 
     friend std::ostream& operator<<(std::ostream&, const Player&);
     friend std::string& operator<<(std::string&, const Player&);

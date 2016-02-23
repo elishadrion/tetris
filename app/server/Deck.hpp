@@ -2,36 +2,36 @@
 #define	DECK_HPP
 
 #include<string>
-#include<vector>
 
+
+#include "Collection.hpp"
 #include "common/WizardLogger.hpp"
 
-/**
- * A deck is a list of 100 Cards (or less).  Deck only manipulates id (not Cards)
- */
-class Deck {
+#include<vector>
 
-    std::vector<unsigned int>_listCard;
+
+/**
+ * A deck is a list of 20 Cards (or less)
+ */
+class Deck : Collection {
     std::string _name; // name of the deck
 
-private:
-    void removeCard(int i); // removes the i-th card from the deck
-    void removeIdCard(int id); // removes a card from the deck
-    int indexOfCard(int id); // the index of a card
-    int getIdOnIndex(int i); // the id of the card at a specific index
-
 public:
+    Deck(std::string name, std::vector<Card*> listCard);
     Deck(const Deck&); // Copy constructor
     Deck& operator=(const Deck&); // Copy operator
+
+    std::string getName();
+
     bool isValide(); // True if there is 100 cards and other information are true
-    void addCard(int id); // adds a card in the deck
-    int pickup();  // Returns a random Card
+    Card* pickup();  // Returns a random Card
+    bool addCard(Card* card) override;
+
+    bool deleteDeck(PlayerInGame*);
+    Deck* copyDeck();
 
 
-    ///// STATIC /////
-    std::vector<std::string> getListNameDeck(); // Gets the list of the name of the deck
-
-
+    static Deck* getDeck(std::string, std::vector<Deck*>);
 
 };
 

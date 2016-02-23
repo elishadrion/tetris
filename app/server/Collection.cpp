@@ -48,9 +48,18 @@ Collection& Collection::operator=(const Collection& col) {
  * Add a Card to the collection
  *
  * @param card the card to add
+ * @return True if we can add Card (false if there is more
+ * than two cards the same)
  */
-void Collection::addCard(Card* card) {
-    _listCard.push_back(card);
+bool Collection::addCard(Card* card) {
+    bool res = false;
+    int nbrCard = std::count (_listCard.begin(), _listCard.end(), card);
+    if(nbrCard < 2) {
+        _listCard.push_back(card);
+        res = true;
+    }
+
+    return res;
 }
 
 
@@ -58,9 +67,11 @@ void Collection::addCard(Card* card) {
  * Add a Card to the collection
  *
  * @param cardId the id of the card
+ * @return True if we can add Card (false if there is more
+ * than two cards the same)
  */
-void Collection::addCard(int cardId) {
-    _listCard.push_back(CardManager::getCardById(cardId));
+bool Collection::addCard(int cardId) {
+    return this->addCard(CardManager::getCardById(cardId));
 }
 
 
@@ -112,3 +123,15 @@ int Collection::getCardIndex(Card* card) {
 
     return res;
 }
+
+
+/**
+ * Get the card on the specific index
+ *
+ * @param index of the card
+ * @return the Card at the specific index
+ */
+Card* Collection::getCardOnIndex(const unsigned index) {
+    return _listCard[index];
+}
+

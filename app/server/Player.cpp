@@ -8,6 +8,36 @@ Player::Player(nlohmann::json& info, int sockfd) {
 //save();
 }
 
+/**
+ * Get the deck with this name
+ *
+ * @param deckname the name of the deck
+ * @return the deck (or nullptr if not found)
+ */
+Deck* Player::getDeck(std::string deckName) {
+    return Deck::getDeck(deckName, _listDeck);
+}
+
+
+/**
+ * Remove a Deck
+ *
+ * @param deck to remove
+ * @return True if all is ok (cann't delete if one deck)
+ */
+bool Player::removeDeck(Deck* deck) {
+    bool res = false;
+    if(_listDeck.size() > 1) {
+        delete deck;
+        // remove to memory ?
+        // TO DO: @carlos JSON
+        res = true;
+    }
+
+    return res;
+}
+
+
 bool Player::operator<(const Player &other) const {
     return ((*this).getVictories() < other.getVictories());
 }

@@ -77,6 +77,7 @@ bool PlayerInGame::isDeckDefined() {
     return _deck != nullptr;
 }
 
+
 /**
  * Gets random card of deck
  *
@@ -86,10 +87,9 @@ bool PlayerInGame::draw() {
     bool res = true;
 
     // TO DO
-    int randomCard = _deck->pickup();
-    if(randomCard != -1) {
-        Card* card = CardManager::getCardById(randomCard);
-        _cardsInHand.push_back(card);
+    Card* randomCard = _deck->pickup();
+    if(randomCard != nullptr) {
+        _cardsInHand.push_back(randomCard);
     } else {
         res = false;
     }
@@ -186,5 +186,3 @@ void PlayerInGame::addWin() {
 bool PlayerInGame::isDead() {
     return _playerHeal <= 0;
 }
-
-
