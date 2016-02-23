@@ -38,7 +38,7 @@ public:
 
 
     friend std::ostream& operator<<(std::ostream&, const Player&);
-    friend std::ostream& operator<<(std::string&, const Player&);
+    friend std::string& operator<<(std::string&, const Player&);
     bool operator<(const Player&) const;
     virtual ~Player() = default;
 };

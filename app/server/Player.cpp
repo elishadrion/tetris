@@ -30,8 +30,9 @@ std::ostream& operator<<(std::ostream& os, const Player& c) {
     return os;
 }
 
-std::ostream& operator<<(std::string& str, const Player& c) {
+std::string& operator<<(std::string& str, const Player& c) {
     str.append(c.getName() + "\t" +
 	       std::to_string(c.getVictories()) + "\t" +
 	       std::to_string(c.getDefeats()) + "\n");
+    return str;
 }

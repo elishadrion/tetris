@@ -5,9 +5,10 @@ std::string PlayerManager::getRanking() {
     std::vector<Player*> sorted_players = std::vector<Player*>(players);
     std::sort(sorted_players.begin(), sorted_players.end());
 
-    for (size_t i = 0; i < sizeof sorted_players; i++) {
+    ranking.append("Nom \t Victoires \t Defaites \n");
+
+    for (size_t i = 0; i < sizeof sorted_players; i++)
 	ranking << *sorted_players.at(i);
-    }
 
     return ranking;
 }
