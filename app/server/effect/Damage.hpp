@@ -22,7 +22,7 @@ void Damage::apply(CardMonster* target){
 }
 
 void Damage::apply(PlayerInGame* target){
-    target->takeDamage(damageValue);
+    target->takeDamage(_damageValue);
 }
 
 #endif	/* DAMAGE_HPP */

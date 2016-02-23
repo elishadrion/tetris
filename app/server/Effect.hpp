@@ -2,23 +2,9 @@
 #define EFFECT_HPP
 
 #include <vector>
-/*
-#include "CardMonster.hpp"
-#include "PlayerInGame.hpp"
-#include "effect/Taunt.hpp"
-#include "effect/Heal.hpp"
-#include "effect/Damage.hpp"
-#include "effect/LifeBlessing.hpp"
-#include "effect/LifeCurse.hpp"
-#include "effect/AttackBlessing.hpp"
-#include "effect/AttackCurse.hpp"
-#include "effect/Draw.hpp"
-*/
-
 
 class CardMonster;
 class PlayerInGame;
-
 
 class Effect { //Abstract class
     static std::vector<Effect*> _listEffect;

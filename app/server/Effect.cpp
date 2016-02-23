@@ -1,10 +1,19 @@
 
 #include "Effect.hpp"
+#include "CardMonster.hpp"
+#include "effect/Taunt.hpp"
+#include "effect/Heal.hpp"
+#include "effect/Damage.hpp"
+#include "effect/LifeBlessing.hpp"
+#include "effect/LifeCurse.hpp"
+#include "effect/AttackBlessing.hpp"
+#include "effect/AttackCurse.hpp"
+#include "effect/Draw.hpp"
 
 std::vector<Effect*> Effect::_listEffect;
 
 void Effect::loadAllEffect() {
-/*
+
     new Taunt();
     new Heal(1);
     new Heal(2);
@@ -22,10 +31,7 @@ void Effect::loadAllEffect() {
     new AttackCurse(2);
     new Draw(1);
     new Draw(2);
-*/
 }
-
-
 
 Effect* Effect::getEffectByID(unsigned id){
     return Effect::_listEffect[id];

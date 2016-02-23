@@ -3,7 +3,7 @@
 #define COLLECTION_HPP
 
 #include <vector>
-#include "Card.hpp"
+class Card;
 
 class Collection {
 

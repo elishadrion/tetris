@@ -8,8 +8,9 @@
 #include "Deck.hpp"
 #include "Player.hpp"
 
-#include "Card.hpp"
-#include "CardMonster.hpp"
+class Card;
+class CardMonster;
+
 #include "common/Packet.hpp"
 #include "CardManager.hpp"
 

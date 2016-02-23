@@ -1,7 +1,7 @@
 #ifndef TAUNT_HPP
 #define TAUNT_HPP
 
-#include "server/CardMonster.hpp"
+class CardMonster;
 #include "server/Effect.hpp"
 
 class Taunt : public Effect{

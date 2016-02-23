@@ -20,7 +20,7 @@ public:
 void Heal::apply(CardMonster* target) {
     target->setLife(target->getLife()+_healValue);
 
-    if (target->getlife() > target->getMaxLife()){
+    if (target->getLife() > target->getMaxLife()){
     	//Target's life can't be higher than its maximum hp
     	target->setLife(target->getMaxLife());
     }

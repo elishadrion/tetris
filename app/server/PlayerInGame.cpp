@@ -1,6 +1,7 @@
 
 #include "PlayerInGame.hpp"
-
+#include "Card.hpp"
+#include "CardMonster.hpp"
 
 /**
  * Default constructor
