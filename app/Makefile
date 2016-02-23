@@ -29,6 +29,8 @@ server_wizard: $(OBJ_S)
 	$(CXX) -o $@ $^ $(LINKERFLAGS)
 
 SRC_C = $(wildcard $(CLIENT_DIR)/*.cpp)
+SRC_C += $(wildcard $(CLIENT_DIR)/CLI/*.cpp)		# Don't compile subdir by default
+SRC_C += $(wildcard $(CLIENT_DIR)/GUI/*.cpp)		# Don't compile subdir by default
 SRC_C += $(wildcard $(COMMON_DIR)/*.cpp)
 OBJ_C = $(SRC_C:.cpp=.o)
 DEP_C = $(SRC_C:.cpp=.d)
