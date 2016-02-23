@@ -7,6 +7,9 @@ std::queue<Player*> Game::PlayerWaitGame;
 
 //////////// PRIVATE ////////////
 
+//TODO les fonctions de CommService ont toutes besoins de Player* en premier argument
+//     il s'agit du joueur à qui envoyer le message, vu que c'est Player qui contient le socket
+
 
 /**
  * Game constructor
@@ -131,7 +134,12 @@ void Game::checkDeckAndStart() {
 
         /*
             send adverse player informations (username)
+             => void initGame(Player*, std::string) with ennemy's pseudo (these packet tell to the client to display game panel too)
             send CardInHand
+             => sendStartTurnInfo(Player*, dataIGPlayer, std::vector<CardMonster*>, int, int, int)
+             with current player info, ennemy placed card, ennemy card in hand, ennemy card in deck (and ennemy card in trash ?)
+                [you must send both packet, the first start the game and the second start the player turn
+                 OR we add ataIGPlayer in the initGame, you choose]
             TO DO @tutul
         */
 
@@ -170,6 +178,7 @@ void Game::draw() {
 
 
     // TO DO: @tutul
+    // => void sendCrard(Player*, Card*)
     // Send new card to the player
 }
 
@@ -298,6 +307,7 @@ void Game::nextPlayer() {
     }
 
     // TO DO: @tutul informer les joueurs du changement de joueur
+    // => void setTurn(Player*, std::string) où string est le pseudo du joueur qui a son tour mtn
 
     beginTurn();
 }
@@ -313,6 +323,7 @@ void Game::nextPlayer() {
 void Game::sendInfoAction(PlayerInGame* pIG, int attackCard, unsigned heal) {
     // TO DO @tutul
     // send all informations who is in parameter
+    // => void sendAttack(Player*, std::string, int, unsigned int) avec le pseudo du joueur attackant, l'ID et la vie restante
 }
 
 
@@ -344,6 +355,8 @@ void Game::endTurn() {
     while(_currentPlayer->nbrCardInHand() > 7) {
         // askDefausse(...
         // TO DO @tutul
+        // On avait pas plutôt parlé de demandé de defausser un nombre spécifique ? plus rapide nan ?
+        // => void askDefausse(Player*, int) avec le nombre de carte à défausser
     }
 
 }
@@ -369,6 +382,8 @@ void Game::sendInitInfo(PlayerInGame* pIG) {
     pIG == _currentPlayer; // His turn ?
     getAdversePlayer(pIG); // Adverse player
     // TO DO @tutul
+    // Send initGame (see upper) + setTurn (see upper) + sendStartTurnInfo (see upper)
+    // No ???
 }
 
 
@@ -466,6 +481,7 @@ void Game::isPlayerInLife(PlayerInGame* pIG) {
         pIG->addLose();
         getAdversePlayer(pIG)->addWin();
         // TO DO @tutul send information to all player and back menu
+        // => void sendEndGame(Player*, bool) with true if win 
 
         delete this;
     }
