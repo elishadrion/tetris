@@ -1,20 +1,24 @@
 #include "CardManager.hpp"
 
+#include "Card.hpp" //TODO tmp patch
+#include "CardMonster.hpp"
+
+
 /**
  * Get the card object in cache
  *
  * @param id of the card
  * @return the card or nullptr if doesn't exist
  */
- 
+
  // ATTENTION GERER ERREUR GETCARDBYID !!!!!!!!!!!
- 
+
  std::map<unsigned, Card*> CardManager::_listCard;
- 
- Card* CardManager::getCardById(const unsigned int id) { 
+
+ Card* CardManager::getCardById(const unsigned int id) {
     std::map<unsigned, Card*>::iterator it = _listCard.find(id);
     if(it != _listCard.end()) { // If card "cached"
-        return _listCard[id]; 
+        return _listCard[id];
     }
     else{
 		return nullptr;
@@ -61,10 +65,10 @@ void CardManager::loadAllCards(){
 
 }
 
-Card* CardManager::chooseCardWin(){	
+Card* CardManager::chooseCardWin(){
     srand(time(NULL));
-	
+
     int idAleatoire = (rand() % _listCard.size()) + 1;
-	
+
     return _listCard[idAleatoire];
 }

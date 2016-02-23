@@ -1,13 +1,14 @@
 #ifndef CARDMANAGER_HPP
 #define CARDMANAGER_HPP
 
-#include "Card.hpp" //TODO tmp patch
-#include "CardMonster.hpp"
+
 #include <map>
 #include "include/json.hpp"
 #include <fstream>
 #include <time.h>
 #include <stdlib.h>
+
+class Card;
 
 
 using json = nlohmann::json;
@@ -21,7 +22,7 @@ public:
     static Card* getCardById(unsigned int id); // Get a specific card (identified by ID)
 
     static void loadAllCards();
-    
+
     static Card* chooseCardWin();
 };
 

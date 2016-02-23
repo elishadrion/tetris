@@ -33,7 +33,7 @@ void Player::save() const {
 
 	//}
     } else {
-       WizardLogger::Error("Erreur: impossible d'ouvrir le fichier.");
+        WizardLogger::error("Erreur: impossible d'ouvrir le fichier.");
     }
 }
 

@@ -11,6 +11,9 @@
 #include "Deck.hpp"
 #include "common/Packet.hpp"
 
+#include "common/WizardLogger.hpp"
+
+
 /**
  * One class per player.  This object stocks the socket to communicate with player
  * When the server starts, he must load all Players

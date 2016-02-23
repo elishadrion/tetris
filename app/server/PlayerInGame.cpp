@@ -7,26 +7,25 @@
  * Default constructor
  */
  //à changer/supprimer??
- /*
+/*
 PlayerInGame::PlayerInGame() {
     // TO DO
     std::vector<Card*> _cardsInHand(0);
     std::vector<Card*> _defausse(20);
     std::vector<CardMonster*> _cardsPlaced;
     Deck *_deck;
-     _playerHeal = 20; //Player starts with 20 health points
-     _energy = 0; //The current energy of the player
+    _playerHeal = 20; //Player starts with 20 health points
+    _energy = 0; //The current energy of the player
     _maxEnergy = 1; //Every turn the maximum energy is increased up to a maximum of 10
-}*/
-
+}
+*/
 
 /**
  * Creates a PlayerInGame and asks to the player which Deck he would like to play with
  */
-PlayerInGame::PlayerInGame(Player& player, Game* game) {
-     Player::Player(); //Calls player's default constructor
+PlayerInGame::PlayerInGame(Player& player, Game* game): Player() { //Calls player's default constructor
     _game = game;
-    
+
     _playerHeal = 20; //Player starts with 20 health points
      _energy = 0; //The current energy of the player
     _maxEnergy = 1; //Every turn the maximum energy is increased up to a maximum of 10
@@ -52,7 +51,7 @@ dataIGPlayer PlayerInGame::getDataPlayer() {
     data.cardsInHand = this->_cardsInHand;
     data.cardsPlaced = this->_cardsPlaced;
     data.maxEnergy = this->_maxEnergy;
-    data.limitEnergy = this-> _limitEnergy;
+    data.limitEnergy = this->_limitEnergy;
 
     return data;
 }
@@ -81,7 +80,7 @@ bool PlayerInGame::isDeckDefined() {
 /**
  * Gets random card of deck
  *
- * @return True if all is ok, False if he hasn't any card to draw 
+ * @return True if all is ok, False if he hasn't any card to draw
  */
 bool PlayerInGame::draw() {
     bool res = true;

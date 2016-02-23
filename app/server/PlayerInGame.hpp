@@ -6,6 +6,7 @@
 
 
 #include "Deck.hpp"
+class Player;
 #include "Player.hpp"
 
 class Card;
@@ -14,12 +15,15 @@ class CardMonster;
 #include "common/Packet.hpp"
 #include "CardManager.hpp"
 
-
+/*
+Je pense que l'on en a plus besoin
+à voir avec @remy et @tutul
+*/
 struct dataIGPlayer {
     int playerHeal;
     int energy;
     int maxEnergy;
-    int const limitEnergy = 10;
+    int limitEnergy; // const here make error :/
     std::vector<Card*> cardsInHand;
     std::vector<CardMonster*> cardsPlaced;
     bool turn;
@@ -47,7 +51,7 @@ class PlayerInGame : public Player {
 
 public:
 
-   // PlayerInGame(); // not valide but better for less Warnings :D
+    PlayerInGame(); // not valide but better for less Warnings :D
     PlayerInGame(Player &player, Game* game);
 
     dataIGPlayer getDataPlayer();

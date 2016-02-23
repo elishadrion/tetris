@@ -7,8 +7,9 @@
 
 #include "Player.hpp"
 #include "PlayerInGame.hpp"
-#include "common/WizardLogger.hpp"
+#include "CardMonster.hpp"
 
+#include "common/WizardLogger.hpp"
 #include "common/Error.hpp"
 
 
