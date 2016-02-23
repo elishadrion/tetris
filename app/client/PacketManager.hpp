@@ -4,7 +4,7 @@
 #include "common/WizardLogger.hpp"
 #include "Connection.hpp"
 
-namespace CommService {
+namespace PacketManager {
     /* API for other service */
     void managePacket(Packet::packet*);
     void makeLoginRequest(const char*, const char*);

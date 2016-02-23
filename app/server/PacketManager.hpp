@@ -8,7 +8,7 @@
 #include "Player.hpp"
 #include "PlayerInGame.hpp"
 
-namespace CommService {
+namespace PacketManager {
     /* Manage recev packet */
     void manageDisconnectRequest(Packet::packet*);
     void manageLoginRequest(Packet::loginRequestPacket*);

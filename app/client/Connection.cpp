@@ -83,7 +83,7 @@ void* Connection::recvLoop(void* data) {
     pthread_setcanceltype(PTHREAD_CANCEL_ASYNCHRONOUS, (int*) PTHREAD_CANCEL_DEFERRED);
     
     /* Convert to get _clientSocket addr */
-    int _clientSocket = *((int *)data);
+    int clientSocket = *((int *)data);
     
     /* Read data from buffer */
     int readSize;
@@ -94,14 +94,15 @@ void* Connection::recvLoop(void* data) {
         void *packet = malloc(Packet::packetMaxSize);
         
         /* Try to get packet from server */
-        if ((readSize = recv(_clientSocket, packet, Packet::packetMaxSize, 0)) == 0) {
+        while ((readSize = recv(clientSocket, packet, Packet::packetMaxSize, 0)) <= 0);
+        if (readSize < Packet::packetSize) {
             WizardLogger::error("Impossible de récupérer le packet du serveur");
         } else {
             /* We terminate resize memory alloc */
             realloc(packet, readSize);
             
-            /* We send the packet to the CommService for verification and interpretation */
-            CommService::managePacket(reinterpret_cast<Packet::packet*>(packet));
+            /* We send the packet to the PacketManager for verification and interpretation */
+            PacketManager::managePacket(reinterpret_cast<Packet::packet*>(packet));
         }
         
         /* Free packet from memory */

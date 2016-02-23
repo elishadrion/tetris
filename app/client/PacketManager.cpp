@@ -1,8 +1,8 @@
-#include "CommService.hpp"
+#include "PacketManager.hpp"
 
 extern Connection *conn;
 
-void CommService::managePacket(Packet::packet* customPacket) {
+void PacketManager::managePacket(Packet::packet* customPacket) {
     /* We get ID of the packet after cast void* to packet* */
     switch(customPacket->ID) {
         /* LOGIN PROCESS */
@@ -24,7 +24,7 @@ void CommService::managePacket(Packet::packet* customPacket) {
     }
 }
 
-void CommService::makeLoginRequest(const char *pseudo, const char *password) {
+void PacketManager::makeLoginRequest(const char *pseudo, const char *password) {
     /* Create and complete a new loginPacket */
     Packet::loginRequestPacket *loginPacket = new Packet::loginRequestPacket();
     for (int i = 0 ; i < MAX_PSEUDO_SIZE ; ++i) {
@@ -41,7 +41,7 @@ void CommService::makeLoginRequest(const char *pseudo, const char *password) {
     delete loginPacket;
 }
 
-void CommService::makeRegistrationRequest(const char *pseudo, const char *password) {
+void PacketManager::makeRegistrationRequest(const char *pseudo, const char *password) {
     /* Create and complete a new loginPacket and modify ID to match registration request */
     Packet::loginRequestPacket *registrationPacket = new Packet::loginRequestPacket();
     registrationPacket->ID = Packet::REGIST_REQ_ID;
@@ -59,7 +59,7 @@ void CommService::makeRegistrationRequest(const char *pseudo, const char *passwo
     delete registrationPacket;
 }
 
-void CommService::sendDisconnection() {
+void PacketManager::sendDisconnection() {
     /* Create and specify a new logoutPacket */
     Packet::packet *logoutPacket = new Packet::packet();
     logoutPacket->ID = Packet::DISCONNECT_ID;
@@ -71,7 +71,7 @@ void CommService::sendDisconnection() {
     delete logoutPacket;
 }
 
-void CommService::loginResult(const Packet::loginResultPacket* resultPacket) {
+void PacketManager::loginResult(const Packet::loginResultPacket* resultPacket) {
     /* Check if size is correct to detect corrupted packet */
     if (resultPacket->size != sizeof(int)) {
         WizardLogger::error("Paquet de résulta de login corrompu reçu ("

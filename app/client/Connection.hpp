@@ -13,7 +13,7 @@
 #include <pthread.h>
 
 #include "common/Packet.hpp"
-#include "CommService.hpp"
+#include "PacketManager.hpp"
 
 #define PORT 5555
 

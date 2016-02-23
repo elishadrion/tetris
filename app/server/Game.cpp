@@ -7,7 +7,7 @@ std::queue<Player*> Game::PlayerWaitGame;
 
 //////////// PRIVATE ////////////
 
-//TODO les fonctions de CommService ont toutes besoins de Player* en premier argument
+//TODO les fonctions de PacketManager ont toutes besoins de Player* en premier argument
 //     il s'agit du joueur à qui envoyer le message, vu que c'est Player qui contient le socket
 
 

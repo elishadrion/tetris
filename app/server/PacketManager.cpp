@@ -1,11 +1,11 @@
-#include "CommService.hpp"
+#include "PacketManager.hpp"
 
-void CommService::managePacket(Packet::packet* customPacket) {
+void PacketManager::managePacket(Packet::packet* customPacket) {
     /* We get ID of the packet after cast void* to packet* */
     switch(customPacket->ID) {
-        case Packet::LOGIN_REQ_ID :       CommService::manageLoginRequest((Packet::loginRequestPacket*) customPacket);
+        case Packet::LOGIN_REQ_ID :       PacketManager::manageLoginRequest((Packet::loginRequestPacket*) customPacket);
                                           break;
-        case Packet::DISCONNECT_ID :      CommService::manageDisconnectRequest(customPacket);
+        case Packet::DISCONNECT_ID :      PacketManager::manageDisconnectRequest(customPacket);
                                           break;
         case Packet::COLLECTION_REQ_ID :  //TODO
                                           break;
@@ -77,11 +77,11 @@ void sendEndGame(Player *player, bool victory) {
 
 //==========================================================================================================
 
-void CommService::manageDisconnectRequest(Packet::packet* disconnectReqPacket) {
+void PacketManager::manageDisconnectRequest(Packet::packet* disconnectReqPacket) {
     
 }
 
-void CommService::manageLoginRequest(Packet::loginRequestPacket* loginReqPacket) {
+void PacketManager::manageLoginRequest(Packet::loginRequestPacket* loginReqPacket) {
     if (loginReqPacket->size != sizeof(loginReqPacket->pseudo)+sizeof(loginReqPacket->password)) {
         WizardLogger::error("Paquet de login corrompu reçu");
         return;
