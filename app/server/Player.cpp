@@ -2,7 +2,10 @@
 #include "Player.hpp"
 
 Player::Player(nlohmann::json& info, int sockfd) {
+//ask name and password?
 
+// call save
+//save();
 }
 
 bool Player::operator<(const Player &other) const {
@@ -21,16 +24,16 @@ bool Player::operator==(const Packet::loginRequestPacket &req) const {
 //Saves player's data in a json file
 void Player::save() const {
 
-    std::ifstream fichierJson("server/assets/Players.json");
+    std::ofstream fichierJson("server/assets/players.json");
     if(fichierJson) {
-        std::string ligne;
+       // std::string ligne;
 
-	while(getline(fichierJson, ligne)) {
-            std::cout << ligne << std::endl;
+	//while(getline(fichierJson, ligne)) {
+            //std::cout << ligne << std::endl;
 
-	}
+	//}
     } else {
-        std::cout << "ERROR: Impossible to open the file." << std::endl;
+       WizardLogger::Error("Erreur: impossible d'ouvrir le fichier.");
     }
 }
 

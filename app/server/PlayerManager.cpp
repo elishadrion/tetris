@@ -46,5 +46,5 @@ Player* PlayerManager::logIn(Packet::loginRequestPacket req, int sockfd) {
 }
 
 Player PlayerManager::signUp() {
-
+//call Player constructor?
 }

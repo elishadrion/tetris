@@ -19,7 +19,7 @@ struct dataIGPlayer {
     int playerHeal;
     int energy;
     int maxEnergy;
-    int limitEnergy;
+    int const limitEnergy = 10;
     std::vector<Card*> cardsInHand;
     std::vector<CardMonster*> cardsPlaced;
     bool turn;
@@ -53,7 +53,7 @@ public:
     dataIGPlayer getDataPlayer();
     std::vector<CardMonster*> getCardsPlaced();
     std::vector<Card*> getCardsInHand();
-    unsigned nbrCardInHand();
+    unsigned int nbrCardInHand();
 
     void setDeck(Deck *deck);
     bool isDeckDefined();

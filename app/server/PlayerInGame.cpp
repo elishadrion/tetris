@@ -6,18 +6,34 @@
 /**
  * Default constructor
  */
+ //à changer/supprimer??
+ /*
 PlayerInGame::PlayerInGame() {
     // TO DO
+    std::vector<Card*> _cardsInHand(0);
+    std::vector<Card*> _defausse(20);
+    std::vector<CardMonster*> _cardsPlaced;
+    Deck *_deck;
      _playerHeal = 20; //Player starts with 20 health points
      _energy = 0; //The current energy of the player
     _maxEnergy = 1; //Every turn the maximum energy is increased up to a maximum of 10
-}
+}*/
+
 
 /**
  * Creates a PlayerInGame and asks to the player which Deck he would like to play with
  */
 PlayerInGame::PlayerInGame(Player& player, Game* game) {
+     Player::Player(); //Calls player's default constructor
     _game = game;
+    
+    _playerHeal = 20; //Player starts with 20 health points
+     _energy = 0; //The current energy of the player
+    _maxEnergy = 1; //Every turn the maximum energy is increased up to a maximum of 10
+    std::vector<Card*> _cardsInHand(0);
+    std::vector<Card*> _defausse(0);
+    std::vector<CardMonster*> _cardsPlaced(0);
+    Deck *_deck;
     // TO DO
     // askDeck(getListDeck());
     // @tutul
@@ -42,7 +58,7 @@ dataIGPlayer PlayerInGame::getDataPlayer() {
 }
 
 /**
- * Sets the player deck and notify it at the game object
+ * Sets the player deck and notifies it at the game object
  *
  * @param deck The selected deck
  */
@@ -171,4 +187,5 @@ void PlayerInGame::addWin() {
 bool PlayerInGame::isDead() {
     return _playerHeal <= 0;
 }
+
 
