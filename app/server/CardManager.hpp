@@ -14,7 +14,7 @@ using json = nlohmann::json;
 
 class CardManager{
 private:
-	static std::map<unsigned, Card*> listCard; // List of cards (with id and card)
+	static std::map<unsigned, Card*> _listCard; // List of cards (with id and card)
 
 public:
 	 ///// STATIC /////
