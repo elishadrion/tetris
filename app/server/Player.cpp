@@ -1,10 +1,12 @@
 #include "include/json.hpp"
 #include "Player.hpp"
 
-// Player::Player() {}
-
 Player::Player(nlohmann::json& info, int sockfd) {
 
+}
+
+bool Player::operator<(const Player &other) const {
+    return ((*this).getVictories() < other.getVictories());
 }
 
 //Saves player's data in a json file
@@ -24,6 +26,12 @@ void Player::save() const {
 }
 
 std::ostream& operator<<(std::ostream& os, const Player& c) {
-    os << c._username << c._victory << "\t" << c._defeat << "\n";
+    os << c._username << c.getVictories() << "\t" << c.getDefeats() << "\n";
     return os;
+}
+
+std::ostream& operator<<(std::string& str, const Player& c) {
+    str.append(c.getName() + "\t" +
+	       std::to_string(c.getVictories()) + "\t" +
+	       std::to_string(c.getDefeats()) + "\n");
 }

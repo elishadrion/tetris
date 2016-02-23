@@ -1,13 +1,22 @@
 #include "PlayerManager.hpp"
 
-std::vector<Player*> PlayerManager::connected;
+std::string PlayerManager::getRanking() {
+    std::string ranking;
+    std::vector<Player*> sorted_players = std::vector<Player*>(players);
+    std::sort(sorted_players.begin(), sorted_players.end());
+
+    for (size_t i = 0; i < sizeof sorted_players; i++) {
+	ranking << *sorted_players.at(i);
+    }
+
+    return ranking;
+}
 
 Player* PlayerManager::signIn(std::string username, std::string pass, int sockfd) {
     std::ifstream playerFile;
     try {
         std::string player_path = PLAYERS_PATH + username + ".json";
         std::ifstream playerFile(player_path);
-
     } catch (std::ios_base::failure &fail) {
         // No username with that name
         // handle the error
@@ -21,7 +30,6 @@ Player* PlayerManager::signIn(std::string username, std::string pass, int sockfd
     Player* signed_in = new Player(info, sockfd);
 
     connected.push_back(signed_in);
-    std::cout << "Nicely created" << "\n";
 
     return signed_in;
 
