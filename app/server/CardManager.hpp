@@ -6,18 +6,23 @@
 #include <map>
 #include "include/json.hpp"
 #include <fstream>
+#include <time.h>
+#include <stdlib.h>
+
 
 using json = nlohmann::json;
 
 class CardManager{
 private:
-	static std::map<std::size_t, Card*> listCard; // List of cards (with id and card)
+	static std::map<unsigned, Card*> listCard; // List of cards (with id and card)
 
 public:
 	 ///// STATIC /////
     static Card* getCardById(unsigned int id); // Get a specific card (identified by ID)
 
     static void loadAllCards();
+    
+    static Card* chooseCardWin();
 };
 
 #endif

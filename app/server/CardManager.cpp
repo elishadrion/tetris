@@ -50,7 +50,14 @@ void CardManager::loadAllCards(){ //TO IMPROVE
 		attack = i.value()["attack"];
 
 		listCard[id]= new CardMonster(id,name,energy,effect,true,life,attack,0); //Ajout des attributs
-	}
+	}*/
 
-	*/
+}
+
+Card* chooseCardWin(){/*Probleme de undifined ref avec listCard
+	srand(time(NULL));
+	
+	int idAleatoire = (rand() % listCard.size()) + 1;
+	
+	return listCard.find(idAleatoire);*/
 }

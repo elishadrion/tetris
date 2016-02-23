@@ -154,7 +154,7 @@ int PlayerInGame::getHeal() {
  * Add a lose to the player
  */
 void PlayerInGame::addLose() {
-    ++_defeat;
+    ++_defeats;
     // TO DO: @carlos save to JSON ?
 }
 
@@ -162,7 +162,7 @@ void PlayerInGame::addLose() {
  * Add a win to the player
  */
 void PlayerInGame::addWin() {
-    ++_victory;
+    ++_victories;
     // TO DO: @carlos save to JSON ?
 }
 
