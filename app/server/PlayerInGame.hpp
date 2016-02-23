@@ -68,7 +68,7 @@ public:
     void getHealed(unsigned int);
 
     int getHeal();
-    void addLose();
+    void addDefeat();
     void addWin();
     bool isDead();
 

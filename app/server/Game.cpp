@@ -478,7 +478,7 @@ void Game::isPlayerInLife() {
  */
 void Game::isPlayerInLife(PlayerInGame* pIG) {
     if(pIG->isDead()) {
-        pIG->addLose();
+        pIG->addDefeat();
         getAdversePlayer(pIG)->addWin();
         // TO DO @tutul send information to all player and back menu
         // => void sendEndGame(Player*, bool) with true if win 

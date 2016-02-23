@@ -37,14 +37,14 @@ class LoginPanel {
     FORM  *form;
     FIELD *field[2];
     bool isWainting;
-    
+
     void proceed(bool=false);
     void setFocus();
     void printWait(std::string);
 public:
     LoginPanel();
     ~LoginPanel();
-    
+
     void askLogin();
     void printError(std::string);
 };

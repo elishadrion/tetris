@@ -7,8 +7,9 @@
 
 #include "Player.hpp"
 #include "include/json.hpp"
+#include "common/Packet.hpp"
 
-#define PLAYERS_PATH "server/assets/"
+#define PLAYERS_DB "server/assets/players.json"
 
 class PlayerManager {
     std::vector<Player*> connected;
@@ -16,8 +17,9 @@ class PlayerManager {
 public:
     PlayerManager();
     std::string getRanking();
+    void loadPlayers();
     Player signUp();
-    Player* signIn(std::string, std::string, int);
+    Player* logIn(Packet::loginRequestPacket, int);
     virtual ~PlayerManager();
 };
 

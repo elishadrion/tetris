@@ -50,7 +50,7 @@ void LoginPanel::proceed(bool registration) {
     
     /* Get the password from the second field */
     char *password = field_buffer(field[1], 0);
-    
+
     if (registration) {
         printWait(REGISTRATION_IN_PROGRESS);
         PacketManager::makeRegistrationRequest(pseudo, password);
@@ -66,7 +66,7 @@ void LoginPanel::printWait(std::string message) {
     mvprintw(2, 10, (char*)message.c_str());
     attroff(COLOR_PAIR(2));
     refresh();
-    
+
     while(isWainting);
 }
 
@@ -88,7 +88,7 @@ void LoginPanel::askLogin() {
     
     /* Set focus on the fist form */
     setFocus();
-    
+
     /* Loop through to get user requests */
     int input;
     while((input = getch())) {
@@ -139,7 +139,7 @@ void LoginPanel::askLogin() {
                     (passwordForm && (indexB == 0 || sizeB == 0))) {
                     beep();
                 } else {
-                    form_driver(form,REQ_LEFT_CHAR); 
+                    form_driver(form,REQ_LEFT_CHAR);
                     form_driver(form,REQ_DEL_CHAR);
                     if (passwordForm) {
                         indexB -= 1;
