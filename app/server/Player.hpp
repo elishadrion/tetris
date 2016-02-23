@@ -5,9 +5,11 @@
 #include <vector>
 #include <fstream>
 
+#include "include/json.hpp"
+
 #include "Collection.hpp"
 #include "Deck.hpp"
-#include "include/json.hpp"
+#include "common/Packet.hpp"
 
 /**
  * One class per player.  This object stocks the socket to communicate with player
@@ -32,13 +34,17 @@ public:
 
     inline void adjudicateVictory() {_victories++;};
     inline void adjudicateDefeat() {_defeats++;};
-    inline std::string getName() const {return _username + "\t";};
+    inline void updateSockfd(int a) {_sockfd = a;};
+    inline std::string getName() const {return _username;};
+    inline std::string getPass() const {return _pass;};
     inline unsigned getVictories() const {return _victories;}
     inline unsigned getDefeats() const {return _defeats;};
 
 
     friend std::ostream& operator<<(std::ostream&, const Player&);
     friend std::string& operator<<(std::string&, const Player&);
+    bool operator==(const std::string&) const;
+    bool operator==(const Packet::loginRequestPacket&) const;
     bool operator<(const Player&) const;
     virtual ~Player() = default;
 };

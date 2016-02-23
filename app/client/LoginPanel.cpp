@@ -9,21 +9,21 @@ LoginPanel::LoginPanel() : isWainting(false) {
     field[1] = new_field(1, 31, 6, 24, 0, 0);
     field_opts_off(field[1], O_AUTOSKIP);
     //field_opts_off(field[1], O_PUBLIC); /* Don't display password character */
-    
+
     /* Create the form and calculate size needed */
     int rows, cols;
     form = new_form(field);
     scale_form(form, &rows, &cols);
-    
+
     /* Create a window and put form in it */
     win = newwin(rows + 6, cols + 8, 0, 6);
     keypad(win, TRUE);
     set_form_win(form, win);
-    
+
     /* Post form and refresh window */
     post_form(form);
     wrefresh(win);
-    
+
     /* Add some label */
     mvprintw(2, 10, DEFAULT_LABEL);
     mvprintw(4, 10, "Pseudo       :");
@@ -50,16 +50,16 @@ void LoginPanel::setFocus() {
 void LoginPanel::proceed(bool registration) {
     /* Get the pseudo from the first field */
     char *pseudo = field_buffer(field[0], 0);
-    
+
     /*TODO (why empty ?) Get the password from the second field */
     char *password = field_buffer(field[1], 0);
-    
+
     if (registration) {
         printWait(REGISTRATION_IN_PROGRESS);
-        CommService::makeRegistrationRequest(pseudo, password);
+        //CommService::makeRegistrationRequest(pseudo, password);
     } else {
         printWait(LOGIN_IN_PROGRESS);
-        CommService::makeLoginRequest(pseudo, password);
+        //CommService::makeLoginRequest(pseudo, password);
     }
 }
 
@@ -69,7 +69,7 @@ void LoginPanel::printWait(std::string message) {
     mvprintw(2, 10, (char*)message.c_str());
     attroff(COLOR_PAIR(2));
     refresh();
-    
+
     while(isWainting);
 }
 
@@ -83,10 +83,10 @@ void LoginPanel::askLogin() {
     int indexB = 0;
     int sizeB = 0;
     bool passwordForm = false; /* false: pseudo | true: password */
-    
+
     /* Set focus on the fist form */
     setFocus();
-    
+
     /* Loop through to get user requests */
     while((input = getch())) {
         switch(input) {
@@ -136,7 +136,7 @@ void LoginPanel::askLogin() {
                     (passwordForm && (indexB == 0 || sizeB == 0))) {
                     beep();
                 } else {
-                    form_driver(form,REQ_LEFT_CHAR); 
+                    form_driver(form,REQ_LEFT_CHAR);
                     form_driver(form,REQ_DEL_CHAR);
                     if (passwordForm) {
                         indexB -= 1;

@@ -11,7 +11,7 @@
 #include "common/WizardLogger.hpp"
 
 /* To call the login process */
-#include "CommService.hpp"
+#include "PacketManager.hpp"
 
 /**
 #####################################
@@ -39,14 +39,14 @@ class LoginPanel {
     WINDOW *win;
     int input;
     bool isWainting;
-    
+
     void proceed(bool=false);
     void setFocus();
     void printWait(std::string);
 public:
     LoginPanel();
     ~LoginPanel();
-    
+
     void askLogin();
     void printError(std::string);
 };

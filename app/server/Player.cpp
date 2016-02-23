@@ -9,6 +9,15 @@ bool Player::operator<(const Player &other) const {
     return ((*this).getVictories() < other.getVictories());
 }
 
+bool Player::operator==(const std::string &other_name) const {
+    return ((*this).getName() == other_name);
+}
+
+bool Player::operator==(const Packet::loginRequestPacket &req) const {
+    return ( ((*this).getName() == req.pseudo) &&
+	     ((*this).getPass() == req.password));
+}
+
 //Saves player's data in a json file
 void Player::save() const {
 
