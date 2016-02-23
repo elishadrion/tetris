@@ -11,7 +11,7 @@
 #include "common/WizardLogger.hpp"
 
 /* To call the login process */
-#include "PacketManager.hpp"
+#include "client/PacketManager.hpp"
 
 /**
 #####################################
@@ -36,8 +36,6 @@
 class LoginPanel {
     FORM  *form;
     FIELD *field[2];
-    WINDOW *win;
-    int input;
     bool isWainting;
 
     void proceed(bool=false);

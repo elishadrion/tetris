@@ -24,6 +24,8 @@ void PacketManager::managePacket(Packet::packet* customPacket) {
     }
 }
 
+//======================================================================================
+
 void PacketManager::makeLoginRequest(const char *pseudo, const char *password) {
     /* Create and complete a new loginPacket */
     Packet::loginRequestPacket *loginPacket = new Packet::loginRequestPacket();
@@ -70,6 +72,8 @@ void PacketManager::sendDisconnection() {
     /* Clean memory */
     delete logoutPacket;
 }
+
+//======================================================================================
 
 void PacketManager::loginResult(const Packet::loginResultPacket* resultPacket) {
     /* Check if size is correct to detect corrupted packet */

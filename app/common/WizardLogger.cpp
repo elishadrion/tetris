@@ -56,8 +56,7 @@ void WizardLogger::info(std::string message) {
     try {
         spdlog::get(LOGGER)->info(message);
     } catch (const spdlog::spdlog_ex& ex) {
-        std::cerr << "[ERREUR] Impossible d'afficher le log :\n" << ex.what() << std::endl;
-        throw; 
+        std::cerr << "[ERREUR] Impossible d'afficher le log :"+message+"\n" << ex.what() << std::endl;
     }
 }
 
@@ -70,22 +69,19 @@ void WizardLogger::warning(std::string message) {
    try {
         spdlog::get(LOGGER)->warn(message);
     } catch (const spdlog::spdlog_ex& ex) {
-        std::cerr << "[ERREUR] Impossible d'afficher le log :\n" << ex.what() << std::endl;
-        throw; 
+        std::cerr << "[ERREUR] Impossible d'afficher le log :"+message+"\n" << ex.what() << std::endl;
     }
 }
 
 /* Print an ERROR message
  * Use it for major error like "client socket close unexpectedly"
  * @param message : the string to log
- * @throw exception : cannot log "message"
  */
 void WizardLogger::error(std::string message) {
     try {
         spdlog::get(LOGGER)->error(message);
     } catch (const spdlog::spdlog_ex& ex) {
-        std::cerr << "[ERREUR] Impossible d'afficher le log :\n" << ex.what() << std::endl;
-        throw; 
+        std::cerr << "[ERREUR] Impossible d'afficher le log :"+message+"\n" << ex.what() << std::endl;
     }
 }
 
@@ -93,28 +89,24 @@ void WizardLogger::error(std::string message) {
  * Use it for major error like "client socket close unexpectedly"
  * @param message : the string to log
  * @param exception : exception to print
- * @throw exception : cannot log "message"
  */
 void WizardLogger::error(std::string message, std::exception ex) {
     try {
         spdlog::get(LOGGER)->error(message+"\n***\n"+ex.what()+"\n***");
     } catch (const spdlog::spdlog_ex& ex) {
-        std::cerr << "[ERREUR] Impossible d'afficher le log :\n" << ex.what() << std::endl;
-        throw; 
+        std::cerr << "[ERREUR] Impossible d'afficher le log :"+message+"\n" << ex.what() << std::endl;
     }
 }
 
 /* Print a FATAL message
  * Use it for fatal error like "cannot write/read the HDD"
  * @param message : the string to log
- * @throw exception : cannot log "message"
  */
 void WizardLogger::fatal(std::string message) {
     try {
         spdlog::get(LOGGER)->emerg(message);
     } catch (const spdlog::spdlog_ex& ex) {
-        std::cerr << "[ERREUR] Impossible d'afficher le log :\n" << ex.what() << std::endl;
-        throw; 
+        std::cerr << "[ERREUR] Impossible d'afficher le log :"+message+"\n" << ex.what() << std::endl;
     }
 }
 
@@ -122,13 +114,11 @@ void WizardLogger::fatal(std::string message) {
  * Use it for fatal error like "cannot write/read the HDD"
  * @param message : the string to log
  * @param exception : exception to print
- * @throw exception : cannot log "message"
  */
 void WizardLogger::fatal(std::string message, std::exception ex) {
     try {
         spdlog::get(LOGGER)->emerg(message+"\n***\n"+ex.what()+"\n***");
     } catch (const spdlog::spdlog_ex& ex) {
-        std::cerr << "[ERREUR] Impossible d'afficher le log :\n" << ex.what() << std::endl;
-        throw; 
+        std::cerr << "[ERREUR] Impossible d'afficher le log :"+message+"\n" << ex.what() << std::endl;
     }
 }

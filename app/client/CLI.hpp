@@ -11,8 +11,9 @@
 #include "Display.hpp"
 
 /* All used panel */
-#include "LoginPanel.hpp"
-#include "MainPanel.hpp"
+#include "client/CLI/CLIPanel.hpp"
+#include "client/CLI/LoginPanel.hpp"
+#include "client/CLI/MainPanel.hpp"
 
 /** in-game layout
 #################################### ############
@@ -75,10 +76,11 @@
 #define CARD_INFO_HEIGTH 5
 #define CARD_INFO_WIDTH TCHAT_INPUT_WIDTH
 
+#define PANEL_TOTAL_NUMBER 10
+
 class CLI : public Display {
     /* All panel used by the CLI */
-    LoginPanel *loginPanel;
-    MainPanel *mainPanel;
+    CLIPanel *_panelList[PANEL_TOTAL_NUMBER];
 public:
     CLI();
     ~CLI();
