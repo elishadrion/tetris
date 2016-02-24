@@ -62,9 +62,6 @@ Connection::~Connection() {
  */
 void Connection::sendPacket(Packet *packet, long unsigned int size) {
     try {
-        if (send(_clientSocket, &size, sizeof(int), 0) != sizeof(int)) {
-            throw std::string("Impossible de renseigner la taille du packet à envoyer");
-        }
         if (send(_clientSocket, packet, size, 0) != size) {
             throw std::string("Tout le packet n'a pas été envoyé");
         }

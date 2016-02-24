@@ -1,6 +1,7 @@
 #ifndef CONNECTION_HPP
 #define CONNECTION_HPP
 
+#include <vector>
 #include <system_error>
 #include <cstdlib>
 #include <unistd.h>
@@ -14,6 +15,8 @@
 
 #include "common/Packet.hpp"
 #include "PacketManager.hpp"
+#include "Player.hpp"
+#include "PlayerManager.hpp"
 
 #define PORT 5555
 #define BACKLOG 5       /* Pending connections the queue will hold */
@@ -23,6 +26,11 @@ class Connection {
     struct sockaddr_in client_addr; //TODO don't support IPv6
     int _serverSocket;
     unsigned int _sinSize;
+    std::vector<pthread_t> _clientThreads;
+    pthread_t _newThread;
+    
+    static void* newPlayerThread(void* data);
+    static void sendResponse(int, int);
 public:
     Connection();
     ~Connection();

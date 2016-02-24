@@ -41,6 +41,11 @@ Connection::~Connection() {
     close(_serverSocket);
 }
 
+/* Wait for client connection and start a dedicated thread for login/registration and game
+ * Must be as fast as possible to manage more new connection in seconde
+ * So we don't do anything after accepting connection and launching the thread
+ * All client's communication are manage by these dedicated thread
+ */
 void Connection::mainLoop() {
     /* We wait for client connection */
     WizardLogger::info("Serveur en attente de connexion client");
@@ -54,8 +59,76 @@ void Connection::mainLoop() {
             std::string *info = new std::string("Nouvelle connexion pour le client : ");
             WizardLogger::info(info->append(inet_ntoa(client_addr.sin_addr))); //TODO don't support IPv6
             delete info; /* Don't forget to free memory */
-            
-            //TODO create a new thread specific to the player to communicate with him
+
+            /* We create a new Thread for listen the server informations */
+            if (pthread_create(&_newThread, NULL, newPlayerThread, (void*)&clientSocket) == -1) {
+                WizardLogger::error("Impossible de créer un nouveau thread pour le client");
+                close(clientSocket);
+            } else {
+                /* We register these new thread to keep trace of it and esaly manage it */
+                _clientThreads.push_back(move(_newThread));
+            }
         }
     }
+}
+
+void* newPlayerThread(void* data) {
+    /* Enable asynchronous cancel (thread can be canceled at any time) from deferred */
+    pthread_setcanceltype(PTHREAD_CANCEL_ASYNCHRONOUS, (int*) PTHREAD_CANCEL_DEFERRED);
+    
+    /* Convert to get clientSocket addr */
+    int clientSocket = *((int *)data);
+    
+    int readSize;
+    int size;
+    Player *newPlayer;
+    PacketManager::loginResultStruct *result;
+    
+    /* Allocate specific size for an login/register incoming packet */
+    size = sizeof(Packet::loginRequestPacket);
+    void *packet = malloc(size);
+    
+    /* Loop to test login/registration before accepting it */
+    bool loginOK = false;
+    while(!loginOK) {
+        /* Try to get packet from server */
+        readSize = recv(clientSocket, packet, size, 0));
+        if (readSize < size) {
+            WizardLogger::warning("Le packet reçu est incomplet");
+        } else {
+            /* We send the packet to the PacketManager for verification and interpretation */
+            result = PacketManager::manageLoginRequest(reinterpret_cast<Packet::loginRequestPacket*>(packet));
+            
+            /* We check if it's a login or a registration and send pseudo/password */
+            if (loginResultStruct == nullptr) {
+                WizardLogger::error("Echec du login, envoie de l'erreur au client");
+                sendResponse(-1, clientSocket);
+            } else if (loginResultStruct->registration) {
+                //newPlayer = PlayerManager::signIn(loginResultStruct->pseudo, loginResultStruct->password, clientSocket);
+            } else {
+                newPlayer = PlayerManager::logIn(loginResultStruct->pseudo, loginResultStruct->password, clientSocket);
+            }
+            
+            /* If no player object created we fail and restart */
+            if  (newPlayer == nullptr) {
+                sendResponse(-2, clientSocket);
+            } else {
+                loginOK = true;
+            }
+        }
+    }
+            
+    /* Free memory */
+    free(result);
+    free(packet);
+    
+    sendResponse(0, clientSocket);
+    
+    //TODO we lets Player entity to manage communication from now (must be non returnant)
+}
+
+void sendResponse(int errorCode, int socket) {
+    Packet::loginResultPacket* resultPacket = PacketManager::loginResult(errorCode);
+    send(socket, resultPacket, sizeof(Packet::loginResultPacket), 0);
+    free(resultPacket);
 }
