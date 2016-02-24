@@ -14,7 +14,7 @@ Player::Player(nlohmann::json& info, int sockfd) {
  * @return the deck (or nullptr if not found)
  */
 Deck* Player::getDeck(std::string deckName) {
-    return Deck::getDeck(deckName, _listDeck);
+    return Deck::getDeck(deckName, _decks);
 }
 
 
@@ -26,7 +26,7 @@ Deck* Player::getDeck(std::string deckName) {
  */
 bool Player::removeDeck(Deck* deck) {
     bool res = false;
-    if(_listDeck.size() > 1) {
+    if(_decks.size() > 1) {
         delete deck;
         // remove to memory ?
         // TO DO: @carlos JSON

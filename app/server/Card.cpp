@@ -26,35 +26,6 @@ Card::Card(unsigned int id, std::string name, unsigned int energy,
 }
 
 
-/**
- * Copy contructor
- *
- * @param card original
- */
-Card::Card(Card& card) : _id(card._id), _name(card._name),
-    _energyCost(card._energyCost), _effect(card._effect),
-    _taunt(card._taunt) { }
-
-
-/**
- * Copy operator
- *
- * @param card wich must be copy
- * @return the current card
- */
-Card& Card::operator=(const Card& card) {
-    if(&card != this) {
-        _id = card._id;
-        _name = card._name;
-        _energyCost = card._energyCost;
-        _effect = card._effect;
-        _taunt = card._taunt;
-    }
-
-    return *this;
-}
-
-
 void Card::applyEffect(CardMonster& cardmonster){
     if (this->gotEffect() and this->canBeApplyOnCard()){
         _effect->apply(&cardmonster);
