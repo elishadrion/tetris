@@ -35,10 +35,12 @@ std::string PlayerManager::getRanking() {
 }
 
 
-Player* PlayerManager::logIn(Packet::loginRequestPacket req, int sockfd) {
+Player* PlayerManager::logIn(std::string username, std::string password, int sockfd) {
     for (size_t i = 0; i < sizeof players; i++) {
 	Player* current = players.at(i);
-	if (*current == req) {
+	if ((*current).getName() == username &&
+	    (*current).getPass() == password) {
+
 	    connected.push_back(current);
 	    current -> updateSockfd(sockfd);
 	    return current;
@@ -48,9 +50,11 @@ Player* PlayerManager::logIn(Packet::loginRequestPacket req, int sockfd) {
     return nullptr;
 }
 
-Player PlayerManager::signUp(Packet::loginRequestPacket req, int sockfd) {
+Player* PlayerManager::signUp(std::string username, std::string password, int sockfd) {
     nlohmann::json info;
-    info["name"];
+    info["name"] = username;
+    info["password"] = password;
 
     players.push_back(new Player(info));
+    return nullptr;
 }

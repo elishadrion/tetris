@@ -45,25 +45,12 @@ bool Player::operator==(const std::string &other_name) const {
     return ((*this).getName() == other_name);
 }
 
-bool Player::operator==(const Packet::loginRequestPacket &req) const {
-    return ( ((*this).getName() == req.pseudo) &&
-	     ((*this).getPass() == req.password));
-}
+std::string Player::serialise() const {
+    nlohmann::json info;
+    info["name"] = _username;
+    info["password"] = _password;
 
-//Saves player's data in a json file
-void Player::save() const {
-
-    std::ofstream fichierJson("server/assets/players.json");
-    if(fichierJson) {
-       // std::string ligne;
-
-	//while(getline(fichierJson, ligne)) {
-            //std::cout << ligne << std::endl;
-
-	//}
-    } else {
-        WizardLogger::error("Erreur: impossible d'ouvrir le fichier.");
-    }
+    return info.dump();
 }
 
 std::ostream& operator<<(std::ostream& os, const Player& c) {

@@ -28,7 +28,6 @@ class Player {
     std::vector<Deck*> _decks;
 
 
-    virtual void save() const;
 protected:
     std::vector<Deck*> getListDeck() {return _decks;}
     unsigned _victories;
@@ -50,11 +49,10 @@ public:
     Deck* getDeck(std::string deckName);
     bool removeDeck(Deck*);
 
-
+    std::string serialise() const;
     friend std::ostream& operator<<(std::ostream&, const Player&);
     friend std::string& operator<<(std::string&, const Player&);
     bool operator==(const std::string&) const;
-    bool operator==(const Packet::loginRequestPacket&) const;
     bool operator<(const Player&) const;
     virtual ~Player() = default;
 };

@@ -18,8 +18,8 @@ public:
     PlayerManager() = default;
     std::string getRanking();
     void loadPlayers();
-    Player signUp(Packet::loginRequestPacket, int);
-    Player* logIn(Packet::loginRequestPacket, int);
+    Player* signUp(std::string, std::string, int);
+    Player* logIn(std::string, std::string, int);
     virtual ~PlayerManager() = default;
 };
 
