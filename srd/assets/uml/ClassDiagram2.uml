@@ -1,0 +1,163 @@
+@startuml
+
+title Wizard - Class Diagram 2.0
+
+'accessibilité
+skinparam classAttributeIconSize 0
+
+'pas d'ombre
+skinparam shadowing false
+
+'taille de l'image
+skinparam dpi 200 
+
+'couleurs
+skinparam class {
+  BackgroundColor AliceBlue
+  ArrowColor CornflowerBlue
+  BorderColor CornflowerBlue
+}
+skinparam stereotypeCBackgroundColor OldLace
+
+
+class Chat {
+  + sendMessage() : string
+}
+
+class Ranking {
+  + display() : void
+}
+
+class Player {
+  - username : string
+  - password : string
+  - collection : Collection
+  - decks : vector<Deck*>
+  # victories : unsigned
+  # defeats : unsigned
+  - save() : void
+  # getListDeck() : vector<Deck*>
+  + getName() : string
+  + getPass() : string
+  + getVictories() : unsigned
+  + getDefeats() : unsigned
+  + getDeck() : Deck*
+  + removeDeck() : bool
+}
+
+class FriendsManager {
+  - friendsList : vector<Player>
+  + deleteFriend() : void
+  + addFriend() : void
+  + speakToFriend() : void
+}
+
+class PlayerInGame {
+  - deck : *Deck
+  - playerHeal : int
+  - energy : int
+  - maxEnergy : unsigned
+  - cardsInHand : vector<Card*>
+  - discard : vector<Card*>
+  - cardsPlaced : vector<CardMonster*>
+  - limitEnergy : unsigned const = 10
+  + haveEnoughEnergy() : bool
+  + getCardsPlaced() : vector<CardMonster*>
+  + getNbrCardInHand() : unsigned
+  + setDeck() : void
+  + isDeckDefined() : bool
+  + addMaxEnergy() : void
+  + resetEnergy() : void
+  + discardPlacedCard() : void
+  + placeCard() : void
+  + takeDamage() : void
+  + getHealed() : void
+  + getPlayerHeal() :int
+  + addDefeat() : void
+  + addWin() : void
+  + isDead() : bool
+}
+
+class Deck {
+  - name : string
+  + getName() : string
+  + isValide() : bool
+  + pickup() : Card*
+  + deleteDeck() : bool
+  + copyDeck() : Deck*
+  + getDeck() : Deck*
+}
+
+class Collection {
+  # cardsList : vector<Card*>
+  + removeCard() : void
+  + addCard() : Error
+}
+
+class Card {
+  - id : unsigned
+  - name : string
+  - energyCost : unsigned
+  - effect : Effect*
+  + applyEffect() : void
+  + getId() : unsigned
+  + getName() : string
+  + getEnergyCost() : unsigned
+  + gotEffect() : bool
+  + getEffectId() : int
+  + isMonster() : bool
+  + canBeAppliedOnCard() : bool
+  + canBeAppliedOnPlayer() : bool
+}
+
+class CardMonster {
+  - life : unsigned
+  - attack : unsigned
+  - maxLife : unsigned
+  - nbrOfTurnsSincePlaced : unsigned
+  - taunt : bool
+  + dealDamage() : void
+  + incrementTurn() : void
+  + getLife() : unsigned
+  + getAttack() : unsigned
+  + getMaxLife() : unsigned
+  + getNbrOfTurnsSincePlaced() : unsigned
+  + isTaunt() : bool
+  + setTaunt() : void
+  + setLife() : void
+  + setAttack() : void
+  + setMaxLife() : void
+  + isDead() : bool
+}
+
+class Effect {
+  + getId() : unsigned
+  + apply() : void
+  + canBeAppliedOnCard() : bool
+  + canBeAppliedOnPlayer() : bool
+}
+
+class GameManager {
+  log
+}
+
+class Plateau {
+  + refresh() : void
+}
+
+
+Player "0..*" *-- "1" Ranking
+Player "2" o-- "0..*" Chat
+Player <|-- PlayerInGame
+PlayerInGame -- Deck
+PlayerInGame -- FriendsManager
+Player -- Collection
+Collection "1" *-- "100..*" Card
+Collection <|-- Deck: <<extend>> [Has 20 cards] >
+Card <|-- CardMonster
+Card <|-- Effect
+PlayerInGame -- GameManager
+GameManager "1" *-- "1" Plateau
+
+
+@enduml
