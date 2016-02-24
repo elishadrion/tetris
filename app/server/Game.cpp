@@ -161,25 +161,34 @@ void Game::addPlayerWaitGame(Player player) {
     }
 }
 
-
 /**
- * Current player draw a card
+ * Specific player draw a card
+ *
+ * @param pIG who must draw
  */
-void Game::draw() {
-    Card* res = _currentPlayer->draw();
+void Game::draw(PlayerInGame* pIG) {
+    Card* res = pIG->draw();
     if(res == nullptr) { // If no card
-        _currentPlayer->takeDamage(4);
+        pIG->takeDamage(4);
         isPlayerInLife();
 
         // TO DO @tutul send player damage ?
 
     } else {
-        //sendCard(_currentPlayer, res);
+        //sendCard(pIG, res);
         // @tutul
         // => void sendCrard(Player*, Card*)
         // Send new card to the player
     }
 
+}
+
+
+/**
+ * Current player draw a card
+ */
+void Game::draw() {
+    draw(_currentPlayer);
 }
 
 
@@ -199,7 +208,7 @@ Error Game::placeCardAffectPlayer(PlayerInGame* pIG, Card* cardPlaced) {
     if(res == Error::NoError && cardPlaced->gotEffect()) {
         if(cardPlaced->canBeApplyOnPlayer()) {
             PlayerInGame* pAdverse = getAdversePlayer(pIG);
-            cardPlaced->applyEffect(*pAdverse);
+            cardPlaced->applyEffect(*pAdverse, this);
             // Send information to clients
             sendInfoAction(pIG, -1, pAdverse->getHeal());
             isPlayerInLife(pAdverse); // Is player inlife ?
@@ -228,7 +237,7 @@ Error Game::placeCard(PlayerInGame* pIG, Card* cardPlaced,
 
     if(res == Error::NoError) {
         // Verify if effect can be apply on monster
-        cardPlaced->applyEffect(*targetCard);
+        cardPlaced->applyEffect(*targetCard, this);
 
         // Send information to clients
         sendInfoAction(pIG, targetCard->getId(), targetCard->getLife());

@@ -11,7 +11,14 @@
  * @param listCard the must be add on deck
  */
 Deck::Deck(std::string name, std::vector<Card*> listCard):
-    Collection(listCard), _name(name) { }
+    Collection(listCard), _name(name) {
+
+    if(name.size() > LIMITNAME) {
+        _name = name.substr(0, LIMITNAME);
+        // verify that name is not the same that an other deck ?
+    }
+
+}
 
 /**
  * Constructor
@@ -20,7 +27,13 @@ Deck::Deck(std::string name, std::vector<Card*> listCard):
  * @param listCard the must be add on deck
  */
 Deck::Deck(std::string name, std::vector<unsigned> listCard):
-    Collection(listCard), _name(name) { }
+    Collection(listCard), _name(name) {
+
+    if(name.size() > LIMITNAME) {
+        _name = name.substr(0, LIMITNAME);
+        // verify that name is not the same that an other deck ?
+    }
+}
 
 /**
  * Copy Constructor
