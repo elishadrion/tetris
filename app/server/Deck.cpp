@@ -19,7 +19,7 @@ Deck::Deck(std::string name, std::vector<Card*> listCard):
  * @param name of the deck
  * @param listCard the must be add on deck
  */
-Deck::Deck(std::string name, std::vector<int> listCard):
+Deck::Deck(std::string name, std::vector<unsigned> listCard):
     Collection(listCard), _name(name) { }
 
 /**

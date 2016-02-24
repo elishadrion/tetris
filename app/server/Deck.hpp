@@ -17,7 +17,7 @@ class Deck : Collection {
 
 public:
     Deck(std::string name, std::vector<Card*> listCard);
-    Deck(std::string name, std::vector<int> listCard);
+    Deck(std::string name, std::vector<unsigned> listCard);
     Deck(const Deck&); // Copy constructor
     Deck& operator=(const Deck&) = default; // Copy operator
 
