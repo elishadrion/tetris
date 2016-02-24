@@ -1,0 +1,105 @@
+@startuml
+
+title Wizard - Class Diagram
+
+'accessibilité
+skinparam classAttributeIconSize 0
+
+'pas d'ombre
+skinparam shadowing false
+
+'taille de l'image
+skinparam dpi 300 
+
+'couleurs
+skinparam class {
+  BackgroundColor AliceBlue
+  ArrowColor CornflowerBlue
+  BorderColor CornflowerBlue
+}
+skinparam stereotypeCBackgroundColor OldLace
+
+class Visiteur {
+  IP
+}
+
+class Tchat {
+  message
+}
+
+class Classement {
+}
+
+class Joueur {
+  pseudo
+  victoires
+  defaites
+}
+
+class GestionnaireDAmis {
+  listeDAmis
+  supprimer()
+  ajouter()
+  parler()
+}
+
+class JoueurEnPartie {
+  deck
+  pointDeVie
+  energie
+  main
+  defausse
+  cartePosees
+  trouverAdversaire()
+}
+
+class Deck {
+  supprimer()
+  consulter()
+  modifier()
+  créer()
+}
+
+class Collection {
+  consuter()
+}
+
+class Carte {
+  coutEnEnergie
+  effetSpecial
+}
+
+class Creature {
+  pointDeVie
+  valeurDAttaque
+}
+
+class Sort {
+
+}
+
+class GestionnaireDePartie {
+  log
+}
+
+class Plateau {
+  refresh()
+}
+
+
+Visiteur <|-- Joueur
+Joueur "0..*" *-- "1" Classement
+Joueur "2" o-- "0..*" Tchat
+Joueur <|-- JoueurEnPartie
+JoueurEnPartie -- Deck
+JoueurEnPartie -- GestionnaireDAmis
+Joueur -- Collection
+Collection "1" *-- "100..*" Carte
+Collection --> Deck: <<extend>> [Contient 20 cartes] >
+Carte <|-- Creature
+Carte <|-- Sort
+JoueurEnPartie -- GestionnaireDePartie
+GestionnaireDePartie "1" *-- "1" Plateau
+
+
+@enduml
