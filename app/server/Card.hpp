@@ -20,6 +20,7 @@ public:
     // Default constructor ?
     Card(unsigned int id, std::string name, unsigned int energy,int effect, bool);
     Card(Card& card); // copy contructor
+    Card& operator=(const Card&); // copy operator
 
 
 private:

@@ -23,7 +23,7 @@ PlayerInGame::PlayerInGame() {
 /**
  * Creates a PlayerInGame and asks to the player which Deck he would like to play with
  */
-PlayerInGame::PlayerInGame(Player& player, Game* game): Player() { //Calls player's default constructor
+PlayerInGame::PlayerInGame(Player& player, Game* game): Player(player) { //Calls player's default constructor
     _game = game;
 
     _playerHeal = 20; //Player starts with 20 health points
@@ -37,6 +37,7 @@ PlayerInGame::PlayerInGame(Player& player, Game* game): Player() { //Calls playe
     // TO DO @tutul
     // askDeck(getListDeck());
 }
+
 
 /**
  * Gets data information from this player to send it

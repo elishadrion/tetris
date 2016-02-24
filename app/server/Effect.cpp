@@ -12,6 +12,13 @@
 
 std::vector<Effect*> Effect::_listEffect;
 
+Effect::Effect() {
+    //Attention, vérifier si classes filles appellent cosntructeur parent
+    _listEffect.push_back(this);
+    _id = (static_cast<int>(_listEffect.size())-1);
+}
+
+
 void Effect::loadAllEffect() {
 
     new Taunt();

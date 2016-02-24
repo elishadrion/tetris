@@ -53,6 +53,9 @@ public:
 
     PlayerInGame(); // not valide but better for less Warnings :D
     PlayerInGame(Player &player, Game* game);
+    PlayerInGame(const PlayerInGame&) = default; // copy constructor
+    PlayerInGame& operator=(const PlayerInGame&) = default; // copy operator
+
 
     dataIGPlayer getDataPlayer();
     std::vector<CardMonster*> getCardsPlaced();

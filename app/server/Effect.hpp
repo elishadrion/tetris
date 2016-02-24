@@ -11,11 +11,7 @@ class Effect { //Abstract class
     unsigned _id = -1;
 
 public:
-    Effect(){
-        //Attention, vérifier si classes filles appellent cosntructeur parent
-        _listEffect.push_back(this);
-        _id = (_listEffect.size()-1);
-    };
+    Effect();
     unsigned getId() { return _id; }
     virtual ~Effect(){};
 

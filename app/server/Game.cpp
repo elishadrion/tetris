@@ -106,19 +106,6 @@ Game::Game(const Game& game): _gameStatut(game._gameStatut),
 
 
 /**
- * Copy operator
- */
-Game& Game::operator=(const Game& game) {
-    _currentPlayer = game._currentPlayer;
-    _player1 = game._player1;
-    _player2 = game._player2;
-    _gameStatut = game._gameStatut;
-
-    return *this;
-}
-
-
-/**
  * Checks if the player have set his deck
  * If all is ok, the game starts
  */
