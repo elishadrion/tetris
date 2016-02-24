@@ -13,6 +13,14 @@
 Deck::Deck(std::string name, std::vector<Card*> listCard):
     Collection(listCard), _name(name) { }
 
+/**
+ * Constructor
+ *
+ * @param name of the deck
+ * @param listCard the must be add on deck
+ */
+Deck::Deck(std::string name, std::vector<int> listCard):
+    Collection(listCard), _name(name) { }
 
 /**
  * Copy Constructor
@@ -21,17 +29,6 @@ Deck::Deck(std::string name, std::vector<Card*> listCard):
  */
 Deck::Deck(const Deck& deck): Collection(deck),
     _name(deck._name) {}
-
-
-/**
- * Copy operator
- *
- * @param deck to copy
- */
-Deck& Deck::operator=(const Deck& deck) {
-    _name = deck._name;
-    _listCard = deck._listCard;
-}
 
 
 /**

@@ -16,7 +16,7 @@
 namespace WizardLogger {
     /* Initialization of the static logger */
     void initLogger(bool, std::string);
-    
+
     /* API to log messages (see cpp for doc) */
     void info(std::string);
     void warning(std::string);
@@ -24,6 +24,6 @@ namespace WizardLogger {
     void error(std::string, std::exception);
     void fatal(std::string);
     void fatal(std::string, std::exception);
-};
+}
 
 #endif	/* WIZARDLOGGER_HPP */

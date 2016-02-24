@@ -68,7 +68,7 @@ void CardManager::loadAllCards(){
 Card* CardManager::chooseCardWin(){
     srand(time(NULL));
 
-    int idAleatoire = (rand() % _listCard.size()) + 1;
+    int idAleatoire = (rand() % static_cast<unsigned>(_listCard.size())) + 1;
 
     return _listCard[idAleatoire];
 }

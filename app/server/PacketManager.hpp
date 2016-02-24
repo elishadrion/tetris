@@ -12,7 +12,7 @@ namespace PacketManager {
     /* Manage recev packet */
     void manageDisconnectRequest(Packet::packet*);
     void manageLoginRequest(Packet::loginRequestPacket*);
-    
+
     /* API for other service */
     void managePacket(Packet::packet*);
     void initGame(Player*, std::string);
@@ -22,4 +22,4 @@ namespace PacketManager {
     void sendAttack(Player*, std::string, int, unsigned int);
     void askDefausse(Player*, int);
     void sendEndGame(Player*, bool);
-};
+}

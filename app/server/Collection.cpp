@@ -1,11 +1,5 @@
 #include "Collection.hpp"
 
-
-/**
- * Default constructor
- */
-Collection::Collection() {}
-
 /**
  * Constructor
  *
@@ -25,24 +19,6 @@ Collection::Collection(std::vector<unsigned> listIdCard) {
     }
 }
 
-/**
- * Copy constructor
- *
- * @param collection to copy
- */
-Collection::Collection(const Collection& collection):
-    _listCard(collection._listCard) {}
-
-
-/**
- * Copy opperator
- *
- * @param col collection to copy
- */
-Collection& Collection::operator=(const Collection& col) {
-    _listCard = col._listCard;
-}
-
 
 /**
  * Add a Card to the collection
@@ -53,7 +29,8 @@ Collection& Collection::operator=(const Collection& col) {
  */
 Error Collection::addCard(Card* card) {
     Error res;
-    int nbrCard = std::count (_listCard.begin(), _listCard.end(), card);
+    int nbrCard = static_cast<int>(
+        std::count(_listCard.begin(), _listCard.end(), card));
     if(nbrCard < 2) {
         _listCard.push_back(card);
         res = Error::NoError;
@@ -120,7 +97,7 @@ int Collection::getCardIndex(Card* card) {
 
     std::vector<Card*>::iterator it = std::find(_listCard.begin(), _listCard.end(), card);
     if(it != _listCard.end()) {
-        res = std::distance(_listCard.begin(), it);
+        res = static_cast<int>(std::distance(_listCard.begin(), it));
     }
 
     return res;

@@ -16,11 +16,11 @@ protected:
     std::vector<Card*>_listCard;
 
 public:
-    Collection();
+    Collection() = default;
     Collection(std::vector<Card*>);
     Collection(std::vector<unsigned>);
-    Collection(const Collection&); // Copy constructor
-    Collection& operator=(const Collection&); // Copy operator
+    Collection(const Collection&) = default; // Copy constructor
+    Collection& operator=(const Collection&) = default; // Copy operator
     virtual Error addCard(Card*); // adds a card in the deck
     virtual Error addCard(int cardId); // add a card in the collection with the id
     void removeCard(int i); // removes the i-th card from the deck
