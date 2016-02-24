@@ -19,10 +19,6 @@ void PlayerManager::loadPlayers() {
 	nlohmann::json player_info = info[i];
 	players.push_back(new Player(player_info));
     }
-
-
-
-
 }
 
 std::string PlayerManager::getRanking() {
@@ -52,6 +48,9 @@ Player* PlayerManager::logIn(Packet::loginRequestPacket req, int sockfd) {
     return nullptr;
 }
 
-Player PlayerManager::signUp() {
-//call Player constructor?
+Player PlayerManager::signUp(Packet::loginRequestPacket req, int sockfd) {
+    nlohmann::json info;
+    info["name"];
+
+    players.push_back(new Player(info));
 }

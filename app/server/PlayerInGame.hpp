@@ -52,10 +52,9 @@ class PlayerInGame : public Player {
 public:
 
     PlayerInGame(); // not valide but better for less Warnings :D
-    PlayerInGame(Player &player, Game* game);
     PlayerInGame(const PlayerInGame&) = default; // copy constructor
     PlayerInGame& operator=(const PlayerInGame&) = default; // copy operator
-
+    PlayerInGame(const Player &, Game*);
 
     dataIGPlayer getDataPlayer();
     std::vector<CardMonster*> getCardsPlaced();
@@ -84,4 +83,3 @@ public:
 
 
 #endif	/* PLAYERINGAME_HPP */
-

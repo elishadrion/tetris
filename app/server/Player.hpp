@@ -24,7 +24,7 @@ class Player {
     int _sockfd;
     std::string _username;
     std::string _password;
-    Collection collection;
+    Collection _collection;
     std::vector<Deck*> _decks;
 
 
@@ -39,7 +39,7 @@ public:
     Player(nlohmann::json&, int sockfd = 0);
 
     inline void adjudicateVictory() {_victories++;};
-    inline Error addCardCollection(Card* c) {return collection.addCard(c);}
+    inline Error addCardCollection(Card* c) {return _collection.addCard(c);}
     inline void adjudicateDefeat() {_defeats++;}
     inline void updateSockfd(int a) {_sockfd = a;}
     inline std::string getName() const {return _username;}

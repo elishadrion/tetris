@@ -4,26 +4,9 @@
 #include "CardMonster.hpp"
 
 /**
- * Default constructor
- */
- //à changer/supprimer??
-/*
-PlayerInGame::PlayerInGame() {
-    // TO DO
-    std::vector<Card*> _cardsInHand(0);
-    std::vector<Card*> _defausse(20);
-    std::vector<CardMonster*> _cardsPlaced;
-    Deck *_deck;
-    _playerHeal = 20; //Player starts with 20 health points
-    _energy = 0; //The current energy of the player
-    _maxEnergy = 1; //Every turn the maximum energy is increased up to a maximum of 10
-}
-*/
-
-/**
  * Creates a PlayerInGame and asks to the player which Deck he would like to play with
  */
-PlayerInGame::PlayerInGame(Player& player, Game* game): Player(player) { //Calls player's default constructor
+PlayerInGame::PlayerInGame(const Player& player, Game* game): Player(player) {
     _game = game;
 
     _playerHeal = 20; //Player starts with 20 health points
