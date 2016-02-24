@@ -8,18 +8,9 @@
 #include "Player.hpp"
 #include "PlayerInGame.hpp"
 
-typedef struct loginResultStruct {
-    std::string pseudo;
-    std::string password;
-    bool registration;
-}
-
 namespace PacketManager {
     /* Manage recev packet */
     void manageDisconnectRequest(Packet::packet*);
-    
-    loginResultStruct* manageLoginRequest(Packet::loginRequestPacket*); /* SPECIAL function, return directly to connection service */
-    Packet::packet* loginResult(int); /* SPECIAL function, return directly to connection service */
 
     /* API for other service */
     void managePacket(Packet::packet*);

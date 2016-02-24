@@ -72,7 +72,7 @@ void Connection::mainLoop() {
     }
 }
 
-void* newPlayerThread(void* data) {
+void* Connection::newPlayerThread(void* data) {
     /* Enable asynchronous cancel (thread can be canceled at any time) from deferred */
     pthread_setcanceltype(PTHREAD_CANCEL_ASYNCHRONOUS, (int*) PTHREAD_CANCEL_DEFERRED);
 
@@ -82,12 +82,11 @@ void* newPlayerThread(void* data) {
     size_t readSize;
     size_t size;
     Player *newPlayer;
-    PacketManager::loginResultStruct *result;
-
+    
     /* Allocate specific size for an login/register incoming packet */
     size = sizeof(Packet::loginRequestPacket);
-    void *packet = malloc(size);
-
+    Packet::loginRequestPacket *packet = (Packet::loginRequestPacket*) malloc(size);
+    
     /* Loop to test login/registration before accepting it */
     bool loginOK = false;
     while(!loginOK) {
@@ -96,30 +95,47 @@ void* newPlayerThread(void* data) {
         if (readSize < size) {
             WizardLogger::warning("Le packet reçu est incomplet");
         } else {
-            /* We send the packet to the PacketManager for verification and interpretation */
-            result = PacketManager::manageLoginRequest(reinterpret_cast<Packet::loginRequestPacket*>(packet));
-
-            /* We check if it's a login or a registration and send pseudo/password */
-            if (result == nullptr) {
-                WizardLogger::error("Echec du login, envoie de l'erreur au client");
-		Connection::sendResponse(-1, clientSocket);
-            } else if (result -> registration) {
-                //newPlayer = PlayerManager::signIn(loginResultStruct->pseudo, loginResultStruct->password, clientSocket);
+            /* Check if it's a valide packet */
+            if (packet->ID != Packet::LOGIN_REQ_ID && packet->ID != Packet::REGIST_REQ_ID) {
+                WizardLogger::warning("Le packet reçu n'est pas un packet de login");
+            } else if (packet->size != sizeof(packet->pseudo)+sizeof(packet->password)) {
+                WizardLogger::error("Paquet de login corrompu reçu");
             } else {
-                newPlayer = PlayerManager::logIn(result -> pseudo, result -> password, clientSocket);
-            }
-
-            /* If no player object created we fail and restart */
-            if  (newPlayer == nullptr) {
-		Connection::sendResponse(-2, clientSocket);
-            } else {
-                loginOK = true;
+                /* Try to get a clean pseudo from packet */
+                std::string pseudo = "";
+                int i = 0;
+                char ch;
+                while((ch = packet->pseudo[i]) != NULL && ch != ' ') {
+                    pseudo += ch;
+                    ++i;
+                }
+                
+                /* Try to get a clean password from packet */
+                std::string password = "";
+                i = 0;
+                while((ch = packet->password[i]) != NULL && ch != ' ') {
+                    password += ch;
+                    ++i;
+                }
+                
+                /* We check if it's a login or a registration and send pseudo/password */
+                if (packet->ID != Packet::LOGIN_REQ_ID) {
+                    //newPlayer = PlayerManager::signIn(pseudo, password, clientSocket);
+                } else {
+                    //newPlayer = PlayerManager::logIn(pseudo, password, clientSocket);
+                }
+                
+                /* If no player object created we fail and restart */
+                if (newPlayer != nullptr) {
+                    loginOK = true;
+                } else {
+                    sendResponse(-1, clientSocket);
+                }
             }
         }
     }
-
-    /* Free memory */
-    free(result);
+            
+    /* Free packet from memory */
     free(packet);
 
     Connection::sendResponse(0, clientSocket);
@@ -128,7 +144,8 @@ void* newPlayerThread(void* data) {
 }
 
 void Connection::sendResponse(int errorCode, int socket) {
-    Packet::loginResultPacket* resultPacket = PacketManager::loginResult(errorCode);
-    send(socket, resultPacket, sizeof(Packet::loginResultPacket), 0);
-    free(resultPacket);
+    Packet::loginResultPacket *loginResult = new Packet::loginResultPacket();
+    loginResult->resultCode = errorCode;
+    send(socket, loginResult, sizeof(Packet::loginResultPacket), 0);
+    free(loginResult);
 }
