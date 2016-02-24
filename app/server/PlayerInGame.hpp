@@ -61,7 +61,7 @@ public:
 
     void setDeck(Deck *deck);
     bool isDeckDefined();
-    bool draw();
+    Card* draw();
 
     bool haveEnoughEnergy(Card* card);
     void addMaxEnergy();

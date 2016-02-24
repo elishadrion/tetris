@@ -79,19 +79,17 @@ bool PlayerInGame::isDeckDefined() {
 
 
 /**
- * Gets random card of deck
+ * Gets random card of deck and place it in
+ * his hand !
  *
- * @return True if all is ok, False if he hasn't any card to draw
+ * @return the card or nullptr
  */
-bool PlayerInGame::draw() {
-    bool res = true;
+Card* PlayerInGame::draw() {
+    Card* res;
 
-    // TO DO
     Card* randomCard = _deck->pickup();
     if(randomCard != nullptr) {
         _cardsInHand.push_back(randomCard);
-    } else {
-        res = false;
     }
 
     return res;

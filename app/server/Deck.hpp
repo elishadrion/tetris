@@ -2,12 +2,11 @@
 #define	DECK_HPP
 
 #include<string>
-
+#include<vector>
 
 #include "Collection.hpp"
 #include "common/WizardLogger.hpp"
-
-#include<vector>
+#include "common/Error.hpp"
 
 
 /**
@@ -25,7 +24,8 @@ public:
 
     bool isValide(); // True if there is 100 cards and other information are true
     Card* pickup();  // Returns a random Card
-    bool addCard(Card* card) override;
+    virtual Error addCard(Card* card) override;
+    virtual Error addCard(int cardId) override;
 
     bool deleteDeck(PlayerInGame*);
     Deck* copyDeck();

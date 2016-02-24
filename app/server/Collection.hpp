@@ -4,9 +4,10 @@
 
 #include <vector>
 
+#include "common/Error.hpp"
+
+
 #include "CardManager.hpp"
-
-
 class Card;
 #include "Card.hpp"
 
@@ -20,8 +21,8 @@ public:
     Collection(std::vector<int>);
     Collection(const Collection&); // Copy constructor
     Collection& operator=(const Collection&); // Copy operator
-    virtual bool addCard(Card*); // adds a card in the deck
-    virtual bool addCard(int cardId); // add a card in the collection with the id
+    virtual Error addCard(Card*); // adds a card in the deck
+    virtual Error addCard(int cardId); // add a card in the collection with the id
     void removeCard(int i); // removes the i-th card from the deck
     void removeCard(Card*); // removes a card from the deck
     void removeCardId(int cardId);

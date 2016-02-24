@@ -51,12 +51,14 @@ Collection& Collection::operator=(const Collection& col) {
  * @return True if we can add Card (false if there is more
  * than two cards the same)
  */
-bool Collection::addCard(Card* card) {
-    bool res = false;
+Error Collection::addCard(Card* card) {
+    Error res;
     int nbrCard = std::count (_listCard.begin(), _listCard.end(), card);
     if(nbrCard < 2) {
         _listCard.push_back(card);
-        res = true;
+        res = Error::NoError;
+    } else {
+        res = Error::TwoSameCardMax;
     }
 
     return res;
@@ -70,7 +72,7 @@ bool Collection::addCard(Card* card) {
  * @return True if we can add Card (false if there is more
  * than two cards the same)
  */
-bool Collection::addCard(int cardId) {
+Error Collection::addCard(int cardId) {
     return this->addCard(CardManager::getCardById(cardId));
 }
 

@@ -54,52 +54,6 @@ bool Deck::isValide() {
     return _listCard.size() == 20;
 }
 
-/*
-/**
- * Removes a card from the deck
- *
- * @param i position of the card in the deck
- *
-void Deck::removeCard(const int i) {
-    _listCard.erase(_listCard.begin() + i);
-}
-
-
-/**
- * Removes a card from the deck
- *
- * @param id the id of the card in the deck
- * @see removeCard (better)
- *
-void Deck::removeIdCard(const int id) {
-    removeCard(indexOfCard(id));
-}
-
-/**
- * Gets the index of a card in the deck
- *
- * @param id the card id
- * @return index of the card (-1 if not found)
- *
-int Deck::indexOfCard(const int id) {
-    std::vector<unsigned int>::iterator it = std::find(_listCard.begin(), _listCard.end(), id);
-    if(it != _listCard.end()) {
-        return *it;
-    }
-    return -1;
-}
-
-/**
- * Gets the id of the card at the position in parameter
- *
- * @param i the position
- * @return the id of the card
- *
-int Deck::getIdOnIndex(const int i) {
-    return _listCard[i];
-}
-*/
-
 
 /**
  * Returns the last card of the deck
@@ -120,22 +74,33 @@ Card* Deck::pickup() {
 
 /**
  * Adds a card in the deck
- * Error: OverFlow if more than 20 cards
  *
  * @param card the card to add
- * @return True if we can add card.
+ * @return Error and NoError if all is ok
  */
-bool Deck::addCard(Card* card) {
-    bool res = false;
+Error Deck::addCard(Card* card) {
+    Error res;
     if(_listCard.size() >= 20) {
         WizardLogger::error("Un deck a maximum 20 cartes");
-        throw std::overflow_error("A deck has maximum 20 cards");
+        res = Error::DeckFull;
     } else {
         res = Collection::addCard(card);
     }
 
     return res;
 }
+
+
+/**
+ * Adds a card in the deck
+ *
+ * @param cardId the id of the card to add
+ * @return Error and NoError if all is ok
+ */
+Error Deck::addCard(int cardId) {
+    return addCard(CardManager::getCardById(cardId));
+}
+
 
 /**
  * Copy the deck AND all the card !
@@ -154,9 +119,16 @@ Deck* Deck::copyDeck() {
  * @return the deck or nullptr
  */
 Deck* Deck::getDeck(std::string name, std::vector<Deck*> listDeck) {
-    Deck* res;
+    Deck* res = nullptr;
 
-    // TO DO
+    unsigned i = 0;
+    while(res == nullptr && i < listDeck.size()) {
+        Deck* currentDeck = dynamic_cast<Deck*>(listDeck[i]);
+        if(currentDeck->getName() == name) {
+            res = currentDeck;
+        }
+        ++i;
+    }
 
     return res;
 }

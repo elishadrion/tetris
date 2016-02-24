@@ -9,7 +9,9 @@ enum Error {
     MustAttackTaunt = 4,
     UnknowError = 5,
     NotEffectForPlayer = 6,
-    NotEffectForMonster = 7
+    NotEffectForMonster = 7,
+    DeckFull = 8,
+    TwoSameCardMax = 9
 };
 
 
