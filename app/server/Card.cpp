@@ -12,12 +12,10 @@
 Card::Card(unsigned int id, std::string name, unsigned int energy,
         int effect, bool save = true):
         _id(id), _name(name), _energyCost(energy),
-        _effect(Effect::getEffectByID(effect)), _taunt(false) {
+        _effect(Effect::getEffectByID(effect)) {
 
     if(effect != -1) {
         _effect = Effect::getEffectByID(effect);
-
-        _taunt = _effect->isTaunt();
     }
 
     if(save) {
@@ -26,15 +24,15 @@ Card::Card(unsigned int id, std::string name, unsigned int energy,
 }
 
 
-void Card::applyEffect(CardMonster& cardmonster){
-    if (this->gotEffect() and this->canBeApplyOnCard()){
-        _effect->apply(&cardmonster);
+void Card::applyEffect(CardMonster& cardmonster, Game& game){
+    if(this->gotEffect() and this->canBeApplyOnCard()){
+        _effect->apply(&cardmonster, &game);
     }
 }
 
-void Card::applyEffect(PlayerInGame& player){
+void Card::applyEffect(PlayerInGame& player, Game& game){
     if (this->gotEffect() and this->canBeApplyOnPlayer()){
-        _effect->apply(&player);
+        _effect->apply(&player, &game );
     }
 }
 

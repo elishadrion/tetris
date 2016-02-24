@@ -4,6 +4,7 @@
 #include "server/CardMonster.hpp"
 #include "server/Effect.hpp"
 #include "server/PlayerInGame.hpp"
+class Game;
 
 class Damage : public Effect{
 
@@ -12,16 +13,16 @@ public:
     Damage(unsigned int damageValue):_damageValue(damageValue){};
     ~Damage(){};
 
-    virtual void apply(CardMonster*) override;
-    virtual void apply(PlayerInGame*);
+    virtual void apply(CardMonster*, Game*) override;
+    virtual void apply(PlayerInGame*, Game*) override;
     virtual bool canBeApplyOnPlayer() override {return true;};
 };
 
-void Damage::apply(CardMonster* target){
+void Damage::apply(CardMonster* target, Game* game){
     target->setLife(target->getLife()-_damageValue);
 }
 
-void Damage::apply(PlayerInGame* target){
+void Damage::apply(PlayerInGame* target, Game* game){
     target->takeDamage(_damageValue);
 }
 

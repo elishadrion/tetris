@@ -3,6 +3,7 @@
 
 #include "server/CardMonster.hpp"
 #include "server/Effect.hpp"
+class Game;
 
 class AttackBlessing : public Effect{
 
@@ -11,10 +12,10 @@ public:
     AttackBlessing(unsigned int attackValue):_attackValue(attackValue){};
     ~AttackBlessing(){};
 
-    void apply(CardMonster*) override;
+    void apply(CardMonster*, Game*) override;
 };
 
-void AttackBlessing::apply(CardMonster* target){
+void AttackBlessing::apply(CardMonster* target, Game* game){
     target->setAttack(target->getAttack()+_attackValue);
 }
 

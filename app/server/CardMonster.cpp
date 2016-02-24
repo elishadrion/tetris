@@ -4,12 +4,13 @@
 CardMonster::CardMonster(unsigned int id, std::string name, unsigned int energy,
     	int effect, bool aBool,unsigned int life, unsigned int attack,
     	unsigned int nbrTour): Card::Card(id, name, energy, effect, aBool),
-		_life(life), _attack(attack), _maxLife(life), _nbrTourPose(nbrTour)
-    	{ }
+		_life(life), _attack(attack), _maxLife(life), _nbrTourPose(nbrTour),
+        _taunt(false) { }
 
 CardMonster::CardMonster(CardMonster& otherMonster): Card(otherMonster),
     _life(otherMonster._life), _attack(otherMonster._attack),
-    _maxLife(otherMonster._maxLife), _nbrTourPose(otherMonster._nbrTourPose) { }
+    _maxLife(otherMonster._maxLife), _nbrTourPose(otherMonster._nbrTourPose),
+    _taunt(otherMonster._taunt) { }
 
 
 void CardMonster::dealDamage(CardMonster& otherMonster){

@@ -12,6 +12,7 @@ private:
     unsigned int _attack;
     unsigned int _maxLife;
     unsigned int _nbrTourPose;
+    bool _taunt;
 
 public:
     virtual void dealDamage(CardMonster& otherMonster);
@@ -33,6 +34,8 @@ public:
 
     virtual bool isMonster() override { return false; }
 
+    bool isTaunt() { return _taunt; }
+    void setTaunt(bool value){_taunt = value;}
     void setLife(unsigned int newLife){_life = newLife;}
     void setAttack(unsigned int newAttack){_attack = newAttack;}
     void setMaxLife(unsigned int newMax){_maxLife = newMax;}

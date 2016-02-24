@@ -3,6 +3,7 @@
 
 #include "server/CardMonster.hpp"
 #include "server/Effect.hpp"
+class Game;
 
 class AttackCurse : public Effect{
 
@@ -11,10 +12,10 @@ public:
     AttackCurse(unsigned int attackValue):_attackValue(attackValue){};
     ~AttackCurse(){};
 
-    virtual void apply(CardMonster*) override;
+    virtual void apply(CardMonster*, Game*) override;
 };
 
-void AttackCurse::apply(CardMonster* target){
+void AttackCurse::apply(CardMonster* target, Game* game){
     target->setAttack(_attackValue);
 }
 

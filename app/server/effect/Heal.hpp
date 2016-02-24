@@ -4,6 +4,7 @@
 #include "server/CardMonster.hpp"
 #include "server/Effect.hpp"
 #include "server/PlayerInGame.hpp"
+class Game;
 
 class Heal : public Effect{
 
@@ -12,12 +13,12 @@ public:
     Heal(unsigned int healValue):_healValue(healValue){};
     ~Heal(){};
 
-    virtual void apply(CardMonster* target) override;
-    virtual void apply(PlayerInGame* target);
+    virtual void apply(CardMonster* target, Game*) override;
+    virtual void apply(PlayerInGame* target, Game*) override;
     virtual bool canBeApplyOnPlayer() override {return true;};
 };
 
-void Heal::apply(CardMonster* target) {
+void Heal::apply(CardMonster* target, Game* game) {
     target->setLife(target->getLife()+_healValue);
 
     if (target->getLife() > target->getMaxLife()){
@@ -26,7 +27,7 @@ void Heal::apply(CardMonster* target) {
     }
 }
 
-void Heal::apply(PlayerInGame* target) {
+void Heal::apply(PlayerInGame* target, Game* game) {
     target->getHealed(_healValue);
 }
 

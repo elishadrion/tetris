@@ -3,6 +3,7 @@
 
 #include "server/CardMonster.hpp"
 #include "server/Effect.hpp"
+class Game;
 
 class LifeCurse : public Effect{
 
@@ -11,10 +12,10 @@ public:
     LifeCurse(unsigned int lifeValue):_lifeValue(lifeValue){};
     ~LifeCurse(){};
 
-    virtual void apply(CardMonster*) override;
+    virtual void apply(CardMonster*, Game*) override;
 };
 
-void LifeCurse::apply(CardMonster* target){
+void LifeCurse::apply(CardMonster* target, Game* game){
     target->setMaxLife(_lifeValue);
     if (target->getLife() > _lifeValue ){
         target->setLife(_lifeValue);

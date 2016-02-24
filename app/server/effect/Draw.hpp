@@ -11,18 +11,13 @@ class Draw : public Effect{
 public:
     Draw(unsigned int nDraw):_nDraw(nDraw){};
     ~Draw(){};
-
-    //Soit on suit le meme principe que Taunt avec une fonction isDraw qui est gérée dans le jeu
-    //Soit on peut peut-etre include Game (la fonction qui pioche)
-    //et apply lancerait la fonction comme ci-dessous
-
-    virtual void apply(CardMonster*) override;
+    
+    virtual void apply(CardMonster*, Game*) override;
 };
 
-void Draw::apply(CardMonster* target){
+void Draw::apply(CardMonster* target, Game* game){
     for (std::size_t i=0; i<_nDraw; i++){
-        // Game::draw();
-        // @Rémy
+        game->draw();
     }
 }
 
