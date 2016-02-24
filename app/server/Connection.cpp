@@ -75,59 +75,59 @@ void Connection::mainLoop() {
 void* newPlayerThread(void* data) {
     /* Enable asynchronous cancel (thread can be canceled at any time) from deferred */
     pthread_setcanceltype(PTHREAD_CANCEL_ASYNCHRONOUS, (int*) PTHREAD_CANCEL_DEFERRED);
-    
+
     /* Convert to get clientSocket addr */
-    int clientSocket = *((int *)data);
-    
-    int readSize;
-    int size;
+    int clientSocket = *static_cast<int *>(data);
+
+    size_t readSize;
+    size_t size;
     Player *newPlayer;
     PacketManager::loginResultStruct *result;
-    
+
     /* Allocate specific size for an login/register incoming packet */
     size = sizeof(Packet::loginRequestPacket);
     void *packet = malloc(size);
-    
+
     /* Loop to test login/registration before accepting it */
     bool loginOK = false;
     while(!loginOK) {
         /* Try to get packet from server */
-        readSize = recv(clientSocket, packet, size, 0));
+        readSize = recv(clientSocket, packet, size, 0);
         if (readSize < size) {
             WizardLogger::warning("Le packet reçu est incomplet");
         } else {
             /* We send the packet to the PacketManager for verification and interpretation */
             result = PacketManager::manageLoginRequest(reinterpret_cast<Packet::loginRequestPacket*>(packet));
-            
+
             /* We check if it's a login or a registration and send pseudo/password */
-            if (loginResultStruct == nullptr) {
+            if (result == nullptr) {
                 WizardLogger::error("Echec du login, envoie de l'erreur au client");
-                sendResponse(-1, clientSocket);
-            } else if (loginResultStruct->registration) {
+		Connection::sendResponse(-1, clientSocket);
+            } else if (result -> registration) {
                 //newPlayer = PlayerManager::signIn(loginResultStruct->pseudo, loginResultStruct->password, clientSocket);
             } else {
-                newPlayer = PlayerManager::logIn(loginResultStruct->pseudo, loginResultStruct->password, clientSocket);
+                newPlayer = PlayerManager::logIn(result -> pseudo, result -> password, clientSocket);
             }
-            
+
             /* If no player object created we fail and restart */
             if  (newPlayer == nullptr) {
-                sendResponse(-2, clientSocket);
+		Connection::sendResponse(-2, clientSocket);
             } else {
                 loginOK = true;
             }
         }
     }
-            
+
     /* Free memory */
     free(result);
     free(packet);
-    
-    sendResponse(0, clientSocket);
-    
+
+    Connection::sendResponse(0, clientSocket);
+
     //TODO we lets Player entity to manage communication from now (must be non returnant)
 }
 
-void sendResponse(int errorCode, int socket) {
+void Connection::sendResponse(int errorCode, int socket) {
     Packet::loginResultPacket* resultPacket = PacketManager::loginResult(errorCode);
     send(socket, resultPacket, sizeof(Packet::loginResultPacket), 0);
     free(resultPacket);
