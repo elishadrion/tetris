@@ -7,7 +7,7 @@ std::queue<Player*> Game::PlayerWaitGame;
 
 //////////// PRIVATE ////////////
 
-//TODO les fonctions de PacketManager ont toutes besoins de Player* en premier argument
+// les fonctions de PacketManager ont toutes besoins de Player* en premier argument
 //     il s'agit du joueur à qui envoyer le message, vu que c'est Player qui contient le socket
 
 
@@ -26,8 +26,8 @@ Game::Game(Player* p1, Player* p2):
     _currentPlayer = _player1;
     _turn = 0;
     _gameStatut = GameStatut::WAIT_DEC;
-    //WizardLogger::info("Création d'une partie opposant " +
-    //    _player1->getUsername() + " et " + _player2->getUsername());
+    WizardLogger::info("Création d'une partie opposant " +
+        _player1->getName() + " et " + _player2->getName());
 
 }
 
@@ -132,14 +132,24 @@ void Game::checkDeckAndStart() {
             _player2->draw();
         }
 
+
+        //initGame(_player1, getAdversePlayer(_player1)->getName());
+        //initGame(_player2, getAdversePlayer(_player2)->getName());
         /*
-            send adverse player informations (username)
-             => void initGame(Player*, std::string) with ennemy's pseudo (these packet tell to the client to display game panel too)
+        send adverse player informations (username)
+         => void initGame(Player*, std::string) with ennemy's pseudo
+         (these packet tell to the client to display game panel too)
+        */
+
+
+        /*
             send CardInHand
              => sendStartTurnInfo(Player*, dataIGPlayer, std::vector<CardMonster*>, int, int, int)
              with current player info, ennemy placed card, ennemy card in hand, ennemy card in deck (and ennemy card in trash ?)
                 [you must send both packet, the first start the game and the second start the player turn
                  OR we add ataIGPlayer in the initGame, you choose]
+
+            https://thegithubbers.slack.com/archives/communication/p1456306333000004
             TO DO @tutul
         */
 
@@ -169,17 +179,20 @@ void Game::addPlayerWaitGame(Player player) {
  * Current player draw a card
  */
 void Game::draw() {
-    bool res = _currentPlayer->draw();
-    if(!res) { // If no card
+    Card* res = _currentPlayer->draw();
+    if(res == nullptr) { // If no card
         _currentPlayer->takeDamage(4);
         isPlayerInLife();
+
+        // TO DO @tutul send player damage ?
+
+    } else {
+        //sendCard(_currentPlayer, res);
+        // @tutul
+        // => void sendCrard(Player*, Card*)
+        // Send new card to the player
     }
 
-
-
-    // TO DO: @tutul
-    // => void sendCrard(Player*, Card*)
-    // Send new card to the player
 }
 
 
@@ -299,14 +312,16 @@ Error Game::attackWithCardAffectPlayer(PlayerInGame* pIG,
  */
 void Game::nextPlayer() {
     (_currentPlayer == _player1) ? _currentPlayer = _player2 : _currentPlayer = _player1;
-    // WizardLogger::info("C'est maintenant au tour de " + _currentPlayer->getUsername());
-    // TO DO message de débug
+    WizardLogger::info("C'est maintenant au tour de " + _currentPlayer->getName());
 
     if(_currentPlayer == _player1) {
         ++_turn;
     }
 
-    // TO DO: @tutul informer les joueurs du changement de joueur
+    //setTurn(_player1, _currentPlayer->getName());
+    //setTurn(_player2, _currentPlayer->getName());
+
+    // @tutul informer les joueurs du changement de joueur
     // => void setTurn(Player*, std::string) où string est le pseudo du joueur qui a son tour mtn
 
     beginTurn();
@@ -321,7 +336,10 @@ void Game::nextPlayer() {
  * @param heal of the attack entity
  */
 void Game::sendInfoAction(PlayerInGame* pIG, int attackCard, unsigned heal) {
-    // TO DO @tutul
+    //sendAttack(_player1, pIG.getName(), attackCard, heal);
+    //sendAttack(_player2, pIG.getName(), attackCard, heal);
+
+    // @tutul
     // send all informations who is in parameter
     // => void sendAttack(Player*, std::string, int, unsigned int) avec le pseudo du joueur attackant, l'ID et la vie restante
 }
@@ -352,40 +370,44 @@ void Game::beginTurn() {
  */
 void Game::endTurn() {
 
-    while(_currentPlayer->nbrCardInHand() > 7) {
-        // askDefausse(...
-        // TO DO @tutul
-        // On avait pas plutôt parlé de demandé de defausser un nombre spécifique ? plus rapide nan ?
+    int nbrCard = 7-_currentPlayer->nbrCardInHand()
+    if(nbrCard < 0) {
+        // askDefausse(_currentPlayer, -nbrCard);
+
+        // @tutul
         // => void askDefausse(Player*, int) avec le nombre de carte à défausser
+        // Rémy: And where is the answer ?  The client call directly function in PlayerInGame to remove card ?
     }
 
 }
 
-/**
+/*
  * Function when the game is init to
  * send information to all players
- */
+ *
 void Game::sendInitInfo() {
     sendInitInfo(_player1);
     sendInitInfo(_player2);
 }
 
 
-/**
+/*
  * Function when the game is init to
  * send informtaions to the player
  *
  * @param pIG to send message
- */
+ *
 void Game::sendInitInfo(PlayerInGame* pIG) {
     pIG->getCardsInHand(); // CardsInHand
     pIG == _currentPlayer; // His turn ?
     getAdversePlayer(pIG); // Adverse player
+
+
     // TO DO @tutul
     // Send initGame (see upper) + setTurn (see upper) + sendStartTurnInfo (see upper)
     // No ???
 }
-
+*/
 
 /**
  * Verify that player can play
@@ -478,10 +500,15 @@ void Game::isPlayerInLife() {
  */
 void Game::isPlayerInLife(PlayerInGame* pIG) {
     if(pIG->isDead()) {
+        PlayerInGame* pAdverse = getAdversePlayer(pIG);
+
         pIG->addDefeat();
-        getAdversePlayer(pIG)->addWin();
-        // TO DO @tutul send information to all player and back menu
-        // => void sendEndGame(Player*, bool) with true if win 
+        pAdverse->addWin();
+
+        //sendEndGame(_player1, _player1==pAdverse);
+        //sendEndGame(_player2, _player2==pAdverse);
+        // @tutul send information to all player and back menu
+        // => void sendEndGame(Player*, bool) with true if win
 
         delete this;
     }

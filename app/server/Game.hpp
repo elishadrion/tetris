@@ -74,8 +74,8 @@ private:
     void endTurn();
 
     // Function to InitGame
-    void sendInitInfo();
-    void sendInitInfo(PlayerInGame*);
+    //void sendInitInfo();
+    //void sendInitInfo(PlayerInGame*);
 
     // During the game
     Error canPlayerAttack(PlayerInGame*,CardMonster*);
