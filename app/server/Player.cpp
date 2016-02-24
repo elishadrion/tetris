@@ -2,10 +2,9 @@
 #include "Player.hpp"
 
 Player::Player(nlohmann::json& info, int sockfd) {
-//ask name and password?
+    _username = info["username"];
+    _password = info["password"];
 
-// call save
-//save();
 }
 
 /**

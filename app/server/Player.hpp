@@ -7,6 +7,7 @@
 
 #include "include/json.hpp"
 
+#include "common/Error.hpp"
 #include "Collection.hpp"
 #include "Deck.hpp"
 #include "common/Packet.hpp"
@@ -22,26 +23,29 @@ class Player {
 
     int _sockfd;
     std::string _username;
-    std::string _pass;
-    std::vector<Deck*> _listDeck;
+    std::string _password;
+    Collection collection;
+    std::vector<Deck*> _decks;
+
 
     virtual void save() const;
 protected:
-    std::vector<Deck*> getListDeck() {return _listDeck;}
+    std::vector<Deck*> getListDeck() {return _decks;}
     unsigned _victories;
     unsigned _defeats;
 
 public:
     Player() = default; // Must exist for PlayerInGame()
-    Player(nlohmann::json&, int);
+    Player(nlohmann::json&, int sockfd = 0);
 
     inline void adjudicateVictory() {_victories++;};
-    inline void adjudicateDefeat() {_defeats++;};
-    inline void updateSockfd(int a) {_sockfd = a;};
-    inline std::string getName() const {return _username;};
-    inline std::string getPass() const {return _pass;};
+    inline Error addCardCollection(Card* c) {return collection.addCard(c);}
+    inline void adjudicateDefeat() {_defeats++;}
+    inline void updateSockfd(int a) {_sockfd = a;}
+    inline std::string getName() const {return _username;}
+    inline std::string getPass() const {return _password;}
     inline unsigned getVictories() const {return _victories;}
-    inline unsigned getDefeats() const {return _defeats;};
+    inline unsigned getDefeats() const {return _defeats;}
 
     Deck* getDeck(std::string deckName);
     bool removeDeck(Deck*);

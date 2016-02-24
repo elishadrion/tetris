@@ -1,0 +1,54 @@
+[
+    {
+	"username": "joe",
+	"password" : "pass",
+	"victories" : 4,
+	"defeats" : 5,
+	"collection" : [1,2,3,4,5,6,7,8,9,10],
+	"decks" : [
+	    {
+		"deckName" : "deck1",
+		"cards" : [3,4,5,6,7,7]
+	    },
+	    {
+		"deckName" : "deck2",
+		"cards" : [1,2,3,4]
+	    }
+	]
+    },
+    {
+	"username": "alice",
+	"password" : "qwer",
+	"victories" : 1,
+	"defeats" : 2,
+	"collection" : [1,2,3,4,5,6,7,8,9,10],
+	"decks" : [
+	    {
+		"deckName" : "mysuperdeck",
+		"cards" : [3,4,5,6,7,7]
+	    },
+	    {
+		"deckName" : "a bad deck...",
+		"cards" : [1,2,3,4]
+	    }
+	]
+    },
+    {
+	"username": "bob",
+	"password" : "123456",
+	"victories" : 10,
+	"defeats" : 2,
+	"collection" : [1,2,3,4,5,6,7,8,9,10,11,12,13],
+	"decks" : [
+	    {
+		"deckName" : "yeah",
+		"cards" : [3,4,5,6,7,7,13]
+	    },
+	    {
+		"deckName" : "deck10",
+		"cards" : [1,2,3,4]
+	    }
+	]
+
+    }
+]

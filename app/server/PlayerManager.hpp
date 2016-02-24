@@ -15,12 +15,12 @@ class PlayerManager {
     std::vector<Player*> connected;
     std::vector<Player*> players;
 public:
-    PlayerManager();
+    PlayerManager() = default;
     std::string getRanking();
     void loadPlayers();
     Player signUp();
     Player* logIn(Packet::loginRequestPacket, int);
-    virtual ~PlayerManager();
+    virtual ~PlayerManager() = default;
 };
 
 #endif /* PLAYERMANAGER_HPP */

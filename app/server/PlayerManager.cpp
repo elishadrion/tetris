@@ -1,10 +1,11 @@
 #include "PlayerManager.hpp"
 #include "common/Packet.hpp"
+#include <typeinfo>
 
 void PlayerManager::loadPlayers() {
     std::ifstream playersFile;
     try {
-        std::ifstream playersFile(PLAYERS_DB);
+	playersFile.open(PLAYERS_DB);
     } catch (std::ios_base::failure &fail) {
 	WizardLogger::warning("LOADING USERS FAILED");
 	return;
@@ -14,8 +15,14 @@ void PlayerManager::loadPlayers() {
 			 std::istreambuf_iterator<char>());
     nlohmann::json info = nlohmann::json::parse(info_str);
 
+    for (size_t i = 0 ; i < info.size(); ++i) {
+	nlohmann::json player_info = info[i];
+	players.push_back(new Player(player_info));
+    }
 
-    //Player* signed_in = new Player(info, sockfd);
+
+
+
 }
 
 std::string PlayerManager::getRanking() {
@@ -41,7 +48,7 @@ Player* PlayerManager::logIn(Packet::loginRequestPacket req, int sockfd) {
 	    return current;
 	}
     }
-    WizardLogger::warning("NO USER FOUND");
+    WizardLogger::warning("NO USER FOUND. LOGIN FAILED");
     return nullptr;
 }
 
