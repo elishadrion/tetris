@@ -108,7 +108,13 @@ Error Deck::addCard(int cardId) {
  * @return the new deck
  */
 Deck* Deck::copyDeck() {
-// TO DO
+    std::vector<Card*> newCardList;
+    for(unsigned i = 0; i < _listCard.size(); ++i) {
+        Card* currentCard = _listCard[i];
+        newCardList.push_back(new Card(*currentCard));
+    }
+
+    return new Deck(_name, newCardList);
 }
 
 /**

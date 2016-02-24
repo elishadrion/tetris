@@ -33,9 +33,9 @@ PlayerInGame::PlayerInGame(Player& player, Game* game): Player() { //Calls playe
     std::vector<Card*> _defausse(0);
     std::vector<CardMonster*> _cardsPlaced(0);
     Deck *_deck;
-    // TO DO
+
+    // TO DO @tutul
     // askDeck(getListDeck());
-    // @tutul
 }
 
 /**
@@ -65,7 +65,7 @@ void PlayerInGame::setDeck(Deck *deck) {
     _deck = new Deck(*deck); // copy the deck
     _game->checkDeckAndStart();
 }
-// @tutul méthode à appeler lorsque l'on recoit un deck
+// TO DO @tutul méthode à appeler lorsque l'on recoit un deck
 
 
 /**

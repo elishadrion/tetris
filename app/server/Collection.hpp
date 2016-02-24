@@ -18,7 +18,7 @@ protected:
 public:
     Collection();
     Collection(std::vector<Card*>);
-    Collection(std::vector<int>);
+    Collection(std::vector<unsigned>);
     Collection(const Collection&); // Copy constructor
     Collection& operator=(const Collection&); // Copy operator
     virtual Error addCard(Card*); // adds a card in the deck

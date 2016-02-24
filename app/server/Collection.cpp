@@ -19,7 +19,7 @@ Collection::Collection(std::vector<Card*> listCard):
  *
  * @param listIdCard the list of card ID
  */
-Collection::Collection(std::vector<int> listIdCard) {
+Collection::Collection(std::vector<unsigned> listIdCard) {
     for(unsigned int i = 0; i < listIdCard.size(); ++i) {
         _listCard.push_back(CardManager::getCardById(listIdCard[i]));
     }

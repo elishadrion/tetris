@@ -19,7 +19,6 @@ class Card {
 public:
     // Default constructor ?
     Card(unsigned int id, std::string name, unsigned int energy,int effect, bool);
-
     Card(Card& card); // copy contructor
 
 

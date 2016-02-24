@@ -7,11 +7,9 @@ CardMonster::CardMonster(unsigned int id, std::string name, unsigned int energy,
 		_life(life), _attack(attack), _maxLife(life), _nbrTourPose(nbrTour)
     	{ }
 
-CardMonster::CardMonster(CardMonster& otherMonster): Card::Card(otherMonster.getId(),
-		 otherMonster.getName(),otherMonster.getEnergyCost(),
-		 otherMonster.getEffectID(), false),_life(otherMonster.getLife()),
-		_attack(otherMonster.getAttack()), _maxLife(otherMonster.getMaxLife()),
-		_nbrTourPose(0) { }
+CardMonster::CardMonster(CardMonster& otherMonster): Card(otherMonster),
+    _life(otherMonster._life), _attack(otherMonster._attack),
+    _maxLife(otherMonster._maxLife), _nbrTourPose(otherMonster._nbrTourPose) { }
 
 
 void CardMonster::dealDamage(CardMonster& otherMonster){

@@ -370,7 +370,7 @@ void Game::beginTurn() {
  */
 void Game::endTurn() {
 
-    int nbrCard = 7-_currentPlayer->nbrCardInHand()
+    int nbrCard = 7-_currentPlayer->nbrCardInHand();
     if(nbrCard < 0) {
         // askDefausse(_currentPlayer, -nbrCard);
 
@@ -509,6 +509,13 @@ void Game::isPlayerInLife(PlayerInGame* pIG) {
         //sendEndGame(_player2, _player2==pAdverse);
         // @tutul send information to all player and back menu
         // => void sendEndGame(Player*, bool) with true if win
+
+
+        Card* card = CardManager::chooseCardWin();
+        //pAdverse->addCardCollection(card); wait Carlos
+        // TO DO @tutul
+        // send cardWin ?
+
 
         delete this;
     }
