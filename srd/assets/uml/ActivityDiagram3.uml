@@ -1,5 +1,8 @@
 @startuml
 
+'comment afficher oui et non à la sortie du while sur le diagramme?
+'pour avoir oui en face de la fleche ou le joueur meurt
+'et non pour la boucle -> ?
 
 title Wizard Poker - Activity Diagram 3
 
@@ -40,7 +43,7 @@ repeat
     split again
       :Demander à poser un monstre;
       if(Assez d'énergie ?) then (oui)
-        if(Moins de 7 cartes déjà dépossées sur le plateau ?) then (oui)
+        if(Moins de 7 cartes déjà déposées sur le plateau ?) then (oui)
           :Poser le monstre;
         else (non)
         endif
@@ -53,8 +56,7 @@ repeat
         else (non)
           :Utiliser un monstre;
           note right
-            A préciser:
-            Le monstre pourrait 
+            Le monstre peut 
             avoir un effet
           end note
         endif
@@ -67,6 +69,7 @@ repeat
     stop
   endif
 repeat while (Joueur Mort ?)
+
 
 :Fin de la partie;
 stop

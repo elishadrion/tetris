@@ -1,5 +1,9 @@
 @startuml
 
+'comment faire un encadré pour mettre les actions du joueur dans une boucle?
+'plus rajouter d'autres choses et modifier ce qui a été fait? 
+'changer "indique la carte piochée" par autre chose de mieux?
+
 title Wizard - Sequence Diagram
 
 'pas d'ombre

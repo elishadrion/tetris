@@ -1,6 +1,6 @@
 @startuml
 
-'On ne peut pas directement l'intégré avec l'autre diagrame ???
+'On ne peut pas directement l'intégrer avec l'autre diagrame ???
 
 title Wizard Poker - Activity Diagram 2
 
@@ -25,8 +25,8 @@ skinparam stereotypeCBackgroundColor OldLace
 
 start
 :Energie = 0;
-while (plus de 7 cartes ?) is (oui)
-  :Défausse;
+while (Possède plus de 7 cartes en main ?) is (oui)
+  :Défausser une carte;
 endwhile (non)
 stop
 
