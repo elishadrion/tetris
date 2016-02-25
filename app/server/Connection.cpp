@@ -144,7 +144,6 @@ void* Connection::newPlayerThread(void* data) {
 }
 
 void Connection::sendResponse(int errorCode, int socket) {
-    WizardLogger::info("Envoie du résulta de login au client");
     Packet::loginResultPacket *loginResult = new Packet::loginResultPacket();
     loginResult->resultCode = errorCode;
     send(socket, loginResult, sizeof(Packet::loginResultPacket), 0);
