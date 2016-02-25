@@ -27,6 +27,7 @@ int main() {
     // Load Effect
     Effect::loadAllEffect();
 
+    PlayerManager* pm = new PlayerManager();
 
     /* We initialise the listening server socket
      * If it fail, server can't go farther
