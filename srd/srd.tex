@@ -371,6 +371,43 @@ faire pour interagir avec l'utilisateur et lui proposer toutes les
 actions mentionnées ci-dessus (voir \ref{sec:exi-fonc}). Nous détaillerons
 donc comment le système réalisera toutes ces tâches.
 
+\subsubsection{Connexion}
+
+Connection avec IPv4... avec socket etc
+
+un thread est initialisé...
+
+\subsubsection{Login et enregistrement}
+
+Les utilisateurs peuvent se connecter ou s'enregistrer a travers la
+fenetre de login, realisé avec \texttt{ncurses} et introduire leur
+pseudonyme et mot de passe. Ces information sont trasmis au serveur
+qui verifie leur veracité et
+
+\subsubsection{Classement}
+
+Tout joueur inscrit peut consulter le classement. Ceci est donné en
+verifiant toutes les victoires et defaites de chaque joueur. La liste
+est imprimé en ordre descendant.
+
+\subsubsection{Sauvegarde. Serialisation/Deserialisation}
+
+Les données des joueurs propres au jeu (ses decks,
+sa collection des cartes, le nombre de victoires et défaites etc) sont
+enregistrés avec chaque deconnexion de joueur. La prochaine fois que
+l'utilisateur se connecte, il aura toutes ses données comme avant.
+
+Cela est possible grace a la serialisation de l'information au format
+JSON\footnote{JavaScript Object Notation}. Ce n'est pas une vraie base
+de données mais bien un fichier texte qui est sauvegardé dans le
+serveur. Toutes les complexités des base de données sont eliminés pour
+ce simple jeu.
+
+
+
+
+
+
 
 \subsection{Exigences non fonctionnelles}
 \label{sec:exi-nonfonc-sys}
