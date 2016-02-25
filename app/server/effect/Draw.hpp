@@ -15,6 +15,13 @@ public:
     virtual void apply(CardMonster*, Game*) override;
 };
 
+/**
+ * Make draw the current player of the game
+ *
+ * @param target : the monster who get the effect
+ * @param game : the game where the effect will be apply
+ * @return void 
+ */
 void Draw::apply(CardMonster* target, Game* game){
     for (std::size_t i=0; i<_nDraw; i++){
         game->draw();

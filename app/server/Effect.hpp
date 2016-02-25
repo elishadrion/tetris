@@ -20,7 +20,7 @@ public:
     static Effect* getEffectByID(unsigned);
 
     virtual void apply(CardMonster*, Game*) = 0;
-    virtual void apply(PlayerInGame* player, Game* game) {}; //TO DO (error by default)
+    virtual void apply(PlayerInGame* player, Game* game) {}; //Do nothing by default
     virtual bool isTaunt(){return false;};
     virtual bool canBeApplyOnPlayer(){return false;};
     virtual bool canBeApplyOnCard(){return true;};

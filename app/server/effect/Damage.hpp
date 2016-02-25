@@ -18,10 +18,24 @@ public:
     virtual bool canBeApplyOnPlayer() override {return true;};
 };
 
+/**
+ * Apply damage on a monster, the monster loose health
+ *
+ * @param target : the monster on which the effect will be apply
+ * @param game : the game where the effect will be apply
+ * @return void 
+ */
 void Damage::apply(CardMonster* target, Game* game){
     target->setLife(target->getLife()-_damageValue);
 }
 
+/**
+ * Apply damage on a player, the player loose health
+ *
+ * @param target : the player on which the effect will be apply
+ * @param game : the game where the effect will be apply
+ * @return void 
+ */
 void Damage::apply(PlayerInGame* target, Game* game){
     target->takeDamage(_damageValue);
 }

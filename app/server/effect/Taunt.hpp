@@ -13,6 +13,13 @@ public:
     virtual void apply(CardMonster*, Game*) override;
 };
 
+/**
+ * The monster become a taunt monster
+ *
+ * @param target : the monster on which the effect will be apply
+ * @param game : the game where the effect will be apply
+ * @return void 
+ */
 void Taunt::apply(CardMonster* target, Game* game){
 	target->setTaunt(true);
 }

@@ -15,6 +15,13 @@ public:
     virtual void apply(CardMonster*, Game*) override;
 };
 
+/**
+ * Apply a bless on the monster life, the monster life is increased
+ *
+ * @param target : the monster on which the effect will be apply
+ * @param game : the game where the effect will be apply
+ * @return void 
+ */
 void LifeBlessing::apply(CardMonster* target, Game* game){
     target->setMaxLife(target->getMaxLife()+_lifeValue);
     target->setLife(target->getLife()+_lifeValue);

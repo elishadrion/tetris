@@ -13,12 +13,15 @@
 std::vector<Effect*> Effect::_listEffect;
 
 Effect::Effect() {
-    //Attention, vérifier si classes filles appellent cosntructeur parent
     _listEffect.push_back(this);
     _id = (static_cast<int>(_listEffect.size())-1);
 }
 
-
+/**
+ * Create and save all the effects in a vector 
+ *
+ * @return void 
+ */
 void Effect::loadAllEffect() {
 
     new Taunt();
@@ -40,6 +43,12 @@ void Effect::loadAllEffect() {
     new Draw(2);
 }
 
+/**
+ * Get the effect that match with the id 
+ *
+ * @param id : the id of an effect
+ * @return Effect* 
+ */
 Effect* Effect::getEffectByID(unsigned id){
     return Effect::_listEffect[id];
 }

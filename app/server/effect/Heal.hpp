@@ -18,6 +18,13 @@ public:
     virtual bool canBeApplyOnPlayer() override {return true;};
 };
 
+/**
+ * Apply a heal on a monster, the monster gain health
+ *
+ * @param target : the monster on which the effect will be apply
+ * @param game : the game where the effect will be apply
+ * @return void 
+ */
 void Heal::apply(CardMonster* target, Game* game) {
     target->setLife(target->getLife()+_healValue);
 
@@ -27,6 +34,13 @@ void Heal::apply(CardMonster* target, Game* game) {
     }
 }
 
+/**
+ * Apply a heal on a player, the player gain health
+ *
+ * @param target : the player on which the effect will be apply
+ * @param game : the game where the effect will be apply
+ * @return void 
+ */
 void Heal::apply(PlayerInGame* target, Game* game) {
     target->getHealed(_healValue);
 }

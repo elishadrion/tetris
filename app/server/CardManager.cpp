@@ -25,6 +25,12 @@
 	}
 }
 
+
+/**
+ * Create and keep all the cards in a dictionnary witj the id as key
+ *
+ * @return void 
+ */
 void CardManager::loadAllCards(){
     unsigned int id;
     std::string name;
@@ -33,38 +39,41 @@ void CardManager::loadAllCards(){
     unsigned int life;
     unsigned int attack;
 
-    std::ifstream ifs("card.json");//Nom + chemin fichier ou les cartes sont stockés
-    json j(ifs); //Libre d'améliorer nom de variable
-    //Créer un objet json a partir d'un fichier
+    std::ifstream ifs("card.json");//declare the file with the spells
+    json spellCards(ifs); //make a json object with the file
 
-    for (json::iterator i = j.begin(); i!=j.end(); ++i){
+    for (json::iterator i = spellCards.begin(); i!=spellCards.end(); ++i){
 
-        id = i.value()["id"]; //Récupere la valeur a l'iterateur (toute la structure d'une carte)
-        name = i.value()["name"]; //Verifier si appel entre [] fonctionne
+        id = i.value()["id"];
+        name = i.value()["name"];
         energy = i.value()["energie"];
         effect = i.value()["effect"];
 
-		_listCard[id]= new Card(id,name,energy,effect,true);//Ajout des attributs
+		_listCard[id]= new Card(id,name,energy,effect,true);
 	}
 
-	std::ifstream ifs2("cardMonster.json");//Nom + chemin fichier ou les cartes sont stockés
-	json k(ifs2); //Libre d'améliorer nom de variable
-	//Créer un objet json a partir d'un fichier
+	std::ifstream ifs2("cardMonster.json");//declare the file with the monsters
+	json monsterCards(ifs2); //make a json object with the file
 
-    for (json::iterator i = k.begin(); i!=k.end(); ++i){
+    for (json::iterator i = monsterCards.begin(); i!=monsterCards.end(); ++i){
 
-        id = i.value()["id"]; //Récupere la valeur a l'iterateur (toute la structure d'une carte)
-        name = i.value()["name"]; //Verifier si appel entre [] fonctionne
+        id = i.value()["id"];
+        name = i.value()["name"];
         energy = i.value()["energie"];
         effect = i.value()["effect"];
         life = i.value()["vie"];
         attack = i.value()["attack"];
 
-        _listCard[id]= new CardMonster(id,name,energy,effect,true,life,attack,0); //Ajout des attributs
+        _listCard[id]= new CardMonster(id,name,energy,effect,true,life,attack,0);
 	}
 
 }
 
+/**
+ * Select a random card
+ *
+ * @return Card* 
+ */
 Card* CardManager::chooseCardWin(){
     srand(time(NULL));
 

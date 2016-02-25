@@ -18,7 +18,6 @@ private:
 	static std::map<unsigned, Card*> _listCard; // List of cards (with id and card)
 
 public:
-	 ///// STATIC /////
     static Card* getCardById(unsigned int id); // Get a specific card (identified by ID)
 
     static void loadAllCards();
