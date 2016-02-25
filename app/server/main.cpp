@@ -9,6 +9,7 @@
 
 #include "Effect.hpp"
 
+PlayerManager *pm;
 
 int main() {
     /* Init Logger with both file and console log */
@@ -27,7 +28,7 @@ int main() {
     // Load Effect
     Effect::loadAllEffect();
 
-    PlayerManager* pm = new PlayerManager();
+    pm = new PlayerManager();
 
     /* We initialise the listening server socket
      * If it fail, server can't go farther

@@ -4,6 +4,8 @@
 #include <ncurses.h>
 #include <panel.h>
 
+#include <string>
+
 /* Logger */
 #include "common/WizardLogger.hpp"
 
@@ -76,15 +78,18 @@
 #define CARD_INFO_HEIGTH 5
 #define CARD_INFO_WIDTH TCHAT_INPUT_WIDTH
 
-#define PANEL_TOTAL_NUMBER 10
+#define PANEL_TOTAL_NUMBER 1
 
 class CLI : public Display {
     /* All panel used by the CLI */
     CLIPanel *_panelList[PANEL_TOTAL_NUMBER];
+    LoginPanel *loginPanel;
 public:
     CLI();
     ~CLI();
     void displayLoginPrompt();
+    void displayLoginResult(std::string);
+    void valideLogin();
     void displayMainWindow();
 };
 

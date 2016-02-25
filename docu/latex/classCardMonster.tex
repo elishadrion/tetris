@@ -64,6 +64,27 @@ bool \hyperlink{classCardMonster_a48083f1dfbc22519fbc30ecab2cadfc3}{is\+Dead} ()
 \item[{unsigned int}]{nbr\+Tour = {\ttfamily 0}}
 \end{DoxyParamCaption}
 )}\label{classCardMonster_aff315735b920acc3cd0a6b909a4a3c25}
+Constructor
+
+
+\begin{DoxyParams}{Paramètres}
+{\em id} & of the card \\
+\hline
+{\em name} & of the card \\
+\hline
+{\em energy} & of the card \\
+\hline
+{\em effect} & id of the specific effect \\
+\hline
+{\em save} & True if save in cache \\
+\hline
+{\em life} & of the card \\
+\hline
+{\em attack} & of the card \\
+\hline
+{\em number} & of tour that the card is placed \\
+\hline
+\end{DoxyParams}
 \hypertarget{classCardMonster_a5f577cbecdf0d1c6a6ccbc848793ddef}{}\index{Card\+Monster@{Card\+Monster}!Card\+Monster@{Card\+Monster}}
 \index{Card\+Monster@{Card\+Monster}!Card\+Monster@{Card\+Monster}}
 \subsubsection[{Card\+Monster(\+Card\+Monster \&other\+Monster)}]{\setlength{\rightskip}{0pt plus 5cm}Card\+Monster\+::\+Card\+Monster (
@@ -88,6 +109,16 @@ bool \hyperlink{classCardMonster_a48083f1dfbc22519fbc30ecab2cadfc3}{is\+Dead} ()
 \item[{{\bf Card\+Monster} \&}]{other\+Monster}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [virtual]}}\label{classCardMonster_aaf28396b394a9400d257eddfa09e4567}
+The monster attack an other monster
+
+
+\begin{DoxyParams}{Paramètres}
+{\em card} & (other monster) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
 \hypertarget{classCardMonster_a829d68246c3af5f136cdf2cbc11284b0}{}\index{Card\+Monster@{Card\+Monster}!deal\+Damage@{deal\+Damage}}
 \index{deal\+Damage@{deal\+Damage}!Card\+Monster@{Card\+Monster}}
 \subsubsection[{deal\+Damage(\+Player\+In\+Game \&player)}]{\setlength{\rightskip}{0pt plus 5cm}void Card\+Monster\+::deal\+Damage (
@@ -95,6 +126,16 @@ bool \hyperlink{classCardMonster_a48083f1dfbc22519fbc30ecab2cadfc3}{is\+Dead} ()
 \item[{{\bf Player\+In\+Game} \&}]{player}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [virtual]}}\label{classCardMonster_a829d68246c3af5f136cdf2cbc11284b0}
+The monster attack a player
+
+
+\begin{DoxyParams}{Paramètres}
+{\em player} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
 \hypertarget{classCardMonster_abf8d88a45f9ff97689e9ff32510ca7ee}{}\index{Card\+Monster@{Card\+Monster}!get\+Attack@{get\+Attack}}
 \index{get\+Attack@{get\+Attack}!Card\+Monster@{Card\+Monster}}
 \subsubsection[{get\+Attack()}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Card\+Monster\+::get\+Attack (
@@ -130,6 +171,11 @@ bool \hyperlink{classCardMonster_a48083f1dfbc22519fbc30ecab2cadfc3}{is\+Dead} ()
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [virtual]}}\label{classCardMonster_a2d55cf30d111437486e2b1bacefcbf79}
+Increment the tour of the monster
+
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
 \hypertarget{classCardMonster_a48083f1dfbc22519fbc30ecab2cadfc3}{}\index{Card\+Monster@{Card\+Monster}!is\+Dead@{is\+Dead}}
 \index{is\+Dead@{is\+Dead}!Card\+Monster@{Card\+Monster}}
 \subsubsection[{is\+Dead()}]{\setlength{\rightskip}{0pt plus 5cm}bool Card\+Monster\+::is\+Dead (
@@ -137,6 +183,11 @@ bool \hyperlink{classCardMonster_a48083f1dfbc22519fbc30ecab2cadfc3}{is\+Dead} ()
 {}
 \end{DoxyParamCaption}
 )}\label{classCardMonster_a48083f1dfbc22519fbc30ecab2cadfc3}
+Check if the monster is dead
+
+\begin{DoxyReturn}{Renvoie}
+true if the monster is dead 
+\end{DoxyReturn}
 \hypertarget{classCardMonster_add70449c1bc34baee852fe07cc7d39cc}{}\index{Card\+Monster@{Card\+Monster}!is\+Monster@{is\+Monster}}
 \index{is\+Monster@{is\+Monster}!Card\+Monster@{Card\+Monster}}
 \subsubsection[{is\+Monster() override}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Card\+Monster\+::is\+Monster (

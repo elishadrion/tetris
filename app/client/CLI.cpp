@@ -31,20 +31,29 @@ CLI::CLI() {
 CLI::~CLI() {
     /* End curses mode */
     WizardLogger::info("Désactivation du mode ncurses");
+    for (int i = 0 ; i < PANEL_TOTAL_NUMBER ; ++i) delete _panelList[i];
     endwin();
 }
 
 void CLI::displayLoginPrompt() {
     /* Display login panel (special type of panel) */
-    LoginPanel *loginPanel =  new LoginPanel();
-    //loginPanel->askLogin();
-    delete loginPanel;
-    
-    /* Display MainMenu after successfull login/register */
-    displayMainWindow();
+    loginPanel =  new LoginPanel();
+    loginPanel->askLogin();
+}
+
+void CLI::displayLoginResult(std::string errorMessage) {
+    loginPanel->printError(errorMessage);
+}
+
+void CLI::valideLogin() {
+    loginPanel->valideLogin();
 }
 
 void CLI::displayMainWindow() {
+    /* If we are from loginPanel, we remove it */
+    if (loginPanel != NULL)
+        delete loginPanel;
+    
     /* We create all panel now (hidden by default except loginPanel) */
     _panelList[0]->show();
     _panelList[0]->focus();

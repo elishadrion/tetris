@@ -8,9 +8,7 @@ var searchData=
   ['cardmonster_2ecpp',['CardMonster.cpp',['../CardMonster_8cpp.html',1,'']]],
   ['cardmonster_2ehpp',['CardMonster.hpp',['../CardMonster_8hpp.html',1,'']]],
   ['chatmanager_2ehpp',['ChatManager.hpp',['../ChatManager_8hpp.html',1,'']]],
-  ['classement_2ecpp',['Classement.cpp',['../Classement_8cpp.html',1,'']]],
-  ['classement_2ehpp',['Classement.hpp',['../server_2Classement_8hpp.html',1,'']]],
-  ['classement_2ehpp',['Classement.hpp',['../client_2Classement_8hpp.html',1,'']]],
+  ['classement_2ehpp',['Classement.hpp',['../Classement_8hpp.html',1,'']]],
   ['cli_2ecpp',['CLI.cpp',['../CLI_8cpp.html',1,'']]],
   ['cli_2ehpp',['CLI.hpp',['../CLI_8hpp.html',1,'']]],
   ['collection_2ecpp',['Collection.cpp',['../Collection_8cpp.html',1,'']]],
@@ -18,6 +16,6 @@ var searchData=
   ['collection_2ehpp',['Collection.hpp',['../client_2Collection_8hpp.html',1,'']]],
   ['connection_2ecpp',['Connection.cpp',['../server_2Connection_8cpp.html',1,'']]],
   ['connection_2ecpp',['Connection.cpp',['../client_2Connection_8cpp.html',1,'']]],
-  ['connection_2ehpp',['Connection.hpp',['../client_2Connection_8hpp.html',1,'']]],
-  ['connection_2ehpp',['Connection.hpp',['../server_2Connection_8hpp.html',1,'']]]
+  ['connection_2ehpp',['Connection.hpp',['../server_2Connection_8hpp.html',1,'']]],
+  ['connection_2ehpp',['Connection.hpp',['../client_2Connection_8hpp.html',1,'']]]
 ];

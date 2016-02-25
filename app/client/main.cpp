@@ -11,6 +11,8 @@
 /* Main is not an object so we must use global namespace instead of main->conn */
 Connection *conn;
 
+Display *display;
+
 int main(int argc, char** argv) {
     /* We initialise the static logger system
      * If it fail, client must to stop because log is important !
@@ -37,7 +39,7 @@ int main(int argc, char** argv) {
     }
     
     /* We init in CLI mode */
-    Display *display = new CLI();
+    display = new CLI();
     
     /* Display login prompt
      * Only call it after all backround service are ready

@@ -1,6 +1,6 @@
 #include "LoginPanel.hpp"
 
-LoginPanel::LoginPanel() : isWainting(false) {
+LoginPanel::LoginPanel() : isWainting(false), success(false) {
     /* Initialize field and set some options
      * <height> <width> <toprow> <leftcol> <offscreen> <nbuffers>
      */
@@ -29,9 +29,10 @@ LoginPanel::LoginPanel() : isWainting(false) {
 LoginPanel::~LoginPanel() {
     /* We must remove the form and clear field before exiting */
     unpost_form(form);
-    free_form(form);
-    free_field(field[0]);
-    free_field(field[1]);
+    //TODO SEGFAULT DURING DESTRUCTION BUT IT'S THE RIGHT ORDER... WHY ???
+    //free_form(form);
+    //free_field(field[0]);
+    //free_field(field[1]);
 }
 
 void LoginPanel::setFocus() {
@@ -52,11 +53,11 @@ void LoginPanel::proceed(bool registration) {
     char *password = field_buffer(field[1], 0);
 
     if (registration) {
-        printWait(REGISTRATION_IN_PROGRESS);
         PacketManager::makeRegistrationRequest(pseudo, password);
+        printWait(REGISTRATION_IN_PROGRESS);
     } else {
-        printWait(LOGIN_IN_PROGRESS);
         PacketManager::makeLoginRequest(pseudo, password);
+        printWait(LOGIN_IN_PROGRESS);
     }
 }
 
@@ -164,17 +165,16 @@ void LoginPanel::askLogin() {
                 break;
             case KEY_F(2):
                 proceed();
-                return;
+                break;
             case KEY_F(3):
                 proceed(true);
-                return;
+                break;
             default:
                 /* If it's the SPACEBAR, we beep */
                 if (input == ' ') {
                     beep();
                 } else if ((!passwordForm && sizeA == 30) ||
                     (passwordForm && sizeB == 30)) {
-                    printError(MAX_SIZE_ERROR);
                     beep();
                 } else {
                     /* Reset error and print character */
@@ -190,6 +190,11 @@ void LoginPanel::askLogin() {
                 }
                 break;
         }
+        
+        if (success) {
+            display->displayMainWindow();
+            return;
+        }
     }
 }
 
@@ -204,4 +209,11 @@ void LoginPanel::printError(std::string message) {
     attroff(COLOR_PAIR(1));
     setFocus();
     refresh();
+    isWainting = false;
+}
+
+/* Close LoginPanel and set signal to open MainPanel */
+void LoginPanel::valideLogin() {
+    success = true;
+    isWainting = false;
 }

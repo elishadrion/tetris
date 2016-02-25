@@ -135,6 +135,18 @@ Constructor
 \item[{{\bf Game} \&}]{game}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [virtual]}}\label{classCard_a68c2becce15d5c89cec9972a8674e602}
+Apply the effect on a monster
+
+
+\begin{DoxyParams}{Paramètres}
+{\em the} & monster targeted \\
+\hline
+{\em the} & game where the effect will be apply \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
 \hypertarget{classCard_a0ee99642963ac428501623982a21aa1b}{}\index{Card@{Card}!apply\+Effect@{apply\+Effect}}
 \index{apply\+Effect@{apply\+Effect}!Card@{Card}}
 \subsubsection[{apply\+Effect(\+Player\+In\+Game \&player, Game \&)}]{\setlength{\rightskip}{0pt plus 5cm}void Card\+::apply\+Effect (
@@ -143,6 +155,18 @@ Constructor
 \item[{{\bf Game} \&}]{game}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [virtual]}}\label{classCard_a0ee99642963ac428501623982a21aa1b}
+Apply the effect on a player
+
+
+\begin{DoxyParams}{Paramètres}
+{\em the} & player targeted \\
+\hline
+{\em the} & game where the effect will be apply \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
 \hypertarget{classCard_a0f6b9524f9af3386013d9d6324256acf}{}\index{Card@{Card}!can\+Be\+Apply\+On\+Card@{can\+Be\+Apply\+On\+Card}}
 \index{can\+Be\+Apply\+On\+Card@{can\+Be\+Apply\+On\+Card}!Card@{Card}}
 \subsubsection[{can\+Be\+Apply\+On\+Card()}]{\setlength{\rightskip}{0pt plus 5cm}bool Card\+::can\+Be\+Apply\+On\+Card (
@@ -150,6 +174,11 @@ Constructor
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [virtual]}}\label{classCard_a0f6b9524f9af3386013d9d6324256acf}
+Check if the effect can be apply on a player
+
+\begin{DoxyReturn}{Renvoie}
+true if yes, false if not 
+\end{DoxyReturn}
 \hypertarget{classCard_a81da86fdfe5ab43869f8d64c28fb4462}{}\index{Card@{Card}!can\+Be\+Apply\+On\+Player@{can\+Be\+Apply\+On\+Player}}
 \index{can\+Be\+Apply\+On\+Player@{can\+Be\+Apply\+On\+Player}!Card@{Card}}
 \subsubsection[{can\+Be\+Apply\+On\+Player()}]{\setlength{\rightskip}{0pt plus 5cm}bool Card\+::can\+Be\+Apply\+On\+Player (
@@ -157,6 +186,11 @@ Constructor
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [virtual]}}\label{classCard_a81da86fdfe5ab43869f8d64c28fb4462}
+Check if the effect can be apply on a player
+
+\begin{DoxyReturn}{Renvoie}
+true if yes, false if not 
+\end{DoxyReturn}
 \hypertarget{classCard_a9ffcf78c4078240a1c454f972420e5ba}{}\index{Card@{Card}!get\+Description@{get\+Description}}
 \index{get\+Description@{get\+Description}!Card@{Card}}
 \subsubsection[{get\+Description()}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Card\+::get\+Description (
@@ -239,6 +273,11 @@ Return the effect id
 {}
 \end{DoxyParamCaption}
 )}\label{classCard_a9932401135454db169e1e4d678103917}
+Check if the card got an effect
+
+\begin{DoxyReturn}{Renvoie}
+true if yes, false if not 
+\end{DoxyReturn}
 \hypertarget{classCard_a41da498b0822b35dcbb69293851b39fc}{}\index{Card@{Card}!is\+Monster@{is\+Monster}}
 \index{is\+Monster@{is\+Monster}!Card@{Card}}
 \subsubsection[{is\+Monster()}]{\setlength{\rightskip}{0pt plus 5cm}bool Card\+::is\+Monster (

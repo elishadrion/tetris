@@ -3,6 +3,9 @@
 #include "common/Packet.hpp"
 #include "common/WizardLogger.hpp"
 #include "Connection.hpp"
+#include "Display.hpp"
+
+extern Display *display;
 
 namespace PacketManager {
     /* API for other service */

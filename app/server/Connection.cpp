@@ -120,9 +120,9 @@ void* Connection::newPlayerThread(void* data) {
                 
                 /* We check if it's a login or a registration and send pseudo/password */
                 if (packet->ID != Packet::LOGIN_REQ_ID) {
-                    //newPlayer = PlayerManager::signUp(pseudo, password, clientSocket);
+                    newPlayer = pm->signUp(pseudo, password, clientSocket);
                 } else {
-                    //newPlayer = PlayerManager::logIn(pseudo, password, clientSocket);
+                    newPlayer = pm->logIn(pseudo, password, clientSocket);
                 }
                 
                 /* If no player object created we fail and restart */
@@ -144,6 +144,7 @@ void* Connection::newPlayerThread(void* data) {
 }
 
 void Connection::sendResponse(int errorCode, int socket) {
+    WizardLogger::info("Envoie du résulta de login au client");
     Packet::loginResultPacket *loginResult = new Packet::loginResultPacket();
     loginResult->resultCode = errorCode;
     send(socket, loginResult, sizeof(Packet::loginResultPacket), 0);

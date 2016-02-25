@@ -33,10 +33,13 @@
 #define LOGIN_IN_PROGRESS "      LOGIN EN COURS      "
 #define REGISTRATION_IN_PROGRESS " ENREGISTREMENT EN COURS  "
 
+extern Display *display;
+
 class LoginPanel {
     FORM  *form;
     FIELD *field[2];
     bool isWainting;
+    bool success;
 
     void proceed(bool=false);
     void setFocus();
@@ -47,6 +50,7 @@ public:
 
     void askLogin();
     void printError(std::string);
+    void valideLogin();
 };
 
 #endif /* PANEL_HPP */

@@ -87,6 +87,7 @@ void* Connection::recvLoop(void* data) {
     
     /* Loop to wait with select server messages */
     while(1) {
+        WizardLogger::error("BLUP");
         /* Allocate maximum size for an unknow incoming packet */
         void *packet = malloc(Packet::packetMaxSize);
         

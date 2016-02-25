@@ -80,7 +80,9 @@ void PacketManager::loginResult(const Packet::loginResultPacket* resultPacket) {
     if (resultPacket->size != sizeof(int)) {
         WizardLogger::error("Paquet de résulta de login corrompu reçu ("
         +std::to_string(resultPacket->size)+"/"+std::to_string(sizeof(int))+")");
+    } else if (resultPacket->resultCode != 0) {
+        display->displayLoginResult("Erreur durant le login");
     } else {
-        //TODO valide login/registration
+        display->valideLogin();
     }
 }

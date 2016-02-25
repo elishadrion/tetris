@@ -23,6 +23,7 @@ class MainPanel : public CLIPanel {
     PANEL  *panel;
     
     void updateColor(int, int);
+    void doRequest(int);
 public:
     MainPanel();
     ~MainPanel();

@@ -6,6 +6,7 @@ var searchData=
   ['deletedeck',['deleteDeck',['../classDeck.html#a360cf67965cd28b8bdda3ec932ae3296',1,'Deck']]],
   ['display',['Display',['../classDisplay.html#a46094310ba411f6fea561f799c4d0754',1,'Display']]],
   ['displayloginprompt',['displayLoginPrompt',['../classCLI.html#a6cf4acf9f7fa587cc49b892487c68f13',1,'CLI::displayLoginPrompt()'],['../classDisplay.html#a55719ab539ee6cc803d9de74b05f8e38',1,'Display::displayLoginPrompt()']]],
+  ['displayloginresult',['displayLoginResult',['../classCLI.html#abf864752edc73dba33fce8a0f06137c4',1,'CLI::displayLoginResult()'],['../classDisplay.html#ac4cc71c734feea0099bbeae89e6d2f1c',1,'Display::displayLoginResult()']]],
   ['displaymainwindow',['displayMainWindow',['../classCLI.html#abcf6f643c8a94e0451b4b6d9ab9546c7',1,'CLI::displayMainWindow()'],['../classDisplay.html#a88a6e0ccafb0ef286149a9ab4ffb28ad',1,'Display::displayMainWindow()']]],
   ['draw',['draw',['../classGame.html#a6d54497ce3a66f6dd45eacfdccc8d0bd',1,'Game::draw()'],['../classGame.html#a0e5055bedff4cda4488c97e5d20ae647',1,'Game::draw(PlayerInGame *)'],['../classPlayerInGame.html#aef5bd608ed523be4eef3eda1c63a3f0a',1,'PlayerInGame::draw()']]]
 ];

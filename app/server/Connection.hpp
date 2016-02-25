@@ -21,6 +21,8 @@
 #define PORT 5555
 #define BACKLOG 5       /* Pending connections the queue will hold */
 
+extern PlayerManager *pm;
+
 class Connection {
     struct sockaddr_in server_addr; //TODO don't support IPv6
     struct sockaddr_in client_addr; //TODO don't support IPv6

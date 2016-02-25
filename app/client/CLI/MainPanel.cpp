@@ -16,7 +16,9 @@ MainPanel::MainPanel() {
     mvwprintw(window, START_LINE, 8, "* Commencer une partie");
     mvwprintw(window, START_LINE+2, 8, "* Afficher la collection");
     mvwprintw(window, START_LINE+4, 8, "* Liste d'amis");
-    mvwprintw(window, START_LINE+6, 8, "* Quitter le programme");
+    attron(COLOR_PAIR(3));
+    mvwprintw(window, START_LINE+6, 8, "F10 pour quitter le programme");
+    attroff(COLOR_PAIR(3));
     mvwprintw(window, START_LINE+8, 10, "(utilisé F1 pour accéder au Tchat)");
     refresh();
 }
@@ -48,11 +50,11 @@ void MainPanel::focus() {
 
     /* Loop through to get user requests with F1 to go to the tchatPanel */
     int input;
-    while((input = getch()) != KEY_F(1)) {
+    while((input = getch()) != KEY_ENTER) {
         switch(input) {
             case KEY_DOWN:
                 /* Go to next menu (or first) */
-                if (currentMenu < START_LINE+6) {
+                if (currentMenu < START_LINE+4) {
                     updateColor(currentMenu, currentMenu+2);
                     currentMenu += 2;
                 } else {
@@ -66,13 +68,14 @@ void MainPanel::focus() {
                     updateColor(currentMenu, currentMenu-2);
                     currentMenu -= 2;
                 } else {
-                    updateColor(currentMenu, START_LINE+6);
-                    currentMenu = START_LINE+6;
+                    updateColor(currentMenu, START_LINE+4);
+                    currentMenu = START_LINE+4;
                 }
                 break;
-            case KEY_ENTER:
-                //TODO open the selected menu
-                break;
+            case KEY_F(10):
+                /* Call closing methode to stop program */
+                
+                return;
             default:
                 beep();
                 break;
@@ -96,4 +99,7 @@ void MainPanel::updateColor(int previous, int next) {
     }
     
     refresh();
+}
+
+void MainPanel::doRequest(int entry) {
 }
