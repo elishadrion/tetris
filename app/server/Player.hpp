@@ -38,8 +38,8 @@ public:
     Player(nlohmann::json&, int sockfd = 0);
 
     inline void adjudicateVictory() {_victories++;};
-    inline Error addCardCollection(Card* c) {return _collection.addCard(c);}
     inline void adjudicateDefeat() {_defeats++;}
+    inline Error addCardCollection(Card* c) {return _collection.addCard(c);}
     inline void updateSockfd(int a) {_sockfd = a;}
     inline std::string getName() const {return _username;}
     inline std::string getPass() const {return _password;}

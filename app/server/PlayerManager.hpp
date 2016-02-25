@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <algorithm>
+#include <random>
 
 #include "Player.hpp"
 #include "include/json.hpp"

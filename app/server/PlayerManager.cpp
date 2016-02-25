@@ -37,7 +37,7 @@ std::string PlayerManager::getRanking() {
 
 Player* PlayerManager::logIn(std::string username, std::string password, int sockfd) {
     // ce n'est pas mieux de faire un _players.size() plutot qu'un size of ?
-    for (size_t i = 0; i < sizeof _players; i++) {
+    for (size_t i = 0; i < _players.size(); i++) {
 	Player* current = _players.at(i);
 	if ((*current).getName() == username &&
 	    (*current).getPass() == password) {
@@ -52,10 +52,36 @@ Player* PlayerManager::logIn(std::string username, std::string password, int soc
 }
 
 Player* PlayerManager::signUp(std::string username, std::string password, int sockfd) {
-    nlohmann::json info;
-    info["name"] = username;
-    info["password"] = password;
 
-    _players.push_back(new Player(info));
-    return nullptr;
+    for (size_t i = 0; _players.size(); i++) {
+	Player* current = _players.at(i);
+	if (*current == username) {
+	    WizardLogger::warning("CHOSEN USERNAME ALREADY EXISTS");
+	    return nullptr;
+	}
+    }
+
+    nlohmann::json info;
+    info["username"] = username;
+    info["password"] = password;
+    info["victories"] = 0;
+    info["defeats"] = 0;
+    std::vector<int> collection;
+    for (int i = 1; i <= 100; ++i)
+	collection.push_back(i);
+
+    info["collection"] = collection;
+    nlohmann::json deck;
+    deck["deckName"] = "default";
+    std::vector<int> random_deck;
+    for (int i = 0; i < 20; ++i) {
+	random_deck.push_back(rand() % 100 + 1);
+    }
+
+    deck["cards"] = random_deck;
+    info["decks"].push_back(deck);
+
+    Player* newPlayer = new Player(info);
+    _players.push_back(newPlayer);
+    return newPlayer;
 }
