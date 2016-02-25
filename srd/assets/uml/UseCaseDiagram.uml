@@ -1,5 +1,8 @@
 @startuml
 
+'diagramme ok? rien à changer/refaire?
+'il me semblait que Keno avait dit qu'il fallait changer des trucs...
+
 title Package - Use Case Diagram
 
 'pas d'ombre

@@ -1,0 +1,13 @@
+@startuml
+
+'TBD...
+
+title Wizard Poker - Client-Server Diagram 
+
+'pas d'ombre
+skinparam shadowing false
+
+'taille de l'image
+skinparam dpi 300 
+
+@enduml

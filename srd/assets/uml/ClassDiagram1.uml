@@ -1,6 +1,6 @@
 @startuml
 
-title Wizard - Class Diagram
+title Wizard Poker - Class Diagram
 
 'accessibilité
 skinparam classAttributeIconSize 0
