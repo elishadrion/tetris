@@ -13,13 +13,15 @@
 
 #include "common/WizardLogger.hpp"
 
+#include "CLIPanel.hpp"
+
 /* define size for panel */
 #define TCHAT_HEIGHT 21
 #define TCHAT_WIDTH 30
 #define INPUT_HEIGHT 7
 #define INPUT_WIDTH TCHAT_WIDTH
 
-class TchatPanel : PANEL {
+class TchatPanel : CLIPanel {
     WINDOW *windows[2];
     PANEL  *panels[2];
     
@@ -40,6 +42,10 @@ public:
     
     void addMessage(std::string);
     void listenInput();
+    
+    void show();
+    void hide();
+    void focus();
 };
 
 #endif	/* TCHATPANEL_HPP */

@@ -108,3 +108,9 @@ void TchatPanel::addMessage(std::string message) {
 
 //TODO
 void TchatPanel::listenInput() {}
+
+void TchatPanel::show() {}
+
+void TchatPanel::hide() {}
+
+void TchatPanel::focus() {}
