@@ -3,7 +3,6 @@
 #include "Card.hpp" //TODO tmp patch
 #include "CardMonster.hpp"
 
-
 /**
  * Get the card object in cache
  *
@@ -21,6 +20,7 @@
         return _listCard[id];
     }
     else{
+        WizardLogger::error("This card ID doesn't exist!");
 		return nullptr;
 	}
 }

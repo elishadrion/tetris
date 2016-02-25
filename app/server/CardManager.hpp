@@ -7,6 +7,7 @@
 #include <fstream>
 #include <time.h>
 #include <stdlib.h>
+#include "common/WizardLogger.hpp"
 
 class Card;
 
