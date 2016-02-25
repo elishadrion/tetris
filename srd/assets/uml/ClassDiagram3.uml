@@ -77,7 +77,7 @@ class Connection {
   - client_addr : sockaddr_in
   - serverSocket : int
   - sinSize : unsigned int
-  - clientThreads : std::vector<pthread_t>
+  - clientThreads : vector<pthread_t>
   - newThread : pthread_t
   - {static} newPlayerThread() : void*
   - {static} sendResponse() : void
