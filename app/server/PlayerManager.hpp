@@ -12,8 +12,8 @@
 #define PLAYERS_DB "server/assets/players.json"
 
 class PlayerManager {
-    std::vector<Player*> connected;
-    std::vector<Player*> players;
+    std::vector<Player*> _connected;
+    std::vector<Player*> _players;
 public:
     PlayerManager() = default;
     std::string getRanking();
