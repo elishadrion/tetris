@@ -8,6 +8,7 @@
 #include "Player.hpp"
 #include "PlayerInGame.hpp"
 #include "CardMonster.hpp"
+#include "PacketManager.hpp"
 
 #include "common/WizardLogger.hpp"
 #include "common/Error.hpp"
@@ -47,8 +48,6 @@ class Game {
 
 
 public:
-    //virtual void play();  // function when a player plays. Calls Listener.onPlayerPlay
-
     Game(); // Default constuctor
     Game(const Game&); // Copy constructor
     Game& operator=(const Game&) = default; // Copy operator

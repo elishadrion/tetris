@@ -120,13 +120,8 @@ void Game::checkDeckAndStart() {
         }
 
 
-        //initGame(_player1, getAdversePlayer(_player1)->getName());
-        //initGame(_player2, getAdversePlayer(_player2)->getName());
-        /*
-        send adverse player informations (username)
-         => void initGame(Player*, std::string) with ennemy's pseudo
-         (these packet tell to the client to display game panel too)
-        */
+        PacketManager::initGame(_player1, getAdversePlayer(_player1)->getName());
+        PacketManager::initGame(_player2, getAdversePlayer(_player2)->getName());
 
 
         /*
@@ -175,10 +170,7 @@ void Game::draw(PlayerInGame* pIG) {
         // TO DO @tutul send player damage ?
 
     } else {
-        //sendCard(pIG, res);
-        // @tutul
-        // => void sendCrard(Player*, Card*)
-        // Send new card to the player
+        PacketManager::sendCard(pIG, res);
     }
 
 }
@@ -314,11 +306,8 @@ void Game::nextPlayer() {
         ++_turn;
     }
 
-    //setTurn(_player1, _currentPlayer->getName());
-    //setTurn(_player2, _currentPlayer->getName());
-
-    // @tutul informer les joueurs du changement de joueur
-    // => void setTurn(Player*, std::string) où string est le pseudo du joueur qui a son tour mtn
+    PacketManager::setTurn(_player1, _currentPlayer->getName());
+    PacketManager::setTurn(_player2, _currentPlayer->getName());
 
     beginTurn();
 }
@@ -332,12 +321,8 @@ void Game::nextPlayer() {
  * @param heal of the attack entity
  */
 void Game::sendInfoAction(PlayerInGame* pIG, int attackCard, unsigned heal) {
-    //sendAttack(_player1, pIG.getName(), attackCard, heal);
-    //sendAttack(_player2, pIG.getName(), attackCard, heal);
-
-    // @tutul
-    // send all informations who is in parameter
-    // => void sendAttack(Player*, std::string, int, unsigned int) avec le pseudo du joueur attackant, l'ID et la vie restante
+    PacketManager::sendAttack(_player1, pIG->getName(), attackCard, heal);
+    PacketManager::sendAttack(_player2, pIG->getName(), attackCard, heal);
 }
 
 
@@ -368,11 +353,7 @@ void Game::endTurn() {
 
     int nbrCard = 7-_currentPlayer->nbrCardInHand();
     if(nbrCard < 0) {
-        // askDefausse(_currentPlayer, -nbrCard);
-
-        // @tutul
-        // => void askDefausse(Player*, int) avec le nombre de carte à défausser
-        // Rémy: And where is the answer ?  The client call directly function in PlayerInGame to remove card ?
+        PacketManager::askDefausse(_currentPlayer, -nbrCard);
     }
 
 }
@@ -501,10 +482,8 @@ void Game::isPlayerInLife(PlayerInGame* pIG) {
         pIG->addDefeat();
         pAdverse->addWin();
 
-        //sendEndGame(_player1, _player1==pAdverse);
-        //sendEndGame(_player2, _player2==pAdverse);
-        // @tutul send information to all player and back menu
-        // => void sendEndGame(Player*, bool) with true if win
+        PacketManager::sendEndGame(_player1, _player1==pAdverse);
+        PacketManager::sendEndGame(_player2, _player2==pAdverse);
 
 
         Card* card = CardManager::chooseCardWin();

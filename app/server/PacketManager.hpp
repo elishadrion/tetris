@@ -16,7 +16,7 @@ namespace PacketManager {
     void managePacket(Packet::packet*);
     void initGame(Player*, std::string);
     void sendStartTurnInfo(Player*, dataIGPlayer, std::vector<CardMonster*>, int, int, int);
-    void sendCrard(Player*, Card*);
+    void sendCard(Player*, Card*);
     void setTurn(Player*, std::string);
     void sendAttack(Player*, std::string, int, unsigned int);
     void askDefausse(Player*, int);
