@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['loginpanel_2ecpp',['LoginPanel.cpp',['../LoginPanel_8cpp.html',1,'']]],
-  ['loginpanel_2ehpp',['LoginPanel.hpp',['../LoginPanel_8hpp.html',1,'']]]
+  ['main_2ecpp',['main.cpp',['../client_2main_8cpp.html',1,'']]],
+  ['main_2ecpp',['main.cpp',['../server_2main_8cpp.html',1,'']]]
 ];

@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['wait_5fdec',['WAIT_DEC',['../Game_8hpp.html#a07266ece7db369895fe6dd3c7b8a80d4a34d825a324d6ca734df3c9a5eae43cfe',1,'Game.hpp']]],
-  ['warning',['warning',['../namespaceWizardLogger.html#a2417332237b3df5479de955704215f28',1,'WizardLogger']]],
-  ['wizardlogger',['WizardLogger',['../namespaceWizardLogger.html',1,'']]],
-  ['wizardlogger_2ecpp',['WizardLogger.cpp',['../WizardLogger_8cpp.html',1,'']]],
-  ['wizardlogger_2ehpp',['WizardLogger.hpp',['../WizardLogger_8hpp.html',1,'']]]
+  ['unknowerror',['UnknowError',['../Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5a5aa274bcd7cca9b99cda5086c5ca149b',1,'Error.hpp']]],
+  ['updatesockfd',['updateSockfd',['../classPlayer.html#adf7cea3607c835e1c32f054524cd3027',1,'Player']]]
 ];

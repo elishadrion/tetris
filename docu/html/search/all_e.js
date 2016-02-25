@@ -1,29 +1,7 @@
 var searchData=
 [
-  ['packet',['packet',['../structPacket_1_1packet.html',1,'Packet']]],
-  ['packet',['Packet',['../classPacket.html',1,'']]],
-  ['packet_2ehpp',['Packet.hpp',['../Packet_8hpp.html',1,'']]],
-  ['packetmaxsize',['packetMaxSize',['../classPacket.html#ab2ef9ab81c25a39ca3a09b954a5765a2',1,'Packet']]],
-  ['packetsize',['packetSize',['../classPacket.html#a4d3ec46364b14d6f59e550920ec9a78a',1,'Packet']]],
-  ['password',['password',['../structPacket_1_1loginRequestPacket.html#a85c2b868828d558ac942eadfc8c29523',1,'Packet::loginRequestPacket']]],
-  ['password_5ferror',['PASSWORD_ERROR',['../LoginPanel_8hpp.html#a5b63dc32c005d3b59aa6a5b9163f33d6',1,'LoginPanel.hpp']]],
-  ['pickup',['pickup',['../classDeck.html#af6338f8f48dadecb079446b698468735',1,'Deck']]],
-  ['placecard',['placeCard',['../classGame.html#a407f859fd79905d6b868de21748123fb',1,'Game::placeCard(PlayerInGame *, Card *, CardMonster *)'],['../classGame.html#a78b7006c16663d938285c7fd28e6db6b',1,'Game::placeCard(PlayerInGame *, Card *, PlayerInGame *)'],['../classPlayerInGame.html#a5588d4c494560f20b2d58953cf8ebc1c',1,'PlayerInGame::placeCard()']]],
-  ['player',['Player',['../classPlayer.html',1,'Player'],['../classPlayer.html#affe0cc3cb714f6deb4e62f0c0d3f1fd8',1,'Player::Player()'],['../classPlayer.html#acc846c5b50dc8298462ae770d3d9622c',1,'Player::Player(nlohmann::json info)']]],
-  ['player_2ecpp',['Player.cpp',['../Player_8cpp.html',1,'']]],
-  ['player_2ehpp',['Player.hpp',['../Player_8hpp.html',1,'']]],
-  ['player_5finfo_5fheigth',['PLAYER_INFO_HEIGTH',['../CLI_8hpp.html#a97f6acaad01fed1c09886eac51f361db',1,'CLI.hpp']]],
-  ['player_5finfo_5fwidth',['PLAYER_INFO_WIDTH',['../CLI_8hpp.html#a2f9f5939f8bbd2dc6365efdb99aacb83',1,'CLI.hpp']]],
-  ['playerheal',['playerHeal',['../structdataIGPlayer.html#addf0349de6577e21e1697b0853f37afb',1,'dataIGPlayer']]],
-  ['playeringame',['PlayerInGame',['../classPlayerInGame.html',1,'PlayerInGame'],['../classPlayerInGame.html#aef3887730c6e58e3ffa4b8636f5a1fd4',1,'PlayerInGame::PlayerInGame()'],['../classPlayerInGame.html#a64e5c60c2e6106c9dda8c7d79fc36d8b',1,'PlayerInGame::PlayerInGame(Player player, Game *game)']]],
-  ['playeringame_2ecpp',['PlayerInGame.cpp',['../PlayerInGame_8cpp.html',1,'']]],
-  ['playeringame_2ehpp',['PlayerInGame.hpp',['../PlayerInGame_8hpp.html',1,'']]],
-  ['playermanager',['PlayerManager',['../classPlayerManager.html',1,'PlayerManager'],['../classPlayerManager.html#ae093e4e4e7eecdf5b46de72f5827d71d',1,'PlayerManager::PlayerManager()']]],
-  ['playermanager_2ecpp',['PlayerManager.cpp',['../PlayerManager_8cpp.html',1,'']]],
-  ['playermanager_2ehpp',['PlayerManager.hpp',['../PlayerManager_8hpp.html',1,'']]],
-  ['players_5fpath',['PLAYERS_PATH',['../PlayerManager_8hpp.html#a1ea84f34e195a5d753bafe6e278c946d',1,'PlayerManager.hpp']]],
-  ['port',['PORT',['../client_2Connection_8hpp.html#a614217d263be1fb1a5f76e2ff7be19a2',1,'PORT():&#160;Connection.hpp'],['../server_2Connection_8hpp.html#a614217d263be1fb1a5f76e2ff7be19a2',1,'PORT():&#160;Connection.hpp']]],
-  ['printerror',['printError',['../classLoginPanel.html#aa922d0e3e7ba3ca5de429bb5022badb9',1,'LoginPanel']]],
-  ['pseudo',['pseudo',['../structPacket_1_1loginRequestPacket.html#aaa36718e5f1c5d8ac6c13e6065502268',1,'Packet::loginRequestPacket']]],
-  ['pseudo_5ferror',['PSEUDO_ERROR',['../LoginPanel_8hpp.html#a5f74bc043db923045304e0be96b453f4',1,'LoginPanel.hpp']]]
+  ['operator_3c',['operator&lt;',['../classPlayer.html#ab8344f240fbc64e17012fea952bf5821',1,'Player']]],
+  ['operator_3c_3c',['operator&lt;&lt;',['../classPlayer.html#a09ccce2cf3a3aaa6af4721b94eb301d9',1,'Player::operator&lt;&lt;()'],['../classPlayer.html#ae196d81b10472c3768f788280aaf392b',1,'Player::operator&lt;&lt;()'],['../Player_8cpp.html#a1bbd5bf0091d48b9f2e05cc542d3e2ba',1,'operator&lt;&lt;(std::ostream &amp;os, const Player &amp;c):&#160;Player.cpp'],['../Player_8cpp.html#a3fffc28cd7c7b6d2f439579550db413a',1,'operator&lt;&lt;(std::string &amp;str, const Player &amp;c):&#160;Player.cpp']]],
+  ['operator_3d',['operator=',['../classCard.html#a61af6ac06f1d73616a7e9b4a1b19c90d',1,'Card::operator=()'],['../classCollection.html#afdc6e54deac9226fda136ca4bb8a97a1',1,'Collection::operator=()'],['../classDeck.html#ac3d2eaa856438ec34f898821e7e76a6d',1,'Deck::operator=()'],['../classGame.html#a5e2d7c75effddbacf32883492a64d8d4',1,'Game::operator=()'],['../classPlayerInGame.html#a9ce4261937a8d6e1587896166884c4ac',1,'PlayerInGame::operator=()']]],
+  ['operator_3d_3d',['operator==',['../classPlayer.html#ad595a59902a36610d2aa8d496a071f1f',1,'Player']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['gamestatut',['GameStatut',['../Game_8hpp.html#a07266ece7db369895fe6dd3c7b8a80d4',1,'Game.hpp']]]
+  ['error',['Error',['../Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5',1,'Error.hpp']]]
 ];

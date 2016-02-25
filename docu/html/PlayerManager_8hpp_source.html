@@ -96,29 +96,37 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;cstdlib&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Player_8hpp.html">Player.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;include/json.hpp&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="PlayerManager_8hpp.html#a1ea84f34e195a5d753bafe6e278c946d">   10</a></span>&#160;<span class="preprocessor">#define PLAYERS_PATH &quot;server/assets/&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Player_8hpp.html">Player.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;include/json.hpp&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Packet_8hpp.html">common/Packet.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classPlayerManager.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="classPlayerManager.html">PlayerManager</a> {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    std::vector&lt;Player*&gt; connected;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="classPlayerManager.html#ae093e4e4e7eecdf5b46de72f5827d71d">PlayerManager</a>();</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classPlayer.html">Player</a> <a class="code" href="classPlayerManager.html#a6442da86b2908a726fc9a4fcad8a35d6">signUp</a>();</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="classPlayer.html">Player</a>* <a class="code" href="classPlayerManager.html#a53fb9718498329bc76b0f8dd199a888e">signIn</a>(std::string, std::string, <span class="keywordtype">int</span>);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classPlayerManager.html#a0a1fc2128678093760c68e83e3896a2e">~PlayerManager</a>();</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;};</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* PLAYERMANAGER_HPP */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="classPlayerManager_html"><div class="ttname"><a href="classPlayerManager.html">PlayerManager</a></div><div class="ttdef"><b>Definition:</b> PlayerManager.hpp:12</div></div>
-<div class="ttc" id="classPlayerManager_html_a6442da86b2908a726fc9a4fcad8a35d6"><div class="ttname"><a href="classPlayerManager.html#a6442da86b2908a726fc9a4fcad8a35d6">PlayerManager::signUp</a></div><div class="ttdeci">Player signUp()</div><div class="ttdef"><b>Definition:</b> PlayerManager.cpp:24</div></div>
-<div class="ttc" id="classPlayerManager_html_a53fb9718498329bc76b0f8dd199a888e"><div class="ttname"><a href="classPlayerManager.html#a53fb9718498329bc76b0f8dd199a888e">PlayerManager::signIn</a></div><div class="ttdeci">Player * signIn(std::string, std::string, int)</div><div class="ttdef"><b>Definition:</b> PlayerManager.cpp:3</div></div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="PlayerManager_8hpp.html#a3c856339cfb4d57a109e24f9d651f378">   12</a></span>&#160;<span class="preprocessor">#define PLAYERS_DB &quot;server/assets/players.json&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classPlayerManager.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classPlayerManager.html">PlayerManager</a> {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    std::vector&lt;Player*&gt; _connected;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    std::vector&lt;Player*&gt; _players;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="classPlayerManager.html#a203221ed2aaa70c55832fe82738f6f7e">PlayerManager</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    std::string <a class="code" href="classPlayerManager.html#a01bdeb0501e0e96afed4818c58443657">getRanking</a>();</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classPlayerManager.html#a85e370f3ac930bf829ca807ea992f4b5">loadPlayers</a>();</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="classPlayer.html">Player</a>* <a class="code" href="classPlayerManager.html#acb14cf0559b1d199045898d959740788">signUp</a>(std::string, std::string, <span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="classPlayer.html">Player</a>* <a class="code" href="classPlayerManager.html#a4cfd0c1c7269de24cb8c150f43d92752">logIn</a>(std::string, std::string, <span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classPlayerManager.html#a92841310f064ebaed59ffde6620216dc">~PlayerManager</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;};</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* PLAYERMANAGER_HPP */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="classPlayerManager_html"><div class="ttname"><a href="classPlayerManager.html">PlayerManager</a></div><div class="ttdef"><b>Definition:</b> PlayerManager.hpp:14</div></div>
+<div class="ttc" id="classPlayerManager_html_a203221ed2aaa70c55832fe82738f6f7e"><div class="ttname"><a href="classPlayerManager.html#a203221ed2aaa70c55832fe82738f6f7e">PlayerManager::PlayerManager</a></div><div class="ttdeci">PlayerManager()=default</div></div>
+<div class="ttc" id="classPlayerManager_html_a85e370f3ac930bf829ca807ea992f4b5"><div class="ttname"><a href="classPlayerManager.html#a85e370f3ac930bf829ca807ea992f4b5">PlayerManager::loadPlayers</a></div><div class="ttdeci">void loadPlayers()</div><div class="ttdef"><b>Definition:</b> PlayerManager.cpp:5</div></div>
+<div class="ttc" id="Packet_8hpp_html"><div class="ttname"><a href="Packet_8hpp.html">Packet.hpp</a></div></div>
+<div class="ttc" id="classPlayerManager_html_a01bdeb0501e0e96afed4818c58443657"><div class="ttname"><a href="classPlayerManager.html#a01bdeb0501e0e96afed4818c58443657">PlayerManager::getRanking</a></div><div class="ttdeci">std::string getRanking()</div><div class="ttdef"><b>Definition:</b> PlayerManager.cpp:24</div></div>
+<div class="ttc" id="classPlayerManager_html_a4cfd0c1c7269de24cb8c150f43d92752"><div class="ttname"><a href="classPlayerManager.html#a4cfd0c1c7269de24cb8c150f43d92752">PlayerManager::logIn</a></div><div class="ttdeci">Player * logIn(std::string, std::string, int)</div><div class="ttdef"><b>Definition:</b> PlayerManager.cpp:38</div></div>
+<div class="ttc" id="classPlayerManager_html_a92841310f064ebaed59ffde6620216dc"><div class="ttname"><a href="classPlayerManager.html#a92841310f064ebaed59ffde6620216dc">PlayerManager::~PlayerManager</a></div><div class="ttdeci">virtual ~PlayerManager()=default</div></div>
 <div class="ttc" id="Player_8hpp_html"><div class="ttname"><a href="Player_8hpp.html">Player.hpp</a></div></div>
-<div class="ttc" id="classPlayerManager_html_ae093e4e4e7eecdf5b46de72f5827d71d"><div class="ttname"><a href="classPlayerManager.html#ae093e4e4e7eecdf5b46de72f5827d71d">PlayerManager::PlayerManager</a></div><div class="ttdeci">PlayerManager()</div></div>
-<div class="ttc" id="classPlayer_html"><div class="ttname"><a href="classPlayer.html">Player</a></div><div class="ttdef"><b>Definition:</b> Player.hpp:16</div></div>
-<div class="ttc" id="classPlayerManager_html_a0a1fc2128678093760c68e83e3896a2e"><div class="ttname"><a href="classPlayerManager.html#a0a1fc2128678093760c68e83e3896a2e">PlayerManager::~PlayerManager</a></div><div class="ttdeci">virtual ~PlayerManager()</div></div>
+<div class="ttc" id="classPlayer_html"><div class="ttname"><a href="classPlayer.html">Player</a></div><div class="ttdef"><b>Definition:</b> Player.hpp:22</div></div>
+<div class="ttc" id="classPlayerManager_html_acb14cf0559b1d199045898d959740788"><div class="ttname"><a href="classPlayerManager.html#acb14cf0559b1d199045898d959740788">PlayerManager::signUp</a></div><div class="ttdeci">Player * signUp(std::string, std::string, int)</div><div class="ttdef"><b>Definition:</b> PlayerManager.cpp:54</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

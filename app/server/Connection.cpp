@@ -120,7 +120,7 @@ void* Connection::newPlayerThread(void* data) {
                 
                 /* We check if it's a login or a registration and send pseudo/password */
                 if (packet->ID != Packet::LOGIN_REQ_ID) {
-                    //newPlayer = PlayerManager::signIn(pseudo, password, clientSocket);
+                    //newPlayer = PlayerManager::signUp(pseudo, password, clientSocket);
                 } else {
                     //newPlayer = PlayerManager::logIn(pseudo, password, clientSocket);
                 }

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['warning',['warning',['../namespaceWizardLogger.html#a2417332237b3df5479de955704215f28',1,'WizardLogger']]]
+  ['takedamage',['takeDamage',['../classPlayerInGame.html#a85b643421713e7036d086e06bb02981a',1,'PlayerInGame']]]
 ];

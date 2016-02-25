@@ -97,21 +97,52 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">class </span><a class="code" href="classCollection.html">Collection</a> {</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Error_8hpp.html">common/Error.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="comment">//std::vector&lt;Card&gt; _listAllCards;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="CardManager_8hpp.html">CardManager.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">class </span><a class="code" href="classCard.html">Card</a>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="server_2Card_8hpp.html">Card.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;};</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">class </span><a class="code" href="classCollection.html">Collection</a> {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classCollection.html#aebfdc5b0559ab8a0c350a24c9d24f564">   16</a></span>&#160;    std::vector&lt;Card*&gt;<a class="code" href="classCollection.html#aebfdc5b0559ab8a0c350a24c9d24f564">_listCard</a>;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* COLLECTION_HPP */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="classCollection.html#a5a47d67f2f24553ea9adde4f4f286dc6">Collection</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="classCollection.html#a5a47d67f2f24553ea9adde4f4f286dc6">Collection</a>(std::vector&lt;Card*&gt;);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="classCollection.html#a5a47d67f2f24553ea9adde4f4f286dc6">Collection</a>(std::vector&lt;unsigned&gt;);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="classCollection.html#a5a47d67f2f24553ea9adde4f4f286dc6">Collection</a>(<span class="keyword">const</span> <a class="code" href="classCollection.html">Collection</a>&amp;) = <span class="keywordflow">default</span>; <span class="comment">// Copy constructor</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="classCollection.html">Collection</a>&amp; <a class="code" href="classCollection.html#afdc6e54deac9226fda136ca4bb8a97a1">operator=</a>(<span class="keyword">const</span> <a class="code" href="classCollection.html">Collection</a>&amp;) = <span class="keywordflow">default</span>; <span class="comment">// Copy operator</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5">Error</a> <a class="code" href="classCollection.html#a430b67b03697286c696b9972de4b7b4b">addCard</a>(<a class="code" href="classCard.html">Card</a>*); <span class="comment">// adds a card in the deck</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5">Error</a> <a class="code" href="classCollection.html#a430b67b03697286c696b9972de4b7b4b">addCard</a>(<span class="keywordtype">int</span> cardId); <span class="comment">// add a card in the collection with the id</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCollection.html#ae7ee9c1b7e8619d2cf851e5c0dbd81b6">removeCard</a>(<span class="keywordtype">int</span> i); <span class="comment">// removes the i-th card from the deck</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCollection.html#ae7ee9c1b7e8619d2cf851e5c0dbd81b6">removeCard</a>(<a class="code" href="classCard.html">Card</a>*); <span class="comment">// removes a card from the deck</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCollection.html#a633b047916ca73598b08c019ffe6c4a5">removeCardId</a>(<span class="keywordtype">int</span> cardId);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classCollection.html#a9bd74b104abcc47257564044be71a6b2">indexOfCard</a>(<span class="keywordtype">int</span> cardId); <span class="comment">// the index of a card</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classCollection.html#aa7acabbd00d04898ffefce407645142e">getCardIndex</a>(<a class="code" href="classCard.html">Card</a>*); <span class="comment">// get the index of the card</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="classCard.html">Card</a>* <a class="code" href="classCollection.html#aced95e3b1de7bebeb22d9cb1d36d483b">getCardOnIndex</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> index);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classCollection.html#ac7fe8e15953eee4ba235ee7ebc4ffc5b">~Collection</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;};</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* COLLECTION_HPP */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="classCollection_html_ac7fe8e15953eee4ba235ee7ebc4ffc5b"><div class="ttname"><a href="classCollection.html#ac7fe8e15953eee4ba235ee7ebc4ffc5b">Collection::~Collection</a></div><div class="ttdeci">virtual ~Collection()=default</div></div>
+<div class="ttc" id="classCollection_html_a430b67b03697286c696b9972de4b7b4b"><div class="ttname"><a href="classCollection.html#a430b67b03697286c696b9972de4b7b4b">Collection::addCard</a></div><div class="ttdeci">virtual Error addCard(Card *)</div><div class="ttdef"><b>Definition:</b> Collection.cpp:30</div></div>
 <div class="ttc" id="classCollection_html"><div class="ttname"><a href="classCollection.html">Collection</a></div><div class="ttdef"><b>Definition:</b> Collection.hpp:6</div></div>
+<div class="ttc" id="Error_8hpp_html_a2c3e4bb40f36b262a5214e2da2bca9c5"><div class="ttname"><a href="Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5">Error</a></div><div class="ttdeci">Error</div><div class="ttdef"><b>Definition:</b> Error.hpp:4</div></div>
+<div class="ttc" id="classCollection_html_aa7acabbd00d04898ffefce407645142e"><div class="ttname"><a href="classCollection.html#aa7acabbd00d04898ffefce407645142e">Collection::getCardIndex</a></div><div class="ttdeci">int getCardIndex(Card *)</div><div class="ttdef"><b>Definition:</b> Collection.cpp:95</div></div>
+<div class="ttc" id="classCollection_html_aced95e3b1de7bebeb22d9cb1d36d483b"><div class="ttname"><a href="classCollection.html#aced95e3b1de7bebeb22d9cb1d36d483b">Collection::getCardOnIndex</a></div><div class="ttdeci">Card * getCardOnIndex(const unsigned index)</div><div class="ttdef"><b>Definition:</b> Collection.cpp:113</div></div>
+<div class="ttc" id="classCollection_html_afdc6e54deac9226fda136ca4bb8a97a1"><div class="ttname"><a href="classCollection.html#afdc6e54deac9226fda136ca4bb8a97a1">Collection::operator=</a></div><div class="ttdeci">Collection &amp; operator=(const Collection &amp;)=default</div></div>
+<div class="ttc" id="server_2Card_8hpp_html"><div class="ttname"><a href="server_2Card_8hpp.html">Card.hpp</a></div></div>
+<div class="ttc" id="classCollection_html_aebfdc5b0559ab8a0c350a24c9d24f564"><div class="ttname"><a href="classCollection.html#aebfdc5b0559ab8a0c350a24c9d24f564">Collection::_listCard</a></div><div class="ttdeci">std::vector&lt; Card * &gt; _listCard</div><div class="ttdef"><b>Definition:</b> Collection.hpp:16</div></div>
+<div class="ttc" id="classCard_html"><div class="ttname"><a href="classCard.html">Card</a></div><div class="ttdef"><b>Definition:</b> Card.hpp:6</div></div>
+<div class="ttc" id="classCollection_html_a633b047916ca73598b08c019ffe6c4a5"><div class="ttname"><a href="classCollection.html#a633b047916ca73598b08c019ffe6c4a5">Collection::removeCardId</a></div><div class="ttdeci">void removeCardId(int cardId)</div><div class="ttdef"><b>Definition:</b> Collection.cpp:84</div></div>
+<div class="ttc" id="CardManager_8hpp_html"><div class="ttname"><a href="CardManager_8hpp.html">CardManager.hpp</a></div></div>
+<div class="ttc" id="classCollection_html_a9bd74b104abcc47257564044be71a6b2"><div class="ttname"><a href="classCollection.html#a9bd74b104abcc47257564044be71a6b2">Collection::indexOfCard</a></div><div class="ttdeci">int indexOfCard(int cardId)</div></div>
+<div class="ttc" id="Error_8hpp_html"><div class="ttname"><a href="Error_8hpp.html">Error.hpp</a></div></div>
+<div class="ttc" id="classCollection_html_a5a47d67f2f24553ea9adde4f4f286dc6"><div class="ttname"><a href="classCollection.html#a5a47d67f2f24553ea9adde4f4f286dc6">Collection::Collection</a></div><div class="ttdeci">Collection()=default</div></div>
+<div class="ttc" id="classCollection_html_ae7ee9c1b7e8619d2cf851e5c0dbd81b6"><div class="ttname"><a href="classCollection.html#ae7ee9c1b7e8619d2cf851e5c0dbd81b6">Collection::removeCard</a></div><div class="ttdeci">void removeCard(int i)</div><div class="ttdef"><b>Definition:</b> Collection.cpp:62</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.10"/>
+<title>Wizard Poker:  Fichier source de common/Error.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Wizard Poker
+   &#160;<span id="projectnumber">0.0.1</span>
+   </div>
+   <div id="projectbrief">ULB-BA-2-INFO : Projet d&#39;année</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.10 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="namespaces.html"><span>Espaces&#160;de&#160;nommage</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_bdd9a5d540de89e9fe90efdfc6973a4f.html">common</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Error.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="Error_8hpp.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef ERROR_HPP</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define ERROR_HPP</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5">    4</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5">Error</a> {</div>
+<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5aef9104c292609ba6db320509be8fe27f">    5</a></span>&#160;    <a class="code" href="Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5aef9104c292609ba6db320509be8fe27f">NoError</a> = 0,</div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5a6234fd98f2c85b32299d79baab80dea4">    6</a></span>&#160;    <a class="code" href="Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5a6234fd98f2c85b32299d79baab80dea4">NotEnoughEnergy</a> = 1,</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5a69be8ed8be5a19ae097412c177edff8a">    7</a></span>&#160;    <a class="code" href="Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5a69be8ed8be5a19ae097412c177edff8a">NotEnoughPlace</a> = 2,</div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5a1734b7c96fac4430a6684f80c838b291">    8</a></span>&#160;    <a class="code" href="Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5a1734b7c96fac4430a6684f80c838b291">NotHisTurn</a> = 3,</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5a6dafffdfe50f10ca35fd996ba1dc66c8">    9</a></span>&#160;    <a class="code" href="Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5a6dafffdfe50f10ca35fd996ba1dc66c8">MustAttackTaunt</a> = 4,</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5a5aa274bcd7cca9b99cda5086c5ca149b">   10</a></span>&#160;    <a class="code" href="Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5a5aa274bcd7cca9b99cda5086c5ca149b">UnknowError</a> = 5,</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5aa38123fa6d1e0d61ce9be9c99fd11614">   11</a></span>&#160;    <a class="code" href="Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5aa38123fa6d1e0d61ce9be9c99fd11614">NotEffectForPlayer</a> = 6,</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5ac302566387ae47b2de82dc0d8a8ea327">   12</a></span>&#160;    <a class="code" href="Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5ac302566387ae47b2de82dc0d8a8ea327">NotEffectForMonster</a> = 7,</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5ae819114f5495a20f384546c5401b87d6">   13</a></span>&#160;    <a class="code" href="Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5ae819114f5495a20f384546c5401b87d6">DeckFull</a> = 8,</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5a53adedb50ad643a5e0fcd9a5cb5a745e">   14</a></span>&#160;    <a class="code" href="Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5a53adedb50ad643a5e0fcd9a5cb5a745e">TwoSameCardMax</a> = 9</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;};</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* ERROR_HPP */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="Error_8hpp_html_a2c3e4bb40f36b262a5214e2da2bca9c5a53adedb50ad643a5e0fcd9a5cb5a745e"><div class="ttname"><a href="Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5a53adedb50ad643a5e0fcd9a5cb5a745e">TwoSameCardMax</a></div><div class="ttdef"><b>Definition:</b> Error.hpp:14</div></div>
+<div class="ttc" id="Error_8hpp_html_a2c3e4bb40f36b262a5214e2da2bca9c5a69be8ed8be5a19ae097412c177edff8a"><div class="ttname"><a href="Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5a69be8ed8be5a19ae097412c177edff8a">NotEnoughPlace</a></div><div class="ttdef"><b>Definition:</b> Error.hpp:7</div></div>
+<div class="ttc" id="Error_8hpp_html_a2c3e4bb40f36b262a5214e2da2bca9c5a5aa274bcd7cca9b99cda5086c5ca149b"><div class="ttname"><a href="Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5a5aa274bcd7cca9b99cda5086c5ca149b">UnknowError</a></div><div class="ttdef"><b>Definition:</b> Error.hpp:10</div></div>
+<div class="ttc" id="Error_8hpp_html_a2c3e4bb40f36b262a5214e2da2bca9c5aef9104c292609ba6db320509be8fe27f"><div class="ttname"><a href="Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5aef9104c292609ba6db320509be8fe27f">NoError</a></div><div class="ttdef"><b>Definition:</b> Error.hpp:5</div></div>
+<div class="ttc" id="Error_8hpp_html_a2c3e4bb40f36b262a5214e2da2bca9c5"><div class="ttname"><a href="Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5">Error</a></div><div class="ttdeci">Error</div><div class="ttdef"><b>Definition:</b> Error.hpp:4</div></div>
+<div class="ttc" id="Error_8hpp_html_a2c3e4bb40f36b262a5214e2da2bca9c5aa38123fa6d1e0d61ce9be9c99fd11614"><div class="ttname"><a href="Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5aa38123fa6d1e0d61ce9be9c99fd11614">NotEffectForPlayer</a></div><div class="ttdef"><b>Definition:</b> Error.hpp:11</div></div>
+<div class="ttc" id="Error_8hpp_html_a2c3e4bb40f36b262a5214e2da2bca9c5a1734b7c96fac4430a6684f80c838b291"><div class="ttname"><a href="Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5a1734b7c96fac4430a6684f80c838b291">NotHisTurn</a></div><div class="ttdef"><b>Definition:</b> Error.hpp:8</div></div>
+<div class="ttc" id="Error_8hpp_html_a2c3e4bb40f36b262a5214e2da2bca9c5ae819114f5495a20f384546c5401b87d6"><div class="ttname"><a href="Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5ae819114f5495a20f384546c5401b87d6">DeckFull</a></div><div class="ttdef"><b>Definition:</b> Error.hpp:13</div></div>
+<div class="ttc" id="Error_8hpp_html_a2c3e4bb40f36b262a5214e2da2bca9c5a6234fd98f2c85b32299d79baab80dea4"><div class="ttname"><a href="Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5a6234fd98f2c85b32299d79baab80dea4">NotEnoughEnergy</a></div><div class="ttdef"><b>Definition:</b> Error.hpp:6</div></div>
+<div class="ttc" id="Error_8hpp_html_a2c3e4bb40f36b262a5214e2da2bca9c5a6dafffdfe50f10ca35fd996ba1dc66c8"><div class="ttname"><a href="Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5a6dafffdfe50f10ca35fd996ba1dc66c8">MustAttackTaunt</a></div><div class="ttdef"><b>Definition:</b> Error.hpp:9</div></div>
+<div class="ttc" id="Error_8hpp_html_a2c3e4bb40f36b262a5214e2da2bca9c5ac302566387ae47b2de82dc0d8a8ea327"><div class="ttname"><a href="Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5ac302566387ae47b2de82dc0d8a8ea327">NotEffectForMonster</a></div><div class="ttdef"><b>Definition:</b> Error.hpp:12</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.10
+</small></address>
+</body>
+</html>

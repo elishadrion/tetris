@@ -13,24 +13,73 @@ Graphe d\textquotesingle{}héritage de Deck\+:\begin{figure}[H]
 \subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
+\hyperlink{classDeck_ab7f2fc685f721ab93884d04826db1de0}{Deck} (std\+::string name, std\+::vector$<$ \hyperlink{classCard}{Card} $\ast$ $>$ list\+Card)
+\item 
+\hyperlink{classDeck_a34d860bcef590d58850606102623da07}{Deck} (std\+::string name, std\+::vector$<$ unsigned $>$ list\+Card)
+\item 
 \hyperlink{classDeck_a11233381fd5ea0b0b4e6288048f146fa}{Deck} (const \hyperlink{classDeck}{Deck} \&)
 \item 
-\hyperlink{classDeck}{Deck} \& \hyperlink{classDeck_a18c2a1c394b04e40b0b8ff46b7c2e972}{operator=} (const \hyperlink{classDeck}{Deck} \&)
+\hyperlink{classDeck}{Deck} \& \hyperlink{classDeck_ac3d2eaa856438ec34f898821e7e76a6d}{operator=} (const \hyperlink{classDeck}{Deck} \&)=default
+\item 
+std\+::string \hyperlink{classDeck_aaa3db432259e3fd24431e0cef7a83ec0}{get\+Name} ()
 \item 
 bool \hyperlink{classDeck_a66cfb2d1adfb6b0b94ed25c8f5ca29f9}{is\+Valide} ()
 \item 
-void \hyperlink{classDeck_a50a5f34e7b296ef0a20c921e44f9c762}{add\+Card} (int id)
+\hyperlink{classCard}{Card} $\ast$ \hyperlink{classDeck_a910d3c6c7a83168fd7f2485778d5bfe0}{pickup} ()
 \item 
-int \hyperlink{classDeck_af6338f8f48dadecb079446b698468735}{pickup} ()
+virtual \hyperlink{Error_8hpp_a2c3e4bb40f36b262a5214e2da2bca9c5}{Error} \hyperlink{classDeck_a741aa3330dc4912beb69c962e74df507}{add\+Card} (\hyperlink{classCard}{Card} $\ast$card) override
 \item 
-std\+::vector$<$ std\+::string $>$ \hyperlink{classDeck_ab68c8a979926640071a2621d247e0452}{get\+List\+Name\+Deck} ()
+virtual \hyperlink{Error_8hpp_a2c3e4bb40f36b262a5214e2da2bca9c5}{Error} \hyperlink{classDeck_a5c18872420a1969dba61ee3eca320aa7}{add\+Card} (int card\+Id) override
+\item 
+bool \hyperlink{classDeck_a360cf67965cd28b8bdda3ec932ae3296}{delete\+Deck} (\hyperlink{classPlayerInGame}{Player\+In\+Game} $\ast$)
+\item 
+\hyperlink{classDeck}{Deck} $\ast$ \hyperlink{classDeck_ab216a347587d7afe42adecb58a42fcbb}{copy\+Deck} ()
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classDeck}{Deck} $\ast$ \hyperlink{classDeck_ae5ff1528ce1d9752c2ddb928de943d3e}{get\+Deck} (std\+::string, std\+::vector$<$ \hyperlink{classDeck}{Deck} $\ast$ $>$)
 \end{DoxyCompactItemize}
 
 
 \subsection{Description détaillée}
-A deck is a list of 100 Cards (or less). \hyperlink{classDeck}{Deck} only manipulates id (not Cards) 
+A deck is a list of 20 Cards (or less) 
 
 \subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classDeck_ab7f2fc685f721ab93884d04826db1de0}{}\index{Deck@{Deck}!Deck@{Deck}}
+\index{Deck@{Deck}!Deck@{Deck}}
+\subsubsection[{Deck(std\+::string name, std\+::vector$<$ Card $\ast$ $>$ list\+Card)}]{\setlength{\rightskip}{0pt plus 5cm}Deck\+::\+Deck (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{name, }
+\item[{std\+::vector$<$ {\bf Card} $\ast$ $>$}]{list\+Card}
+\end{DoxyParamCaption}
+)}\label{classDeck_ab7f2fc685f721ab93884d04826db1de0}
+Constructor
+
+
+\begin{DoxyParams}{Paramètres}
+{\em name} & of the deck \\
+\hline
+{\em list\+Card} & the must be add on deck \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDeck_a34d860bcef590d58850606102623da07}{}\index{Deck@{Deck}!Deck@{Deck}}
+\index{Deck@{Deck}!Deck@{Deck}}
+\subsubsection[{Deck(std\+::string name, std\+::vector$<$ unsigned $>$ list\+Card)}]{\setlength{\rightskip}{0pt plus 5cm}Deck\+::\+Deck (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{name, }
+\item[{std\+::vector$<$ unsigned $>$}]{list\+Card}
+\end{DoxyParamCaption}
+)}\label{classDeck_a34d860bcef590d58850606102623da07}
+Constructor
+
+
+\begin{DoxyParams}{Paramètres}
+{\em name} & of the deck \\
+\hline
+{\em list\+Card} & the must be add on deck \\
+\hline
+\end{DoxyParams}
 \hypertarget{classDeck_a11233381fd5ea0b0b4e6288048f146fa}{}\index{Deck@{Deck}!Deck@{Deck}}
 \index{Deck@{Deck}!Deck@{Deck}}
 \subsubsection[{Deck(const Deck \&)}]{\setlength{\rightskip}{0pt plus 5cm}Deck\+::\+Deck (
@@ -48,27 +97,99 @@ Copy Constructor
 
 
 \subsection{Documentation des fonctions membres}
-\hypertarget{classDeck_a50a5f34e7b296ef0a20c921e44f9c762}{}\index{Deck@{Deck}!add\+Card@{add\+Card}}
+\hypertarget{classDeck_a741aa3330dc4912beb69c962e74df507}{}\index{Deck@{Deck}!add\+Card@{add\+Card}}
 \index{add\+Card@{add\+Card}!Deck@{Deck}}
-\subsubsection[{add\+Card(int id)}]{\setlength{\rightskip}{0pt plus 5cm}void Deck\+::add\+Card (
+\subsubsection[{add\+Card(\+Card $\ast$card) override}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Error} Deck\+::add\+Card (
 \begin{DoxyParamCaption}
-\item[{int}]{id}
+\item[{{\bf Card} $\ast$}]{card}
 \end{DoxyParamCaption}
-)}\label{classDeck_a50a5f34e7b296ef0a20c921e44f9c762}
-Adds a card in the deck Error\+: Over\+Flow if more than 100 cards
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{classDeck_a741aa3330dc4912beb69c962e74df507}
+Adds a card in the deck
 
 
 \begin{DoxyParams}{Paramètres}
-{\em id} & of the card \\
+{\em card} & the card to add \\
 \hline
 \end{DoxyParams}
-\hypertarget{classDeck_ab68c8a979926640071a2621d247e0452}{}\index{Deck@{Deck}!get\+List\+Name\+Deck@{get\+List\+Name\+Deck}}
-\index{get\+List\+Name\+Deck@{get\+List\+Name\+Deck}!Deck@{Deck}}
-\subsubsection[{get\+List\+Name\+Deck()}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$std\+::string$>$ Deck\+::get\+List\+Name\+Deck (
+\begin{DoxyReturn}{Renvoie}
+Error and No\+Error if all is ok 
+\end{DoxyReturn}
+
+
+Réimplémentée à partir de \hyperlink{classCollection_a430b67b03697286c696b9972de4b7b4b}{Collection}.
+
+\hypertarget{classDeck_a5c18872420a1969dba61ee3eca320aa7}{}\index{Deck@{Deck}!add\+Card@{add\+Card}}
+\index{add\+Card@{add\+Card}!Deck@{Deck}}
+\subsubsection[{add\+Card(int card\+Id) override}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Error} Deck\+::add\+Card (
+\begin{DoxyParamCaption}
+\item[{int}]{card\+Id}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{classDeck_a5c18872420a1969dba61ee3eca320aa7}
+Adds a card in the deck
+
+
+\begin{DoxyParams}{Paramètres}
+{\em card\+Id} & the id of the card to add \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Error and No\+Error if all is ok 
+\end{DoxyReturn}
+
+
+Réimplémentée à partir de \hyperlink{classCollection_a580daf9636192634d949951ceffba096}{Collection}.
+
+\hypertarget{classDeck_ab216a347587d7afe42adecb58a42fcbb}{}\index{Deck@{Deck}!copy\+Deck@{copy\+Deck}}
+\index{copy\+Deck@{copy\+Deck}!Deck@{Deck}}
+\subsubsection[{copy\+Deck()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Deck} $\ast$ Deck\+::copy\+Deck (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}\label{classDeck_ab68c8a979926640071a2621d247e0452}
+)}\label{classDeck_ab216a347587d7afe42adecb58a42fcbb}
+Copy the deck A\+N\+D all the card !
+
+\begin{DoxyReturn}{Renvoie}
+the new deck 
+\end{DoxyReturn}
+\hypertarget{classDeck_a360cf67965cd28b8bdda3ec932ae3296}{}\index{Deck@{Deck}!delete\+Deck@{delete\+Deck}}
+\index{delete\+Deck@{delete\+Deck}!Deck@{Deck}}
+\subsubsection[{delete\+Deck(\+Player\+In\+Game $\ast$)}]{\setlength{\rightskip}{0pt plus 5cm}bool Deck\+::delete\+Deck (
+\begin{DoxyParamCaption}
+\item[{{\bf Player\+In\+Game} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{classDeck_a360cf67965cd28b8bdda3ec932ae3296}
+\hypertarget{classDeck_ae5ff1528ce1d9752c2ddb928de943d3e}{}\index{Deck@{Deck}!get\+Deck@{get\+Deck}}
+\index{get\+Deck@{get\+Deck}!Deck@{Deck}}
+\subsubsection[{get\+Deck(std\+::string, std\+::vector$<$ Deck $\ast$ $>$)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Deck} $\ast$ Deck\+::get\+Deck (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{name, }
+\item[{std\+::vector$<$ {\bf Deck} $\ast$ $>$}]{list\+Deck}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classDeck_ae5ff1528ce1d9752c2ddb928de943d3e}
+Get the deck with a specific name
+
+
+\begin{DoxyParams}{Paramètres}
+{\em name} & of the deck \\
+\hline
+{\em list\+Deck} & to find the deck with the specific name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the deck or nullptr 
+\end{DoxyReturn}
+\hypertarget{classDeck_aaa3db432259e3fd24431e0cef7a83ec0}{}\index{Deck@{Deck}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Deck@{Deck}}
+\subsubsection[{get\+Name()}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Deck\+::get\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classDeck_aaa3db432259e3fd24431e0cef7a83ec0}
+The name of the deck
+
+\begin{DoxyReturn}{Renvoie}
+the name of the deck 
+\end{DoxyReturn}
 \hypertarget{classDeck_a66cfb2d1adfb6b0b94ed25c8f5ca29f9}{}\index{Deck@{Deck}!is\+Valide@{is\+Valide}}
 \index{is\+Valide@{is\+Valide}!Deck@{Deck}}
 \subsubsection[{is\+Valide()}]{\setlength{\rightskip}{0pt plus 5cm}bool Deck\+::is\+Valide (
@@ -81,31 +202,24 @@ Checks if the deck is valide. He must have 100 cards
 \begin{DoxyReturn}{Renvoie}
 True if the deck is valide 
 \end{DoxyReturn}
-\hypertarget{classDeck_a18c2a1c394b04e40b0b8ff46b7c2e972}{}\index{Deck@{Deck}!operator=@{operator=}}
+\hypertarget{classDeck_ac3d2eaa856438ec34f898821e7e76a6d}{}\index{Deck@{Deck}!operator=@{operator=}}
 \index{operator=@{operator=}!Deck@{Deck}}
-\subsubsection[{operator=(const Deck \&)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Deck} \& Deck\+::operator= (
+\subsubsection[{operator=(const Deck \&)=default}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Deck}\& Deck\+::operator= (
 \begin{DoxyParamCaption}
-\item[{const {\bf Deck} \&}]{deck}
+\item[{const {\bf Deck} \&}]{}
 \end{DoxyParamCaption}
-)}\label{classDeck_a18c2a1c394b04e40b0b8ff46b7c2e972}
-Copy operator
-
-
-\begin{DoxyParams}{Paramètres}
-{\em deck} & to copy \\
-\hline
-\end{DoxyParams}
-\hypertarget{classDeck_af6338f8f48dadecb079446b698468735}{}\index{Deck@{Deck}!pickup@{pickup}}
+)\hspace{0.3cm}{\ttfamily [default]}}\label{classDeck_ac3d2eaa856438ec34f898821e7e76a6d}
+\hypertarget{classDeck_a910d3c6c7a83168fd7f2485778d5bfe0}{}\index{Deck@{Deck}!pickup@{pickup}}
 \index{pickup@{pickup}!Deck@{Deck}}
-\subsubsection[{pickup()}]{\setlength{\rightskip}{0pt plus 5cm}int Deck\+::pickup (
+\subsubsection[{pickup()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Card} $\ast$ Deck\+::pickup (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}\label{classDeck_af6338f8f48dadecb079446b698468735}
+)}\label{classDeck_a910d3c6c7a83168fd7f2485778d5bfe0}
 Returns the last card of the deck
 
 \begin{DoxyReturn}{Renvoie}
-the id of the card 
+the id of the card or -\/1 if empty 
 \end{DoxyReturn}
 
 

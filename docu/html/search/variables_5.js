@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['maxenergy',['maxEnergy',['../structdataIGPlayer.html#a27dcb13892444b5fcfebe7d01d05141a',1,'dataIGPlayer']]]
+  ['limitenergy',['limitEnergy',['../structdataIGPlayer.html#ae0958559747cb2ebad4e6c7ba6095c3f',1,'dataIGPlayer']]]
 ];

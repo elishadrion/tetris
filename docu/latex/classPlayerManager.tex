@@ -7,50 +7,70 @@
 \subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classPlayerManager_ae093e4e4e7eecdf5b46de72f5827d71d}{Player\+Manager} ()
+\hyperlink{classPlayerManager_a203221ed2aaa70c55832fe82738f6f7e}{Player\+Manager} ()=default
 \item 
-\hyperlink{classPlayer}{Player} \hyperlink{classPlayerManager_a6442da86b2908a726fc9a4fcad8a35d6}{sign\+Up} ()
+std\+::string \hyperlink{classPlayerManager_a01bdeb0501e0e96afed4818c58443657}{get\+Ranking} ()
 \item 
-\hyperlink{classPlayer}{Player} $\ast$ \hyperlink{classPlayerManager_a53fb9718498329bc76b0f8dd199a888e}{sign\+In} (std\+::string, std\+::string, int)
+void \hyperlink{classPlayerManager_a85e370f3ac930bf829ca807ea992f4b5}{load\+Players} ()
 \item 
-virtual \hyperlink{classPlayerManager_a0a1fc2128678093760c68e83e3896a2e}{$\sim$\+Player\+Manager} ()
+\hyperlink{classPlayer}{Player} $\ast$ \hyperlink{classPlayerManager_acb14cf0559b1d199045898d959740788}{sign\+Up} (std\+::string, std\+::string, int)
+\item 
+\hyperlink{classPlayer}{Player} $\ast$ \hyperlink{classPlayerManager_a4cfd0c1c7269de24cb8c150f43d92752}{log\+In} (std\+::string, std\+::string, int)
+\item 
+virtual \hyperlink{classPlayerManager_a92841310f064ebaed59ffde6620216dc}{$\sim$\+Player\+Manager} ()=default
 \end{DoxyCompactItemize}
 
 
 \subsection{Documentation des constructeurs et destructeur}
-\hypertarget{classPlayerManager_ae093e4e4e7eecdf5b46de72f5827d71d}{}\index{Player\+Manager@{Player\+Manager}!Player\+Manager@{Player\+Manager}}
+\hypertarget{classPlayerManager_a203221ed2aaa70c55832fe82738f6f7e}{}\index{Player\+Manager@{Player\+Manager}!Player\+Manager@{Player\+Manager}}
 \index{Player\+Manager@{Player\+Manager}!Player\+Manager@{Player\+Manager}}
-\subsubsection[{Player\+Manager()}]{\setlength{\rightskip}{0pt plus 5cm}Player\+Manager\+::\+Player\+Manager (
+\subsubsection[{Player\+Manager()=default}]{\setlength{\rightskip}{0pt plus 5cm}Player\+Manager\+::\+Player\+Manager (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}\label{classPlayerManager_ae093e4e4e7eecdf5b46de72f5827d71d}
-\hypertarget{classPlayerManager_a0a1fc2128678093760c68e83e3896a2e}{}\index{Player\+Manager@{Player\+Manager}!````~Player\+Manager@{$\sim$\+Player\+Manager}}
+)\hspace{0.3cm}{\ttfamily [default]}}\label{classPlayerManager_a203221ed2aaa70c55832fe82738f6f7e}
+\hypertarget{classPlayerManager_a92841310f064ebaed59ffde6620216dc}{}\index{Player\+Manager@{Player\+Manager}!````~Player\+Manager@{$\sim$\+Player\+Manager}}
 \index{````~Player\+Manager@{$\sim$\+Player\+Manager}!Player\+Manager@{Player\+Manager}}
-\subsubsection[{$\sim$\+Player\+Manager()}]{\setlength{\rightskip}{0pt plus 5cm}virtual Player\+Manager\+::$\sim$\+Player\+Manager (
+\subsubsection[{$\sim$\+Player\+Manager()=default}]{\setlength{\rightskip}{0pt plus 5cm}virtual Player\+Manager\+::$\sim$\+Player\+Manager (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classPlayerManager_a0a1fc2128678093760c68e83e3896a2e}
+)\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}\label{classPlayerManager_a92841310f064ebaed59ffde6620216dc}
 
 
 \subsection{Documentation des fonctions membres}
-\hypertarget{classPlayerManager_a53fb9718498329bc76b0f8dd199a888e}{}\index{Player\+Manager@{Player\+Manager}!sign\+In@{sign\+In}}
-\index{sign\+In@{sign\+In}!Player\+Manager@{Player\+Manager}}
-\subsubsection[{sign\+In(std\+::string, std\+::string, int)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Player} $\ast$ Player\+Manager\+::sign\+In (
-\begin{DoxyParamCaption}
-\item[{std\+::string}]{username, }
-\item[{std\+::string}]{pass, }
-\item[{int}]{sockfd}
-\end{DoxyParamCaption}
-)}\label{classPlayerManager_a53fb9718498329bc76b0f8dd199a888e}
-\hypertarget{classPlayerManager_a6442da86b2908a726fc9a4fcad8a35d6}{}\index{Player\+Manager@{Player\+Manager}!sign\+Up@{sign\+Up}}
-\index{sign\+Up@{sign\+Up}!Player\+Manager@{Player\+Manager}}
-\subsubsection[{sign\+Up()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Player} Player\+Manager\+::sign\+Up (
+\hypertarget{classPlayerManager_a01bdeb0501e0e96afed4818c58443657}{}\index{Player\+Manager@{Player\+Manager}!get\+Ranking@{get\+Ranking}}
+\index{get\+Ranking@{get\+Ranking}!Player\+Manager@{Player\+Manager}}
+\subsubsection[{get\+Ranking()}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Player\+Manager\+::get\+Ranking (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}\label{classPlayerManager_a6442da86b2908a726fc9a4fcad8a35d6}
+)}\label{classPlayerManager_a01bdeb0501e0e96afed4818c58443657}
+\hypertarget{classPlayerManager_a85e370f3ac930bf829ca807ea992f4b5}{}\index{Player\+Manager@{Player\+Manager}!load\+Players@{load\+Players}}
+\index{load\+Players@{load\+Players}!Player\+Manager@{Player\+Manager}}
+\subsubsection[{load\+Players()}]{\setlength{\rightskip}{0pt plus 5cm}void Player\+Manager\+::load\+Players (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classPlayerManager_a85e370f3ac930bf829ca807ea992f4b5}
+\hypertarget{classPlayerManager_a4cfd0c1c7269de24cb8c150f43d92752}{}\index{Player\+Manager@{Player\+Manager}!log\+In@{log\+In}}
+\index{log\+In@{log\+In}!Player\+Manager@{Player\+Manager}}
+\subsubsection[{log\+In(std\+::string, std\+::string, int)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Player} $\ast$ Player\+Manager\+::log\+In (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{username, }
+\item[{std\+::string}]{password, }
+\item[{int}]{sockfd}
+\end{DoxyParamCaption}
+)}\label{classPlayerManager_a4cfd0c1c7269de24cb8c150f43d92752}
+\hypertarget{classPlayerManager_acb14cf0559b1d199045898d959740788}{}\index{Player\+Manager@{Player\+Manager}!sign\+Up@{sign\+Up}}
+\index{sign\+Up@{sign\+Up}!Player\+Manager@{Player\+Manager}}
+\subsubsection[{sign\+Up(std\+::string, std\+::string, int)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Player} $\ast$ Player\+Manager\+::sign\+Up (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{username, }
+\item[{std\+::string}]{password, }
+\item[{int}]{sockfd}
+\end{DoxyParamCaption}
+)}\label{classPlayerManager_acb14cf0559b1d199045898d959740788}
 
 
 La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}

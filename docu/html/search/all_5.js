@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['fatal',['fatal',['../namespaceWizardLogger.html#a1c2fc81209ee99c7ec0762d0a8cf36aa',1,'WizardLogger::fatal(std::string)'],['../namespaceWizardLogger.html#a7ab7684ab0734464dc36e49cf46ff2f3',1,'WizardLogger::fatal(std::string, std::exception)']]],
-  ['friends',['Friends',['../classFriends.html',1,'']]],
-  ['friends_2ehpp',['Friends.hpp',['../Friends_8hpp.html',1,'']]],
-  ['friendsmanager',['FriendsManager',['../classFriendsManager.html',1,'']]],
-  ['friendsmanager_2ehpp',['FriendsManager.hpp',['../FriendsManager_8hpp.html',1,'']]]
+  ['effect',['Effect',['../classEffect.html',1,'Effect'],['../classEffect.html#a4dae74244f59936a49847da9217b4126',1,'Effect::Effect()']]],
+  ['effect_2ecpp',['Effect.cpp',['../Effect_8cpp.html',1,'']]],
+  ['effect_2ehpp',['Effect.hpp',['../Effect_8hpp.html',1,'']]],
+  ['energy',['energy',['../structdataIGPlayer.html#a62d62c03941a981f96ae02098ae8d2e2',1,'dataIGPlayer']]],
+  ['error',['Error',['../Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5',1,'Error():&#160;Error.hpp'],['../namespaceWizardLogger.html#af28a023815c0b18a5408ab78aa227130',1,'WizardLogger::error(std::string)'],['../namespaceWizardLogger.html#a136700028ce56de57372e1b821fd70de',1,'WizardLogger::error(std::string, std::exception)']]],
+  ['error_2ehpp',['Error.hpp',['../Error_8hpp.html',1,'']]]
 ];

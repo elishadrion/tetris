@@ -1,0 +1,140 @@
+\hypertarget{namespacePacketManager}{}\section{Référence de l\textquotesingle{}espace de nommage Packet\+Manager}
+\label{namespacePacketManager}\index{Packet\+Manager@{Packet\+Manager}}
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{namespacePacketManager_ac206635e6603c3488fb11d04cc0fa3e9}{manage\+Packet} (\hyperlink{structPacket_1_1packet}{Packet\+::packet} $\ast$)
+\item 
+void \hyperlink{namespacePacketManager_a059f1572687e336c45e1cc73e069fe4f}{make\+Login\+Request} (const char $\ast$, const char $\ast$)
+\item 
+void \hyperlink{namespacePacketManager_adacf7794a085944d9bb34af27332605d}{make\+Registration\+Request} (const char $\ast$, const char $\ast$)
+\item 
+void \hyperlink{namespacePacketManager_a62456ed8f85eb40c84ec97b49f6fceff}{send\+Disconnection} ()
+\item 
+void \hyperlink{namespacePacketManager_a255a83fde064b3b6bbc192dc49ba30a4}{login\+Result} (const \hyperlink{structPacket_1_1loginResultPacket}{Packet\+::login\+Result\+Packet} $\ast$)
+\item 
+void \hyperlink{namespacePacketManager_a7f241c4d446ff9cf2a4e8a115a703786}{manage\+Disconnect\+Request} (\hyperlink{structPacket_1_1packet}{Packet\+::packet} $\ast$)
+\item 
+void \hyperlink{namespacePacketManager_ab8135c284f5e9b70cbc1c7e23817c6cc}{init\+Game} (\hyperlink{classPlayer}{Player} $\ast$, std\+::string)
+\item 
+void \hyperlink{namespacePacketManager_a078afb51e7bdcf7d3e85aaf809f0d127}{send\+Start\+Turn\+Info} (\hyperlink{classPlayer}{Player} $\ast$, \hyperlink{structdataIGPlayer}{data\+I\+G\+Player}, std\+::vector$<$ \hyperlink{classCardMonster}{Card\+Monster} $\ast$ $>$, int, int, int)
+\item 
+void \hyperlink{namespacePacketManager_a74fc2904645906581beacd89356bff8c}{send\+Card} (\hyperlink{classPlayer}{Player} $\ast$, \hyperlink{classCard}{Card} $\ast$)
+\item 
+void \hyperlink{namespacePacketManager_aeceb16b8b48bbcc11da40b68544b5d2a}{set\+Turn} (\hyperlink{classPlayer}{Player} $\ast$, std\+::string)
+\item 
+void \hyperlink{namespacePacketManager_ae2de5a6226f04bf18b076379e13a7669}{send\+Attack} (\hyperlink{classPlayer}{Player} $\ast$, std\+::string, int, unsigned int)
+\item 
+void \hyperlink{namespacePacketManager_ad09515d55f52f38ac6fc5ee056cc326f}{ask\+Defausse} (\hyperlink{classPlayer}{Player} $\ast$, int)
+\item 
+void \hyperlink{namespacePacketManager_ad984d73c69adb937d618f3b037ca50a7}{send\+End\+Game} (\hyperlink{classPlayer}{Player} $\ast$, bool)
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des fonctions}
+\hypertarget{namespacePacketManager_ad09515d55f52f38ac6fc5ee056cc326f}{}\index{Packet\+Manager@{Packet\+Manager}!ask\+Defausse@{ask\+Defausse}}
+\index{ask\+Defausse@{ask\+Defausse}!Packet\+Manager@{Packet\+Manager}}
+\subsubsection[{ask\+Defausse(\+Player $\ast$, int)}]{\setlength{\rightskip}{0pt plus 5cm}void Packet\+Manager\+::ask\+Defausse (
+\begin{DoxyParamCaption}
+\item[{{\bf Player} $\ast$}]{player, }
+\item[{int}]{amount}
+\end{DoxyParamCaption}
+)}\label{namespacePacketManager_ad09515d55f52f38ac6fc5ee056cc326f}
+\hypertarget{namespacePacketManager_ab8135c284f5e9b70cbc1c7e23817c6cc}{}\index{Packet\+Manager@{Packet\+Manager}!init\+Game@{init\+Game}}
+\index{init\+Game@{init\+Game}!Packet\+Manager@{Packet\+Manager}}
+\subsubsection[{init\+Game(\+Player $\ast$, std\+::string)}]{\setlength{\rightskip}{0pt plus 5cm}void Packet\+Manager\+::init\+Game (
+\begin{DoxyParamCaption}
+\item[{{\bf Player} $\ast$}]{player, }
+\item[{std\+::string}]{ennemy\+Pseudo}
+\end{DoxyParamCaption}
+)}\label{namespacePacketManager_ab8135c284f5e9b70cbc1c7e23817c6cc}
+\hypertarget{namespacePacketManager_a255a83fde064b3b6bbc192dc49ba30a4}{}\index{Packet\+Manager@{Packet\+Manager}!login\+Result@{login\+Result}}
+\index{login\+Result@{login\+Result}!Packet\+Manager@{Packet\+Manager}}
+\subsubsection[{login\+Result(const Packet\+::login\+Result\+Packet $\ast$)}]{\setlength{\rightskip}{0pt plus 5cm}void Packet\+Manager\+::login\+Result (
+\begin{DoxyParamCaption}
+\item[{const {\bf Packet\+::login\+Result\+Packet} $\ast$}]{result\+Packet}
+\end{DoxyParamCaption}
+)}\label{namespacePacketManager_a255a83fde064b3b6bbc192dc49ba30a4}
+\hypertarget{namespacePacketManager_a059f1572687e336c45e1cc73e069fe4f}{}\index{Packet\+Manager@{Packet\+Manager}!make\+Login\+Request@{make\+Login\+Request}}
+\index{make\+Login\+Request@{make\+Login\+Request}!Packet\+Manager@{Packet\+Manager}}
+\subsubsection[{make\+Login\+Request(const char $\ast$, const char $\ast$)}]{\setlength{\rightskip}{0pt plus 5cm}void Packet\+Manager\+::make\+Login\+Request (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{pseudo, }
+\item[{const char $\ast$}]{password}
+\end{DoxyParamCaption}
+)}\label{namespacePacketManager_a059f1572687e336c45e1cc73e069fe4f}
+\hypertarget{namespacePacketManager_adacf7794a085944d9bb34af27332605d}{}\index{Packet\+Manager@{Packet\+Manager}!make\+Registration\+Request@{make\+Registration\+Request}}
+\index{make\+Registration\+Request@{make\+Registration\+Request}!Packet\+Manager@{Packet\+Manager}}
+\subsubsection[{make\+Registration\+Request(const char $\ast$, const char $\ast$)}]{\setlength{\rightskip}{0pt plus 5cm}void Packet\+Manager\+::make\+Registration\+Request (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{pseudo, }
+\item[{const char $\ast$}]{password}
+\end{DoxyParamCaption}
+)}\label{namespacePacketManager_adacf7794a085944d9bb34af27332605d}
+\hypertarget{namespacePacketManager_a7f241c4d446ff9cf2a4e8a115a703786}{}\index{Packet\+Manager@{Packet\+Manager}!manage\+Disconnect\+Request@{manage\+Disconnect\+Request}}
+\index{manage\+Disconnect\+Request@{manage\+Disconnect\+Request}!Packet\+Manager@{Packet\+Manager}}
+\subsubsection[{manage\+Disconnect\+Request(\+Packet\+::packet $\ast$)}]{\setlength{\rightskip}{0pt plus 5cm}void Packet\+Manager\+::manage\+Disconnect\+Request (
+\begin{DoxyParamCaption}
+\item[{{\bf Packet\+::packet} $\ast$}]{disconnect\+Req\+Packet}
+\end{DoxyParamCaption}
+)}\label{namespacePacketManager_a7f241c4d446ff9cf2a4e8a115a703786}
+\hypertarget{namespacePacketManager_ac206635e6603c3488fb11d04cc0fa3e9}{}\index{Packet\+Manager@{Packet\+Manager}!manage\+Packet@{manage\+Packet}}
+\index{manage\+Packet@{manage\+Packet}!Packet\+Manager@{Packet\+Manager}}
+\subsubsection[{manage\+Packet(\+Packet\+::packet $\ast$)}]{\setlength{\rightskip}{0pt plus 5cm}void Packet\+Manager\+::manage\+Packet (
+\begin{DoxyParamCaption}
+\item[{{\bf Packet\+::packet} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{namespacePacketManager_ac206635e6603c3488fb11d04cc0fa3e9}
+\hypertarget{namespacePacketManager_ae2de5a6226f04bf18b076379e13a7669}{}\index{Packet\+Manager@{Packet\+Manager}!send\+Attack@{send\+Attack}}
+\index{send\+Attack@{send\+Attack}!Packet\+Manager@{Packet\+Manager}}
+\subsubsection[{send\+Attack(\+Player $\ast$, std\+::string, int, unsigned int)}]{\setlength{\rightskip}{0pt plus 5cm}void Packet\+Manager\+::send\+Attack (
+\begin{DoxyParamCaption}
+\item[{{\bf Player} $\ast$}]{player, }
+\item[{std\+::string}]{pseudo, }
+\item[{int}]{target\+I\+D, }
+\item[{unsigned int}]{final\+Life}
+\end{DoxyParamCaption}
+)}\label{namespacePacketManager_ae2de5a6226f04bf18b076379e13a7669}
+\hypertarget{namespacePacketManager_a74fc2904645906581beacd89356bff8c}{}\index{Packet\+Manager@{Packet\+Manager}!send\+Card@{send\+Card}}
+\index{send\+Card@{send\+Card}!Packet\+Manager@{Packet\+Manager}}
+\subsubsection[{send\+Card(\+Player $\ast$, Card $\ast$)}]{\setlength{\rightskip}{0pt plus 5cm}void Packet\+Manager\+::send\+Card (
+\begin{DoxyParamCaption}
+\item[{{\bf Player} $\ast$}]{player, }
+\item[{{\bf Card} $\ast$}]{card}
+\end{DoxyParamCaption}
+)}\label{namespacePacketManager_a74fc2904645906581beacd89356bff8c}
+\hypertarget{namespacePacketManager_a62456ed8f85eb40c84ec97b49f6fceff}{}\index{Packet\+Manager@{Packet\+Manager}!send\+Disconnection@{send\+Disconnection}}
+\index{send\+Disconnection@{send\+Disconnection}!Packet\+Manager@{Packet\+Manager}}
+\subsubsection[{send\+Disconnection()}]{\setlength{\rightskip}{0pt plus 5cm}void Packet\+Manager\+::send\+Disconnection (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{namespacePacketManager_a62456ed8f85eb40c84ec97b49f6fceff}
+\hypertarget{namespacePacketManager_ad984d73c69adb937d618f3b037ca50a7}{}\index{Packet\+Manager@{Packet\+Manager}!send\+End\+Game@{send\+End\+Game}}
+\index{send\+End\+Game@{send\+End\+Game}!Packet\+Manager@{Packet\+Manager}}
+\subsubsection[{send\+End\+Game(\+Player $\ast$, bool)}]{\setlength{\rightskip}{0pt plus 5cm}void Packet\+Manager\+::send\+End\+Game (
+\begin{DoxyParamCaption}
+\item[{{\bf Player} $\ast$}]{player, }
+\item[{bool}]{victory}
+\end{DoxyParamCaption}
+)}\label{namespacePacketManager_ad984d73c69adb937d618f3b037ca50a7}
+\hypertarget{namespacePacketManager_a078afb51e7bdcf7d3e85aaf809f0d127}{}\index{Packet\+Manager@{Packet\+Manager}!send\+Start\+Turn\+Info@{send\+Start\+Turn\+Info}}
+\index{send\+Start\+Turn\+Info@{send\+Start\+Turn\+Info}!Packet\+Manager@{Packet\+Manager}}
+\subsubsection[{send\+Start\+Turn\+Info(\+Player $\ast$, data\+I\+G\+Player, std\+::vector$<$ Card\+Monster $\ast$ $>$, int, int, int)}]{\setlength{\rightskip}{0pt plus 5cm}void Packet\+Manager\+::send\+Start\+Turn\+Info (
+\begin{DoxyParamCaption}
+\item[{{\bf Player} $\ast$}]{player, }
+\item[{{\bf data\+I\+G\+Player}}]{player\+Info, }
+\item[{std\+::vector$<$ {\bf Card\+Monster} $\ast$ $>$}]{ennemy\+Card, }
+\item[{int}]{ennemy\+Hand\+Count, }
+\item[{int}]{ennemy\+Deck\+Count, }
+\item[{int}]{ennemy\+Trash\+Count}
+\end{DoxyParamCaption}
+)}\label{namespacePacketManager_a078afb51e7bdcf7d3e85aaf809f0d127}
+\hypertarget{namespacePacketManager_aeceb16b8b48bbcc11da40b68544b5d2a}{}\index{Packet\+Manager@{Packet\+Manager}!set\+Turn@{set\+Turn}}
+\index{set\+Turn@{set\+Turn}!Packet\+Manager@{Packet\+Manager}}
+\subsubsection[{set\+Turn(\+Player $\ast$, std\+::string)}]{\setlength{\rightskip}{0pt plus 5cm}void Packet\+Manager\+::set\+Turn (
+\begin{DoxyParamCaption}
+\item[{{\bf Player} $\ast$}]{player, }
+\item[{std\+::string}]{pseudo}
+\end{DoxyParamCaption}
+)}\label{namespacePacketManager_aeceb16b8b48bbcc11da40b68544b5d2a}

@@ -7,12 +7,241 @@
 Graphe d\textquotesingle{}héritage de Collection\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2.000000cm]{classCollection}
+\includegraphics[height=3.000000cm]{classCollection}
 \end{center}
 \end{figure}
-\subsection*{Membres hérités additionnels}
-
-
-La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
 \item 
-client/\hyperlink{client_2Collection_8hpp}{Collection.\+hpp}\end{DoxyCompactItemize}
+\hyperlink{classCollection_a5a47d67f2f24553ea9adde4f4f286dc6}{Collection} ()=default
+\item 
+\hyperlink{classCollection_ab635b340b56740374abd52368087be0b}{Collection} (std\+::vector$<$ \hyperlink{classCard}{Card} $\ast$ $>$)
+\item 
+\hyperlink{classCollection_a68b48e6494b0a52b1c873c5fd8420007}{Collection} (std\+::vector$<$ unsigned $>$)
+\item 
+\hyperlink{classCollection_ac6947d19970d090b545eef22c101087d}{Collection} (const \hyperlink{classCollection}{Collection} \&)=default
+\item 
+\hyperlink{classCollection}{Collection} \& \hyperlink{classCollection_afdc6e54deac9226fda136ca4bb8a97a1}{operator=} (const \hyperlink{classCollection}{Collection} \&)=default
+\item 
+virtual \hyperlink{Error_8hpp_a2c3e4bb40f36b262a5214e2da2bca9c5}{Error} \hyperlink{classCollection_a430b67b03697286c696b9972de4b7b4b}{add\+Card} (\hyperlink{classCard}{Card} $\ast$)
+\item 
+virtual \hyperlink{Error_8hpp_a2c3e4bb40f36b262a5214e2da2bca9c5}{Error} \hyperlink{classCollection_a580daf9636192634d949951ceffba096}{add\+Card} (int card\+Id)
+\item 
+void \hyperlink{classCollection_ae7ee9c1b7e8619d2cf851e5c0dbd81b6}{remove\+Card} (int i)
+\item 
+void \hyperlink{classCollection_a2020d4aef89fd4c70141ce2e2d061ae9}{remove\+Card} (\hyperlink{classCard}{Card} $\ast$)
+\item 
+void \hyperlink{classCollection_a633b047916ca73598b08c019ffe6c4a5}{remove\+Card\+Id} (int card\+Id)
+\item 
+int \hyperlink{classCollection_a9bd74b104abcc47257564044be71a6b2}{index\+Of\+Card} (int card\+Id)
+\item 
+int \hyperlink{classCollection_aa7acabbd00d04898ffefce407645142e}{get\+Card\+Index} (\hyperlink{classCard}{Card} $\ast$)
+\item 
+\hyperlink{classCard}{Card} $\ast$ \hyperlink{classCollection_aced95e3b1de7bebeb22d9cb1d36d483b}{get\+Card\+On\+Index} (const unsigned index)
+\item 
+virtual \hyperlink{classCollection_ac7fe8e15953eee4ba235ee7ebc4ffc5b}{$\sim$\+Collection} ()=default
+\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \hyperlink{classCard}{Card} $\ast$ $>$ \hyperlink{classCollection_aebfdc5b0559ab8a0c350a24c9d24f564}{\+\_\+list\+Card}
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classCollection_a5a47d67f2f24553ea9adde4f4f286dc6}{}\index{Collection@{Collection}!Collection@{Collection}}
+\index{Collection@{Collection}!Collection@{Collection}}
+\subsubsection[{Collection()=default}]{\setlength{\rightskip}{0pt plus 5cm}Collection\+::\+Collection (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [default]}}\label{classCollection_a5a47d67f2f24553ea9adde4f4f286dc6}
+\hypertarget{classCollection_ab635b340b56740374abd52368087be0b}{}\index{Collection@{Collection}!Collection@{Collection}}
+\index{Collection@{Collection}!Collection@{Collection}}
+\subsubsection[{Collection(std\+::vector$<$ Card $\ast$ $>$)}]{\setlength{\rightskip}{0pt plus 5cm}Collection\+::\+Collection (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ {\bf Card} $\ast$ $>$}]{list\+Card}
+\end{DoxyParamCaption}
+)}\label{classCollection_ab635b340b56740374abd52368087be0b}
+Constructor
+
+
+\begin{DoxyParams}{Paramètres}
+{\em list\+Card} & list of card \\
+\hline
+\end{DoxyParams}
+\hypertarget{classCollection_a68b48e6494b0a52b1c873c5fd8420007}{}\index{Collection@{Collection}!Collection@{Collection}}
+\index{Collection@{Collection}!Collection@{Collection}}
+\subsubsection[{Collection(std\+::vector$<$ unsigned $>$)}]{\setlength{\rightskip}{0pt plus 5cm}Collection\+::\+Collection (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ unsigned $>$}]{list\+Id\+Card}
+\end{DoxyParamCaption}
+)}\label{classCollection_a68b48e6494b0a52b1c873c5fd8420007}
+Constructor
+
+
+\begin{DoxyParams}{Paramètres}
+{\em list\+Id\+Card} & the list of card I\+D \\
+\hline
+\end{DoxyParams}
+\hypertarget{classCollection_ac6947d19970d090b545eef22c101087d}{}\index{Collection@{Collection}!Collection@{Collection}}
+\index{Collection@{Collection}!Collection@{Collection}}
+\subsubsection[{Collection(const Collection \&)=default}]{\setlength{\rightskip}{0pt plus 5cm}Collection\+::\+Collection (
+\begin{DoxyParamCaption}
+\item[{const {\bf Collection} \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [default]}}\label{classCollection_ac6947d19970d090b545eef22c101087d}
+\hypertarget{classCollection_ac7fe8e15953eee4ba235ee7ebc4ffc5b}{}\index{Collection@{Collection}!````~Collection@{$\sim$\+Collection}}
+\index{````~Collection@{$\sim$\+Collection}!Collection@{Collection}}
+\subsubsection[{$\sim$\+Collection()=default}]{\setlength{\rightskip}{0pt plus 5cm}virtual Collection\+::$\sim$\+Collection (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}\label{classCollection_ac7fe8e15953eee4ba235ee7ebc4ffc5b}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classCollection_a430b67b03697286c696b9972de4b7b4b}{}\index{Collection@{Collection}!add\+Card@{add\+Card}}
+\index{add\+Card@{add\+Card}!Collection@{Collection}}
+\subsubsection[{add\+Card(\+Card $\ast$)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Error} Collection\+::add\+Card (
+\begin{DoxyParamCaption}
+\item[{{\bf Card} $\ast$}]{card}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classCollection_a430b67b03697286c696b9972de4b7b4b}
+Add a \hyperlink{classCard}{Card} to the collection
+
+
+\begin{DoxyParams}{Paramètres}
+{\em card} & the card to add \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+True if we can add \hyperlink{classCard}{Card} (false if there is more than two cards the same) 
+\end{DoxyReturn}
+
+
+Réimplémentée dans \hyperlink{classDeck_a741aa3330dc4912beb69c962e74df507}{Deck}.
+
+\hypertarget{classCollection_a580daf9636192634d949951ceffba096}{}\index{Collection@{Collection}!add\+Card@{add\+Card}}
+\index{add\+Card@{add\+Card}!Collection@{Collection}}
+\subsubsection[{add\+Card(int card\+Id)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Error} Collection\+::add\+Card (
+\begin{DoxyParamCaption}
+\item[{int}]{card\+Id}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classCollection_a580daf9636192634d949951ceffba096}
+Add a \hyperlink{classCard}{Card} to the collection
+
+
+\begin{DoxyParams}{Paramètres}
+{\em card\+Id} & the id of the card \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+True if we can add \hyperlink{classCard}{Card} (false if there is more than two cards the same) 
+\end{DoxyReturn}
+
+
+Réimplémentée dans \hyperlink{classDeck_a5c18872420a1969dba61ee3eca320aa7}{Deck}.
+
+\hypertarget{classCollection_aa7acabbd00d04898ffefce407645142e}{}\index{Collection@{Collection}!get\+Card\+Index@{get\+Card\+Index}}
+\index{get\+Card\+Index@{get\+Card\+Index}!Collection@{Collection}}
+\subsubsection[{get\+Card\+Index(\+Card $\ast$)}]{\setlength{\rightskip}{0pt plus 5cm}int Collection\+::get\+Card\+Index (
+\begin{DoxyParamCaption}
+\item[{{\bf Card} $\ast$}]{card}
+\end{DoxyParamCaption}
+)}\label{classCollection_aa7acabbd00d04898ffefce407645142e}
+Get the index of one card
+
+
+\begin{DoxyParams}{Paramètres}
+{\em card} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+index or -\/1 if not found 
+\end{DoxyReturn}
+\hypertarget{classCollection_aced95e3b1de7bebeb22d9cb1d36d483b}{}\index{Collection@{Collection}!get\+Card\+On\+Index@{get\+Card\+On\+Index}}
+\index{get\+Card\+On\+Index@{get\+Card\+On\+Index}!Collection@{Collection}}
+\subsubsection[{get\+Card\+On\+Index(const unsigned index)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Card} $\ast$ Collection\+::get\+Card\+On\+Index (
+\begin{DoxyParamCaption}
+\item[{const unsigned}]{index}
+\end{DoxyParamCaption}
+)}\label{classCollection_aced95e3b1de7bebeb22d9cb1d36d483b}
+Get the card on the specific index
+
+
+\begin{DoxyParams}{Paramètres}
+{\em index} & of the card \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the \hyperlink{classCard}{Card} at the specific index 
+\end{DoxyReturn}
+\hypertarget{classCollection_a9bd74b104abcc47257564044be71a6b2}{}\index{Collection@{Collection}!index\+Of\+Card@{index\+Of\+Card}}
+\index{index\+Of\+Card@{index\+Of\+Card}!Collection@{Collection}}
+\subsubsection[{index\+Of\+Card(int card\+Id)}]{\setlength{\rightskip}{0pt plus 5cm}int Collection\+::index\+Of\+Card (
+\begin{DoxyParamCaption}
+\item[{int}]{card\+Id}
+\end{DoxyParamCaption}
+)}\label{classCollection_a9bd74b104abcc47257564044be71a6b2}
+\hypertarget{classCollection_afdc6e54deac9226fda136ca4bb8a97a1}{}\index{Collection@{Collection}!operator=@{operator=}}
+\index{operator=@{operator=}!Collection@{Collection}}
+\subsubsection[{operator=(const Collection \&)=default}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Collection}\& Collection\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Collection} \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [default]}}\label{classCollection_afdc6e54deac9226fda136ca4bb8a97a1}
+\hypertarget{classCollection_ae7ee9c1b7e8619d2cf851e5c0dbd81b6}{}\index{Collection@{Collection}!remove\+Card@{remove\+Card}}
+\index{remove\+Card@{remove\+Card}!Collection@{Collection}}
+\subsubsection[{remove\+Card(int i)}]{\setlength{\rightskip}{0pt plus 5cm}void Collection\+::remove\+Card (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)}\label{classCollection_ae7ee9c1b7e8619d2cf851e5c0dbd81b6}
+Remove a \hyperlink{classCard}{Card} on a specific position
+
+
+\begin{DoxyParams}{Paramètres}
+{\em i} & index of the card \\
+\hline
+\end{DoxyParams}
+\hypertarget{classCollection_a2020d4aef89fd4c70141ce2e2d061ae9}{}\index{Collection@{Collection}!remove\+Card@{remove\+Card}}
+\index{remove\+Card@{remove\+Card}!Collection@{Collection}}
+\subsubsection[{remove\+Card(\+Card $\ast$)}]{\setlength{\rightskip}{0pt plus 5cm}void Collection\+::remove\+Card (
+\begin{DoxyParamCaption}
+\item[{{\bf Card} $\ast$}]{card}
+\end{DoxyParamCaption}
+)}\label{classCollection_a2020d4aef89fd4c70141ce2e2d061ae9}
+Remove a \hyperlink{classCard}{Card} from the collection
+
+
+\begin{DoxyParams}{Paramètres}
+{\em card} & the card to remove \\
+\hline
+\end{DoxyParams}
+\hypertarget{classCollection_a633b047916ca73598b08c019ffe6c4a5}{}\index{Collection@{Collection}!remove\+Card\+Id@{remove\+Card\+Id}}
+\index{remove\+Card\+Id@{remove\+Card\+Id}!Collection@{Collection}}
+\subsubsection[{remove\+Card\+Id(int card\+Id)}]{\setlength{\rightskip}{0pt plus 5cm}void Collection\+::remove\+Card\+Id (
+\begin{DoxyParamCaption}
+\item[{int}]{card\+Id}
+\end{DoxyParamCaption}
+)}\label{classCollection_a633b047916ca73598b08c019ffe6c4a5}
+Remove a \hyperlink{classCard}{Card} from the collection
+
+
+\begin{DoxyParams}{Paramètres}
+{\em card\+Id} & the id of the card \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentation des données membres}
+\hypertarget{classCollection_aebfdc5b0559ab8a0c350a24c9d24f564}{}\index{Collection@{Collection}!\+\_\+list\+Card@{\+\_\+list\+Card}}
+\index{\+\_\+list\+Card@{\+\_\+list\+Card}!Collection@{Collection}}
+\subsubsection[{\+\_\+list\+Card}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<${\bf Card}$\ast$$>$ Collection\+::\+\_\+list\+Card\hspace{0.3cm}{\ttfamily [protected]}}\label{classCollection_aebfdc5b0559ab8a0c350a24c9d24f564}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+client/\hyperlink{client_2Collection_8hpp}{Collection.\+hpp}\item 
+server/\hyperlink{Collection_8cpp}{Collection.\+cpp}\end{DoxyCompactItemize}

@@ -1,12 +1,19 @@
 var searchData=
 [
-  ['senddisconnection',['sendDisconnection',['../namespaceCommService.html#ab3752d7f2a9988e86fdbdf1fef3caa47',1,'CommService']]],
+  ['sendattack',['sendAttack',['../namespacePacketManager.html#ae2de5a6226f04bf18b076379e13a7669',1,'PacketManager']]],
+  ['sendcard',['sendCard',['../namespacePacketManager.html#a74fc2904645906581beacd89356bff8c',1,'PacketManager']]],
+  ['senddisconnection',['sendDisconnection',['../namespacePacketManager.html#a62456ed8f85eb40c84ec97b49f6fceff',1,'PacketManager']]],
+  ['sendendgame',['sendEndGame',['../namespacePacketManager.html#ad984d73c69adb937d618f3b037ca50a7',1,'PacketManager']]],
+  ['sendinfoaction',['sendInfoAction',['../classGame.html#a06760f118a7f3808d9038645e2abf64f',1,'Game']]],
   ['sendmessage',['sendMessage',['../classChatManager.html#a0e6244940d990c4e0366d7097d41a26d',1,'ChatManager']]],
   ['sendpacket',['sendPacket',['../classConnection.html#acf311ea2f3df77851711daf40a07fc17',1,'Connection']]],
-  ['setattack',['setAttack',['../classCardMonster.html#a358474586372d6b2b83301cceae34347',1,'CardMonster']]],
+  ['sendstartturninfo',['sendStartTurnInfo',['../namespacePacketManager.html#a078afb51e7bdcf7d3e85aaf809f0d127',1,'PacketManager']]],
+  ['serialise',['serialise',['../classPlayer.html#a03a285ddda49ed0c0383b39a0a5f415b',1,'Player']]],
+  ['setattack',['setAttack',['../classCardMonster.html#aa27378a04c731a5a69d191314ace4144',1,'CardMonster']]],
   ['setdeck',['setDeck',['../classPlayerInGame.html#a399370210526407c4234d19815a5fa44',1,'PlayerInGame']]],
-  ['setlife',['setLife',['../classCardMonster.html#aa70aa05b038da703524b82df5608734b',1,'CardMonster']]],
-  ['setmaxlife',['setMaxLife',['../classCardMonster.html#a9860956677866c7adbcda61c9951dd35',1,'CardMonster']]],
-  ['signin',['signIn',['../classPlayerManager.html#a53fb9718498329bc76b0f8dd199a888e',1,'PlayerManager']]],
-  ['signup',['signUp',['../classPlayerManager.html#a6442da86b2908a726fc9a4fcad8a35d6',1,'PlayerManager']]]
+  ['setlife',['setLife',['../classCardMonster.html#a8aeba0819ce64bf958d9b5ae1bceb61b',1,'CardMonster']]],
+  ['setmaxlife',['setMaxLife',['../classCardMonster.html#ad20bc2d69ddabeea8bab358a8e02500d',1,'CardMonster']]],
+  ['settaunt',['setTaunt',['../classCardMonster.html#a27de130e39afaf1855e3e6b644ab83c2',1,'CardMonster']]],
+  ['setturn',['setTurn',['../namespacePacketManager.html#aeceb16b8b48bbcc11da40b68544b5d2a',1,'PacketManager']]],
+  ['signup',['signUp',['../classPlayerManager.html#acb14cf0559b1d199045898d959740788',1,'PlayerManager']]]
 ];

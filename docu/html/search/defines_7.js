@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['registration_5fin_5fprogress',['REGISTRATION_IN_PROGRESS',['../LoginPanel_8hpp.html#a34db09e698a9096488e6d24a10d90626',1,'LoginPanel.hpp']]]
+  ['server_5flogfile',['SERVER_LOGFILE',['../WizardLogger_8hpp.html#a03121550cedeb6f0b1ec7edf4fcadfb7',1,'WizardLogger.hpp']]]
 ];
