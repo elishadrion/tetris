@@ -6,8 +6,8 @@
 /**
  * Creates a PlayerInGame and asks to the player which Deck he would like to play with
  */
-PlayerInGame::PlayerInGame(const Player& player, Game* game): Player(player) {
-    _game = game;
+PlayerInGame::PlayerInGame(const Player& player, Game* game): Player(player),
+    _deck(nullptr), _game(game) {
 
     _playerHeal = 20; //Player starts with 20 health points
      _energy = 0; //The current energy of the player
@@ -15,7 +15,6 @@ PlayerInGame::PlayerInGame(const Player& player, Game* game): Player(player) {
     std::vector<Card*> _cardsInHand(0);
     std::vector<Card*> _defausse(0);
     std::vector<CardMonster*> _cardsPlaced(0);
-    Deck *_deck;
 
     // TO DO @tutul
     // askDeck(getListDeck());
@@ -69,7 +68,7 @@ bool PlayerInGame::isDeckDefined() {
  * @return the card or nullptr
  */
 Card* PlayerInGame::draw() {
-    Card* res;
+    Card* res = nullptr;
 
     Card* randomCard = _deck->pickup();
     if(randomCard != nullptr) {
@@ -109,12 +108,13 @@ void PlayerInGame::resetEnergy() {
 
 
 unsigned PlayerInGame::nbrCardInHand() {
-    return _cardsInHand.size();
+    return static_cast<unsigned>(_cardsInHand.size());
 }
 
 //Checks if the player have currently enough energy to play a certain card
 bool PlayerInGame::haveEnoughEnergy(Card* card) {
-    return card->getEnergyCost() <= this->_energy;
+    return this->_energy > 0 &&
+        card->getEnergyCost() <= static_cast<unsigned>(this->_energy);
 }
 
 void PlayerInGame::defausseCardPlaced(CardMonster* card) {
