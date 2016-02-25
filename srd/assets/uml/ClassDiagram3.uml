@@ -104,12 +104,35 @@ class FriendsManager {
 }
 
 class Game {
+  - _gameStatut : GameStatut
+  - _currentPlayer : PlayerInGame*
+  - _turn : unsigned int
+  - _player1 : PlayerInGame*
+  - _player2 : PlayerInGame*
+  - isInGame() : bool
+  - getAdversePlayer() : PlayerInGame*
+  - getAdversePlacedCard() : std::vector<CardMonster*>
   + checkDeckAndStart() : void
   + draw() : void
-  + placeCard() : void
-  + placeCard() : void
-  + attackWithCard() : void
-  + attackWithCard() : void
+  + placeCardAffectPlayer() : Error
+  + placeCard() : Error
+  + attackWithCard() : Error
+  + attackWithCardAffectPlayer() : Error
+  + nextPlayer() : void
+  + sendInfoAction() : void
+  - beginTurn() : void
+  - endTurn() : void
+  - canPlayerAttack() : Error
+  - verifyTaunt() : bool
+  - havePlace() : bool
+  - isPlayerInLife() : void
+  - placeCard() : Error
+  + {static} addPlayerWaitGame() : void
+}
+
+enum GameStatut {
+  WAIT_DEC
+  IN_GAME
 }
 
 class PacketManager {
@@ -180,6 +203,7 @@ Card --> CardManager
 Collection "1" *-- "100..*" Card
 Collection <|-- Deck: <<extend>> [Has 20 cards] >
 PacketManager -- Game
+GameStatut *-- Game
 
 
 @enduml
