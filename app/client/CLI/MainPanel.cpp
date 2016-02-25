@@ -4,14 +4,14 @@ MainPanel::MainPanel() {
     /* We create mainWindow where player can select what to do */
     window = newwin(MAIN_HEIGHT, MAIN_WIDTH, 0, 0);
     box(window, 0, 0);
-    
+
     /* Attach a panel to window */
     panel = new_panel(window);
 
     /* Update the stacking order */
     update_panels();
     doupdate();
-    
+
     /* Display menu entry */
     mvwprintw(window, START_LINE, 8, "* Commencer une partie");
     mvwprintw(window, START_LINE+2, 8, "* Afficher la collection");
@@ -19,7 +19,7 @@ MainPanel::MainPanel() {
     attron(COLOR_PAIR(3));
     mvwprintw(window, START_LINE+6, 8, "F10 pour quitter le programme");
     attroff(COLOR_PAIR(3));
-    mvwprintw(window, START_LINE+8, 10, "(utilisé F1 pour accéder au Tchat)");
+    mvwprintw(window, START_LINE+8, 10, "(utiliser F1 pour accéder au Tchat)");
     refresh();
 }
 
@@ -43,7 +43,7 @@ void MainPanel::focus() {
     top_panel(panel);
     update_panels();
     doupdate();
-    
+
     /* Set focus on first element */
     int currentMenu = START_LINE;
     updateColor(0, currentMenu);
@@ -74,7 +74,7 @@ void MainPanel::focus() {
                 break;
             case KEY_F(10):
                 /* Call closing methode to stop program */
-                
+
                 return;
             default:
                 beep();
@@ -90,14 +90,14 @@ void MainPanel::updateColor(int previous, int next) {
     if (previous != 0) {
         mvprintw(previous, 8, "*");
     }
-    
+
     /* Set color for new menu entry (0: no new entry) */
     if (next != 0) {
         attron(COLOR_PAIR(2));
         mvprintw(next, 8, "*");
         attroff(COLOR_PAIR(2));
     }
-    
+
     refresh();
 }
 

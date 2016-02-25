@@ -16,6 +16,7 @@ void PlayerManager::loadPlayers() {
     nlohmann::json info = nlohmann::json::parse(info_str);
 
     for (size_t i = 0 ; i < info.size(); ++i) {
+	std::cout << "adding player" << info[i]["username"] << "\n";
 	nlohmann::json player_info = info[i];
 	_players.push_back(new Player(player_info));
     }
@@ -36,9 +37,10 @@ std::string PlayerManager::getRanking() {
 
 
 Player* PlayerManager::logIn(std::string username, std::string password, int sockfd) {
-    // ce n'est pas mieux de faire un _players.size() plutot qu'un size of ?
     for (size_t i = 0; i < _players.size(); i++) {
 	Player* current = _players.at(i);
+	std::cout << "examining: " << (*current).getName() << "\n";
+	std::cout << "and " << username << "\n";
 	if ((*current).getName() == username &&
 	    (*current).getPass() == password) {
 
@@ -53,7 +55,7 @@ Player* PlayerManager::logIn(std::string username, std::string password, int soc
 
 Player* PlayerManager::signUp(std::string username, std::string password, int sockfd) {
 
-    for (size_t i = 0; _players.size(); i++) {
+    for (size_t i = 0; i < _players.size(); i++) {
 	Player* current = _players.at(i);
 	if (*current == username) {
 	    WizardLogger::warning("CHOSEN USERNAME ALREADY EXISTS");
@@ -82,6 +84,7 @@ Player* PlayerManager::signUp(std::string username, std::string password, int so
     info["decks"].push_back(deck);
 
     Player* newPlayer = new Player(info);
+    newPlayer -> updateSockfd(sockfd);
     _players.push_back(newPlayer);
     return newPlayer;
 }

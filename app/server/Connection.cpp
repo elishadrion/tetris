@@ -18,6 +18,13 @@ Connection::Connection() {
             throw std::system_error(EFAULT, std::system_category()); /* Convert errno to exception */
         }
 
+	int yes = 1;
+        if (setsockopt(_serverSocket, SOL_SOCKET, SO_REUSEADDR, &yes,
+		       sizeof(int)) == -1) {
+	    WizardLogger::error("Impossible de reutiliser socket");
+            throw std::system_error(EFAULT, std::system_category()); /* Convert errno to exception */
+        }
+
         /* We bind socket with informations */
         if (bind(_serverSocket, (struct sockaddr *)&server_addr, sizeof(struct sockaddr)) == -1) {
             WizardLogger::error("Impossible d'initialiser le socket server");
@@ -82,11 +89,11 @@ void* Connection::newPlayerThread(void* data) {
     size_t readSize;
     size_t size;
     Player *newPlayer;
-    
+
     /* Allocate specific size for an login/register incoming packet */
     size = sizeof(Packet::loginRequestPacket);
     Packet::loginRequestPacket *packet = (Packet::loginRequestPacket*) malloc(size);
-    
+
     /* Loop to test login/registration before accepting it */
     bool loginOK = false;
     while(!loginOK) {
@@ -109,7 +116,7 @@ void* Connection::newPlayerThread(void* data) {
                     pseudo += ch;
                     ++i;
                 }
-                
+
                 /* Try to get a clean password from packet */
                 std::string password = "";
                 i = 0;
@@ -117,14 +124,14 @@ void* Connection::newPlayerThread(void* data) {
                     password += ch;
                     ++i;
                 }
-                
+
                 /* We check if it's a login or a registration and send pseudo/password */
                 if (packet->ID != Packet::LOGIN_REQ_ID) {
                     newPlayer = pm->signUp(pseudo, password, clientSocket);
                 } else {
                     newPlayer = pm->logIn(pseudo, password, clientSocket);
                 }
-                
+
                 /* If no player object created we fail and restart */
                 if (newPlayer != nullptr) {
                     loginOK = true;
@@ -134,7 +141,7 @@ void* Connection::newPlayerThread(void* data) {
             }
         }
     }
-            
+
     /* Free packet from memory */
     free(packet);
 

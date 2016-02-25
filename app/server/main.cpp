@@ -29,7 +29,7 @@ int main() {
     Effect::loadAllEffect();
 
     pm = new PlayerManager();
-
+    pm -> loadPlayers();
     /* We initialise the listening server socket
      * If it fail, server can't go farther
      */
