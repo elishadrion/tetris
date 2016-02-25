@@ -4,6 +4,8 @@
 Player::Player(nlohmann::json& info, int sockfd) {
     _username = info["username"];
     _password = info["password"];
+    _victories = info["victories"];
+    _defeats = info["defeats"];
 
 }
 
@@ -41,6 +43,10 @@ bool Player::operator<(const Player &other) const {
     return ((*this).getVictories() < other.getVictories());
 }
 
+bool Player::operator>(const Player &other) const {
+    return !((*this) < other);
+}
+
 bool Player::operator==(const std::string &other_name) const {
     return ((*this).getName() == other_name);
 }
@@ -59,8 +65,8 @@ std::ostream& operator<<(std::ostream& os, const Player& c) {
 }
 
 std::string& operator<<(std::string& str, const Player& c) {
-    str.append(c.getName() + "\t" +
-	       std::to_string(c.getVictories()) + "\t" +
+    str.append(c.getName() + "\t\t" +
+	       std::to_string(c.getVictories()) + "\t\t" +
 	       std::to_string(c.getDefeats()) + "\n");
     return str;
 }

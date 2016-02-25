@@ -13,23 +13,32 @@ void PlayerManager::loadPlayers() {
 
     std::string info_str((std::istreambuf_iterator<char>(playersFile)),
 			 std::istreambuf_iterator<char>());
-    nlohmann::json info = nlohmann::json::parse(info_str);
+    nlohmann::json db = nlohmann::json::parse(info_str);
 
-    for (size_t i = 0 ; i < info.size(); ++i) {
-	std::cout << "adding player" << info[i]["username"] << "\n";
-	nlohmann::json player_info = info[i];
+    for (size_t i = 0 ; i < db.size(); ++i) {
+	nlohmann::json player_info = db[i];
 	_players.push_back(new Player(player_info));
     }
+
+    playersFile.close();
 }
 
 std::string PlayerManager::getRanking() {
     std::string ranking;
-    std::vector<Player*> sorted_players = std::vector<Player*>(_players);
+    std::vector<Player*> sorted_players(_players);
+    for (size_t i = 0; i < _players.size(); ++i) {
+	std::cout << sorted_players.at(i) -> getVictories() << "\n";
+    }
+
     std::sort(sorted_players.begin(), sorted_players.end());
+    for (size_t i = 0; i < _players.size(); ++i) {
+	std::cout << sorted_players.at(i) -> getVictories() << "\n";
+    }
 
-    ranking.append("Nom\tVictoires\tDefaites\n");
 
-    for (size_t i = 0; i < sizeof sorted_players; i++)
+    ranking.append("Nom\t\tVictoires\tDefaites\n");
+
+    for (size_t i = 0; i < sorted_players.size(); ++i)
 	ranking << *sorted_players.at(i);
 
     return ranking;
@@ -87,4 +96,14 @@ Player* PlayerManager::signUp(std::string username, std::string password, int so
     newPlayer -> updateSockfd(sockfd);
     _players.push_back(newPlayer);
     return newPlayer;
+}
+
+void PlayerManager::savePlayers() const {
+    nlohmann::json db;
+    for (size_t i = 0; i < _players.size(); ++i)
+	db.push_back((*_players.at(i)).serialise());
+    std::ofstream playersFile(PLAYERS_DB);
+    playersFile << db.dump(4);
+
+    playersFile.close();
 }

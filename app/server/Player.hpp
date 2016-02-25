@@ -34,7 +34,6 @@ protected:
     unsigned _defeats;
 
 public:
-    Player() = default; // Must exist for PlayerInGame()
     Player(nlohmann::json&, int sockfd = 0);
 
     inline void adjudicateVictory() {_victories++;};
@@ -54,6 +53,7 @@ public:
     friend std::string& operator<<(std::string&, const Player&);
     bool operator==(const std::string&) const;
     bool operator<(const Player&) const;
+    bool operator>(const Player&) const;
     virtual ~Player() = default;
 };
 
