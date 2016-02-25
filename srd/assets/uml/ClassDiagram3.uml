@@ -136,8 +136,17 @@ enum GameStatut {
 }
 
 class PacketManager {
-  
+  + manageDisconnectRequest() : void
+  + managePacket() : void
+  + initGame() : void
+  + sendStartTurnInfo() : void
+  + sendCard() : void
+  + setTurn() : void
+  + sendAttack() : void
+  + askDefausse() : void
+  + sendEndGame() : void
 }
+
 
 
 class Player {
