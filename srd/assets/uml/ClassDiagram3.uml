@@ -1,5 +1,5 @@
 @startuml
-title Wizard - Class Server
+title Wizard - Class Diagram (Server section)
 
 'accessibilité
 skinparam classAttributeIconSize 0
@@ -63,7 +63,7 @@ class ChatManager {
   + sendMessage() : string  
 }
 
-class Classement {
+class Ranking {
   
 }
 
@@ -106,12 +106,12 @@ class FriendsManager {
 class Game {
   - gameStatut : GameStatut
   - currentPlayer : PlayerInGame*
-  - turn : unsigned int
+  - turn : unsigned 
   - player1 : PlayerInGame*
   - player2 : PlayerInGame*
   - isInGame() : bool
-  - getAdversePlayer() : PlayerInGame*
-  - getAdversePlacedCard() : std::vector<CardMonster*>
+  - getAdversary() : PlayerInGame*
+  - getAdversaryPlacedCard() : vector<CardMonster*>
   + checkDeckAndStart() : void
   + draw() : void
   + placeCardAffectPlayer() : Error
@@ -125,7 +125,7 @@ class Game {
   - canPlayerAttack() : Error
   - verifyTaunt() : bool
   - havePlace() : bool
-  - isPlayerInLife() : void
+  - isPlayerAlive() : void
   - placeCard() : Error
   + {static} addPlayerWaitGame() : void
 }
@@ -184,8 +184,8 @@ class PlayerInGame {
 }
 
 class PlayerManager {
-  - connected : std::vector<Player*>
-  - players : std::vector<Player*>
+  - connected : vector<Player*>
+  - players : vector<Player*>
   + getRanking() : string
   + loadPlayers() : void
   + signUp() : Player*
@@ -202,7 +202,7 @@ Player <-- Collection
 Card "20" --> Deck
 FriendsManager <-- Player
 Player --> PlayerManager
-Player --> Classement
+Player --> Ranking
 Player "2" o-- "0..*" ChatManager
 Card --> CardManager
 Collection "1" *-- "100..*" Card
