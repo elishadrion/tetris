@@ -36,7 +36,10 @@ class Card {
 }
 
 class CardManager {
-  
+  {static} listCard : std::map<unsigned, Card*>
+  {static} getCardByID() : Card*
+  {static} loadAllCards() : void
+  {static} chooseCardWin() : Card*
 }
 
 class CardMonster {
@@ -101,10 +104,13 @@ class Collection {
 }
 
 class Effect {
+  {static} listEffect : std::vector<Effect*>
   + getId() : unsigned
   + apply() : void
   + canBeAppliedOnCard() : bool
   + canBeAppliedOnPlayer() : bool
+  + loadAllEffect() : void
+  {static} getEffectByID() : Effect*
 }
 
 class FriendsManager {
