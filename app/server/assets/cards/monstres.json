@@ -1,5 +1,181 @@
 [
   {
+		"id": 12,
+		"name" : "Le protecteur",
+		"energie" : 1,
+		"effect" : 0,
+		"vie" : 2,
+		"attack" : 1
+	},
+	{
+		"id": 13,
+		"name" : "Le lecteur fou",
+		"energie" : 2,
+		"effect" : 15,
+		"vie" : 1,
+		"attack" : 2 
+	},
+	{
+		"id": 14,
+		"name" : "Le destructeur d'espoir",
+		"energie" : 10,
+		"effect" : 6,
+		"vie" : 7,
+		"attack" : 7 
+	},
+	{
+		"id": 15,
+		"name" : "Le fêtard",
+		"energie" : 6,
+		"effect" : -1,
+		"vie" : 5,
+		"attack" : 7
+	},
+	{
+		"id": 16,
+		"name" : "L'étudiant lambda",
+		"energie" : 3,
+		"effect" : 0,
+		"vie" : 3,
+		"attack" : 3
+	},
+	{
+		"id": 17,
+		"name" : "Chasseur de notes",
+		"energie" : 5,
+		"effect" : 15,
+		"vie" : 4,
+		"attack" : 5 
+	},
+	{
+		"id": 18,
+		"name" : "Lamasticot",
+		"energie" : 2,
+		"effect" : -1,
+		"vie" : 2,
+		"attack" : 2
+	},
+	{
+		"id": 19,
+		"name" : "Lamasti-Junior",
+		"energie" : 6,
+		"effect" : -1,
+		"vie" : 5,
+		"attack" : 5
+	},
+	{
+		"id": 20,
+		"name" : "Lamasti-Roi",
+		"energie" : 8,
+		"effect" : -1,
+		"vie" : 7,
+		"attack" : 7
+	},
+	{
+		"id": 21,
+		"name" : "Suricate",
+		"energie" : 0,
+		"effect" : -1,
+		"vie" : 1,
+		"attack" : 1
+	},
+	{
+		"id": 22,
+		"name" : "Limace",
+		"energie" : 3,
+		"effect" : 2,
+		"vie" : 1,
+		"attack" : 2
+	},
+	{
+		"id": 23,
+		"name" : "Ed",
+		"energie" : 4,
+		"effect" : 0,
+		"vie" : 3,
+		"attack" : 2
+	},
+	{
+		"id": 24,
+		"name" : "Edd",
+		"energie" : 4,
+		"effect" : 0,
+		"vie" : 4,
+		"attack" : 1
+	},
+	{
+		"id": 25,
+		"name" : "Eddy",
+		"energie" : 4,
+		"effect" : 0,
+		"vie" : 2,
+		"attack" : 3
+	},
+	{
+		"id": 26,
+		"name" : "L'ingénieur",
+		"energie" : 6,
+		"effect" : 5,
+		"vie" : 4,
+		"attack" : 4
+	},
+	{
+		"id": 27,
+		"name" : "La Bête de Gevaudan",
+		"energie" : 7,
+		"effect" : -1,
+		"vie" : 4,
+		"attack" : 9
+	},
+	{
+		"id": 28,
+		"name" : "JHON CENA !!",
+		"energie" : 7,
+		"effect" :  14,
+		"vie" : 5,
+		"attack" : 6
+	},
+	{
+		"id": 29,
+		"name" : "Le Farfadet",
+		"energie" : 4,
+		"effect" : -1,
+		"vie" : 3,
+		"attack" : 4
+	},
+	{
+		"id": 30,
+		"name" : "Fillory",
+		"energie" : 2,
+		"effect" : -1,
+		"vie" : 2,
+		"attack" : 3
+	},
+	{
+		"id": 31,
+		"name" : "L'Assistant",
+		"energie" : 1,
+		"effect" : -1,
+		"vie" : 1,
+		"attack" : 2
+	},
+	{
+		"id": 32,
+		"name" : "Koteur",
+		"energie" : 2,
+		"effect" : 2,
+		"vie" : 1,
+		"attack" : 1
+	},
+	{
+		"id": 33,
+		"name" : "Mr Robot",
+		"energie" : 3,
+		"effect" : 0,
+		"vie" : 2,
+		"attack" : 3
+	},
+  {
     "id": 44,
     "name": "Poulet Sauvage",
     "energie" : 1,

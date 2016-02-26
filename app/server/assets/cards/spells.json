@@ -1,5 +1,71 @@
 [
   {
+		"id" : 01,
+		"name" : "Seconde session",
+		"energie" : 5,
+		"effect" : 6 
+	},
+	{
+		"id" : 02,
+		"name" : "Blocus",
+		"energie" : 2,
+		"effect" : 10 
+	},
+	{
+		"id": 03,
+		"name" : "Mauvaises notes",
+		"energie" : 4,
+		"effect" : 13 
+	},
+	{
+		"id": 04,
+		"name" : "Vacances",
+		"energie" : 1,
+		"effect" : 3 
+	},
+	{
+		"id": 05,
+		"name" : "Guidance",
+		"energie" : 2,
+		"effect" : 8 
+	},
+	{
+		"id": 06,
+		"name" : "Soutien du cercle",
+		"energie" : 3,
+		"effect" : 16 
+	},
+	{
+		"id": 07,
+		"name" : "Renforcement",
+		"energie" : 4,
+		"effect" : 0
+	},
+	{
+		"id": 08,
+		"name" : "Non assistance à élève en echec",
+		"energie" : 3,
+		"effect" : 5 
+	},
+	{
+		"id": 09,
+		"name" : "Veille de l'oral !",
+		"energie" : 3,
+		"effect" : 9
+	},
+	{
+		"id": 10,
+		"name" : "Abandon",
+		"energie" : 6,
+		"effect" : 11
+	},
+	{
+		"id" : 11,
+		"name" : "DocHub",
+		"energie" : 2,
+		"effect" : 15
+	},
+  {
     "id": 34,
     "name": "Protection des Anciens",
     "energie" : 2,
