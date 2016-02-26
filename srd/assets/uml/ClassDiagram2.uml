@@ -1,6 +1,5 @@
 @startuml
-
-title Wizard Poker - Class Diagram 2.0
+title Wizard - Class Diagram (Server section)
 
 'accessibilité
 skinparam classAttributeIconSize 0
@@ -20,13 +19,148 @@ skinparam class {
 skinparam stereotypeCBackgroundColor OldLace
 
 
-class Chat {
-  + sendMessage() : string
+class Card {
+  - id : unsigned
+  - name : string
+  - energyCost : unsigned
+  - effect : Effect*
+  + applyEffect() : void
+  + getId() : unsigned
+  + getName() : string
+  + getEnergyCost() : unsigned
+  + gotEffect() : bool
+  + getEffectId() : int
+  + isMonster() : bool
+  + canBeAppliedOnCard() : bool
+  + canBeAppliedOnPlayer() : bool
+}
+
+class CardManager {
+  {static} listCard : std::map<unsigned, Card*>
+  {static} getCardByID() : Card*
+  {static} loadAllCards() : void
+  {static} chooseCardWin() : Card*
+}
+
+class CardMonster {
+  - life : unsigned
+  - attack : unsigned
+  - maxLife : unsigned
+  - nbrOfTurnsSincePlaced : unsigned
+  - taunt : bool
+  + dealDamage() : void
+  + incrementTurn() : void
+  + getLife() : unsigned
+  + getAttack() : unsigned
+  + getMaxLife() : unsigned
+  + getNbrOfTurnsSincePlaced() : unsigned
+  + isTaunt() : bool
+  + setTaunt() : void
+  + setLife() : void
+  + setAttack() : void
+  + setMaxLife() : void
+  + isDead() : bool
+}
+
+class ChatManager {
+  + sendMessage() : string  
 }
 
 class Ranking {
-  + display() : void
+  
 }
+
+
+class CommService {
+  
+}
+
+class Connection {
+  - server_addr : sockaddr_in
+  - client_addr : sockaddr_in
+  - serverSocket : int
+  - sinSize : unsigned 
+  - clientThreads : vector<pthread_t>
+  - newThread : pthread_t
+  - {static} newPlayerThread() : void*
+  - {static} sendResponse() : void
+  + mainLoop() : void
+}
+
+class Deck {
+  - name : string
+  + getName() : string
+  + isValide() : bool
+  + pickup() : Card*
+  + deleteDeck() : bool
+  + copyDeck() : Deck*
+  + getDeck() : Deck*
+}
+
+class Collection {
+  # cardsList : vector<Card*>
+  + removeCard() : void
+  + addCard() : Error
+}
+
+class Effect {
+  {static} listEffect : vector<Effect*>
+  + getId() : unsigned
+  + apply() : void
+  + canBeAppliedOnCard() : bool
+  + canBeAppliedOnPlayer() : bool
+  + loadAllEffect() : void
+  {static} getEffectByID() : Effect*
+}
+
+class FriendsManager {
+  
+}
+
+class Game {
+  - gameStatut : GameStatut
+  - currentPlayer : PlayerInGame*
+  - turn : unsigned 
+  - player1 : PlayerInGame*
+  - player2 : PlayerInGame*
+  - isInGame() : bool
+  - getAdversary() : PlayerInGame*
+  - getAdversaryPlacedCard() : vector<CardMonster*>
+  + checkDeckAndStart() : void
+  + draw() : void
+  + placeCardAffectPlayer() : Error
+  + placeCard() : Error
+  + attackWithCard() : Error
+  + attackWithCardAffectPlayer() : Error
+  + nextPlayer() : void
+  + sendInfoAction() : void
+  - beginTurn() : void
+  - endTurn() : void
+  - canPlayerAttack() : Error
+  - verifyTaunt() : bool
+  - havePlace() : bool
+  - isPlayerAlive() : void
+  - placeCard() : Error
+  + {static} addPlayerWaitGame() : void
+}
+
+enum GameStatut {
+  WAIT_DEC
+  IN_GAME
+}
+
+class PacketManager {
+  + manageDisconnectRequest() : void
+  + managePacket() : void
+  + initGame() : void
+  + sendStartTurnInfo() : void
+  + sendCard() : void
+  + setTurn() : void
+  + sendAttack() : void
+  + askDiscard() : void
+  + sendEndGame() : void
+}
+
 
 class Player {
   - username : string
@@ -43,13 +177,6 @@ class Player {
   + getDefeats() : unsigned
   + getDeck() : Deck*
   + removeDeck() : bool
-}
-
-class FriendsManager {
-  - friendsList : vector<Player>
-  + deleteFriend() : void
-  + addFriend() : void
-  + speakToFriend() : void
 }
 
 class PlayerInGame {
@@ -78,86 +205,32 @@ class PlayerInGame {
   + isDead() : bool
 }
 
-class Deck {
-  - name : string
-  + getName() : string
-  + isValide() : bool
-  + pickup() : Card*
-  + deleteDeck() : bool
-  + copyDeck() : Deck*
-  + getDeck() : Deck*
-}
-
-class Collection {
-  # cardsList : vector<Card*>
-  + removeCard() : void
-  + addCard() : Error
-}
-
-class Card {
-  - id : unsigned
-  - name : string
-  - energyCost : unsigned
-  - effect : Effect*
-  + applyEffect() : void
-  + getId() : unsigned
-  + getName() : string
-  + getEnergyCost() : unsigned
-  + gotEffect() : bool
-  + getEffectId() : int
-  + isMonster() : bool
-  + canBeAppliedOnCard() : bool
-  + canBeAppliedOnPlayer() : bool
-}
-
-class CardMonster {
-  - life : unsigned
-  - attack : unsigned
-  - maxLife : unsigned
-  - nbrOfTurnsSincePlaced : unsigned
-  - taunt : bool
-  + dealDamage() : void
-  + incrementTurn() : void
-  + getLife() : unsigned
-  + getAttack() : unsigned
-  + getMaxLife() : unsigned
-  + getNbrOfTurnsSincePlaced() : unsigned
-  + isTaunt() : bool
-  + setTaunt() : void
-  + setLife() : void
-  + setAttack() : void
-  + setMaxLife() : void
-  + isDead() : bool
-}
-
-class Effect {
-  + getId() : unsigned
-  + apply() : void
-  + canBeAppliedOnCard() : bool
-  + canBeAppliedOnPlayer() : bool
-}
-
-class GameManager {
-  log
-}
-
-class Plateau {
-  + refresh() : void
+class PlayerManager {
+  - connected : vector<Player*>
+  - players : vector<Player*>
+  + getRanking() : string
+  + loadPlayers() : void
+  + signUp() : Player*
+  + logIn() : Player*
 }
 
 
-Player "0..*" *-- "1" Ranking
-Player "2" o-- "0..*" Chat
 Player <|-- PlayerInGame
-PlayerInGame -- Deck
-PlayerInGame -- FriendsManager
-Player -- Collection
+Card <|-- CardMonster
+Card <-- Effect
+PlayerInGame "2" *-- "1" Game
+PlayerInGame <-- Deck
+Player <-- Collection
+Card "20" --> Deck
+FriendsManager <-- Player
+Player --> PlayerManager
+Player --> Ranking
+Player "2" o-- "0..*" ChatManager
+Card --> CardManager
 Collection "1" *-- "100..*" Card
 Collection <|-- Deck: <<extend>> [Has 20 cards] >
-Card <|-- CardMonster
-Card <|-- Effect
-PlayerInGame -- GameManager
-GameManager "1" *-- "1" Plateau
+PacketManager -- Game
+GameStatut *-- Game
 
 
 @enduml

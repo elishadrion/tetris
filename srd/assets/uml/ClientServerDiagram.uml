@@ -1,6 +1,6 @@
 @startuml
 
-'TBD...
+'Suite TBD
 
 title Wizard Poker - Client-Server Diagram 
 
@@ -37,19 +37,19 @@ Client2 -> Serveur : Demande à jouer
 activate Serveur
 Serveur -> Client1 : Demande de choisir le deck
 Serveur -> Client2 : Demande de choisir le deck
-Client1 -> Serveur : Choisi le deck1
-Client2 -> Serveur : Choisi le deck3
-Serveur -> Serveur : Ajoute 5 cartes à chaque joueur
-Serveur -> Client1 : Envoie info de Client2
-Serveur -> Client2 : Envoie info de Client1
-Serveur -> Client1 : Envoie les cartes détenues et dit de jouer
-Serveur -> Client2 : Envoie les cartes détenues
+Client1 -> Serveur : Choisit le deck1
+Client2 -> Serveur : Choisit le deck3
+Serveur -> Serveur : Ajoute 5 cartes aux mains de chaque joueur
+Serveur -> Client1 : Envoie les infos de Client2
+Serveur -> Client2 : Envoie les infos de Client1
+Serveur -> Client1 : Envoie les cartes actuellement présentes dans la main du joueur1 et demande de jouer
+Serveur -> Client2 : Envoie les cartes actuellement présentes dans la main du joueur2
 
 alt Tour du client1
   Client1 -> Serveur : placeCard
   Serveur -> Client1 : sendInfoAction
   Serveur -> Client2 : sendInfoAction
-  Client2 ->x Serveur : Fait une action
+  Client2 ->x Serveur : Client2 doit attendre son tour
   Client1 -> Serveur : attackWithCardAffectPlayer
   Serveur -> Client1 : sendInfoAction
   Serveur -> Client2 : sendInfoAction

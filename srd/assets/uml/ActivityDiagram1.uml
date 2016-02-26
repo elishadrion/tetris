@@ -40,7 +40,7 @@ repeat
   :Jouer;
   note
     Voir l'activity diagram 3 pour 
-    avoir les details de "jouer"
+    avoir les détails de "jouer"
     qui contient 2 sorties
   end note
 repeat while (Jouer)

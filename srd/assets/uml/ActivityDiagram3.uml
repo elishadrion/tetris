@@ -9,7 +9,7 @@ skinparam classAttributeIconSize 0
 skinparam shadowing false
 
 'taille de l'image
-skinparam dpi 300 
+skinparam dpi 200 
 
 'couleurs
 skinparam activity {

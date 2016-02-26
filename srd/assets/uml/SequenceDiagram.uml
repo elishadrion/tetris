@@ -1,6 +1,6 @@
 @startuml
 
-'comment faire un encadré pour mettre les actions du joueur dans une boucle?
+'supprimer?
 'plus rajouter d'autres choses et modifier ce qui a été fait? 
 'changer "indique la carte piochée" par autre chose de mieux?
 
@@ -42,11 +42,13 @@ Joueur -> I : choix d'un deck
 
 I -> G : indique le deck
 
+loop Partie toujours en cours
 G ->> I : affichage de l'énergie
 G ->> I : indique la carte piochée
 
 I ->> Joueur : demande de jouer
 
 Joueur -> I : joue
+end
 
 @enduml
