@@ -27,18 +27,6 @@ void PacketManager::managePacket(Player *player, Packet::packet* customPacket) {
 void PacketManager::initGame(Player *player, std::string ennemyPseudo) {
 }
 
-/* Send all needed informations to the client
- * @param player : the players who to send this packet
- * @param playerInfo : current player's informations
- * @param ennemyCard : ennemy's placed card
- * @param ennemyHandCount : nbr of card in ennemy's hand
- * @param ennemyDeckCount : nbr of card in ennemy's deck
- * @param ennemyTrashCount : nbr of card in ennemy's trash
- */
-void PacketManager::sendStartTurnInfo(Player *player, std::vector<Card*> ennemyCard,
-int ennemyHandCount, int ennemyDeckCount, int ennemyTrashCount) {
-}
-
 /* Send a draw card to the player
  * @param player : the players who to send this packet
  * @param card : the drawed card

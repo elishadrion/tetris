@@ -19,7 +19,6 @@ namespace PacketManager {
 
     /* API in-game */
     void initGame(Player*, std::string);
-    void sendStartTurnInfo(Player*, std::vector<Card*>, int, int, int);
     void sendCard(Player*, Card*);
     void setTurn(Player*, std::string);
     void sendInfoStartTurn(Player*,int,int);
