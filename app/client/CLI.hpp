@@ -87,6 +87,9 @@ class CLI : public Display {
     CLIPanel *_panelList[PANEL_TOTAL_NUMBER];
     LoginPanel *loginPanel;
     bool loginDisplay;
+    int waitingParty;
+    
+    void displayGamePanel();
 public:
     CLI();
     ~CLI();
@@ -98,6 +101,7 @@ public:
     void displayCollectionWindow();
     void updateCollection(int, int*);
     void displayWait();
+    void displayGame();
 };
 
 #endif /* CONSOLE_HPP */

@@ -17,7 +17,7 @@ CollectionPanel::CollectionPanel() {
     attroff(COLOR_PAIR(1));
     
     /* Update collection from server */
-    PacketManager::requestCollection();
+    //PacketManager::requestCollection();
     
     /* Display */
     updatePanel();

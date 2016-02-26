@@ -88,6 +88,20 @@ void CLI::updateCollection(int number, int* cardList) {
 }
 
 void CLI::displayWait() {
+    waitingParty = 1;
     clear();
     mvprintw(2, 10, "EN ATTENTE D'ADVERSAIRE....");
+    while (waitingParty == 1);
+    if (waitingParty != 0)
+        displayMainWindow();
+    else
+        displayGamePanel();
+}
+
+void CLI::displayGame() {
+    waitingParty = 0;
+}
+
+void CLI::displayGamePanel() {
+    //TODO
 }

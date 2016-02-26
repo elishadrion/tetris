@@ -46,9 +46,9 @@ void MainPanel::focus() {
     int currentMenu = START_LINE;
     updateColor(0, currentMenu);
 
-    /* Loop through to get user requests with F1 to go to the tchatPanel */
+    /* Loop through to get user requests with F1 to valide */
     int input;
-    while((input = getch())) {
+    while((input = getch()) != KEY_F(1)) {
         switch(input) {
             case KEY_DOWN:
                 /* Go to next menu (or first) */
