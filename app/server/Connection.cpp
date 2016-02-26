@@ -93,7 +93,7 @@ void* Connection::newPlayerThread(void* data) {
     pthread_setcanceltype(PTHREAD_CANCEL_ASYNCHRONOUS, (int*) PTHREAD_CANCEL_DEFERRED);
 
     /* Convert to get clientSocket addr */
-    int clientSocket = *static_cast<int *>(data);
+    int clientSocket = *static_cast<int*>(data);
 
     size_t readSize;
     size_t size;

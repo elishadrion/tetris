@@ -17,6 +17,7 @@ public:
     virtual void displayCollectionWindow() =0;
     virtual void updateCollection(int, int*) =0;//TODO why ? player is better :(
     virtual void displayWait() =0;
+    virtual void displayGame() =0;
 };
 
 #endif	/* DISPLAY_HPP */
