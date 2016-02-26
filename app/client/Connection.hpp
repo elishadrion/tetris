@@ -1,13 +1,7 @@
 #ifndef CONNECTION_HPP
 #define CONNECTION_HPP
 
-#include <system_error>
-#include <cstdlib>
-#include <unistd.h>
-#include <cstring>
 #include <netdb.h>
-#include <sys/types.h>
-#include <netinet/in.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <netinet/tcp.h>
@@ -50,7 +44,7 @@ class Connection {
 public:
     Connection(char*);
     ~Connection();
-    void sendPacket(Packet*, long unsigned int);
+    void sendPacket(Packet*, size_t);
 };
 
 #endif /* CONNECTION_HPP */

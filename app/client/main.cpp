@@ -32,7 +32,7 @@ int main(int argc, char** argv) {
      * If it fail, client can't go farther
      */
     try {
-        argc > 1 ? conn = new Connection(argv[1]) : conn = new Connection("localhost");
+        argc > 1 ? conn = new Connection(argv[1]) : conn = new Connection((char*)"localhost");
     } catch (...) {
         return EXIT_FAILURE;
     }

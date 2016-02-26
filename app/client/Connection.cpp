@@ -24,7 +24,7 @@ Connection::Connection(char* hostName) {
         _clientSocket = socket(AF_INET, SOCK_STREAM, 0);
         if (_clientSocket == -1) {
             std::string error = "Impossible d'avoir un nouveau socket pour le serveur : ";
-            error += hstrerror(h_errno);
+            error += strerror(errno);
             throw std::runtime_error(error);
         }
         
@@ -46,14 +46,14 @@ Connection::Connection(char* hostName) {
         WizardLogger::info("Tentative de connexion au serveur");
         if (connect(_clientSocket, (struct sockaddr *)&server_addr, sizeof(struct sockaddr)) == -1) {
             std::string error = "Impossible de se connecter au serveur : ";
-            error += hstrerror(h_errno);
+            error += strerror(errno);
             throw std::runtime_error(error);
         }
 
         /* We create a new Thread for listen the server informations */
         if (pthread_create(&_recvThread, NULL, recvLoop, (void*)&_clientSocket) == -1) {
             std::string error = "Impossible de créer un nouveau thread pour écouter le serveur : ";
-            error += hstrerror(h_errno);
+            error += strerror(errno);
             throw std::runtime_error(error);
         }
         
@@ -75,8 +75,7 @@ Connection::Connection(char* hostName) {
 
 Connection::~Connection() {
     /* Close thread and socket */
-    if (_recvThread != NULL)
-        pthread_cancel(_recvThread);
+    pthread_cancel(_recvThread);
     close(_clientSocket);
 }
 
@@ -85,7 +84,7 @@ Connection::~Connection() {
  * @param size : the packet global size, to be sure to send all data
  * @throw : an error occure during sending packet, CLI/GUI must catch it
  */
-void Connection::sendPacket(Packet *packet, long unsigned int size) {
+void Connection::sendPacket(Packet *packet, size_t size) {
     try {
         if (send(_clientSocket, packet, size, 0) != size) {
             throw std::string("Tout le packet n'a pas été envoyé");
@@ -108,7 +107,7 @@ void* Connection::recvLoop(void* data) {
     int clientSocket = *((int *)data);
     
     /* Read data from buffer */
-    int readSize;
+    ssize_t readSize;
     
     /* Loop to wait with select server messages */
     while(1) {
@@ -136,4 +135,5 @@ void* Connection::recvLoop(void* data) {
     
     /* ERROR occure so we must inform the user */
     display->displayFatalError("La connexion avec le serveur semble avoir été interrompue !");
+    return nullptr;
 }
