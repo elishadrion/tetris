@@ -281,9 +281,9 @@ les différentes actions répertoriées ci-dessous.\\
 \underline{Post-conditions:} 
  Être connecté\\
 \underline{Cas général:} 
- Le programme vérifie que le pseudo et le mot de passe est correcte pour permettre à l'utilisateur de profiter des fonctionnalités de l'application.\\
+ Le programme vérifie que le pseudo et le mot de passe sont corrects pour permettre à l'utilisateur de profiter des fonctionnalités de l'application.\\
 \underline{Cas exceptionnels:} 
- Aucun\\
+ Nom d'utilisateur et/ou mot de passe erroné(s).\\
 
 \subsubsection*{Consulter sa collection de cartes}
 
@@ -295,9 +295,9 @@ Le joueur peut consulter l'ensemble des cartes présentes dans sa
 \underline{Post-conditions:} 
  Les cartes sont affichées\\
 \underline{Cas général:} 
- Lorsque le joueur désire consulter ses cartes, l'application doit chargée celle gagné grâce à ses victoires mais également les cartes qu'il à reçu à son inscription.\\
+ Lorsque le joueur désire consulter ses cartes, l'application doit charger les cartes gagnées grâce à ses victoires mais également les 100 cartes reçues à l'inscription.\\
 \underline{Cas exceptionnels:} 
- \\
+ Aucun\\
 
 \subsubsection*{Gestion de decks}
 
@@ -308,11 +308,11 @@ simplement en créer un nouveau.\\
 \underline{Pré-conditions:} 
  Avoir au moins un deck\\
 \underline{Post-conditions:} 
- Afficher les decks\\
+ Affichage, modification, suppression ou création d'un deck\\
 \underline{Cas général:} 
- Le joueur demande à voir la liste de ses deck pour organiser ses cartes et créer une stratégie pour la partie.  Il peut créer, supprimer et modifier les decks.  L'application doit vérifier que le joueur à toujours au moins un deck.\\
+ Le joueur demande à voir la liste de ses decks pour organiser ses cartes et créer une stratégie pour la partie.  Il peut créer, supprimer et modifier les decks.  L'application doit vérifier que le joueur a toujours au moins un deck.\\
 \underline{Cas exceptionnels:} 
- \\
+ Aucun?\\
 
 \subsubsection*{Gérer une liste d'amis}
 
@@ -324,9 +324,9 @@ interagir s'il le souhaite. Il pourra donc ajouter ou supprimer un ami de sa lis
 \underline{Post-conditions:} 
  Voir et modifier sa liste d'amis.\\
 \underline{Cas général:} 
- \\
+ Affichage de la liste ou modification de celle-ci\\
 \underline{Cas exceptionnels:} 
- \\
+ Aucun\\
 
 \subsubsection*{Discuter avec ses amis}
 
@@ -337,13 +337,13 @@ du joueur.  Le joueur pourra donc à tout moment communiquer avec ses amis par
 messagerie instantanée. Cependant un joueur ne pourra communiquer qu'avec
 une personne à la fois.\\
 \underline{Pré-conditions:} 
- \\
+ Être connecté et avoir au moins un ami dans sa liste qui est connecté\\
 \underline{Post-conditions:} 
- \\
+ Une conversation s'établit entre les deux personnes\\
 \underline{Cas général:} 
- \\
+ Une bulle de conversation s'ouvre\\
 \underline{Cas exceptionnels:} 
- \\
+ Aucun?\\
 
 \subsubsection*{Proposer une partie à un ami}
 
@@ -351,13 +351,13 @@ Si le joueur le souhaite, il peut proposer une partie à un de ses
 amis connectés. Ce dernier est libre d'accepter ou non cette demande.
 S'il l'accepte la partie est lancée entre les deux joueurs.\\
 \underline{Pré-conditions:} 
- \\
+ Être connecté et disponible et avoir un ami connecté disponible (pas en partie)\\
 \underline{Post-conditions:} 
- \\
+ Invitation à jouer envoyée à l'ami choisi\\
 \underline{Cas général:} 
- \\
+ Lancement d'une partie contre cet ami\\
 \underline{Cas exceptionnels:} 
- \\
+ Aucun?\\
  
 
 \subsubsection*{Trouver un adversaire pour un duel}
@@ -366,13 +366,13 @@ Lorsqu'un joueur voudra lancer une partie, le jeu trouvera
 automatiquement un adversaire dans la liste des personnes
 connectées. Le choix de l'adversaire est totalement aléatoire.\\
 \underline{Pré-conditions:} 
- \\
+ Être connecté et avoir au moins un deck formé\\
 \underline{Post-conditions:} 
- \\
+ Changement de statut : de "disponible" à "en partie"\\
 \underline{Cas général:} 
- \\
+ La partie se lance contre l'adversaire trouvé\\
 \underline{Cas exceptionnels:} 
- \\
+ Aucun adversaire n'a été trouvé\\
 
 \subsubsection*{Consulter le classement}
 
@@ -381,13 +381,13 @@ Le classement va permettre de classer les joueurs en fonction de
 leur nombre de victoires et de défaites. Ce classement se
 basera donc sur un ratio victoires/défaites.\\
 \underline{Pré-conditions:} 
- \\
+ Être connecté\\
 \underline{Post-conditions:} 
- \\
+ Affichage du classement\\
 \underline{Cas général:} 
- \\
+ ?\\
 \underline{Cas exceptionnels:} 
- \\
+ Aucun\\
 
 \subsection{Exigences non fonctionnelles}
 \label{sec:exi-nonfonc}

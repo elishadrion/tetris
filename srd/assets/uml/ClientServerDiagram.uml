@@ -46,11 +46,11 @@ Serveur -> Client2 : Envoie les cartes actuellement\n présentes dans la main du
 
 loop Partie toujours en cours
 alt Tour du client1
-  Client1 -> Serveur : placeCardAffectPlayer
+  Client1 -> Serveur : placeCard
   Serveur -> Client1 : sendInfoAction
   Serveur -> Client2 : sendInfoAction
   Client2 ->x Serveur : Client2 doit attendre son tour
-  Client1 -> Serveur : attackWithCard
+  Client1 -> Serveur : attackWithCardAffectPlayer
   Serveur -> Client1 : sendInfoAction
   Serveur -> Client2 : sendInfoAction
 end
@@ -70,7 +70,7 @@ end
 end
 
 alt Fin de partie
-  Client1 -> Serveur : attackWithCard
+  Client1 -> Serveur : attackWithCardAffectPlayer
   Serveur -> Serveur : Client2 est mort
   Serveur -> Client1 : sendEndGame (informe qu'il a gagné)
   Serveur -> Client2 : sendEndGame (informe qu'il a perdu)
