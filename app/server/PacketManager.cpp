@@ -54,7 +54,23 @@ void PacketManager::setTurn(Player *player, std::string pseudo) {
 }
 
 /**
+ * Send informations when the player start he turn
+ *
+ * @param player : the players who to send this packet
+ * @param energy : energy that have the player
+ * (it is egal at he max energy)
+ * @param adverseCardInHand : number of card that the
+ * adverse player have
+ */
+void PacketManager::sendInfoStartTurn(Player *player, int energy,
+    int adverseCardInHand) {
+
+}
+
+
+/**
  * Send attack informations
+ *
  * @param player : the players who to send this packet
  * @param pseudo : attacking player's pseudo
  * @param targetID : ID of the target (-1 for player, other for cardMonster)

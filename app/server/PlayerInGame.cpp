@@ -97,13 +97,19 @@ std::vector<Card*> PlayerInGame::getCardsInHand() {
 
 void PlayerInGame::addMaxEnergy() {
     if (_maxEnergy < _limitEnergy) {
-     _maxEnergy++;
+      _maxEnergy++;
     }
 }
 
 
-void PlayerInGame::resetEnergy() {
+/**
+ * Permet de remettre l'énergie au maximum
+ *
+ * @return la nouvelle valeur d'énergie
+ */
+int PlayerInGame::resetEnergy() {
     _energy = _maxEnergy;
+    return _energy;
 }
 
 

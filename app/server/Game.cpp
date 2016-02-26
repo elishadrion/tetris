@@ -305,9 +305,14 @@ void Game::nextPlayer() {
     if(_currentPlayer == _player1) {
         ++_turn;
     }
+    _currentPlayer->addMaxEnergy();
+    int energie = _currentPlayer->resetEnergy();
 
     PacketManager::setTurn(_player1, _currentPlayer->getName());
     PacketManager::setTurn(_player2, _currentPlayer->getName());
+
+    PacketManager::sendInfoStartTurn(_currentPlayer, energie,
+        getAdversePlayer()->nbrCardInHand());
 
     beginTurn();
 }
