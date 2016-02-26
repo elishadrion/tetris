@@ -1,9 +1,5 @@
 @startuml
 
-'comment afficher oui et non à la sortie du while sur le diagramme?
-'pour avoir oui en face de la fleche ou le joueur meurt
-'et non pour la boucle -> ?
-
 title Wizard Poker - Activity Diagram 3
 
 'accessibilité
@@ -68,11 +64,10 @@ repeat
     :Joueur Suivant;
     stop
   endif
-repeat while (Joueur Mort ?)
+repeat while (Joueur Mort ?) is (oui)
 
 
 :Fin de la partie;
 stop
 
 @enduml
-
