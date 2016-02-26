@@ -202,7 +202,7 @@ Error Game::placeCardAffectPlayer(PlayerInGame* pIG, Card* cardPlaced) {
             PlayerInGame* pAdverse = getAdversePlayer(pIG);
             cardPlaced->applyEffect(*pAdverse, *this);
             // Send information to clients
-            sendInfoAction(pIG, -1, pAdverse->getHeal());
+            sendInfoAction(pIG, cardPlaced->getId(), -1, true, true, pAdverse->getHeal());
             isPlayerInLife(pAdverse); // Is player inlife ?
         } else {
             res = Error::NotEffectForPlayer;
@@ -232,7 +232,7 @@ Error Game::placeCard(PlayerInGame* pIG, Card* cardPlaced,
         cardPlaced->applyEffect(*targetCard, *this);
 
         // Send information to clients
-        sendInfoAction(pIG, targetCard->getId(), targetCard->getLife());
+        sendInfoAction(pIG, cardPlaced->getId(), targetCard->getId(), true, true, targetCard->getLife());
     }
 
     return res;
@@ -257,7 +257,7 @@ Error Game::attackWithCard(PlayerInGame* pIG, CardMonster* card,
                 this->getAdversePlayer()->defausseCardPlaced(targetCard);
             }
 
-            sendInfoAction(pIG, targetCard->getId(), targetCard->getLife());
+            sendInfoAction(pIG, card->getId(), targetCard->getId(), false, false, targetCard->getLife());
         } else {
             res = Error::MustAttackTaunt;
         }
@@ -284,7 +284,7 @@ Error Game::attackWithCardAffectPlayer(PlayerInGame* pIG,
             PlayerInGame* pAdverse = getAdversePlayer(pIG);
             card->dealDamage(*pAdverse);
 
-            sendInfoAction(pIG, -1, pAdverse->getHeal());
+            sendInfoAction(pIG, card->getId(), -1, false, false, pAdverse->getHeal());
             isPlayerInLife(pAdverse);
         } else {
             res = Error::MustAttackTaunt;
@@ -317,12 +317,16 @@ void Game::nextPlayer() {
  * Send information
  *
  * @param pIG who play
+ * @param cardWichAttack
  * @param attackCard card which is attack (-1 if player)
  * @param heal of the attack entity
  */
-void Game::sendInfoAction(PlayerInGame* pIG, int attackCard, unsigned heal) {
-    PacketManager::sendAttack(_player1, pIG->getName(), attackCard, heal);
-    PacketManager::sendAttack(_player2, pIG->getName(), attackCard, heal);
+void Game::sendInfoAction(PlayerInGame* pIG, int cardWichAttack, int attackCard,
+    bool isEffect, bool newCard, unsigned heal) {
+    PacketManager::sendAttack(_player1, pIG->getName(),
+        cardWichAttack, isEffect, newCard, attackCard, heal);
+    PacketManager::sendAttack(_player2, pIG->getName(),
+        cardWichAttack, isEffect, newCard, attackCard, heal);
 }
 
 

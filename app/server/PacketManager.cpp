@@ -53,13 +53,18 @@ void PacketManager::sendCard(Player *player, Card *card) {
 void PacketManager::setTurn(Player *player, std::string pseudo) {
 }
 
-/* Send attack informations
+/**
+ * Send attack informations
  * @param player : the players who to send this packet
  * @param pseudo : attacking player's pseudo
  * @param targetID : ID of the target (-1 for player, other for cardMonster)
+ * @param cardWichAttack : Card which attack the other
+ * @param isEffect : if the attack is an effect (false if it is attack)
+ * @param newCard : true if it's a new card wich make attack
  * @param finalLife : final life of the target after attack
  */
-void PacketManager::sendAttack(Player *player, std::string pseudo, int targetID, unsigned int finalLife) {
+void PacketManager::sendAttack(Player *player, std::string pseudo, int cardWichAttack,
+    int targetID, bool isEffect, bool newCard, unsigned int finalLife) {
 }
 
 /* Ask player to defausse a specific amount of card before continue

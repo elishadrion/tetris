@@ -18,7 +18,7 @@ namespace PacketManager {
     void sendStartTurnInfo(Player*, dataIGPlayer, std::vector<CardMonster*>, int, int, int);
     void sendCard(Player*, Card*);
     void setTurn(Player*, std::string);
-    void sendAttack(Player*, std::string, int, unsigned int);
+    void sendAttack(Player*, std::string, int, int, bool, bool, unsigned int);
     void askDefausse(Player*, int);
     void sendEndGame(Player*, bool);
 }
