@@ -85,13 +85,13 @@
 }
 
 \newglossaryentry{defausse} {
-  name=Défaussé,
+  name=Défausser,
   description={Action de se débarrasser d'une carte qui sera elle-même placée dans une défausse en vue d'être récupérée par le joueur qui la possède.}
 }
 
 \newglossaryentry{pseudo} {
   name=Pseudo,
-  description={Nom qu'une personne peut prendre en jeu à fin de remplacer son vrai prénom.}
+  description={Nom qu'une personne peut prendre en jeu afin de remplacer son vrai prénom.}
 }
 
 
@@ -164,7 +164,7 @@ Voir table \ref{tab:hist}
     & \textbf{Description des changements}\\ \hline \hline
     v2.0 & Team & 26/2/16 & Delivrable phase 2 \\ \hline
     v1.5 & ??? & ?/?/? & ??? \\ \hline
-    v1.4 & Dewit Maxime & 25/2/16 & UML \\ \hline
+    v1.4 & Maxime Dewit & 25/2/16 & UML \\ \hline
     v1.3 & Carlos Requena & 25/2/16 & Exigences fonctionnelles système
     \\ \hline
     v1.2 & Corentin Candeur & 24/2/16 & UML \\ \hline
@@ -204,7 +204,7 @@ Lors de la création d'un compte, le joueur recevra 100 cartes dans sa \gls{coll
 \index{Sort}
 \index{Défausser}
 \index{Monstre}
-Il existe deux types de \gls{carte}s dans le jeu. D'une part, on retrouve les cartes \gls{sort}s qui sont des cartes à effets. Cependant, dès qu'une carte \gls{sort} aura été jouée, elle sera directement \gls{defausse}e et son effet sera immédiat (dans la majorité des cas). D'autre part, on retrouve les cartes \gls{monstre}s qui sont des cartes devant être posées sur le plateau par le joueur. Pour pouvoir attaquer avec les monstres, ces derniers doivent être sur le terrain au minimum depuis un tour. Certains monstres peuvent aussi avoir plusieurs effets spéciaux.
+Il existe deux types de \gls{carte}s dans le jeu. D'une part, on retrouve les cartes \gls{sort}s qui sont des cartes à effets. Cependant, dès qu'une carte \gls{sort} aura été jouée, elle sera directement \gls{defausse}e (=retirée du jeu) et son effet sera immédiat (dans la majorité des cas). D'autre part, on retrouve les cartes \gls{monstre}s qui sont des cartes devant être posées sur le plateau par le joueur. Pour pouvoir attaquer avec les monstres, ces derniers doivent être sur le terrain au minimum depuis un tour. Certains monstres peuvent aussi avoir plusieurs effets spéciaux.
 
 \medbreak
 
@@ -219,7 +219,7 @@ Toutes les cartes ayant un coût en \gls{energie}, celle-ci est primordiale dans
 \medbreak
 
 \index{Tchat}
-Le Wizard Poker étant un jeu en ligne, il permet donc de mettre les joueurs en contact. Premièrement, chaque joueur a la possibilité de gérer une liste d'amis. Un joueur pourra donc ajouter et retirer des amis dans sa liste. Mais il pourra également jouer des duels avec ses amis. Deuxièmement, le Wizard Poker propose un système de \gls{tchat} permettant à deux joueurs étant amis de s'échanger des messages.  Ce tchat est disponible à tout moment.
+Le Wizard Poker étant un jeu en ligne, il permet donc de mettre les joueurs en contact. Premièrement, chaque joueur a la possibilité de gérer une liste d'amis. Un joueur pourra donc ajouter et retirer des amis à sa liste. Mais il pourra également jouer des duels avec ses amis. Deuxièmement, le Wizard Poker propose un système de \gls{tchat} permettant à deux joueurs étant amis de s'échanger des messages.  Ce tchat est disponible à tout moment.
 
 \medbreak
 
@@ -235,18 +235,18 @@ En ce qui concerne le mode de jeu, il s'agit ici d'un jeu de cartes au tour par 
 
 \index{Sort}
 \begin{itemize}
- \item[\textbullet] poser une carte Sort;
+ \item[\textbullet] jouer une carte Sort;
  \item[\textbullet] poser une carte Monstre;
  \item[\textbullet] demander à une carte monstre d'attaquer soit une carte Monstre adverse, soit le joueur adverse lui-même ;
  \item[\textbullet] finir son tour.
 \end{itemize}
 
-Pour pouvoir demander à une carte monstre d'attaquer il faut que celle-ci ait été placée au tour précédent (ou encore avant).  Lorsqu'une carte monstre attaque un élément adverse (que ça soit une carte monstre ou le joueur adverse) l'élément attaqué perd un nombre de points de vie égal à la valeur d'attaque de la carte attaquante. Lorsqu'une carte monstre a 0 (ou moins) point de vie, elle meurt et est défaussée.
+Pour pouvoir demander à une carte monstre d'attaquer il faut que celle-ci ait été placée au minimum au tour précédent.  Lorsqu'une carte monstre attaque un élément adverse (que ça soit une carte monstre ou le joueur adverse) l'élément attaqué perd un nombre de points de vie égal à la valeur d'attaque de la carte attaquante. Lorsqu'une carte monstre a 0 (ou moins) point de vie, elle meurt et est défaussée.
 
 \medbreak
 
 
-Les joueurs pourront chacun poser au maximum 7 cartes monstres sur le plateau ainsi qu'avoir au maximum 7 cartes en main. Si à la fin du tour du joueur, ce dernier a plus de 7 cartes en main, il devra décider quelles cartes il souhaite défausser. De plus, si un joueur a épuisé toutes les cartes de son deck, il perdra 3 points de vie à chaque début de tour.
+Les joueurs pourront chacun poser au maximum 7 cartes monstres sur le plateau ainsi qu'avoir au maximum 7 cartes en main. Si à la fin du tour du joueur, ce dernier a plus de 7 cartes en main, il devra décider de quelle(s) carte(s) il souhaite se défausser. De plus, si un joueur a épuisé toutes les cartes de son deck, il perdra 5 points de vie à chaque début de tour.
 
 \medbreak
 
@@ -388,28 +388,29 @@ un thread est initialisé...
 
 \subsubsection*{Login et enregistrement}
 
-Les utilisateurs peuvent se connecter ou s'enregistrer a travers la
-fenetre de login, realisé avec \texttt{ncurses} et introduire leur
-pseudonyme et mot de passe. Ces information sont trasmis au serveur
-qui verifie leur veracité et
+Les utilisateurs peuvent se connecter ou s'enregistrer à travers la
+fenêtre de login, réalisée avec \texttt{ncurses} et introduire leur
+pseudonyme et mot de passe. Ces informations sont transmises au serveur
+qui vérifie si celles-ci sont correctes.
+
 
 \subsubsection*{Classement}
 
-Tout joueur inscrit peut consulter le classement. Ceci est donné en
-verifiant toutes les victoires et defaites de chaque joueur. La liste
-est imprimé en ordre descendant.
+Tout joueur inscrit peut consulter le classement. Celui-ci est donné en
+vérifiant toutes les victoires et défaites de chaque joueur. La liste
+est affichée par ordre décroissant sur le ratio victoires/défaites.
 
-\subsubsection*{Sauvegarde. Serialisation/Deserialisation}
+\subsubsection*{Sauvegarde. Sérialisation/Désérialisation}
 
-Les données des joueurs propres au jeu (ses decks,
-sa collection des cartes, le nombre de victoires et défaites etc) sont
-enregistrés avec chaque deconnexion de joueur. La prochaine fois que
+Les données des joueurs propres au jeu (decks,
+collections de cartes, nombres de victoires et défaites etc) sont
+enregistrées à chaque déconnexion des joueurs. La prochaine fois que
 l'utilisateur se connecte, il aura toutes ses données comme avant.
 
-Cela est possible grace a la serialisation de l'information au format
+Cela est possible grace a la sérialisation de l'information au format
 JSON\footnote{JavaScript Object Notation}. Ce n'est pas une vraie base
 de données mais bien un fichier texte qui est sauvegardé dans le
-serveur. Toutes les complexités des base de données sont eliminés pour
+serveur. Toutes les complexités liées aux bases de données sont donc éliminées pour
 ce simple jeu.
 
 
@@ -466,7 +467,7 @@ Le diagramme de classe présenté à la Figure \ref{fig:class} sera celui sur le
 
 \index{Initialiser une partie}
 Le diagramme client/serveur, présenté à la Figure \ref{fig:seq}, vise à montrer la manière dont un joueur va
-pouvoir initialiser une partie.
+pouvoir jouer une partie.
 
 \begin{figure}[ht]
   \centering
