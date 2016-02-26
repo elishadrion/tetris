@@ -11,8 +11,7 @@
  */
 Card::Card(unsigned int id, std::string name, unsigned int energy,
         int effect, bool save = true):
-        _id(id), _name(name), _energyCost(energy),
-        _effect(Effect::getEffectByID(effect)) {
+        _id(id), _name(name), _energyCost(energy) {
 
     if(effect != -1) {
         _effect = Effect::getEffectByID(effect);

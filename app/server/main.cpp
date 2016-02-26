@@ -22,11 +22,13 @@ int main() {
 
     WizardLogger::info("Starting server");
 
-    // Loads card
-    //CardManager::loadCards();
 
     // Load Effect
     Effect::loadAllEffect();
+
+    // Loads card
+    CardManager::loadAllCards();
+
 
     pm = new PlayerManager();
     pm -> loadPlayers();
