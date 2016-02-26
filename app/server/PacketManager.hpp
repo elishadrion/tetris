@@ -4,6 +4,7 @@
 #include "common/WizardLogger.hpp"
 
 #include "Card.hpp"
+#include "Collection.hpp"
 #include "Player.hpp"
 
 class Player;
@@ -11,6 +12,7 @@ class Player;
 namespace PacketManager {
     /* Manage recev packet */
     void manageDisconnectRequest(Player*, Packet::packet*);
+    void manageCollectionRequest(Player*, Packet::packet*);
 
     /* API for other service */
     void managePacket(Player*, Packet::packet*);

@@ -17,6 +17,7 @@
 #include "client/CLI/CLIPanel.hpp"
 #include "client/CLI/LoginPanel.hpp"
 #include "client/CLI/MainPanel.hpp"
+#include "client/CLI/CollectionPanel.hpp"
 
 /** in-game layout
 #################################### ############
@@ -35,7 +36,7 @@
 #################################### ############
 #################################### ############
 #                                  # #   tchat  #
-#        playersInfo              # #    input  #
+#        playersInfo               # #   input  #
 #################################### ############
 #################################################
 #           commandList (key shortcut)          #
@@ -79,7 +80,7 @@
 #define CARD_INFO_HEIGTH 5
 #define CARD_INFO_WIDTH TCHAT_INPUT_WIDTH
 
-#define PANEL_TOTAL_NUMBER 1
+#define PANEL_TOTAL_NUMBER 2
 
 class CLI : public Display {
     /* All panel used by the CLI */
@@ -94,6 +95,9 @@ public:
     void displayLoginResult(std::string);
     void valideLogin();
     void displayMainWindow();
+    void displayCollectionWindow();
+    void updateCollection(int, int*);
+    void displayWait();
 };
 
 #endif /* CONSOLE_HPP */

@@ -103,3 +103,15 @@ void PacketManager::manageDisconnectRequest(Player *player, Packet::packet* disc
     WizardLogger::info(player->getName()+" se déconnecte");
     player->logout();
 }
+
+void PacketManager::manageCollectionRequest(Player *player, Packet::packet* collectionReqPacket) {
+    Packet::collectionListPacket* collectionPacket = new Packet::collectionListPacket();
+    std::vector<unsigned> collection = player->getCollection()->getCardsId();
+    
+    for (int i = 0 ; i < collection.size() ; ++i) {
+        collectionPacket->cartesList[collection[i]] += 1;
+    }
+    
+    player->sendPacket((Packet::packet*) collectionPacket, sizeof(*collectionPacket));
+    delete collectionPacket;
+}

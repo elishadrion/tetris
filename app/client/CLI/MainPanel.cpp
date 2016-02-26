@@ -19,11 +19,9 @@ MainPanel::MainPanel() {
     attron(COLOR_PAIR(3));
     mvwprintw(window, START_LINE+6, 8, "F10 pour quitter le programme");
     attroff(COLOR_PAIR(3));
-    mvwprintw(window, START_LINE+8, 10, "(utiliser F1 pour accéder au Tchat)");
+    mvwprintw(window, START_LINE+8, 8, "F1: valider le choix");
+    mvwprintw(window, START_LINE+10, 8, "(utiliser F2 pour accéder au Tchat)");
     refresh();
-}
-
-MainPanel::~MainPanel() {
 }
 
 void MainPanel::show() {
@@ -50,7 +48,7 @@ void MainPanel::focus() {
 
     /* Loop through to get user requests with F1 to go to the tchatPanel */
     int input;
-    while((input = getch()) != KEY_ENTER) {
+    while((input = getch())) {
         switch(input) {
             case KEY_DOWN:
                 /* Go to next menu (or first) */
@@ -76,12 +74,13 @@ void MainPanel::focus() {
                 /* Send deconnection packet before close program */
                 PacketManager::sendDisconnection();
                 return;
+            case KEY_F(2):
+                break;//TODO
             default:
                 beep();
                 break;
         }
     }
-    
     doRequest(currentMenu);
 }
 
@@ -104,4 +103,16 @@ void MainPanel::updateColor(int previous, int next) {
 }
 
 void MainPanel::doRequest(int entry) {
+    switch(entry) {
+        case START_LINE:
+            display->displayWait();
+            break;
+        case START_LINE+2:
+            /* Display CollectionPanel */
+            //display->displayCollectionWindow();
+            break;
+        default:
+            WizardLogger::error("PAS IMPLEMENTE");
+            break;
+    }
 }
