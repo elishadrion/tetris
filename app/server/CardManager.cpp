@@ -39,27 +39,7 @@ void CardManager::loadAllCards(){
     unsigned int life;
     unsigned int attack;
 
-    /*
-    std::ifstream playersFile;
-    try {
-	playersFile.open(PLAYERS_DB);
-    } catch (std::ios_base::failure &fail) {
-	WizardLogger::warning("LOADING USERS FAILED");
-	return;
-    }
-
-    std::string info_str((std::istreambuf_iterator<char>(playersFile)),
-			 std::istreambuf_iterator<char>());
-    nlohmann::json db = nlohmann::json::parse(info_str);
-
-    for (size_t i = 0 ; i < db.size(); ++i) {
-	nlohmann::json player_info = db[i];
-	_players.push_back(new Player(player_info));
-    }
-
-    playersFile.close();
-    */
-
+    ////// Card Spell //////
     std::ifstream spellFile;
     try {
 	  spellFile.open("server/assets/cards/spells.json");
@@ -72,25 +52,19 @@ void CardManager::loadAllCards(){
 			 std::istreambuf_iterator<char>());
     nlohmann::json spellCards = nlohmann::json::parse(info_spell_str);
 
-
-    //std::ifstream ifs("server/assets/cards/spells.json");//declare the file with the spells
-    //json spellCards(ifs); //make a json object with the file
-
     for (json::iterator i = spellCards.begin(); i!=spellCards.end(); ++i){
-
         id = i.value()["id"];
         WizardLogger::info("Chargement de la carte sort: " + std::to_string(id));
         name = i.value()["name"];
         energy = i.value()["energie"];
         effect = i.value()["effect"];
-
+        // Enregistrer la carte
 		_listCard[id]= new Card(id,name,energy,effect,true);
 	}
-
-	//std::ifstream ifs2("server/assets/cards/monstres.json");//declare the file with the monsters
-	//json monsterCards(ifs2); //make a json object with the file
+	spellFile.close();
 
 
+    ////// Card Monster //////
     std::ifstream cardFile;
     try {
 	  cardFile.open("server/assets/cards/monstres.json");
@@ -103,9 +77,7 @@ void CardManager::loadAllCards(){
 			 std::istreambuf_iterator<char>());
     nlohmann::json monsterCards = nlohmann::json::parse(info_monster_str);
 
-
     for (json::iterator i = monsterCards.begin(); i!=monsterCards.end(); ++i){
-
         id = i.value()["id"];
         WizardLogger::info("Chargement de la carte monstre: " + std::to_string(id));
         name = i.value()["name"];
@@ -113,9 +85,11 @@ void CardManager::loadAllCards(){
         effect = i.value()["effect"];
         life = i.value()["vie"];
         attack = i.value()["attack"];
-
+        // Enregistrer la carte
         _listCard[id]= new CardMonster(id,name,energy,effect,true,life,attack,0);
 	}
+
+	cardFile.close();
 
 }
 
