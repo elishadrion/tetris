@@ -91,7 +91,7 @@ std::string& operator<<(std::string& str, const Player& c) {
  * @param size : the packet global size, to be sure to send all data
  * @throw : an error occure during sending packet, must catch it
  */
-void Player::sendPacket(Packet::packet *packet, long unsigned int size) {
+void Player::sendPacket(Packet::packet *packet, size_t size) {
     try {
         if (send(_sockfd, packet, size, 0) != size) {
             throw std::string("Tout le packet n'a pas été envoyé à "+getName());
@@ -107,7 +107,7 @@ void Player::sendPacket(Packet::packet *packet, long unsigned int size) {
  */
 void Player::recvLoop() {
     /* Read data from buffer */
-    int readSize;
+    ssize_t readSize;
     
     /* Loop to wait with select client messages */
     while(1) {

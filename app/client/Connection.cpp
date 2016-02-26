@@ -104,7 +104,7 @@ void* Connection::recvLoop(void* data) {
     pthread_setcanceltype(PTHREAD_CANCEL_ASYNCHRONOUS, (int*) PTHREAD_CANCEL_DEFERRED);
     
     /* Convert to get _clientSocket addr */
-    int clientSocket = *((int *)data);
+    int clientSocket = *static_cast<int*>(data);
     
     /* Read data from buffer */
     ssize_t readSize;

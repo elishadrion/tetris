@@ -50,7 +50,7 @@ public:
     Deck* getDeck(std::string);
     bool removeDeck(Deck*);
     
-    void sendPacket(Packet::packet*, long unsigned int);
+    void sendPacket(Packet::packet*, size_t);
     void recvLoop();
     void logout();
 
