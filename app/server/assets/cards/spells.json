@@ -124,6 +124,17 @@
     "name": "Fragile comme un poulet",
     "energie": 5,
     "effect" : 12
+  },
+  {
+      "id": 67,
+      "name": "BliZard",
+      "energie": 3,
+      "effect": 6
+  },
+  {
+      "id": 68,
+      "name": "BaZard",
+      "energie": 2,
+      "effect": 15
   }
-  
 ]
