@@ -343,7 +343,7 @@ une personne à la fois.\\
 \underline{Cas général:} 
  Une bulle de conversation s'ouvre.\\
 \underline{Cas exceptionnels:} 
- Une perte de connexion fermera la conversation entre deux personne.\\
+ Une perte de connexion (ou une déconnexion volontaire) fermera la conversation entre deux personnes.\\
 
 \subsubsection*{Proposer une partie à un ami}
 
@@ -366,7 +366,7 @@ Lorsqu'un joueur voudra lancer une partie, le jeu trouvera
 automatiquement un adversaire dans la liste des personnes
 connectées. Le choix de l'adversaire est totalement aléatoire.\\
 \underline{Pré-conditions:} 
- Être connecté et avoir au moins un deck formé (cela devrait être tout le temps le cas, comme expliqué dans la partie relative aux Deck).\\
+ Être connecté et avoir au moins un deck formé (cela devrait être tout le temps le cas, comme expliqué dans la partie relative aux Decks).\\
 \underline{Post-conditions:} 
  Changement de statut : de "disponible" à "en partie".\\
 \underline{Cas général:} 
@@ -385,7 +385,7 @@ basera donc sur un ratio victoires/défaites.\\
 \underline{Post-conditions:} 
  Affichage du classement.\\
 \underline{Cas général:} 
- La liste des cartes des joueurs est chargée depuis la base de donnée et est affichée au joueur.\\
+ La liste des joueurs avec leurs ratio victoires/défaites est chargée et affichée.\\
 \underline{Cas exceptionnels:} 
  Aucun.\\
 
