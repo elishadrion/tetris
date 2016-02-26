@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include <sys/socket.h>
 
 #include "include/json.hpp"
 
@@ -11,6 +12,7 @@
 #include "Collection.hpp"
 #include "Deck.hpp"
 #include "common/Packet.hpp"
+#include "PacketManager.hpp"
 
 #include "common/WizardLogger.hpp"
 
@@ -26,7 +28,6 @@ class Player {
     std::string _password;
     Collection _collection;
     std::vector<Deck*> _decks;
-
 
 protected:
     std::vector<Deck*> getListDeck() {return _decks;}
@@ -47,6 +48,10 @@ public:
 
     Deck* getDeck(std::string);
     bool removeDeck(Deck*);
+    
+    void sendPacket(Packet*, long unsigned int);
+    void recvLoop();
+    void logout();
 
     std::string serialise() const;
     friend std::ostream& operator<<(std::ostream&, const Player&);
@@ -54,9 +59,7 @@ public:
     bool operator==(const std::string&) const;
     bool operator<(const Player&) const;
     bool operator>(const Player&) const;
-    virtual ~Player() = default;
+    virtual ~Player() { close(_sockfd); }
 };
-
-
 
 #endif  /* PLAYER_HPP */

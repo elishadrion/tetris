@@ -1,13 +1,13 @@
 #include "PacketManager.hpp"
 
-void PacketManager::managePacket(Packet::packet* customPacket) {
+void PacketManager::managePacket(Player *player, Packet::packet* customPacket) {
     /* We get ID of the packet after cast void* to packet* */
     switch(customPacket->ID) {
-        case Packet::LOGIN_REQ_ID :       WizardLogger::warning("ATTENTION, les requêtes de login doivent directement être appelé");
+        case Packet::LOGIN_REQ_ID :       WizardLogger::warning("ATTENTION, les requêtes de login doivent directement être gérée");
                                           break;
-        case Packet::REGIST_REQ_ID :      WizardLogger::warning("ATTENTION, les requêtes d'inscription doivent directement être appelé");
+        case Packet::REGIST_REQ_ID :      WizardLogger::warning("ATTENTION, les requêtes d'inscription doivent directement être gérée");
                                           break;
-        case Packet::DISCONNECT_ID :      PacketManager::manageDisconnectRequest(customPacket);
+        case Packet::DISCONNECT_ID :      PacketManager::manageDisconnectRequest(player, customPacket);
                                           break;
         case Packet::COLLECTION_REQ_ID :  //TODO
                                           break;
@@ -35,7 +35,7 @@ void PacketManager::initGame(Player *player, std::string ennemyPseudo) {
  * @param ennemyDeckCount : nbr of card in ennemy's deck
  * @param ennemyTrashCount : nbr of card in ennemy's trash
  */
-void PacketManager::sendStartTurnInfo(Player *player, dataIGPlayer playerInfo, std::vector<CardMonster*> ennemyCard,
+void PacketManager::sendStartTurnInfo(Player *player, std::vector<Card*> ennemyCard,
 int ennemyHandCount, int ennemyDeckCount, int ennemyTrashCount) {
 }
 
@@ -83,6 +83,7 @@ void PacketManager::sendEndGame(Player *player, bool victory) {
 
 //==========================================================================================================
 
-void PacketManager::manageDisconnectRequest(Packet::packet* disconnectReqPacket) {
-
+void PacketManager::manageDisconnectRequest(Player *player, Packet::packet* disconnectReqPacket) {
+    WizardLogger::info(player->getName()+" se déconnecte");
+    player->logout();
 }

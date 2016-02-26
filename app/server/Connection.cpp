@@ -83,9 +83,6 @@ void Connection::mainLoop() {
             if (pthread_create(&_newThread, NULL, newPlayerThread, (void*)&clientSocket) == -1) {
                 WizardLogger::error("Impossible de créer un nouveau thread pour le client");
                 close(clientSocket);
-            } else {
-                /* We register these new thread to keep trace of it and esaly manage it */
-                _clientThreads.push_back(move(_newThread));
             }
         }
     }
@@ -160,9 +157,10 @@ void* Connection::newPlayerThread(void* data) {
     /* Free packet from memory */
     free(packet);
     
+    /* If login is ok, we launch recvloop from Player */
     if (loginOK) {
         Connection::sendResponse(0, clientSocket);
-        //TODO we lets Player entity to manage communication from now (must be non returnant)
+        newPlayer->recvLoop();
     }
 }
 

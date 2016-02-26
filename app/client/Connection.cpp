@@ -124,7 +124,7 @@ void* Connection::recvLoop(void* data) {
             WizardLogger::error("Impossible de récupérer un packet du serveur");
         } else {
             /* We terminate resize memory alloc */
-            realloc(packet, readSize);
+            packet = realloc(packet, readSize);
             
             /* We send the packet to the PacketManager for verification and interpretation */
             PacketManager::managePacket(reinterpret_cast<Packet::packet*>(packet));

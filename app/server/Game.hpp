@@ -8,9 +8,9 @@
 #include "Player.hpp"
 #include "PlayerInGame.hpp"
 #include "CardMonster.hpp"
-#include "PacketManager.hpp"
 
 #include "common/WizardLogger.hpp"
+#include "PacketManager.hpp"
 #include "common/Error.hpp"
 
 

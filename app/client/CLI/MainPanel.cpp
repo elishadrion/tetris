@@ -73,14 +73,16 @@ void MainPanel::focus() {
                 }
                 break;
             case KEY_F(10):
-                /* Call closing methode to stop program */
-
+                /* Send deconnection packet before close program */
+                PacketManager::sendDisconnection();
                 return;
             default:
                 beep();
                 break;
         }
     }
+    
+    doRequest(currentMenu);
 }
 
 //=======================================================================

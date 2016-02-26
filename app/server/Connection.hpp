@@ -51,7 +51,6 @@ class Connection {
     int _keepintvl = 5;
     
     /* Thread for non blocking all program for each player */
-    std::vector<pthread_t> _clientThreads;
     pthread_t _newThread;
     static void* newPlayerThread(void* data);
     

@@ -4,18 +4,20 @@
 #include "common/WizardLogger.hpp"
 
 #include "Card.hpp"
-#include "CardMonster.hpp"
 #include "Player.hpp"
-#include "PlayerInGame.hpp"
+
+class Player;
 
 namespace PacketManager {
     /* Manage recev packet */
-    void manageDisconnectRequest(Packet::packet*);
+    void manageDisconnectRequest(Player*, Packet::packet*);
 
     /* API for other service */
-    void managePacket(Packet::packet*);
+    void managePacket(Player*, Packet::packet*);
+    
+    /* API in-game */
     void initGame(Player*, std::string);
-    void sendStartTurnInfo(Player*, dataIGPlayer, std::vector<CardMonster*>, int, int, int);
+    void sendStartTurnInfo(Player*, std::vector<Card*>, int, int, int);
     void sendCard(Player*, Card*);
     void setTurn(Player*, std::string);
     void sendAttack(Player*, std::string, int, int, bool, bool, unsigned int);

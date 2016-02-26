@@ -9,6 +9,8 @@
 
 #include "common/WizardLogger.hpp"
 
+#include "client/PacketManager.hpp"
+
 #include "CLIPanel.hpp"
 
 /* define size for panel */
