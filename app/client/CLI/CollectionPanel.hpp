@@ -1,5 +1,5 @@
-#ifndef MAINPANEL_HPP
-#define	MAINPANEL_HPP
+#ifndef COLLECTIONPANEL_HPP
+#define	COLLECTIONPANEL_HPP
 
 #include <panel.h>
 #include <form.h>
@@ -13,30 +13,29 @@
 
 #include "CLIPanel.hpp"
 
-#include "client/Display.hpp"
-
 /* define size for panel */
-#define MAIN_HEIGHT 30
-#define MAIN_WIDTH 65
+#define COLLECTION_HEIGHT 30
+#define COLLECTION_WIDTH 65
 
 /* define starting line for mainMeny entry */
 #define START_LINE 5
 
-extern Display *display;
-
-class MainPanel : public CLIPanel {
+class CollectionPanel : public CLIPanel {
     WINDOW *window;
     PANEL  *panel;
     
-    void updateColor(int, int);
-    void doRequest(int);
+    //TODO use a better item than a vector of int
+    std::vector<int> _collection;
 public:
-    MainPanel();
-    ~MainPanel() = default;
+    CollectionPanel();
+    ~CollectionPanel() = default;
+    
+    void addCardToCollection(int, int*);
+    void updatePanel();
     
     void show() override;
     void hide() override;
     void focus() override;
 };
 
-#endif	/* MAINPANEL_HPP */
+#endif	/* COLLECTIONPANEL_HPP */

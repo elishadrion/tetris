@@ -40,6 +40,7 @@ public:
     inline void adjudicateVictory() {_victories++;};
     inline void adjudicateDefeat() {_defeats++;}
     inline Error addCardCollection(Card* c) {return _collection.addCard(c);}
+    inline Collection *getCollection() {return &_collection;} //TODO needed for send collection to user
     inline void updateSockfd(int a) {_sockfd = a;}
     inline std::string getName() const {return _username;}
     inline std::string getPass() const {return _password;}
@@ -49,7 +50,7 @@ public:
     Deck* getDeck(std::string);
     bool removeDeck(Deck*);
     
-    void sendPacket(Packet*, long unsigned int);
+    void sendPacket(Packet::packet*, long unsigned int);
     void recvLoop();
     void logout();
 

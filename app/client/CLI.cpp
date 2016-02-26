@@ -26,6 +26,7 @@ CLI::CLI() {
     
     /* Create panel and form view */
     _panelList[0] = new MainPanel();
+    _panelList[1] = new CollectionPanel();
 }
 
 CLI::~CLI() {
@@ -69,7 +70,24 @@ void CLI::displayMainWindow() {
         loginDisplay = false;
     }
     
-    /* We create all panel now (hidden by default except loginPanel) */
+    /* We display MainMenu after hidding all other panel */
+    for (int i = 0 ; i < PANEL_TOTAL_NUMBER ; ++i) _panelList[i]->hide();
     _panelList[0]->show();
     _panelList[0]->focus();
+}
+
+void CLI::displayCollectionWindow() {
+    /* We display CollectionPanel after hidding all other panel */
+    for (int i = 0 ; i < PANEL_TOTAL_NUMBER ; ++i) _panelList[i]->hide();
+    _panelList[1]->show();
+    _panelList[1]->focus();
+}
+
+void CLI::updateCollection(int number, int* cardList) {
+    ((CollectionPanel*)_panelList[1])->addCardToCollection(number, cardList);
+}
+
+void CLI::displayWait() {
+    clear();
+    mvprintw(2, 10, "EN ATTENTE D'ADVERSAIRE....");
 }
