@@ -66,9 +66,6 @@ class ChatManager {
   + sendMessage() : string  
 }
 
-class Ranking {
-  
-}
 
 
 class CommService {
@@ -224,7 +221,6 @@ Player <-- Collection
 Card "20" --> Deck
 FriendsManager <-- Player
 Player --> PlayerManager
-Player --> Ranking
 Player "2" o-- "0..*" ChatManager
 Card --> CardManager
 Collection "1" *-- "100..*" Card
