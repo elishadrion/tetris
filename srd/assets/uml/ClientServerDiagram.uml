@@ -1,13 +1,12 @@
 @startuml
 
-'Suite TBD
 
 title Wizard Poker - Client-Server Diagram 
 
 'pas d'ombre
 skinparam shadowing false
 
-skinparam dpi 300
+skinparam dpi 200
 
 skinparam sequence {
   ArrowColor CornflowerBlue
@@ -32,8 +31,8 @@ activate Client2
 
 
 
-Client1 -> Serveur : Demande à jouer
-Client2 -> Serveur : Demande à jouer
+Client1 -> Serveur : Demande de jouer
+Client2 -> Serveur : Demande de jouer
 activate Serveur
 Serveur -> Client1 : Demande de choisir le deck
 Serveur -> Client2 : Demande de choisir le deck
@@ -45,6 +44,7 @@ Serveur -> Client2 : Envoie les infos de Client1
 Serveur -> Client1 : Envoie les cartes actuellement présentes dans la main du joueur1 et demande de jouer
 Serveur -> Client2 : Envoie les cartes actuellement présentes dans la main du joueur2
 
+loop Partie toujours en cours
 alt Tour du client1
   Client1 -> Serveur : placeCard
   Serveur -> Client1 : sendInfoAction
@@ -55,4 +55,18 @@ alt Tour du client1
   Serveur -> Client2 : sendInfoAction
 end
 
+Serveur -> Client2 : Demande de jouer
+
+alt Tour du client2
+  Client2 -> Serveur : placeCard
+  Serveur -> Client2 : sendInfoAction
+  Serveur -> Client1 : sendInfoAction
+  Client1 ->x Serveur : Client1 doit attendre son tour
+  Client2 -> Serveur : attackWithCardAffectPlayer
+  Serveur -> Client2 : sendInfoAction
+  Serveur -> Client1 : sendInfoAction
+end
+
+
+end
 @enduml
