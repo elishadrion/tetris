@@ -41,8 +41,8 @@ Client2 -> Serveur : Choisit le deck3
 Serveur -> Serveur : Ajoute 5 cartes aux mains de chaque joueur
 Serveur -> Client1 : Envoie les infos de Client2
 Serveur -> Client2 : Envoie les infos de Client1
-Serveur -> Client1 : Envoie les cartes actuellement présentes dans la main du joueur1 et demande de jouer
-Serveur -> Client2 : Envoie les cartes actuellement présentes dans la main du joueur2
+Serveur -> Client1 : Envoie les cartes actuellement présentes\n dans la main du joueur1 et demande de jouer
+Serveur -> Client2 : Envoie les cartes actuellement\n présentes dans la main du joueur2
 
 loop Partie toujours en cours
 alt Tour du client1
@@ -58,15 +58,24 @@ end
 Serveur -> Client2 : Demande de jouer
 
 alt Tour du client2
-  Client2 -> Serveur : placeCard
+  Client2 -> Serveur : placeCardAffectPlayer
   Serveur -> Client2 : sendInfoAction
   Serveur -> Client1 : sendInfoAction
   Client1 ->x Serveur : Client1 doit attendre son tour
-  Client2 -> Serveur : attackWithCardAffectPlayer
+  Client2 -> Serveur : attackWithCard
   Serveur -> Client2 : sendInfoAction
   Serveur -> Client1 : sendInfoAction
 end
 
-
 end
+
+alt Fin de partie
+  Client1 -> Serveur : attackWithCardAffectPlayer
+  Serveur -> Serveur : Client2 est mort
+  Serveur -> Client1 : sendEndGame (informe qu'il a gagné)
+  Serveur -> Client2 : sendEndGame (informe qu'il a perdu)
+  Serveur -> Client1 : sendCardWin
+end
+deactivate Serveur
+
 @enduml
