@@ -14,32 +14,38 @@ Connection::Connection() {
         /* SYS_CALL to create a new socket */
         _serverSocket = socket(AF_INET, SOCK_STREAM, 0);
         if (_serverSocket == -1) {
-            WizardLogger::error("Impossible de s'attribuer un socket pour le serveur");
-            throw std::system_error(EFAULT, std::system_category()); /* Convert errno to exception */
+            std::string error = "Impossible de s'attribuer un socket pour le serveur : ";
+            error += hstrerror(h_errno);
+            throw std::runtime_error(error);
         }
-
-	int yes = 1;
-        if (setsockopt(_serverSocket, SOL_SOCKET, SO_REUSEADDR, &yes,
-		       sizeof(int)) == -1) {
-	    WizardLogger::error("Impossible de reutiliser socket");
-            throw std::system_error(EFAULT, std::system_category()); /* Convert errno to exception */
+        
+        /* If previous server crash, try to reuse his socket */
+        if (setsockopt(_serverSocket, SOL_SOCKET, SO_REUSEADDR, &_reuse, sizeof(_reuse)) == -1) {
+            std::string error = "Impossible de reutiliser socket : ";
+            error += hstrerror(h_errno);
+            throw std::runtime_error(error);
         }
 
         /* We bind socket with informations */
         if (bind(_serverSocket, (struct sockaddr *)&server_addr, sizeof(struct sockaddr)) == -1) {
-            WizardLogger::error("Impossible d'initialiser le socket server");
-            throw std::system_error(EFAULT, std::system_category());
+            std::string error = "Impossible d'initialiser le socket server : ";
+            error += hstrerror(h_errno);
+            throw std::runtime_error(error);
         }
 
         /* We configure waiting list for the socket */
         if (listen(_serverSocket, BACKLOG) == -1) {
-            WizardLogger::error("Impossible d'initialiser la fils d'attente du socket");
-            throw std::system_error(EFAULT, std::system_category());
+            std::string error = "Impossible d'initialiser la fils d'attente du socket : ";
+            error += hstrerror(h_errno);
+            throw std::runtime_error(error);
         }
 
         _sinSize = sizeof(struct sockaddr_in);
-    } catch (const std::system_error &error) {
-        /* We throw the error, program must close after that so all memory will be clear */
+    } catch (const std::runtime_error &error) {
+        WizardLogger::fatal("Impossible de lancer le socket serveur", error.what());
+        throw;
+    } catch (const std::exception &error) {
+        WizardLogger::fatal("Erreur inconnue durant la préparation du socket serveur", error.what());
         throw;
     }
 }
@@ -60,12 +66,18 @@ void Connection::mainLoop() {
         /* Accept connection and create a new clientSocket */
         int clientSocket = accept(_serverSocket, (struct sockaddr *)&client_addr, &_sinSize);
         if (clientSocket == -1) {
-            WizardLogger::error("Impossible d'accepter la connexion d'un client", std::system_error(EFAULT, std::system_category()));
+            WizardLogger::error("Impossible d'accepter la connexion d'un client", std::runtime_error(hstrerror(h_errno)).what());
         } else {
             /* We need to append a char* so we must use string to do that */
             std::string *info = new std::string("Nouvelle connexion pour le client : ");
             WizardLogger::info(info->append(inet_ntoa(client_addr.sin_addr))); //TODO don't support IPv6
             delete info; /* Don't forget to free memory */
+        
+            /* Configure socket to use TCP keepalive protocole */
+            setsockopt(clientSocket, SOL_SOCKET, SO_KEEPALIVE, &_keepon, sizeof(_keepon));
+            setsockopt(clientSocket, IPPROTO_TCP, TCP_KEEPIDLE, &_keepidle, sizeof(_keepidle));
+            setsockopt(clientSocket, IPPROTO_TCP, TCP_KEEPCNT, &_keepcnt, sizeof(_keepcnt));
+            setsockopt(clientSocket, IPPROTO_TCP, TCP_KEEPINTVL, &_keepintvl, sizeof(_keepintvl));
 
             /* We create a new Thread for listen the server informations */
             if (pthread_create(&_newThread, NULL, newPlayerThread, (void*)&clientSocket) == -1) {
@@ -99,7 +111,10 @@ void* Connection::newPlayerThread(void* data) {
     while(!loginOK) {
         /* Try to get packet from server */
         readSize = recv(clientSocket, packet, size, 0);
-        if (readSize < size) {
+        if (readSize <= 0) {
+            WizardLogger::fatal("Connexion interrompue avec le client");
+            break;
+        } else if (readSize < size) {
             WizardLogger::warning("Le packet reçu est incomplet");
         } else {
             /* Check if it's a valide packet */
@@ -144,10 +159,11 @@ void* Connection::newPlayerThread(void* data) {
 
     /* Free packet from memory */
     free(packet);
-
-    Connection::sendResponse(0, clientSocket);
-
-    //TODO we lets Player entity to manage communication from now (must be non returnant)
+    
+    if (loginOK) {
+        Connection::sendResponse(0, clientSocket);
+        //TODO we lets Player entity to manage communication from now (must be non returnant)
+    }
 }
 
 void Connection::sendResponse(int errorCode, int socket) {

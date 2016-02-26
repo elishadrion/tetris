@@ -36,8 +36,7 @@ int main() {
     Connection *conn;
     try {
         conn = new Connection();
-    } catch (std::system_error &error) {
-        WizardLogger::fatal("Impossible d'écouter les clients", error);
+    } catch (...) {
         return EXIT_FAILURE;
     }
 
