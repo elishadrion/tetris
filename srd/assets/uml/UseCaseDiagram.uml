@@ -40,7 +40,7 @@ rectangle Wizard_Poker {
     (Trouver un adversaire pour un duel) as find_player
     (Proposer une partie à un ami) as friend_player
     (Jouer une partie) as play
-    (Discuter avec ses amis) as discut_friends
+    (Discuter avec un ami) as discut_friends
     (Consulter le classement des joueurs) as classement
 }
 
