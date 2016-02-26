@@ -277,9 +277,9 @@ accéder pleinement au jeu.
 Le joueur devra se connecter à son compte s'il souhaite effectuer
 les différentes actions répertoriées ci-dessous.\\
 \underline{Pré-conditions:} 
- Avoir un compte\\
+ Avoir un compte.\\
 \underline{Post-conditions:} 
- Être connecté\\
+ Être connecté.\\
 \underline{Cas général:} 
  Le programme vérifie que le pseudo et le mot de passe sont corrects pour permettre à l'utilisateur de profiter des fonctionnalités de l'application.\\
 \underline{Cas exceptionnels:} 
@@ -291,13 +291,13 @@ les différentes actions répertoriées ci-dessous.\\
 Le joueur peut consulter l'ensemble des cartes présentes dans sa
 \gls{collection}. Pour rappel, il devra au préalable s'être connecté.\\
 \underline{Pré-conditions:} 
- Être connecté\\
+ Être connecté.\\
 \underline{Post-conditions:} 
- Les cartes sont affichées\\
+ Les cartes sont affichées.\\
 \underline{Cas général:} 
  Lorsque le joueur désire consulter ses cartes, l'application doit charger les cartes gagnées grâce à ses victoires mais également les 100 cartes reçues à l'inscription.\\
 \underline{Cas exceptionnels:} 
- Aucun\\
+ Aucun.\\
 
 \subsubsection*{Gestion de decks}
 
@@ -306,13 +306,13 @@ Plusieurs actions peuvent être effectuées sur les decks telles
 qu'en supprimer un ou plusieurs, les consulter, les modifier ou tout
 simplement en créer un nouveau.\\
 \underline{Pré-conditions:} 
- Avoir au moins un deck\\
+ Avoir au moins un deck.\\
 \underline{Post-conditions:} 
- Affichage, modification, suppression ou création d'un deck\\
+ Affichage, modification, suppression ou création d'un deck.\\
 \underline{Cas général:} 
  Le joueur demande à voir la liste de ses decks pour organiser ses cartes et créer une stratégie pour la partie.  Il peut créer, supprimer et modifier les decks.  L'application doit vérifier que le joueur a toujours au moins un deck.\\
 \underline{Cas exceptionnels:} 
- Aucun?\\
+ Un cas exceptionnel pourrait arriver lorsque le joueur n'a pas de deck.  Mais nous ferons tout pour que ça n'arrive pas.  Il n'y a donc pas de cas exceptionnels.\\
 
 \subsubsection*{Gérer une liste d'amis}
 
@@ -320,13 +320,13 @@ simplement en créer un nouveau.\\
 Chaque joueur aura une liste d'amis avec lesquels il pourra
 interagir s'il le souhaite. Il pourra donc ajouter ou supprimer un ami de sa liste.\\
 \underline{Pré-conditions:} 
- Être connecté\\
+ Être connecté.\\
 \underline{Post-conditions:} 
  Voir et modifier sa liste d'amis.\\
 \underline{Cas général:} 
- Affichage de la liste ou modification de celle-ci\\
+ Affichage de la liste ou modification de celle-ci.\\
 \underline{Cas exceptionnels:} 
- Aucun\\
+ Aucun.\\
 
 \subsubsection*{Discuter avec ses amis}
 
@@ -337,13 +337,13 @@ du joueur.  Le joueur pourra donc à tout moment communiquer avec ses amis par
 messagerie instantanée. Cependant un joueur ne pourra communiquer qu'avec
 une personne à la fois.\\
 \underline{Pré-conditions:} 
- Être connecté et avoir au moins un ami dans sa liste qui est connecté\\
+ Être connecté et avoir au moins un ami dans sa liste qui est connecté.\\
 \underline{Post-conditions:} 
- Une conversation s'établit entre les deux personnes\\
+ Une conversation s'établit entre les deux personnes.\\
 \underline{Cas général:} 
- Une bulle de conversation s'ouvre\\
+ Une bulle de conversation s'ouvre.\\
 \underline{Cas exceptionnels:} 
- Aucun?\\
+ Une perte de connexion fermera la conversation entre deux personne.\\
 
 \subsubsection*{Proposer une partie à un ami}
 
@@ -351,13 +351,13 @@ Si le joueur le souhaite, il peut proposer une partie à un de ses
 amis connectés. Ce dernier est libre d'accepter ou non cette demande.
 S'il l'accepte la partie est lancée entre les deux joueurs.\\
 \underline{Pré-conditions:} 
- Être connecté et disponible et avoir un ami connecté disponible (pas en partie)\\
+ Être connecté et disponible et avoir un ami connecté disponible (pas en partie).\\
 \underline{Post-conditions:} 
- Invitation à jouer envoyée à l'ami choisi\\
+ Invitation à jouer envoyée à l'ami choisi.\\
 \underline{Cas général:} 
- Lancement d'une partie contre cet ami\\
+ Lancement d'une partie contre cet ami.\\
 \underline{Cas exceptionnels:} 
- Aucun?\\
+ Aucun.\\
  
 
 \subsubsection*{Trouver un adversaire pour un duel}
@@ -366,13 +366,13 @@ Lorsqu'un joueur voudra lancer une partie, le jeu trouvera
 automatiquement un adversaire dans la liste des personnes
 connectées. Le choix de l'adversaire est totalement aléatoire.\\
 \underline{Pré-conditions:} 
- Être connecté et avoir au moins un deck formé\\
+ Être connecté et avoir au moins un deck formé (cela devrait être tout le temps le cas, comme expliqué dans la partie relative aux Deck).\\
 \underline{Post-conditions:} 
- Changement de statut : de "disponible" à "en partie"\\
+ Changement de statut : de "disponible" à "en partie".\\
 \underline{Cas général:} 
- La partie se lance contre l'adversaire trouvé\\
+ La partie se lance contre l'adversaire trouvé.\\
 \underline{Cas exceptionnels:} 
- Aucun adversaire n'a été trouvé\\
+ Aucun adversaire n'a été trouvé.\\
 
 \subsubsection*{Consulter le classement}
 
@@ -381,13 +381,13 @@ Le classement va permettre de classer les joueurs en fonction de
 leur nombre de victoires et de défaites. Ce classement se
 basera donc sur un ratio victoires/défaites.\\
 \underline{Pré-conditions:} 
- Être connecté\\
+ Être connecté.\\
 \underline{Post-conditions:} 
- Affichage du classement\\
+ Affichage du classement.\\
 \underline{Cas général:} 
- ?\\
+ La liste des cartes des joueurs est chargée depuis la base de donnée et est affichée au joueur.\\
 \underline{Cas exceptionnels:} 
- Aucun\\
+ Aucun.\\
 
 \subsection{Exigences non fonctionnelles}
 \label{sec:exi-nonfonc}
