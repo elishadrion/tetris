@@ -5,7 +5,7 @@
     "energie" : 1,
     "effect" : -1,
     "vie" : 1,
-    "attack" : 1,
+    "attack" : 1
   },
   {
     "id": 45,
@@ -13,7 +13,7 @@
     "energie" : 1,
     "effect" : 0,
     "vie" : 1,
-    "attack" : 0,
+    "attack" : 0
   },
   {
     "id": 46,
@@ -21,7 +21,7 @@
     "energie" : 2,
     "effect" : 1,
     "vie" : 2,
-    "attack" : 1,
+    "attack" : 1
   },
   {
     "id": 47,
@@ -29,7 +29,7 @@
     "energie" : 2,
     "effect" : -1,
     "vie" : 2,
-    "attack" : 2,
+    "attack" : 2
   },
   {
     "id": 48,
@@ -37,7 +37,7 @@
     "energie" : 2,
     "effect" : 9,
     "vie" : 2,
-    "attack" : 1,
+    "attack" : 1
   },
   {
     "id": 49,
@@ -45,7 +45,7 @@
     "energie" : 3,
     "effect" : 7,
     "vie" : 2,
-    "attack" : 2,
+    "attack" : 2
   },
   {
     "id": 50,
@@ -53,7 +53,7 @@
     "energie" : 3,
     "effect" : -1,
     "vie" : 3,
-    "attack" : 3,
+    "attack" : 3
   },
   {
     "id": 51,
@@ -61,7 +61,7 @@
     "energie" : 3,
     "effect" : 15,
     "vie" : 1,
-    "attack" : 2,
+    "attack" : 2
   },
   {
     "id": 52,
@@ -69,7 +69,7 @@
     "energie" : 4,
     "effect" : 0,
     "vie" : 5,
-    "attack" : 2,
+    "attack" : 2
   },
   {
     "id": 53,
@@ -77,7 +77,7 @@
     "energie" : 4,
     "effect" : -1,
     "vie" : 3,
-    "attack" : 5,
+    "attack" : 5
   },
   {
     "id": 54,
@@ -85,7 +85,7 @@
     "energie" : 5,
     "effect" : 2,
     "vie" : 4,
-    "attack" : 5,
+    "attack" : 5
   },
   {
     "id": 55,
@@ -93,7 +93,7 @@
     "energie" : 6,
     "effect" : -1,
     "vie" : 5,
-    "attack" : 7,
+    "attack" : 7
   },
   {
     "id": 56,
@@ -101,7 +101,7 @@
     "energie" : 6,
     "effect" : 14,
     "vie" : 3,
-    "attack" : 5,
+    "attack" : 5
   },
   {
     "id": 57,
@@ -109,7 +109,7 @@
     "energie" : 7,
     "effect" : 12,
     "vie" : 4,
-    "attack" : 4,
+    "attack" : 4
   },
   {
     "id": 58,
@@ -117,7 +117,7 @@
     "energie" : 7,
     "effect" : -1,
     "vie" : 7,
-    "attack" : 7,
+    "attack" : 7
   },
   {
     "id": 59,
@@ -125,7 +125,7 @@
     "energie" : 7,
     "effect" : 13,
     "vie" : 3,
-    "attack" : 3,
+    "attack" : 3
   },
   {
     "id": 60,
@@ -133,7 +133,7 @@
     "energie" : 8,
     "effect" : 0,
     "vie" : 6,
-    "attack" : 7,
+    "attack" : 7
   },
   {
     "id": 61,
@@ -141,7 +141,7 @@
     "energie" : 8,
     "effect" : 6,
     "vie" : 6,
-    "attack" : 5,
+    "attack" : 5
   },
   {
     "id": 62,
@@ -149,7 +149,7 @@
     "energie" : 9,
     "effect" : 11,
     "vie" : 7,
-    "attack" : 5,
+    "attack" : 5
   },
   {
     "id": 63,
@@ -157,7 +157,7 @@
     "energie" : 10,
     "effect" : 5,
     "vie" : 8,
-    "attack" : 9,
+    "attack" : 9
   },
   {
     "id": 64,
@@ -165,7 +165,7 @@
     "energie" : 2,
     "effect" : -1,
     "vie" : 1,
-    "attack" : 3,
+    "attack" : 3
   },
   {
     "id": 65,
@@ -173,7 +173,7 @@
     "energie" : 3,
     "effect" : 1,
     "vie" : 3,
-    "attack" : 2,
+    "attack" : 2
   },
   {
     "id": 66,
@@ -181,6 +181,6 @@
     "energie" : 5,
     "effect" : 4,
     "vie" : 4,
-    "attack" : 5,
-  },
+    "attack" : 5
+  }
 ]
