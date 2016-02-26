@@ -39,7 +39,7 @@ void CardManager::loadAllCards(){
     unsigned int life;
     unsigned int attack;
 
-    std::ifstream ifs("card.json");//declare the file with the spells
+    std::ifstream ifs("assets/cards/spells.json");//declare the file with the spells
     json spellCards(ifs); //make a json object with the file
 
     for (json::iterator i = spellCards.begin(); i!=spellCards.end(); ++i){
@@ -52,7 +52,7 @@ void CardManager::loadAllCards(){
 		_listCard[id]= new Card(id,name,energy,effect,true);
 	}
 
-	std::ifstream ifs2("cardMonster.json");//declare the file with the monsters
+	std::ifstream ifs2("assets/cards/monstres.json");//declare the file with the monsters
 	json monsterCards(ifs2); //make a json object with the file
 
     for (json::iterator i = monsterCards.begin(); i!=monsterCards.end(); ++i){
