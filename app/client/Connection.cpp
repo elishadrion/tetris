@@ -1,23 +1,31 @@
 #include "Connection.hpp"
-#include "common/WizardLogger.hpp"
 
 /* Initialize connection between client and server
  * @param hostName: hostName where server run
  * @throw : Cannot connect to the server, we must stop the client
  */
-Connection::Connection(char *hostName) {
+Connection::Connection(char* hostName) {
     try {
-        /* Test to convert hostName to IP or throw an error */
-        if ((host=gethostbyname(hostName)) == NULL) { 
-            WizardLogger::error("Impossible de récupérer les infos de connexion au serveur");
-            throw std::system_error(EFAULT, std::system_category()); /* Convert errno to exception */
+        /* Test to convert hostName to IP or throw an invalid_argument */
+        if ((host=gethostbyname(hostName)) == NULL) {
+            std::string error = "Impossible de trouver ";
+            error += hostName;
+            error += " : ";
+            error += hstrerror(h_errno);
+            throw std::invalid_argument(error);
+        }
+        
+        /* We don't support IPv6 */
+        if (host->h_addrtype != AF_INET) {
+            throw std::domain_error("Nous ne supportons pas les adresses IPv6");
         }
 
         /* SYS_CALL to create a new socket */
         _clientSocket = socket(AF_INET, SOCK_STREAM, 0);
         if (_clientSocket == -1) {
-            WizardLogger::error("Impossible d'avoir un nouveau socket pour le serveur");
-            throw std::system_error(EFAULT, std::system_category());
+            std::string error = "Impossible d'avoir un nouveau socket pour le serveur : ";
+            error += hstrerror(h_errno);
+            throw std::runtime_error(error);
         }
         
         /* We create informations for use with a socket */
@@ -28,22 +36,39 @@ Connection::Connection(char *hostName) {
         /* We test if struct has good size */
         memset(&(server_addr.sin_zero), '\0', 8);
         
+        /* Configure socket to use TCP keepalive protocole */
+        setsockopt(_clientSocket, SOL_SOCKET, SO_KEEPALIVE, &_keepon, sizeof(_keepon));
+        setsockopt(_clientSocket, IPPROTO_TCP, TCP_KEEPIDLE, &_keepidle, sizeof(_keepidle));
+        setsockopt(_clientSocket, IPPROTO_TCP, TCP_KEEPCNT, &_keepcnt, sizeof(_keepcnt));
+        setsockopt(_clientSocket, IPPROTO_TCP, TCP_KEEPINTVL, &_keepintvl, sizeof(_keepintvl));
+        
         /* We connect to the server using socket informations */
         WizardLogger::info("Tentative de connexion au serveur");
         if (connect(_clientSocket, (struct sockaddr *)&server_addr, sizeof(struct sockaddr)) == -1) {
-            WizardLogger::error("Impossible de se connecter au serveur");
-            throw std::system_error(EFAULT, std::system_category());
+            std::string error = "Impossible de se connecter au serveur : ";
+            error += hstrerror(h_errno);
+            throw std::runtime_error(error);
         }
 
         /* We create a new Thread for listen the server informations */
         if (pthread_create(&_recvThread, NULL, recvLoop, (void*)&_clientSocket) == -1) {
-            WizardLogger::error("Impossible de créer un nouveau thread pour écouter le serveur");
-            throw std::system_error(EFAULT, std::system_category());
+            std::string error = "Impossible de créer un nouveau thread pour écouter le serveur : ";
+            error += hstrerror(h_errno);
+            throw std::runtime_error(error);
         }
         
         WizardLogger::info("Connexion réussie");
-    } catch (const std::system_error &error) {
-        /* We throw the error, program must close after that so all memory will be clear */
+    } catch (const std::invalid_argument &error) {
+        WizardLogger::fatal("Impossible d'établire une connection avec le serveur", error.what());
+        throw;
+    } catch (const std::domain_error &error) {
+        WizardLogger::fatal("Impossible d'établire une connection avec le serveur", error.what());
+        throw;
+    } catch (const std::runtime_error &error) {
+        WizardLogger::fatal("Impossible d'établire une connection avec le serveur", error.what());
+        throw;
+    } catch (const std::exception &error) {
+        WizardLogger::fatal("Erreur inconnue durant la connexion au serveur", error.what());
         throw;
     }
 }
@@ -73,7 +98,7 @@ void Connection::sendPacket(Packet *packet, long unsigned int size) {
 
 /* Threaded loop to wait and receve server packet
  * It can be cancelled at any time, normally override block from recv
- * @param data : int* to the tchatSocked
+ * @param data : int* to the clientSocked
  */
 void* Connection::recvLoop(void* data) {
     /* Enable asynchronous cancel (thread can be canceled at any time) from deferred */
@@ -91,9 +116,12 @@ void* Connection::recvLoop(void* data) {
         void *packet = malloc(Packet::packetMaxSize);
         
         /* Try to get packet from server */
-        while ((readSize = recv(clientSocket, packet, Packet::packetMaxSize, 0)) <= 0);
-        if (readSize < Packet::packetSize) {
-            WizardLogger::error("Impossible de récupérer le packet du serveur");
+        readSize = recv(clientSocket, packet, Packet::packetMaxSize, 0);
+        if (readSize <= 0) {
+            WizardLogger::fatal("Connexion interrompue avec le serveur");
+            break;
+        } else if (readSize < Packet::packetSize) {
+            WizardLogger::error("Impossible de récupérer un packet du serveur");
         } else {
             /* We terminate resize memory alloc */
             realloc(packet, readSize);
@@ -105,4 +133,7 @@ void* Connection::recvLoop(void* data) {
         /* Free packet from memory */
         free(packet);
     }
+    
+    /* ERROR occure so we must inform the user */
+    display->displayFatalError("La connexion avec le serveur semble avoir été interrompue !");
 }

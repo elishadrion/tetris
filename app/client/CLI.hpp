@@ -5,6 +5,7 @@
 #include <panel.h>
 
 #include <string>
+#include <iostream>
 
 /* Logger */
 #include "common/WizardLogger.hpp"
@@ -84,9 +85,11 @@ class CLI : public Display {
     /* All panel used by the CLI */
     CLIPanel *_panelList[PANEL_TOTAL_NUMBER];
     LoginPanel *loginPanel;
+    bool loginDisplay;
 public:
     CLI();
     ~CLI();
+    void displayFatalError(std::string);
     void displayLoginPrompt();
     void displayLoginResult(std::string);
     void valideLogin();

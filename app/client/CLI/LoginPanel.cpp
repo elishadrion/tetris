@@ -29,10 +29,6 @@ LoginPanel::LoginPanel() : isWainting(false), success(false) {
 LoginPanel::~LoginPanel() {
     /* We must remove the form and clear field before exiting */
     unpost_form(form);
-    //TODO SEGFAULT DURING DESTRUCTION BUT IT'S THE RIGHT ORDER... WHY ???
-    //free_form(form);
-    //free_field(field[0]);
-    //free_field(field[1]);
 }
 
 void LoginPanel::setFocus() {
@@ -191,10 +187,14 @@ void LoginPanel::askLogin() {
                 break;
         }
         
-        if (success) {
-            display->displayMainWindow();
-            return;
-        }
+        if (success)
+            break;
+    }
+    
+    if (success) {
+        display->displayMainWindow();
+    } else {
+        printError(UNKOW_ERROR);
     }
 }
 

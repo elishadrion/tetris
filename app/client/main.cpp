@@ -33,8 +33,7 @@ int main(int argc, char** argv) {
      */
     try {
         argc > 1 ? conn = new Connection(argv[1]) : conn = new Connection("localhost");
-    } catch (std::system_error &error) {
-        WizardLogger::fatal("Impossible d'établire une connection avec le serveur", error);
+    } catch (...) {
         return EXIT_FAILURE;
     }
     

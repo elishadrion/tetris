@@ -9,6 +9,7 @@ public:
     Display() = default;
     virtual ~Display() = default;
     
+    virtual void displayFatalError(std::string) =0;
     virtual void displayLoginPrompt() =0;
     virtual void displayLoginResult(std::string) =0;
     virtual void valideLogin() =0;

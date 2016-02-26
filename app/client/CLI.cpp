@@ -32,12 +32,25 @@ CLI::~CLI() {
     /* End curses mode */
     WizardLogger::info("Désactivation du mode ncurses");
     for (int i = 0 ; i < PANEL_TOTAL_NUMBER ; ++i) delete _panelList[i];
+    if (loginDisplay) {
+        delete loginPanel;
+        loginDisplay = false;
+    }
     endwin();
+}
+
+void CLI::displayFatalError(std::string error) {
+    /* Clean screen and display error and force quit */
+    endwin();
+    std::cout << "\n\n========================" << std::endl;
+    std::cout << error << "\n========================\n\n" << std::endl;
+    exit(-1);
 }
 
 void CLI::displayLoginPrompt() {
     /* Display login panel (special type of panel) */
     loginPanel =  new LoginPanel();
+    loginDisplay = true;
     loginPanel->askLogin();
 }
 
@@ -51,8 +64,10 @@ void CLI::valideLogin() {
 
 void CLI::displayMainWindow() {
     /* If we are from loginPanel, we remove it */
-    if (loginPanel != NULL)
+    if (loginDisplay) {
         delete loginPanel;
+        loginDisplay = false;
+    }
     
     /* We create all panel now (hidden by default except loginPanel) */
     _panelList[0]->show();

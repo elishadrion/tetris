@@ -21,9 +21,9 @@ namespace WizardLogger {
     void info(std::string);
     void warning(std::string);
     void error(std::string);
-    void error(std::string, std::exception);
+    void error(std::string, std::string);
     void fatal(std::string);
-    void fatal(std::string, std::exception);
+    void fatal(std::string, std::string);
 }
 
 #endif	/* WIZARDLOGGER_HPP */
