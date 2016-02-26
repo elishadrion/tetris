@@ -114,3 +114,10 @@ Card* Collection::getCardOnIndex(const unsigned index) {
     return _listCard[index];
 }
 
+std::vector<unsigned> Collection::getCardsId() const {
+    std::vector<unsigned> res;
+    for (size_t i = 0; i < _listCard.size(); ++i) {
+	res.push_back(_listCard.at(i) -> getId());
+    }
+    return res;
+}

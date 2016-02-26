@@ -1,6 +1,4 @@
 #include "PlayerManager.hpp"
-#include "common/Packet.hpp"
-#include <typeinfo>
 
 void PlayerManager::loadPlayers() {
     std::ifstream playersFile;
@@ -48,8 +46,6 @@ std::string PlayerManager::getRanking() {
 Player* PlayerManager::logIn(std::string username, std::string password, int sockfd) {
     for (size_t i = 0; i < _players.size(); i++) {
 	Player* current = _players.at(i);
-	std::cout << "examining: " << (*current).getName() << "\n";
-	std::cout << "and " << username << "\n";
 	if ((*current).getName() == username &&
 	    (*current).getPass() == password) {
 

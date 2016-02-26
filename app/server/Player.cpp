@@ -6,7 +6,15 @@ Player::Player(nlohmann::json& info, int sockfd) {
     _password = info["password"];
     _victories = info["victories"];
     _defeats = info["defeats"];
+    for (size_t i = 0; i < info["decks"].size(); ++i) {
+	std::string deckName = info["decks"][i]["deckName"];
+	std::vector<unsigned> cards = info["decks"][i]["cards"];
+	_decks.push_back(new Deck(deckName, cards));
+    }
 
+    std::vector<unsigned> collection_cards= info["collection"];
+    _collection = Collection(collection_cards);
+    _sockfd = sockfd;
 }
 
 /**
@@ -29,9 +37,7 @@ Deck* Player::getDeck(std::string deckName) {
 bool Player::removeDeck(Deck* deck) {
     bool res = false;
     if(_decks.size() > 1) {
-        delete deck;
-        // remove to memory ?
-        // TO DO: @carlos JSON
+	delete deck;
         res = true;
     }
 
@@ -55,6 +61,16 @@ std::string Player::serialise() const {
     nlohmann::json info;
     info["name"] = _username;
     info["password"] = _password;
+    info["defeats"] = _defeats;
+    info["victories"] = _victories;
+    info["collection"] = _collection.getCardsId();
+    info["decks"];
+    for (size_t i = 0; i < _decks.size(); ++i) {
+	nlohmann::json deck;
+	deck["deckName"] = _decks.at(i) -> getName();
+	deck["cards"] = _decks.at(i) -> getCardsId();
+	info["decks"].push_back(deck);
+    }
 
     return info.dump();
 }

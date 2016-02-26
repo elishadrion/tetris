@@ -45,18 +45,8 @@ Deck::Deck(const Deck& deck): Collection(deck),
 
 
 /**
- * The name of the deck
- *
- * @return the name of the deck
- */
-std::string Deck::getName() {
-    return _name;
-}
-
-
-/**
  * Checks if the deck is valide.
- * He must have 100 cards
+ * He must have 20 cards
  *
  * @return True if the deck is valide
  */
@@ -127,6 +117,11 @@ Deck* Deck::copyDeck() {
     return new Deck(_name, newCardList);
 }
 
+bool Deck::operator==(const std::string& deckName) const {
+    return _name == deckName;
+}
+
+
 /**
  * Get the deck with a specific name
  *
@@ -140,7 +135,7 @@ Deck* Deck::getDeck(std::string name, std::vector<Deck*> listDeck) {
     unsigned i = 0;
     while(res == nullptr && i < listDeck.size()) {
         Deck* currentDeck = dynamic_cast<Deck*>(listDeck[i]);
-        if(currentDeck->getName() == name) {
+        if(currentDeck -> getName() == name) {
             res = currentDeck;
         }
         ++i;
@@ -148,4 +143,3 @@ Deck* Deck::getDeck(std::string name, std::vector<Deck*> listDeck) {
 
     return res;
 }
-

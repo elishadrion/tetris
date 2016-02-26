@@ -45,7 +45,7 @@ public:
     inline unsigned getVictories() const {return _victories;}
     inline unsigned getDefeats() const {return _defeats;}
 
-    Deck* getDeck(std::string deckName);
+    Deck* getDeck(std::string);
     bool removeDeck(Deck*);
 
     std::string serialise() const;

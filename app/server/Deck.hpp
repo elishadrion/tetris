@@ -14,7 +14,7 @@
 /**
  * A deck is a list of 20 Cards (or less)
  */
-class Deck : Collection {
+class Deck : public Collection {
     std::string _name; // name of the deck
 
 public:
@@ -23,7 +23,7 @@ public:
     Deck(const Deck&); // Copy constructor
     Deck& operator=(const Deck&) = default; // Copy operator
 
-    std::string getName();
+    inline std::string getName() const {return _name;}
 
     bool isValide(); // True if there is 100 cards and other information are true
     Card* pickup();  // Returns a random Card
@@ -33,7 +33,7 @@ public:
     bool deleteDeck(PlayerInGame*);
     Deck* copyDeck();
 
-
+    bool operator==(const std::string&) const;
     static Deck* getDeck(std::string, std::vector<Deck*>);
 
 };
@@ -42,4 +42,3 @@ public:
 
 
 #endif	/* DECK_HPP */
-

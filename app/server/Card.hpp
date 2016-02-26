@@ -35,13 +35,13 @@ public:
     virtual void applyEffect(PlayerInGame& player, Game&);
     virtual ~Card();
 
-    unsigned int getId(){return _id;}
-    std::string getName(){return _name;}
+    unsigned int getId() const {return _id;}
+    std::string getName() const {return _name;}
     unsigned int getEnergyCost(){return _energyCost;}
     bool gotEffect();
     int getEffectID();
     virtual bool isMonster() { return false; }
-    
+
     virtual bool canBeApplyOnCard();
     virtual bool canBeApplyOnPlayer();
 

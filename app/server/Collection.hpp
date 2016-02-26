@@ -29,6 +29,7 @@ public:
     int indexOfCard(int cardId); // the index of a card
     int getCardIndex(Card*); // get the index of the card
     Card* getCardOnIndex(const unsigned index);
+    std::vector<unsigned> getCardsId() const;
 
     virtual ~Collection() = default;
 };
