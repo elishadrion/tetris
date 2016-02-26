@@ -1,128 +1,128 @@
 [
   {
-		"id" : 01,
-		"name" : "Seconde session",
-		"energie" : 5,
-		"effect" : 6 
-	},
-	{
-		"id" : 02,
-		"name" : "Blocus",
-		"energie" : 2,
-		"effect" : 10 
-	},
-	{
-		"id": 03,
-		"name" : "Mauvaises notes",
-		"energie" : 4,
-		"effect" : 13 
-	},
-	{
-		"id": 04,
-		"name" : "Vacances",
-		"energie" : 1,
-		"effect" : 3 
-	},
-	{
-		"id": 05,
-		"name" : "Guidance",
-		"energie" : 2,
-		"effect" : 8 
-	},
-	{
-		"id": 06,
-		"name" : "Soutien du cercle",
-		"energie" : 3,
-		"effect" : 16 
-	},
-	{
-		"id": 07,
-		"name" : "Renforcement",
-		"energie" : 4,
-		"effect" : 0
-	},
-	{
-		"id": 08,
-		"name" : "Non assistance à élève en echec",
-		"energie" : 3,
-		"effect" : 5 
-	},
-	{
-		"id": 09,
-		"name" : "Veille de l'oral !",
-		"energie" : 3,
-		"effect" : 9
-	},
-	{
-		"id": 10,
-		"name" : "Abandon",
-		"energie" : 6,
-		"effect" : 11
-	},
-	{
-		"id" : 11,
-		"name" : "DocHub",
-		"energie" : 2,
-		"effect" : 15
-	},
+    "id": 1,
+    "name": "Seconde session",
+    "energie": 5,
+    "effect" : 6 
+  },
+  {
+    "id": 2,
+    "name": "Blocus",
+    "energie": 2,
+    "effect" : 10 
+  },
+  {
+    "id": 3,
+    "name": "Mauvaises notes",
+    "energie": 4,
+    "effect" : 13 
+  },
+  {
+    "id": 4,
+    "name": "Vacances",
+    "energie": 1,
+    "effect" : 3 
+  },
+  {
+    "id": 5,
+    "name": "Guidance",
+    "energie": 2,
+    "effect" : 8 
+  },
+  {
+    "id": 6,
+    "name": "Soutien du cercle",
+    "energie": 3,
+    "effect" : 16 
+  },
+  {
+    "id": 7,
+    "name": "Renforcement",
+    "energie": 4,
+    "effect" : 0
+  },
+  {
+    "id": 8,
+    "name": "Non assistance à élève en echec",
+    "energie": 3,
+    "effect" : 5 
+  },
+  {
+    "id": 9,
+    "name": "Veille de l'oral !",
+    "energie": 3,
+    "effect" : 9
+  },
+  {
+    "id": 10,
+    "name": "Abandon",
+    "energie": 6,
+    "effect" : 11
+  },
+  {
+    "id": 11,
+    "name": "DocHub",
+    "energie": 2,
+    "effect" : 15
+  },
   {
     "id": 34,
     "name": "Protection des Anciens",
-    "energie" : 2,
+    "energie": 2,
     "effect" : 0
   },
   {
     "id": 35,
     "name": "Soin Divin",
-    "energie" : 3,
+    "energie": 3,
     "effect" : 3
   },
   {
     "id": 36,
     "name": "Boule de feu mineur",
-    "energie" : 1,
+    "energie": 1,
     "effect" : 4
   },
   {
     "id": 37,
     "name": "Explosion Pyrotechnique",
-    "energie" : 3,
+    "energie": 3,
     "effect" : 6
   },
   {
     "id": 38,
     "name": "Bénédiction du Soleil",
-    "energie" : 3,
+    "energie": 3,
     "effect" : 8
   },
   {
     "id": 39,
     "name": "Bénédiction de la Lune",
-    "energie" : 3,
+    "energie": 3,
     "effect" : 10
   },
   {
     "id": 40,
     "name": "Plus faible qu'un poulet",
-    "energie" : 4,
+    "energie": 4,
     "effect" : 11
   },
   {
     "id": 41,
     "name": "Fort comme une crevette",
-    "energie" : 4,
+    "energie": 4,
     "effect" : 14
   },
   {
     "id": 42,
     "name": "La Bonne Pioche",
-    "energie" : 3,
+    "energie": 3,
     "effect" : 16
   },
   {
     "id": 43,
     "name": "Fragile comme un poulet",
-    "energie" : 5,
+    "energie": 5,
     "effect" : 12
   }
   
