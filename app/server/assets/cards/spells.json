@@ -1,14 +1,62 @@
 [
   {
-    "id": 1,
-    "name": "Nom de l'effet",
-    "energie" : 4,
-    "effect" : 2
+    "id": 34,
+    "name": "Protection des Anciens",
+    "energie" : 2,
+    "effect" : 0,
   },
   {
-    "id": 2,
-    "name": "Nom de l'effet2",
+    "id": 35,
+    "name": "Soin Divin",
     "energie" : 3,
-    "effect" : 1
+    "effect" : 3,
+  },
+  {
+    "id": 36,
+    "name": "Boule de feu mineur",
+    "energie" : 1,
+    "effect" : 4,
+  },
+  {
+    "id": 37,
+    "name": "Explosion Pyrotechnique",
+    "energie" : 3,
+    "effect" : 6,
+  },
+  {
+    "id": 38,
+    "name": "Bénédiction du Soleil",
+    "energie" : 3,
+    "effect" : 8,
+  },
+  {
+    "id": 39,
+    "name": "Bénédiction de la Lune",
+    "energie" : 3,
+    "effect" : 10,
+  },
+  {
+    "id": 40,
+    "name": "Plus faible qu'un poulet",
+    "energie" : 4,
+    "effect" : 11,
+  },
+  {
+    "id": 41,
+    "name": "Fort comme une crevette",
+    "energie" : 4,
+    "effect" : 14,
+  },
+  {
+    "id": 42,
+    "name": "La Bonne Pioche",
+    "energie" : 3,
+    "effect" : 16,
+  },
+  {
+    "id": 43,
+    "name": "Fragile comme un poulet",
+    "energie" : 5,
+    "effect" : 12,
   }
 ]
