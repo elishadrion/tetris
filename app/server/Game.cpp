@@ -153,6 +153,7 @@ void Game::addPlayerWaitGame(Player player) {
 
     } else {
         PlayerWaitGame.push(&player); // adds player to the waiting list
+        WizardLogger::info(player.getName() + " attend une partie");
     }
 }
 
