@@ -64,7 +64,7 @@ repeat
     :Joueur Suivant;
     stop
   endif
-repeat while (Joueur Mort ?) is (oui)
+repeat while (Joueur Mort ?) is (non)
 
 
 :Fin de la partie;
