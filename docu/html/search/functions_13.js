@@ -8,7 +8,7 @@ var searchData=
   ['_7edisplay',['~Display',['../classDisplay.html#a8c364e5ed02f311a695e9502773d1c74',1,'Display']]],
   ['_7eeffect',['~Effect',['../classEffect.html#ab0f471df484d3ef351b704fef39a7072',1,'Effect']]],
   ['_7egame',['~Game',['../classGame.html#ab0556d428e8db075b405355af7e81dae',1,'Game']]],
-  ['_7eplayer',['~Player',['../classPlayer.html#a11017c0ed8a639f3b1308ab167fbeca2',1,'Player']]],
+  ['_7eplayer',['~Player',['../classPlayer.html#a8981c201ffb2270c0b6dbd467b627376',1,'Player']]],
   ['_7eplayeringame',['~PlayerInGame',['../classPlayerInGame.html#a75256787f26b0d264a929e61889caba1',1,'PlayerInGame']]],
   ['_7eplayermanager',['~PlayerManager',['../classPlayerManager.html#a92841310f064ebaed59ffde6620216dc',1,'PlayerManager']]]
 ];

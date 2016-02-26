@@ -3,11 +3,13 @@
 {\ttfamily \#include $<$ncurses.\+h$>$}\\*
 {\ttfamily \#include $<$panel.\+h$>$}\\*
 {\ttfamily \#include $<$string$>$}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
 {\ttfamily \#include \char`\"{}common/\+Wizard\+Logger.\+hpp\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}Display.\+hpp\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}client/\+C\+L\+I/\+C\+L\+I\+Panel.\+hpp\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}client/\+C\+L\+I/\+Login\+Panel.\+hpp\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}client/\+C\+L\+I/\+Main\+Panel.\+hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}client/\+C\+L\+I/\+Collection\+Panel.\+hpp\char`\"{}}\\*
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -48,7 +50,7 @@ class \hyperlink{classCLI}{C\+L\+I}
 \item 
 \#define \hyperlink{CLI_8hpp_a9621c1a5a13bee3200fb686675869d8b}{C\+A\+R\+D\+\_\+\+I\+N\+F\+O\+\_\+\+W\+I\+D\+T\+H}~\hyperlink{CLI_8hpp_ab8b1f21cb0908481707de677bf3bb596}{T\+C\+H\+A\+T\+\_\+\+I\+N\+P\+U\+T\+\_\+\+W\+I\+D\+T\+H}
 \item 
-\#define \hyperlink{CLI_8hpp_a32db537bbe2f7a59c1c17ea2ad081f36}{P\+A\+N\+E\+L\+\_\+\+T\+O\+T\+A\+L\+\_\+\+N\+U\+M\+B\+E\+R}~1
+\#define \hyperlink{CLI_8hpp_a32db537bbe2f7a59c1c17ea2ad081f36}{P\+A\+N\+E\+L\+\_\+\+T\+O\+T\+A\+L\+\_\+\+N\+U\+M\+B\+E\+R}~2
 \end{DoxyCompactItemize}
 
 
@@ -125,7 +127,7 @@ in-\/game layout \subparagraph*{}
 \subsubsection[{L\+I\+N\+E\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+I\+N\+E\+S~37}\label{CLI_8hpp_a321ae946de24c36489276616d13c46cd}
 \hypertarget{CLI_8hpp_a32db537bbe2f7a59c1c17ea2ad081f36}{}\index{C\+L\+I.\+hpp@{C\+L\+I.\+hpp}!P\+A\+N\+E\+L\+\_\+\+T\+O\+T\+A\+L\+\_\+\+N\+U\+M\+B\+E\+R@{P\+A\+N\+E\+L\+\_\+\+T\+O\+T\+A\+L\+\_\+\+N\+U\+M\+B\+E\+R}}
 \index{P\+A\+N\+E\+L\+\_\+\+T\+O\+T\+A\+L\+\_\+\+N\+U\+M\+B\+E\+R@{P\+A\+N\+E\+L\+\_\+\+T\+O\+T\+A\+L\+\_\+\+N\+U\+M\+B\+E\+R}!C\+L\+I.\+hpp@{C\+L\+I.\+hpp}}
-\subsubsection[{P\+A\+N\+E\+L\+\_\+\+T\+O\+T\+A\+L\+\_\+\+N\+U\+M\+B\+E\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+A\+N\+E\+L\+\_\+\+T\+O\+T\+A\+L\+\_\+\+N\+U\+M\+B\+E\+R~1}\label{CLI_8hpp_a32db537bbe2f7a59c1c17ea2ad081f36}
+\subsubsection[{P\+A\+N\+E\+L\+\_\+\+T\+O\+T\+A\+L\+\_\+\+N\+U\+M\+B\+E\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+A\+N\+E\+L\+\_\+\+T\+O\+T\+A\+L\+\_\+\+N\+U\+M\+B\+E\+R~2}\label{CLI_8hpp_a32db537bbe2f7a59c1c17ea2ad081f36}
 \hypertarget{CLI_8hpp_a97f6acaad01fed1c09886eac51f361db}{}\index{C\+L\+I.\+hpp@{C\+L\+I.\+hpp}!P\+L\+A\+Y\+E\+R\+\_\+\+I\+N\+F\+O\+\_\+\+H\+E\+I\+G\+T\+H@{P\+L\+A\+Y\+E\+R\+\_\+\+I\+N\+F\+O\+\_\+\+H\+E\+I\+G\+T\+H}}
 \index{P\+L\+A\+Y\+E\+R\+\_\+\+I\+N\+F\+O\+\_\+\+H\+E\+I\+G\+T\+H@{P\+L\+A\+Y\+E\+R\+\_\+\+I\+N\+F\+O\+\_\+\+H\+E\+I\+G\+T\+H}!C\+L\+I.\+hpp@{C\+L\+I.\+hpp}}
 \subsubsection[{P\+L\+A\+Y\+E\+R\+\_\+\+I\+N\+F\+O\+\_\+\+H\+E\+I\+G\+T\+H}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+L\+A\+Y\+E\+R\+\_\+\+I\+N\+F\+O\+\_\+\+H\+E\+I\+G\+T\+H~(3+2$\ast${\bf D\+E\+F\+A\+U\+L\+T\+\_\+\+E\+M\+P\+T\+Y\+\_\+\+S\+P\+A\+C\+E})}\label{CLI_8hpp_a97f6acaad01fed1c09886eac51f361db}

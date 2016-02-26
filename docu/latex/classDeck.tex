@@ -21,7 +21,7 @@ Graphe d\textquotesingle{}héritage de Deck\+:\begin{figure}[H]
 \item 
 \hyperlink{classDeck}{Deck} \& \hyperlink{classDeck_ac3d2eaa856438ec34f898821e7e76a6d}{operator=} (const \hyperlink{classDeck}{Deck} \&)=default
 \item 
-std\+::string \hyperlink{classDeck_aaa3db432259e3fd24431e0cef7a83ec0}{get\+Name} ()
+std\+::string \hyperlink{classDeck_aa140e47d3e2fbb1de45b153a2fce8375}{get\+Name} () const 
 \item 
 bool \hyperlink{classDeck_a66cfb2d1adfb6b0b94ed25c8f5ca29f9}{is\+Valide} ()
 \item 
@@ -34,12 +34,15 @@ virtual \hyperlink{Error_8hpp_a2c3e4bb40f36b262a5214e2da2bca9c5}{Error} \hyperli
 bool \hyperlink{classDeck_a360cf67965cd28b8bdda3ec932ae3296}{delete\+Deck} (\hyperlink{classPlayerInGame}{Player\+In\+Game} $\ast$)
 \item 
 \hyperlink{classDeck}{Deck} $\ast$ \hyperlink{classDeck_ab216a347587d7afe42adecb58a42fcbb}{copy\+Deck} ()
+\item 
+bool \hyperlink{classDeck_a52acbf278ff10f88a9438906afad6f3a}{operator==} (const std\+::string \&) const 
 \end{DoxyCompactItemize}
 \subsection*{Fonctions membres publiques statiques}
 \begin{DoxyCompactItemize}
 \item 
 static \hyperlink{classDeck}{Deck} $\ast$ \hyperlink{classDeck_ae5ff1528ce1d9752c2ddb928de943d3e}{get\+Deck} (std\+::string, std\+::vector$<$ \hyperlink{classDeck}{Deck} $\ast$ $>$)
 \end{DoxyCompactItemize}
+\subsection*{Membres hérités additionnels}
 
 
 \subsection{Description détaillée}
@@ -178,18 +181,13 @@ Get the deck with a specific name
 \begin{DoxyReturn}{Renvoie}
 the deck or nullptr 
 \end{DoxyReturn}
-\hypertarget{classDeck_aaa3db432259e3fd24431e0cef7a83ec0}{}\index{Deck@{Deck}!get\+Name@{get\+Name}}
+\hypertarget{classDeck_aa140e47d3e2fbb1de45b153a2fce8375}{}\index{Deck@{Deck}!get\+Name@{get\+Name}}
 \index{get\+Name@{get\+Name}!Deck@{Deck}}
-\subsubsection[{get\+Name()}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Deck\+::get\+Name (
+\subsubsection[{get\+Name() const }]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Deck\+::get\+Name (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}\label{classDeck_aaa3db432259e3fd24431e0cef7a83ec0}
-The name of the deck
-
-\begin{DoxyReturn}{Renvoie}
-the name of the deck 
-\end{DoxyReturn}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classDeck_aa140e47d3e2fbb1de45b153a2fce8375}
 \hypertarget{classDeck_a66cfb2d1adfb6b0b94ed25c8f5ca29f9}{}\index{Deck@{Deck}!is\+Valide@{is\+Valide}}
 \index{is\+Valide@{is\+Valide}!Deck@{Deck}}
 \subsubsection[{is\+Valide()}]{\setlength{\rightskip}{0pt plus 5cm}bool Deck\+::is\+Valide (
@@ -197,7 +195,7 @@ the name of the deck
 {}
 \end{DoxyParamCaption}
 )}\label{classDeck_a66cfb2d1adfb6b0b94ed25c8f5ca29f9}
-Checks if the deck is valide. He must have 100 cards
+Checks if the deck is valide. He must have 20 cards
 
 \begin{DoxyReturn}{Renvoie}
 True if the deck is valide 
@@ -209,6 +207,13 @@ True if the deck is valide
 \item[{const {\bf Deck} \&}]{}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [default]}}\label{classDeck_ac3d2eaa856438ec34f898821e7e76a6d}
+\hypertarget{classDeck_a52acbf278ff10f88a9438906afad6f3a}{}\index{Deck@{Deck}!operator==@{operator==}}
+\index{operator==@{operator==}!Deck@{Deck}}
+\subsubsection[{operator==(const std\+::string \&) const }]{\setlength{\rightskip}{0pt plus 5cm}bool Deck\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{deck\+Name}
+\end{DoxyParamCaption}
+) const}\label{classDeck_a52acbf278ff10f88a9438906afad6f3a}
 \hypertarget{classDeck_a910d3c6c7a83168fd7f2485778d5bfe0}{}\index{Deck@{Deck}!pickup@{pickup}}
 \index{pickup@{pickup}!Deck@{Deck}}
 \subsubsection[{pickup()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Card} $\ast$ Deck\+::pickup (

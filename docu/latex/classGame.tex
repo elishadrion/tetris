@@ -31,7 +31,7 @@ void \hyperlink{classGame_a0e5055bedff4cda4488c97e5d20ae647}{draw} (\hyperlink{c
 \item 
 void \hyperlink{classGame_aa5b09732ecd16afc3cd6d3f580366237}{next\+Player} ()
 \item 
-void \hyperlink{classGame_a06760f118a7f3808d9038645e2abf64f}{send\+Info\+Action} (\hyperlink{classPlayerInGame}{Player\+In\+Game} $\ast$, int, unsigned int)
+void \hyperlink{classGame_a97859a60ec71242e0590fba4c9d35804}{send\+Info\+Action} (\hyperlink{classPlayerInGame}{Player\+In\+Game} $\ast$, int, int, bool, bool, unsigned)
 \end{DoxyCompactItemize}
 \subsection*{Fonctions membres publiques statiques}
 \begin{DoxyCompactItemize}
@@ -216,20 +216,25 @@ Function when player place card and attack player
 \begin{DoxyReturn}{Renvoie}
 Error or \char`\"{}\+No\+Error\char`\"{} if all ok 
 \end{DoxyReturn}
-\hypertarget{classGame_a06760f118a7f3808d9038645e2abf64f}{}\index{Game@{Game}!send\+Info\+Action@{send\+Info\+Action}}
+\hypertarget{classGame_a97859a60ec71242e0590fba4c9d35804}{}\index{Game@{Game}!send\+Info\+Action@{send\+Info\+Action}}
 \index{send\+Info\+Action@{send\+Info\+Action}!Game@{Game}}
-\subsubsection[{send\+Info\+Action(\+Player\+In\+Game $\ast$, int, unsigned int)}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+::send\+Info\+Action (
+\subsubsection[{send\+Info\+Action(\+Player\+In\+Game $\ast$, int, int, bool, bool, unsigned)}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+::send\+Info\+Action (
 \begin{DoxyParamCaption}
 \item[{{\bf Player\+In\+Game} $\ast$}]{p\+I\+G, }
+\item[{int}]{card\+Wich\+Attack, }
 \item[{int}]{attack\+Card, }
+\item[{bool}]{is\+Effect, }
+\item[{bool}]{new\+Card, }
 \item[{unsigned}]{heal}
 \end{DoxyParamCaption}
-)}\label{classGame_a06760f118a7f3808d9038645e2abf64f}
+)}\label{classGame_a97859a60ec71242e0590fba4c9d35804}
 Send information
 
 
 \begin{DoxyParams}{Paramètres}
 {\em p\+I\+G} & who play \\
+\hline
+{\em card\+Wich\+Attack} & \\
 \hline
 {\em attack\+Card} & card which is attack (-\/1 if player) \\
 \hline

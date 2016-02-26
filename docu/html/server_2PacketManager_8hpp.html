@@ -98,9 +98,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <code>#include &quot;<a class="el" href="Packet_8hpp_source.html">common/Packet.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="WizardLogger_8hpp_source.html">common/WizardLogger.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="server_2Card_8hpp_source.html">Card.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="CardMonster_8hpp_source.html">CardMonster.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Collection_8hpp_source.html">Collection.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Player_8hpp_source.html">Player.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="PlayerInGame_8hpp_source.html">PlayerInGame.hpp</a>&quot;</code><br />
 </div>
 <p><a href="server_2PacketManager_8hpp_source.html">Aller au code source de ce fichier.</a></p>
 <table class="memberdecls">
@@ -111,20 +110,22 @@ Espaces de nommage</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:a7f241c4d446ff9cf2a4e8a115a703786"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacePacketManager.html#a7f241c4d446ff9cf2a4e8a115a703786">PacketManager::manageDisconnectRequest</a> (<a class="el" href="structPacket_1_1packet.html">Packet::packet</a> *)</td></tr>
-<tr class="separator:a7f241c4d446ff9cf2a4e8a115a703786"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac206635e6603c3488fb11d04cc0fa3e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacePacketManager.html#ac206635e6603c3488fb11d04cc0fa3e9">PacketManager::managePacket</a> (<a class="el" href="structPacket_1_1packet.html">Packet::packet</a> *)</td></tr>
-<tr class="separator:ac206635e6603c3488fb11d04cc0fa3e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd99694448081508766a221b786b204d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacePacketManager.html#abd99694448081508766a221b786b204d">PacketManager::manageDisconnectRequest</a> (<a class="el" href="classPlayer.html">Player</a> *, <a class="el" href="structPacket_1_1packet.html">Packet::packet</a> *)</td></tr>
+<tr class="separator:abd99694448081508766a221b786b204d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29507cd1def594e5607032ea8865545c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacePacketManager.html#a29507cd1def594e5607032ea8865545c">PacketManager::manageCollectionRequest</a> (<a class="el" href="classPlayer.html">Player</a> *, <a class="el" href="structPacket_1_1packet.html">Packet::packet</a> *)</td></tr>
+<tr class="separator:a29507cd1def594e5607032ea8865545c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a643568c924bb5515554cc87c0baebc74"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacePacketManager.html#a643568c924bb5515554cc87c0baebc74">PacketManager::managePacket</a> (<a class="el" href="classPlayer.html">Player</a> *, <a class="el" href="structPacket_1_1packet.html">Packet::packet</a> *)</td></tr>
+<tr class="separator:a643568c924bb5515554cc87c0baebc74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8135c284f5e9b70cbc1c7e23817c6cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacePacketManager.html#ab8135c284f5e9b70cbc1c7e23817c6cc">PacketManager::initGame</a> (<a class="el" href="classPlayer.html">Player</a> *, std::string)</td></tr>
 <tr class="separator:ab8135c284f5e9b70cbc1c7e23817c6cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a078afb51e7bdcf7d3e85aaf809f0d127"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacePacketManager.html#a078afb51e7bdcf7d3e85aaf809f0d127">PacketManager::sendStartTurnInfo</a> (<a class="el" href="classPlayer.html">Player</a> *, <a class="el" href="structdataIGPlayer.html">dataIGPlayer</a>, std::vector&lt; <a class="el" href="classCardMonster.html">CardMonster</a> * &gt;, int, int, int)</td></tr>
-<tr class="separator:a078afb51e7bdcf7d3e85aaf809f0d127"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74fc2904645906581beacd89356bff8c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacePacketManager.html#a74fc2904645906581beacd89356bff8c">PacketManager::sendCard</a> (<a class="el" href="classPlayer.html">Player</a> *, <a class="el" href="classCard.html">Card</a> *)</td></tr>
 <tr class="separator:a74fc2904645906581beacd89356bff8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeceb16b8b48bbcc11da40b68544b5d2a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacePacketManager.html#aeceb16b8b48bbcc11da40b68544b5d2a">PacketManager::setTurn</a> (<a class="el" href="classPlayer.html">Player</a> *, std::string)</td></tr>
 <tr class="separator:aeceb16b8b48bbcc11da40b68544b5d2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2de5a6226f04bf18b076379e13a7669"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacePacketManager.html#ae2de5a6226f04bf18b076379e13a7669">PacketManager::sendAttack</a> (<a class="el" href="classPlayer.html">Player</a> *, std::string, int, unsigned int)</td></tr>
-<tr class="separator:ae2de5a6226f04bf18b076379e13a7669"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6bbc1b47d13e25518965f8d9fe95a77"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacePacketManager.html#aa6bbc1b47d13e25518965f8d9fe95a77">PacketManager::sendInfoStartTurn</a> (<a class="el" href="classPlayer.html">Player</a> *, int, int)</td></tr>
+<tr class="separator:aa6bbc1b47d13e25518965f8d9fe95a77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5832df5842986389d29b4e251550c002"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacePacketManager.html#a5832df5842986389d29b4e251550c002">PacketManager::sendAttack</a> (<a class="el" href="classPlayer.html">Player</a> *, std::string, int, int, bool, bool, unsigned int)</td></tr>
+<tr class="separator:a5832df5842986389d29b4e251550c002"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad09515d55f52f38ac6fc5ee056cc326f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacePacketManager.html#ad09515d55f52f38ac6fc5ee056cc326f">PacketManager::askDefausse</a> (<a class="el" href="classPlayer.html">Player</a> *, int)</td></tr>
 <tr class="separator:ad09515d55f52f38ac6fc5ee056cc326f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad984d73c69adb937d618f3b037ca50a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacePacketManager.html#ad984d73c69adb937d618f3b037ca50a7">PacketManager::sendEndGame</a> (<a class="el" href="classPlayer.html">Player</a> *, bool)</td></tr>

@@ -1,6 +1,7 @@
 \hypertarget{client_2PacketManager_8hpp}{}\section{Référence du fichier client/\+Packet\+Manager.hpp}
 \label{client_2PacketManager_8hpp}\index{client/\+Packet\+Manager.\+hpp@{client/\+Packet\+Manager.\+hpp}}
 {\ttfamily \#include $<$string$>$}\\*
+{\ttfamily \#include $<$vector$>$}\\*
 {\ttfamily \#include \char`\"{}common/\+Packet.\+hpp\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}common/\+Wizard\+Logger.\+hpp\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}Connection.\+hpp\char`\"{}}\\*
@@ -9,6 +10,11 @@
 \begin{DoxyCompactItemize}
 \item 
  \hyperlink{namespacePacketManager}{Packet\+Manager}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{client_2PacketManager_8hpp_a6e39296d8aea63f64e88541e9ffadc56}{M\+A\+X\+\_\+\+C\+A\+R\+T\+E\+S}~200
 \end{DoxyCompactItemize}
 \subsection*{Fonctions}
 \begin{DoxyCompactItemize}
@@ -21,13 +27,23 @@ void \hyperlink{namespacePacketManager_adacf7794a085944d9bb34af27332605d}{Packet
 \item 
 void \hyperlink{namespacePacketManager_a62456ed8f85eb40c84ec97b49f6fceff}{Packet\+Manager\+::send\+Disconnection} ()
 \item 
+void \hyperlink{namespacePacketManager_afd974f2f63642ce840652d320886951c}{Packet\+Manager\+::request\+Collection} ()
+\item 
 void \hyperlink{namespacePacketManager_a255a83fde064b3b6bbc192dc49ba30a4}{Packet\+Manager\+::login\+Result} (const \hyperlink{structPacket_1_1loginResultPacket}{Packet\+::login\+Result\+Packet} $\ast$)
+\item 
+void \hyperlink{namespacePacketManager_a2520b5ad3390ebf5727db3759769db47}{Packet\+Manager\+::collection\+Result} (const \hyperlink{structPacket_1_1collectionListPacket}{Packet\+::collection\+List\+Packet} $\ast$)
 \end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{classDisplay}{Display} $\ast$ \hyperlink{client_2PacketManager_8hpp_a854f9eb314f72feecf68ba03c6f0e5d5}{display}
 \end{DoxyCompactItemize}
+
+
+\subsection{Documentation des macros}
+\hypertarget{client_2PacketManager_8hpp_a6e39296d8aea63f64e88541e9ffadc56}{}\index{client/\+Packet\+Manager.\+hpp@{client/\+Packet\+Manager.\+hpp}!M\+A\+X\+\_\+\+C\+A\+R\+T\+E\+S@{M\+A\+X\+\_\+\+C\+A\+R\+T\+E\+S}}
+\index{M\+A\+X\+\_\+\+C\+A\+R\+T\+E\+S@{M\+A\+X\+\_\+\+C\+A\+R\+T\+E\+S}!client/\+Packet\+Manager.\+hpp@{client/\+Packet\+Manager.\+hpp}}
+\subsubsection[{M\+A\+X\+\_\+\+C\+A\+R\+T\+E\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+\_\+\+C\+A\+R\+T\+E\+S~200}\label{client_2PacketManager_8hpp_a6e39296d8aea63f64e88541e9ffadc56}
 
 
 \subsection{Documentation des variables}

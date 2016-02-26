@@ -1,13 +1,14 @@
 var searchData=
 [
-  ['sendattack',['sendAttack',['../namespacePacketManager.html#ae2de5a6226f04bf18b076379e13a7669',1,'PacketManager']]],
+  ['saveplayers',['savePlayers',['../classPlayerManager.html#af260b18463c9244e5f826cd200306714',1,'PlayerManager']]],
+  ['sendattack',['sendAttack',['../namespacePacketManager.html#a5832df5842986389d29b4e251550c002',1,'PacketManager']]],
   ['sendcard',['sendCard',['../namespacePacketManager.html#a74fc2904645906581beacd89356bff8c',1,'PacketManager']]],
   ['senddisconnection',['sendDisconnection',['../namespacePacketManager.html#a62456ed8f85eb40c84ec97b49f6fceff',1,'PacketManager']]],
   ['sendendgame',['sendEndGame',['../namespacePacketManager.html#ad984d73c69adb937d618f3b037ca50a7',1,'PacketManager']]],
-  ['sendinfoaction',['sendInfoAction',['../classGame.html#a06760f118a7f3808d9038645e2abf64f',1,'Game']]],
+  ['sendinfoaction',['sendInfoAction',['../classGame.html#a97859a60ec71242e0590fba4c9d35804',1,'Game']]],
+  ['sendinfostartturn',['sendInfoStartTurn',['../namespacePacketManager.html#aa6bbc1b47d13e25518965f8d9fe95a77',1,'PacketManager']]],
   ['sendmessage',['sendMessage',['../classChatManager.html#a0e6244940d990c4e0366d7097d41a26d',1,'ChatManager']]],
-  ['sendpacket',['sendPacket',['../classConnection.html#acf311ea2f3df77851711daf40a07fc17',1,'Connection']]],
-  ['sendstartturninfo',['sendStartTurnInfo',['../namespacePacketManager.html#a078afb51e7bdcf7d3e85aaf809f0d127',1,'PacketManager']]],
+  ['sendpacket',['sendPacket',['../classConnection.html#a9aefc28b16cfdc3fb364daca157157e4',1,'Connection::sendPacket()'],['../classPlayer.html#a0c46832cd1be0b49a8fb5da6a6740b8c',1,'Player::sendPacket()']]],
   ['serialise',['serialise',['../classPlayer.html#a03a285ddda49ed0c0383b39a0a5f415b',1,'Player']]],
   ['server_5flogfile',['SERVER_LOGFILE',['../WizardLogger_8hpp.html#a03121550cedeb6f0b1ec7edf4fcadfb7',1,'WizardLogger.hpp']]],
   ['setattack',['setAttack',['../classCardMonster.html#aa27378a04c731a5a69d191314ace4144',1,'CardMonster']]],

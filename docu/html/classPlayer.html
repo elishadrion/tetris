@@ -109,8 +109,6 @@ Graphe d'héritage de Player:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
-<tr class="memitem:aaa23b3bf80e8c0267cf08d4fe4d6ddc1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#aaa23b3bf80e8c0267cf08d4fe4d6ddc1">Player</a> ()=default</td></tr>
-<tr class="separator:aaa23b3bf80e8c0267cf08d4fe4d6ddc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e88d178553a82a6c7406b8ff78e1beb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a9e88d178553a82a6c7406b8ff78e1beb">Player</a> (<a class="el" href="CardManager_8hpp.html#ab701e3ac61a85b337ec5c1abaad6742d">nlohmann::json</a> &amp;, int sockfd=0)</td></tr>
 <tr class="separator:a9e88d178553a82a6c7406b8ff78e1beb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a224828ffebbc85cda6a370eb7fab7332"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a224828ffebbc85cda6a370eb7fab7332">adjudicateVictory</a> ()</td></tr>
@@ -119,6 +117,8 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="separator:a882d9db35e3277bcd2db52fa9eca7dfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6b7d88cbcd56aeb046c154fdedeb52e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5">Error</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#ad6b7d88cbcd56aeb046c154fdedeb52e">addCardCollection</a> (<a class="el" href="classCard.html">Card</a> *c)</td></tr>
 <tr class="separator:ad6b7d88cbcd56aeb046c154fdedeb52e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae38bd4a5ac62cc7ba9b23d026d15450c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCollection.html">Collection</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#ae38bd4a5ac62cc7ba9b23d026d15450c">getCollection</a> ()</td></tr>
+<tr class="separator:ae38bd4a5ac62cc7ba9b23d026d15450c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf7cea3607c835e1c32f054524cd3027"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#adf7cea3607c835e1c32f054524cd3027">updateSockfd</a> (int a)</td></tr>
 <tr class="separator:adf7cea3607c835e1c32f054524cd3027"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4c6a95f1cf69c44d0c585465b101c70"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#ad4c6a95f1cf69c44d0c585465b101c70">getName</a> () const </td></tr>
@@ -129,18 +129,26 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="separator:a6cce4ff00f12069ee17a0c8d8be7912a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8d227b243a10660a092e289365d4f13"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#ac8d227b243a10660a092e289365d4f13">getDefeats</a> () const </td></tr>
 <tr class="separator:ac8d227b243a10660a092e289365d4f13"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24e81b3a057a93babe3ff469d59cecd3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDeck.html">Deck</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a24e81b3a057a93babe3ff469d59cecd3">getDeck</a> (std::string deckName)</td></tr>
-<tr class="separator:a24e81b3a057a93babe3ff469d59cecd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c898ad99ed40603cf7a9f00794f05b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDeck.html">Deck</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a6c898ad99ed40603cf7a9f00794f05b1">getDeck</a> (std::string)</td></tr>
+<tr class="separator:a6c898ad99ed40603cf7a9f00794f05b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7f21437111ed192905e76777e1cfcff"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#af7f21437111ed192905e76777e1cfcff">removeDeck</a> (<a class="el" href="classDeck.html">Deck</a> *)</td></tr>
 <tr class="separator:af7f21437111ed192905e76777e1cfcff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c46832cd1be0b49a8fb5da6a6740b8c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a0c46832cd1be0b49a8fb5da6a6740b8c">sendPacket</a> (<a class="el" href="structPacket_1_1packet.html">Packet::packet</a> *, size_t)</td></tr>
+<tr class="separator:a0c46832cd1be0b49a8fb5da6a6740b8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ccab23dfb76dd2c847b28ed4ff5110f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a6ccab23dfb76dd2c847b28ed4ff5110f">recvLoop</a> ()</td></tr>
+<tr class="separator:a6ccab23dfb76dd2c847b28ed4ff5110f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae7b7b23ca32f9746f88a8f8f687e0e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#aae7b7b23ca32f9746f88a8f8f687e0e3">logout</a> ()</td></tr>
+<tr class="separator:aae7b7b23ca32f9746f88a8f8f687e0e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03a285ddda49ed0c0383b39a0a5f415b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a03a285ddda49ed0c0383b39a0a5f415b">serialise</a> () const </td></tr>
 <tr class="separator:a03a285ddda49ed0c0383b39a0a5f415b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad595a59902a36610d2aa8d496a071f1f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#ad595a59902a36610d2aa8d496a071f1f">operator==</a> (const std::string &amp;) const </td></tr>
 <tr class="separator:ad595a59902a36610d2aa8d496a071f1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8344f240fbc64e17012fea952bf5821"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#ab8344f240fbc64e17012fea952bf5821">operator&lt;</a> (const <a class="el" href="classPlayer.html">Player</a> &amp;) const </td></tr>
 <tr class="separator:ab8344f240fbc64e17012fea952bf5821"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a11017c0ed8a639f3b1308ab167fbeca2"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a11017c0ed8a639f3b1308ab167fbeca2">~Player</a> ()=default</td></tr>
-<tr class="separator:a11017c0ed8a639f3b1308ab167fbeca2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa051d78855c6929d46593205769ae54c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#aa051d78855c6929d46593205769ae54c">operator&gt;</a> (const <a class="el" href="classPlayer.html">Player</a> &amp;) const </td></tr>
+<tr class="separator:aa051d78855c6929d46593205769ae54c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8981c201ffb2270c0b6dbd467b627376"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a8981c201ffb2270c0b6dbd467b627376">~Player</a> ()</td></tr>
+<tr class="separator:a8981c201ffb2270c0b6dbd467b627376"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Fonctions membres protégées</h2></td></tr>
@@ -164,29 +172,6 @@ Amis</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>One class per player. This object stocks the socket to communicate with player When the server starts, he must load all Players </p>
 </div><h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
-<a class="anchor" id="aaa23b3bf80e8c0267cf08d4fe4d6ddc1"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Player::Player </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="a9e88d178553a82a6c7406b8ff78e1beb"></a>
 <div class="memitem">
 <div class="memproto">
@@ -213,7 +198,7 @@ Amis</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a11017c0ed8a639f3b1308ab167fbeca2"></a>
+<a class="anchor" id="a8981c201ffb2270c0b6dbd467b627376"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -229,7 +214,7 @@ Amis</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -307,7 +292,30 @@ Amis</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a24e81b3a057a93babe3ff469d59cecd3"></a>
+<a class="anchor" id="ae38bd4a5ac62cc7ba9b23d026d15450c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCollection.html">Collection</a>* Player::getCollection </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6c898ad99ed40603cf7a9f00794f05b1"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -446,6 +454,21 @@ Amis</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="aae7b7b23ca32f9746f88a8f8f687e0e3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Player::logout </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="ab8344f240fbc64e17012fea952bf5821"></a>
 <div class="memitem">
 <div class="memproto">
@@ -478,6 +501,37 @@ Amis</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="aa051d78855c6929d46593205769ae54c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Player::operator&gt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classPlayer.html">Player</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6ccab23dfb76dd2c847b28ed4ff5110f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Player::recvLoop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="af7f21437111ed192905e76777e1cfcff"></a>
 <div class="memitem">
 <div class="memproto">
@@ -499,6 +553,32 @@ Amis</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd>True if all is ok (cann't delete if one deck) </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a0c46832cd1be0b49a8fb5da6a6740b8c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Player::sendPacket </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPacket_1_1packet.html">Packet::packet</a> *&#160;</td>
+          <td class="paramname"><em>packet</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

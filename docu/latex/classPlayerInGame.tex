@@ -13,8 +13,6 @@ Graphe d\textquotesingle{}héritage de Player\+In\+Game\+:\begin{figure}[H]
 \subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classPlayerInGame_aef3887730c6e58e3ffa4b8636f5a1fd4}{Player\+In\+Game} ()
-\item 
 \hyperlink{classPlayerInGame_a0015afc910afa4cc1cf4b28c689d78bc}{Player\+In\+Game} (const \hyperlink{classPlayerInGame}{Player\+In\+Game} \&)=default
 \item 
 \hyperlink{classPlayerInGame}{Player\+In\+Game} \& \hyperlink{classPlayerInGame_a9ce4261937a8d6e1587896166884c4ac}{operator=} (const \hyperlink{classPlayerInGame}{Player\+In\+Game} \&)=default
@@ -39,7 +37,7 @@ bool \hyperlink{classPlayerInGame_ac1629d9cadf7445be42eb3245daef6c4}{have\+Enoug
 \item 
 void \hyperlink{classPlayerInGame_aedc8c0d75e0d249fde42329dc0a59557}{add\+Max\+Energy} ()
 \item 
-void \hyperlink{classPlayerInGame_ad18e833fa982d9db29521b49c74b1fa0}{reset\+Energy} ()
+int \hyperlink{classPlayerInGame_a72d83ef849db81abb4afac5a299f6c1f}{reset\+Energy} ()
 \item 
 void \hyperlink{classPlayerInGame_a86bc2f58c47405e97079425757cb3f62}{defausse\+Card\+Placed} (\hyperlink{classCardMonster}{Card\+Monster} $\ast$)
 \item 
@@ -63,13 +61,6 @@ virtual \hyperlink{classPlayerInGame_a75256787f26b0d264a929e61889caba1}{$\sim$\+
 
 
 \subsection{Documentation des constructeurs et destructeur}
-\hypertarget{classPlayerInGame_aef3887730c6e58e3ffa4b8636f5a1fd4}{}\index{Player\+In\+Game@{Player\+In\+Game}!Player\+In\+Game@{Player\+In\+Game}}
-\index{Player\+In\+Game@{Player\+In\+Game}!Player\+In\+Game@{Player\+In\+Game}}
-\subsubsection[{Player\+In\+Game()}]{\setlength{\rightskip}{0pt plus 5cm}Player\+In\+Game\+::\+Player\+In\+Game (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\label{classPlayerInGame_aef3887730c6e58e3ffa4b8636f5a1fd4}
 \hypertarget{classPlayerInGame_a0015afc910afa4cc1cf4b28c689d78bc}{}\index{Player\+In\+Game@{Player\+In\+Game}!Player\+In\+Game@{Player\+In\+Game}}
 \index{Player\+In\+Game@{Player\+In\+Game}!Player\+In\+Game@{Player\+In\+Game}}
 \subsubsection[{Player\+In\+Game(const Player\+In\+Game \&)=default}]{\setlength{\rightskip}{0pt plus 5cm}Player\+In\+Game\+::\+Player\+In\+Game (
@@ -224,13 +215,18 @@ True if the deck is defined
 \item[{{\bf Card\+Monster} $\ast$}]{card}
 \end{DoxyParamCaption}
 )}\label{classPlayerInGame_a5588d4c494560f20b2d58953cf8ebc1c}
-\hypertarget{classPlayerInGame_ad18e833fa982d9db29521b49c74b1fa0}{}\index{Player\+In\+Game@{Player\+In\+Game}!reset\+Energy@{reset\+Energy}}
+\hypertarget{classPlayerInGame_a72d83ef849db81abb4afac5a299f6c1f}{}\index{Player\+In\+Game@{Player\+In\+Game}!reset\+Energy@{reset\+Energy}}
 \index{reset\+Energy@{reset\+Energy}!Player\+In\+Game@{Player\+In\+Game}}
-\subsubsection[{reset\+Energy()}]{\setlength{\rightskip}{0pt plus 5cm}void Player\+In\+Game\+::reset\+Energy (
+\subsubsection[{reset\+Energy()}]{\setlength{\rightskip}{0pt plus 5cm}int Player\+In\+Game\+::reset\+Energy (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}\label{classPlayerInGame_ad18e833fa982d9db29521b49c74b1fa0}
+)}\label{classPlayerInGame_a72d83ef849db81abb4afac5a299f6c1f}
+Permet de remettre l\textquotesingle{}énergie au maximum
+
+\begin{DoxyReturn}{Renvoie}
+la nouvelle valeur d\textquotesingle{}énergie 
+\end{DoxyReturn}
 \hypertarget{classPlayerInGame_a399370210526407c4234d19815a5fa44}{}\index{Player\+In\+Game@{Player\+In\+Game}!set\+Deck@{set\+Deck}}
 \index{set\+Deck@{set\+Deck}!Player\+In\+Game@{Player\+In\+Game}}
 \subsubsection[{set\+Deck(\+Deck $\ast$deck)}]{\setlength{\rightskip}{0pt plus 5cm}void Player\+In\+Game\+::set\+Deck (

@@ -8,6 +8,7 @@ var searchData=
   ['choosecardwin',['chooseCardWin',['../classCardManager.html#a2f7e2075c03aca17464c780d86da7cff',1,'CardManager']]],
   ['cli',['CLI',['../classCLI.html#a1a5b0f7ec3b242c5c56e4745adbb391e',1,'CLI']]],
   ['collection',['Collection',['../classCollection.html#a5a47d67f2f24553ea9adde4f4f286dc6',1,'Collection::Collection()=default'],['../classCollection.html#ab635b340b56740374abd52368087be0b',1,'Collection::Collection(std::vector&lt; Card * &gt;)'],['../classCollection.html#a68b48e6494b0a52b1c873c5fd8420007',1,'Collection::Collection(std::vector&lt; unsigned &gt;)'],['../classCollection.html#ac6947d19970d090b545eef22c101087d',1,'Collection::Collection(const Collection &amp;)=default']]],
+  ['collectionresult',['collectionResult',['../namespacePacketManager.html#a2520b5ad3390ebf5727db3759769db47',1,'PacketManager']]],
   ['connection',['Connection',['../classConnection.html#ab7b5c72eb0e2f7ce6f0e1f2c20b7389d',1,'Connection::Connection(char *)'],['../classConnection.html#a9de94289ca6259f94ef6aeba3b134a77',1,'Connection::Connection()']]],
   ['copydeck',['copyDeck',['../classDeck.html#ab216a347587d7afe42adecb58a42fcbb',1,'Deck']]]
 ];

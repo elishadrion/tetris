@@ -12,5 +12,6 @@ var searchData=
   ['login_5fres_5fid',['LOGIN_RES_ID',['../classPacket.html#ae91c1d355e4c8f0bef5f893747473661adfad7675a2d1418c82df295276cbe695',1,'Packet']]],
   ['loginrequestpacket',['loginRequestPacket',['../structPacket_1_1loginRequestPacket.html',1,'Packet']]],
   ['loginresult',['loginResult',['../namespacePacketManager.html#a255a83fde064b3b6bbc192dc49ba30a4',1,'PacketManager']]],
-  ['loginresultpacket',['loginResultPacket',['../structPacket_1_1loginResultPacket.html',1,'Packet']]]
+  ['loginresultpacket',['loginResultPacket',['../structPacket_1_1loginResultPacket.html',1,'Packet']]],
+  ['logout',['logout',['../classPlayer.html#aae7b7b23ca32f9746f88a8f8f687e0e3',1,'Player']]]
 ];

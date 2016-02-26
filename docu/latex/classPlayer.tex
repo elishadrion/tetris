@@ -13,8 +13,6 @@ Graphe d\textquotesingle{}héritage de Player\+:\begin{figure}[H]
 \subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classPlayer_aaa23b3bf80e8c0267cf08d4fe4d6ddc1}{Player} ()=default
-\item 
 \hyperlink{classPlayer_a9e88d178553a82a6c7406b8ff78e1beb}{Player} (\hyperlink{CardManager_8hpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann\+::json} \&, int sockfd=0)
 \item 
 void \hyperlink{classPlayer_a224828ffebbc85cda6a370eb7fab7332}{adjudicate\+Victory} ()
@@ -22,6 +20,8 @@ void \hyperlink{classPlayer_a224828ffebbc85cda6a370eb7fab7332}{adjudicate\+Victo
 void \hyperlink{classPlayer_a882d9db35e3277bcd2db52fa9eca7dfb}{adjudicate\+Defeat} ()
 \item 
 \hyperlink{Error_8hpp_a2c3e4bb40f36b262a5214e2da2bca9c5}{Error} \hyperlink{classPlayer_ad6b7d88cbcd56aeb046c154fdedeb52e}{add\+Card\+Collection} (\hyperlink{classCard}{Card} $\ast$c)
+\item 
+\hyperlink{classCollection}{Collection} $\ast$ \hyperlink{classPlayer_ae38bd4a5ac62cc7ba9b23d026d15450c}{get\+Collection} ()
 \item 
 void \hyperlink{classPlayer_adf7cea3607c835e1c32f054524cd3027}{update\+Sockfd} (int a)
 \item 
@@ -33,9 +33,15 @@ unsigned \hyperlink{classPlayer_a6cce4ff00f12069ee17a0c8d8be7912a}{get\+Victorie
 \item 
 unsigned \hyperlink{classPlayer_ac8d227b243a10660a092e289365d4f13}{get\+Defeats} () const 
 \item 
-\hyperlink{classDeck}{Deck} $\ast$ \hyperlink{classPlayer_a24e81b3a057a93babe3ff469d59cecd3}{get\+Deck} (std\+::string deck\+Name)
+\hyperlink{classDeck}{Deck} $\ast$ \hyperlink{classPlayer_a6c898ad99ed40603cf7a9f00794f05b1}{get\+Deck} (std\+::string)
 \item 
 bool \hyperlink{classPlayer_af7f21437111ed192905e76777e1cfcff}{remove\+Deck} (\hyperlink{classDeck}{Deck} $\ast$)
+\item 
+void \hyperlink{classPlayer_a0c46832cd1be0b49a8fb5da6a6740b8c}{send\+Packet} (\hyperlink{structPacket_1_1packet}{Packet\+::packet} $\ast$, size\+\_\+t)
+\item 
+void \hyperlink{classPlayer_a6ccab23dfb76dd2c847b28ed4ff5110f}{recv\+Loop} ()
+\item 
+void \hyperlink{classPlayer_aae7b7b23ca32f9746f88a8f8f687e0e3}{logout} ()
 \item 
 std\+::string \hyperlink{classPlayer_a03a285ddda49ed0c0383b39a0a5f415b}{serialise} () const 
 \item 
@@ -43,7 +49,9 @@ bool \hyperlink{classPlayer_ad595a59902a36610d2aa8d496a071f1f}{operator==} (cons
 \item 
 bool \hyperlink{classPlayer_ab8344f240fbc64e17012fea952bf5821}{operator$<$} (const \hyperlink{classPlayer}{Player} \&) const 
 \item 
-virtual \hyperlink{classPlayer_a11017c0ed8a639f3b1308ab167fbeca2}{$\sim$\+Player} ()=default
+bool \hyperlink{classPlayer_aa051d78855c6929d46593205769ae54c}{operator$>$} (const \hyperlink{classPlayer}{Player} \&) const 
+\item 
+virtual \hyperlink{classPlayer_a8981c201ffb2270c0b6dbd467b627376}{$\sim$\+Player} ()
 \end{DoxyCompactItemize}
 \subsection*{Fonctions membres protégées}
 \begin{DoxyCompactItemize}
@@ -70,13 +78,6 @@ std\+::string \& \hyperlink{classPlayer_ae196d81b10472c3768f788280aaf392b}{opera
 One class per player. This object stocks the socket to communicate with player When the server starts, he must load all Players 
 
 \subsection{Documentation des constructeurs et destructeur}
-\hypertarget{classPlayer_aaa23b3bf80e8c0267cf08d4fe4d6ddc1}{}\index{Player@{Player}!Player@{Player}}
-\index{Player@{Player}!Player@{Player}}
-\subsubsection[{Player()=default}]{\setlength{\rightskip}{0pt plus 5cm}Player\+::\+Player (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [default]}}\label{classPlayer_aaa23b3bf80e8c0267cf08d4fe4d6ddc1}
 \hypertarget{classPlayer_a9e88d178553a82a6c7406b8ff78e1beb}{}\index{Player@{Player}!Player@{Player}}
 \index{Player@{Player}!Player@{Player}}
 \subsubsection[{Player(nlohmann\+::json \&, int sockfd=0)}]{\setlength{\rightskip}{0pt plus 5cm}Player\+::\+Player (
@@ -85,13 +86,13 @@ One class per player. This object stocks the socket to communicate with player W
 \item[{int}]{sockfd = {\ttfamily 0}}
 \end{DoxyParamCaption}
 )}\label{classPlayer_a9e88d178553a82a6c7406b8ff78e1beb}
-\hypertarget{classPlayer_a11017c0ed8a639f3b1308ab167fbeca2}{}\index{Player@{Player}!````~Player@{$\sim$\+Player}}
+\hypertarget{classPlayer_a8981c201ffb2270c0b6dbd467b627376}{}\index{Player@{Player}!````~Player@{$\sim$\+Player}}
 \index{````~Player@{$\sim$\+Player}!Player@{Player}}
-\subsubsection[{$\sim$\+Player()=default}]{\setlength{\rightskip}{0pt plus 5cm}virtual Player\+::$\sim$\+Player (
+\subsubsection[{$\sim$\+Player()}]{\setlength{\rightskip}{0pt plus 5cm}virtual Player\+::$\sim$\+Player (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}\label{classPlayer_a11017c0ed8a639f3b1308ab167fbeca2}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classPlayer_a8981c201ffb2270c0b6dbd467b627376}
 
 
 \subsection{Documentation des fonctions membres}
@@ -116,13 +117,20 @@ One class per player. This object stocks the socket to communicate with player W
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}}\label{classPlayer_a224828ffebbc85cda6a370eb7fab7332}
-\hypertarget{classPlayer_a24e81b3a057a93babe3ff469d59cecd3}{}\index{Player@{Player}!get\+Deck@{get\+Deck}}
+\hypertarget{classPlayer_ae38bd4a5ac62cc7ba9b23d026d15450c}{}\index{Player@{Player}!get\+Collection@{get\+Collection}}
+\index{get\+Collection@{get\+Collection}!Player@{Player}}
+\subsubsection[{get\+Collection()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Collection}$\ast$ Player\+::get\+Collection (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classPlayer_ae38bd4a5ac62cc7ba9b23d026d15450c}
+\hypertarget{classPlayer_a6c898ad99ed40603cf7a9f00794f05b1}{}\index{Player@{Player}!get\+Deck@{get\+Deck}}
 \index{get\+Deck@{get\+Deck}!Player@{Player}}
-\subsubsection[{get\+Deck(std\+::string deck\+Name)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Deck} $\ast$ Player\+::get\+Deck (
+\subsubsection[{get\+Deck(std\+::string)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Deck} $\ast$ Player\+::get\+Deck (
 \begin{DoxyParamCaption}
 \item[{std\+::string}]{deck\+Name}
 \end{DoxyParamCaption}
-)}\label{classPlayer_a24e81b3a057a93babe3ff469d59cecd3}
+)}\label{classPlayer_a6c898ad99ed40603cf7a9f00794f05b1}
 Get the deck with this name
 
 
@@ -168,6 +176,13 @@ the deck (or nullptr if not found)
 {}
 \end{DoxyParamCaption}
 ) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classPlayer_a6cce4ff00f12069ee17a0c8d8be7912a}
+\hypertarget{classPlayer_aae7b7b23ca32f9746f88a8f8f687e0e3}{}\index{Player@{Player}!logout@{logout}}
+\index{logout@{logout}!Player@{Player}}
+\subsubsection[{logout()}]{\setlength{\rightskip}{0pt plus 5cm}void Player\+::logout (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classPlayer_aae7b7b23ca32f9746f88a8f8f687e0e3}
 \hypertarget{classPlayer_ab8344f240fbc64e17012fea952bf5821}{}\index{Player@{Player}!operator$<$@{operator$<$}}
 \index{operator$<$@{operator$<$}!Player@{Player}}
 \subsubsection[{operator$<$(const Player \&) const }]{\setlength{\rightskip}{0pt plus 5cm}bool Player\+::operator$<$ (
@@ -182,6 +197,20 @@ the deck (or nullptr if not found)
 \item[{const std\+::string \&}]{other\+\_\+name}
 \end{DoxyParamCaption}
 ) const}\label{classPlayer_ad595a59902a36610d2aa8d496a071f1f}
+\hypertarget{classPlayer_aa051d78855c6929d46593205769ae54c}{}\index{Player@{Player}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!Player@{Player}}
+\subsubsection[{operator$>$(const Player \&) const }]{\setlength{\rightskip}{0pt plus 5cm}bool Player\+::operator$>$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Player} \&}]{other}
+\end{DoxyParamCaption}
+) const}\label{classPlayer_aa051d78855c6929d46593205769ae54c}
+\hypertarget{classPlayer_a6ccab23dfb76dd2c847b28ed4ff5110f}{}\index{Player@{Player}!recv\+Loop@{recv\+Loop}}
+\index{recv\+Loop@{recv\+Loop}!Player@{Player}}
+\subsubsection[{recv\+Loop()}]{\setlength{\rightskip}{0pt plus 5cm}void Player\+::recv\+Loop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classPlayer_a6ccab23dfb76dd2c847b28ed4ff5110f}
 \hypertarget{classPlayer_af7f21437111ed192905e76777e1cfcff}{}\index{Player@{Player}!remove\+Deck@{remove\+Deck}}
 \index{remove\+Deck@{remove\+Deck}!Player@{Player}}
 \subsubsection[{remove\+Deck(\+Deck $\ast$)}]{\setlength{\rightskip}{0pt plus 5cm}bool Player\+::remove\+Deck (
@@ -199,6 +228,14 @@ Remove a \hyperlink{classDeck}{Deck}
 \begin{DoxyReturn}{Renvoie}
 True if all is ok (cann\textquotesingle{}t delete if one deck) 
 \end{DoxyReturn}
+\hypertarget{classPlayer_a0c46832cd1be0b49a8fb5da6a6740b8c}{}\index{Player@{Player}!send\+Packet@{send\+Packet}}
+\index{send\+Packet@{send\+Packet}!Player@{Player}}
+\subsubsection[{send\+Packet(\+Packet\+::packet $\ast$, size\+\_\+t)}]{\setlength{\rightskip}{0pt plus 5cm}void Player\+::send\+Packet (
+\begin{DoxyParamCaption}
+\item[{{\bf Packet\+::packet} $\ast$}]{packet, }
+\item[{size\+\_\+t}]{size}
+\end{DoxyParamCaption}
+)}\label{classPlayer_a0c46832cd1be0b49a8fb5da6a6740b8c}
 \hypertarget{classPlayer_a03a285ddda49ed0c0383b39a0a5f415b}{}\index{Player@{Player}!serialise@{serialise}}
 \index{serialise@{serialise}!Player@{Player}}
 \subsubsection[{serialise() const }]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Player\+::serialise (

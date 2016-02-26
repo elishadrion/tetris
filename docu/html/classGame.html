@@ -122,8 +122,8 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="separator:a68812012d1e9dacc27bbbc0304000854"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa5b09732ecd16afc3cd6d3f580366237"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#aa5b09732ecd16afc3cd6d3f580366237">nextPlayer</a> ()</td></tr>
 <tr class="separator:aa5b09732ecd16afc3cd6d3f580366237"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06760f118a7f3808d9038645e2abf64f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a06760f118a7f3808d9038645e2abf64f">sendInfoAction</a> (<a class="el" href="classPlayerInGame.html">PlayerInGame</a> *, int, unsigned int)</td></tr>
-<tr class="separator:a06760f118a7f3808d9038645e2abf64f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97859a60ec71242e0590fba4c9d35804"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a97859a60ec71242e0590fba4c9d35804">sendInfoAction</a> (<a class="el" href="classPlayerInGame.html">PlayerInGame</a> *, int, int, bool, bool, unsigned)</td></tr>
+<tr class="separator:a97859a60ec71242e0590fba4c9d35804"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Fonctions membres publiques statiques</h2></td></tr>
@@ -476,7 +476,7 @@ Fonctions membres publiques statiques</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a06760f118a7f3808d9038645e2abf64f"></a>
+<a class="anchor" id="a97859a60ec71242e0590fba4c9d35804"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -490,7 +490,25 @@ Fonctions membres publiques statiques</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>cardWichAttack</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>attackCard</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>isEffect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>newCard</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -509,6 +527,7 @@ Fonctions membres publiques statiques</h2></td></tr>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">pIG</td><td>who play </td></tr>
+    <tr><td class="paramname">cardWichAttack</td><td></td></tr>
     <tr><td class="paramname">attackCard</td><td>card which is attack (-1 if player) </td></tr>
     <tr><td class="paramname">heal</td><td>of the attack entity </td></tr>
   </table>

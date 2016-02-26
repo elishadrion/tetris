@@ -4,9 +4,8 @@
 {\ttfamily \#include \char`\"{}common/\+Packet.\+hpp\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}common/\+Wizard\+Logger.\+hpp\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}Card.\+hpp\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}Card\+Monster.\+hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Collection.\+hpp\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}Player.\+hpp\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}Player\+In\+Game.\+hpp\char`\"{}}\\*
 \subsection*{Espaces de nommage}
 \begin{DoxyCompactItemize}
 \item 
@@ -15,19 +14,21 @@
 \subsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{namespacePacketManager_a7f241c4d446ff9cf2a4e8a115a703786}{Packet\+Manager\+::manage\+Disconnect\+Request} (\hyperlink{structPacket_1_1packet}{Packet\+::packet} $\ast$)
+void \hyperlink{namespacePacketManager_abd99694448081508766a221b786b204d}{Packet\+Manager\+::manage\+Disconnect\+Request} (\hyperlink{classPlayer}{Player} $\ast$, \hyperlink{structPacket_1_1packet}{Packet\+::packet} $\ast$)
 \item 
-void \hyperlink{namespacePacketManager_ac206635e6603c3488fb11d04cc0fa3e9}{Packet\+Manager\+::manage\+Packet} (\hyperlink{structPacket_1_1packet}{Packet\+::packet} $\ast$)
+void \hyperlink{namespacePacketManager_a29507cd1def594e5607032ea8865545c}{Packet\+Manager\+::manage\+Collection\+Request} (\hyperlink{classPlayer}{Player} $\ast$, \hyperlink{structPacket_1_1packet}{Packet\+::packet} $\ast$)
+\item 
+void \hyperlink{namespacePacketManager_a643568c924bb5515554cc87c0baebc74}{Packet\+Manager\+::manage\+Packet} (\hyperlink{classPlayer}{Player} $\ast$, \hyperlink{structPacket_1_1packet}{Packet\+::packet} $\ast$)
 \item 
 void \hyperlink{namespacePacketManager_ab8135c284f5e9b70cbc1c7e23817c6cc}{Packet\+Manager\+::init\+Game} (\hyperlink{classPlayer}{Player} $\ast$, std\+::string)
-\item 
-void \hyperlink{namespacePacketManager_a078afb51e7bdcf7d3e85aaf809f0d127}{Packet\+Manager\+::send\+Start\+Turn\+Info} (\hyperlink{classPlayer}{Player} $\ast$, \hyperlink{structdataIGPlayer}{data\+I\+G\+Player}, std\+::vector$<$ \hyperlink{classCardMonster}{Card\+Monster} $\ast$ $>$, int, int, int)
 \item 
 void \hyperlink{namespacePacketManager_a74fc2904645906581beacd89356bff8c}{Packet\+Manager\+::send\+Card} (\hyperlink{classPlayer}{Player} $\ast$, \hyperlink{classCard}{Card} $\ast$)
 \item 
 void \hyperlink{namespacePacketManager_aeceb16b8b48bbcc11da40b68544b5d2a}{Packet\+Manager\+::set\+Turn} (\hyperlink{classPlayer}{Player} $\ast$, std\+::string)
 \item 
-void \hyperlink{namespacePacketManager_ae2de5a6226f04bf18b076379e13a7669}{Packet\+Manager\+::send\+Attack} (\hyperlink{classPlayer}{Player} $\ast$, std\+::string, int, unsigned int)
+void \hyperlink{namespacePacketManager_aa6bbc1b47d13e25518965f8d9fe95a77}{Packet\+Manager\+::send\+Info\+Start\+Turn} (\hyperlink{classPlayer}{Player} $\ast$, int, int)
+\item 
+void \hyperlink{namespacePacketManager_a5832df5842986389d29b4e251550c002}{Packet\+Manager\+::send\+Attack} (\hyperlink{classPlayer}{Player} $\ast$, std\+::string, int, int, bool, bool, unsigned int)
 \item 
 void \hyperlink{namespacePacketManager_ad09515d55f52f38ac6fc5ee056cc326f}{Packet\+Manager\+::ask\+Defausse} (\hyperlink{classPlayer}{Player} $\ast$, int)
 \item 

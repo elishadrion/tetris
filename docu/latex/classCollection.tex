@@ -7,7 +7,7 @@
 Graphe d\textquotesingle{}héritage de Collection\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=3.000000cm]{classCollection}
+\includegraphics[height=2.000000cm]{classCollection}
 \end{center}
 \end{figure}
 \subsection*{Fonctions membres publiques}
@@ -38,6 +38,8 @@ int \hyperlink{classCollection_a9bd74b104abcc47257564044be71a6b2}{index\+Of\+Car
 int \hyperlink{classCollection_aa7acabbd00d04898ffefce407645142e}{get\+Card\+Index} (\hyperlink{classCard}{Card} $\ast$)
 \item 
 \hyperlink{classCard}{Card} $\ast$ \hyperlink{classCollection_aced95e3b1de7bebeb22d9cb1d36d483b}{get\+Card\+On\+Index} (const unsigned index)
+\item 
+std\+::vector$<$ unsigned $>$ \hyperlink{classCollection_a1eaec13063d083a49ed9c26a4105d370}{get\+Cards\+Id} () const 
 \item 
 virtual \hyperlink{classCollection_ac7fe8e15953eee4ba235ee7ebc4ffc5b}{$\sim$\+Collection} ()=default
 \end{DoxyCompactItemize}
@@ -177,6 +179,13 @@ Get the card on the specific index
 \begin{DoxyReturn}{Renvoie}
 the \hyperlink{classCard}{Card} at the specific index 
 \end{DoxyReturn}
+\hypertarget{classCollection_a1eaec13063d083a49ed9c26a4105d370}{}\index{Collection@{Collection}!get\+Cards\+Id@{get\+Cards\+Id}}
+\index{get\+Cards\+Id@{get\+Cards\+Id}!Collection@{Collection}}
+\subsubsection[{get\+Cards\+Id() const }]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ unsigned $>$ Collection\+::get\+Cards\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classCollection_a1eaec13063d083a49ed9c26a4105d370}
 \hypertarget{classCollection_a9bd74b104abcc47257564044be71a6b2}{}\index{Collection@{Collection}!index\+Of\+Card@{index\+Of\+Card}}
 \index{index\+Of\+Card@{index\+Of\+Card}!Collection@{Collection}}
 \subsubsection[{index\+Of\+Card(int card\+Id)}]{\setlength{\rightskip}{0pt plus 5cm}int Collection\+::index\+Of\+Card (
@@ -243,5 +252,5 @@ Remove a \hyperlink{classCard}{Card} from the collection
 
 La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
 \item 
-client/\hyperlink{client_2Collection_8hpp}{Collection.\+hpp}\item 
+server/\hyperlink{Collection_8hpp}{Collection.\+hpp}\item 
 server/\hyperlink{Collection_8cpp}{Collection.\+cpp}\end{DoxyCompactItemize}

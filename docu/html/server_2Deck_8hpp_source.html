@@ -99,12 +99,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include&lt;string&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include&lt;vector&gt;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="server_2Collection_8hpp.html">Collection.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Collection_8hpp.html">Collection.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="WizardLogger_8hpp.html">common/WizardLogger.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Error_8hpp.html">common/Error.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">class </span><a class="code" href="classDeck.html">Deck</a> : <a class="code" href="classCollection.html">Collection</a> {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">class </span><a class="code" href="classDeck.html">Deck</a> : <span class="keyword">public</span> <a class="code" href="classCollection.html">Collection</a> {</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    std::string _name; <span class="comment">// name of the deck</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
@@ -113,7 +113,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="classDeck.html#ab7f2fc685f721ab93884d04826db1de0">Deck</a>(<span class="keyword">const</span> <a class="code" href="classDeck.html">Deck</a>&amp;); <span class="comment">// Copy constructor</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="classDeck.html">Deck</a>&amp; <a class="code" href="classDeck.html#ac3d2eaa856438ec34f898821e7e76a6d">operator=</a>(<span class="keyword">const</span> <a class="code" href="classDeck.html">Deck</a>&amp;) = <span class="keywordflow">default</span>; <span class="comment">// Copy operator</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    std::string <a class="code" href="classDeck.html#aaa3db432259e3fd24431e0cef7a83ec0">getName</a>();</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classDeck.html#aa140e47d3e2fbb1de45b153a2fce8375">   26</a></span>&#160;    <span class="keyword">inline</span> std::string <a class="code" href="classDeck.html#aa140e47d3e2fbb1de45b153a2fce8375">getName</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _name;}</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classDeck.html#a66cfb2d1adfb6b0b94ed25c8f5ca29f9">isValide</a>(); <span class="comment">// True if there is 100 cards and other information are true</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="classCard.html">Card</a>* <a class="code" href="classDeck.html#a910d3c6c7a83168fd7f2485778d5bfe0">pickup</a>();  <span class="comment">// Returns a random Card</span></div>
@@ -123,7 +123,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classDeck.html#a360cf67965cd28b8bdda3ec932ae3296">deleteDeck</a>(<a class="code" href="classPlayerInGame.html">PlayerInGame</a>*);</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="classDeck.html">Deck</a>* <a class="code" href="classDeck.html#ab216a347587d7afe42adecb58a42fcbb">copyDeck</a>();</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classDeck.html#a52acbf278ff10f88a9438906afad6f3a">operator==</a>(<span class="keyword">const</span> std::string&amp;) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">static</span> <a class="code" href="classDeck.html">Deck</a>* <a class="code" href="classDeck.html#ae5ff1528ce1d9752c2ddb928de943d3e">getDeck</a>(std::string, std::vector&lt;Deck*&gt;);</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;};</div>
@@ -132,23 +132,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* DECK_HPP */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="ttc" id="classDeck_html_a741aa3330dc4912beb69c962e74df507"><div class="ttname"><a href="classDeck.html#a741aa3330dc4912beb69c962e74df507">Deck::addCard</a></div><div class="ttdeci">virtual Error addCard(Card *card) override</div><div class="ttdef"><b>Definition:</b> Deck.cpp:91</div></div>
-<div class="ttc" id="classCollection_html"><div class="ttname"><a href="classCollection.html">Collection</a></div><div class="ttdef"><b>Definition:</b> Collection.hpp:6</div></div>
+<div class="ttc" id="classDeck_html_a52acbf278ff10f88a9438906afad6f3a"><div class="ttname"><a href="classDeck.html#a52acbf278ff10f88a9438906afad6f3a">Deck::operator==</a></div><div class="ttdeci">bool operator==(const std::string &amp;) const </div><div class="ttdef"><b>Definition:</b> Deck.cpp:120</div></div>
+<div class="ttc" id="Collection_8hpp_html"><div class="ttname"><a href="Collection_8hpp.html">Collection.hpp</a></div></div>
+<div class="ttc" id="classDeck_html_a741aa3330dc4912beb69c962e74df507"><div class="ttname"><a href="classDeck.html#a741aa3330dc4912beb69c962e74df507">Deck::addCard</a></div><div class="ttdeci">virtual Error addCard(Card *card) override</div><div class="ttdef"><b>Definition:</b> Deck.cpp:81</div></div>
+<div class="ttc" id="classCollection_html"><div class="ttname"><a href="classCollection.html">Collection</a></div><div class="ttdef"><b>Definition:</b> Collection.hpp:14</div></div>
 <div class="ttc" id="classDeck_html"><div class="ttname"><a href="classDeck.html">Deck</a></div><div class="ttdef"><b>Definition:</b> Deck.hpp:8</div></div>
 <div class="ttc" id="Error_8hpp_html_a2c3e4bb40f36b262a5214e2da2bca9c5"><div class="ttname"><a href="Error_8hpp.html#a2c3e4bb40f36b262a5214e2da2bca9c5">Error</a></div><div class="ttdeci">Error</div><div class="ttdef"><b>Definition:</b> Error.hpp:4</div></div>
 <div class="ttc" id="classPlayerInGame_html"><div class="ttname"><a href="classPlayerInGame.html">PlayerInGame</a></div><div class="ttdef"><b>Definition:</b> PlayerInGame.hpp:39</div></div>
 <div class="ttc" id="classCard_html"><div class="ttname"><a href="classCard.html">Card</a></div><div class="ttdef"><b>Definition:</b> Card.hpp:6</div></div>
 <div class="ttc" id="classDeck_html_ab7f2fc685f721ab93884d04826db1de0"><div class="ttname"><a href="classDeck.html#ab7f2fc685f721ab93884d04826db1de0">Deck::Deck</a></div><div class="ttdeci">Deck(std::string name, std::vector&lt; Card * &gt; listCard)</div><div class="ttdef"><b>Definition:</b> Deck.cpp:13</div></div>
-<div class="ttc" id="classDeck_html_a66cfb2d1adfb6b0b94ed25c8f5ca29f9"><div class="ttname"><a href="classDeck.html#a66cfb2d1adfb6b0b94ed25c8f5ca29f9">Deck::isValide</a></div><div class="ttdeci">bool isValide()</div><div class="ttdef"><b>Definition:</b> Deck.cpp:63</div></div>
-<div class="ttc" id="classDeck_html_aaa3db432259e3fd24431e0cef7a83ec0"><div class="ttname"><a href="classDeck.html#aaa3db432259e3fd24431e0cef7a83ec0">Deck::getName</a></div><div class="ttdeci">std::string getName()</div><div class="ttdef"><b>Definition:</b> Deck.cpp:52</div></div>
-<div class="ttc" id="classDeck_html_ae5ff1528ce1d9752c2ddb928de943d3e"><div class="ttname"><a href="classDeck.html#ae5ff1528ce1d9752c2ddb928de943d3e">Deck::getDeck</a></div><div class="ttdeci">static Deck * getDeck(std::string, std::vector&lt; Deck * &gt;)</div><div class="ttdef"><b>Definition:</b> Deck.cpp:137</div></div>
-<div class="ttc" id="classDeck_html_a910d3c6c7a83168fd7f2485778d5bfe0"><div class="ttname"><a href="classDeck.html#a910d3c6c7a83168fd7f2485778d5bfe0">Deck::pickup</a></div><div class="ttdeci">Card * pickup()</div><div class="ttdef"><b>Definition:</b> Deck.cpp:73</div></div>
-<div class="ttc" id="classDeck_html_ab216a347587d7afe42adecb58a42fcbb"><div class="ttname"><a href="classDeck.html#ab216a347587d7afe42adecb58a42fcbb">Deck::copyDeck</a></div><div class="ttdeci">Deck * copyDeck()</div><div class="ttdef"><b>Definition:</b> Deck.cpp:120</div></div>
+<div class="ttc" id="classDeck_html_a66cfb2d1adfb6b0b94ed25c8f5ca29f9"><div class="ttname"><a href="classDeck.html#a66cfb2d1adfb6b0b94ed25c8f5ca29f9">Deck::isValide</a></div><div class="ttdeci">bool isValide()</div><div class="ttdef"><b>Definition:</b> Deck.cpp:53</div></div>
+<div class="ttc" id="classDeck_html_ae5ff1528ce1d9752c2ddb928de943d3e"><div class="ttname"><a href="classDeck.html#ae5ff1528ce1d9752c2ddb928de943d3e">Deck::getDeck</a></div><div class="ttdeci">static Deck * getDeck(std::string, std::vector&lt; Deck * &gt;)</div><div class="ttdef"><b>Definition:</b> Deck.cpp:132</div></div>
+<div class="ttc" id="classDeck_html_a910d3c6c7a83168fd7f2485778d5bfe0"><div class="ttname"><a href="classDeck.html#a910d3c6c7a83168fd7f2485778d5bfe0">Deck::pickup</a></div><div class="ttdeci">Card * pickup()</div><div class="ttdef"><b>Definition:</b> Deck.cpp:63</div></div>
+<div class="ttc" id="classDeck_html_ab216a347587d7afe42adecb58a42fcbb"><div class="ttname"><a href="classDeck.html#ab216a347587d7afe42adecb58a42fcbb">Deck::copyDeck</a></div><div class="ttdeci">Deck * copyDeck()</div><div class="ttdef"><b>Definition:</b> Deck.cpp:110</div></div>
 <div class="ttc" id="classDeck_html_a360cf67965cd28b8bdda3ec932ae3296"><div class="ttname"><a href="classDeck.html#a360cf67965cd28b8bdda3ec932ae3296">Deck::deleteDeck</a></div><div class="ttdeci">bool deleteDeck(PlayerInGame *)</div></div>
 <div class="ttc" id="Error_8hpp_html"><div class="ttname"><a href="Error_8hpp.html">Error.hpp</a></div></div>
 <div class="ttc" id="WizardLogger_8hpp_html"><div class="ttname"><a href="WizardLogger_8hpp.html">WizardLogger.hpp</a></div></div>
-<div class="ttc" id="server_2Collection_8hpp_html"><div class="ttname"><a href="server_2Collection_8hpp.html">Collection.hpp</a></div></div>
+<div class="ttc" id="classDeck_html_aa140e47d3e2fbb1de45b153a2fce8375"><div class="ttname"><a href="classDeck.html#aa140e47d3e2fbb1de45b153a2fce8375">Deck::getName</a></div><div class="ttdeci">std::string getName() const </div><div class="ttdef"><b>Definition:</b> Deck.hpp:26</div></div>
 <div class="ttc" id="classDeck_html_ac3d2eaa856438ec34f898821e7e76a6d"><div class="ttname"><a href="classDeck.html#ac3d2eaa856438ec34f898821e7e76a6d">Deck::operator=</a></div><div class="ttdeci">Deck &amp; operator=(const Deck &amp;)=default</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

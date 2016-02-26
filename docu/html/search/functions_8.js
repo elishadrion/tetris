@@ -4,5 +4,6 @@ var searchData=
   ['loadalleffect',['loadAllEffect',['../classEffect.html#ae185e5fd1219ac1d7ffbcd51d0ace58c',1,'Effect']]],
   ['loadplayers',['loadPlayers',['../classPlayerManager.html#a85e370f3ac930bf829ca807ea992f4b5',1,'PlayerManager']]],
   ['login',['logIn',['../classPlayerManager.html#a4cfd0c1c7269de24cb8c150f43d92752',1,'PlayerManager']]],
-  ['loginresult',['loginResult',['../namespacePacketManager.html#a255a83fde064b3b6bbc192dc49ba30a4',1,'PacketManager']]]
+  ['loginresult',['loginResult',['../namespacePacketManager.html#a255a83fde064b3b6bbc192dc49ba30a4',1,'PacketManager']]],
+  ['logout',['logout',['../classPlayer.html#aae7b7b23ca32f9746f88a8f8f687e0e3',1,'Player']]]
 ];
