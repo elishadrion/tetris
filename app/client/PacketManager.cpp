@@ -114,7 +114,7 @@ void PacketManager::collectionResult(const Packet::collectionListPacket* collect
                 cardList->push_back(i);
             }
         }
-        display->updateCollection(cardList->size(), (int*) &cardList[0]); /* Now, vector are contigous */
+        //TODO display->updateCollection(cardList->size(), (int*) &cardList[0]); /* Now, vector are contigous */
         delete cardList;
     }
 }

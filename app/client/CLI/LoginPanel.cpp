@@ -2,162 +2,152 @@
 
 LoginPanel::LoginPanel() : isWainting(false), success(false) {
     /* Initialize field and set some options
+     * LabelField - PseudoField - LabelField2 - PasswordField
      * <height> <width> <toprow> <leftcol> <offscreen> <nbuffers>
      */
-    field[0] = new_field(1, 31, 4, 24, 0, 0);
+    field[0] = new_field(1, 18, 1, 2, 0, 0); /* Label field 1 */
+    field_opts_off(field[0], O_ACTIVE); /* Not visited during process */
     field_opts_off(field[0], O_AUTOSKIP);  /* Don't go to the next field when full */
-    field[1] = new_field(1, 31, 6, 24, 0, 0);
+    field[1] = new_field(1, 31, 1, 20, 0, 0); /* Pseudo field */
     field_opts_off(field[1], O_AUTOSKIP);
-    field_opts_off(field[1], O_PUBLIC); /* Don't display password character */
+    set_field_back(field[1], A_UNDERLINE); /* Draw an line under field */
+    field[2] = new_field(1, 18, 3, 2, 0, 0); /* Label field 2 */
+    field_opts_off(field[2], O_ACTIVE);
+    field_opts_off(field[2], O_AUTOSKIP);
+    field[3] = new_field(1, 31, 3, 20, 0, 0); /* Pseudo field */
+    field_opts_off(field[3], O_AUTOSKIP);
+    field_opts_off(field[3], O_PUBLIC); /* Don't display password character */
+    set_field_back(field[3], A_UNDERLINE);
     
     /* Create the form and calculate size needed */
-    int rows, cols;
+    int rows;
     form = new_form(field);
-    scale_form(form, &rows, &cols);
-    
-    /* Post form */
-    post_form(form);
+    scale_form(form, &rows, &colsForm);
+
+	/* Create the window to be associated with the form */
+    window = newwin(rows+10, colsForm+10, 4, 4);
+    keypad(window, TRUE);
+
+	/* Set main window and sub window */
+    set_form_win(form, window);
+    set_form_sub(form, derwin(window, rows, colsForm, 2, 2));
+
+	/* Print a border around the main window and print a title */
+    box(window, 0, 0);
+	printInMiddle(DEFAULT_LABEL, COLOR_PAIR(7));
     
     /* Add some label */
-    mvprintw(2, 10, DEFAULT_LABEL);
-    mvprintw(4, 10, "Pseudo       :");
-    mvprintw(6, 10, "Mot de passe :");
-    mvprintw(8, 10, "(Utilisez les flèches pour changer de champs)");
-    mvprintw(10, 10, "F1: Annuler     F2: Se connecter     F3: S'enregistrer");
+    set_field_buffer(field[0], 0, "Pseudo       :");
+    set_field_buffer(field[2], 0, "Mot de passe :");
+    mvwprintw(window, 8, 4, "(Utilisez les flèches pour changer de champs)");
+    mvwprintw(window, 10, 4, "F1: Annuler     F2: Se connecter     F3: S'enregistrer");
 }
 
 LoginPanel::~LoginPanel() {
     /* We must remove the form and clear field before exiting */
     unpost_form(form);
+	free_form(form);
+	free_field(field[0]);
+	free_field(field[1]);
+	free_field(field[2]);
+	free_field(field[3]);
 }
 
-void LoginPanel::setFocus() {
-    /* Set focus on the fist field and move cursor to it */
-    set_current_field(form, field[0]);
-    move(4, 24);
-    refresh();
+void LoginPanel::show() {
+    /* Post form */
+    post_form(form);
+	wrefresh(window);
 }
 
-void LoginPanel::proceed(bool registration) {
-    /* Sync buffer */
-    form_driver(form, REQ_VALIDATION);
-    
-    /* Get the pseudo from the first field */
-    char *pseudo = field_buffer(field[0], 0);
-    
-    /* Get the password from the second field */
-    char *password = field_buffer(field[1], 0);
-
-    if (registration) {
-        PacketManager::makeRegistrationRequest(pseudo, password);
-        printWait(REGISTRATION_IN_PROGRESS);
-    } else {
-        PacketManager::makeLoginRequest(pseudo, password);
-        printWait(LOGIN_IN_PROGRESS);
-    }
+void LoginPanel::hide() {
+    /* Remove form */
+    unpost_form(form);
+	wrefresh(window);
 }
 
-void LoginPanel::printWait(std::string message) {
-    isWainting = true;
-    attron(COLOR_PAIR(2));
-    mvprintw(2, 10, (char*)message.c_str());
-    attroff(COLOR_PAIR(2));
-    refresh();
-
-    while(isWainting);
-}
-
-/* Ask user login informations
- * Also provides button to login or register
- */
-void LoginPanel::askLogin() {
-    /* Define work variable using for verification and beep */
-    int indexA = 0;
-    int sizeA = 0;
-    int indexB = 0;
-    int sizeB = 0;
-    bool passwordForm = false; /* false: pseudo | true: password */
-    
-    /* Ensure buffer is clean */
-    form_driver(form,REQ_CLR_FIELD);
+/* Ask user login/registration informations */
+void LoginPanel::focus() {
+    /* Ensure that buffer is clean */
+    form_driver(form, REQ_CLR_FIELD);
     form_driver(form, REQ_NEXT_FIELD);
-    form_driver(form,REQ_CLR_FIELD);
+    form_driver(form, REQ_CLR_FIELD);
     
-    /* Set focus on the fist form */
-    setFocus();
+    /* false: pseudo | true: password */
+    bool passwordForm = false;
+    
+    /* Set focus on the pseudo field */
+    setFocusToField();
 
     /* Loop through to get user requests */
     int input;
-    while((input = getch())) {
-        switch(input) {
+    while(!success) {
+        switch(input = wgetch(window)) {
             case KEY_DOWN:
                 /* Go to the next field (at the end of the buffer) */
                 form_driver(form, REQ_NEXT_FIELD);
-                form_driver(form, REQ_END_LINE);
                 passwordForm = !passwordForm;
                 break;
             case KEY_UP:
                 /* Go to the previous field (at the end of the buffer) */
                 form_driver(form, REQ_PREV_FIELD);
-                form_driver(form, REQ_END_LINE);
                 passwordForm = !passwordForm;
                 break;
             case KEY_LEFT:
                 /* Go to the previous character (if available) */
-                if ((!passwordForm && (indexA == 0 || sizeA == 0)) ||
-                    (passwordForm && (indexB == 0 || sizeB == 0))) {
+                if ((!passwordForm && (indexPseudo == 0 || sizePseudo == 0)) ||
+                    (passwordForm && (indexPassword == 0 || sizePassword == 0))) {
                     beep();
                 } else {
-                    form_driver(form,REQ_LEFT_CHAR);
+                    form_driver(form, REQ_LEFT_CHAR);
                     if (passwordForm) {
-                        indexB -= 1;
+                        indexPassword -= 1;
                     } else {
-                        indexA -= 1;
+                        indexPseudo -= 1;
                     }
                 }
                 break;
             case KEY_RIGHT:
                 /* Go to the next character (if available) */
-                if ((!passwordForm && (indexA == sizeA || sizeA == 0)) ||
-                    (passwordForm && (indexB == sizeB || sizeB == 0))) {
+                if ((!passwordForm && (indexPseudo == sizePseudo || sizePseudo == 0)) ||
+                    (passwordForm && (indexPassword == sizePassword || sizePassword == 0))) {
                     beep();
                 } else {
-                    form_driver(form,REQ_RIGHT_CHAR);
+                    form_driver(form, REQ_RIGHT_CHAR);
                     if (passwordForm) {
-                        indexB += 1;
+                        indexPassword += 1;
                     } else {
-                        indexA += 1;
+                        indexPseudo += 1;
                     }
                 }
                 break;
             case KEY_BACKSPACE:
                 /* Remove previous character (if available) */
-                if ((!passwordForm && (indexA == 0 || sizeA == 0)) ||
-                    (passwordForm && (indexB == 0 || sizeB == 0))) {
+                if ((!passwordForm && (indexPseudo == 0 || sizePseudo == 0)) ||
+                    (passwordForm && (indexPassword == 0 || sizePassword == 0))) {
                     beep();
                 } else {
-                    form_driver(form,REQ_LEFT_CHAR);
-                    form_driver(form,REQ_DEL_CHAR);
+                    form_driver(form, REQ_LEFT_CHAR);
+                    form_driver(form, REQ_DEL_CHAR);
                     if (passwordForm) {
-                        indexB -= 1;
-                        sizeB -= 1;
+                        indexPassword -= 1;
+                        sizePassword -= 1;
                     } else {
-                        indexA -= 1;
-                        sizeA -= 1;
+                        indexPseudo -= 1;
+                        sizePseudo -= 1;
                     }
                 }
                 break;
             case KEY_F(1):
                 /* Clean all field and reset work variable */
-                form_driver(form,REQ_CLR_FIELD);
+                form_driver(form, REQ_CLR_FIELD);
                 form_driver(form, REQ_NEXT_FIELD);
-                form_driver(form,REQ_CLR_FIELD);
-                indexA = 0;
-                sizeA = 0;
-                indexB = 0;
-                sizeB = 0;
+                form_driver(form, REQ_CLR_FIELD);
+                indexPseudo = 0;
+                sizePseudo = 0;
+                indexPassword = 0;
+                sizePassword = 0;
                 passwordForm = false;
-                setFocus();
+                setFocusToField();
                 break;
             case KEY_F(2):
                 proceed();
@@ -169,32 +159,27 @@ void LoginPanel::askLogin() {
                 /* If it's the SPACEBAR, we beep */
                 if (input == ' ') {
                     beep();
-                } else if ((!passwordForm && sizeA == 30) ||
-                    (passwordForm && sizeB == 30)) {
+                } else if ((!passwordForm && sizePseudo == 30) ||
+                    (passwordForm && sizePassword == 30)) {
                     beep();
+                    printInMiddle(MAX_SIZE_ERROR, COLOR_PAIR(1));
                 } else {
-                    /* Reset error and print character */
-                    mvprintw(2, 10, DEFAULT_LABEL);
+                    /* Print character */
+                    printInMiddle(DEFAULT_LABEL, COLOR_PAIR(7));
                     form_driver(form, input);
                     if (passwordForm) {
-                        indexB += 1;
-                        sizeB += 1;
+                        indexPassword += 1;
+                        sizePassword += 1;
                     } else {
-                        indexA += 1;
-                        sizeA += 1;
+                        indexPseudo += 1;
+                        sizePseudo += 1;
                     }
                 }
                 break;
         }
-        
-        if (success)
-            break;
-    }
-    
-    if (success) {
-        display->displayMainWindow();
-    } else {
-        printError(UNKOW_ERROR);
+        /* Don't forget to refresh */
+        form_driver(form, REQ_END_LINE);
+        refresh();
     }
 }
 
@@ -204,11 +189,8 @@ void LoginPanel::askLogin() {
  */
 void LoginPanel::printError(std::string message) {
     beep();
-    attron(COLOR_PAIR(1));
-    mvprintw(2, 10, (char*)message.c_str());
-    attroff(COLOR_PAIR(1));
-    setFocus();
-    refresh();
+    printInMiddle((char*)message.c_str(), COLOR_PAIR(1));
+    setFocusToField();
     isWainting = false;
 }
 
@@ -216,4 +198,55 @@ void LoginPanel::printError(std::string message) {
 void LoginPanel::valideLogin() {
     success = true;
     isWainting = false;
+}
+
+//========================PRIVATE=============================
+
+void LoginPanel::printInMiddle(char *string, chtype color) {
+    int length, width, x, y;
+	float temp;
+    
+    /* Calculate central position for printing */
+	width = colsForm+4;
+	length = LABEL_LENGHT;
+	temp = (width - length)/ 2;
+	x = 1 + (int)temp;
+	
+	/* Active color and display message */
+	wattron(window, color);
+	mvwprintw(window, 0, x, "%s", string);
+	wattroff(window, color);
+	refresh();
+}
+
+void LoginPanel::setFocusToField() {
+    /* Set focus on the field and move cursor to it */
+    set_current_field(form, field[1]);
+    form_driver(form, REQ_END_LINE);
+    refresh();
+}
+
+void LoginPanel::printWait(char* message) {
+    isWainting = true;
+    printInMiddle(message, COLOR_PAIR(2));
+    while(isWainting); /* Avoid current thread to stop and exit program */
+}
+
+void LoginPanel::proceed(bool registration) {
+    /* Sync buffer */
+    form_driver(form, REQ_VALIDATION);
+    
+    /* Get the pseudo from the first field */
+    char *pseudo = field_buffer(field[1], 0);
+    
+    /* Get the password from the second field */
+    char *password = field_buffer(field[3], 0);
+
+    if (registration) {
+        PacketManager::makeRegistrationRequest(pseudo, password);
+        printWait(REGISTRATION_IN_PROGRESS);
+    } else {
+        PacketManager::makeLoginRequest(pseudo, password);
+        printWait(LOGIN_IN_PROGRESS);
+    }
 }
