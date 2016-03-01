@@ -19,26 +19,34 @@ CLI::CLI() {
         start_color();
 	    init_pair(1, COLOR_RED, COLOR_BLACK);
 	    init_pair(2, COLOR_GREEN, COLOR_BLACK);
-	    init_pair(3, COLOR_BLUE, COLOR_BLACK);
-	    init_pair(4, COLOR_CYAN, COLOR_BLACK);
+	    init_pair(3, COLOR_YELLOW, COLOR_BLACK);
+	    init_pair(4, COLOR_BLUE, COLOR_BLACK);
+	    init_pair(5, COLOR_MAGENTA, COLOR_BLACK);
+	    init_pair(6, COLOR_CYAN, COLOR_BLACK);
+	    init_pair(7, COLOR_WHITE, COLOR_BLACK);
         refresh();
     }
     
     /* Create panel and form view */
-    _panelList[0] = new MainPanel();
-    _panelList[1] = new CollectionPanel();
+    _panelList[LOGIN] = new LoginPanel();
+    _panelList[MAIN] = new MainPanel();
+    //_panelList[TCHAT] = new TchatPanel();
+    //_panelList[FRIEND] = new FriendPanel();
+    //_panelList[COLL] = new CollectionPanel();
+    //_panelList[DECK] = new DeckPanel();
+    //_panelList[CARD] = new CardPanel();
+    //_panelList[WAIT] = new WaitPanel();
+    //_panelList[GAME] = new GamePanel();
 }
 
 CLI::~CLI() {
     /* End curses mode */
     WizardLogger::info("Désactivation du mode ncurses");
     for (int i = 0 ; i < PANEL_TOTAL_NUMBER ; ++i) delete _panelList[i];
-    if (loginDisplay) {
-        delete loginPanel;
-        loginDisplay = false;
-    }
     endwin();
 }
+
+//=====================================================================================
 
 void CLI::displayFatalError(std::string error) {
     /* Clean screen and display error and force quit */
@@ -50,58 +58,43 @@ void CLI::displayFatalError(std::string error) {
 
 void CLI::displayLoginPrompt() {
     /* Display login panel (special type of panel) */
-    loginPanel =  new LoginPanel();
-    loginDisplay = true;
-    loginPanel->askLogin();
+    _panelList[LOGIN]->show();
+    _panelList[LOGIN]->focus();
+    displayMainWindow();
 }
 
 void CLI::displayLoginResult(std::string errorMessage) {
-    loginPanel->printError(errorMessage);
+    static_cast<LoginPanel*>(_panelList[LOGIN])->printError(errorMessage);
 }
 
 void CLI::valideLogin() {
-    loginPanel->valideLogin();
+    static_cast<LoginPanel*>(_panelList[LOGIN])->valideLogin();
 }
 
 void CLI::displayMainWindow() {
-    /* If we are from loginPanel, we remove it */
-    if (loginDisplay) {
-        delete loginPanel;
-        loginDisplay = false;
-    }
-    
     /* We display MainMenu after hidding all other panel */
     for (int i = 0 ; i < PANEL_TOTAL_NUMBER ; ++i) _panelList[i]->hide();
-    _panelList[0]->show();
-    _panelList[0]->focus();
+    _panelList[MAIN]->show();
+    _panelList[MAIN]->focus();
 }
+
+void CLI::displayFriendsWindow() {}
 
 void CLI::displayCollectionWindow() {
     /* We display CollectionPanel after hidding all other panel */
     for (int i = 0 ; i < PANEL_TOTAL_NUMBER ; ++i) _panelList[i]->hide();
-    _panelList[1]->show();
-    _panelList[1]->focus();
+    //_panelList[COLL]->show();
+    //_panelList[COLL]->focus();
 }
 
-void CLI::updateCollection(int number, int* cardList) {
-    ((CollectionPanel*)_panelList[1])->addCardToCollection(number, cardList);
-}
+void CLI::displayDeckWindow() {}
 
 void CLI::displayWait() {
-    waitingParty = 1;
-    clear();
-    mvprintw(2, 10, "EN ATTENTE D'ADVERSAIRE....");
-    while (waitingParty == 1);
-    if (waitingParty != 0)
-        displayMainWindow();
-    else
-        displayGamePanel();
 }
 
 void CLI::displayGame() {
-    waitingParty = 0;
 }
 
-void CLI::displayGamePanel() {
-    //TODO
-}
+/*void CLI::updateCollection(int number, int* cardList) {
+    ((CollectionPanel*)_panelList[1])->addCardToCollection(number, cardList);
+}*/

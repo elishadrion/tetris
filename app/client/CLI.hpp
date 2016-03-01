@@ -1,5 +1,5 @@
-#ifndef CONSOLE_HPP
-#define	CONSOLE_HPP
+#ifndef CLI_HPP
+#define	CLI_HPP
 
 #include <ncurses.h>
 #include <panel.h>
@@ -80,16 +80,23 @@
 #define CARD_INFO_HEIGTH 5
 #define CARD_INFO_WIDTH TCHAT_INPUT_WIDTH
 
-#define PANEL_TOTAL_NUMBER 2
+#define PANEL_TOTAL_NUMBER 2 //9
 
 class CLI : public Display {
     /* All panel used by the CLI */
     CLIPanel *_panelList[PANEL_TOTAL_NUMBER];
-    LoginPanel *loginPanel;
-    bool loginDisplay;
-    int waitingParty;
     
-    void displayGamePanel();
+    enum panelID {
+        LOGIN = 0,
+        MAIN = 1,
+        TCHAT = 2,
+        FRIEND = 3,
+        COLL = 4,
+        DECK = 5,
+        CARD = 6,
+        WAIT = 7,
+        GAME = 8,
+    };
 public:
     CLI();
     ~CLI();
@@ -98,10 +105,11 @@ public:
     void displayLoginResult(std::string);
     void valideLogin();
     void displayMainWindow();
+    void displayFriendsWindow();
     void displayCollectionWindow();
-    void updateCollection(int, int*);
+    void displayDeckWindow(); //TODO get ID ?
     void displayWait();
     void displayGame();
 };
 
-#endif /* CONSOLE_HPP */
+#endif /* CLI_HPP */
