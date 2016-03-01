@@ -68,12 +68,9 @@ public:
     
     
     
-    void show();
-    void hide();
-    void focus();
-    
-    /* Never used */
-    void resize(int x, int y) {}
+    void show() override;
+    void hide() override;
+    void focus() override;
 };
 
 #endif /* PANEL_HPP */

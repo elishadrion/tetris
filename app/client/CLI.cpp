@@ -30,8 +30,8 @@ CLI::CLI() {
     /* Create panel and form view */
     _panelList[LOGIN] = new LoginPanel();
     _panelList[MAIN] = new MainPanel();
-    //_panelList[TCHAT] = new TchatPanel();
-    //_panelList[FRIEND] = new FriendPanel();
+    _panelList[TCHAT] = new TchatPanel();
+    _panelList[FRIEND] = new FriendPanel();
     //_panelList[COLL] = new CollectionPanel();
     //_panelList[DECK] = new DeckPanel();
     //_panelList[CARD] = new CardPanel();
@@ -76,10 +76,21 @@ void CLI::displayMainWindow() {
     /* We display MainMenu after hidding all other panel */
     for (int i = 0 ; i < PANEL_TOTAL_NUMBER ; ++i) _panelList[i]->hide();
     _panelList[MAIN]->show();
+    _panelList[TCHAT]->show();
     _panelList[MAIN]->focus();
 }
 
-void CLI::displayFriendsWindow() {}
+void CLI::displayFriendsWindow() {
+    /* We display FriendList after hidding all other panel */
+    for (int i = 0 ; i < PANEL_TOTAL_NUMBER ; ++i) _panelList[i]->hide();
+    _panelList[FRIEND]->show();
+    _panelList[TCHAT]->show();
+    _panelList[FRIEND]->focus();
+    
+    /* After that, we hide and show the mainPanel */
+    _panelList[FRIEND]->hide();
+    _panelList[MAIN]->show();
+}
 
 void CLI::displayCollectionWindow() {
     /* We display CollectionPanel after hidding all other panel */
@@ -94,6 +105,10 @@ void CLI::displayWait() {
 }
 
 void CLI::displayGame() {
+}
+
+void CLI::focusTchat() {
+    _panelList[TCHAT]->focus();
 }
 
 /*void CLI::updateCollection(int number, int* cardList) {

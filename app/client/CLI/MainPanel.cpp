@@ -49,7 +49,7 @@ void MainPanel::focus() {
 
     /* Loop through to get user requests with F1 to valide */
     int input;
-    while((input = wgetch(window)) != KEY_F(1)) {
+    while((input = wgetch(window)) != KEY_F(10)) {
         switch(input) {
             case KEY_DOWN:
                 /* Go to next menu (or first) */
@@ -71,18 +71,20 @@ void MainPanel::focus() {
                     currentMenu = START_LINE+4;
                 }
                 break;
-            case KEY_F(10):
-                /* Send deconnection packet before close program */
-                PacketManager::sendDisconnection();
-                return;
+            case KEY_F(1):
+                doRequest(currentMenu);
+                break;
             case KEY_F(2):
-                break;//TODO
+                display->focusTchat();
+                break;
             default:
                 beep();
                 break;
         }
     }
-    doRequest(currentMenu);
+    
+    /* Send deconnection packet before close program */
+    PacketManager::sendDisconnection();
 }
 
 //================================PRIVATE=======================================
@@ -108,12 +110,13 @@ void MainPanel::doRequest(int entry) {
         case START_LINE:
             display->displayWait();
             break;
-        case START_LINE+2:
-            /* Display CollectionPanel */
-            //display->displayCollectionWindow();
+        case START_LINE+4:
+            display->displayFriendsWindow();
             break;
         default:
             WizardLogger::error("PAS IMPLEMENTE");
             break;
     }
+
+    refresh();
 }

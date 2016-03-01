@@ -10,8 +10,9 @@ TchatPanel::TchatPanel() {
     box(windows[0], 0, 0);
     
     /* We create inputBox for tchat/console */
-    windows[1] = newwin(INPUT_HEIGHT, INPUT_WIDTH, TCHAT_HEIGHT+2, 65+2);
+    windows[1] = newwin(INPUT_HEIGHT, INPUT_WIDTH, TCHAT_HEIGHT, 65+2);
     box(windows[1], 0, 0);
+    keypad(windows[1], TRUE);
     
     /* Attach a panel to each window */
     panels[0] = new_panel(windows[0]);
@@ -25,18 +26,14 @@ TchatPanel::TchatPanel() {
     threadData data;
     data.mutex = &_mutex;
     data.win = windows[0];
-    if (pthread_create(&_tchatThread, NULL, updateTchat, (void*) &data) != -1) {
-        WizardLogger::error("Impossible d'initialiser le tchat");
+    if (pthread_create(&_tchatThread, NULL, updateTchat, (void*) &data) == -1) {
+        std::string error = "Impossible d'initialiser le tchat : ";
+        error += strerror(errno);
+        WizardLogger::error(error);
         //TODO throw
     }
     
     doupdate();
-    
-    getch();//TODO
-    for (int i = 0 ; i < TCHAT_HEIGHT-5 ; ++i) {
-        addMessage("Je suis le test numéro "+i);
-    }
-    getch();
 }
 
 TchatPanel::~TchatPanel() {
@@ -45,6 +42,59 @@ TchatPanel::~TchatPanel() {
         pthread_cancel(_tchatThread);
     pthread_mutex_destroy(&_mutex);
 }
+
+/* Add a message in the tchat/console buffer
+ * Message will be printed by the tchatThread
+ * If buffer is full, calling thread must wait to have some place
+ * @param message : what to print
+ */
+void TchatPanel::addMessage(std::string message) {
+    /* Block buffer access */
+    pthread_mutex_lock(&_mutex);
+    
+    /* If string is small, we directly add it */
+    if (message.size() < TCHAT_WIDTH) {
+        _messageBuffer.insert(_messageBuffer.begin(), message);
+    } else {
+        /* We must divise message in line and add it to the buffer backwards */
+        for (int i = 0 ; i < (message.size()/TCHAT_WIDTH) ; ++i) {
+            std::string tmp = message.substr(message.size()-(TCHAT_WIDTH*(i+1)), message.size()-(TCHAT_WIDTH*i+1));
+            _messageBuffer.insert(_messageBuffer.begin(), tmp);
+        }
+    }
+        
+    /* Unblock buffer access */
+    pthread_mutex_unlock(&_mutex);
+}
+
+void TchatPanel::show() {
+    show_panel(panels[0]);
+    show_panel(panels[1]);
+    update_panels();
+    doupdate();
+}
+
+void TchatPanel::hide() {
+    hide_panel(panels[0]);
+    hide_panel(panels[1]);
+    update_panels();
+    doupdate();
+}
+
+void TchatPanel::focus() {
+    /* Set focus to input panel */
+    top_panel(panels[1]);
+    update_panels();
+    doupdate();
+
+    /* TODO test */
+    int input;
+    while((input = wgetch(windows[1])) != KEY_F(10)) {
+        addMessage("JE SUIS UN MESSAGE  ~  ");
+    }
+}
+
+//===============================PRIVATE=============================================
 
 void *TchatPanel::updateTchat(void* data) {
     /* Enable asynchronous cancel (thread can be canceled at any time) from deferred */
@@ -81,36 +131,3 @@ void *TchatPanel::updateTchat(void* data) {
         sleep(1);
     }
 }
-
-/* Add a message in the tchat/console buffer
- * Message will be printed by the tchatThread
- * If buffer is full, calling thread must wait to have some place
- * @param message : what to print
- */
-void TchatPanel::addMessage(std::string message) {
-    /* Block buffer access */
-    pthread_mutex_lock(&_mutex);
-    
-    /* If string is small, we directly add it */
-    if (message.size() < TCHAT_WIDTH) {
-        _messageBuffer.insert(_messageBuffer.begin(), message);
-    } else {
-        /* We must divise message in line and add it to the buffer backwards */
-        for (int i = 0 ; i < (message.size()/TCHAT_WIDTH) ; ++i) {
-            std::string tmp = message.substr(message.size()-(TCHAT_WIDTH*(i+1)), message.size()-(TCHAT_WIDTH*i+1));
-            _messageBuffer.insert(_messageBuffer.begin(), tmp);
-        }
-    }
-        
-    /* Unblock buffer access */
-    pthread_mutex_unlock(&_mutex);
-}
-
-//TODO
-void TchatPanel::listenInput() {}
-
-void TchatPanel::show() {}
-
-void TchatPanel::hide() {}
-
-void TchatPanel::focus() {}
