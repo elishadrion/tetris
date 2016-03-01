@@ -185,7 +185,7 @@
   },
   {
     "id": 45,
-    "name": "Scarabé des montagnes de Chine",
+    "name": "Scarabée des montagnes de Chine",
     "energie" : 1,
     "effect" : 0,
     "vie" : 1,
@@ -201,7 +201,7 @@
   },
   {
     "id": 47,
-    "name": "Belette de la mer Septentrional",
+    "name": "Belette de la mer Septentrionale",
     "energie" : 2,
     "effect" : -1,
     "vie" : 2,
@@ -225,7 +225,7 @@
   },
   {
     "id": 50,
-    "name": "Sanglier Meutrier",
+    "name": "Sanglier Meurtrier",
     "energie" : 3,
     "effect" : -1,
     "vie" : 3,
@@ -377,7 +377,7 @@
   },
   {
     "id": 71,
-    "name": "HaZard",
+    "name": "HaSard",
     "energie" : 8,
     "effect" : 11,
     "vie" : 5,
@@ -417,7 +417,7 @@
   },
   {
     "id": 76,
-    "name": "LeZard",
+    "name": "LéZard",
     "energie" : 4,
     "effect" : -1,
     "vie" : 6,
@@ -433,7 +433,7 @@
   },
   {
     "id": 78,
-    "name": "BanlieuZar",
+    "name": "BanlieuSard",
     "energie" : 3,
     "effect" : 4,
     "vie" : 3,
@@ -441,10 +441,182 @@
   },
   {
     "id": 79,
-    "name": "MaquiZar",
+    "name": "MaquiZard",
     "energie" : 5,
     "effect" : -1,
     "vie" : 3,
     "attack" : 5
+  },
+  {
+    "id": 80,
+    "name": "Le Beau Gosse",
+    "energie" : 5,
+    "effect" : -1,
+    "vie" : 4,
+    "attack" : 2
+  },
+  {
+    "id": 81,
+    "name": "Secrétariat",
+    "energie" : 3,
+    "effect" : 1,
+    "vie" : 3,
+    "attack" : 1
+  },
+  {
+    "id": 82,
+    "name": "Barre de fer",
+    "energie" : 2,
+    "effect" : -1,
+    "vie" : 2,
+    "attack" : 5
+  },
+
+{
+    "id": 83,
+    "name": "Le Génie",
+    "energie" : 4,
+    "effect" : 2,
+    "vie" : 3,
+    "attack" : 3
+  },
+  {
+    "id": 84,
+    "name": "Monstre",
+    "energie" : 1,
+    "effect" : 3,
+    "vie" : 5,
+    "attack" : 2
+  },
+  {
+    "id": 85,
+    "name": "Carte",
+    "energie" : 2,
+    "effect" : 4,
+    "vie" : 1,
+    "attack" : 2
+  },
+  {
+    "id": 86,
+    "name": "Gehol",
+    "energie" : 3,
+    "effect" : 2,
+    "vie" : 3,
+    "attack" : 2
+  },
+
+  {
+    "id": 87,
+    "name": "Banana!,
+    "energie" : 3,
+    "effect" : 3,
+    "vie" : 2,
+    "attack" : 2
+  },
+  {
+    "id": 88,
+    "name": "Chuck Norris",
+    "energie" : 7,
+    "effect" : 5,
+    "vie" : 5,
+    "attack" : 7
+  },
+{
+    "id": 89,
+    "name": "Big Mamma",
+    "energie" : 5,
+    "effect" : -1,
+    "vie" : 8,
+    "attack" : 2
+  },
+  {
+    "id": 90,
+    "name": "Pierre-Paul-Jacques",
+    "energie" : 3,
+    "effect" : -1,
+    "vie" : 3,
+    "attack" : 3
+  },
+  {
+    "id": 91,
+    "name": "Le Survivant",
+    "energie" : 5,
+    "effect" : 6,
+    "vie" : 7,
+    "attack" : 5
+  },
+  {
+    "id": 92,
+    "name": "Alain Térieur",
+    "energie" : 3,
+    "effect" : 5,
+    "vie" : 3,
+    "attack" : 2
+  },
+  {
+    "id": 93,
+    "name": "Alex Térieur",
+    "energie" : 2,
+    "effect" : -1,
+    "vie" : 2,
+    "attack" : 3
+  },
+
+{
+    "id": 94,
+    "name": "Sarah Pelle",
+    "energie" : 4,
+    "effect" : 15,
+    "vie" : 3,
+    "attack" : 3
+  },
+  {
+    "id": 95,
+    "name": "Sarah Croche",
+    "energie" : 6,
+    "effect" : 16,
+    "vie" : 5,
+    "attack" : 2
+  },
+  {
+    "id": 96,
+    "name": "Gandalf",
+    "energie" : 6,
+    "effect" : 8,
+    "vie" : 3,
+    "attack" : 5
+  },
+  {
+    "id": 97,
+    "name": "Pikachu",
+    "energie" : 4,
+    "effect" : -1,
+    "vie" : 3,
+    "attack" : 4
+  },
+
+  {
+    "id": 98,
+    "name": "Anonymous",
+    "energie" : 5,
+    "effect" : 9,
+    "vie" : 2,
+    "attack" : 8
+  },
+  {
+    "id": 99,
+    "name": "M.Anonyme",
+    "energie" : 4,
+    "effect" : -1,
+    "vie" : 5,
+    "attack" : 3
+  },
+  {
+    "id": 100,
+    "name": "Inconnu",
+    "energie" : 1,
+    "effect" : -1,
+    "vie" : 1,
+    "attack" : 2
   }
 ]
