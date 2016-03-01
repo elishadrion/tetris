@@ -1,5 +1,5 @@
-#ifndef MAINPANEL_HPP
-#define	MAINPANEL_HPP
+#ifndef FRIENDPANEL_HPP
+#define	FRIENDPANEL_HPP
 
 #include <panel.h>
 #include <form.h>
@@ -17,27 +17,23 @@
 #include "client/Display.hpp"
 
 /* define size for panel */
-#define MAIN_HEIGHT 30
-#define MAIN_WIDTH 65
-
-/* define starting line for mainMeny entry */
-#define START_LINE 5
+#define FRIEND_HEIGHT 30
+#define FRIEND_WIDTH 65
 
 extern Display *display;
 
-class MainPanel : public CLIPanel {
+class FriendPanel : public CLIPanel {
     WINDOW *window;
     PANEL  *panel;
     
-    void updateColor(int, int);
-    void doRequest(int);
+    void updateList();
 public:
-    MainPanel();
-    ~MainPanel() = default;
+    FriendPanel();
+    ~FriendPanel() = default;
     
     void show() override;
     void hide() override;
     void focus() override;
 };
 
-#endif	/* MAINPANEL_HPP */
+#endif	/* FRIENDPANEL_HPP */

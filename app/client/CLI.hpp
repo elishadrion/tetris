@@ -17,6 +17,8 @@
 #include "client/CLI/CLIPanel.hpp"
 #include "client/CLI/LoginPanel.hpp"
 #include "client/CLI/MainPanel.hpp"
+#include "client/CLI/TchatPanel.hpp"
+#include "client/CLI/FriendPanel.hpp"
 #include "client/CLI/CollectionPanel.hpp"
 
 /** in-game layout
@@ -80,7 +82,7 @@
 #define CARD_INFO_HEIGTH 5
 #define CARD_INFO_WIDTH TCHAT_INPUT_WIDTH
 
-#define PANEL_TOTAL_NUMBER 2 //9
+#define PANEL_TOTAL_NUMBER 4 //9
 
 class CLI : public Display {
     /* All panel used by the CLI */
@@ -110,6 +112,7 @@ public:
     void displayDeckWindow(); //TODO get ID ?
     void displayWait();
     void displayGame();
+    void focusTchat();
 };
 
 #endif /* CLI_HPP */
