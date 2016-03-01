@@ -4,6 +4,7 @@ MainPanel::MainPanel() {
     /* We create mainWindow where player can select what to do */
     window = newwin(MAIN_HEIGHT, MAIN_WIDTH, 0, 0);
     box(window, 0, 0);
+    keypad(window, TRUE);
 
     /* Attach a panel to window */
     panel = new_panel(window);
@@ -48,7 +49,7 @@ void MainPanel::focus() {
 
     /* Loop through to get user requests with F1 to valide */
     int input;
-    while((input = getch()) != KEY_F(1)) {
+    while((input = wgetch(window)) != KEY_F(1)) {
         switch(input) {
             case KEY_DOWN:
                 /* Go to next menu (or first) */
@@ -84,19 +85,19 @@ void MainPanel::focus() {
     doRequest(currentMenu);
 }
 
-//=======================================================================
+//================================PRIVATE=======================================
 
 void MainPanel::updateColor(int previous, int next) {
     /* Remove color from previous menu entry (0: no previous entry) */
     if (previous != 0) {
-        mvprintw(previous, 8, "*");
+        mvwprintw(window, previous, 8, "*");
     }
 
     /* Set color for new menu entry (0: no new entry) */
     if (next != 0) {
-        attron(COLOR_PAIR(2));
-        mvprintw(next, 8, "*");
-        attroff(COLOR_PAIR(2));
+        wattron(window, COLOR_PAIR(2));
+        mvwprintw(window, next, 8, "*");
+        wattroff(window, COLOR_PAIR(2));
     }
 
     refresh();

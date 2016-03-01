@@ -56,13 +56,11 @@ LoginPanel::~LoginPanel() {
 void LoginPanel::show() {
     /* Post form */
     post_form(form);
-	wrefresh(window);
 }
 
 void LoginPanel::hide() {
     /* Remove form */
     unpost_form(form);
-	wrefresh(window);
 }
 
 /* Ask user login/registration informations */

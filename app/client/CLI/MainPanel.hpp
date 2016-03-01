@@ -7,12 +7,13 @@
 #include <string>
 #include <vector>
 
+/* For logging */
 #include "common/WizardLogger.hpp"
 
+/* To send disconnection signal */
 #include "client/PacketManager.hpp"
 
 #include "CLIPanel.hpp"
-
 #include "client/Display.hpp"
 
 /* define size for panel */
@@ -37,6 +38,9 @@ public:
     void show() override;
     void hide() override;
     void focus() override;
+    
+    /* Not used */
+    void resize(int x, int y) {}
 };
 
 #endif	/* MAINPANEL_HPP */

@@ -57,7 +57,8 @@ void CLI::displayFatalError(std::string error) {
 }
 
 void CLI::displayLoginPrompt() {
-    /* Display login panel (special type of panel) */
+    /* Display login panel after hidding all other panel */
+    for (int i = 0 ; i < PANEL_TOTAL_NUMBER ; ++i) _panelList[i]->hide();
     _panelList[LOGIN]->show();
     _panelList[LOGIN]->focus();
     displayMainWindow();
