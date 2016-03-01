@@ -20,7 +20,7 @@ int main(int argc, char** argv) {
     try {
         WizardLogger::initLogger(false, "WizardLogger");
     } catch (std::exception ex) {
-        std::cerr << ex.what() << std::endl;
+        std::cerr << "Impossible d'initialiser le logger : " << ex.what() << std::endl;
         return EXIT_FAILURE;
     }
 
@@ -34,6 +34,7 @@ int main(int argc, char** argv) {
     try {
         argc > 1 ? conn = new Connection(argv[1]) : conn = new Connection((char*)"localhost");
     } catch (...) {
+        std::cerr << "Communication impossible avec le serveur (voir log)" << std::endl;
         return EXIT_FAILURE;
     }
     
