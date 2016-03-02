@@ -67,7 +67,7 @@ void CardManager::loadAllCards(){
     ////// Card Monster //////
     std::ifstream cardFile;
     try {
-	  cardFile.open("server/assets/cards/monstres.json");
+	  cardFile.open("server/assets/cards/monsters.json");
     } catch (std::ios_base::failure &fail) {
 	  WizardLogger::warning("LOADING CARD FAILED");
 	  return;
