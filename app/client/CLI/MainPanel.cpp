@@ -17,11 +17,6 @@ MainPanel::MainPanel() {
     mvwprintw(window, START_LINE, 8, "* Commencer une partie");
     mvwprintw(window, START_LINE+2, 8, "* Afficher la collection");
     mvwprintw(window, START_LINE+4, 8, "* Liste d'amis");
-    attron(COLOR_PAIR(3));
-    mvwprintw(window, START_LINE+6, 8, "F10 pour quitter le programme");
-    attroff(COLOR_PAIR(3));
-    mvwprintw(window, START_LINE+8, 8, "F1: valider le choix");
-    mvwprintw(window, START_LINE+10, 8, "(utiliser F2 pour accéder au Tchat)");
     refresh();
 }
 
@@ -72,15 +67,18 @@ void MainPanel::focus() {
                 }
                 break;
             case KEY_F(1):
-                doRequest(currentMenu);
-                break;
-            case KEY_F(2):
                 display->focusTchat();
+                break;
+            case KEY_F(3):
+                doRequest(currentMenu);
                 break;
             default:
                 beep();
                 break;
         }
+        
+        /* Make sure current line is correctly colored */
+        updateColor(0, currentMenu);
     }
     
     /* Send deconnection packet before close program */
@@ -102,7 +100,7 @@ void MainPanel::updateColor(int previous, int next) {
         wattroff(window, COLOR_PAIR(2));
     }
 
-    refresh();
+    wrefresh(window);
 }
 
 void MainPanel::doRequest(int entry) {
@@ -114,9 +112,8 @@ void MainPanel::doRequest(int entry) {
             display->displayFriendsWindow();
             break;
         default:
-            WizardLogger::error("PAS IMPLEMENTE");
+            display->displayFatalError("pas implémenter pour le moment");
             break;
     }
-
     refresh();
 }

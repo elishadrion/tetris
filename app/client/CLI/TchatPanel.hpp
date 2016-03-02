@@ -23,7 +23,12 @@
 
 class TchatPanel : public CLIPanel {
     WINDOW *windows[2];
-    PANEL  *panels[2];
+    PANEL  *panel;
+    FORM  *form;
+    FIELD *field[INPUT_HEIGHT-2];
+    
+    /* LOCK, tchatPanel never hide after loggin */
+    bool _isDisplay;
     
     /* Thread to add message into the console */
     pthread_t _tchatThread;
@@ -36,7 +41,7 @@ class TchatPanel : public CLIPanel {
     
     /* Console/tchat buffer and wait list vector */
     static std::vector<std::string> _messageBuffer;
-    static std::string _consoleBuffer[TCHAT_HEIGHT];
+    static std::string _consoleBuffer[TCHAT_HEIGHT-2];
 public:
     TchatPanel();
     ~TchatPanel();

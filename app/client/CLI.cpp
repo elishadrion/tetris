@@ -81,6 +81,11 @@ void CLI::valideLogin() {
 }
 
 void CLI::displayMainWindow() {
+    /* Display general HELP */
+    attron(COLOR_PAIR(6));
+    mvprintw(LINES-2, 2, MAIN_LABEL);
+    attron(COLOR_PAIR(6));
+    
     /* We display MainMenu after hidding all other panel */
     for (int i = 0 ; i < PANEL_TOTAL_NUMBER ; ++i) _panelList[i]->hide();
     _panelList[MAIN]->show();
@@ -89,6 +94,11 @@ void CLI::displayMainWindow() {
 }
 
 void CLI::displayFriendsWindow() {
+    /* Display HELP for friends */
+    attron(COLOR_PAIR(6));
+    mvprintw(LINES-2, 2, AMIS_LABEL);
+    attron(COLOR_PAIR(6));
+    
     /* We display FriendList after hidding all other panel */
     for (int i = 0 ; i < PANEL_TOTAL_NUMBER ; ++i) _panelList[i]->hide();
     _panelList[FRIEND]->show();
@@ -98,21 +108,67 @@ void CLI::displayFriendsWindow() {
     /* After that, we hide and show the mainPanel */
     _panelList[FRIEND]->hide();
     _panelList[MAIN]->show();
+    
+    /* Display general HELP */
+    attron(COLOR_PAIR(6));
+    mvprintw(LINES-2, 2, MAIN_LABEL);
+    attron(COLOR_PAIR(6));
 }
 
 void CLI::displayCollectionWindow() {
+    /* Display HELP for collection */
+    attron(COLOR_PAIR(6));
+    mvprintw(LINES-2, 2, COLL_LABEL);
+    attron(COLOR_PAIR(6));
+    
     /* We display CollectionPanel after hidding all other panel */
     for (int i = 0 ; i < PANEL_TOTAL_NUMBER ; ++i) _panelList[i]->hide();
     //_panelList[COLL]->show();
     //_panelList[COLL]->focus();
+    
+    /* Display general HELP */
+    attron(COLOR_PAIR(6));
+    mvprintw(LINES-2, 2, MAIN_LABEL);
+    attron(COLOR_PAIR(6));
 }
 
-void CLI::displayDeckWindow() {}
+void CLI::displayDeckWindow() {
+    /* Display HELP */
+    attron(COLOR_PAIR(6));
+    mvprintw(LINES-2, 2, DECK_LABEL);
+    attron(COLOR_PAIR(6));
+    
+    
+    /* Display general HELP */
+    attron(COLOR_PAIR(6));
+    mvprintw(LINES-2, 2, MAIN_LABEL);
+    attron(COLOR_PAIR(6));
+}
 
 void CLI::displayWait() {
+    /* Display HELP */
+    attron(COLOR_PAIR(6));
+    mvprintw(LINES-2, 2, WAIT_LABEL);
+    attron(COLOR_PAIR(6));
+    
+    
+    /* Display general HELP */
+    attron(COLOR_PAIR(6));
+    mvprintw(LINES-2, 2, MAIN_LABEL);
+    attron(COLOR_PAIR(6));
 }
 
 void CLI::displayGame() {
+    /* Display HELP */
+    attron(COLOR_PAIR(6));
+    mvprintw(LINES-2, 2, GAME_LABEL);
+    attron(COLOR_PAIR(6));
+    
+    
+    /* Display general HELP */
+    attron(COLOR_PAIR(6));
+    mvprintw(LINES-2, 2, MAIN_LABEL);
+    attron(COLOR_PAIR(6));
 }
 
 void CLI::focusTchat() {

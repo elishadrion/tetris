@@ -41,6 +41,7 @@ LoginPanel::LoginPanel() : isWainting(false), success(false) {
     set_field_buffer(field[2], 0, "Mot de passe :");
     mvwprintw(window, 8, 4, "(Utilisez les flèches pour changer de champs)");
     mvwprintw(window, 10, 4, "F1: Annuler     F2: Se connecter     F3: S'enregistrer");
+    refresh();
 }
 
 LoginPanel::~LoginPanel() {
@@ -83,11 +84,13 @@ void LoginPanel::focus() {
             case KEY_DOWN:
                 /* Go to the next field (at the end of the buffer) */
                 form_driver(form, REQ_NEXT_FIELD);
+                form_driver(form, REQ_END_LINE);
                 passwordForm = !passwordForm;
                 break;
             case KEY_UP:
                 /* Go to the previous field (at the end of the buffer) */
                 form_driver(form, REQ_PREV_FIELD);
+                form_driver(form, REQ_END_LINE);
                 passwordForm = !passwordForm;
                 break;
             case KEY_LEFT:
@@ -95,6 +98,7 @@ void LoginPanel::focus() {
                 if ((!passwordForm && (indexPseudo == 0 || sizePseudo == 0)) ||
                     (passwordForm && (indexPassword == 0 || sizePassword == 0))) {
                     beep();
+                    form_driver(form, REQ_BEG_LINE);
                 } else {
                     form_driver(form, REQ_LEFT_CHAR);
                     if (passwordForm) {
@@ -109,6 +113,7 @@ void LoginPanel::focus() {
                 if ((!passwordForm && (indexPseudo == sizePseudo || sizePseudo == 0)) ||
                     (passwordForm && (indexPassword == sizePassword || sizePassword == 0))) {
                     beep();
+                    form_driver(form, REQ_END_LINE);
                 } else {
                     form_driver(form, REQ_RIGHT_CHAR);
                     if (passwordForm) {
@@ -123,6 +128,7 @@ void LoginPanel::focus() {
                 if ((!passwordForm && (indexPseudo == 0 || sizePseudo == 0)) ||
                     (passwordForm && (indexPassword == 0 || sizePassword == 0))) {
                     beep();
+                    form_driver(form, REQ_BEG_LINE);
                 } else {
                     form_driver(form, REQ_LEFT_CHAR);
                     form_driver(form, REQ_DEL_CHAR);
@@ -157,6 +163,7 @@ void LoginPanel::focus() {
                 /* If it's the SPACEBAR, we beep */
                 if (input == ' ') {
                     beep();
+                    form_driver(form, REQ_END_LINE);
                 } else if ((!passwordForm && sizePseudo == 30) ||
                     (passwordForm && sizePassword == 30)) {
                     beep();
@@ -175,8 +182,8 @@ void LoginPanel::focus() {
                 }
                 break;
         }
+        
         /* Don't forget to refresh */
-        form_driver(form, REQ_END_LINE);
         refresh();
     }
 }
