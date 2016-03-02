@@ -1,0 +1,1010 @@
+[
+  {
+    "id": 12,
+    "name": "Le protecteur",
+    "energie": 1,
+    "effect": 0,
+    "vie": 2,
+    "attack": 1
+  },
+  {
+    "id": 13,
+    "name": "Le lecteur fou",
+    "energie": 2,
+    "effect": 15,
+    "vie": 1,
+    "attack": 2 
+  },
+  {
+    "id": 14,
+    "name": "Le destructeur d'espoir",
+    "energie": 10,
+    "effect": 6,
+    "vie": 7,
+    "attack": 7 
+  },
+  {
+    "id": 15,
+    "name": "Le fêtard",
+    "energie": 6,
+    "effect": -1,
+    "vie": 5,
+    "attack": 7
+  },
+  {
+    "id": 16,
+    "name": "L'étudiant lambda",
+    "energie": 3,
+    "effect": 0,
+    "vie": 3,
+    "attack": 3
+  },
+  {
+    "id": 17,
+    "name": "Chasseur de notes",
+    "energie": 5,
+    "effect": 15,
+    "vie": 4,
+    "attack": 5 
+  },
+  {
+    "id": 18,
+    "name": "Lamasticot",
+    "energie": 2,
+    "effect": -1,
+    "vie": 2,
+    "attack": 2
+  },
+  {
+    "id": 19,
+    "name": "Lamasti-Junior",
+    "energie": 6,
+    "effect": -1,
+    "vie": 5,
+    "attack": 5
+  },
+  {
+    "id": 20,
+    "name": "Lamasti-Roi",
+    "energie": 8,
+    "effect": -1,
+    "vie": 7,
+    "attack": 7
+  },
+  {
+    "id": 21,
+    "name": "Suricate",
+    "energie": 0,
+    "effect": -1,
+    "vie": 1,
+    "attack": 1
+  },
+  {
+    "id": 22,
+    "name": "Limace",
+    "energie": 3,
+    "effect": 2,
+    "vie": 1,
+    "attack": 2
+  },
+  {
+    "id": 23,
+    "name": "Ed",
+    "energie": 4,
+    "effect": 0,
+    "vie": 3,
+    "attack": 2
+  },
+  {
+    "id": 24,
+    "name": "Edd",
+    "energie": 4,
+    "effect": 0,
+    "vie": 4,
+    "attack": 1
+  },
+  {
+    "id": 25,
+    "name": "Eddy",
+    "energie": 4,
+    "effect": 0,
+    "vie": 2,
+    "attack": 3
+  },
+  {
+    "id": 26,
+    "name": "L'ingénieur",
+    "energie": 6,
+    "effect": 5,
+    "vie": 4,
+    "attack": 4
+  },
+  {
+    "id": 27,
+    "name": "La Bête de Gevaudan",
+    "energie": 7,
+    "effect": -1,
+    "vie": 4,
+    "attack": 9
+  },
+  {
+    "id": 28,
+    "name": "JHON CENA !!",
+    "energie": 7,
+    "effect":  14,
+    "vie": 5,
+    "attack": 6
+  },
+  {
+    "id": 29,
+    "name": "Le Farfadet",
+    "energie": 4,
+    "effect": -1,
+    "vie": 3,
+    "attack": 4
+  },
+  {
+    "id": 30,
+    "name": "Fillory",
+    "energie": 2,
+    "effect": -1,
+    "vie": 2,
+    "attack": 3
+  },
+  {
+    "id": 31,
+    "name": "L'Assistant",
+    "energie": 1,
+    "effect": -1,
+    "vie": 1,
+    "attack": 2
+  },
+  {
+    "id": 32,
+    "name": "Koteur",
+    "energie": 2,
+    "effect": 2,
+    "vie": 1,
+    "attack": 1
+  },
+  {
+    "id": 33,
+    "name": "Mr Robot",
+    "energie": 3,
+    "effect": 0,
+    "vie": 2,
+    "attack": 3
+  },
+  {
+    "id": 44,
+    "name": "Poulet Sauvage",
+    "energie" : 1,
+    "effect" : -1,
+    "vie" : 1,
+    "attack" : 1
+  },
+  {
+    "id": 45,
+    "name": "Scarabée des montagnes de Chine",
+    "energie" : 1,
+    "effect" : 0,
+    "vie" : 1,
+    "attack" : 0
+  },
+  {
+    "id": 46,
+    "name": "Nain de jardin",
+    "energie" : 2,
+    "effect" : 1,
+    "vie" : 2,
+    "attack" : 1
+  },
+  {
+    "id": 47,
+    "name": "Belette de la mer Septentrionale",
+    "energie" : 2,
+    "effect" : -1,
+    "vie" : 2,
+    "attack" : 2
+  },
+  {
+    "id": 48,
+    "name": "Coach Sportif",
+    "energie" : 2,
+    "effect" : 9,
+    "vie" : 2,
+    "attack" : 1
+  },
+  {
+    "id": 49,
+    "name": "Soldat Ryan",
+    "energie" : 3,
+    "effect" : 7,
+    "vie" : 2,
+    "attack" : 2
+  },
+  {
+    "id": 50,
+    "name": "Sanglier Meurtrier",
+    "energie" : 3,
+    "effect" : -1,
+    "vie" : 3,
+    "attack" : 3
+  },
+  {
+    "id": 51,
+    "name": "Rat de Bibliothèque",
+    "energie" : 3,
+    "effect" : 15,
+    "vie" : 1,
+    "attack" : 2
+  },
+  {
+    "id": 52,
+    "name": "Tortue Géante",
+    "energie" : 4,
+    "effect" : 0,
+    "vie" : 5,
+    "attack" : 2
+  },
+  {
+    "id": 53,
+    "name": "Ours Brun et un peu Blanc",
+    "energie" : 4,
+    "effect" : -1,
+    "vie" : 3,
+    "attack" : 5
+  },
+  {
+    "id": 54,
+    "name": "Moine du Kung-Fu",
+    "energie" : 5,
+    "effect" : 2,
+    "vie" : 4,
+    "attack" : 5
+  },
+  {
+    "id": 55,
+    "name": "Berserk Troll",
+    "energie" : 6,
+    "effect" : -1,
+    "vie" : 5,
+    "attack" : 7
+  },
+  {
+    "id": 56,
+    "name": "Chucky",
+    "energie" : 6,
+    "effect" : 14,
+    "vie" : 3,
+    "attack" : 5
+  },
+  {
+    "id": 57,
+    "name": "Coin de Table",
+    "energie" : 7,
+    "effect" : 12,
+    "vie" : 4,
+    "attack" : 4
+  },
+  {
+    "id": 58,
+    "name": "Tigre de la Toundra",
+    "energie" : 7,
+    "effect" : -1,
+    "vie" : 7,
+    "attack" : 7
+  },
+  {
+    "id": 59,
+    "name": "Chaton Fourbe",
+    "energie" : 7,
+    "effect" : 13,
+    "vie" : 3,
+    "attack" : 3
+  },
+  {
+    "id": 60,
+    "name": "Ogre du Nord",
+    "energie" : 8,
+    "effect" : 0,
+    "vie" : 6,
+    "attack" : 7
+  },
+  {
+    "id": 61,
+    "name": "SogeKing",
+    "energie" : 8,
+    "effect" : 6,
+    "vie" : 6,
+    "attack" : 5
+  },
+  {
+    "id": 62,
+    "name": "Proba et Stats",
+    "energie" : 9,
+    "effect" : 11,
+    "vie" : 7,
+    "attack" : 5
+  },
+  {
+    "id": 63,
+    "name": "Nain des Mines",
+    "energie" : 10,
+    "effect" : 5,
+    "vie" : 8,
+    "attack" : 9
+  },
+  {
+    "id": 64,
+    "name": "Gros Moustique",
+    "energie" : 2,
+    "effect" : -1,
+    "vie" : 1,
+    "attack" : 3
+  },
+  {
+    "id": 65,
+    "name": "Docteur Cool",
+    "energie" : 3,
+    "effect" : 1,
+    "vie" : 3,
+    "attack" : 2
+  },
+  {
+    "id": 66,
+    "name": "Mage Enragé",
+    "energie" : 5,
+    "effect" : 4,
+    "vie" : 4,
+    "attack" : 5
+  },
+  {
+    "id": 69,
+    "name": "CéZar",
+    "energie" : 4,
+    "effect" : -1,
+    "vie" : 7,
+    "attack" : 1
+  },
+  {
+    "id": 70,
+    "name": "BalthaZar",
+    "energie" : 6,
+    "effect" : 0,
+    "vie" : 4,
+    "attack" : 6
+  },
+  {
+    "id": 71,
+    "name": "HaSard",
+    "energie" : 8,
+    "effect" : 11,
+    "vie" : 5,
+    "attack" : 5
+  },
+  {
+    "id": 72,
+    "name": "AsZar",
+    "energie" : 10,
+    "effect" : -1,
+    "vie" : 9,
+    "attack" : 9
+  },
+  {
+    "id": 73,
+    "name": "BulbiZar",
+    "energie" : 3,
+    "effect" : 1,
+    "vie" : 3,
+    "attack" : 2
+  },
+  {
+    "id": 74,
+    "name": "BiZarre",
+    "energie" : 5,
+    "effect" : 0,
+    "vie" : 2,
+    "attack" : 4
+  },
+  {
+    "id": 75,
+    "name": "Zarbi",
+    "energie" : 1,
+    "effect" : -1,
+    "vie" : 1,
+    "attack" : 2
+  },
+  {
+    "id": 76,
+    "name": "LéZard",
+    "energie" : 4,
+    "effect" : -1,
+    "vie" : 6,
+    "attack" : 2
+  },
+  {
+    "id": 77,
+    "name": "MoZart",
+    "energie" : 7,
+    "effect" : 8,
+    "vie" : 5,
+    "attack" : 6
+  },
+  {
+    "id": 78,
+    "name": "BanlieuSard",
+    "energie" : 3,
+    "effect" : 4,
+    "vie" : 3,
+    "attack" : 3
+  },
+  {
+    "id": 79,
+    "name": "MaquiZard",
+    "energie" : 5,
+    "effect" : -1,
+    "vie" : 3,
+    "attack" : 5
+  },
+  {
+    "id": 80,
+    "name": "Le Beau Gosse",
+    "energie" : 5,
+    "effect" : -1,
+    "vie" : 4,
+    "attack" : 2
+  },
+  {
+    "id": 81,
+    "name": "Secrétariat",
+    "energie" : 3,
+    "effect" : 1,
+    "vie" : 3,
+    "attack" : 1
+  },
+  {
+    "id": 82,
+    "name": "Barre de fer",
+    "energie" : 2,
+    "effect" : -1,
+    "vie" : 2,
+    "attack" : 5
+  },
+  {
+    "id": 83,
+    "name": "Le Génie",
+    "energie" : 4,
+    "effect" : 2,
+    "vie" : 3,
+    "attack" : 3
+  },
+  {
+    "id": 84,
+    "name": "Monstre",
+    "energie" : 1,
+    "effect" : 3,
+    "vie" : 5,
+    "attack" : 2
+  },
+  {
+    "id": 85,
+    "name": "Carte",
+    "energie" : 2,
+    "effect" : 4,
+    "vie" : 1,
+    "attack" : 2
+  },
+  {
+    "id": 86,
+    "name": "Gehol",
+    "energie" : 3,
+    "effect" : 2,
+    "vie" : 3,
+    "attack" : 2
+  },
+  {
+    "id": 87,
+    "name": "Banana!",
+    "energie" : 3,
+    "effect" : 3,
+    "vie" : 2,
+    "attack" : 2
+  },
+  {
+    "id": 88,
+    "name": "Chuck Norris",
+    "energie" : 7,
+    "effect" : 5,
+    "vie" : 5,
+    "attack" : 7
+  },
+  {
+    "id": 89,
+    "name": "Big Mamma",
+    "energie" : 5,
+    "effect" : -1,
+    "vie" : 8,
+    "attack" : 2
+  },
+  {
+    "id": 90,
+    "name": "Pierre-Paul-Jacques",
+    "energie" : 3,
+    "effect" : -1,
+    "vie" : 3,
+    "attack" : 3
+  },
+  {
+    "id": 91,
+    "name": "Le Survivant",
+    "energie" : 5,
+    "effect" : 6,
+    "vie" : 7,
+    "attack" : 5
+  },
+  {
+    "id": 92,
+    "name": "Alain Térieur",
+    "energie" : 3,
+    "effect" : 5,
+    "vie" : 3,
+    "attack" : 2
+  },
+  {
+    "id": 93,
+    "name": "Alex Térieur",
+    "energie" : 2,
+    "effect" : -1,
+    "vie" : 2,
+    "attack" : 3
+  },
+  {
+    "id": 94,
+    "name": "Sarah Pelle",
+    "energie" : 4,
+    "effect" : 15,
+    "vie" : 3,
+    "attack" : 3
+  },
+  {
+    "id": 95,
+    "name": "Sarah Croche",
+    "energie" : 6,
+    "effect" : 16,
+    "vie" : 5,
+    "attack" : 2
+  },
+  {
+    "id": 96,
+    "name": "Gandalf",
+    "energie" : 6,
+    "effect" : 8,
+    "vie" : 3,
+    "attack" : 5
+  },
+  {
+    "id": 97,
+    "name": "Pikachu",
+    "energie" : 4,
+    "effect" : -1,
+    "vie" : 3,
+    "attack" : 4
+  },
+  {
+    "id": 98,
+    "name": "Anonymous",
+    "energie" : 5,
+    "effect" : 9,
+    "vie" : 2,
+    "attack" : 8
+  },
+  {
+    "id": 99,
+    "name": "M.Anonyme",
+    "energie" : 4,
+    "effect" : -1,
+    "vie" : 5,
+    "attack" : 3
+  },
+  {
+    "id": 100,
+    "name": "Inconnu",
+    "energie" : 1,
+    "effect" : -1,
+    "vie" : 1,
+    "attack" : 2
+  },
+  {
+    "id": 101,
+    "name": "Les Inconnus",
+    "energie" : 3,
+    "effect" : -1,
+    "vie" : 6,
+    "attack" : 3
+  },
+  {
+    "id": 102,
+    "name": "Terminator",
+    "energie" : 8,
+    "effect" : 10,
+    "vie" : 4,
+    "attack" : 9
+  },
+  {
+    "id": 103,
+    "name": "Robocop",
+    "energie" : 3,
+    "effect" : -1,
+    "vie" : 4,
+    "attack" : 4
+  },
+  {
+    "id": 104,
+    "name": "Totoro",
+    "energie" : 4,
+    "effect" : 9,
+    "vie" : 7,
+    "attack" : 3
+  },
+  {
+    "id": 105,
+    "name": "L'homme Invisible",
+    "energie" : 4,
+    "effect" : 11,
+    "vie" : 2,
+    "attack" : 3
+  },
+  {
+    "id": 106,
+    "name": "Sangoku",
+    "energie" : 5,
+    "effect" : -1,
+    "vie" : 3,
+    "attack" : 6
+  },
+  {
+    "id": 107,
+    "name": "Prof",
+    "energie" : 4,
+    "effect" : 11,
+    "vie" : 1,
+    "attack" : 8
+  },
+  {
+    "id": 108,
+    "name": "Examen",
+    "energie" : 3,
+    "effect" : 12,
+    "vie" : 2,
+    "attack" : 10
+  },
+  {
+    "id": 109,
+    "name": "Projet",
+    "energie" : 7,
+    "effect" : 13,
+    "vie" : 2,
+    "attack" : 7
+  },
+  {
+    "id": 110,
+    "name": "Le bon élève",
+    "energie" : 5,
+    "effect" : 12,
+    "vie" : 3,
+    "attack" : 2
+  },
+  {
+    "id": 111,
+    "name": "Le tricheur",
+    "energie" : 3,
+    "effect" : -1,
+    "vie" : 3,
+    "attack" : 4
+  },
+  {
+    "id": 112,
+    "name": "Le doubleur",
+    "energie" : 2,
+    "effect" : -1,
+    "vie" : 3,
+    "attack" : 5
+  },
+  {
+    "id": 113,
+    "name": "Nyan Cat",
+    "energie" : 6,
+    "effect" : 13,
+    "vie" : 3,
+    "attack" : 7
+  },
+  {
+    "id": 114,
+    "name": "Cours théorique",
+    "energie" : 8,
+    "effect" : 14,
+    "vie" : 3,
+    "attack" : 8
+  },
+  {
+    "id": 115,
+    "name": "TDfoncé",
+    "energie" : 7,
+    "effect" : 11,
+    "vie" : 5,
+    "attack" : 5
+  },
+  {
+    "id": 116,
+    "name": "Travaux pratiques",
+    "energie" : 6,
+    "effect" : 6,
+    "vie" : 6,
+    "attack" : 6
+  },
+  {
+    "id": 117,
+    "name": "La cafet'",
+    "energie" : 6,
+    "effect" : 14,
+    "vie" : 3,
+    "attack" : 5
+  },
+  {
+    "id": 118,
+    "name": "La Jefke",
+    "energie" : 4,
+    "effect" : 8,
+    "vie" : 3,
+    "attack" : 6
+  },
+  {
+    "id": 119,
+    "name": "Billy",
+    "energie" : 3,
+    "effect" : -1,
+    "vie" : 4,
+    "attack" : 4
+  },
+  {
+    "id": 120,
+    "name": "Jean-Marie-Edouard",
+    "energie" : 3,
+    "effect" : -1,
+    "vie" : 3,
+    "attack" : 3
+  },
+  {
+    "id": 121,
+    "name": "René la Taupe",
+    "energie" : 3,
+    "effect" : 15,
+    "vie" : 3,
+    "attack" : 2
+  },
+  {
+    "id": 122,
+    "name": "Keno",
+    "energie" : 3,
+    "effect" : 16,
+    "vie" : 4,
+    "attack" : 3
+  },
+  {
+    "id": 123,
+    "name": "Lucianno",
+    "energie" : 7,
+    "effect" : -1,
+    "vie" : 5,
+    "attack" : 5
+  },
+  {
+    "id": 124,
+    "name": "Massart",
+    "energie" : 5,
+    "effect" : -1,
+    "vie" : 6,
+    "attack" : 4
+  },
+  {
+    "id": 125,
+    "name": "Jorissen",
+    "energie" : 5,
+    "effect" : 7,
+    "vie" : 3,
+    "attack" : 7
+  },
+  {
+    "id": 126,
+    "name": "Geeraerts",
+    "energie" : 3,
+    "effect" : 5,
+    "vie" : 5,
+    "attack" : 2
+  },
+  {
+    "id": 127,
+    "name": "Stéphane",
+    "energie" : 2,
+    "effect" : -1,
+    "vie" : 2,
+    "attack" : 3
+  },
+  {
+    "id": 128,
+    "name": "Cédric",
+    "energie" : 3,
+    "effect" : 4,
+    "vie" : 4,
+    "attack" : 3
+  },
+  {
+    "id": 129,
+    "name": "François",
+    "energie" : 5,
+    "effect" : 5,
+    "vie" : 5,
+    "attack" : 5
+  },
+  {
+    "id": 130,
+    "name": "Naïm",
+    "energie" : 2,
+    "effect" : -1,
+    "vie" : 3,
+    "attack" : 2
+  },
+  {
+    "id": 131,
+    "name": "Alessia",
+    "energie" : 3,
+    "effect" : 3,
+    "vie" : 3,
+    "attack" : 3
+  },
+  {
+    "id": 132,
+    "name": "Audrey",
+    "energie" : 4,
+    "effect" : 4,
+    "vie" : 4,
+    "attack" : 4
+  },
+  {
+    "id": 133,
+    "name": "Markowitch",
+    "energie" : 6,
+    "effect" : 6,
+    "vie" : 6,
+    "attack" : 6
+  },
+  {
+    "id": 134,
+    "name": "Nikita",
+    "energie" : 7,
+    "effect" : 7,
+    "vie" : 7,
+    "attack" : 7
+  },
+  {
+    "id": 135,
+    "name": "Roggeman",
+    "energie" : 8,
+    "effect" : 8,
+    "vie" : 8,
+    "attack" : 8
+  },
+  {
+    "id": 136,
+    "name": "Richard",
+    "energie" : 9,
+    "effect" : 9,
+    "vie" : 9,
+    "attack" : 9
+  },
+  {
+    "id": 137,
+    "name": "Sylvie",
+    "energie" : 2,
+    "effect" : 2,
+    "vie" : 2,
+    "attack" : 2
+  },
+  {
+    "id": 138,
+    "name": "Goosens",
+    "energie" : 10,
+    "effect" : 10,
+    "vie" : 10,
+    "attack" : 10
+  },
+  {
+    "id": 139,
+    "name": "Fortz",
+    "energie" : 11,
+    "effect" : 11,
+    "vie" : 11,
+    "attack" : 11
+  },
+  {
+    "id": 140,
+    "name": "Hernalsteen",
+    "energie" : 12,
+    "effect" : 12,
+    "vie" : 12,
+    "attack" : 12
+  },
+  {
+    "id": 141,
+    "name": "Jacopo",
+    "energie" : 13,
+    "effect" : 13,
+    "vie" : 13,
+    "attack" : 13
+  },
+  {
+    "id": 142,
+    "name": "Jansen",
+    "energie" : 14,
+    "effect" : 14,
+    "vie" : 14,
+    "attack" : 14
+  },
+  {
+    "id": 143,
+    "name": "Anciaux",
+    "energie" : 15,
+    "effect" : 15,
+    "vie" : 15,
+    "attack" : 15
+  },
+  {
+    "id": 144,
+    "name": "La Fuente",
+    "energie" : 16,
+    "effect" : 16,
+    "vie" : 16,
+    "attack" : 16
+  },
+  {
+    "id": 145,
+    "name": "De Smet",
+    "energie" : 8,
+    "effect" : -1,
+    "vie" : 3,
+    "attack" : 10
+  },
+  {
+    "id": 146,
+    "name": "Petit ours brun",
+    "energie" : 2,
+    "effect" : -1,
+    "vie" : 3,
+    "attack" : 3
+  },
+  {
+    "id": 147,
+    "name": "Glados",
+    "energie" : 4,
+    "effect" : -1,
+    "vie" : 3,
+    "attack" : 6
+  },
+    {
+    "id": 148,
+    "name": "Team Rocket",
+    "energie" : 6,
+    "effect" : -1,
+    "vie" : 6,
+    "attack" : 3
+  },
+   {
+    "id": 149,
+    "name": "?",
+    "energie" : 2,
+    "effect" : -1,
+    "vie" : 3,
+    "attack" : 4
+  }
+]
