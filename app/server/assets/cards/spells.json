@@ -136,5 +136,149 @@
       "name": "BaZard",
       "energie": 2,
       "effect": 15
+  },
+  {
+    "id": 150,
+    "name": "Like a Boss",
+    "energie": 5,
+    "effect" : 9 
+  },
+  {
+    "id": 151,
+    "name": "Diplôme",
+    "energie": 3,
+    "effect" : 1 
+  },
+  {
+    "id": 152,
+    "name": "Tâches administratives",
+    "energie": 4,
+    "effect" : 4 
+  },
+  {
+    "id": 153,
+    "name": "Visite des copies",
+    "energie": 3,
+    "effect" : 6 
+  },
+  {
+    "id": 154,
+    "name": "Guilty and fat",
+    "energie": 2,
+    "effect" : 5 
+  },
+  {
+    "id": 155,
+    "name": "Tutoriel",
+    "energie": 5,
+    "effect" : 10 
+  },
+  {
+    "id": 156,
+    "name": "Sort",
+    "energie": 4,
+    "effect" : 16
+  },
+  {
+    "id": 157,
+    "name": "Un ptit lol?",
+    "energie": 3,
+    "effect" : 0 
+  },
+  {
+    "id": 158,
+    "name": "Syndrome de la page blanche",
+    "energie": 6,
+    "effect" : 12
+  },
+  {
+    "id": 159,
+    "name": "Affichage des notes",
+    "energie": 7,
+    "effect" : 14
+  },
+  {
+    "id": 160,
+    "name": "OpenClassrooms",
+    "energie": 4,
+    "effect" : 15
+  },
+  {
+    "id": 161,
+    "name": "Christ Is Back !",
+    "energie": 3,
+    "effect" : 8
+  },
+  {
+    "id": 162,
+    "name": "JAPON !",
+    "energie": 3,
+    "effect" : 0
+  },
+  {
+    "id": 163,
+    "name": "Hadôken",
+    "energie": 1,
+    "effect" : 4
+  },
+  {
+    "id": 164,
+    "name": "Deadline",
+    "energie": 3,
+    "effect" : 6
+  },
+  {
+    "id": 165,
+    "name": "Succès critique",
+    "energie": 5,
+    "effect" : 10
+  },
+  {
+    "id": 166,
+    "name": "Réussite",
+    "energie": 4,
+    "effect" : 9
+  },
+  {
+    "id": 167,
+    "name": "Salle Info",
+    "energie": 4,
+    "effect" : 15
+  },
+  {
+    "id": 168,
+    "name": "La bibli",
+    "energie": 2,
+    "effect" : 1
+  },
+  {
+    "id": 169,
+    "name": "Salle d'études",
+    "energie": 3,
+    "effect" : 2
+  },
+  {
+    "id": 170,
+    "name": "Présentation",
+    "energie": 5,
+    "effect" : 6
+  },
+  {
+      "id": 171,
+      "name": "Semaine tampon",
+      "energie": 4,
+      "effect": 3
+  },
+  {
+      "id": 172,
+      "name": "Un verre au pub!",
+      "energie": 3,
+      "effect": 2
+  },
+  {
+      "id": 173,
+      "name": "P.U.B",
+      "energie": 3,
+      "effect": 16
   }
 ]
