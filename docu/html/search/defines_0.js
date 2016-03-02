@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['backlog',['BACKLOG',['../server_2Connection_8hpp.html#aeefbbafa97642defe3ee6c3080b7d66f',1,'Connection.hpp']]]
+  ['amis_5flabel',['AMIS_LABEL',['../CLI_8hpp.html#abff37588b5cdb82dcfda36739a7af2ba',1,'CLI.hpp']]]
 ];

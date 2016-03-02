@@ -8,6 +8,7 @@ var searchData=
   ['addwin',['addWin',['../classPlayerInGame.html#a9d1260179bcbd3f919370d09d5469187',1,'PlayerInGame']]],
   ['adjudicatedefeat',['adjudicateDefeat',['../classPlayer.html#a882d9db35e3277bcd2db52fa9eca7dfb',1,'Player']]],
   ['adjudicatevictory',['adjudicateVictory',['../classPlayer.html#a224828ffebbc85cda6a370eb7fab7332',1,'Player']]],
+  ['amis_5flabel',['AMIS_LABEL',['../CLI_8hpp.html#abff37588b5cdb82dcfda36739a7af2ba',1,'CLI.hpp']]],
   ['apply',['apply',['../classEffect.html#a0300c9769c1fa800e6177639d46f8a30',1,'Effect::apply(CardMonster *, Game *)=0'],['../classEffect.html#a74ebf3cf61dd27353507e3fac66bbbfd',1,'Effect::apply(PlayerInGame *player, Game *game)']]],
   ['applyeffect',['applyEffect',['../classCard.html#a68c2becce15d5c89cec9972a8674e602',1,'Card::applyEffect(CardMonster &amp;cardmonster, Game &amp;)'],['../classCard.html#a0ee99642963ac428501623982a21aa1b',1,'Card::applyEffect(PlayerInGame &amp;player, Game &amp;)']]],
   ['askdefausse',['askDefausse',['../namespacePacketManager.html#ad09515d55f52f38ac6fc5ee056cc326f',1,'PacketManager']]],

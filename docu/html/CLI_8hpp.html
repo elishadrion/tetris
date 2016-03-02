@@ -103,6 +103,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <code>#include &quot;client/CLI/CLIPanel.hpp&quot;</code><br />
 <code>#include &quot;client/CLI/LoginPanel.hpp&quot;</code><br />
 <code>#include &quot;client/CLI/MainPanel.hpp&quot;</code><br />
+<code>#include &quot;client/CLI/TchatPanel.hpp&quot;</code><br />
+<code>#include &quot;client/CLI/FriendPanel.hpp&quot;</code><br />
 <code>#include &quot;client/CLI/CollectionPanel.hpp&quot;</code><br />
 </div>
 <p><a href="CLI_8hpp_source.html">Aller au code source de ce fichier.</a></p>
@@ -114,6 +116,18 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
+<tr class="memitem:ad0b3916950e033d3768eca999d1ceae7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8hpp.html#ad0b3916950e033d3768eca999d1ceae7">MAIN_LABEL</a>&#160;&#160;&#160;&quot;F1 : TCHAT    F2 : ENVOYER (TCHAT)    F3 : VALIDER    F10 : QUITTER                                                   &quot;</td></tr>
+<tr class="separator:ad0b3916950e033d3768eca999d1ceae7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abff37588b5cdb82dcfda36739a7af2ba"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8hpp.html#abff37588b5cdb82dcfda36739a7af2ba">AMIS_LABEL</a>&#160;&#160;&#160;&quot;F1 : TCHAT    F2 : ENVOYER (TCHAT)    F3 : AJOUTER    F4 : RETIRER    F10 : RETOUR                                    &quot;</td></tr>
+<tr class="separator:abff37588b5cdb82dcfda36739a7af2ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58008c952a5f940bfe2aa298be47d984"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8hpp.html#a58008c952a5f940bfe2aa298be47d984">COLL_LABEL</a>&#160;&#160;&#160;&quot;F1 : TCHAT    F2 : ENVOYER (TCHAT)    F3 : AFFICHER DECK    F10 : RETOUR                                              &quot;</td></tr>
+<tr class="separator:a58008c952a5f940bfe2aa298be47d984"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a961bc038ccbdf6848d2874b01321e25d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8hpp.html#a961bc038ccbdf6848d2874b01321e25d">DECK_LABEL</a>&#160;&#160;&#160;&quot;F1 : TCHAT    F2 : ENVOYER (TCHAT)    F3 : CREER    F4 : SUPPRIMER    F10 : RETOUR                                    &quot;</td></tr>
+<tr class="separator:a961bc038ccbdf6848d2874b01321e25d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03fef154523dcd940494edea194b5014"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8hpp.html#a03fef154523dcd940494edea194b5014">WAIT_LABEL</a>&#160;&#160;&#160;&quot;F1 : TCHAT    F2 : ENVOYER (TCHAT)    F10 : ANNULER                                                                   &quot;</td></tr>
+<tr class="separator:a03fef154523dcd940494edea194b5014"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0d088dd71b4a8f0abf920ece9aa9915"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8hpp.html#af0d088dd71b4a8f0abf920ece9aa9915">GAME_LABEL</a>&#160;&#160;&#160;&quot;F1 : TCHAT    F2 : ENVOYER (TCHAT)    F3 : PIOCHER    F4 : JOUER    F5 : JETER    F6 : FIN DE TOUR    F10 : ABANDONNER&quot;</td></tr>
+<tr class="separator:af0d088dd71b4a8f0abf920ece9aa9915"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c16299dfdf0a77b186ce91c8063bdb9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8hpp.html#a5c16299dfdf0a77b186ce91c8063bdb9">DEFAULT_EMPTY_SPACE</a>&#160;&#160;&#160;2</td></tr>
 <tr class="separator:a5c16299dfdf0a77b186ce91c8063bdb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a321ae946de24c36489276616d13c46cd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8hpp.html#a321ae946de24c36489276616d13c46cd">LINES</a>&#160;&#160;&#160;37</td></tr>
@@ -146,10 +160,22 @@ Macros</h2></td></tr>
 <tr class="separator:abc246160f0fd6108f7045c098f5f500f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9621c1a5a13bee3200fb686675869d8b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8hpp.html#a9621c1a5a13bee3200fb686675869d8b">CARD_INFO_WIDTH</a>&#160;&#160;&#160;<a class="el" href="CLI_8hpp.html#ab8b1f21cb0908481707de677bf3bb596">TCHAT_INPUT_WIDTH</a></td></tr>
 <tr class="separator:a9621c1a5a13bee3200fb686675869d8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32db537bbe2f7a59c1c17ea2ad081f36"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8hpp.html#a32db537bbe2f7a59c1c17ea2ad081f36">PANEL_TOTAL_NUMBER</a>&#160;&#160;&#160;2</td></tr>
+<tr class="memitem:a32db537bbe2f7a59c1c17ea2ad081f36"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CLI_8hpp.html#a32db537bbe2f7a59c1c17ea2ad081f36">PANEL_TOTAL_NUMBER</a>&#160;&#160;&#160;4</td></tr>
 <tr class="separator:a32db537bbe2f7a59c1c17ea2ad081f36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentation des macros</h2>
+<a class="anchor" id="abff37588b5cdb82dcfda36739a7af2ba"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AMIS_LABEL&#160;&#160;&#160;&quot;F1 : TCHAT    F2 : ENVOYER (TCHAT)    F3 : AJOUTER    F4 : RETIRER    F10 : RETOUR                                    &quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="ac9ff64cd26da3bb271e42ce913aebe82"></a>
 <div class="memitem">
 <div class="memproto">
@@ -198,6 +224,18 @@ Macros</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a58008c952a5f940bfe2aa298be47d984"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define COLL_LABEL&#160;&#160;&#160;&quot;F1 : TCHAT    F2 : ENVOYER (TCHAT)    F3 : AFFICHER DECK    F10 : RETOUR                                              &quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a628405768f066e7a73900678e622770c"></a>
 <div class="memitem">
 <div class="memproto">
@@ -222,6 +260,18 @@ Macros</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a961bc038ccbdf6848d2874b01321e25d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DECK_LABEL&#160;&#160;&#160;&quot;F1 : TCHAT    F2 : ENVOYER (TCHAT)    F3 : CREER    F4 : SUPPRIMER    F10 : RETOUR                                    &quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a5c16299dfdf0a77b186ce91c8063bdb9"></a>
 <div class="memitem">
 <div class="memproto">
@@ -231,27 +281,6 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>in-game layout </p><h6></h6>
-<h1></h1>
-<h1># # cardInfo</h1>
-<h1></h1>
-<h1></h1>
-<h1></h1>
-<h1></h1>
-<h1></h1>
-<h1>gamePanel</h1>
-<h1># # tchat</h1>
-<h1></h1>
-<h1></h1>
-<h1></h1>
-<h6></h6>
-<h6></h6>
-<h1># # tchat</h1>
-<h1>playersInfo # # input</h1>
-<h6></h6>
-<h6></h6>
-<h1>commandList (key shortcut)</h1>
-<h6></h6>
 
 </div>
 </div>
@@ -261,6 +290,18 @@ Macros</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">#define GAME_HEIGTH&#160;&#160;&#160;21</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af0d088dd71b4a8f0abf920ece9aa9915"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define GAME_LABEL&#160;&#160;&#160;&quot;F1 : TCHAT    F2 : ENVOYER (TCHAT)    F3 : PIOCHER    F4 : JOUER    F5 : JETER    F6 : FIN DE TOUR    F10 : ABANDONNER&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -291,12 +332,45 @@ Macros</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ad0b3916950e033d3768eca999d1ceae7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAIN_LABEL&#160;&#160;&#160;&quot;F1 : TCHAT    F2 : ENVOYER (TCHAT)    F3 : VALIDER    F10 : QUITTER                                                   &quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>in-game layout </p><h6></h6>
+<h1></h1>
+<h1># # cardInfo</h1>
+<h1></h1>
+<h1></h1>
+<h1></h1>
+<h1></h1>
+<h1></h1>
+<h1>gamePanel</h1>
+<h1># # tchat</h1>
+<h1></h1>
+<h1></h1>
+<h1></h1>
+<h6></h6>
+<h6></h6>
+<h1># # tchat</h1>
+<h1>playersInfo # # input</h1>
+<h6></h6>
+<h6></h6>
+<h1>commandList (key shortcut)</h1>
+<h6></h6>
+
+</div>
+</div>
 <a class="anchor" id="a32db537bbe2f7a59c1c17ea2ad081f36"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define PANEL_TOTAL_NUMBER&#160;&#160;&#160;2</td>
+          <td class="memname">#define PANEL_TOTAL_NUMBER&#160;&#160;&#160;4</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -369,6 +443,18 @@ Macros</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">#define TCHAT_WIDTH&#160;&#160;&#160;<a class="el" href="CLI_8hpp.html#ab8b1f21cb0908481707de677bf3bb596">TCHAT_INPUT_WIDTH</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a03fef154523dcd940494edea194b5014"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define WAIT_LABEL&#160;&#160;&#160;&quot;F1 : TCHAT    F2 : ENVOYER (TCHAT)    F10 : ANNULER                                                                   &quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">

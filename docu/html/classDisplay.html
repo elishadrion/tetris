@@ -100,11 +100,7 @@ Graphe d'héritage de Display:</div>
  <div class="center">
   <img src="classDisplay.png" usemap="#Display_map" alt=""/>
   <map id="Display_map" name="Display_map">
-<area href="classBoard.html" alt="Board" shape="rect" coords="0,56,76,80"/>
-<area href="classClassement.html" alt="Classement" shape="rect" coords="86,56,162,80"/>
-<area href="classCLI.html" alt="CLI" shape="rect" coords="172,56,248,80"/>
-<area href="classDeck.html" alt="Deck" shape="rect" coords="258,56,334,80"/>
-<area href="classFriends.html" alt="Friends" shape="rect" coords="344,56,420,80"/>
+<area href="classCLI.html" alt="CLI" shape="rect" coords="0,56,54,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -124,14 +120,18 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="separator:a93154cf71b945b6ce3ef959a306629f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88a6e0ccafb0ef286149a9ab4ffb28ad"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDisplay.html#a88a6e0ccafb0ef286149a9ab4ffb28ad">displayMainWindow</a> ()=0</td></tr>
 <tr class="separator:a88a6e0ccafb0ef286149a9ab4ffb28ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae80aee2a7bd67135e1756ba439946f8f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDisplay.html#ae80aee2a7bd67135e1756ba439946f8f">displayFriendsWindow</a> ()=0</td></tr>
+<tr class="separator:ae80aee2a7bd67135e1756ba439946f8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb3efa4573ae41c513df30ba4c2691c0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDisplay.html#afb3efa4573ae41c513df30ba4c2691c0">displayCollectionWindow</a> ()=0</td></tr>
 <tr class="separator:afb3efa4573ae41c513df30ba4c2691c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a428252a4853e5d700d8a0fa9fe0f21e1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDisplay.html#a428252a4853e5d700d8a0fa9fe0f21e1">updateCollection</a> (int, int *)=0</td></tr>
-<tr class="separator:a428252a4853e5d700d8a0fa9fe0f21e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbf8168f368a98a4c7797519e9b39948"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDisplay.html#adbf8168f368a98a4c7797519e9b39948">displayDeckWindow</a> ()=0</td></tr>
+<tr class="separator:adbf8168f368a98a4c7797519e9b39948"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3bff36aaa0be0e78b2df88c9b326138"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDisplay.html#ae3bff36aaa0be0e78b2df88c9b326138">displayWait</a> ()=0</td></tr>
 <tr class="separator:ae3bff36aaa0be0e78b2df88c9b326138"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3d6e09060fc88351d0c0bf3d349770c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDisplay.html#af3d6e09060fc88351d0c0bf3d349770c">displayGame</a> ()=0</td></tr>
 <tr class="separator:af3d6e09060fc88351d0c0bf3d349770c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66a03431e0f33d30d914b7b3decc0103"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDisplay.html#a66a03431e0f33d30d914b7b3decc0103">focusTchat</a> ()=0</td></tr>
+<tr class="separator:a66a03431e0f33d30d914b7b3decc0103"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
 <a class="anchor" id="a46094310ba411f6fea561f799c4d0754"></a>
@@ -206,6 +206,31 @@ Fonctions membres publiques</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="adbf8168f368a98a4c7797519e9b39948"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Display::displayDeckWindow </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implémenté dans <a class="el" href="classCLI.html#a166fe45276733200e237c0d9cce3f801">CLI</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a9d41e789d52a29d773d7acddd9f01172"></a>
 <div class="memitem">
 <div class="memproto">
@@ -229,6 +254,31 @@ Fonctions membres publiques</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Implémenté dans <a class="el" href="classCLI.html#ae86da329edfde03f238c778481be2030">CLI</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae80aee2a7bd67135e1756ba439946f8f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Display::displayFriendsWindow </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implémenté dans <a class="el" href="classCLI.html#a6b70a2b3d08d24f99826051c56a786e6">CLI</a>.</p>
 
 </div>
 </div>
@@ -358,7 +408,7 @@ Fonctions membres publiques</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a428252a4853e5d700d8a0fa9fe0f21e1"></a>
+<a class="anchor" id="a66a03431e0f33d30d914b7b3decc0103"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -366,21 +416,10 @@ Fonctions membres publiques</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void Display::updateCollection </td>
+          <td class="memname">virtual void Display::focusTchat </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -390,7 +429,7 @@ Fonctions membres publiques</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implémenté dans <a class="el" href="classCLI.html#acc4aa511cf5ee13f00323fd7d4e8a4b1">CLI</a>.</p>
+<p>Implémenté dans <a class="el" href="classCLI.html#a2606c83484b8d0fa1fb6ea9ac2fe07de">CLI</a>.</p>
 
 </div>
 </div>

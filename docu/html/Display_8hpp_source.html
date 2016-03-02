@@ -102,24 +102,53 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="classDisplay.html#a46094310ba411f6fea561f799c4d0754">Display</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classDisplay.html#a8c364e5ed02f311a695e9502773d1c74">~Display</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classDisplay.html#a9d41e789d52a29d773d7acddd9f01172">displayFatalError</a>(std::string) =0;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classDisplay.html#a55719ab539ee6cc803d9de74b05f8e38">displayLoginPrompt</a>() =0;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classDisplay.html#ac4cc71c734feea0099bbeae89e6d2f1c">displayLoginResult</a>(std::string) =0;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classDisplay.html#a93154cf71b945b6ce3ef959a306629f2">valideLogin</a>() =0;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classDisplay.html#a88a6e0ccafb0ef286149a9ab4ffb28ad">displayMainWindow</a>() =0;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classDisplay.html#afb3efa4573ae41c513df30ba4c2691c0">displayCollectionWindow</a>() =0;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classDisplay.html#a428252a4853e5d700d8a0fa9fe0f21e1">updateCollection</a>(<span class="keywordtype">int</span>, <span class="keywordtype">int</span>*) =0;<span class="comment">//TODO why ? player is better :(</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classDisplay.html#ae3bff36aaa0be0e78b2df88c9b326138">displayWait</a>() =0;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classDisplay.html#af3d6e09060fc88351d0c0bf3d349770c">displayGame</a>() =0;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;};</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* DISPLAY_HPP */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="comment">/* Must block all display and exit after showing message */</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classDisplay.html#a9d41e789d52a29d773d7acddd9f01172">displayFatalError</a>(std::string) =0;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="comment">/* Only call once, when program begin */</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classDisplay.html#a55719ab539ee6cc803d9de74b05f8e38">displayLoginPrompt</a>() =0;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="comment">/* Used to print result of the login process (thread safe) */</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classDisplay.html#ac4cc71c734feea0099bbeae89e6d2f1c">displayLoginResult</a>(std::string) =0;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="comment">/* Validate login process, must call displayMainWindow after */</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classDisplay.html#a93154cf71b945b6ce3ef959a306629f2">valideLogin</a>() =0;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="comment">/* Display the mainWindow</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">     * Must be safe enought to avoid memory leak or function call hell</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classDisplay.html#a88a6e0ccafb0ef286149a9ab4ffb28ad">displayMainWindow</a>() =0;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment">/* Display friends list */</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classDisplay.html#ae80aee2a7bd67135e1756ba439946f8f">displayFriendsWindow</a>() =0;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="comment">/* Display player&#39;s collection */</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classDisplay.html#afb3efa4573ae41c513df30ba4c2691c0">displayCollectionWindow</a>() =0;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="comment">/* Display player&#39;s deck content TODO: get ID ? */</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classDisplay.html#adbf8168f368a98a4c7797519e9b39948">displayDeckWindow</a>() =0;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">/* Wait for game ready (can cancel ?) */</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classDisplay.html#ae3bff36aaa0be0e78b2df88c9b326138">displayWait</a>() =0;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="comment">/* Display in-game layout */</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classDisplay.html#af3d6e09060fc88351d0c0bf3d349770c">displayGame</a>() =0;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">/* Focus on tchat windows/panel, use it when start a conversation (exemple) */</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classDisplay.html#a66a03431e0f33d30d914b7b3decc0103">focusTchat</a>() =0;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="comment">//virtual void updateCollection(int, int*) =0;//TODO why ? player is better :(</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;};</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* DISPLAY_HPP */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="classDisplay_html_a55719ab539ee6cc803d9de74b05f8e38"><div class="ttname"><a href="classDisplay.html#a55719ab539ee6cc803d9de74b05f8e38">Display::displayLoginPrompt</a></div><div class="ttdeci">virtual void displayLoginPrompt()=0</div></div>
-<div class="ttc" id="classDisplay_html_a428252a4853e5d700d8a0fa9fe0f21e1"><div class="ttname"><a href="classDisplay.html#a428252a4853e5d700d8a0fa9fe0f21e1">Display::updateCollection</a></div><div class="ttdeci">virtual void updateCollection(int, int *)=0</div></div>
+<div class="ttc" id="classDisplay_html_adbf8168f368a98a4c7797519e9b39948"><div class="ttname"><a href="classDisplay.html#adbf8168f368a98a4c7797519e9b39948">Display::displayDeckWindow</a></div><div class="ttdeci">virtual void displayDeckWindow()=0</div></div>
+<div class="ttc" id="classDisplay_html_a66a03431e0f33d30d914b7b3decc0103"><div class="ttname"><a href="classDisplay.html#a66a03431e0f33d30d914b7b3decc0103">Display::focusTchat</a></div><div class="ttdeci">virtual void focusTchat()=0</div></div>
 <div class="ttc" id="classDisplay_html_a93154cf71b945b6ce3ef959a306629f2"><div class="ttname"><a href="classDisplay.html#a93154cf71b945b6ce3ef959a306629f2">Display::valideLogin</a></div><div class="ttdeci">virtual void valideLogin()=0</div></div>
 <div class="ttc" id="classDisplay_html_a46094310ba411f6fea561f799c4d0754"><div class="ttname"><a href="classDisplay.html#a46094310ba411f6fea561f799c4d0754">Display::Display</a></div><div class="ttdeci">Display()=default</div></div>
 <div class="ttc" id="classDisplay_html_ae3bff36aaa0be0e78b2df88c9b326138"><div class="ttname"><a href="classDisplay.html#ae3bff36aaa0be0e78b2df88c9b326138">Display::displayWait</a></div><div class="ttdeci">virtual void displayWait()=0</div></div>
 <div class="ttc" id="classDisplay_html_a88a6e0ccafb0ef286149a9ab4ffb28ad"><div class="ttname"><a href="classDisplay.html#a88a6e0ccafb0ef286149a9ab4ffb28ad">Display::displayMainWindow</a></div><div class="ttdeci">virtual void displayMainWindow()=0</div></div>
+<div class="ttc" id="classDisplay_html_ae80aee2a7bd67135e1756ba439946f8f"><div class="ttname"><a href="classDisplay.html#ae80aee2a7bd67135e1756ba439946f8f">Display::displayFriendsWindow</a></div><div class="ttdeci">virtual void displayFriendsWindow()=0</div></div>
 <div class="ttc" id="classDisplay_html_ac4cc71c734feea0099bbeae89e6d2f1c"><div class="ttname"><a href="classDisplay.html#ac4cc71c734feea0099bbeae89e6d2f1c">Display::displayLoginResult</a></div><div class="ttdeci">virtual void displayLoginResult(std::string)=0</div></div>
 <div class="ttc" id="classDisplay_html_af3d6e09060fc88351d0c0bf3d349770c"><div class="ttname"><a href="classDisplay.html#af3d6e09060fc88351d0c0bf3d349770c">Display::displayGame</a></div><div class="ttdeci">virtual void displayGame()=0</div></div>
 <div class="ttc" id="classDisplay_html_afb3efa4573ae41c513df30ba4c2691c0"><div class="ttname"><a href="classDisplay.html#afb3efa4573ae41c513df30ba4c2691c0">Display::displayCollectionWindow</a></div><div class="ttdeci">virtual void displayCollectionWindow()=0</div></div>

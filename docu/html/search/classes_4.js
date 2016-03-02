@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['friends',['Friends',['../classFriends.html',1,'']]],
-  ['friendsmanager',['FriendsManager',['../classFriendsManager.html',1,'']]]
+  ['game',['Game',['../classGame.html',1,'']]]
 ];

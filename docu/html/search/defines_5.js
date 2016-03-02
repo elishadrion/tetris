@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['max_5fcarte_5fdescrition_5fsize',['MAX_CARTE_DESCRITION_SIZE',['../Packet_8hpp.html#a1de6746763761071cb33e1fbbe574f62',1,'Packet.hpp']]],
-  ['max_5fcartes',['MAX_CARTES',['../client_2PacketManager_8hpp.html#a6e39296d8aea63f64e88541e9ffadc56',1,'MAX_CARTES():&#160;PacketManager.hpp'],['../Packet_8hpp.html#a6e39296d8aea63f64e88541e9ffadc56',1,'MAX_CARTES():&#160;Packet.hpp']]],
-  ['max_5fpseudo_5fsize',['MAX_PSEUDO_SIZE',['../Packet_8hpp.html#a5dc814636bf1234a5bb49481556476d1',1,'Packet.hpp']]]
+  ['limitname',['LIMITNAME',['../Deck_8hpp.html#a3e4703ae5bf4848b8d175cfe89759b52',1,'Deck.hpp']]],
+  ['lines',['LINES',['../CLI_8hpp.html#a321ae946de24c36489276616d13c46cd',1,'CLI.hpp']]],
+  ['logger',['LOGGER',['../WizardLogger_8hpp.html#aa385268d3ec7b4d3ecceb7c787171bf0',1,'WizardLogger.hpp']]]
 ];

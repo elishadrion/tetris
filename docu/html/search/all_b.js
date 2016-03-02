@@ -1,7 +1,7 @@
 var searchData=
 [
   ['limitenergy',['limitEnergy',['../structdataIGPlayer.html#ae0958559747cb2ebad4e6c7ba6095c3f',1,'dataIGPlayer']]],
-  ['limitname',['LIMITNAME',['../server_2Deck_8hpp.html#a3e4703ae5bf4848b8d175cfe89759b52',1,'Deck.hpp']]],
+  ['limitname',['LIMITNAME',['../Deck_8hpp.html#a3e4703ae5bf4848b8d175cfe89759b52',1,'Deck.hpp']]],
   ['lines',['LINES',['../CLI_8hpp.html#a321ae946de24c36489276616d13c46cd',1,'CLI.hpp']]],
   ['loadallcards',['loadAllCards',['../classCardManager.html#ad51c06332d328195fe84aff9aa526272',1,'CardManager']]],
   ['loadalleffect',['loadAllEffect',['../classEffect.html#ae185e5fd1219ac1d7ffbcd51d0ace58c',1,'Effect']]],

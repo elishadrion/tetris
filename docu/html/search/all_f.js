@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['packet',['packet',['../structPacket_1_1packet.html',1,'Packet']]],
   ['packet',['Packet',['../classPacket.html',1,'']]],
+  ['packet',['packet',['../structPacket_1_1packet.html',1,'Packet']]],
   ['packet_2ehpp',['Packet.hpp',['../Packet_8hpp.html',1,'']]],
   ['packetmanager',['PacketManager',['../namespacePacketManager.html',1,'']]],
   ['packetmanager_2ecpp',['PacketManager.cpp',['../server_2PacketManager_8cpp.html',1,'']]],

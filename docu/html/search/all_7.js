@@ -4,6 +4,7 @@ var searchData=
   ['game_2ecpp',['Game.cpp',['../Game_8cpp.html',1,'']]],
   ['game_2ehpp',['Game.hpp',['../Game_8hpp.html',1,'']]],
   ['game_5fheigth',['GAME_HEIGTH',['../CLI_8hpp.html#a1022328666447f08e6841e68f93db36b',1,'CLI.hpp']]],
+  ['game_5flabel',['GAME_LABEL',['../CLI_8hpp.html#af0d088dd71b4a8f0abf920ece9aa9915',1,'CLI.hpp']]],
   ['game_5fwidth',['GAME_WIDTH',['../CLI_8hpp.html#a693f306b88f7336281e4d1f07754579c',1,'CLI.hpp']]],
   ['gamestatut',['GameStatut',['../Game_8hpp.html#a07266ece7db369895fe6dd3c7b8a80d4',1,'Game.hpp']]],
   ['getattack',['getAttack',['../classCardMonster.html#abf8d88a45f9ff97689e9ff32510ca7ee',1,'CardMonster']]],

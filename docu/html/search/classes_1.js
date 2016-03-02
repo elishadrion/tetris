@@ -1,14 +1,8 @@
 var searchData=
 [
-  ['card',['Card',['../classCard.html',1,'']]],
-  ['cardmanager',['CardManager',['../classCardManager.html',1,'']]],
-  ['cardmonster',['CardMonster',['../classCardMonster.html',1,'']]],
-  ['carteinfospacket',['carteInfosPacket',['../structPacket_1_1carteInfosPacket.html',1,'Packet']]],
-  ['carterequestpacket',['carteRequestPacket',['../structPacket_1_1carteRequestPacket.html',1,'Packet']]],
-  ['chatmanager',['ChatManager',['../classChatManager.html',1,'']]],
-  ['classement',['Classement',['../classClassement.html',1,'']]],
-  ['cli',['CLI',['../classCLI.html',1,'']]],
-  ['collection',['Collection',['../classCollection.html',1,'']]],
-  ['collectionlistpacket',['collectionListPacket',['../structPacket_1_1collectionListPacket.html',1,'Packet']]],
-  ['connection',['Connection',['../classConnection.html',1,'']]]
+  ['dataigplayer',['dataIGPlayer',['../structdataIGPlayer.html',1,'']]],
+  ['deck',['Deck',['../classDeck.html',1,'']]],
+  ['deckcontentpacket',['deckContentPacket',['../structPacket_1_1deckContentPacket.html',1,'Packet']]],
+  ['deckrequestpacket',['deckRequestPacket',['../structPacket_1_1deckRequestPacket.html',1,'Packet']]],
+  ['display',['Display',['../classDisplay.html',1,'']]]
 ];

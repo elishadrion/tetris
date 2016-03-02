@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['limitname',['LIMITNAME',['../server_2Deck_8hpp.html#a3e4703ae5bf4848b8d175cfe89759b52',1,'Deck.hpp']]],
-  ['lines',['LINES',['../CLI_8hpp.html#a321ae946de24c36489276616d13c46cd',1,'CLI.hpp']]],
-  ['logger',['LOGGER',['../WizardLogger_8hpp.html#aa385268d3ec7b4d3ecceb7c787171bf0',1,'WizardLogger.hpp']]]
+  ['game_5fheigth',['GAME_HEIGTH',['../CLI_8hpp.html#a1022328666447f08e6841e68f93db36b',1,'CLI.hpp']]],
+  ['game_5flabel',['GAME_LABEL',['../CLI_8hpp.html#af0d088dd71b4a8f0abf920ece9aa9915',1,'CLI.hpp']]],
+  ['game_5fwidth',['GAME_WIDTH',['../CLI_8hpp.html#a693f306b88f7336281e4d1f07754579c',1,'CLI.hpp']]]
 ];
