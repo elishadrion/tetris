@@ -67,24 +67,24 @@ class CLI : public Display {
         FRIEND = 3,
         COLL = 4,
         DECK = 5,
-        CARD = 6,
-        WAIT = 7,
-        GAME = 8,
+        WAIT = 6,
+        GAME = 7,
     };
 public:
     CLI();
     ~CLI();
-    void displayFatalError(std::string);
-    void displayLoginPrompt();
-    void displayLoginResult(std::string);
-    void valideLogin();
-    void displayMainWindow();
-    void displayFriendsWindow();
-    void displayCollectionWindow();
-    void displayDeckWindow(); //TODO get ID ?
-    void displayWait();
-    void displayGame();
-    void focusTchat();
+    void displayFatalError(std::string) override;
+    void displayLoginPrompt() override;
+    void displayLoginResult(std::string) override;
+    void valideLogin() override;
+    void displayMainWindow() override;
+    void displayFriendsWindow() override;
+    void displayCollectionWindow() override;
+    void displayDeckWindow() override; //TODO get ID ?
+    void displayWait() override;
+    void displayGame() override;
+    void focusTchat() override;
+    void displayPopup(std::string) override;
 };
 
 #endif /* CLI_HPP */

@@ -122,8 +122,13 @@ void CLI::displayCollectionWindow() {
     
     /* We display CollectionPanel after hidding all other panel */
     for (int i = 0 ; i < PANEL_TOTAL_NUMBER ; ++i) _panelList[i]->hide();
-    //_panelList[COLL]->show();
-    //_panelList[COLL]->focus();
+    _panelList[COLL]->show();
+    _panelList[TCHAT]->show();
+    _panelList[COLL]->focus();
+    
+    /* After that, we hide and show the mainPanel */
+    _panelList[COLL]->hide();
+    _panelList[MAIN]->show();
     
     /* Display general HELP */
     attron(COLOR_PAIR(6));
@@ -136,6 +141,16 @@ void CLI::displayDeckWindow() {
     attron(COLOR_PAIR(6));
     mvprintw(LINES-2, 2, DECK_LABEL);
     attron(COLOR_PAIR(6));
+    
+    /* We display CollectionPanel after hidding all other panel */
+    for (int i = 0 ; i < PANEL_TOTAL_NUMBER ; ++i) _panelList[i]->hide();
+    _panelList[DECK]->show();
+    _panelList[TCHAT]->show();
+    _panelList[DECK]->focus();
+    
+    /* After that, we hide and show the collectionPanel */
+    _panelList[DECK]->hide();
+    _panelList[COLL]->show();
     
     
     /* Display general HELP */
@@ -150,6 +165,15 @@ void CLI::displayWait() {
     mvprintw(LINES-2, 2, WAIT_LABEL);
     attron(COLOR_PAIR(6));
     
+    /* We display CollectionPanel after hidding all other panel */
+    for (int i = 0 ; i < PANEL_TOTAL_NUMBER ; ++i) _panelList[i]->hide();
+    _panelList[WAIT]->show();
+    _panelList[TCHAT]->show();
+    _panelList[WAIT]->focus();
+    
+    /* After that, we hide and show the mainPanel */
+    _panelList[WAIT]->hide();
+    _panelList[MAIN]->show();
     
     /* Display general HELP */
     attron(COLOR_PAIR(6));
@@ -163,17 +187,19 @@ void CLI::displayGame() {
     mvprintw(LINES-2, 2, GAME_LABEL);
     attron(COLOR_PAIR(6));
     
+    /* We display CollectionPanel after hidding all other panel */
+    for (int i = 0 ; i < PANEL_TOTAL_NUMBER ; ++i) _panelList[i]->hide();
+    _panelList[GAME]->show();
+    _panelList[TCHAT]->show();
+    _panelList[GAME]->focus();
     
-    /* Display general HELP */
-    attron(COLOR_PAIR(6));
-    mvprintw(LINES-2, 2, MAIN_LABEL);
-    attron(COLOR_PAIR(6));
+    /* After that, we hide and return to wait (returning to main) */
+    _panelList[GAME]->hide();
 }
 
 void CLI::focusTchat() {
     _panelList[TCHAT]->focus();
 }
 
-/*void CLI::updateCollection(int number, int* cardList) {
-    ((CollectionPanel*)_panelList[1])->addCardToCollection(number, cardList);
-}*/
+//TODO
+void CLI::displayPopup(std::string message) {}

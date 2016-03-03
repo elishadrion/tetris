@@ -44,7 +44,8 @@ public:
     /* Focus on tchat windows/panel, use it when start a conversation (exemple) */
     virtual void focusTchat() =0;
     
-    //virtual void updateCollection(int, int*) =0;//TODO why ? player is better :(
+    /* Display popup message */
+    virtual void displayPopup(std::string) =0;
 };
 
 #endif	/* DISPLAY_HPP */
