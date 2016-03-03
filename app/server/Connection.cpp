@@ -157,9 +157,9 @@ void* Connection::newPlayerThread(void* data) {
     /* Free packet from memory */
     free(packet);
     
-    /* If login is ok, we launch recvloop from Player */
+    /* If login is ok, we launch recvloop from Player after sending player's info to client */
     if (loginOK) {
-        Connection::sendResponse(0, clientSocket);
+        sendSucess(newPlayer, clientSocket);
         newPlayer->recvLoop();
     }
 }
@@ -169,4 +169,26 @@ void Connection::sendResponse(int errorCode, int socket) {
     loginResult->resultCode = errorCode;
     send(socket, loginResult, sizeof(Packet::loginResultPacket), 0);
     free(loginResult);
+}
+
+void Connection::sendSucess(Player* player, int socket) {
+    Packet::playerInfoPacket *playerPacket = new Packet::playerInfoPacket();
+    
+    /* Get collection */
+    std::vector<unsigned> collection = player->getCollection()->getCardsId();
+    
+    /* Get pseudo */
+    std::string pseudo = player->getName();
+    
+    /* Add player's info to packet */
+    for (int i = 0 ; i < pseudo.size() ; ++i) playerPacket->data.pseudo[i] = pseudo[i];
+    for (int i = 0 ; i < collection.size() ; ++i) playerPacket->data.collection[i] = collection[i];
+    //TODO playerPacket->data.decks = player->getName();
+    //TODO playerPacket->data.friendsList = player->getName();
+    playerPacket->data.victories = player->getVictories();
+    playerPacket->data.defeats = player->getDefeats();
+    
+    /* Send informations */
+    send(socket, playerPacket, sizeof(Packet::playerInfoPacket), 0);
+    free(playerPacket);
 }

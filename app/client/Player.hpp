@@ -23,16 +23,16 @@ public:
     
     /* Setter */
     inline void addCardCollection(unsigned ID) { _collection[ID]++; }
-    inline void addDeck(int ID) { for (int i = 0 ; i < MAX_DECKS ; ++i) if (_decks[i] == -1) _decks[i] = ID; }
-    inline void removeDeck(int ID) { for (int i = 0 ; i < MAX_DECKS ; ++i) if (_decks[i] == ID) _decks[i] = -1; }
-    inline void addFriend(std::string pseudo) {
-        for (int i = 0 ; i < MAX_FRIENDS ; ++i) if (_friendsList[i] == "") _friendsList[i] = pseudo;
-    }
-    inline void removeFriend(std::string pseudo) {
-        for (int i = 0 ; i < MAX_FRIENDS ; ++i) if (_friendsList[i] == pseudo) _friendsList[i] = "";
-    }
     inline void adjudicateVictory() { _victories++; };
     inline void adjudicateDefeat() { _defeats++; }
+    void addDeck(int ID) { for (int i = 0 ; i < MAX_DECKS ; ++i) if (_decks[i] == -1) _decks[i] = ID; }
+    void removeDeck(int ID) { for (int i = 0 ; i < MAX_DECKS ; ++i) if (_decks[i] == ID) _decks[i] = -1; }
+    void addFriend(std::string pseudo) {
+        for (int i = 0 ; i < MAX_FRIENDS ; ++i) if (_friendsList[i] == "") _friendsList[i] = pseudo;
+    }
+    void removeFriend(std::string pseudo) {
+        for (int i = 0 ; i < MAX_FRIENDS ; ++i) if (_friendsList[i] == pseudo) _friendsList[i] = "";
+    }
     
     /* Getter */
     inline std::string getName() const { return _username; }

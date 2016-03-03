@@ -44,7 +44,7 @@ int main(int argc, char** argv) {
     try {
         display = new CLI();
     } catch (...) {
-        std::cerr << "Impossible de créer la CLI (voir log)" << std::endl;
+        std::cerr << "Impossible de créer l'interface (voir log)" << std::endl;
         return EXIT_FAILURE;
     }
     

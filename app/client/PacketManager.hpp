@@ -18,4 +18,5 @@ namespace PacketManager {
     
     /* receives analyse */
     void loginResult(const Packet::loginResultPacket*);
+    void playerInfo(const Packet::playerInfoPacket*);
 }

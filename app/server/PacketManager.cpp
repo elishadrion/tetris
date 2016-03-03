@@ -9,10 +9,6 @@ void PacketManager::managePacket(Player *player, Packet::packet* customPacket) {
                                           break;
         case Packet::DISCONNECT_ID :      PacketManager::manageDisconnectRequest(player, customPacket);
                                           break;
-        case Packet::COLLECTION_REQ_ID :  //TODO
-                                          break;
-        case Packet::COLLECTION_LIST_ID : WizardLogger::warning("Paquet invalide reçu : CollectionList");
-                                          break;
         default :                         WizardLogger::warning("Paquet inconnue reçu");
                                           break;
     }
@@ -90,16 +86,4 @@ void PacketManager::sendEndGame(Player *player, bool victory) {
 void PacketManager::manageDisconnectRequest(Player *player, Packet::packet* disconnectReqPacket) {
     WizardLogger::info(player->getName()+" se déconnecte");
     player->logout();
-}
-
-void PacketManager::manageCollectionRequest(Player *player, Packet::packet* collectionReqPacket) {
-    Packet::collectionListPacket* collectionPacket = new Packet::collectionListPacket();
-    std::vector<unsigned> collection = player->getCollection()->getCardsId();
-    
-    for (int i = 0 ; i < collection.size() ; ++i) {
-        collectionPacket->cartesList[collection[i]] += 1;
-    }
-    
-    player->sendPacket((Packet::packet*) collectionPacket, sizeof(*collectionPacket));
-    delete collectionPacket;
 }

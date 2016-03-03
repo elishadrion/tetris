@@ -59,15 +59,15 @@ public:
     /* Player info */
     typedef struct {
         int ID = PLAYER_INFO_ID;
-        struct data {
+        typedef struct {
             char pseudo[MAX_PSEUDO_SIZE];
             unsigned collection[MAX_CARDS];
             int decks[MAX_DECKS];
             char friendsList[MAX_FRIENDS*MAX_PSEUDO_SIZE]; /* Every MAX_PSEUDO_SIZE it's a pseudo */
             unsigned victories;
             unsigned defeats;
-        };
-        struct data; /* We define it but we must include it */
+        } playerData;
+        playerData data; /* We define it but we must include it */
         int size = sizeof(data);
     } playerInfoPacket;
 

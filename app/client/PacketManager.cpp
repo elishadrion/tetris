@@ -14,6 +14,8 @@ void PacketManager::managePacket(Packet::packet* customPacket) {
                                           break;
         case Packet::DISCONNECT_ID :      WizardLogger::warning("Paquet invalide reçu : DisconnectInfo");
                                           break;
+        case Packet::PLAYER_INFO_ID :     playerInfo((Packet::playerInfoPacket*) customPacket);
+                                          break;
         default :                         WizardLogger::error("Paquet inconnu reçu : "+customPacket->ID);
                                           break;
     }
@@ -101,4 +103,11 @@ void PacketManager::loginResult(const Packet::loginResultPacket* resultPacket) {
     } else {
         display->valideLogin();
     }
+}
+
+void PacketManager::playerInfo(const Packet::playerInfoPacket* playerPacket) {
+    WizardLogger::warning(playerPacket->data.pseudo);
+    WizardLogger::warning(std::to_string(playerPacket->data.victories));
+    WizardLogger::warning(std::to_string(playerPacket->data.defeats));
+    display->valideLogin();
 }

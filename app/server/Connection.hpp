@@ -14,12 +14,12 @@
 #include <netinet/tcp.h>
 #include <pthread.h>
 
+#include "common/Constants.hpp"
 #include "common/Packet.hpp"
 #include "PacketManager.hpp"
 #include "Player.hpp"
 #include "PlayerManager.hpp"
 
-#define PORT 5555
 #define BACKLOG 5       /* Pending connections the queue will hold */
 
 extern PlayerManager *pm;
@@ -56,6 +56,7 @@ class Connection {
     
     /* Temp send methode only used for login */
     static void sendResponse(int, int);
+    static void sendSucess(Player*, int);
 public:
     Connection();
     ~Connection();
