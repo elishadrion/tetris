@@ -20,6 +20,9 @@
 #include "client/CLI/TchatPanel.hpp"
 #include "client/CLI/FriendPanel.hpp"
 #include "client/CLI/CollectionPanel.hpp"
+#include "client/CLI/DeckPanel.hpp"
+#include "client/CLI/WaitPanel.hpp"
+#include "client/CLI/GamePanel.hpp"
 
 /* Define some label for HELP */
 #define MAIN_LABEL "F1 : TCHAT    F2 : ENVOYER (TCHAT)    F3 : VALIDER    F10 : QUITTER                                                   "
@@ -51,7 +54,7 @@
 #define CARD_INFO_HEIGTH 5
 #define CARD_INFO_WIDTH TCHAT_INPUT_WIDTH
 
-#define PANEL_TOTAL_NUMBER 4 //9
+#define PANEL_TOTAL_NUMBER 8
 
 class CLI : public Display {
     /* All panel used by the CLI */

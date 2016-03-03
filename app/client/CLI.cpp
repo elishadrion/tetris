@@ -32,11 +32,10 @@ CLI::CLI() {
     _panelList[MAIN] = new MainPanel();
     _panelList[TCHAT] = new TchatPanel();
     _panelList[FRIEND] = new FriendPanel();
-    //_panelList[COLL] = new CollectionPanel();
-    //_panelList[DECK] = new DeckPanel();
-    //_panelList[CARD] = new CardPanel();
-    //_panelList[WAIT] = new WaitPanel();
-    //_panelList[GAME] = new GamePanel();
+    _panelList[COLL] = new CollectionPanel();
+    _panelList[DECK] = new DeckPanel();
+    _panelList[WAIT] = new WaitPanel();
+    _panelList[GAME] = new GamePanel();
 }
 
 CLI::~CLI() {
