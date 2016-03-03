@@ -1,6 +1,30 @@
 #ifndef GAMEPANEL_HPP
 #define	GAMEPANEL_HPP
 
+/** in-game layout
+#################################### ############
+#                                  # #          #
+#                                  # #          #
+#                                  # #          #
+#                                  # #          #
+#           gamePanel              # #          #
+#               +                  # #  tchat   #
+#        cardInfo popup            # #          #
+#                                  # #          #
+#                                  # #          #
+#                                  # #          #
+#                                  # #          #
+#                                  # #          #
+#################################### ############
+#################################### ############
+#                                  # #   tchat  #
+#        playersInfo               # #   input  #
+#################################### ############
+
+
+            commandList (key shortcut)
+**/
+
 #include <panel.h>
 #include <form.h>
 

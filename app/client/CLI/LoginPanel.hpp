@@ -1,6 +1,17 @@
 #ifndef PANEL_HPP
 #define	PANEL_HPP
 
+/** login layout
+#####################################
+#                                   #
+#            ERROR MSG              #
+#    Pseudo:__________________      #
+#    Pasww :__________________      #
+#                                   #
+#   F1:ann   F2:login   F3:reg      #
+#####################################
+**/
+
 #include <ncurses.h>
 #include <panel.h>
 #include <form.h>
@@ -14,17 +25,6 @@
 #include "client/PacketManager.hpp"
 
 #include "CLIPanel.hpp"
-
-/**
-#####################################
-#                                   #
-#            ERROR MSG              #
-#    Pseudo:__________________      #
-#    Pasww :__________________      #
-#                                   #
-#   F1:ann   F2:login   F3:reg      #
-#####################################
-**/
 
 #define LABEL_LENGHT 26
 #define DEFAULT_LABEL "   LOGIN/REGISTRATION     "

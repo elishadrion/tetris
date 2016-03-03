@@ -1,6 +1,30 @@
 #ifndef MAINPANEL_HPP
 #define	MAINPANEL_HPP
 
+/** main menu layout
+#################################### ############
+#                                  # #          #
+#                                  # #          #
+#                                  # #          #
+#                                  # #          #
+#                                  # #          #
+#                                  # #  tchat   #
+#           menu entry             # #          #
+#                                  # #          #
+#                                  # #          #
+#                                  # #          #
+#                                  # #          #
+#                                  # #          #
+#                                  # ############
+#                                  # ############
+#                                  # #   tchat  #
+#                                  # #   input  #
+#################################### ############
+
+
+            commandList (key shortcut)
+**/
+
 #include <panel.h>
 #include <form.h>
 

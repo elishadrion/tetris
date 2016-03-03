@@ -21,30 +21,7 @@
 #include "client/CLI/FriendPanel.hpp"
 #include "client/CLI/CollectionPanel.hpp"
 
-/** in-game layout
-#################################### ############
-#                                  # #          #
-#                                  # # cardInfo #
-#                                  # #          #
-#                                  # ############
-#                                  # ############
-#                                  # #          #
-#                                  # #          #
-#            gamePanel             # #          #
-#                                  # #  tchat   #
-#                                  # #          #
-#                                  # #          #
-#                                  # #          #
-#################################### ############
-#################################### ############
-#                                  # #   tchat  #
-#        playersInfo               # #   input  #
-#################################### ############
-#################################################
-#           commandList (key shortcut)          #
-#################################################
-**/
-
+/* Define some label for HELP */
 #define MAIN_LABEL "F1 : TCHAT    F2 : ENVOYER (TCHAT)    F3 : VALIDER    F10 : QUITTER                                                   "
 #define AMIS_LABEL "F1 : TCHAT    F2 : ENVOYER (TCHAT)    F3 : AJOUTER    F4 : RETIRER    F10 : RETOUR                                    "
 #define COLL_LABEL "F1 : TCHAT    F2 : ENVOYER (TCHAT)    F3 : AFFICHER DECK    F10 : RETOUR                                              "
@@ -69,14 +46,6 @@
 /* Defines playersInfoPanel size (same width as gamePanel) */
 #define PLAYER_INFO_HEIGTH (3+2*DEFAULT_EMPTY_SPACE)
 #define PLAYER_INFO_WIDTH GAME_WIDTH
-
-/* Defines tchatInputPanel size (same height as playerInfoPanel) */
-#define TCHAT_INPUT_HEIGTH PLAYER_INFO_HEIGTH
-#define TCHAT_INPUT_WIDTH 27
-
-/* Defines tchatLogPanel size (same width as tchatInputPanel) */
-#define TCHAT_HEIGTH 14
-#define TCHAT_WIDTH TCHAT_INPUT_WIDTH
 
 /* Defines cardInfoPanel size (same width as tchatInputPanel) */
 #define CARD_INFO_HEIGTH 5

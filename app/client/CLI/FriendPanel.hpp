@@ -1,6 +1,30 @@
 #ifndef FRIENDPANEL_HPP
 #define	FRIENDPANEL_HPP
 
+/** friend layout
+#################################### ############
+#                                  # #          #
+#                                  # #          #
+#                                  # #          #
+#                                  # #          #
+#           tchatHelp              # #          #
+#               +                  # #  tchat   #
+#           friendList             # #          #
+#               +                  # #          #
+#        add/remove popup          # #          #
+#                                  # #          #
+#                                  # #          #
+#                                  # #          #
+#                                  # ############
+#                                  # ############
+#                                  # #   tchat  #
+#                                  # #   input  #
+#################################### ############
+
+
+            commandList (key shortcut)
+**/
+
 #include <panel.h>
 #include <form.h>
 
