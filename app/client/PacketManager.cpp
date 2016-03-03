@@ -14,11 +14,6 @@ void PacketManager::managePacket(Packet::packet* customPacket) {
                                           break;
         case Packet::DISCONNECT_ID :      WizardLogger::warning("Paquet invalide reçu : DisconnectInfo");
                                           break;
-        /* COLLECTIONS/DECKS/CARDS PROCESS */
-        case Packet::COLLECTION_REQ_ID :  WizardLogger::warning("Paquet invalide reçu : CollectionRequest");
-                                          break;
-        case Packet::COLLECTION_LIST_ID : collectionResult((Packet::collectionListPacket*) customPacket);
-                                          break;
         default :                         WizardLogger::error("Paquet inconnu reçu : "+customPacket->ID);
                                           break;
     }
@@ -73,18 +68,6 @@ void PacketManager::sendDisconnection() {
     delete logoutPacket;
 }
 
-void PacketManager::requestCollection() {
-    /* Create and specify a new collectionRequest packet */
-    Packet::packet *collReqPacket = new Packet::packet();
-    collReqPacket->ID = Packet::COLLECTION_REQ_ID;
-    
-    /* Send it to the server */
-    conn->sendPacket((Packet*) collReqPacket, sizeof(*collReqPacket));
-    
-    /* Clean memory */
-    delete collReqPacket;
-}
-
 void PacketManager::manageFriend(const char* pseudo, bool remove) {
     Packet::tchatManagPacket* manageFriendPacket = new Packet::tchatManagPacket();
     
@@ -106,17 +89,6 @@ void PacketManager::manageFriend(const char* pseudo, bool remove) {
     delete manageFriendPacket;
 }
 
-void PacketManager::askFriendsList() {
-    Packet::packet* friendsReqPacket = new Packet::packet();
-    
-    /* Set ID and send it */
-    friendsReqPacket->ID = Packet::FRIENDS_REQ_ID;
-    conn->sendPacket((Packet*) friendsReqPacket, sizeof(*friendsReqPacket));
-    
-    /* Clean memory */
-    delete friendsReqPacket;
-}
-
 //======================================================================================
 
 void PacketManager::loginResult(const Packet::loginResultPacket* resultPacket) {
@@ -128,25 +100,5 @@ void PacketManager::loginResult(const Packet::loginResultPacket* resultPacket) {
         display->displayLoginResult("Erreur durant le login");
     } else {
         display->valideLogin();
-    }
-}
-
-void PacketManager::collectionResult(const Packet::collectionListPacket* collectionPacket) {
-    /* Check if size is correct to detect corrupted packet */
-    if (collectionPacket->size != sizeof(collectionPacket->cartesList)) {
-        WizardLogger::error("Paquet de collection corrompu reçu ("
-        +std::to_string(collectionPacket->size)+"/"+std::to_string(sizeof(collectionPacket->cartesList))+")");
-    } else {
-        std::vector<int>* cardList = new std::vector<int>();
-        for (int i = 0 ; i < MAX_CARDS ; ++i) {
-            if (collectionPacket->cartesList[i] == 1) {
-                cardList->push_back(i);
-            } else if (collectionPacket->cartesList[i] == 2) {
-                cardList->push_back(i);
-                cardList->push_back(i);
-            }
-        }
-        //TODO display->updateCollection(cardList->size(), (int*) &cardList[0]); /* Now, vector are contigous */
-        delete cardList;
     }
 }

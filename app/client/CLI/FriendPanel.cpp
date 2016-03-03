@@ -44,13 +44,6 @@ FriendPanel::FriendPanel() {
     refresh();
 }
 
-FriendPanel::~FriendPanel() {
-    unpost_form(form);
-    free_form(form);
-    free_field(field[0]);
-    free_field(field[1]);
-}
-
 void FriendPanel::show() {
     /* Update friends list from server before display it */
     updateList();
@@ -97,7 +90,6 @@ void FriendPanel::focus() {
 //================================PRIVATE=======================================
 
 void FriendPanel::updateList() {
-    PacketManager::askFriendsList();
     //TODO get friends list from Player and display pseudo
     refresh();
 }

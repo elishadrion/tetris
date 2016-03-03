@@ -61,16 +61,16 @@ class LoginPanel : public CLIPanel {
     void printInMiddle(char*, chtype);
 public:
     LoginPanel();
-    ~LoginPanel();
+    ~LoginPanel() = default;
 
     void printError(std::string);
     void valideLogin();
     
-    
-    
-    void show() override;
-    void hide() override;
     void focus() override;
+    
+    /* Not used */
+    void show() override {}
+    void hide() override {}
 };
 
 #endif /* PANEL_HPP */

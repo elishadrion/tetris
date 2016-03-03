@@ -38,8 +38,8 @@
 //==============CLI======================
 
 /* Size of main panel */
-#define MAIN_HEIGTH 21
-#define MAIN_WIDTH 63
+#define MAIN_HEIGTH 30
+#define MAIN_WIDTH 65
 
 //============TCHAT======================
 

@@ -52,11 +52,6 @@ TchatPanel::~TchatPanel() {
     if (_tchatThread != NULL)
         pthread_cancel(_tchatThread);
     pthread_mutex_destroy(&_mutex);
-    
-    /* Remove form */
-    unpost_form(form);
-	free_form(form);
-    for (int i = 0 ; i < INPUT_HEIGHT-2 ; ++i) free_field(field[i]);
 }
 
 /* Add a message in the tchat/console buffer

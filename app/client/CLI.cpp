@@ -36,6 +36,10 @@ CLI::CLI() {
     _panelList[DECK] = new DeckPanel();
     _panelList[WAIT] = new WaitPanel();
     _panelList[GAME] = new GamePanel();
+    
+    /* Hide all panel after login one */
+    for (int i = 1 ; i < PANEL_TOTAL_NUMBER ; ++i) _panelList[i]->hide();
+    refresh();
 }
 
 CLI::~CLI() {
@@ -64,9 +68,7 @@ void CLI::displayFatalError(std::string error) {
 }
 
 void CLI::displayLoginPrompt() {
-    /* Display login panel after hidding all other panel */
-    for (int i = 0 ; i < PANEL_TOTAL_NUMBER ; ++i) _panelList[i]->hide();
-    _panelList[LOGIN]->show();
+    /* Display login panel */
     _panelList[LOGIN]->focus();
     displayMainWindow();
 }
@@ -85,8 +87,7 @@ void CLI::displayMainWindow() {
     mvprintw(LINES-2, 2, MAIN_LABEL);
     attron(COLOR_PAIR(6));
     
-    /* We display MainMenu after hidding all other panel */
-    for (int i = 0 ; i < PANEL_TOTAL_NUMBER ; ++i) _panelList[i]->hide();
+    /* We display MainMenu */
     _panelList[MAIN]->show();
     _panelList[TCHAT]->show();
     _panelList[MAIN]->focus();
@@ -98,10 +99,8 @@ void CLI::displayFriendsWindow() {
     mvprintw(LINES-2, 2, AMIS_LABEL);
     attron(COLOR_PAIR(6));
     
-    /* We display FriendList after hidding all other panel */
-    for (int i = 0 ; i < PANEL_TOTAL_NUMBER ; ++i) _panelList[i]->hide();
+    /* We display FriendList */
     _panelList[FRIEND]->show();
-    _panelList[TCHAT]->show();
     _panelList[FRIEND]->focus();
     
     /* After that, we hide and show the mainPanel */
@@ -120,10 +119,8 @@ void CLI::displayCollectionWindow() {
     mvprintw(LINES-2, 2, COLL_LABEL);
     attron(COLOR_PAIR(6));
     
-    /* We display CollectionPanel after hidding all other panel */
-    for (int i = 0 ; i < PANEL_TOTAL_NUMBER ; ++i) _panelList[i]->hide();
+    /* We display CollectionPanel */
     _panelList[COLL]->show();
-    _panelList[TCHAT]->show();
     _panelList[COLL]->focus();
     
     /* After that, we hide and show the mainPanel */
@@ -142,10 +139,8 @@ void CLI::displayDeckWindow() {
     mvprintw(LINES-2, 2, DECK_LABEL);
     attron(COLOR_PAIR(6));
     
-    /* We display CollectionPanel after hidding all other panel */
-    for (int i = 0 ; i < PANEL_TOTAL_NUMBER ; ++i) _panelList[i]->hide();
+    /* We display CollectionPanel */
     _panelList[DECK]->show();
-    _panelList[TCHAT]->show();
     _panelList[DECK]->focus();
     
     /* After that, we hide and show the collectionPanel */
@@ -165,10 +160,8 @@ void CLI::displayWait() {
     mvprintw(LINES-2, 2, WAIT_LABEL);
     attron(COLOR_PAIR(6));
     
-    /* We display CollectionPanel after hidding all other panel */
-    for (int i = 0 ; i < PANEL_TOTAL_NUMBER ; ++i) _panelList[i]->hide();
+    /* We display CollectionPanel */
     _panelList[WAIT]->show();
-    _panelList[TCHAT]->show();
     _panelList[WAIT]->focus();
     
     /* After that, we hide and show the mainPanel */
@@ -187,10 +180,8 @@ void CLI::displayGame() {
     mvprintw(LINES-2, 2, GAME_LABEL);
     attron(COLOR_PAIR(6));
     
-    /* We display CollectionPanel after hidding all other panel */
-    for (int i = 0 ; i < PANEL_TOTAL_NUMBER ; ++i) _panelList[i]->hide();
+    /* We display CollectionPanel */
     _panelList[GAME]->show();
-    _panelList[TCHAT]->show();
     _panelList[GAME]->focus();
     
     /* After that, we hide and return to wait (returning to main) */

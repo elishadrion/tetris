@@ -37,6 +37,9 @@
 /* To send disconnection signal */
 #include "client/PacketManager.hpp"
 
+/* To get friends info */
+#include "client/Player.hpp"
+
 #include "CLIPanel.hpp"
 #include "client/Display.hpp"
 
@@ -52,7 +55,7 @@ class FriendPanel : public CLIPanel {
     void manageFriend(bool remove = false);
 public:
     FriendPanel();
-    ~FriendPanel();
+    ~FriendPanel() = default;
     
     void show() override;
     void hide() override;

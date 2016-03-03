@@ -15,11 +15,8 @@ namespace PacketManager {
     void makeLoginRequest(const char*, const char*);
     void makeRegistrationRequest(const char*, const char*);
     void sendDisconnection();
-    void requestCollection();
     void manageFriend(const char*, bool);
-    void askFriendsList();
     
     /* receives analyse */
     void loginResult(const Packet::loginResultPacket*);
-    void collectionResult(const Packet::collectionListPacket*);
 }

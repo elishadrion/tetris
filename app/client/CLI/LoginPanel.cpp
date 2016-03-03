@@ -35,6 +35,9 @@ LoginPanel::LoginPanel() : isWainting(false), success(false) {
 	/* Print a border around the main window and print a title */
     box(window, 0, 0);
 	printInMiddle(DEFAULT_LABEL, COLOR_PAIR(7));
+	
+    /* Post form */
+    post_form(form);
     
     /* Add some label */
     set_field_buffer(field[0], 0, "Pseudo       :");
@@ -42,26 +45,6 @@ LoginPanel::LoginPanel() : isWainting(false), success(false) {
     mvwprintw(window, 8, 4, "(Utilisez les flèches pour changer de champs)");
     mvwprintw(window, 10, 4, "F1: Annuler     F2: Se connecter     F3: S'enregistrer");
     refresh();
-}
-
-LoginPanel::~LoginPanel() {
-    /* We must remove the form and clear field before exiting */
-    unpost_form(form);
-	free_form(form);
-	free_field(field[0]);
-	free_field(field[1]);
-	free_field(field[2]);
-	free_field(field[3]);
-}
-
-void LoginPanel::show() {
-    /* Post form */
-    post_form(form);
-}
-
-void LoginPanel::hide() {
-    /* Remove form */
-    unpost_form(form);
 }
 
 /* Ask user login/registration informations */
@@ -186,6 +169,9 @@ void LoginPanel::focus() {
         /* Don't forget to refresh */
         refresh();
     }
+    
+    /* Unpost form (don't needed anymore) */
+    unpost_form(form);
 }
 
 /* Display and error message in red top of the fileds

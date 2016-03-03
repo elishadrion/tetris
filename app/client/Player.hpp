@@ -3,6 +3,8 @@
 
 #include <string>
 
+#include "CacheManager.hpp"
+
 class Player {
     std::string _username;
     unsigned _collection[MAX_CARDS];
@@ -12,9 +14,12 @@ class Player {
     unsigned _defeats;
 
 public:
-    Player(std::string username, unsigned *collection, int *decks, std::string *friends,
-    unsigned victories, unsigned defeats) : _username(username), _collection(collection), _decks(decks),
-    _friendsList(friends), _victories(victories), _defeats(defeats) {}
+    Player(std::string username, unsigned collection[MAX_CARDS], int decks[MAX_DECKS], std::string friends[MAX_FRIENDS],
+    unsigned victories, unsigned defeats) : _username(username), _victories(victories), _defeats(defeats) {
+        for (int i = 0 ; i < MAX_CARDS ; ++i) _collection[i] = collection[i];
+        for (int i = 0 ; i < MAX_DECKS ; ++i) _decks[i] = decks[i];
+        for (int i = 0 ; i < MAX_FRIENDS ; ++i) _friendsList[i] = friends[i];
+    }
     
     /* Setter */
     inline void addCardCollection(unsigned ID) { _collection[ID]++; }
