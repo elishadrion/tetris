@@ -27,15 +27,21 @@ CLI::CLI() {
         refresh();
     }
     
-    /* Create panel and form view */
-    _panelList[LOGIN] = new LoginPanel();
-    _panelList[MAIN] = new MainPanel();
-    _panelList[TCHAT] = new TchatPanel();
-    _panelList[FRIEND] = new FriendPanel();
-    _panelList[COLL] = new CollectionPanel();
-    _panelList[DECK] = new DeckPanel();
-    _panelList[WAIT] = new WaitPanel();
-    _panelList[GAME] = new GamePanel();
+    /* Create panel and form view (if failed, client must quit) */
+    try {
+        _panelList[LOGIN] = new LoginPanel();
+        _panelList[MAIN] = new MainPanel();
+        _panelList[TCHAT] = new TchatPanel();
+        _panelList[FRIEND] = new FriendPanel();
+        _panelList[COLL] = new CollectionPanel();
+        _panelList[DECK] = new DeckPanel();
+        _panelList[WAIT] = new WaitPanel();
+        _panelList[GAME] = new GamePanel();
+    } catch (const std::runtime_error &error) {
+        WizardLogger::fatal("Impossible de créer les panels de la CLI : ", error.what());
+        endwin(); /* Ensure ncurses is desactivate */
+        throw;
+    }
     
     /* Hide all panel after login one */
     for (int i = 1 ; i < PANEL_TOTAL_NUMBER ; ++i) _panelList[i]->hide();

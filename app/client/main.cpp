@@ -38,8 +38,15 @@ int main(int argc, char** argv) {
         return EXIT_FAILURE;
     }
     
-    /* We init in CLI mode */
-    display = new CLI();
+    /* We init in CLI mode
+     * If it fail, client must stop
+     */
+    try {
+        display = new CLI();
+    } catch (...) {
+        std::cerr << "Impossible de créer la CLI (voir log)" << std::endl;
+        return EXIT_FAILURE;
+    }
     
     /* Display login prompt
      * Only call it after all backround service are ready

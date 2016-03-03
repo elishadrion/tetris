@@ -179,6 +179,7 @@ void LoginPanel::focus() {
  * @message : the string to display as an error
  */
 void LoginPanel::printError(std::string message) {
+    WizardLogger::error(message);
     beep();
     printInMiddle((char*)message.c_str(), COLOR_PAIR(1));
     setFocusToField();
@@ -187,6 +188,7 @@ void LoginPanel::printError(std::string message) {
 
 /* Close LoginPanel and set signal to open MainPanel */
 void LoginPanel::valideLogin() {
+    WizardLogger::info("Login réussi");
     success = true;
     isWainting = false;
 }
@@ -234,9 +236,11 @@ void LoginPanel::proceed(bool registration) {
     char *password = field_buffer(field[3], 0);
 
     if (registration) {
+        WizardLogger::info("Enregistrement en cours");
         PacketManager::makeRegistrationRequest(pseudo, password);
         printWait(REGISTRATION_IN_PROGRESS);
     } else {
+        WizardLogger::info("Login en cours");
         PacketManager::makeLoginRequest(pseudo, password);
         printWait(LOGIN_IN_PROGRESS);
     }

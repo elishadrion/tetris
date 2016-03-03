@@ -1,5 +1,4 @@
 #include <string>
-#include <vector>
 
 #include "common/Constants.hpp"
 #include "common/Packet.hpp"

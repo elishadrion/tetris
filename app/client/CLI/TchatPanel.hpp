@@ -7,11 +7,13 @@
 /* For sleep() */
 #include <unistd.h>
 
+/* For error */
+#include <iostream>
+#include <cstring>
+
 #include <pthread.h>
 #include <string>
 #include <vector>
-
-#include "common/WizardLogger.hpp"
 
 #include "CLIPanel.hpp"
 

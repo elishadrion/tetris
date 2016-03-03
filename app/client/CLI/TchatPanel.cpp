@@ -31,16 +31,19 @@ TchatPanel::TchatPanel() : _isDisplay(false) {
     /* Update the stacking order */
     update_panels();
     
-    /* Launch thread for tchat/console completion */
-    _mutex = PTHREAD_MUTEX_INITIALIZER;
-    threadData data;
-    data.mutex = &_mutex;
-    data.win = windows[0];
-    if (pthread_create(&_tchatThread, NULL, updateTchat, (void*) &data) == -1) {
-        std::string error = "Impossible d'initialiser le tchat : ";
-        error += strerror(errno);
-        WizardLogger::error(error);
-        //TODO throw
+    /* Launch thread for tchat/console completion (throw error if failed) */
+    try {
+        _mutex = PTHREAD_MUTEX_INITIALIZER;
+        threadData data;
+        data.mutex = &_mutex;
+        data.win = windows[0];
+        if (pthread_create(&_tchatThread, NULL, updateTchat, (void*) &data) == -1) {
+            std::string error = "Impossible d'initialiser le tchat : ";
+            error += strerror(errno);
+            throw std::runtime_error(error);
+        }
+    } catch (const std::runtime_error &error) {
+        throw;
     }
     
     doupdate();

@@ -3,13 +3,17 @@
 
 #include <panel.h>
 
-#include "common/WizardLogger.hpp"
+#include "client/Display.hpp"
 
 #include "CLIPanel.hpp"
 
+extern Display *display;
+
 class WaitPanel : public CLIPanel {
-    WINDOW *windows;
+    WINDOW *window;
     PANEL  *panel;
+    
+    bool _inGame;
 public:
     WaitPanel();
     ~WaitPanel() = default;

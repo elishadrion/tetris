@@ -28,12 +28,6 @@
 #include <panel.h>
 #include <form.h>
 
-#include <string>
-#include <vector>
-
-/* For logging */
-#include "common/WizardLogger.hpp"
-
 /* To send disconnection signal */
 #include "client/PacketManager.hpp"
 
