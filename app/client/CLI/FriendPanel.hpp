@@ -23,13 +23,16 @@
 extern Display *display;
 
 class FriendPanel : public CLIPanel {
-    WINDOW *window;
+    WINDOW *windows[2];
     PANEL  *panel;
+    FIELD *field[2];
+    FORM *form;
     
     void updateList();
+    void manageFriend(bool remove = false);
 public:
     FriendPanel();
-    ~FriendPanel() = default;
+    ~FriendPanel();
     
     void show() override;
     void hide() override;

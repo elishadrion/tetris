@@ -98,6 +98,7 @@ void TchatPanel::hide() {
     }
 }
 
+//TODO ADD FIELD CHECK LIKE LOGINPANEL (WE CAN GET INDEX AND KNOW IN WICH FIELD WE ARE)
 void TchatPanel::focus() {
     /* Set focus on the field and move cursor to it */
     form_driver(form, REQ_END_LINE);

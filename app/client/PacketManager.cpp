@@ -85,6 +85,38 @@ void PacketManager::requestCollection() {
     delete collReqPacket;
 }
 
+void PacketManager::manageFriend(const char* pseudo, bool remove) {
+    Packet::tchatManagPacket* manageFriendPacket = new Packet::tchatManagPacket();
+    
+    /* Set ID to addFriendRequest or removeFriendRequest */
+    if (remove)
+        manageFriendPacket->ID = Packet::FRIEND_DEL_ID;
+    else
+        manageFriendPacket->ID = Packet::FRIEND_ADD_ID;
+    
+    /* Send pseudo */
+    for (int i = 0 ; i < MAX_PSEUDO_SIZE ; ++i) {
+        manageFriendPacket->pseudo[i] = pseudo[i];
+    }
+    
+    /* Send it to the server */
+    conn->sendPacket((Packet*) manageFriendPacket, sizeof(*manageFriendPacket));
+    
+    /* Clean memory */
+    delete manageFriendPacket;
+}
+
+void PacketManager::askFriendsList() {
+    Packet::packet* friendsReqPacket = new Packet::packet();
+    
+    /* Set ID and send it */
+    friendsReqPacket->ID = FRIENDS_REQ_ID;
+    conn->sendPacket((Packet*) friendsReqPacket, sizeof(*friendsReqPacket));
+    
+    /* Clean memory */
+    delete friendsReqPacket;
+}
+
 //======================================================================================
 
 void PacketManager::loginResult(const Packet::loginResultPacket* resultPacket) {

@@ -2,7 +2,7 @@
 #define	PACKET_HPP
 
 #include <string>
-#include <list>
+#include <vector>
 
 using namespace std;
 
@@ -28,12 +28,16 @@ public:
         DECK_CONT_ID = 24,
         CARTE_REQ_ID = 25,
         CARTE_INFO_ID = 26,
-        /* TODO TCHAT PROCESS */
+        /* TCHAT & FRIEND PROCESS */
         TCHAT_CONV_REQ_ID = 31,
         TCHAT_NEW_CONV_ID = 32,
         TCHAT_MESSAGE_ID = 33,
         TCHAT_END_REQ_ID = 34,
         TCHAT_END_CONV_ID = 35,
+        FRIEND_ADD_ID = 36,
+        FRIEND_DEL_ID = 37,
+        FRIENDS_REQ_ID = 38,
+        FRIENDS_LIST_ID = 39,
         //TODO launch game + game process
     };
     
@@ -100,6 +104,27 @@ public:
         int carteID;
         char cartesDescription[MAX_CARTE_DESCRITION_SIZE]; //TODO description has name ??
     } carteInfosPacket;
+    
+    /* Tchat new/del (or friend) request */
+    typedef struct {
+        int ID;
+        int size = sizeof(char)*MAX_PSEUDO_SIZE;
+        char pseudo[MAX_PSEUDO_SIZE];
+    } tchatManagPacket;
+    
+    /* Tchat message packet (width*height) */
+    typedef struct {
+        int ID = TCHAT_MESSAGE_ID;
+        int size = sizeof(char)*30*5;
+        char pseudo[30*5];
+    } tchatMessagePacket;
+    
+    /* friends list (cannot be something else than a vector) */
+    typedef struct {
+        int ID = FRIENDS_LIST_ID;
+        int size;
+        std::vector friendsList;
+    } friendsListPacket;
 };
 
 #endif	/* PACKET_HPP */
