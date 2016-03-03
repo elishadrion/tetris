@@ -13,3 +13,4 @@ Le programme est en CPP avec des *.cpp et des *.hpp et le makefile, les autres l
 # Bibliothèques incluses
 * spdlog - par gabime - MIT License (https://github.com/gabime/spdlog)
 * json - par nlohmann - MIT License (https://github.com/nlohmann/json)
+* catch [single header merge] - par philsquared - Boost Software License v1 (https://github.com/philsquared/Catch)
