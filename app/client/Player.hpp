@@ -4,21 +4,20 @@
 #include <string>
 
 class Player {
-
     std::string _username;
-    int _collection[MAX_CARDS];
+    unsigned _collection[MAX_CARDS];
     int _decks[MAX_DECKS];
     std::string _friendsList[MAX_FRIENDS];
     unsigned _victories;
     unsigned _defeats;
 
 public:
-    Player(std::string username, int *collection, int *decks, std::string *friends,
+    Player(std::string username, unsigned *collection, int *decks, std::string *friends,
     unsigned victories, unsigned defeats) : _username(username), _collection(collection), _decks(decks),
     _friendsList(friends), _victories(victories), _defeats(defeats) {}
     
     /* Setter */
-    inline void addCardCollection(int ID) { _collection[ID]++; }
+    inline void addCardCollection(unsigned ID) { _collection[ID]++; }
     inline void addDeck(int ID) { for (int i = 0 ; i < MAX_DECKS ; ++i) if (_decks[i] == -1) _decks[i] = ID; }
     inline void removeDeck(int ID) { for (int i = 0 ; i < MAX_DECKS ; ++i) if (_decks[i] == ID) _decks[i] = -1; }
     inline void addFriend(std::string pseudo) {
@@ -32,7 +31,7 @@ public:
     
     /* Getter */
     inline std::string getName() const { return _username; }
-    inline int *getCollection() { return _collection; }
+    inline unsigned *getCollection() { return _collection; }
     inline int *getDeck() { return _decks; }
     inline std::string *getFriends() { return _friendsList; }
     inline unsigned getVictories() const { return _victories; }

@@ -4,27 +4,28 @@
 #include <string>
 
 class Card {
-    int _id;
+    unsigned _id;
     bool _monster;
     std::string _name;
     std::string _description;
-    int _energyCost;
-    const int _maxHP;
-    int _HP;
+    unsigned _energyCost;
+    const unsigned _maxHP;
+    unsigned _HP;
 
 public:
-    Card(int id, bool isMonster, std::string name, std::string description, std::size_t energy, int HP) :
+    explicit Card(unsigned id, bool isMonster, std::string name, std::string description, unsigned energy, unsigned HP) :
         _id(id), _monster(isMonster), _name(name), _description(description), _energyCost(energy),
         _maxHP(HP), _HP(HP) {}
     ~Card() = default;
     
-    int getId() { return _id; }
-    bool isMonster() { return _monster; }
-    std::string getName() { return _name; }
-    std::string getDescription() { return _description; }
-    int getEnergyCost() { return _energyCost; }
-    int getMaxHP(){ return _maxHP; }
-    int getHP(){ return _HP; }
+    /* Getter */
+    inline unsigned getID() { return _id; }
+    inline bool isMonster() { return _monster; }
+    inline std::string getName() { return _name; }
+    inline std::string getDescription() { return _description; }
+    inline unsigned getEnergyCost() { return _energyCost; }
+    inline unsigned getMaxHP(){ return _maxHP; }
+    inline unsigned getHP(){ return _HP; }
 };
 
 #endif	/* CARD_HPP */
