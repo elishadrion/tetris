@@ -126,7 +126,7 @@ void Game::checkDeckAndStart() {
 
         /*
             send CardInHand
-             => sendStartTurnInfo(Player*, dataIGPlayer, std::vector<CardMonster*>, int, int, int)
+             => sendStartTurnInfo(Player*, dataIGPlayer, std::std::vector<CardMonster*>, int, int, int)
              with current player info, ennemy placed card, ennemy card in hand, ennemy card in deck (and ennemy card in trash ?)
                 [you must send both packet, the first start the game and the second start the player turn
                  OR we add ataIGPlayer in the initGame, you choose]
@@ -343,7 +343,7 @@ void Game::sendInfoAction(PlayerInGame* pIG, int cardWichAttack, int attackCard,
  */
 void Game::beginTurn() {
     // Increment number of turn
-    vector<CardMonster*> cardPlaced = _currentPlayer->getCardsPlaced();
+    std::vector<CardMonster*> cardPlaced = _currentPlayer->getCardsPlaced();
     for (size_t i = 0; i < cardPlaced.size(); ++i) {
         cardPlaced[i]->incrementTour();
     }
@@ -447,7 +447,7 @@ bool Game::verifyTaunt(PlayerInGame* pIG, CardMonster *card) {
 bool Game::verifyTaunt(PlayerInGame* pIG) {
     bool res = true;
 
-    vector<CardMonster*> cardPlaced = pIG->getCardsPlaced();
+    std::vector<CardMonster*> cardPlaced = pIG->getCardsPlaced();
     size_t i = 0;
     while(i < cardPlaced.size() && res) {
         res = !(cardPlaced[i]->isTaunt());
