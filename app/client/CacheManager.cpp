@@ -25,12 +25,18 @@ Card *CacheManager::getCard(unsigned ID) {
     
     /* Card not found so we must add it to cache */
     WizardLogger::warning("La carte "+std::to_string(ID)+" n'est pas dans le cache, requête auprès du serveur");
-    card = addToCache(ID);
+    card = requestCard(ID);
     
-    if (card == nullptr)
-        WizardLogger::error("La carte demandé semble ne pas exister ! Veuillez vérifier son ID");
+    /* Search for card ID in cache */
+    for (int i = 0 ; i < cardCache.size() ; ++i) {
+        card = cardCache[i];
+        if (card->getID() == ID)
+            return card;
+    }
     
-    return card;
+    WizardLogger::error("La carte demandé semble ne pas exister ! Veuillez vérifier son ID");
+    
+    return nullptr;
 }
 
 /* Get card by name from card local cache
@@ -50,12 +56,17 @@ Card *CacheManager::getCard(std::string name) {
     return nullptr;
 }
 
+/* Add card to cache and stop waiting for it */
+void CacheManager::addToCache(Card* card) {
+    if (card != nullptr)
+        cardCache.push_back(card);
+    waiting = false;
+}
+
 //=========================PRIVATE========================
 
-Card *CacheManager::addToCache(unsigned ID) {
-    //TODO use PacketManager to request a card's informations
-    //TODO block until infos is ready
-    //TODO create or add new card* to vector (don't know how to implement that for now)
-    //TODO return card pointer or nullptr if not found (or error)
-    return nullptr;
+Card *CacheManager::requestCard(unsigned ID) {
+    waiting = true;
+    PacketManager::requestCard(ID);
+    while(waiting);
 }

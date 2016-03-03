@@ -83,6 +83,7 @@ public:
     void displayDeckWindow() override; //TODO get ID ?
     void displayWait() override;
     void displayGame() override;
+    void displayClassement() override;
     void focusTchat() override;
     void displayPopup(std::string) override;
 };

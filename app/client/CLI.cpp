@@ -194,6 +194,9 @@ void CLI::displayGame() {
     _panelList[GAME]->hide();
 }
 
+//TODO
+void CLI::displayClassement() {}
+
 void CLI::focusTchat() {
     _panelList[TCHAT]->focus();
 }

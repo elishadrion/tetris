@@ -3,8 +3,6 @@
 
 #include <string>
 
-#include "CacheManager.hpp"
-
 class Player {
     std::string _username;
     unsigned _collection[MAX_CARDS];
@@ -12,7 +10,7 @@ class Player {
     std::string _friendsList[MAX_FRIENDS];
     unsigned _victories;
     unsigned _defeats;
-
+    CacheManager *_cm;
 public:
     Player(std::string username, unsigned collection[MAX_CARDS], int decks[MAX_DECKS], std::string friends[MAX_FRIENDS],
     unsigned victories, unsigned defeats) : _username(username), _victories(victories), _defeats(defeats) {

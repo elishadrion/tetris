@@ -1,6 +1,7 @@
 #include "PacketManager.hpp"
 
 extern Connection *conn;
+extern CacheManager *cacheManager;
 
 void PacketManager::managePacket(Packet::packet* customPacket) {
     /* We get ID of the packet after cast void* to packet* */
@@ -91,6 +92,17 @@ void PacketManager::manageFriend(const char* pseudo, bool remove) {
     delete manageFriendPacket;
 }
 
+void PacketManager::requestCard(unsigned ID) {
+    Packet::carteRequestPacket* cardRequest = new Packet::carteRequestPacket();
+    cardRequest->carteID = ID;
+    
+    /* Send it to the server */
+    conn->sendPacket((Packet*) cardRequest, sizeof(*cardRequest));
+    
+    /* Clean memory */
+    delete cardRequest;
+}
+
 //======================================================================================
 
 void PacketManager::loginResult(const Packet::loginResultPacket* resultPacket) {
@@ -110,4 +122,10 @@ void PacketManager::playerInfo(const Packet::playerInfoPacket* playerPacket) {
     WizardLogger::warning(std::to_string(playerPacket->data.victories));
     WizardLogger::warning(std::to_string(playerPacket->data.defeats));
     display->valideLogin();
+}
+
+void PacketManager::getCard(const Packet::cardInfosPacket* cardInfo) {
+    Card *newCard = new Card(cardInfo->data.carteID, cardInfo->data.monster, std::string(cardInfo->data.name),
+    std::string(cardInfo->data.description), cardInfo->data.energyCost, cardInfo->data.maxHP);
+    cacheManager->addToCache(newCard);
 }

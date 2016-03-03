@@ -3,6 +3,7 @@
 #include <system_error>
 
 #include "Connection.hpp"
+#include "CacheManager.hpp"
 #include "common/WizardLogger.hpp"
 #include "Display.hpp"
 #include "CLI.hpp"
@@ -10,8 +11,8 @@
 
 /* Main is not an object so we must use global namespace instead of main->conn */
 Connection *conn;
-
 Display *display;
+CacheManager *cacheManager;
 
 int main(int argc, char** argv) {
     /* We initialise the static logger system
@@ -38,6 +39,9 @@ int main(int argc, char** argv) {
         return EXIT_FAILURE;
     }
     
+    /* We init the cacheManager */
+    cacheManager = new CacheManager();
+    
     /* We init in CLI mode
      * If it fail, client must stop
      */
@@ -57,5 +61,6 @@ int main(int argc, char** argv) {
     /* We close all interface */
     delete display;
     delete conn;
+    delete cacheManager;
     return EXIT_SUCCESS;
 }

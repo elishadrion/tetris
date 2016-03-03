@@ -77,23 +77,23 @@ public:
     typedef struct {
         int ID = CARTE_REQ_ID;
         int size = sizeof(int);
-        int carteID;
+        unsigned carteID;
     } carteRequestPacket;
     
     /* Card info */
     typedef struct {
         int ID = CARTE_INFO_ID;
-        struct data {
-            int carteID;
+        typedef struct {
+            unsigned carteID;
             bool monster;
             char name[MAX_PSEUDO_SIZE];
             char description[MAX_DESCRITION_SIZE];
             unsigned energyCost;
             unsigned maxHP;
-        };
-        struct data; /* We define it but we must include it */
+        } cardData;
+        cardData data; /* We define it but we must include it */
         int size = sizeof(data);
-    } carteInfosPacket;
+    } cardInfosPacket;
 
 //====================TCHAT & FRIEND PROCESS================================
     
