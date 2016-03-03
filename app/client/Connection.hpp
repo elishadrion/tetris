@@ -12,8 +12,6 @@
 #include "common/WizardLogger.hpp"
 #include "Display.hpp"
 
-#define PORT 5555
-
 extern Display *display;
 
 class Connection {

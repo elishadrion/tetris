@@ -13,10 +13,6 @@
 
 #include "CLIPanel.hpp"
 
-/* define size for panel */
-#define COLLECTION_HEIGHT 30
-#define COLLECTION_WIDTH 65
-
 /* define starting line for mainMeny entry */
 #define START_LINE 5
 

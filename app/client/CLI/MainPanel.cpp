@@ -2,7 +2,7 @@
 
 MainPanel::MainPanel() {
     /* We create mainWindow where player can select what to do */
-    window = newwin(MAIN_HEIGHT, MAIN_WIDTH, 0, 0);
+    window = newwin(MAIN_HEIGTH, MAIN_WIDTH, 0, 0);
     box(window, 0, 0);
     keypad(window, TRUE);
 

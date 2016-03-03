@@ -52,19 +52,12 @@
 #define WAIT_LABEL "F1 : TCHAT    F2 : ENVOYER (TCHAT)    F10 : ANNULER                                                                   "
 #define GAME_LABEL "F1 : TCHAT    F2 : ENVOYER (TCHAT)    F3 : PIOCHER    F4 : JOUER    F5 : JETER    F6 : FIN DE TOUR    F10 : ABANDONNER"
 
-/* Nbr of space char used to seperate panel */
-#define DEFAULT_EMPTY_SPACE 2
-
-/* Defines maximum of the mainWindow */
+/* Defines maximum of the CLI */
 #define LINES 37
 #define COLLONNES 96
 
-/* Defines commandListPanel size (take all windows width) */
-#define COMMANDE_PANEL_HEIGTH 1
-
-/* Defines gamePanel size */
-#define GAME_HEIGTH 21
-#define GAME_WIDTH 63
+/* Nbr of space char used to seperate panel */
+#define DEFAULT_EMPTY_SPACE 2
 
 /* Defines card's size
  * With 5 cards max on bord per player (and ico for trash and deck)

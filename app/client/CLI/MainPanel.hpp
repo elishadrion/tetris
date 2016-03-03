@@ -16,10 +16,6 @@
 #include "CLIPanel.hpp"
 #include "client/Display.hpp"
 
-/* define size for panel */
-#define MAIN_HEIGHT 30
-#define MAIN_WIDTH 65
-
 /* define starting line for mainMeny entry */
 #define START_LINE 5
 

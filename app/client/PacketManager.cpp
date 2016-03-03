@@ -110,7 +110,7 @@ void PacketManager::askFriendsList() {
     Packet::packet* friendsReqPacket = new Packet::packet();
     
     /* Set ID and send it */
-    friendsReqPacket->ID = FRIENDS_REQ_ID;
+    friendsReqPacket->ID = Packet::FRIENDS_REQ_ID;
     conn->sendPacket((Packet*) friendsReqPacket, sizeof(*friendsReqPacket));
     
     /* Clean memory */
@@ -138,7 +138,7 @@ void PacketManager::collectionResult(const Packet::collectionListPacket* collect
         +std::to_string(collectionPacket->size)+"/"+std::to_string(sizeof(collectionPacket->cartesList))+")");
     } else {
         std::vector<int>* cardList = new std::vector<int>();
-        for (int i = 0 ; i < MAX_CARTES ; ++i) {
+        for (int i = 0 ; i < MAX_CARDS ; ++i) {
             if (collectionPacket->cartesList[i] == 1) {
                 cardList->push_back(i);
             } else if (collectionPacket->cartesList[i] == 2) {

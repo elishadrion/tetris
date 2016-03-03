@@ -16,10 +16,6 @@
 #include "CLIPanel.hpp"
 #include "client/Display.hpp"
 
-/* define size for panel */
-#define FRIEND_HEIGHT 30
-#define FRIEND_WIDTH 65
-
 extern Display *display;
 
 class FriendPanel : public CLIPanel {

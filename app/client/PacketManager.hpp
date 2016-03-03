@@ -1,15 +1,13 @@
 #include <string>
 #include <vector>
 
+#include "common/Constants.hpp"
 #include "common/Packet.hpp"
 #include "common/WizardLogger.hpp"
 #include "Connection.hpp"
 #include "Display.hpp"
 
 extern Display *display;
-
-/*TODO Must be define somewhere else */
-#define MAX_CARTES 200
 
 namespace PacketManager {
     /* API for other service */

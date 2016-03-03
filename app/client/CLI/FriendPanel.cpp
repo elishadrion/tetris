@@ -2,7 +2,7 @@
 
 FriendPanel::FriendPanel() {
     /* We create mainWindow where player can select what to do */
-    windows[0] = newwin(FRIEND_HEIGHT, FRIEND_WIDTH, 0, 0);
+    windows[0] = newwin(MAIN_HEIGTH, MAIN_WIDTH, 0, 0);
     box(windows[0], 0, 0);
     keypad(windows[0], TRUE);
 

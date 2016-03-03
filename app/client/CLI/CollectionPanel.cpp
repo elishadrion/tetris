@@ -2,7 +2,7 @@
 
 CollectionPanel::CollectionPanel() {
     /* We create mainWindow where player can select what to do */
-    window = newwin(COLLECTION_HEIGHT, COLLECTION_WIDTH, 0, 0);
+    window = newwin(MAIN_HEIGTH, MAIN_WIDTH, 0, 0);
     box(window, 0, 0);
 
     /* Attach a panel to window */
@@ -24,7 +24,7 @@ CollectionPanel::CollectionPanel() {
 }
 
 void CollectionPanel::updatePanel() {
-    for (int i = 0 ; i < COLLECTION_HEIGHT ; ++i) {
+    for (int i = 0 ; i < MAIN_HEIGTH ; ++i) {
         /* If we have card to put, we put it */
         if (i < _collection.size()) {
             char* ID = (char*) malloc(sizeof(char)*10);

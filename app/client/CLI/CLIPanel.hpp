@@ -1,6 +1,8 @@
 #ifndef CLIPANEL_HPP
 #define	CLIPANEL_HPP
 
+#include "common/Constants.hpp"
+
 class CLIPanel {
 public:
     /* Create or remove interface panel */

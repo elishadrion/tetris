@@ -2,15 +2,8 @@
 #define	PACKET_HPP
 
 #include <string>
-#include <vector>
 
-using namespace std;
-
-//TODO must be implemented somewhere else (global so in main ?)
-#define MAX_PSEUDO_SIZE 30
-#define MAX_CARTES 200
-#define DECK_SIZE 20
-#define MAX_CARTE_DESCRITION_SIZE 120
+#include "common/Constants.hpp"
 
 class Packet {
 public:
@@ -71,8 +64,8 @@ public:
     /* Collection list */
     typedef struct {
         int ID = COLLECTION_LIST_ID;
-        int size = sizeof(int)*MAX_CARTES;
-        int cartesList[MAX_CARTES];
+        int size = sizeof(int)*MAX_CARDS;
+        int cartesList[MAX_CARDS];
     } collectionListPacket;
     
     /* Deck content request */
@@ -100,9 +93,9 @@ public:
     /* Card info */
     typedef struct {
         int ID = CARTE_INFO_ID;
-        int size = sizeof(int)+sizeof(char)*MAX_CARTE_DESCRITION_SIZE;
+        int size = sizeof(int)+sizeof(char)*MAX_DESCRITION_SIZE;
         int carteID;
-        char cartesDescription[MAX_CARTE_DESCRITION_SIZE]; //TODO description has name ??
+        char cartesDescription[MAX_DESCRITION_SIZE]; //TODO description has name ??
     } carteInfosPacket;
     
     /* Tchat new/del (or friend) request */
@@ -115,15 +108,15 @@ public:
     /* Tchat message packet (width*height) */
     typedef struct {
         int ID = TCHAT_MESSAGE_ID;
-        int size = sizeof(char)*30*5;
-        char pseudo[30*5];
+        int size = sizeof(char)*MESSAGES_MAX_SIZE;
+        char pseudo[MESSAGES_MAX_SIZE];
     } tchatMessagePacket;
     
     /* friends list (cannot be something else than a vector) */
     typedef struct {
         int ID = FRIENDS_LIST_ID;
         int size;
-        std::vector friendsList;
+        char friendsList[MAX_FRIENDS*MAX_PSEUDO_SIZE];
     } friendsListPacket;
 };
 
