@@ -15,6 +15,9 @@
 *.gch
 *.pch
 
+#
+Makefile
+
 # Compiled Dynamic libraries
 *.so
 *.dylib
