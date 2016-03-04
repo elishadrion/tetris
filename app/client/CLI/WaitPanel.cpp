@@ -37,6 +37,8 @@ void WaitPanel::focus() {
     top_panel(panel);
     update_panels();
     doupdate();
+    
+    PacketManager::registerAsPlayer();
 
     /* Loop through to get user requests with F1 to valide */
     int input;

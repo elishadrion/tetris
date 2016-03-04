@@ -103,6 +103,28 @@ void PacketManager::requestCard(unsigned ID) {
     delete cardRequest;
 }
 
+void PacketManager::registerAsPlayer() {
+    Packet::packet* waitGamePacket = new Packet::packet();
+    waitGamePacket->ID = Packet::WAITING_ID;
+    
+    /* Send it to the server */
+    conn->sendPacket((Packet*) waitGamePacket, sizeof(*waitGamePacket));
+    
+    /* Clean memory */
+    delete waitGamePacket;
+}
+
+void PacketManager::cancelWaiting() {
+    Packet::packet* cancelWaitingPacket = new Packet::packet();
+    cancelWaitingPacket->ID = Packet::CANCEL_ID;
+    
+    /* Send it to the server */
+    conn->sendPacket((Packet*) cancelWaitingPacket, sizeof(*cancelWaitingPacket));
+    
+    /* Clean memory */
+    delete cancelWaitingPacket;
+}
+
 //======================================================================================
 
 void PacketManager::loginResult(const Packet::loginResultPacket* resultPacket) {

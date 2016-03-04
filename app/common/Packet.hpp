@@ -27,6 +27,10 @@ public:
         FRIEND_ADD_ID = 36, /* Get FRIEND_DEL_ID if failed */
         FRIEND_DEL_ID = 37,
         FRIENDS_REQ_ID = 38, /* Do you want to be friend ? */
+        /* LAUNCHING GAME PROCESS */
+        WAITING_ID = 41,
+        CANCEL_ID = 42,
+        LAUNCH_ID = 43,
         //TODO launch game + game process
     };
     
@@ -67,8 +71,8 @@ public:
             unsigned victories;
             unsigned defeats;
         } playerData;
-        playerData data; /* We define it but we must include it */
         int size = sizeof(data);
+        playerData data; /* We define it but we must include it */
     } playerInfoPacket;
 
 //========================CARDS PROCESS=======================================
@@ -91,13 +95,13 @@ public:
             unsigned energyCost;
             unsigned maxHP;
         } cardData;
-        cardData data; /* We define it but we must include it */
         int size = sizeof(data);
+        cardData data; /* We define it but we must include it */
     } cardInfosPacket;
 
 //====================TCHAT & FRIEND PROCESS================================
     
-    /* Tchat new/del (or friend) request */
+    /* Tchat new/del (or friend or new game) request */
     typedef struct {
         int ID;
         int size = sizeof(char)*MAX_PSEUDO_SIZE;
@@ -110,8 +114,6 @@ public:
         int size = sizeof(char)*MESSAGES_MAX_SIZE;
         char pseudo[MESSAGES_MAX_SIZE];
     } tchatMessagePacket;
-
-//==========================================================================
 
 //==========================================================================
     

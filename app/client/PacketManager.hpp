@@ -18,6 +18,8 @@ namespace PacketManager {
     void sendDisconnection();
     void manageFriend(const char*, bool);
     void requestCard(unsigned);
+    void registerAsPlayer();
+    void cancelWaiting();
     
     /* receives analyse */
     void loginResult(const Packet::loginResultPacket*);

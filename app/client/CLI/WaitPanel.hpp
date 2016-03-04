@@ -5,6 +5,8 @@
 
 #include "client/Display.hpp"
 
+#include "client/PacketManager.hpp"
+
 #include "CLIPanel.hpp"
 
 extern Display *display;
