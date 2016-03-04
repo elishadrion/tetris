@@ -7,7 +7,7 @@
 #include "common/WizardLogger.hpp"
 #include "Display.hpp"
 #include "CLI.hpp"
-//#include "GUI.hpp"
+#include "GUI.hpp"
 
 /* Main is not an object so we must use global namespace instead of main->conn */
 Connection *conn;
@@ -43,13 +43,13 @@ int main(int argc, char** argv) {
     WizardLogger::info("Starting client");
     
     std::string adress = "localhost";
-    bool GUI = true;
+    bool activeGUI = true;
     if(argc > 1) {
         std::string arg1 = argv[1];
         if(isIP(arg1)) {
             adress = arg1;
         } else {
-            GUI = (arg1 == "GUI");
+            activeGUI = (arg1 == "GUI");
         }
 
         if(argc > 2) {
@@ -63,7 +63,7 @@ int main(int argc, char** argv) {
                     WizardLogger::warning(warnMsg);
                 }
             } else {
-                GUI = (arg2 == "GUI");
+                activeGUI = (arg2 == "GUI");
             }
         }
     }
@@ -85,8 +85,9 @@ int main(int argc, char** argv) {
     cacheManager = new CacheManager();
 
 
-    if(GUI) {
+    if(activeGUI) {
         // TO DO
+        display = new GUI();
     } else {
         /* We init in CLI mode
          * If it fail, client must stop
