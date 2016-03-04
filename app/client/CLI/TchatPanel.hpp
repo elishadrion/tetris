@@ -29,8 +29,10 @@ class TchatPanel : public CLIPanel {
     FORM  *form;
     FIELD *field[INPUT_HEIGHT-2];
     
-    /* LOCK, tchatPanel never hide after loggin */
-    bool _isDisplay;
+    /* To control field position */
+    int _index;
+    int _size;
+    
     
     /* Thread to add message into the console */
     pthread_t _tchatThread;
@@ -51,8 +53,10 @@ public:
     void addMessage(std::string);
     
     void show() override;
-    void hide() override;
     void focus() override;
+    
+    /* Never used */
+    void hide() {};
 };
 
 #endif	/* TCHATPANEL_HPP */

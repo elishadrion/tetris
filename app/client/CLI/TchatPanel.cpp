@@ -4,7 +4,7 @@
 std::vector<std::string> TchatPanel::_messageBuffer;
 std::string TchatPanel::_consoleBuffer[TCHAT_HEIGHT-2];
 
-TchatPanel::TchatPanel() : _isDisplay(false) {
+TchatPanel::TchatPanel() {
     /* We create the tchatBox/consoleBox */
     windows[0] = newwin(TCHAT_HEIGHT, TCHAT_WIDTH, 0, 65+2);
     box(windows[0], 0, 0);
@@ -27,6 +27,7 @@ TchatPanel::TchatPanel() : _isDisplay(false) {
     
     /* Attach a panel to tchat window */
     panel = new_panel(windows[0]);
+    hide_panel(panel);
 
     /* Update the stacking order */
     update_panels();
@@ -81,59 +82,72 @@ void TchatPanel::show() {
     /* Post form */
     post_form(form);
     wrefresh(windows[1]);
-    
-    /* Lock tchatPanel */
-    _isDisplay = true;
-}
-
-void TchatPanel::hide() {
-    if (!_isDisplay) {
-        hide_panel(panel);
-        update_panels();
-        doupdate();
-        /* Remove form */
-        unpost_form(form);
-    }
 }
 
 //TODO ADD FIELD CHECK LIKE LOGINPANEL (WE CAN GET INDEX AND KNOW IN WICH FIELD WE ARE)
 void TchatPanel::focus() {
     /* Set focus on the field and move cursor to it */
+    form_driver(form, REQ_FIRST_FIELD);
     form_driver(form, REQ_END_LINE);
+    _index = 0;
+    _size = 0;
     wrefresh(windows[1]);
 
     /* Loop through to get user requests */
     int input;
     while((input = wgetch(windows[1])) != KEY_F(1)) {
         switch(input) {
-            case KEY_DOWN:
-                /* Go to the next field (at the end of the buffer) */
-                form_driver(form, REQ_NEXT_FIELD);
-                form_driver(form, REQ_END_LINE);
-                break;
-            case KEY_UP:
-                /* Go to the previous field (at the end of the buffer) */
-                form_driver(form, REQ_PREV_FIELD);
-                form_driver(form, REQ_END_LINE);
-                break;
             case KEY_LEFT:
-                /* Go to the previous character (or empty area) */
-                form_driver(form, REQ_LEFT_CHAR);
+                /* Go to the previous character */
+                if (_index == 0 || _size == 0) {
+                    beep();
+                } else if (_index%(INPUT_WIDTH-3) == 0) {
+                    form_driver(form, REQ_PREV_FIELD);
+                    form_driver(form, REQ_END_LINE);
+                    _index -= 1;
+                } else {
+                    form_driver(form, REQ_LEFT_CHAR);
+                    _index -= 1;
+                }
                 break;
             case KEY_RIGHT:
                 /* Go to the next character (or empty area) */
-                form_driver(form, REQ_RIGHT_CHAR);
+                if (_index == _size || _size == 0) {
+                    beep();
+                } else if (_index%(INPUT_WIDTH-3) == (INPUT_WIDTH-4)) {
+                    form_driver(form, REQ_NEXT_FIELD);
+                    form_driver(form, REQ_BEG_LINE);
+                    _index += 1;
+                } else {
+                    form_driver(form, REQ_RIGHT_CHAR);
+                    _index += 1;
+                }
                 break;
             case KEY_BACKSPACE:
                 /* Remove previous character (if available) */
-                form_driver(form, REQ_LEFT_CHAR);
-                form_driver(form, REQ_DEL_CHAR);
+                if (_index == 0 || _size == 0) {
+                    beep();
+                } else if (_index%(INPUT_WIDTH-3) == 0) {
+                    form_driver(form, REQ_PREV_FIELD);
+                    form_driver(form, REQ_END_LINE);
+                    form_driver(form, REQ_LEFT_CHAR);
+                    form_driver(form, REQ_DEL_CHAR);
+                    _index -= 1;
+                    _size -= 1;
+                } else {
+                    form_driver(form, REQ_LEFT_CHAR);
+                    form_driver(form, REQ_DEL_CHAR);
+                    _index -= 1;
+                    _size -= 1;
+                }
                 break;
             case KEY_F(2):
                 //TODO get fields text and call proceed() to check if it's a command
                 beep();
             default:
                 form_driver(form, input);
+                _size += 1;
+                _index += 1;
                 break;
         }
         
