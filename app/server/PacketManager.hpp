@@ -5,13 +5,16 @@
 
 #include "Card.hpp"
 #include "Collection.hpp"
-#include "Player.hpp"
 
 class Player;
+#include "Player.hpp"
+class Game;
+#include "Game.hpp"
 
 namespace PacketManager {
     /* Manage recev packet */
     void manageDisconnectRequest(Player*, Packet::packet*);
+    void managNewGameRequest(Player*, Packet::packet*);
 
     /* API for other service */
     void managePacket(Player*, Packet::packet*);

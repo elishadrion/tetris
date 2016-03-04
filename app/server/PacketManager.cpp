@@ -87,3 +87,8 @@ void PacketManager::manageDisconnectRequest(Player *player, Packet::packet* disc
     WizardLogger::info(player->getName()+" se déconnecte");
     player->logout();
 }
+
+void PacketManager::managNewGameRequest(Player *player, Packet::packet* newGameRequest) {
+    WizardLogger::info(player->getName()+" en attente de partie");
+    //Game::addPlayerWaitGame(player);
+}
