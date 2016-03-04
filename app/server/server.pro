@@ -1,3 +1,10 @@
 TARGET = server_wizard
-HEADERS = *.hpp
-SOURCES = *.cpp
+TEMPLATE = app
+QT -= gui core # Don't need QT for server
+HEADERS = ../common/Constants.hpp \
+          ../common/Error.hpp \
+          ../common/Packet.hpp \
+          ../common/WizardLogger.hpp \
+          *.hpp
+SOURCES = ../common/WizardLogger.cpp \
+          *.cpp
