@@ -1,5 +1,8 @@
 #include "PacketManager.hpp"
 
+#include "Player.hpp"
+#include "Game.hpp"
+
 void PacketManager::managePacket(Player *player, Packet::packet* customPacket) {
     /* We get ID of the packet after cast void* to packet* */
     switch(customPacket->ID) {
@@ -8,6 +11,10 @@ void PacketManager::managePacket(Player *player, Packet::packet* customPacket) {
         case Packet::REGIST_REQ_ID :      WizardLogger::warning("ATTENTION, les requêtes d'inscription doivent directement être gérée");
                                           break;
         case Packet::DISCONNECT_ID :      PacketManager::manageDisconnectRequest(player, customPacket);
+                                          break;
+        case Packet::WAITING_ID :         PacketManager::managNewGameRequest(player, customPacket);
+                                          break;
+        case Packet::CANCEL_ID :          //PacketManager::manageDisconnectRequest(player, customPacket);
                                           break;
         default :                         WizardLogger::warning("Paquet inconnue reçu");
                                           break;
@@ -90,5 +97,5 @@ void PacketManager::manageDisconnectRequest(Player *player, Packet::packet* disc
 
 void PacketManager::managNewGameRequest(Player *player, Packet::packet* newGameRequest) {
     WizardLogger::info(player->getName()+" en attente de partie");
-    //Game::addPlayerWaitGame(player);
+    Game::addPlayerWaitGame(player);
 }

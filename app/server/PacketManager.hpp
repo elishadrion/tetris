@@ -7,9 +7,7 @@
 #include "Collection.hpp"
 
 class Player;
-#include "Player.hpp"
 class Game;
-#include "Game.hpp"
 
 namespace PacketManager {
     /* Manage recev packet */
