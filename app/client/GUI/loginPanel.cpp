@@ -25,16 +25,16 @@ LoginPanel::LoginPanel() : QWidget()
     pseudo= new QLabel("Pseudo :");
     mdp= new QLabel("Mot de passe :");
 
-    beginSpace= new QLabel("\t");
-    endSpace= new QLabel("\t");
+    //beginSpace= new QLabel("\t");
+    //endSpace= new QLabel("\t");
 
-    gridlayout->addWidget(title,0,0,1,4);
-    gridlayout->addWidget(beginSpace,1,0);
-    gridlayout->addWidget(pseudo,1,1);
-    gridlayout->addWidget(m_pseudo,1,2);
-    gridlayout->addWidget(endSpace,1,3);
-    gridlayout->addWidget(mdp,2,1);
-    gridlayout->addWidget(m_mdp,2,2);
+    gridlayout->addWidget(title,1,1,1,2);
+    //gridlayout->addWidget(beginSpace,1,0);
+    gridlayout->addWidget(pseudo,2,1);
+    gridlayout->addWidget(m_pseudo,2,2);
+    //gridlayout->addWidget(endSpace,1,3);
+    gridlayout->addWidget(mdp,3,1);
+    gridlayout->addWidget(m_mdp,3,2);
 
     login = new QPushButton("Login");
     signIn = new QPushButton("S'enregistrer");
@@ -47,6 +47,19 @@ LoginPanel::LoginPanel() : QWidget()
     layout->addWidget(login);
     layout->addWidget(signIn);
 
-    gridlayout->addLayout(layout,3,1,1,2);
+    gridlayout->addLayout(layout,4,1,1,2);
+
+
+    gridlayout->setColumnStretch(0, 1);
+    gridlayout->setColumnStretch(1, 2);
+    gridlayout->setColumnStretch(2, 2);
+    gridlayout->setColumnStretch(3, 1);
+
+    gridlayout->setRowStretch(0, 1);
+    gridlayout->setRowStretch(1, 3);
+    gridlayout->setRowStretch(2, 2);
+    gridlayout->setRowStretch(3, 2);
+    gridlayout->setRowStretch(4, 2);
+    gridlayout->setRowStretch(5, 1);
 
 }
