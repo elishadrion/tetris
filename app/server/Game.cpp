@@ -145,15 +145,15 @@ void Game::checkDeckAndStart() {
  *
  * @param player the new player waiting
  */
-void Game::addPlayerWaitGame(Player player) {
+void Game::addPlayerWaitGame(Player *player) {
     if(!PlayerWaitGame.empty()) {
         Player* p1 = PlayerWaitGame.back(); // gets last player
         PlayerWaitGame.pop_back();
-        new Game(p1, &player); // creates game
+        new Game(p1, player); // creates game
 
     } else {
-        PlayerWaitGame.insert(PlayerWaitGame.begin(), &player); // adds player to the waiting list
-        WizardLogger::info(player.getName() + " attend une partie");
+        PlayerWaitGame.insert(PlayerWaitGame.begin(), player); // adds player to the waiting list
+        WizardLogger::info(player->getName() + " attend une partie");
     }
 }
 

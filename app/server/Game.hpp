@@ -55,7 +55,7 @@ public:
 
     // Function before the game
     void checkDeckAndStart();
-    static void addPlayerWaitGame(Player player); // Adds a player to the PlayerWait list
+    static void addPlayerWaitGame(Player *player); // Adds a player to the PlayerWait list
     static void removePlayerWaitGame(Player *player); // Remove player to the PlayerWait list
 
     // Function during the game
