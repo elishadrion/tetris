@@ -9,9 +9,10 @@
 #include "PlayerInGame.hpp"
 #include "CardMonster.hpp"
 
-#include "common/WizardLogger.hpp"
 #include "PacketManager.hpp"
+#include "common/WizardLogger.hpp"
 #include "common/Error.hpp"
+#include "common/Constants.hpp"
 
 
 enum GameStatut {

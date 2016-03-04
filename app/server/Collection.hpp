@@ -5,6 +5,7 @@
 #include <vector>
 
 #include "common/Error.hpp"
+#include "common/Constants.hpp"
 
 
 #include "CardManager.hpp"

@@ -29,13 +29,17 @@ Collection::Collection(std::vector<unsigned> listIdCard) {
  */
 Error Collection::addCard(Card* card) {
     Error res;
-    int nbrCard = static_cast<int>(
-        std::count(_listCard.begin(), _listCard.end(), card));
-    if(nbrCard < 2) {
-        _listCard.push_back(card);
-        res = Error::NoError;
+    if(_listCard.size() <= MAX_CARDS) {
+        int nbrCard = static_cast<int>(
+            std::count(_listCard.begin(), _listCard.end(), card));
+        if(nbrCard < MAX_COPY_CARD) {
+            _listCard.push_back(card);
+            res = Error::NoError;
+        } else {
+            res = Error::SameCardMax;
+        }
     } else {
-        res = Error::TwoSameCardMax;
+        res = Error::CollectionFull;
     }
 
     return res;

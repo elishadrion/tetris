@@ -60,12 +60,17 @@ Player* PlayerManager::logIn(std::string username, std::string password, int soc
 
 Player* PlayerManager::signUp(std::string username, std::string password, int sockfd) {
 
+    if(username.size() > MAX_PSEUDO_SIZE) {
+        username = username.substr(0, MAX_PSEUDO_SIZE);
+    }
+
     for (size_t i = 0; i < _players.size(); i++) {
-	Player* current = _players.at(i);
-	if (*current == username) {
-	    WizardLogger::warning("CHOSEN USERNAME ALREADY EXISTS");
-	    return nullptr;
-	}
+        Player* current = _players.at(i);
+
+        if (*current == username) {
+            WizardLogger::warning("CHOSEN USERNAME ALREADY EXISTS");
+            return nullptr;
+        }
     }
 
     nlohmann::json info;
@@ -82,7 +87,7 @@ Player* PlayerManager::signUp(std::string username, std::string password, int so
     deck["deckName"] = "default";
     std::vector<int> random_deck;
     for (int i = 0; i < 20; ++i) {
-	random_deck.push_back(rand() % 100 + 1);
+        random_deck.push_back(rand() % 100 + 1);
     }
 
     deck["cards"] = random_deck;

@@ -361,7 +361,7 @@ void Game::beginTurn() {
  */
 void Game::endTurn() {
 
-    int nbrCard = 7-_currentPlayer->nbrCardInHand();
+    int nbrCard = MAX_HAND-_currentPlayer->nbrCardInHand();
     if(nbrCard < 0) {
         PacketManager::askDefausse(_currentPlayer, -nbrCard);
     }
@@ -465,7 +465,7 @@ bool Game::verifyTaunt(PlayerInGame* pIG) {
  * @return True if the have place
  */
 bool Game::havePlace(PlayerInGame* pIG) {
-    return pIG->getCardsPlaced().size() < 7;
+    return pIG->getCardsPlaced().size() < MAX_POSED_CARD;
 }
 
 

@@ -9,6 +9,7 @@
 #include "Collection.hpp"
 #include "common/WizardLogger.hpp"
 #include "common/Error.hpp"
+#include "common/Constants.hpp"
 
 
 /**

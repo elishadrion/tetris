@@ -11,7 +11,8 @@ enum Error {
     NotEffectForPlayer = 6,
     NotEffectForMonster = 7,
     DeckFull = 8,
-    TwoSameCardMax = 9
+    SameCardMax = 9,
+    CollectionFull = 10
 };
 
 

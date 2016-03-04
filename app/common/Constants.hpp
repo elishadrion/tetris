@@ -3,7 +3,7 @@
 
 //================CARD====================
 
-/* Max card number in the game */
+/* Max card number in the collection */
 #define MAX_CARDS 200
 
 /* Max number of copy of each card in collection */
@@ -31,6 +31,9 @@
 
 /* Max life for player */
 #define MAX_LIFE 50
+
+/* Max energy for player */
+#define MAX_ENERGY 10
 
 /* Max friends */
 #define MAX_FRIENDS 30

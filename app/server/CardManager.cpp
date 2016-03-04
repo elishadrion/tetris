@@ -3,18 +3,17 @@
 #include "Card.hpp" //TODO tmp patch
 #include "CardMonster.hpp"
 
+// ATTENTION GERER ERREUR GETCARDBYID !!!!!!!!!!!
+
+std::map<unsigned, Card*> CardManager::_listCard;
+
 /**
  * Get the card object in cache
  *
  * @param id of the card
  * @return the card or nullptr if doesn't exist
  */
-
- // ATTENTION GERER ERREUR GETCARDBYID !!!!!!!!!!!
-
- std::map<unsigned, Card*> CardManager::_listCard;
-
- Card* CardManager::getCardById(const unsigned int id) {
+Card* CardManager::getCardById(const unsigned int id) {
     std::map<unsigned, Card*>::iterator it = _listCard.find(id);
     if(it != _listCard.end()) { // If card "cached"
         return _listCard[id];
@@ -59,7 +58,7 @@ void CardManager::loadAllCards(){
         energy = i.value()["energie"];
         effect = i.value()["effect"];
         // Enregistrer la carte
-		_listCard[id]= new Card(id,name,energy,effect,true);
+        _listCard[id]= new Card(id,name,energy,effect,true);
 	}
 	spellFile.close();
 

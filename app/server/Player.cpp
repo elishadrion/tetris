@@ -7,9 +7,9 @@ Player::Player(nlohmann::json& info, int sockfd) : _sockfd(sockfd) {
     _victories = info["victories"];
     _defeats = info["defeats"];
     for (size_t i = 0; i < info["decks"].size(); ++i) {
-	std::string deckName = info["decks"][i]["deckName"];
-	std::vector<unsigned> cards = info["decks"][i]["cards"];
-	_decks.push_back(new Deck(deckName, cards));
+        std::string deckName = info["decks"][i]["deckName"];
+        std::vector<unsigned> cards = info["decks"][i]["cards"];
+        _decks.push_back(new Deck(deckName, cards));
     }
 
     std::vector<unsigned> collection_cards= info["collection"];
@@ -36,13 +36,28 @@ Deck* Player::getDeck(std::string deckName) {
 bool Player::removeDeck(Deck* deck) {
     bool res = false;
     if(_decks.size() > 1) {
-	delete deck;
+        delete deck;
         res = true;
     }
 
     return res;
 }
 
+/**
+ * Add a deck to the player
+ *
+ * @param deck the to wich must be add
+ * @return True if all is ok (do nothing if not)
+ */
+bool Player::addDeck(Deck* deck) {
+    bool res = false;
+    if(_decks.size() <= MAX_DECKS) {
+        _decks.push_back(deck);
+        res = true;
+    }
+
+    return res;
+}
 
 bool Player::operator<(const Player &other) const {
     return ((*this).getVictories() < other.getVictories());

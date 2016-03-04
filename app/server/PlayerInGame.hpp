@@ -14,6 +14,8 @@ class CardMonster;
 
 #include "common/Packet.hpp"
 #include "CardManager.hpp"
+#include "common/Constants.hpp"
+
 
 /*
 Je pense que l'on en a plus besoin
@@ -45,7 +47,7 @@ class PlayerInGame : public Player {
     int _playerHeal;
     int _energy;
     unsigned int _maxEnergy;
-    unsigned int const _limitEnergy = 10; //The maximum energy can't go further than this
+    unsigned int const _limitEnergy = MAX_ENERGY; //The maximum energy can't go further than this
     Game* _game;
 
 

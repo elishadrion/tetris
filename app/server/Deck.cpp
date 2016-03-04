@@ -80,7 +80,7 @@ Card* Deck::pickup() {
  */
 Error Deck::addCard(Card* card) {
     Error res;
-    if(_listCard.size() >= 20) {
+    if(_listCard.size() >= DECK_SIZE) {
         WizardLogger::error("Un deck a maximum 20 cartes");
         res = Error::DeckFull;
     } else {

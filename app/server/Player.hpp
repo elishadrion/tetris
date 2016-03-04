@@ -15,6 +15,7 @@
 #include "PacketManager.hpp"
 
 #include "common/WizardLogger.hpp"
+#include "common/Constants.hpp"
 
 
 /**
@@ -49,6 +50,7 @@ public:
 
     Deck* getDeck(std::string);
     bool removeDeck(Deck*);
+    bool addDeck(Deck *);
     
     void sendPacket(Packet::packet*, size_t);
     void recvLoop();
