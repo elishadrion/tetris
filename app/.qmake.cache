@@ -1,13 +1,14 @@
 ## Project options, compilers, flags
+QT += widgets
 QMAKE_CXX = g++-5
 QMAKE_CXXFLAGS = -std=c++14 -ggdb3 -Wpedantic -Wall -Wextra		\
 -Wconversion -Weffc++ -Wstrict-null-sentinel -Wold-style-cast		\
 -Wnoexcept -Wctor-dtor-privacy -Woverloaded-virtual -Wsign-promo	\
 -Wzero-as-null-pointer-constant -Wsuggest-final-types			\
--Wsuggest-final-methods -Wsuggest-override
+-Wsuggest-final-methods -Wsuggest-override -isystem../include/ -idirafter../
 #QMAKE_LFLAGS =
 LIBS += -pthread -lpanel -lform -lncurses -lcommon
-INCLUDEPATH = ./include ./
+#INCLUDEPATH = ./include ./ ../
 #QMAKE_LIBDIR += ./
 
 ## Intermediary files

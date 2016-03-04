@@ -1,4 +1,3 @@
 TARGET = client_wizard
-HEADERDS = *.hpp *.h
+HEADERS = *.hpp
 SOURCES = *.cpp
-QT += widgets
