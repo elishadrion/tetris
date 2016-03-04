@@ -14,7 +14,7 @@ Connection::Connection(char* hostName) {
             error += hstrerror(h_errno);
             throw std::invalid_argument(error);
         }
-        
+
         /* We don't support IPv6 */
         if (host->h_addrtype != AF_INET) {
             throw std::domain_error("Nous ne supportons pas les adresses IPv6");
@@ -27,7 +27,7 @@ Connection::Connection(char* hostName) {
             error += strerror(errno);
             throw std::runtime_error(error);
         }
-        
+
         /* We create informations for use with a socket */
         server_addr.sin_family = AF_INET;
         server_addr.sin_port = htons(PORT);
@@ -35,13 +35,14 @@ Connection::Connection(char* hostName) {
 
         /* We test if struct has good size */
         memset(&(server_addr.sin_zero), '\0', 8);
-        
+
         /* Configure socket to use TCP keepalive protocole */
+	int TCP_KEEPIDLE_ALL = 1;	// OS X
         setsockopt(_clientSocket, SOL_SOCKET, SO_KEEPALIVE, &_keepon, sizeof(_keepon));
-        setsockopt(_clientSocket, IPPROTO_TCP, TCP_KEEPIDLE, &_keepidle, sizeof(_keepidle));
+        setsockopt(_clientSocket, IPPROTO_TCP, TCP_KEEPIDLE_ALL, &_keepidle, sizeof(_keepidle));
         setsockopt(_clientSocket, IPPROTO_TCP, TCP_KEEPCNT, &_keepcnt, sizeof(_keepcnt));
         setsockopt(_clientSocket, IPPROTO_TCP, TCP_KEEPINTVL, &_keepintvl, sizeof(_keepintvl));
-        
+
         /* We connect to the server using socket informations */
         WizardLogger::info("Tentative de connexion au serveur");
         if (connect(_clientSocket, (struct sockaddr *)&server_addr, sizeof(struct sockaddr)) == -1) {
@@ -56,7 +57,7 @@ Connection::Connection(char* hostName) {
             error += strerror(errno);
             throw std::runtime_error(error);
         }
-        
+
         WizardLogger::info("Connexion réussie");
     } catch (const std::invalid_argument &error) {
         WizardLogger::fatal("Impossible d'établire une connection avec le serveur", error.what());
@@ -102,18 +103,18 @@ void Connection::sendPacket(Packet *packet, size_t size) {
 void* Connection::recvLoop(void* data) {
     /* Enable asynchronous cancel (thread can be canceled at any time) from deferred */
     pthread_setcanceltype(PTHREAD_CANCEL_ASYNCHRONOUS, (int*) PTHREAD_CANCEL_DEFERRED);
-    
+
     /* Convert to get _clientSocket addr */
     int clientSocket = *static_cast<int*>(data);
-    
+
     /* Read data from buffer */
     ssize_t readSize;
-    
+
     /* Loop to wait with select server messages */
     while(1) {
         /* Allocate maximum size for an unknow incoming packet */
         void *packet = malloc(Packet::packetMaxSize);
-        
+
         /* Try to get packet from server */
         readSize = recv(clientSocket, packet, Packet::packetMaxSize, 0);
         if (readSize <= 0) {
@@ -124,15 +125,15 @@ void* Connection::recvLoop(void* data) {
         } else {
             /* We terminate resize memory alloc */
             packet = realloc(packet, readSize);
-            
+
             /* We send the packet to the PacketManager for verification and interpretation */
             PacketManager::managePacket(reinterpret_cast<Packet::packet*>(packet));
         }
-        
+
         /* Free packet from memory */
         free(packet);
     }
-    
+
     /* ERROR occure so we must inform the user */
     display->displayFatalError("La connexion avec le serveur semble avoir été interrompue !");
     return nullptr;

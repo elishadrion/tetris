@@ -8,6 +8,7 @@
 
 #include "include/json.hpp"
 
+#include "unistd.h"
 #include "common/Error.hpp"
 #include "Collection.hpp"
 #include "Deck.hpp"
@@ -51,7 +52,7 @@ public:
     Deck* getDeck(std::string);
     bool removeDeck(Deck*);
     bool addDeck(Deck *);
-    
+
     void sendPacket(Packet::packet*, size_t);
     void recvLoop();
     void logout();

@@ -18,7 +18,7 @@ Connection::Connection() {
             error += hstrerror(h_errno);
             throw std::runtime_error(error);
         }
-        
+
         /* If previous server crash, try to reuse his socket */
         if (setsockopt(_serverSocket, SOL_SOCKET, SO_REUSEADDR, &_reuse, sizeof(_reuse)) == -1) {
             std::string error = "Impossible de reutiliser socket : ";
@@ -72,10 +72,11 @@ void Connection::mainLoop() {
             std::string *info = new std::string("Nouvelle connexion pour le client : ");
             WizardLogger::info(info->append(inet_ntoa(client_addr.sin_addr))); //TODO don't support IPv6
             delete info; /* Don't forget to free memory */
-        
+
             /* Configure socket to use TCP keepalive protocole */
+	    int TCP_KEEPIDLE_ALL = 1; // OS X
             setsockopt(clientSocket, SOL_SOCKET, SO_KEEPALIVE, &_keepon, sizeof(_keepon));
-            setsockopt(clientSocket, IPPROTO_TCP, TCP_KEEPIDLE, &_keepidle, sizeof(_keepidle));
+            setsockopt(clientSocket, IPPROTO_TCP, TCP_KEEPIDLE_ALL, &_keepidle, sizeof(_keepidle));
             setsockopt(clientSocket, IPPROTO_TCP, TCP_KEEPCNT, &_keepcnt, sizeof(_keepcnt));
             setsockopt(clientSocket, IPPROTO_TCP, TCP_KEEPINTVL, &_keepintvl, sizeof(_keepintvl));
 
@@ -156,7 +157,7 @@ void* Connection::newPlayerThread(void* data) {
 
     /* Free packet from memory */
     free(packet);
-    
+
     /* If login is ok, we launch recvloop from Player after sending player's info to client */
     if (loginOK) {
         sendSucess(newPlayer, clientSocket);
@@ -173,13 +174,13 @@ void Connection::sendResponse(int errorCode, int socket) {
 
 void Connection::sendSucess(Player* player, int socket) {
     Packet::playerInfoPacket *playerPacket = new Packet::playerInfoPacket();
-    
+
     /* Get collection */
     std::vector<unsigned> collection = player->getCollection()->getCardsId();
-    
+
     /* Get pseudo */
     std::string pseudo = player->getName();
-    
+
     /* Add player's info to packet */
     for (int i = 0 ; i < pseudo.size() ; ++i) playerPacket->data.pseudo[i] = pseudo[i];
     for (int i = 0 ; i < collection.size() ; ++i) playerPacket->data.collection[i] = collection[i];
@@ -187,7 +188,7 @@ void Connection::sendSucess(Player* player, int socket) {
     //TODO playerPacket->data.friendsList = player->getName();
     playerPacket->data.victories = player->getVictories();
     playerPacket->data.defeats = player->getDefeats();
-    
+
     /* Send informations */
     send(socket, playerPacket, sizeof(Packet::playerInfoPacket), 0);
     free(playerPacket);
