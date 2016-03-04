@@ -9,7 +9,3 @@ QMAKE_CXXFLAGS = -std=c++14 -ggdb3 -Wpedantic -Wall -Wextra		\
 LIBS += -pthread -lpanel -lform -lncurses
 INCLUDEPATH += ./include ./ ../
 #QMAKE_LIBDIR += ./
-
-## Intermediary files
-OBJECTS_DIR = ./tmp
-MOC_DIR = ./tmp

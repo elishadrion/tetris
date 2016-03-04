@@ -8,3 +8,7 @@ HEADERS = ../common/Constants.hpp \
           *.hpp
 SOURCES = ../common/WizardLogger.cpp \
           *.cpp
+
+## Intermediary files
+OBJECTS_DIR = ./client-tmp
+MOC_DIR = ./client-tmp
