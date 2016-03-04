@@ -2,7 +2,6 @@
 #ifndef GAME_HPP
 #define	GAME_HPP
 
-#include <queue>
 #include <vector>
 
 #include "Player.hpp"
@@ -28,7 +27,7 @@ enum GameStatut {
  */
 class Game {
 
-    static std::queue<Player*> PlayerWaitGame;
+    static std::vector<Player*> PlayerWaitGame;
 
     // Attribut
     GameStatut _gameStatut;
@@ -57,6 +56,7 @@ public:
     // Function before the game
     void checkDeckAndStart();
     static void addPlayerWaitGame(Player player); // Adds a player to the PlayerWait list
+    static void removePlayerWaitGame(Player *player); // Remove player to the PlayerWait list
 
     // Function during the game
     void draw(); // current player draw a card

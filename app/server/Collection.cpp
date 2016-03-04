@@ -29,7 +29,7 @@ Collection::Collection(std::vector<unsigned> listIdCard) {
  */
 Error Collection::addCard(Card* card) {
     Error res;
-    if(_listCard.size() <= MAX_CARDS) {
+    if(_listCard.size() <= (MAX_CARDS*2)) {
         int nbrCard = static_cast<int>(
             std::count(_listCard.begin(), _listCard.end(), card));
         if(nbrCard < MAX_COPY_CARD) {

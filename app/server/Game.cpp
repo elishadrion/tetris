@@ -2,7 +2,7 @@
 #include "Game.hpp"
 
 
-std::queue<Player*> Game::PlayerWaitGame;
+std::vector<Player*> Game::PlayerWaitGame;
 
 
 //////////// PRIVATE ////////////
@@ -147,15 +147,30 @@ void Game::checkDeckAndStart() {
  */
 void Game::addPlayerWaitGame(Player player) {
     if(!PlayerWaitGame.empty()) {
-        Player* p1 = PlayerWaitGame.front(); // gets first player
-        PlayerWaitGame.pop(); // removes first player
+        Player* p1 = PlayerWaitGame.back(); // gets last player
+        PlayerWaitGame.pop_back();
         new Game(p1, &player); // creates game
 
     } else {
-        PlayerWaitGame.push(&player); // adds player to the waiting list
+        PlayerWaitGame.insert(PlayerWaitGame.begin(), &player); // adds player to the waiting list
         WizardLogger::info(player.getName() + " attend une partie");
     }
 }
+
+/**
+ * Remove a player from the waiting list
+ *
+ * @param player the player to remove
+ */
+void Game::removePlayerWaitGame(Player *player) {
+    std::vector<Player*>::iterator it = std::find(PlayerWaitGame.begin(), PlayerWaitGame.end(), player);
+    if(it != PlayerWaitGame.end()) {
+        PlayerWaitGame.erase(
+            std::remove(PlayerWaitGame.begin(), PlayerWaitGame.end(), player),
+            PlayerWaitGame.end());
+    }
+}
+
 
 /**
  * Specific player draw a card
