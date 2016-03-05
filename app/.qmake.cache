@@ -8,6 +8,14 @@ QMAKE_CXXFLAGS = -std=c++14 -ggdb3 -Wpedantic -Wall -Wextra		\
 -Wsuggest-final-methods -Wsuggest-override -isystem$${top}/include/	\
 -isystem$$[QT_INSTALL_HEADERS] -idirafter$${top}
 
+macx {
+	QMAKE_CXX = clang++
+	QMAKE_CXXFLAGS += -stdlib=libc++
+	QMAKE_CXXFLAGS -= -Wnoexcept -Wstrict-null-sentinel	\
+	-Wzero-as-null-pointer-constant -Wsuggest-override	\
+	-Wsuggest-final-types -Wsuggest-final-methods
+}
+
 LIBS += -lpanel -lform -lncurses -L$${top} -lcommon
 INCLUDEPATH += $${top}/include $${top}
 
