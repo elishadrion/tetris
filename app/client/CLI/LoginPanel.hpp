@@ -38,14 +38,14 @@ class LoginPanel : public CLIPanel {
     WINDOW *window;
     FORM  *form;
     FIELD *field[4];
-    
+
     /* Control bool */
     bool isWainting;
     bool success;
-    
+
     /* cols of form (for printInMiddle) */
     int colsForm;
-    
+
     /* Define work variable using for verification and beep */
     int indexPseudo = 0;
     int sizePseudo = 0;
@@ -54,18 +54,18 @@ class LoginPanel : public CLIPanel {
 
     void proceed(bool=false);
     void printWait(char*);
-    
+
     void setFocusToField();
     void printInMiddle(char*, chtype);
 public:
-    LoginPanel();
+    LoginPanel() = default;
     ~LoginPanel() = default;
 
     void printError(std::string);
     void valideLogin();
-    
+
     void focus() override;
-    
+
     /* Not used */
     void show() override {}
     void hide() override {}

@@ -29,7 +29,7 @@ CLI::CLI() {
 
     /* Create panel and form view (if failed, client must quit) */
     try {
-        _panelList[LOGIN] = new LoginPanel();
+        //_panelList[LOGIN] = new LoginPanel();
         _panelList[MAIN] = new MainPanel();
         _panelList[TCHAT] = new TchatPanel();
         _panelList[FRIEND] = new FriendPanel();
