@@ -1,4 +1,4 @@
-#include "loginPanel.hpp"
+#include "LoginPanel.hpp"
 
 LoginPanel::LoginPanel() : QWidget()
 {
