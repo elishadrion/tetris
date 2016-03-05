@@ -1,5 +1,5 @@
-#ifndef LOGINPANEL_H
-#define LOGINPANEL_H
+#ifndef LOGINPANEL_HPP
+#define LOGINPANEL_HPP
 
 #include <QApplication>
 #include <QWidget>
@@ -28,4 +28,4 @@ private:
 
 };
 
-#endif // LOGINPANEL_H
+#endif // LOGINPANEL_HPP
