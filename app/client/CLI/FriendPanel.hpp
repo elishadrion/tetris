@@ -38,7 +38,7 @@
 #include "client/Player.hpp"
 
 #include "CLIPanel.hpp"
-#include "client/wizardDisplay.hpp"
+#include "client/WizardDisplay.hpp"
 
 extern WizardDisplay *wizardDisplay;
 
@@ -47,13 +47,13 @@ class FriendPanel : public CLIPanel {
     PANEL  *panel;
     FIELD *field[2];
     FORM *form;
-    
+
     void updateList();
     void manageFriend(bool remove = false);
 public:
     FriendPanel();
     ~FriendPanel() = default;
-    
+
     void show() override;
     void hide() override;
     void focus() override;

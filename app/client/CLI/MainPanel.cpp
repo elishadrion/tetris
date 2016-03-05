@@ -67,7 +67,7 @@ void MainPanel::focus() {
                 }
                 break;
             case KEY_F(1):
-                display->focusTchat();
+                wizardDisplay->focusTchat();
                 break;
             case KEY_F(3):
                 doRequest(currentMenu);
@@ -76,11 +76,11 @@ void MainPanel::focus() {
                 beep();
                 break;
         }
-        
+
         /* Make sure current line is correctly colored */
         updateColor(0, currentMenu);
     }
-    
+
     /* Send deconnection packet before close program */
     PacketManager::sendDisconnection();
 }

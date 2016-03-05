@@ -4,16 +4,16 @@ CLI::CLI() {
     /* Start curses mode */
     WizardLogger::info("Activation et configuration du mode ncurses");
     initscr();
-    
+
     /* We use default behavior for special key like CTRL-C */
     cbreak();
-    
+
     /* Initialize the usage of navigation key and FX key */
     keypad(stdscr, TRUE);
-    
+
     /* Dont print why user input directly, we manage it */
     noecho();
-    
+
     /* Start color system */
     if (has_colors()) {
         start_color();
@@ -26,7 +26,7 @@ CLI::CLI() {
 	    init_pair(7, COLOR_WHITE, COLOR_BLACK);
         refresh();
     }
-    
+
     /* Create panel and form view (if failed, client must quit) */
     try {
         _panelList[LOGIN] = new LoginPanel();
@@ -42,7 +42,7 @@ CLI::CLI() {
         endwin(); /* Ensure ncurses is desactivate */
         throw;
     }
-    
+
     /* Hide all panel after login one */
     for (int i = 1 ; i < PANEL_TOTAL_NUMBER ; ++i) _panelList[i]->hide();
     refresh();
@@ -66,7 +66,7 @@ void CLI::displayFatalError(std::string error) {
     attroff(COLOR_PAIR(1));
     mvprintw(10, 4, "Appuyer sur une touche pour quitter le programme...");
     refresh();
-    
+
     /* Wait for input and force kill programme (after cleaning ncurse) */
     getch();
     endwin();
@@ -80,11 +80,11 @@ void CLI::displayLoginPrompt() {
 }
 
 void CLI::displayLoginResult(std::string errorMessage) {
-    static_cast<LoginPanel*>(_panelList[LOGIN])->printError(errorMessage);
+    //static_cast<LoginPanel*>(_panelList[LOGIN])->printError(errorMessage);
 }
 
 void CLI::valideLogin() {
-    static_cast<LoginPanel*>(_panelList[LOGIN])->valideLogin();
+    //static_cast<LoginPanel*>(_panelList[LOGIN])->valideLogin();
 }
 
 void CLI::displayMainWindow() {
@@ -92,7 +92,7 @@ void CLI::displayMainWindow() {
     attron(COLOR_PAIR(6));
     mvprintw(LINES-2, 2, MAIN_LABEL);
     attron(COLOR_PAIR(6));
-    
+
     /* We display MainMenu */
     _panelList[MAIN]->show();
     _panelList[TCHAT]->show();
@@ -104,15 +104,15 @@ void CLI::displayFriendsWindow() {
     attron(COLOR_PAIR(6));
     mvprintw(LINES-2, 2, AMIS_LABEL);
     attron(COLOR_PAIR(6));
-    
+
     /* We display FriendList */
     _panelList[FRIEND]->show();
     _panelList[FRIEND]->focus();
-    
+
     /* After that, we hide and show the mainPanel */
     _panelList[FRIEND]->hide();
     _panelList[MAIN]->show();
-    
+
     /* Display general HELP */
     attron(COLOR_PAIR(6));
     mvprintw(LINES-2, 2, MAIN_LABEL);
@@ -124,15 +124,15 @@ void CLI::displayCollectionWindow() {
     attron(COLOR_PAIR(6));
     mvprintw(LINES-2, 2, COLL_LABEL);
     attron(COLOR_PAIR(6));
-    
+
     /* We display CollectionPanel */
     _panelList[COLL]->show();
     _panelList[COLL]->focus();
-    
+
     /* After that, we hide and show the mainPanel */
     _panelList[COLL]->hide();
     _panelList[MAIN]->show();
-    
+
     /* Display general HELP */
     attron(COLOR_PAIR(6));
     mvprintw(LINES-2, 2, MAIN_LABEL);
@@ -144,16 +144,16 @@ void CLI::displayDeckWindow() {
     attron(COLOR_PAIR(6));
     mvprintw(LINES-2, 2, DECK_LABEL);
     attron(COLOR_PAIR(6));
-    
+
     /* We display CollectionPanel */
     _panelList[DECK]->show();
     _panelList[DECK]->focus();
-    
+
     /* After that, we hide and show the collectionPanel */
     _panelList[DECK]->hide();
     _panelList[COLL]->show();
-    
-    
+
+
     /* Display general HELP */
     attron(COLOR_PAIR(6));
     mvprintw(LINES-2, 2, MAIN_LABEL);
@@ -165,15 +165,15 @@ void CLI::displayWait() {
     attron(COLOR_PAIR(6));
     mvprintw(LINES-2, 2, WAIT_LABEL);
     attron(COLOR_PAIR(6));
-    
+
     /* We display CollectionPanel */
     _panelList[WAIT]->show();
     _panelList[WAIT]->focus();
-    
+
     /* After that, we hide and show the mainPanel */
     _panelList[WAIT]->hide();
     _panelList[MAIN]->show();
-    
+
     /* Display general HELP */
     attron(COLOR_PAIR(6));
     mvprintw(LINES-2, 2, MAIN_LABEL);
@@ -185,11 +185,11 @@ void CLI::displayGame() {
     attron(COLOR_PAIR(6));
     mvprintw(LINES-2, 2, GAME_LABEL);
     attron(COLOR_PAIR(6));
-    
+
     /* We display CollectionPanel */
     _panelList[GAME]->show();
     _panelList[GAME]->focus();
-    
+
     /* After that, we hide and return to wait (returning to main) */
     _panelList[GAME]->hide();
 }
