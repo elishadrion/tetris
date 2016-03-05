@@ -1,6 +1,9 @@
 # Lib src stuff
 /app/other/log4cpp-src/build/
 
+# Docu stuff
+/docu/*
+
 # Compiled Object files
 *.slo
 *.lo
