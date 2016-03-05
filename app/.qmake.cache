@@ -6,6 +6,6 @@ QMAKE_CXXFLAGS = -std=c++14 -ggdb3 -Wpedantic -Wall -Wextra		\
 -Wzero-as-null-pointer-constant -Wsuggest-final-types			\
 -Wsuggest-final-methods -Wsuggest-override -isystem./include/ -idirafter.
 #QMAKE_LFLAGS =
-LIBS += -pthread -lpanel -lform -lncurses
+LIBS += -lpanel -lform -lncurses
 #INCLUDEPATH += ./include ./ ../
 #QMAKE_LIBDIR += ./
