@@ -5,13 +5,13 @@
 #include "Connection.hpp"
 #include "CacheManager.hpp"
 #include "common/WizardLogger.hpp"
-#include "Display.hpp"
+#include "WizardDisplay.hpp"
 #include "CLI.hpp"
 #include "GUI.hpp"
 
 /* Main is not an object so we must use global namespace instead of main->conn */
 Connection *conn;
-Display *display;
+WizardDisplay *wizardDisplay;
 CacheManager *cacheManager;
 
 /**
@@ -87,13 +87,13 @@ int main(int argc, char** argv) {
 
     if(activeGUI) {
         // TO DO
-        display = new GUI();
+        wizardDisplay = new GUI();
     } else {
         /* We init in CLI mode
          * If it fail, client must stop
          */
         try {
-            display = new CLI();
+            wizardDisplay = new CLI();
         } catch (...) {
             std::cerr << "Impossible de créer l'interface (voir log)" << std::endl;
             return EXIT_FAILURE;
@@ -105,10 +105,10 @@ int main(int argc, char** argv) {
      * Only call it after all backround service are ready
      * User become the only one to can modify program state
      */
-    display->displayLoginPrompt();
+    wizardDisplay->displayLoginPrompt();
     
     /* We close all interface */
-    delete display;
+    delete wizardDisplay;
     delete conn;
     delete cacheManager;
     return EXIT_SUCCESS;

@@ -44,7 +44,7 @@ void WaitPanel::focus() {
     int input;
     while((input = wgetch(window)) != KEY_F(10) && !_inGame) {
         if (input == KEY_F(1))
-            display->focusTchat();
+            wizardDisplay->focusTchat();
         else
             beep();
         wrefresh(window);
@@ -52,7 +52,7 @@ void WaitPanel::focus() {
     
     /* If we are in game mode, display gamePanel. Else we send cancel packet to server
     if (_inGame)
-        display->displayGame();
+        wizardDisplay->displayGame();
     //else
         //TODO send cancel packet PacketManager::sendDisconnection();*/
 }

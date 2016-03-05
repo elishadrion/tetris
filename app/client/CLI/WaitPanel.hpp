@@ -3,13 +3,13 @@
 
 #include <panel.h>
 
-#include "client/Display.hpp"
+#include "client/WizardDisplay.hpp"
 
 #include "client/PacketManager.hpp"
 
 #include "CLIPanel.hpp"
 
-extern Display *display;
+extern WizardDisplay *wizardDisplaydisplay;
 
 class WaitPanel : public CLIPanel {
     WINDOW *window;

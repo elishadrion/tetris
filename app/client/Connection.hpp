@@ -11,9 +11,9 @@
 #include "common/Packet.hpp"
 #include "PacketManager.hpp"
 #include "common/WizardLogger.hpp"
-#include "Display.hpp"
+#include "WizardDisplay.hpp"
 
-extern Display *display;
+extern WizardDisplay *wizardDisplay;
 
 class Connection {
     /* Structure and fd for TCP connection */

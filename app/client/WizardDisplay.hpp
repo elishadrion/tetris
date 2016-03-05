@@ -1,9 +1,9 @@
-#ifndef DISPLAY_HPP
-#define	DISPLAY_HPP
+#ifndef WIZARDDISPLAY_HPP
+#define	WIZARDDISPLAY_HPP
 
 #include <string>
 
-class Display {
+class WizardDisplay {
 public:
     /* Create or remove interface (CLI/GUI) */
     Display() = default;
@@ -51,4 +51,4 @@ public:
     virtual void displayPopup(std::string) =0;
 };
 
-#endif	/* DISPLAY_HPP */
+#endif	/* WIZARDDISPLAY_HPP */

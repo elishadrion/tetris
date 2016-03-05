@@ -135,6 +135,6 @@ void* Connection::recvLoop(void* data) {
     }
 
     /* ERROR occure so we must inform the user */
-    display->displayFatalError("La connexion avec le serveur semble avoir été interrompue !");
+    wizardDisplay->displayFatalError("La connexion avec le serveur semble avoir été interrompue !");
     return nullptr;
 }

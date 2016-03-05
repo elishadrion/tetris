@@ -32,12 +32,12 @@
 #include "client/PacketManager.hpp"
 
 #include "CLIPanel.hpp"
-#include "client/Display.hpp"
+#include "client/WizardDisplay.hpp"
 
 /* define starting line for mainMeny entry */
 #define START_LINE 5
 
-extern Display *display;
+extern WizardDisplay *wizardDisplay;
 
 class MainPanel : public CLIPanel {
     WINDOW *window;

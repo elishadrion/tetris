@@ -37,9 +37,9 @@
 
 #include "CLIPanel.hpp"
 
-#include "client/Display.hpp"
+#include "client/WizardDisplay.hpp"
 
-extern Display *display;
+extern WizardDisplay *wizardDisplay;
 
 class GamePanel : public CLIPanel {
     WINDOW *window;

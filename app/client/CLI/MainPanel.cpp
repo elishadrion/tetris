@@ -106,13 +106,13 @@ void MainPanel::updateColor(int previous, int next) {
 void MainPanel::doRequest(int entry) {
     switch(entry) {
         case START_LINE:
-            display->displayWait();
+            wizardDisplay->displayWait();
             break;
         case START_LINE+4:
-            display->displayFriendsWindow();
+            wizardDisplay->displayFriendsWindow();
             break;
         default:
-            display->displayFatalError("pas implémenter pour le moment");
+            wizardDisplay->displayFatalError("pas implémenter pour le moment");
             break;
     }
     refresh();

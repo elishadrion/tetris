@@ -11,7 +11,7 @@
 #include "common/WizardLogger.hpp"
 
 /* Main type */
-#include "Display.hpp"
+#include "WizardDisplay.hpp"
 
 /* All used panel */
 #include "client/CLI/CLIPanel.hpp"
@@ -56,7 +56,7 @@
 
 #define PANEL_TOTAL_NUMBER 8
 
-class CLI : public Display {
+class CLI : public WizardDisplay {
     /* All panel used by the CLI */
     CLIPanel *_panelList[PANEL_TOTAL_NUMBER];
     

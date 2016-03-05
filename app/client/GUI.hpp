@@ -1,11 +1,11 @@
 #ifndef GUI_HPP
 #define GUI_HPP
 
-#include "Display.hpp"
+#include "WizardDisplay.hpp"
 #include "common/WizardLogger.hpp"
 #include "client/GUI/LoginPanel.hpp"
 
-class GUI : public Display {
+class GUI : public WizardDisplay {
     /* All panel used by the CLI */
     // GUIPanel *_panelList[PANEL_TOTAL_NUMBER];
     /*

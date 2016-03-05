@@ -69,7 +69,7 @@ void FriendPanel::focus() {
     while((input = wgetch(windows[0])) != KEY_F(10)) {
         switch(input) {
             case KEY_F(1):
-                display->focusTchat();
+                wizardDisplay->focusTchat();
                 break;
             case KEY_F(3):
                 manageFriend();

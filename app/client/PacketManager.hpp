@@ -5,10 +5,10 @@
 #include "common/WizardLogger.hpp"
 #include "Connection.hpp"
 #include "Card.hpp"
-#include "Display.hpp"
+#include "WizardDisplay.hpp"
 #include "CacheManager.hpp"
 
-extern Display *display;
+extern WizardDisplay *wizardDisplay;
 
 namespace PacketManager {
     /* API for other service */

@@ -133,9 +133,9 @@ void PacketManager::loginResult(const Packet::loginResultPacket* resultPacket) {
         WizardLogger::error("Paquet de résulta de login corrompu reçu ("
         +std::to_string(resultPacket->size)+"/"+std::to_string(sizeof(int))+")");
     } else if (resultPacket->resultCode != 0) {
-        display->displayLoginResult("Erreur durant le login");
+        wizardDisplay->displayLoginResult("Erreur durant le login");
     } else {
-        display->valideLogin();
+        wizardDisplay->valideLogin();
     }
 }
 
@@ -143,7 +143,7 @@ void PacketManager::playerInfo(const Packet::playerInfoPacket* playerPacket) {
     WizardLogger::warning(playerPacket->data.pseudo);
     WizardLogger::warning(std::to_string(playerPacket->data.victories));
     WizardLogger::warning(std::to_string(playerPacket->data.defeats));
-    display->valideLogin();
+    wizardDisplay->valideLogin();
 }
 
 void PacketManager::getCard(const Packet::cardInfosPacket* cardInfo) {

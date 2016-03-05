@@ -38,9 +38,9 @@
 #include "client/Player.hpp"
 
 #include "CLIPanel.hpp"
-#include "client/Display.hpp"
+#include "client/wizardDisplay.hpp"
 
-extern Display *display;
+extern WizardDisplay *wizardDisplay;
 
 class FriendPanel : public CLIPanel {
     WINDOW *windows[2];

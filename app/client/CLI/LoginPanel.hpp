@@ -34,8 +34,6 @@
 #define LOGIN_IN_PROGRESS "      LOGIN EN COURS      "
 #define REGISTRATION_IN_PROGRESS " ENREGISTREMENT EN COURS  "
 
-extern Display *display;
-
 class LoginPanel : public CLIPanel {
     WINDOW *window;
     FORM  *form;
