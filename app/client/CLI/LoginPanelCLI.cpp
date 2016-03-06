@@ -1,4 +1,4 @@
-#include "LoginPanel.hpp"
+#include "LoginPanelCLI.hpp"
 
 LoginPanel::LoginPanel() : isWainting(false), success(false) {
     /* Initialize field and set some options

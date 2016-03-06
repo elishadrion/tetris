@@ -29,7 +29,7 @@ CLI::CLI() {
 
     /* Create panel and form view (if failed, client must quit) */
     try {
-        //_panelList[LOGIN] = new LoginPanel();
+        _panelList[LOGIN] = new LoginPanel();
         _panelList[MAIN] = new MainPanel();
         _panelList[TCHAT] = new TchatPanel();
         _panelList[FRIEND] = new FriendPanel();
@@ -80,11 +80,11 @@ void CLI::displayLoginPrompt() {
 }
 
 void CLI::displayLoginResult(std::string errorMessage) {
-    //static_cast<LoginPanel*>(_panelList[LOGIN])->printError(errorMessage);
+    static_cast<LoginPanel*>(_panelList[LOGIN])->printError(errorMessage);
 }
 
 void CLI::valideLogin() {
-    //static_cast<LoginPanel*>(_panelList[LOGIN])->valideLogin();
+    static_cast<LoginPanel*>(_panelList[LOGIN])->valideLogin();
 }
 
 void CLI::displayMainWindow() {

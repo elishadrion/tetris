@@ -58,7 +58,7 @@ class LoginPanel : public CLIPanel {
     void setFocusToField();
     void printInMiddle(char*, chtype);
 public:
-    LoginPanel() = default;
+    LoginPanel();
     ~LoginPanel() = default;
 
     void printError(std::string);

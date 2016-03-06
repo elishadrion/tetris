@@ -1,4 +1,4 @@
-#include "TchatPanel.hpp"
+#include "TchatPanelCLI.hpp"
 
 /* Define static member to can use it */
 std::vector<std::string> TchatPanel::_messageBuffer;

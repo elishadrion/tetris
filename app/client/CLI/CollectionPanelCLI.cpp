@@ -1,4 +1,4 @@
-#include "CollectionPanel.hpp"
+#include "CollectionPanelCLI.hpp"
 
 CollectionPanel::CollectionPanel() {
     /* We create mainWindow where player can select what to do */

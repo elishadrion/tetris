@@ -15,14 +15,14 @@
 
 /* All used panel */
 #include "client/CLI/CLIPanel.hpp"
-#include "client/CLI/LoginPanel.hpp"
-#include "client/CLI/MainPanel.hpp"
-#include "client/CLI/TchatPanel.hpp"
-#include "client/CLI/FriendPanel.hpp"
-#include "client/CLI/CollectionPanel.hpp"
-#include "client/CLI/DeckPanel.hpp"
-#include "client/CLI/WaitPanel.hpp"
-#include "client/CLI/GamePanel.hpp"
+#include "client/CLI/LoginPanelCLI.hpp"
+#include "client/CLI/MainPanelCLI.hpp"
+#include "client/CLI/TchatPanelCLI.hpp"
+#include "client/CLI/FriendPanelCLI.hpp"
+#include "client/CLI/CollectionPanelCLI.hpp"
+#include "client/CLI/DeckPanelCLI.hpp"
+#include "client/CLI/WaitPanelCLI.hpp"
+#include "client/CLI/GamePanelCLI.hpp"
 
 /* Define some label for HELP */
 #define MAIN_LABEL "F1 : TCHAT    F2 : ENVOYER (TCHAT)    F3 : VALIDER    F10 : QUITTER                                                   "

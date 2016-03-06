@@ -1,4 +1,4 @@
-#include "WaitPanel.hpp"
+#include "WaitPanelCLI.hpp"
 
 WaitPanel::WaitPanel() : _inGame(false) {
     /* We create mainWindow where player can select what to do */

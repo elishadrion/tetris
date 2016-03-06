@@ -1,4 +1,4 @@
-#include "FriendPanel.hpp"
+#include "FriendPanelCLI.hpp"
 
 FriendPanel::FriendPanel() {
     /* We create mainWindow where player can select what to do */

@@ -1,4 +1,4 @@
-#include "GamePanel.hpp"
+#include "GamePanelCLI.hpp"
 
 GamePanel::GamePanel() : ennemyPosedCard({}), posedCard({}), ennemyHandCardNumber({}), handCard({})  {
     /* We create mainWindow where player can select what to do */

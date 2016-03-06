@@ -1,4 +1,4 @@
-#include "MainPanel.hpp"
+#include "MainPanelCLI.hpp"
 
 MainPanel::MainPanel() {
     /* We create mainWindow where player can select what to do */
