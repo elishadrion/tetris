@@ -25,6 +25,7 @@ class LoginPanelGUI : public QWidget {
     QPushButton *signIn;
 public:
     LoginPanelGUI();
+    ~LoginPanelGUI();
 };
 
 #endif LOGINPANEL_GUI_HPP

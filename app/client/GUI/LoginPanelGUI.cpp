@@ -62,3 +62,18 @@ LoginPanelGUI::LoginPanelGUI() : QWidget() {
     gridlayout->setRowStretch(5, 1);
 
 }
+
+LoginPanelGUI::~LoginPanelGUI() {
+    delete pseudo;
+    delete mdp;
+    delete title;
+//    delete beginSpace;
+//    delete endSpace;
+    delete gridlayout;
+    delete m_pseudo;
+    delete m_mdp;
+    delete layout;
+    delete login;
+    delete signIn;
+}
+

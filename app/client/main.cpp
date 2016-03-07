@@ -2,6 +2,9 @@
 #include <iostream>
 #include <system_error>
 
+#include <QApplication>
+
+
 #include "Connection.hpp"
 #include "CacheManager.hpp"
 #include "common/WizardLogger.hpp"
@@ -84,7 +87,7 @@ int main(int argc, char** argv) {
     /* We init the cacheManager */
     cacheManager = new CacheManager();
 
-
+    QApplication app(argc, argv);
     if(activeGUI) {
         // TO DO
         wizardDisplay = new GUI();
@@ -108,8 +111,13 @@ int main(int argc, char** argv) {
     wizardDisplay->displayLoginPrompt();
     
     /* We close all interface */
+    if(activeGUI) {
+        app.exec();
+    }
     delete wizardDisplay;
     delete conn;
     delete cacheManager;
+
+
     return EXIT_SUCCESS;
 }

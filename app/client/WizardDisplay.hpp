@@ -49,6 +49,7 @@ public:
 
     /* Display popup message */
     virtual void displayPopup(std::string) =0;
+
 };
 
 #endif	/* WIZARDDISPLAY_HPP */

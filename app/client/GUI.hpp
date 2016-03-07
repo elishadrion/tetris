@@ -20,6 +20,8 @@ class GUI : public WizardDisplay {
         GAME = 7,
     };*/
 
+    LoginPanelGUI* loginPanel;
+
 public:
     GUI();
     ~GUI();

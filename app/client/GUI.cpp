@@ -12,11 +12,14 @@ GUI::GUI() {
  * Destructeur
  */
 GUI::~GUI() {
-    //
+    // TO DO
 }
 
 void GUI::displayFatalError(std::string error) {}
-void GUI::displayLoginPrompt() {}
+void GUI::displayLoginPrompt() {
+    loginPanel = new LoginPanelGUI();
+    loginPanel->show();
+}
 void GUI::displayLoginResult(std::string message) {}
 void GUI::valideLogin() {}
 void GUI::displayMainWindow() {}
