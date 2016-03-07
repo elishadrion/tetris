@@ -1,13 +1,7 @@
 #ifndef LOGINPANEL_GUI_HPP
 #define LOGINPANEL_GUI_HPP
 
-/* Remove ncurses definition */
-#ifdef scroll
-#undef scroll
-#endif
-#ifdef border
-#undef border
-#endif
+#include "GUIDefine.hpp" /* MUST BE FIRST */
 
 #include <QApplication>
 #include <QWidget>
