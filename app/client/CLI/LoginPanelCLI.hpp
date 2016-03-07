@@ -64,11 +64,11 @@ public:
     void printError(std::string);
     void valideLogin();
 
+    void hide() override;
     void focus() override;
 
     /* Not used */
     void show() override {}
-    void hide() override {}
 };
 
 #endif /* PANEL_HPP */

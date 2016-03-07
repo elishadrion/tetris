@@ -37,7 +37,6 @@ Connection::Connection(char* hostName) {
         memset(&(server_addr.sin_zero), '\0', 8);
 
         /* Configure socket to use TCP keepalive protocole */
-	int TCP_KEEPIDLE_ALL = 1;	// OS X
         setsockopt(_clientSocket, SOL_SOCKET, SO_KEEPALIVE, &_keepon, sizeof(_keepon));
         setsockopt(_clientSocket, IPPROTO_TCP, TCP_KEEPIDLE_ALL, &_keepidle, sizeof(_keepidle));
         setsockopt(_clientSocket, IPPROTO_TCP, TCP_KEEPCNT, &_keepcnt, sizeof(_keepcnt));

@@ -47,6 +47,12 @@ LoginPanel::LoginPanel() : isWainting(false), success(false) {
     refresh();
 }
 
+void LoginPanel::hide() {
+    /* Unpost form */
+    unpost_form(form);
+    refresh();
+}
+
 /* Ask user login/registration informations */
 void LoginPanel::focus() {
     /* Ensure that buffer is clean */
@@ -169,9 +175,6 @@ void LoginPanel::focus() {
         /* Don't forget to refresh */
         refresh();
     }
-    
-    /* Unpost form (don't needed anymore) */
-    unpost_form(form);
 }
 
 /* Display and error message in red top of the fileds
@@ -222,7 +225,7 @@ void LoginPanel::setFocusToField() {
 void LoginPanel::printWait(char* message) {
     isWainting = true;
     printInMiddle(message, COLOR_PAIR(2));
-    while(isWainting); /* Avoid current thread to stop and exit program */
+    while(isWainting) { refresh(); } /* Avoid current thread to stop and exit program */
 }
 
 void LoginPanel::proceed(bool registration) {

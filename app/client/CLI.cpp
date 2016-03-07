@@ -60,11 +60,13 @@ CLI::~CLI() {
 void CLI::displayFatalError(std::string error) {
     /* Clean screen and display error and force quit */
     for (int i = 0 ; i < PANEL_TOTAL_NUMBER ; ++i) _panelList[i]->hide();
+    clear();
     attron(COLOR_PAIR(1));
     mvprintw(6, 4, "ERREUR FATAL, LE PROGRAMME VA DEVOIR SE COUPER");
     mvprintw(8, 4, (char*)error.c_str());
     attroff(COLOR_PAIR(1));
-    mvprintw(10, 4, "Appuyer sur une touche pour quitter le programme...");
+    mvprintw(10, 4, "Appuyer sur une touche pour quitter le programme");
+    mvprintw(11, 4, " (il se peut que vous deviez appuyer deux fois)");
     refresh();
 
     /* Wait for input and force kill programme (after cleaning ncurse) */
@@ -94,6 +96,7 @@ void CLI::displayMainWindow() {
     attron(COLOR_PAIR(6));
 
     /* We display MainMenu */
+    _panelList[LOGIN]->hide();
     _panelList[MAIN]->show();
     _panelList[TCHAT]->show();
     _panelList[MAIN]->focus();

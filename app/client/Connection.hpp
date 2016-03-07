@@ -20,6 +20,9 @@ class Connection {
     struct sockaddr_in server_addr;
     struct hostent *host;
     int _clientSocket;
+    
+    /* TCP keepalive OSX compatibility (@carlos) */
+    int TCP_KEEPIDLE_ALL = 1;
 
     /* Active TCP keep alive protocole */
     int _keepon = 1;
