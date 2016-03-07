@@ -1,5 +1,5 @@
-#ifndef FRIENDPANEL_HPP
-#define	FRIENDPANEL_HPP
+#ifndef FriendPanelCLI_HPP
+#define	FriendPanelCLI_HPP
 
 /** friend layout
 #################################### ############
@@ -42,7 +42,7 @@
 
 extern WizardDisplay *wizardDisplay;
 
-class FriendPanel : public CLIPanel {
+class FriendPanelCLI : public CLIPanel {
     WINDOW *windows[2];
     PANEL  *panel;
     FIELD *field[2];
@@ -51,12 +51,12 @@ class FriendPanel : public CLIPanel {
     void updateList();
     void manageFriend(bool remove = false);
 public:
-    FriendPanel();
-    ~FriendPanel() = default;
+    FriendPanelCLI();
+    ~FriendPanelCLI() = default;
 
     void show() override;
     void hide() override;
     void focus() override;
 };
 
-#endif	/* FRIENDPANEL_HPP */
+#endif	/* FriendPanelCLI_HPP */

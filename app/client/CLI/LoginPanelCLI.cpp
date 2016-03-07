@@ -1,6 +1,6 @@
 #include "LoginPanelCLI.hpp"
 
-LoginPanel::LoginPanel() : isWainting(false), success(false) {
+LoginPanelCLI::LoginPanelCLI() : isWainting(false), success(false) {
     /* Initialize field and set some options
      * LabelField - PseudoField - LabelField2 - PasswordField
      * <height> <width> <toprow> <leftcol> <offscreen> <nbuffers>
@@ -47,14 +47,14 @@ LoginPanel::LoginPanel() : isWainting(false), success(false) {
     refresh();
 }
 
-void LoginPanel::hide() {
+void LoginPanelCLI::hide() {
     /* Unpost form */
     unpost_form(form);
     refresh();
 }
 
 /* Ask user login/registration informations */
-void LoginPanel::focus() {
+void LoginPanelCLI::focus() {
     /* Ensure that buffer is clean */
     form_driver(form, REQ_CLR_FIELD);
     form_driver(form, REQ_NEXT_FIELD);
@@ -181,7 +181,7 @@ void LoginPanel::focus() {
  * Can be use for error like field empty or login error
  * @message : the string to display as an error
  */
-void LoginPanel::printError(std::string message) {
+void LoginPanelCLI::printError(std::string message) {
     WizardLogger::error(message);
     beep();
     printInMiddle((char*)message.c_str(), COLOR_PAIR(1));
@@ -189,8 +189,8 @@ void LoginPanel::printError(std::string message) {
     isWainting = false;
 }
 
-/* Close LoginPanel and set signal to open MainPanel */
-void LoginPanel::valideLogin() {
+/* Close LoginPanelCLI and set signal to open MainPanel */
+void LoginPanelCLI::valideLogin() {
     WizardLogger::info("Login réussi");
     success = true;
     isWainting = false;
@@ -198,7 +198,7 @@ void LoginPanel::valideLogin() {
 
 //========================PRIVATE=============================
 
-void LoginPanel::printInMiddle(char *string, chtype color) {
+void LoginPanelCLI::printInMiddle(char *string, chtype color) {
     int length, width, x, y;
 	float temp;
     
@@ -215,20 +215,20 @@ void LoginPanel::printInMiddle(char *string, chtype color) {
 	refresh();
 }
 
-void LoginPanel::setFocusToField() {
+void LoginPanelCLI::setFocusToField() {
     /* Set focus on the field and move cursor to it */
     set_current_field(form, field[1]);
     form_driver(form, REQ_END_LINE);
     refresh();
 }
 
-void LoginPanel::printWait(char* message) {
+void LoginPanelCLI::printWait(char* message) {
     isWainting = true;
     printInMiddle(message, COLOR_PAIR(2));
     while(isWainting) { refresh(); } /* Avoid current thread to stop and exit program */
 }
 
-void LoginPanel::proceed(bool registration) {
+void LoginPanelCLI::proceed(bool registration) {
     /* Sync buffer */
     form_driver(form, REQ_VALIDATION);
     

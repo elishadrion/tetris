@@ -1,6 +1,6 @@
 #include "CollectionPanelCLI.hpp"
 
-CollectionPanel::CollectionPanel() {
+CollectionPanelCLI::CollectionPanelCLI() {
     /* We create mainWindow where player can select what to do */
     window = newwin(MAIN_HEIGTH, MAIN_WIDTH, 0, 0);
     box(window, 0, 0);
@@ -23,7 +23,7 @@ CollectionPanel::CollectionPanel() {
     updatePanel();
 }
 
-void CollectionPanel::updatePanel() {
+void CollectionPanelCLI::updatePanel() {
     for (int i = 0 ; i < MAIN_HEIGTH ; ++i) {
         /* If we have card to put, we put it */
         if (i < _collection.size()) {
@@ -40,22 +40,22 @@ void CollectionPanel::updatePanel() {
  * @param number : number of cards to add
  * @param cardList : array of cardID to add
  */
-void CollectionPanel::addCardToCollection(int number, int* cardList) {
+void CollectionPanelCLI::addCardToCollection(int number, int* cardList) {
     for (int i = 0 ; i < number ; ++i) _collection.push_back(cardList[i]);
     updatePanel();
 }
 
-void CollectionPanel::show() {
+void CollectionPanelCLI::show() {
     show_panel(panel);
     update_panels();
     doupdate();
 }
 
-void CollectionPanel::hide() {
+void CollectionPanelCLI::hide() {
     hide_panel(panel);
     update_panels();
     doupdate();
 }
 
-void CollectionPanel::focus() {
+void CollectionPanelCLI::focus() {
 }

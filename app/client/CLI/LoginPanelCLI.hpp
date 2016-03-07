@@ -34,7 +34,7 @@
 #define LOGIN_IN_PROGRESS "      LOGIN EN COURS      "
 #define REGISTRATION_IN_PROGRESS " ENREGISTREMENT EN COURS  "
 
-class LoginPanel : public CLIPanel {
+class LoginPanelCLI : public CLIPanel {
     WINDOW *window;
     FORM  *form;
     FIELD *field[4];
@@ -58,8 +58,8 @@ class LoginPanel : public CLIPanel {
     void setFocusToField();
     void printInMiddle(char*, chtype);
 public:
-    LoginPanel();
-    ~LoginPanel() = default;
+    LoginPanelCLI();
+    ~LoginPanelCLI() = default;
 
     void printError(std::string);
     void valideLogin();

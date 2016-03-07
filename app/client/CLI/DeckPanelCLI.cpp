@@ -1,7 +1,7 @@
 #include "DeckPanelCLI.hpp"
 
-DeckPanel::DeckPanel() {}
+DeckPanelCLI::DeckPanelCLI() {}
     
-void DeckPanel::show() {}
-void DeckPanel::hide() {}
-void DeckPanel::focus() {}
+void DeckPanelCLI::show() {}
+void DeckPanelCLI::hide() {}
+void DeckPanelCLI::focus() {}

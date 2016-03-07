@@ -1,5 +1,5 @@
-#ifndef DECKPANEL_HPP
-#define	DECKPANEL_HPP
+#ifndef DeckPanelCLI_HPP
+#define	DeckPanelCLI_HPP
 
 #include <panel.h>
 
@@ -7,16 +7,16 @@
 
 #include "CLIPanel.hpp"
 
-class DeckPanel : public CLIPanel {
+class DeckPanelCLI : public CLIPanel {
     WINDOW *window;
     PANEL  *panel;
 public:
-    DeckPanel();
-    ~DeckPanel() = default;
+    DeckPanelCLI();
+    ~DeckPanelCLI() = default;
     
     void show() override;
     void hide() override;
     void focus() override;
 };
 
-#endif	/* DECKPANEL_HPP */
+#endif	/* DeckPanelCLI_HPP */

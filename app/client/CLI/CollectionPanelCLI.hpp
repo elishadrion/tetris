@@ -1,5 +1,5 @@
-#ifndef COLLECTIONPANEL_HPP
-#define	COLLECTIONPANEL_HPP
+#ifndef CollectionPanelCLI_HPP
+#define	CollectionPanelCLI_HPP
 
 #include <panel.h>
 #include <form.h>
@@ -16,15 +16,15 @@
 /* define starting line for mainMeny entry */
 #define START_LINE 5
 
-class CollectionPanel : public CLIPanel {
+class CollectionPanelCLI : public CLIPanel {
     WINDOW *window;
     PANEL  *panel;
     
     //TODO use a better item than a vector of int
     std::vector<int> _collection;
 public:
-    CollectionPanel();
-    ~CollectionPanel() = default;
+    CollectionPanelCLI();
+    ~CollectionPanelCLI() = default;
     
     void addCardToCollection(int, int*);
     void updatePanel();
@@ -34,4 +34,4 @@ public:
     void focus() override;
 };
 
-#endif	/* COLLECTIONPANEL_HPP */
+#endif	/* CollectionPanelCLI_HPP */

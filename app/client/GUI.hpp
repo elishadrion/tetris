@@ -3,7 +3,7 @@
 
 #include "WizardDisplay.hpp"
 #include "common/WizardLogger.hpp"
-#include "client/GUI/LoginPanel.hpp"
+#include "client/GUI/LoginPanelGUI.hpp"
 
 class GUI : public WizardDisplay {
     /* All panel used by the CLI */

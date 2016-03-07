@@ -1,6 +1,6 @@
 #include "GamePanelCLI.hpp"
 
-GamePanel::GamePanel() : ennemyPosedCard({}), posedCard({}), ennemyHandCardNumber({}), handCard({})  {
+GamePanelCLI::GamePanelCLI() : ennemyPosedCard({}), posedCard({}), ennemyHandCardNumber({}), handCard({})  {
     /* We create mainWindow where player can select what to do */
     window = newwin(21, 63, 0, 0);
     box(window, 0, 0);
@@ -45,7 +45,7 @@ GamePanel::GamePanel() : ennemyPosedCard({}), posedCard({}), ennemyHandCardNumbe
     attroff(COLOR_PAIR(2));
 }
 
-void GamePanel::update() {
+void GamePanelCLI::update() {
     int col = 18;
     
     /* Draw ennemy posed card */
@@ -91,24 +91,24 @@ void GamePanel::update() {
     attroff(COLOR_PAIR(2));
 }
 
-void GamePanel::show() {
+void GamePanelCLI::show() {
     show_panel(panel);
     update_panels();
     doupdate();
 }
 
-void GamePanel::hide() {
+void GamePanelCLI::hide() {
     hide_panel(panel);
     update_panels();
     doupdate();
 }
 
-void GamePanel::focus() {
+void GamePanelCLI::focus() {
     getch();
 }
     
-void GamePanel::ennemyPoseCard(int cardID) {}
-void GamePanel::poseCard(int cardID) {}
-void GamePanel::updateEnnemyLife(int amount) {}
-void GamePanel::updateLife(int amount) {}
-void GamePanel::updateEnergy(int amount) {}
+void GamePanelCLI::ennemyPoseCard(int cardID) {}
+void GamePanelCLI::poseCard(int cardID) {}
+void GamePanelCLI::updateEnnemyLife(int amount) {}
+void GamePanelCLI::updateLife(int amount) {}
+void GamePanelCLI::updateEnergy(int amount) {}

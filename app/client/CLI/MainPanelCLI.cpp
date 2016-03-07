@@ -1,6 +1,6 @@
 #include "MainPanelCLI.hpp"
 
-MainPanel::MainPanel() {
+MainPanelCLI::MainPanelCLI() {
     /* We create mainWindow where player can select what to do */
     window = newwin(MAIN_HEIGTH, MAIN_WIDTH, 0, 0);
     box(window, 0, 0);
@@ -20,20 +20,20 @@ MainPanel::MainPanel() {
     refresh();
 }
 
-void MainPanel::show() {
+void MainPanelCLI::show() {
     show_panel(panel);
     update_panels();
     doupdate();
 }
 
-void MainPanel::hide() {
+void MainPanelCLI::hide() {
     hide_panel(panel);
     update_panels();
     doupdate();
 }
 
-void MainPanel::focus() {
-    /* Set focus to mainPanel */
+void MainPanelCLI::focus() {
+    /* Set focus to MainPanelCLI */
     top_panel(panel);
     update_panels();
     doupdate();
@@ -87,7 +87,7 @@ void MainPanel::focus() {
 
 //================================PRIVATE=======================================
 
-void MainPanel::updateColor(int previous, int next) {
+void MainPanelCLI::updateColor(int previous, int next) {
     /* Remove color from previous menu entry (0: no previous entry) */
     if (previous != 0) {
         mvwprintw(window, previous, 8, "*");
@@ -103,7 +103,7 @@ void MainPanel::updateColor(int previous, int next) {
     wrefresh(window);
 }
 
-void MainPanel::doRequest(int entry) {
+void MainPanelCLI::doRequest(int entry) {
     switch(entry) {
         case START_LINE:
             wizardDisplay->displayWait();

@@ -1,6 +1,6 @@
 #include "FriendPanelCLI.hpp"
 
-FriendPanel::FriendPanel() {
+FriendPanelCLI::FriendPanelCLI() {
     /* We create mainWindow where player can select what to do */
     windows[0] = newwin(MAIN_HEIGTH, MAIN_WIDTH, 0, 0);
     box(windows[0], 0, 0);
@@ -44,7 +44,7 @@ FriendPanel::FriendPanel() {
     refresh();
 }
 
-void FriendPanel::show() {
+void FriendPanelCLI::show() {
     /* Update friends list from server before display it */
     updateList();
     show_panel(panel);
@@ -52,13 +52,13 @@ void FriendPanel::show() {
     doupdate();
 }
 
-void FriendPanel::hide() {
+void FriendPanelCLI::hide() {
     hide_panel(panel);
     update_panels();
     doupdate();
 }
 
-void FriendPanel::focus() {
+void FriendPanelCLI::focus() {
     /* Set focus to mainPanel */
     top_panel(panel);
     update_panels();
@@ -89,12 +89,12 @@ void FriendPanel::focus() {
 
 //================================PRIVATE=======================================
 
-void FriendPanel::updateList() {
+void FriendPanelCLI::updateList() {
     //TODO get friends list from Player and display pseudo
     refresh();
 }
 
-void FriendPanel::manageFriend(bool remove) {
+void FriendPanelCLI::manageFriend(bool remove) {
     /* Give focus, clear buffer and refresh */
     mvwin(windows[1], 10, 4);
     set_current_field(form, field[1]);

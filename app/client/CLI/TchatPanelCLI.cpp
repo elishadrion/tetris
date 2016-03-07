@@ -1,10 +1,10 @@
 #include "TchatPanelCLI.hpp"
 
 /* Define static member to can use it */
-std::vector<std::string> TchatPanel::_messageBuffer;
-std::string TchatPanel::_consoleBuffer[TCHAT_HEIGHT-2];
+std::vector<std::string> TchatPanelCLI::_messageBuffer;
+std::string TchatPanelCLI::_consoleBuffer[TCHAT_HEIGHT-2];
 
-TchatPanel::TchatPanel() {
+TchatPanelCLI::TchatPanelCLI() {
     /* We create the tchatBox/consoleBox */
     windows[0] = newwin(TCHAT_HEIGHT, TCHAT_WIDTH, 0, 65+2);
     box(windows[0], 0, 0);
@@ -51,7 +51,7 @@ TchatPanel::TchatPanel() {
     refresh();
 }
 
-TchatPanel::~TchatPanel() {
+TchatPanelCLI::~TchatPanelCLI() {
     /* We must stop the thread before exiting */
     if (_tchatThread != NULL)
         pthread_cancel(_tchatThread);
@@ -63,7 +63,7 @@ TchatPanel::~TchatPanel() {
  * If buffer is full, calling thread must wait to have some place
  * @param message : what to print
  */
-void TchatPanel::addMessage(std::string message) {
+void TchatPanelCLI::addMessage(std::string message) {
     /* Block buffer access */
     pthread_mutex_lock(&_mutex);
     
@@ -75,7 +75,7 @@ void TchatPanel::addMessage(std::string message) {
     pthread_mutex_unlock(&_mutex);
 }
 
-void TchatPanel::show() {
+void TchatPanelCLI::show() {
     show_panel(panel);
     update_panels();
     doupdate();
@@ -85,7 +85,7 @@ void TchatPanel::show() {
 }
 
 //TODO ADD FIELD CHECK LIKE LOGINPANEL (WE CAN GET INDEX AND KNOW IN WICH FIELD WE ARE)
-void TchatPanel::focus() {
+void TchatPanelCLI::focus() {
     /* Set focus on the field and move cursor to it */
     form_driver(form, REQ_FIRST_FIELD);
     form_driver(form, REQ_END_LINE);
@@ -158,7 +158,7 @@ void TchatPanel::focus() {
 
 //===============================PRIVATE=============================================
 
-void *TchatPanel::updateTchat(void* data) {
+void *TchatPanelCLI::updateTchat(void* data) {
     /* Enable asynchronous cancel (thread can be canceled at any time) from deferred */
     pthread_setcanceltype(PTHREAD_CANCEL_ASYNCHRONOUS, (int*) PTHREAD_CANCEL_DEFERRED);
     

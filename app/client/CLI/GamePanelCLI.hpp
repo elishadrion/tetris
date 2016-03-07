@@ -1,5 +1,5 @@
-#ifndef GAMEPANEL_HPP
-#define	GAMEPANEL_HPP
+#ifndef GamePanelCLI_HPP
+#define	GamePanelCLI_HPP
 
 /** in-game layout
 #################################### ############
@@ -7,7 +7,7 @@
 #                                  # #          #
 #                                  # #          #
 #                                  # #          #
-#           gamePanel              # #          #
+#           GamePanelCLI              # #          #
 #               +                  # #  tchat   #
 #        cardInfo popup            # #          #
 #                                  # #          #
@@ -41,7 +41,7 @@
 
 extern WizardDisplay *wizardDisplay;
 
-class GamePanel : public CLIPanel {
+class GamePanelCLI : public CLIPanel {
     WINDOW *window;
     PANEL  *panel;
     
@@ -55,8 +55,8 @@ class GamePanel : public CLIPanel {
     
     void update();
 public:
-    GamePanel();
-    ~GamePanel() = default;
+    GamePanelCLI();
+    ~GamePanelCLI() = default;
     
     void ennemyPoseCard(int);
     void poseCard(int);
@@ -69,4 +69,4 @@ public:
     void focus() override;
 };
 
-#endif	/* GAMEPANEL_HPP */
+#endif	/* GamePanelCLI_HPP */

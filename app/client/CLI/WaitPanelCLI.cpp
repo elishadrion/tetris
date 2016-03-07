@@ -1,6 +1,6 @@
 #include "WaitPanelCLI.hpp"
 
-WaitPanel::WaitPanel() : _inGame(false) {
+WaitPanelCLI::WaitPanelCLI() : _inGame(false) {
     /* We create mainWindow where player can select what to do */
     window = newwin(MAIN_HEIGTH, MAIN_WIDTH, 0, 0);
     box(window, 0, 0);
@@ -20,19 +20,19 @@ WaitPanel::WaitPanel() : _inGame(false) {
     refresh();
 }
     
-void WaitPanel::show() {
+void WaitPanelCLI::show() {
     show_panel(panel);
     update_panels();
     doupdate();
 }
 
-void WaitPanel::hide() {
+void WaitPanelCLI::hide() {
     hide_panel(panel);
     update_panels();
     doupdate();
 }
 
-void WaitPanel::focus() {
+void WaitPanelCLI::focus() {
     /* Set focus to mainPanel */
     top_panel(panel);
     update_panels();

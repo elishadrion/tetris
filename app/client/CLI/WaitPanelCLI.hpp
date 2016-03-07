@@ -1,5 +1,5 @@
-#ifndef WAITPANEL_HPP
-#define	WAITPANEL_HPP
+#ifndef WaitPanelCLI_HPP
+#define	WaitPanelCLI_HPP
 
 #include <panel.h>
 
@@ -11,18 +11,18 @@
 
 extern WizardDisplay *wizardDisplaydisplay;
 
-class WaitPanel : public CLIPanel {
+class WaitPanelCLI : public CLIPanel {
     WINDOW *window;
     PANEL  *panel;
     
     bool _inGame;
 public:
-    WaitPanel();
-    ~WaitPanel() = default;
+    WaitPanelCLI();
+    ~WaitPanelCLI() = default;
     
     void show() override;
     void hide() override;
     void focus() override;
 };
 
-#endif	/* WAITPANEL_HPP */
+#endif	/* WaitPanelCLI_HPP */

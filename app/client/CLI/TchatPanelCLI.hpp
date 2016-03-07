@@ -1,5 +1,5 @@
-#ifndef TCHATPANEL_HPP
-#define	TCHATPANEL_HPP
+#ifndef TchatPanelCLI_HPP
+#define	TchatPanelCLI_HPP
 
 #include <panel.h>
 #include <form.h>
@@ -23,7 +23,7 @@
 #define INPUT_HEIGHT 7
 #define INPUT_WIDTH TCHAT_WIDTH
 
-class TchatPanel : public CLIPanel {
+class TchatPanelCLI : public CLIPanel {
     WINDOW *windows[2];
     PANEL  *panel;
     FORM  *form;
@@ -47,8 +47,8 @@ class TchatPanel : public CLIPanel {
     static std::vector<std::string> _messageBuffer;
     static std::string _consoleBuffer[TCHAT_HEIGHT-2];
 public:
-    TchatPanel();
-    ~TchatPanel();
+    TchatPanelCLI();
+    ~TchatPanelCLI();
     
     void addMessage(std::string);
     
@@ -59,4 +59,4 @@ public:
     void hide() {};
 };
 
-#endif	/* TCHATPANEL_HPP */
+#endif	/* TchatPanelCLI_HPP */

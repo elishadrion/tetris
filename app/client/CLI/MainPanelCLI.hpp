@@ -1,5 +1,5 @@
-#ifndef MAINPANEL_HPP
-#define	MAINPANEL_HPP
+#ifndef MainPanelCLI_HPP
+#define	MainPanelCLI_HPP
 
 /** main menu layout
 #################################### ############
@@ -39,19 +39,19 @@
 
 extern WizardDisplay *wizardDisplay;
 
-class MainPanel : public CLIPanel {
+class MainPanelCLI : public CLIPanel {
     WINDOW *window;
     PANEL  *panel;
     
     void updateColor(int, int);
     void doRequest(int);
 public:
-    MainPanel();
-    ~MainPanel() = default;
+    MainPanelCLI();
+    ~MainPanelCLI() = default;
     
     void show() override;
     void hide() override;
     void focus() override;
 };
 
-#endif	/* MAINPANEL_HPP */
+#endif	/* MainPanelCLI_HPP */

@@ -29,14 +29,14 @@ CLI::CLI() {
 
     /* Create panel and form view (if failed, client must quit) */
     try {
-        _panelList[LOGIN] = new LoginPanel();
-        _panelList[MAIN] = new MainPanel();
-        _panelList[TCHAT] = new TchatPanel();
-        _panelList[FRIEND] = new FriendPanel();
-        _panelList[COLL] = new CollectionPanel();
-        _panelList[DECK] = new DeckPanel();
-        _panelList[WAIT] = new WaitPanel();
-        _panelList[GAME] = new GamePanel();
+        _panelList[LOGIN] = new LoginPanelCLI();
+        _panelList[MAIN] = new MainPanelCLI();
+        _panelList[TCHAT] = new TchatPanelCLI();
+        _panelList[FRIEND] = new FriendPanelCLI();
+        _panelList[COLL] = new CollectionPanelCLI();
+        _panelList[DECK] = new DeckPanelCLI();
+        _panelList[WAIT] = new WaitPanelCLI();
+        _panelList[GAME] = new GamePanelCLI();
     } catch (const std::runtime_error &error) {
         WizardLogger::fatal("Impossible de créer les panels de la CLI : ", error.what());
         endwin(); /* Ensure ncurses is desactivate */
@@ -82,11 +82,11 @@ void CLI::displayLoginPrompt() {
 }
 
 void CLI::displayLoginResult(std::string errorMessage) {
-    static_cast<LoginPanel*>(_panelList[LOGIN])->printError(errorMessage);
+    static_cast<LoginPanelCLI*>(_panelList[LOGIN])->printError(errorMessage);
 }
 
 void CLI::valideLogin() {
-    static_cast<LoginPanel*>(_panelList[LOGIN])->valideLogin();
+    static_cast<LoginPanelCLI*>(_panelList[LOGIN])->valideLogin();
 }
 
 void CLI::displayMainWindow() {
