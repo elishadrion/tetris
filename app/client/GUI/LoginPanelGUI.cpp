@@ -1,5 +1,17 @@
 #include "LoginPanelGUI.hpp"
 
+
+void LoginPanelGUI::makeLogin() {
+    const char* pseudo = m_pseudo->text().toStdString().c_str();
+    const char* mdp = m_pseudo->text().toStdString().c_str();
+    PacketManager::makeLoginRequest(pseudo, mdp);
+}
+
+void LoginPanelGUI::printLoginResult(std::string message) {
+    QString msg = QString::fromUtf8(message.c_str());
+    emit mustPrintResult(msg);
+}
+
 LoginPanelGUI::LoginPanelGUI() : QWidget() {
     setFixedSize(600,350);
 
@@ -24,19 +36,14 @@ LoginPanelGUI::LoginPanelGUI() : QWidget() {
     pseudo= new QLabel("Pseudo :");
     mdp= new QLabel("Mot de passe :");
 
-    //beginSpace= new QLabel("\t");
-    //endSpace= new QLabel("\t");
-
     gridlayout->addWidget(title,1,1,1,2);
-    //gridlayout->addWidget(beginSpace,1,0);
     gridlayout->addWidget(pseudo,2,1);
     gridlayout->addWidget(m_pseudo,2,2);
-    //gridlayout->addWidget(endSpace,1,3);
     gridlayout->addWidget(mdp,3,1);
     gridlayout->addWidget(m_mdp,3,2);
 
-    login = new QPushButton("Login");
-    signIn = new QPushButton("S'enregistrer");
+    login = new QPushButton("Login", this);
+    signIn = new QPushButton("S'enregistrer", this);
 
     QFont maPolice("Comic Sans MS",20,85,false); //type,taille,epaisseur,italique
     login->setFont(maPolice);
@@ -61,7 +68,15 @@ LoginPanelGUI::LoginPanelGUI() : QWidget() {
     gridlayout->setRowStretch(4, 2);
     gridlayout->setRowStretch(5, 1);
 
+    QObject::connect(login, SIGNAL(clicked()), this, SLOT(makeLogin()));
+    QObject::connect(this, SIGNAL(mustPrintResult(QString)), this, SLOT(loginDisplayResult(QString)));
 }
+
+void LoginPanelGUI::loginDisplayResult(const QString message) {
+    const QString titre = "Erreur";
+    QMessageBox::information(this, titre, message);
+}
+
 
 LoginPanelGUI::~LoginPanelGUI() {
     delete pseudo;

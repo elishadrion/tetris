@@ -5,7 +5,10 @@
 #include "common/WizardLogger.hpp"
 #include "client/GUI/LoginPanelGUI.hpp"
 
-class GUI : public WizardDisplay {
+#include <QObject>
+
+
+class GUI : public WizardDisplay, public QObject {
     /* All panel used by the CLI */
     // GUIPanel *_panelList[PANEL_TOTAL_NUMBER];
     /*
