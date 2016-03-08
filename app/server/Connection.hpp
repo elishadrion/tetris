@@ -1,18 +1,18 @@
 #ifndef CONNECTION_HPP
 #define CONNECTION_HPP
 
-#include <vector>
-#include <system_error>
+#include <arpa/inet.h>
 #include <cstdlib>
-#include <unistd.h>
 #include <cstring>
 #include <netdb.h>
-#include <sys/types.h>
 #include <netinet/in.h>
-#include <sys/socket.h>
-#include <arpa/inet.h>
 #include <netinet/tcp.h>
 #include <pthread.h>
+#include <system_error>
+#include <sys/socket.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <vector>
 
 #include "common/Constants.hpp"
 #include "common/Packet.hpp"

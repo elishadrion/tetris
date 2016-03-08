@@ -51,6 +51,7 @@ Connection::Connection() {
 }
 
 Connection::~Connection() {
+    WizardLogger::warning("BALAPKZFPIZD");
     close(_serverSocket);
 }
 
@@ -109,7 +110,7 @@ void* Connection::newPlayerThread(void* data) {
         /* Try to get packet from server */
         readSize = recv(clientSocket, packet, size, 0);
         if (readSize <= 0) {
-            WizardLogger::fatal("Connexion interrompue avec le client");
+            WizardLogger::error("Connexion interrompue avec le client");
             break;
         } else if (readSize < size) {
             WizardLogger::warning("Le packet reçu est incomplet");

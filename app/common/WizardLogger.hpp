@@ -1,4 +1,3 @@
-
 #ifndef WIZARDLOGGER_HPP
 #define	WIZARDLOGGER_HPP
 
