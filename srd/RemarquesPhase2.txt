@@ -1,0 +1,7 @@
+REMARQUES - Phase 2
+
+- Exigences non fonctionnelles - Utilisateur - Première phrase: Vrai, mais il ne faut pas l’écrire.
+- Exigences non fonctionnelles - Utilisateur et Besoins du domaine: Très générales, et pas vraiment liées uniquement à l’utilisateur
+- Besoins du système - Exigences fonctionnelles: Incomplet, plus certaines fonctionnalités sont liées à l’utilisateur (sauvegarde) et des autres décrivent la facon dont la fonctionnalité est implémenté (serialization JSON).
+- Activity et Sequence Diagram: De l’information complémentaire ou la description des certaines choix d’impleméntation pourrait être utile.
+- Activity diagrams: Bien utilisés pour expliquer la logique du jeux, mais pas de description textuelle associée.
