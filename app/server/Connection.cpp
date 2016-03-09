@@ -169,7 +169,7 @@ void Connection::sendResponse(int errorCode, int socket) {
     Packet::loginResultPacket *loginResult = new Packet::loginResultPacket();
     loginResult->resultCode = errorCode;
     send(socket, loginResult, sizeof(Packet::loginResultPacket), 0);
-    free(loginResult);
+    delete loginResult;
 }
 
 void Connection::sendSucess(Player* player, int socket) {
@@ -191,5 +191,5 @@ void Connection::sendSucess(Player* player, int socket) {
 
     /* Send informations */
     send(socket, playerPacket, sizeof(Packet::playerInfoPacket), 0);
-    free(playerPacket);
+    delete playerPacket;
 }

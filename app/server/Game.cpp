@@ -168,6 +168,7 @@ void Game::removePlayerWaitGame(Player *player) {
         PlayerWaitGame.erase(
             std::remove(PlayerWaitGame.begin(), PlayerWaitGame.end(), player),
             PlayerWaitGame.end());
+            WizardLogger::info(player->getName() + " n'attend plus de partie");
     }
 }
 

@@ -96,6 +96,5 @@ void PacketManager::manageDisconnectRequest(Player *player, Packet::packet* disc
 }
 
 void PacketManager::managNewGameRequest(Player *player, Packet::packet* newGameRequest) {
-    WizardLogger::info(player->getName()+" en attente de partie");
     Game::addPlayerWaitGame(player);
 }
