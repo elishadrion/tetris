@@ -30,8 +30,8 @@ void LoginPanelGUI::setStrMdp(QString qstr) {
 }
 
 /**
- * @brief LoginPanelGUI::printLoginResult
- * @param message
+ * Call the mustPrintResult
+ * @param message which must be print
  */
 void LoginPanelGUI::printLoginResult(std::string message) {
     QString msg = QString::fromUtf8(message.c_str());
