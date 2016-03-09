@@ -3,6 +3,7 @@
 
 #include "WizardDisplay.hpp"
 #include "common/WizardLogger.hpp"
+#include "client/GUI/MenuPanelGUI.hpp"
 #include "client/GUI/LoginPanelGUI.hpp"
 
 #include <QObject>
@@ -24,10 +25,11 @@ class GUI : public WizardDisplay, public QObject {
     };*/
 
     LoginPanelGUI* loginPanel;
+    MenuPanelGUI* menuPanel;
 
 public:
     GUI();
-    ~GUI();
+    virtual ~GUI();
     void displayFatalError(std::string) override;
     void displayLoginPrompt() override;
     void displayLoginResult(std::string) override;

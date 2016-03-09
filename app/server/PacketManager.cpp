@@ -83,9 +83,9 @@ void PacketManager::askDefausse(Player *player, int amount) {
 
 /* Send end game signal (victory or defeat)
  * @param player : the players who to send this packet
- * @param victory : is current player win or no ? (didn't support equality, is it important ?)
+ * @param victory : 1 say win, 0 lose and -1 if advers player disconnect
  */
-void PacketManager::sendEndGame(Player *player, bool victory) {
+void PacketManager::sendEndGame(Player *player, int victory) {
 }
 
 //==========================================================================================================

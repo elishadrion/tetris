@@ -87,6 +87,7 @@ private:
     void isPlayerInLife(PlayerInGame* pIG);
 
     Error placeCard(PlayerInGame*, Card*);
+    void endParty(PlayerInGame*);
 
 };
 

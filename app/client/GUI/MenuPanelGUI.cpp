@@ -1,6 +1,6 @@
-#include "MenuPanelGUI.h"
+#include "MenuPanelGUI.hpp"
 
-MenuPanel::MenuPanel() : QWidget(){
+MenuPanelGUI::MenuPanelGUI() : QWidget() {
 
     _nameGame = new QLabel(" Wizard Poker ");
     _nameGame->setFont(QFont("FOLKARD",75));
@@ -26,7 +26,7 @@ MenuPanel::MenuPanel() : QWidget(){
     _quitter = new QPushButton(" Quitter ");
     _quitter->setMaximumHeight(50);
     _quitter->setMaximumWidth(200);
-    QObject::connect(_quitter, SIGNAL(clicked()), qApp, SLOT(quit()));
+    //QObject::connect(_quitter, SIGNAL(clicked()), qApp, SLOT(quit()));
 
 
     _layout = new QGridLayout;
@@ -48,4 +48,5 @@ MenuPanel::MenuPanel() : QWidget(){
     setLayout(_layoutOfLayout);
     //setStyleSheet("QWidget{background-image: url(/Users/Amean/Desktop/bg.jpg);}");
     showMaximized();
+
 }

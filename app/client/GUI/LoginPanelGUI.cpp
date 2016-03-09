@@ -44,11 +44,11 @@ void LoginPanelGUI::printLoginResult(std::string message) {
 LoginPanelGUI::LoginPanelGUI() : QWidget() {
     setFixedSize(600,350);
 
-    QPixmap pixmap("background.jpg");
-    pixmap = pixmap.scaled(size(), Qt::IgnoreAspectRatio);
-    QPalette palette;
-    palette.setBrush(QPalette::Background, pixmap);
-    setPalette(palette);
+    //QPixmap pixmap("background.jpg");
+    //pixmap = pixmap.scaled(size(), Qt::IgnoreAspectRatio);
+    //QPalette palette;
+    //palette.setBrush(QPalette::Background, pixmap);
+    //setPalette(palette);
 
     QFont policeTitre("Comic Sans MS",50,99,true);
 
@@ -78,7 +78,7 @@ LoginPanelGUI::LoginPanelGUI() : QWidget() {
     _login->setFont(maPolice);
     _signIn->setFont(maPolice);
 
-    _layout= new QHBoxLayout;
+    _layout= new QHBoxLayout();
     _layout->addWidget(_login);
     _layout->addWidget(_signIn);
 
@@ -114,18 +114,4 @@ void LoginPanelGUI::loginDisplayResult(const QString message) {
     QMessageBox::critical(this, titre, message);
 }
 
-/**
- * Destructor
- */
-LoginPanelGUI::~LoginPanelGUI() {
-    delete _pseudo;
-    delete _mdp;
-    delete _title;
-    delete _gridlayout;
-    delete _m_pseudo;
-    delete _m_mdp;
-    delete _layout;
-    delete _login;
-    delete _signIn;
-}
 

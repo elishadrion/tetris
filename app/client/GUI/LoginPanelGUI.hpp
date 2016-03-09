@@ -36,7 +36,6 @@ class LoginPanelGUI : public QWidget {
 public:
     LoginPanelGUI();
     void printLoginResult(std::string);
-    ~LoginPanelGUI();
 
 public slots:
     void loginDisplayResult(QString);

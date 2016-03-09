@@ -1,4 +1,4 @@
-//#include "GameGUI.h"
+//#include "GameGUI.hpp"
 
 //GameGUI::GameGUI() : QWidget() {
 

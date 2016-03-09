@@ -24,5 +24,5 @@ namespace PacketManager {
     void sendInfoStartTurn(Player*,int,int);
     void sendAttack(Player*, std::string, int, int, bool, bool, unsigned int);
     void askDefausse(Player*, int);
-    void sendEndGame(Player*, bool);
+    void sendEndGame(Player*, int);
 }
