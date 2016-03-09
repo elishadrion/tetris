@@ -38,6 +38,7 @@ public:
 public slots:
     void loginDisplayResult(QString);
     void makeLogin();
+    void makeRegister();
 
 signals:
     void mustPrintResult(QString);

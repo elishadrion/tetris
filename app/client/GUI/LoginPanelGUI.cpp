@@ -7,6 +7,12 @@ void LoginPanelGUI::makeLogin() {
     PacketManager::makeLoginRequest(pseudo, mdp);
 }
 
+void LoginPanelGUI::makeRegister() {
+    const char* pseudo = m_pseudo->text().toStdString().c_str();
+    const char* mdp = m_pseudo->text().toStdString().c_str();
+    PacketManager::makeRegistrationRequest(pseudo, mdp);
+}
+
 void LoginPanelGUI::printLoginResult(std::string message) {
     QString msg = QString::fromUtf8(message.c_str());
     emit mustPrintResult(msg);
@@ -69,12 +75,13 @@ LoginPanelGUI::LoginPanelGUI() : QWidget() {
     gridlayout->setRowStretch(5, 1);
 
     QObject::connect(login, SIGNAL(clicked()), this, SLOT(makeLogin()));
+    QObject::connect(signIn, SIGNAL(clicked()), this, SLOT(makeRegister()));
     QObject::connect(this, SIGNAL(mustPrintResult(QString)), this, SLOT(loginDisplayResult(QString)));
 }
 
 void LoginPanelGUI::loginDisplayResult(const QString message) {
     const QString titre = "Erreur";
-    QMessageBox::information(this, titre, message);
+    QMessageBox::critical(this, titre, message);
 }
 
 

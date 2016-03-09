@@ -23,7 +23,10 @@ void GUI::displayLoginPrompt() {
 void GUI::displayLoginResult(std::string message) {
     loginPanel->printLoginResult(message);
 }
-void GUI::valideLogin() {}
+void GUI::valideLogin() {
+    // loginPanel->valideLogin();
+    // TO DO: supprimer menu de login et mettre menu principal
+}
 void GUI::displayMainWindow() {}
 void GUI::displayFriendsWindow() {}
 void GUI::displayCollectionWindow() {}
