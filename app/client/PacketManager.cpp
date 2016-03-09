@@ -17,6 +17,8 @@ void PacketManager::managePacket(Packet::packet* customPacket) {
                                           break;
         case Packet::PLAYER_INFO_ID :     playerInfo((Packet::playerInfoPacket*) customPacket);
                                           break;
+        case Packet::LAUNCH_ID :          askDeck((Packet::tchatManagPacket*) customPacket);
+                                          break;
         default :                         WizardLogger::error("Paquet inconnu reçu : "+customPacket->ID);
                                           break;
     }
@@ -148,4 +150,8 @@ void PacketManager::getCard(const Packet::cardInfosPacket* cardInfo) {
     Card *newCard = new Card(cardInfo->data.carteID, cardInfo->data.monster, std::string(cardInfo->data.name),
     std::string(cardInfo->data.description), cardInfo->data.energyCost, cardInfo->data.maxHP);
     cacheManager->addToCache(newCard);
+}
+
+void PacketManager::askDeck(const Packet::tchatManagPacket* newGamePacket) {
+    WizardLogger::info("Lancement d'une partie contre le joueur : "+std::string(newGamePacket->pseudo));
 }
