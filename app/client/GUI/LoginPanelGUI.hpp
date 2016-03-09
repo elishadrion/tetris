@@ -20,31 +20,34 @@
 class LoginPanelGUI : public QWidget {
     Q_OBJECT
 
-    QLabel *pseudo;
-    QLabel *mdp;
-    QLabel *title;
-    QLabel *beginSpace;
-    QLabel *endSpace;
-    QGridLayout *gridlayout;
-    QLineEdit *m_pseudo;
-    QLineEdit *m_mdp;
-    QHBoxLayout *layout;
-    QPushButton *login;
-    QPushButton *signIn;
+    QLabel *_pseudo;
+    QLabel *_mdp;
+    QLabel *_title;
+    QGridLayout *_gridlayout;
+    QLineEdit *_m_pseudo;
+    QLineEdit *_m_mdp;
+    QHBoxLayout *_layout;
+    QPushButton *_login;
+    QPushButton *_signIn;
+
+    std::string _strPseudo;
+    std::string _strMdp;
+
 public:
     LoginPanelGUI();
     void printLoginResult(std::string);
+    ~LoginPanelGUI();
 
 public slots:
     void loginDisplayResult(QString);
     void makeLogin();
     void makeRegister();
+    void setStrPseudo(QString);
+    void setStrMdp(QString);
 
 signals:
     void mustPrintResult(QString);
 
-public:
-    ~LoginPanelGUI();
 
 };
 

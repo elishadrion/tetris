@@ -2,22 +2,45 @@
 
 
 void LoginPanelGUI::makeLogin() {
-    const char* pseudo = m_pseudo->text().toStdString().c_str();
-    const char* mdp = m_pseudo->text().toStdString().c_str();
+    const char* pseudo = _strPseudo.c_str();
+    const char* mdp = _strMdp.c_str();
     PacketManager::makeLoginRequest(pseudo, mdp);
 }
 
 void LoginPanelGUI::makeRegister() {
-    const char* pseudo = m_pseudo->text().toStdString().c_str();
-    const char* mdp = m_pseudo->text().toStdString().c_str();
+    const char* pseudo = _strPseudo.c_str();
+    const char* mdp = _strMdp.c_str();
     PacketManager::makeRegistrationRequest(pseudo, mdp);
 }
 
+/**
+ * Change the string pseudo
+ * @param qstr the new QString
+ */
+void LoginPanelGUI::setStrPseudo(QString qstr) {
+    _strPseudo = qstr.toStdString();
+}
+
+/**
+ * Change the string password
+ * @param qstr the new QString
+ */
+void LoginPanelGUI::setStrMdp(QString qstr) {
+    _strMdp = qstr.toStdString();
+}
+
+/**
+ * @brief LoginPanelGUI::printLoginResult
+ * @param message
+ */
 void LoginPanelGUI::printLoginResult(std::string message) {
     QString msg = QString::fromUtf8(message.c_str());
     emit mustPrintResult(msg);
 }
 
+/**
+ * Constructor
+ */
 LoginPanelGUI::LoginPanelGUI() : QWidget() {
     setFixedSize(600,350);
 
@@ -29,73 +52,80 @@ LoginPanelGUI::LoginPanelGUI() : QWidget() {
 
     QFont policeTitre("Comic Sans MS",50,99,true);
 
-    gridlayout = new QGridLayout(this);
+    _gridlayout = new QGridLayout(this);
 
-    title= new QLabel("Wizard Poker");
-    title->setFont(policeTitre);
-    title->setAlignment(Qt::AlignHCenter);
+    _title= new QLabel("Wizard Poker");
+    _title->setFont(policeTitre);setStrPseudo
+    _title->setAlignment(Qt::AlignHCenter);
 
-    m_pseudo= new QLineEdit;
-    m_mdp= new QLineEdit;
-    m_mdp->setEchoMode(QLineEdit::Password);
+    _m_pseudo= new QLineEdit(this);
+    _m_mdp= new QLineEdit(this);
+    _m_mdp->setEchoMode(QLineEdit::Password);
 
-    pseudo= new QLabel("Pseudo :");
-    mdp= new QLabel("Mot de passe :");
+    _pseudo= new QLabel("Pseudo :");
+    _mdp= new QLabel("Mot de passe :");
 
-    gridlayout->addWidget(title,1,1,1,2);
-    gridlayout->addWidget(pseudo,2,1);
-    gridlayout->addWidget(m_pseudo,2,2);
-    gridlayout->addWidget(mdp,3,1);
-    gridlayout->addWidget(m_mdp,3,2);
+    _gridlayout->addWidget(_title,1,1,1,2);
+    _gridlayout->addWidget(_pseudo,2,1);
+    _gridlayout->addWidget(_m_pseudo,2,2);
+    _gridlayout->addWidget(_mdp,3,1);
+    _gridlayout->addWidget(_m_mdp,3,2);
 
-    login = new QPushButton("Login", this);
-    signIn = new QPushButton("S'enregistrer", this);
+    _login = new QPushButton("Login", this);
+    _signIn = new QPushButton("S'enregistrer", this);
 
     QFont maPolice("Comic Sans MS",20,85,false); //type,taille,epaisseur,italique
-    login->setFont(maPolice);
-    signIn->setFont(maPolice);
+    _login->setFont(maPolice);
+    _signIn->setFont(maPolice);
 
-    layout= new QHBoxLayout;
-    layout->addWidget(login);
-    layout->addWidget(signIn);
+    _layout= new QHBoxLayout;
+    _layout->addWidget(_login);
+    _layout->addWidget(_signIn);
 
-    gridlayout->addLayout(layout,4,1,1,2);
+    _gridlayout->addLayout(_layout,4,1,1,2);
 
 
-    gridlayout->setColumnStretch(0, 1);
-    gridlayout->setColumnStretch(1, 2);
-    gridlayout->setColumnStretch(2, 2);
-    gridlayout->setColumnStretch(3, 1);
+    _gridlayout->setColumnStretch(0, 1);
+    _gridlayout->setColumnStretch(1, 2);
+    _gridlayout->setColumnStretch(2, 2);
+    _gridlayout->setColumnStretch(3, 1);
 
-    gridlayout->setRowStretch(0, 1);
-    gridlayout->setRowStretch(1, 3);
-    gridlayout->setRowStretch(2, 2);
-    gridlayout->setRowStretch(3, 2);
-    gridlayout->setRowStretch(4, 2);
-    gridlayout->setRowStretch(5, 1);
+    _gridlayout->setRowStretch(0, 1);
+    _gridlayout->setRowStretch(1, 3);
+    _gridlayout->setRowStretch(2, 2);
+    _gridlayout->setRowStretch(3, 2);
+    _gridlayout->setRowStretch(4, 2);
+    _gridlayout->setRowStretch(5, 1);
 
-    QObject::connect(login, SIGNAL(clicked()), this, SLOT(makeLogin()));
-    QObject::connect(signIn, SIGNAL(clicked()), this, SLOT(makeRegister()));
+    QObject::connect(_login, SIGNAL(clicked()), this, SLOT(makeLogin()));
+    QObject::connect(_signIn, SIGNAL(clicked()), this, SLOT(makeRegister()));
     QObject::connect(this, SIGNAL(mustPrintResult(QString)), this, SLOT(loginDisplayResult(QString)));
+
+    QObject::connect(_m_pseudo, SIGNAL(textChanged(QString)), this, SLOT(setStrPseudo(QString)));
+    QObject::connect(_m_mdp, SIGNAL(textChanged(QString)), this, SLOT(setStrMdp(QString)));
 }
 
+/**
+ *
+ * @param message to display
+ */
 void LoginPanelGUI::loginDisplayResult(const QString message) {
     const QString titre = "Erreur";
     QMessageBox::critical(this, titre, message);
 }
 
-
+/**
+ * Destructor
+ */
 LoginPanelGUI::~LoginPanelGUI() {
-    delete pseudo;
-    delete mdp;
-    delete title;
-//    delete beginSpace;
-//    delete endSpace;
-    delete gridlayout;
-    delete m_pseudo;
-    delete m_mdp;
-    delete layout;
-    delete login;
-    delete signIn;
+    delete _pseudo;
+    delete _mdp;
+    delete _title;
+    delete _gridlayout;
+    delete _m_pseudo;
+    delete _m_mdp;
+    delete _layout;
+    delete _login;
+    delete _signIn;
 }
 

@@ -3,19 +3,19 @@
 void PlayerManager::loadPlayers() {
     std::ifstream playersFile;
     try {
-	playersFile.open(PLAYERS_DB);
+        playersFile.open(PLAYERS_DB);
     } catch (std::ios_base::failure &fail) {
-	WizardLogger::warning("LOADING USERS FAILED");
-	return;
+        WizardLogger::warning("LOADING USERS FAILED");
+        return;
     }
 
     std::string info_str((std::istreambuf_iterator<char>(playersFile)),
 			 std::istreambuf_iterator<char>());
     nlohmann::json db = nlohmann::json::parse(info_str);
 
-    for (size_t i = 0 ; i < db.size(); ++i) {
-	nlohmann::json player_info = db[i];
-	_players.push_back(new Player(player_info));
+    for (json::iterator i = db.begin(); i != db.end(); ++i) {
+        nlohmann::json player_info = i.value();
+        _players.push_back(new Player(player_info));
     }
 
     playersFile.close();
@@ -25,19 +25,19 @@ std::string PlayerManager::getRanking() {
     std::string ranking;
     std::vector<Player*> sorted_players(_players);
     for (size_t i = 0; i < _players.size(); ++i) {
-	std::cout << sorted_players.at(i) -> getVictories() << "\n";
+        std::cout << sorted_players.at(i) -> getVictories() << "\n";
     }
 
     std::sort(sorted_players.begin(), sorted_players.end());
     for (size_t i = 0; i < _players.size(); ++i) {
-	std::cout << sorted_players.at(i) -> getVictories() << "\n";
+        std::cout << sorted_players.at(i) -> getVictories() << "\n";
     }
 
 
     ranking.append("Nom\t\tVictoires\tDefaites\n");
 
     for (size_t i = 0; i < sorted_players.size(); ++i)
-	ranking << *sorted_players.at(i);
+        ranking << *sorted_players.at(i);
 
     return ranking;
 }
@@ -45,16 +45,20 @@ std::string PlayerManager::getRanking() {
 
 Player* PlayerManager::logIn(std::string username, std::string password, int sockfd) {
     for (size_t i = 0; i < _players.size(); i++) {
-	Player* current = _players.at(i);
-	if ((*current).getName() == username &&
-	    (*current).getPass() == password) {
+        Player* current = _players.at(i);
 
-	    _connected.push_back(current);
-	    current -> updateSockfd(sockfd);
-	    return current;
-	}
+        WizardLogger::info((*current).getName() + " > " + username + " | " +
+                           (*current).getPass() + " > " + password);
+
+        if ((*current).getName() == username &&
+            (*current).getPass() == password) {
+
+            _connected.push_back(current);
+            current -> updateSockfd(sockfd);
+            return current;
+        }
     }
-    WizardLogger::warning("NO USER FOUND. LOGIN FAILED");
+    WizardLogger::warning("NO USER FOUND FOR PSEUDO " + username +". LOGIN FAILED");
     return nullptr;
 }
 
@@ -68,7 +72,7 @@ Player* PlayerManager::signUp(std::string username, std::string password, int so
         Player* current = _players.at(i);
 
         if (*current == username) {
-            WizardLogger::warning("CHOSEN USERNAME ALREADY EXISTS");
+            WizardLogger::warning("CHOSEN USERNAME (" + username + ") ALREADY EXISTS");
             return nullptr;
         }
     }
