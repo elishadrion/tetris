@@ -22,12 +22,15 @@ void GUI::displayLoginPrompt() {
 }
 void GUI::displayLoginResult(std::string message) {
     loginPanel->printLoginResult(message);
+    WizardLogger::info("Appel du login result");
 }
 void GUI::valideLogin() {
-    // loginPanel->valideLogin();
-    // TO DO: supprimer menu de login et mettre menu principal
+    loginPanel->close();
+    this->displayMainWindow();
 }
-void GUI::displayMainWindow() {}
+void GUI::displayMainWindow() {
+    WizardLogger::info("Appel du displayMainWindow");
+}
 void GUI::displayFriendsWindow() {}
 void GUI::displayCollectionWindow() {}
 void GUI::displayDeckWindow() {} //TODO get ID ?

@@ -130,7 +130,7 @@ void PacketManager::cancelWaiting() {
 void PacketManager::loginResult(const Packet::loginResultPacket* resultPacket) {
     /* Check if size is correct to detect corrupted packet */
     if (resultPacket->size != sizeof(int)) {
-        WizardLogger::error("Paquet de résulta de login corrompu reçu ("
+        WizardLogger::error("Paquet de résultat de login corrompu reçu ("
         +std::to_string(resultPacket->size)+"/"+std::to_string(sizeof(int))+")");
     }
     

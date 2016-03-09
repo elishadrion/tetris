@@ -19,7 +19,7 @@ public:
     virtual void displayLoginResult(std::string) =0;
 
     /* Validate login process, must call displayMainWindow after */
-    virtual void valideLogin() =0;
+    virtual void valideLogin() = 0;
 
     /* Display the mainWindow
      * Must be safe enought to avoid memory leak or function call hell

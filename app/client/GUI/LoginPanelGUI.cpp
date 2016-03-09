@@ -55,7 +55,7 @@ LoginPanelGUI::LoginPanelGUI() : QWidget() {
     _gridlayout = new QGridLayout(this);
 
     _title= new QLabel("Wizard Poker");
-    _title->setFont(policeTitre);setStrPseudo
+    _title->setFont(policeTitre);
     _title->setAlignment(Qt::AlignHCenter);
 
     _m_pseudo= new QLineEdit(this);
