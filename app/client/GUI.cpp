@@ -32,21 +32,15 @@ void GUI::displayLoginPrompt() {
 }
 
 void GUI::displayLoginResult(std::string message) {
-    loginPanel->printLoginResult(message);
-    WizardLogger::info("Appel du login result");
+    loginPanel->callPrintLoginResult(message);
 }
 
 void GUI::valideLogin() {
-    displayMainWindow();
-    loginPanel->close();
-    delete loginPanel;
+    loginPanel->callDisplayMainMenu();
 }
 
 void GUI::displayMainWindow() {
-    if(menuPanel == nullptr) {
-        menuPanel = new MenuPanelGUI();
-    }
-    menuPanel->show();
+
 }
 
 void GUI::displayFriendsWindow() {}

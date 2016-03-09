@@ -26,7 +26,7 @@ MenuPanelGUI::MenuPanelGUI() : QWidget() {
     _quitter = new QPushButton(" Quitter ");
     _quitter->setMaximumHeight(50);
     _quitter->setMaximumWidth(200);
-    //QObject::connect(_quitter, SIGNAL(clicked()), qApp, SLOT(quit()));
+    QObject::connect(_quitter, SIGNAL(clicked()), qApp, SLOT(quit()));
 
 
     _layout = new QGridLayout;
@@ -50,3 +50,4 @@ MenuPanelGUI::MenuPanelGUI() : QWidget() {
     showMaximized();
 
 }
+

@@ -15,6 +15,7 @@
 #include <QGridLayout>
 
 #include "PacketManager.hpp"
+#include "MenuPanelGUI.hpp"
 
 
 class LoginPanelGUI : public QWidget {
@@ -35,7 +36,8 @@ class LoginPanelGUI : public QWidget {
 
 public:
     LoginPanelGUI();
-    void printLoginResult(std::string);
+    void callPrintLoginResult(std::string);
+    void callDisplayMainMenu();
 
 public slots:
     void loginDisplayResult(QString);
@@ -43,9 +45,11 @@ public slots:
     void makeRegister();
     void setStrPseudo(QString);
     void setStrMdp(QString);
+    void displayMainMenu();
 
 signals:
     void mustPrintResult(QString);
+    void mustDisplayMainMenu();
 
 
 };

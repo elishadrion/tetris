@@ -12,6 +12,9 @@
 #include <QFont>
 #include <QPalette>
 
+#include "common/WizardLogger.hpp"
+
+
 class MenuPanelGUI : public QWidget {
     Q_OBJECT
 
@@ -29,6 +32,7 @@ class MenuPanelGUI : public QWidget {
 
 public:
     MenuPanelGUI();
+
 };
 
 #endif // MENUPANEL_HPP

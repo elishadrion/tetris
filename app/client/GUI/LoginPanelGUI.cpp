@@ -33,9 +33,18 @@ void LoginPanelGUI::setStrMdp(QString qstr) {
  * Call the mustPrintResult
  * @param message which must be print
  */
-void LoginPanelGUI::printLoginResult(std::string message) {
+void LoginPanelGUI::callPrintLoginResult(std::string message) {
     QString msg = QString::fromUtf8(message.c_str());
     emit mustPrintResult(msg);
+}
+
+void LoginPanelGUI::callDisplayMainMenu() {
+    emit mustDisplayMainMenu();
+}
+
+void LoginPanelGUI::displayMainMenu() {
+    new MenuPanelGUI();
+    close();
 }
 
 /**
@@ -100,6 +109,8 @@ LoginPanelGUI::LoginPanelGUI() : QWidget() {
     QObject::connect(_login, SIGNAL(clicked()), this, SLOT(makeLogin()));
     QObject::connect(_signIn, SIGNAL(clicked()), this, SLOT(makeRegister()));
     QObject::connect(this, SIGNAL(mustPrintResult(QString)), this, SLOT(loginDisplayResult(QString)));
+    QObject::connect(this, SIGNAL(mustDisplayMainMenu()), this, SLOT(displayMainMenu()));
+
 
     QObject::connect(_m_pseudo, SIGNAL(textChanged(QString)), this, SLOT(setStrPseudo(QString)));
     QObject::connect(_m_mdp, SIGNAL(textChanged(QString)), this, SLOT(setStrMdp(QString)));
