@@ -29,6 +29,7 @@ void GUI::valideLogin() {
     this->displayMainWindow();
 }
 void GUI::displayMainWindow() {
+
     WizardLogger::info("Appel du displayMainWindow");
 }
 void GUI::displayFriendsWindow() {}

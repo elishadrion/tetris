@@ -47,9 +47,6 @@ Player* PlayerManager::logIn(std::string username, std::string password, int soc
     for (size_t i = 0; i < _players.size(); i++) {
         Player* current = _players.at(i);
 
-        WizardLogger::info((*current).getName() + " > " + username + " | " +
-                           (*current).getPass() + " > " + password);
-
         if ((*current).getName() == username &&
             (*current).getPass() == password) {
 
