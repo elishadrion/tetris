@@ -508,8 +508,8 @@ void Game::isPlayerInLife(PlayerInGame* pIG) {
         pIG->addDefeat();
         pAdverse->addWin();
 
-        PacketManager::sendEndGame(_player1, _player1==pAdverse ? 1 : 0);
-        PacketManager::sendEndGame(_player2, _player2==pAdverse ? 1 : 0);
+        PacketManager::sendEndGame(_player1, _player1==pAdverse ? 1 : -1);
+        PacketManager::sendEndGame(_player2, _player2==pAdverse ? 1 : -1);
 
 
         Card* card = CardManager::chooseCardWin();
@@ -561,7 +561,7 @@ Error Game::placeCard(PlayerInGame* pIG, Card* placeCard) {
  * @param pIG who disconnect
  */
 void Game::endParty(PlayerInGame* pIG) {
-    PacketManager::sendEndGame(getAdversePlayer(pIG), -1);
+    PacketManager::sendEndGame(getAdversePlayer(pIG), 0);
     delete _player1;
     delete _player2;
     delete this;
