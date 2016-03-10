@@ -78,7 +78,7 @@ int main(int argc, char** argv) {
      * If it fail, client can't go farther
      */
     try {
-        conn = new Connection((char*) adress.c_str());
+        conn = new Connection((char*) adress.c_str()); //TODO move it somewhere else (after display init) ?
     } catch (...) {
         std::cerr << "Communication impossible avec le serveur (voir log)" << std::endl;
         return EXIT_FAILURE;
