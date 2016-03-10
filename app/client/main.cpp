@@ -7,6 +7,7 @@
 
 #include "Connection.hpp"
 #include "CacheManager.hpp"
+#include "Player.hpp"
 #include "common/WizardLogger.hpp"
 #include "WizardDisplay.hpp"
 #include "CLI.hpp"
@@ -16,6 +17,7 @@
 Connection *conn;
 WizardDisplay *wizardDisplay;
 CacheManager *cacheManager;
+Player *player;
 
 /**
  * View if argument is a GUI information or an IP adresse

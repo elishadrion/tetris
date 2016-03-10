@@ -40,7 +40,7 @@ FriendPanelCLI::FriendPanelCLI() {
     mvwprintw(windows[0], 2, 2, "Commandes du tchat : ");
     mvwprintw(windows[0], 4, 4, "* Commencez une conversation avec un ami : /msg <pseudo>");
     mvwprintw(windows[0], 6, 4, "* Quitter une conversation : /quit");
-    mvwprintw(windows[0], 8, 2, "!> une seul conversation à la fois en mode console");
+    mvwprintw(windows[0], 8, 2, "!> une seul conversation en mode console");
     refresh();
 }
 
@@ -90,13 +90,15 @@ void FriendPanelCLI::focus() {
 //================================PRIVATE=======================================
 
 void FriendPanelCLI::updateList() {
-    //TODO get friends list from Player and display pseudo
+    std::string *friendsList = player->getFriends();
+    for (int i = 0 ; i < MAX_FRIENDS ; ++i) {
+        //TODO draw
+    }
     refresh();
 }
 
 void FriendPanelCLI::manageFriend(bool remove) {
     /* Give focus, clear buffer and refresh */
-    mvwin(windows[1], 10, 4);
     set_current_field(form, field[1]);
     form_driver(form, REQ_CLR_FIELD);
     form_driver(form, REQ_END_LINE);

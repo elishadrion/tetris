@@ -25,5 +25,5 @@ namespace PacketManager {
     void loginResult(const Packet::loginResultPacket*);
     void playerInfo(const Packet::playerInfoPacket*);
     void getCard(const Packet::cardInfosPacket*);
-    void askDeck(const Packet::tchatManagPacket*);
+    void askDeck(const Packet::managPacket*);
 }

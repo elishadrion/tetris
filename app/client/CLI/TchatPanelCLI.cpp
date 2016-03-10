@@ -84,7 +84,6 @@ void TchatPanelCLI::show() {
     wrefresh(windows[1]);
 }
 
-//TODO ADD FIELD CHECK LIKE LOGINPANEL (WE CAN GET INDEX AND KNOW IN WICH FIELD WE ARE)
 void TchatPanelCLI::focus() {
     /* Set focus on the field and move cursor to it */
     form_driver(form, REQ_FIRST_FIELD);

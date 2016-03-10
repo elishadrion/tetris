@@ -28,6 +28,8 @@
 #include <panel.h>
 #include <form.h>
 
+#include "common/Constants.hpp"
+
 /* For logging */
 #include "common/WizardLogger.hpp"
 
@@ -41,6 +43,7 @@
 #include "client/WizardDisplay.hpp"
 
 extern WizardDisplay *wizardDisplay;
+extern Player *player;
 
 class FriendPanelCLI : public CLIPanel {
     WINDOW *windows[2];

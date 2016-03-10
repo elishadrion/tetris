@@ -28,7 +28,7 @@ void PacketManager::managePacket(Player *player, Packet::packet* customPacket) {
  * @param ennemyPseudo
  */
 void PacketManager::initGame(Player *player, std::string ennemyPseudo) {
-    Packet::tchatManagPacket *newGamePacket = new Packet::tchatManagPacket;
+    Packet::managPacket *newGamePacket = new Packet::managPacket;
     newGamePacket->ID = Packet::LAUNCH_ID;
     for (int i = 0 ; i < ennemyPseudo.size() ; ++i) newGamePacket->pseudo[i] = ennemyPseudo[i];
     player->sendPacket((Packet::packet*) newGamePacket, sizeof(*newGamePacket));

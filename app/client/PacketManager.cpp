@@ -17,7 +17,7 @@ void PacketManager::managePacket(Packet::packet* customPacket) {
                                           break;
         case Packet::PLAYER_INFO_ID :     playerInfo((Packet::playerInfoPacket*) customPacket);
                                           break;
-        case Packet::LAUNCH_ID :          askDeck((Packet::tchatManagPacket*) customPacket);
+        case Packet::LAUNCH_ID :          askDeck((Packet::managPacket*) customPacket);
                                           break;
         default :                         WizardLogger::error("Paquet inconnu reçu : "+customPacket->ID);
                                           break;
@@ -74,7 +74,7 @@ void PacketManager::sendDisconnection() {
 }
 
 void PacketManager::manageFriend(const char* pseudo, bool remove) {
-    Packet::tchatManagPacket* manageFriendPacket = new Packet::tchatManagPacket();
+    Packet::managPacket* manageFriendPacket = new Packet::managPacket();
     
     /* Set ID to addFriendRequest or removeFriendRequest */
     if (remove)
@@ -152,6 +152,6 @@ void PacketManager::getCard(const Packet::cardInfosPacket* cardInfo) {
     cacheManager->addToCache(newCard);
 }
 
-void PacketManager::askDeck(const Packet::tchatManagPacket* newGamePacket) {
+void PacketManager::askDeck(const Packet::managPacket* newGamePacket) {
     WizardLogger::info("Lancement d'une partie contre le joueur : "+std::string(newGamePacket->pseudo));
 }

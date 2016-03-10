@@ -42,7 +42,7 @@ void WaitPanelCLI::focus() {
 
     /* Loop through to get user requests with F1 to valide */
     int input;
-    while((input = wgetch(window)) != KEY_F(10) && !_inGame) {
+    while((input = wgetch(window)) != KEY_F(10)) {
         if (input == KEY_F(1))
             wizardDisplay->focusTchat();
         else
@@ -50,9 +50,5 @@ void WaitPanelCLI::focus() {
         wrefresh(window);
     }
     
-    /* If we are in game mode, display gamePanel. Else we send cancel packet to server
-    if (_inGame)
-        wizardDisplay->displayGame();
-    //else
-        //TODO send cancel packet PacketManager::sendDisconnection();*/
+    //TODO PacketManager::unregisterAsPlayer();
 }
