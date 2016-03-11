@@ -18,6 +18,8 @@
 #include "GUI/GameGUI.hpp"
 #include "common/WizardLogger.hpp"
 
+#include <string>
+
 
 class MenuPanelGUI : public QMainWindow {
     Q_OBJECT
@@ -35,15 +37,21 @@ class MenuPanelGUI : public QMainWindow {
     QHBoxLayout *_layoutLabel;
     QGridLayout *_layoutOfLayout;
 
+    QMessageBox *_msgBox;
+
 
 public:
     MenuPanelGUI();
+    void callBeginGame(std::string);
+
+signals:
+    void mustBeginGame(std::string);
 
 public slots:
     void quitApp();
-    void makeBeginGame();
+    void makeReqToPlayGame();
     void makeCancelWait();
-    void makeOpenGame();
+    void makeOpenGame(std::string);
     void makeOpen();
 
 

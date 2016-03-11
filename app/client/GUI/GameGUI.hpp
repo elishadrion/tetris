@@ -26,6 +26,8 @@ class GameGUI : public QMainWindow {
     QWidget *_centralWidget;
     QGridLayout *_gridlayout;
 
+    std::string _pseudoAdverse;
+
     bool _turn;
     unsigned _life;
     unsigned _trash[DECK_SIZE];
@@ -40,9 +42,10 @@ class GameGUI : public QMainWindow {
     unsigned _ennemyPosed[MAX_POSED_CARD];
     unsigned _ennemyPosedLife[MAX_POSED_CARD];
 
+    void chooseDeck();
 
 public:
-    GameGUI();
+    GameGUI(std::string);
 
 };
 

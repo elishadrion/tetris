@@ -9,15 +9,20 @@ void PacketManager::managePacket(Packet::packet* customPacket) {
         /* LOGIN PROCESS */
         case Packet::LOGIN_REQ_ID :       WizardLogger::warning("Paquet invalide reçu : LoginRequest");
                                           break;
+        /* Register new player */
         case Packet::REGIST_REQ_ID :      WizardLogger::warning("Paquet invalide reçu : RegistrationRequest");
                                           break;
-        case Packet::LOGIN_RES_ID :       loginResult((Packet::loginResultPacket*) customPacket);
+        /* Result from the request */
+        case Packet::LOGIN_RES_ID :       loginResult((Packet::intPacket*) customPacket);
                                           break;
+        /* Player Disconnect */
         case Packet::DISCONNECT_ID :      WizardLogger::warning("Paquet invalide reçu : DisconnectInfo");
                                           break;
+        /* Recieve player informations */
         case Packet::PLAYER_INFO_ID :     playerInfo((Packet::playerInfoPacket*) customPacket);
                                           break;
-        case Packet::LAUNCH_ID :          askDeck((Packet::managPacket*) customPacket);
+        /* Game start */
+        case Packet::LAUNCH_ID :          wizardDisplay->launchGame(((Packet::pseudoPacket*) customPacket)->pseudo);
                                           break;
         default :                         WizardLogger::error("Paquet inconnu reçu : "+customPacket->ID);
                                           break;
@@ -74,7 +79,7 @@ void PacketManager::sendDisconnection() {
 }
 
 void PacketManager::manageFriend(const char* pseudo, bool remove) {
-    Packet::managPacket* manageFriendPacket = new Packet::managPacket();
+    Packet::pseudoPacket* manageFriendPacket = new Packet::pseudoPacket();
     
     /* Set ID to addFriendRequest or removeFriendRequest */
     if (remove)
@@ -95,8 +100,8 @@ void PacketManager::manageFriend(const char* pseudo, bool remove) {
 }
 
 void PacketManager::requestCard(unsigned ID) {
-    Packet::carteRequestPacket* cardRequest = new Packet::carteRequestPacket();
-    cardRequest->carteID = ID;
+    Packet::intPacket* cardRequest = new Packet::intPacket();
+    cardRequest->data = ID;
     
     /* Send it to the server */
     conn->sendPacket((Packet*) cardRequest, sizeof(*cardRequest));
@@ -129,7 +134,7 @@ void PacketManager::cancelWaiting() {
 
 //======================================================================================
 
-void PacketManager::loginResult(const Packet::loginResultPacket* resultPacket) {
+void PacketManager::loginResult(const Packet::intPacket* resultPacket) {
     /* Check if size is correct to detect corrupted packet */
     if (resultPacket->size != sizeof(int)) {
         WizardLogger::error("Paquet de résultat de login corrompu reçu ("
@@ -150,8 +155,4 @@ void PacketManager::getCard(const Packet::cardInfosPacket* cardInfo) {
     Card *newCard = new Card(cardInfo->data.carteID, cardInfo->data.monster, std::string(cardInfo->data.name),
     std::string(cardInfo->data.description), cardInfo->data.energyCost, cardInfo->data.maxHP);
     cacheManager->addToCache(newCard);
-}
-
-void PacketManager::askDeck(const Packet::managPacket* newGamePacket) {
-    WizardLogger::info("Lancement d'une partie contre le joueur : "+std::string(newGamePacket->pseudo));
 }

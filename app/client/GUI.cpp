@@ -29,7 +29,7 @@ void GUI::displayFatalError(std::string error) {
 }
 
 void GUI::displayLoginPrompt() {
-    loginPanel = new LoginPanelGUI();
+    loginPanel = new LoginPanelGUI(this);
     loginPanel->show();
 }
 
@@ -75,4 +75,15 @@ void GUI::focusTchat() {
 
 void GUI::displayPopup(std::string message) {
     WizardLogger::info("[displayPopup] Pas encore intégré");
+}
+
+void GUI::launchGame(std::string pseudo) {
+    WizardLogger::info("Début du game et choix du deck");
+    menuPanel->callBeginGame(pseudo);
+    // Ask deck
+}
+
+
+void GUI::setMainMenu(MenuPanelGUI* menu) {
+    menuPanel = menu;
 }

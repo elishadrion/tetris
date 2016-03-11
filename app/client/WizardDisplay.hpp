@@ -1,7 +1,9 @@
 #ifndef WIZARDDISPLAY_HPP
-#define	WIZARDDISPLAY_HPP
+#define WIZARDDISPLAY_HPP
 
 #include <string>
+#include <vector>
+
 
 class WizardDisplay {
 public:
@@ -50,6 +52,9 @@ public:
     /* Display popup message */
     virtual void displayPopup(std::string) =0;
 
+    /* Start game with player in param */
+    virtual void launchGame(std::string) {}
+
 };
 
-#endif	/* WIZARDDISPLAY_HPP */
+#endif  /* WIZARDDISPLAY_HPP */

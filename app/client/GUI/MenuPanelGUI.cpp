@@ -5,7 +5,7 @@
  */
 MenuPanelGUI::MenuPanelGUI() : QMainWindow() {
 
-    setStyleSheet("QMainWindow { background-image: url(:/Images/bg.png); } "
+    setStyleSheet("QMainWindow { background-image: url(:/Images/bg.png); background-position: center center; } "
                   "QPushButton { background-color: white; }");
 
     centralWidget = new QWidget(this);
@@ -15,7 +15,7 @@ MenuPanelGUI::MenuPanelGUI() : QMainWindow() {
     _gameStart = new QPushButton(" Lancer une partie ");
     _gameStart->setMaximumHeight(50);
     _gameStart->setMaximumWidth(200);
-    QObject::connect(_gameStart, SIGNAL(clicked()), this, SLOT(makeBeginGame()));
+    QObject::connect(_gameStart, SIGNAL(clicked()), this, SLOT(makeReqToPlayGame()));
 
     _checkCollection = new QPushButton(" Ouvrir la collection ");
     _checkCollection->setMaximumHeight(50);
@@ -62,6 +62,16 @@ MenuPanelGUI::MenuPanelGUI() : QMainWindow() {
 
 
 /**
+ * Call the mustBeginGame (emit)
+ *
+ * @param pseudo of the adverse player
+ */
+void MenuPanelGUI::callBeginGame(std::string pseudo) {
+    emit mustBeginGame(pseudo);
+}
+
+
+/**
  * Slot to quit application
  */
 void MenuPanelGUI::quitApp() {
@@ -73,21 +83,28 @@ void MenuPanelGUI::quitApp() {
 /**
  * Slot to call when the player will play
  */
-void MenuPanelGUI::makeBeginGame() {
+void MenuPanelGUI::makeReqToPlayGame() {
     PacketManager::registerAsPlayer();
-    QMessageBox sb;
-    sb.setWindowTitle("Attente de Partie");
-    sb.setText("En attente d'une partie");
-    sb.setStandardButtons(QMessageBox::Cancel);
+
+    connect(this, SIGNAL(mustBeginGame(std::string)), this, SLOT(makeOpenGame(std::string)));
+
+
+
+    _msgBox = new QMessageBox(this);
+    _msgBox->setWindowTitle("Attente de Partie");
+    _msgBox->setText("En attente d'une partie");
+    _msgBox->setStandardButtons(QMessageBox::Cancel);
 
     // DEBUG
-    sb.addButton(QMessageBox::Ignore);
+    //_msgBox.addButton(QMessageBox::Ignore);
 
-    sb.connect(sb.button(QMessageBox::Cancel), SIGNAL(clicked()), this, SLOT(makeCancelWait()));
+    _msgBox->connect(_msgBox->button(QMessageBox::Cancel), SIGNAL(clicked()), this, SLOT(makeCancelWait()));
     // DEBUG
-    sb.connect(sb.button(QMessageBox::Ignore), SIGNAL(clicked()), this, SLOT(makeOpenGame()));
+    //_msgBox.connect(sb.button(QMessageBox::Ignore), SIGNAL(clicked()), this, SLOT(makeOpenGame()));
 
-    sb.exec();
+    _msgBox->exec();
+
+    WizardLogger::info("[DEBUG] Après");
 }
 
 
@@ -102,10 +119,14 @@ void MenuPanelGUI::makeCancelWait() {
 
 /**
  * Slot to open the game
+ *
+ * @param pseudo who play with us
  */
-void MenuPanelGUI::makeOpenGame() {
+void MenuPanelGUI::makeOpenGame(std::string pseudo) {
+    WizardLogger::info("Une partie avec " + pseudo + " a été trouvée");
     this->hide();
-    new GameGUI();
+    delete _msgBox;
+    new GameGUI(pseudo);
 }
 
 

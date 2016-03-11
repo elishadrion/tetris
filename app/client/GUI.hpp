@@ -3,26 +3,15 @@
 
 #include "WizardDisplay.hpp"
 #include "common/WizardLogger.hpp"
-#include "client/GUI/MenuPanelGUI.hpp"
+
 #include "client/GUI/LoginPanelGUI.hpp"
+#include "client/GUI/MenuPanelGUI.hpp"
+
 
 #include <QObject>
 
 
 class GUI : public WizardDisplay, public QObject {
-    /* All panel used by the CLI */
-    // GUIPanel *_panelList[PANEL_TOTAL_NUMBER];
-    /*
-    enum panelID {
-        LOGIN = 0,
-        MAIN = 1,
-        TCHAT = 2,
-        FRIEND = 3,
-        COLL = 4,
-        DECK = 5,
-        WAIT = 6,
-        GAME = 7,
-    };*/
 
     LoginPanelGUI* loginPanel;
     MenuPanelGUI* menuPanel;
@@ -43,6 +32,11 @@ public:
     void displayClassement() override;
     void focusTchat() override;
     void displayPopup(std::string) override;
+
+    void launchGame(std::string) override;
+
+
+    void setMainMenu(MenuPanelGUI*);
 };
 
 

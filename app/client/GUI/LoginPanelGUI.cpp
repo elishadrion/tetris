@@ -4,7 +4,9 @@
 /**
  * Constructor
  */
-LoginPanelGUI::LoginPanelGUI() : QWidget() {
+LoginPanelGUI::LoginPanelGUI(GUI* parent) : QWidget() {
+    _gui = parent;
+
     setFixedSize(600,350);
 
     //QPixmap pixmap("background.jpg");
@@ -144,7 +146,7 @@ void LoginPanelGUI::setStrMdp(QString qstr) {
  * Display the main menu and close this
  */
 void LoginPanelGUI::displayMainMenu() {
-    new MenuPanelGUI();
+    _gui->setMainMenu(new MenuPanelGUI());
     close();
 }
 

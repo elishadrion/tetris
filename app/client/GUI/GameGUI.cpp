@@ -1,6 +1,17 @@
 #include "GameGUI.hpp"
 
-GameGUI::GameGUI() : QMainWindow() {
+
+void GameGUI::chooseDeck() {
+
+}
+
+
+/**
+ * Constructor
+ *
+ * @param pseudo from the adverse player
+ */
+GameGUI::GameGUI(std::string pseudo) : QMainWindow(), _pseudoAdverse(pseudo) {
 
     _centralWidget = new QWidget(this);
     setCentralWidget(_centralWidget);
@@ -125,6 +136,9 @@ GameGUI::GameGUI() : QMainWindow() {
 
 
     this->showMaximized(); // set full screen
+
+
+    chooseDeck();
 
 }
 

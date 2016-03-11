@@ -17,9 +17,15 @@
 #include "PacketManager.hpp"
 #include "MenuPanelGUI.hpp"
 
+class GUI;
+class LoginPanelGUI;
+#include "GUI.hpp"
+
 
 class LoginPanelGUI : public QWidget {
     Q_OBJECT
+
+    GUI* _gui;
 
     QLabel *_pseudo;
     QLabel *_mdp;
@@ -35,7 +41,7 @@ class LoginPanelGUI : public QWidget {
     std::string _strMdp;
 
 public:
-    LoginPanelGUI();
+    LoginPanelGUI(GUI*);
     void callPrintLoginResult(std::string);
     void callDisplayMainMenu();
 

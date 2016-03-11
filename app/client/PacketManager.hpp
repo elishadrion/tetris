@@ -22,8 +22,7 @@ namespace PacketManager {
     void cancelWaiting();
     
     /* receives analyse */
-    void loginResult(const Packet::loginResultPacket*);
+    void loginResult(const Packet::intPacket*);
     void playerInfo(const Packet::playerInfoPacket*);
     void getCard(const Packet::cardInfosPacket*);
-    void askDeck(const Packet::managPacket*);
 }
