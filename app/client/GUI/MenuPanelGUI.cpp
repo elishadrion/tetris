@@ -2,17 +2,17 @@
 
 MenuPanelGUI::MenuPanelGUI() : QMainWindow() {
 
-    //setStyleSheet("QWidget{background-image: url(./bg.png);}");
-    //thiss->setStyleSheet("background-image: url(./bg.png);");
-    this->setStyleSheet("background-image: url(./bg.png);QWidget {background-color: white;}");
+    setStyleSheet("QMainWindow { background-image: url(./bg.png); } "
+                  "QPushButton { background-color: white; }");
 
     centralWidget = new QWidget(this);
-    this->setCentralWidget(centralWidget);
+    setCentralWidget(centralWidget);
 
-    _nameGame = new QLabel(" ");
-    _nameGame->setFont(QFont("FOLKARD",75));
-    _nameGame->setAlignment(Qt::AlignHCenter);
-    _nameGame->setFixedHeight(110);
+//    _nameGame = new QLabel(" ");
+//    _nameGame->setFont(QFont("FOLKARD",75));
+//    _nameGame->setAlignment(Qt::AlignHCenter);
+//    _nameGame->setFixedHeight(110);
+
 
     _gameStart = new QPushButton(" Lancer une partie ");
     _gameStart->setMaximumHeight(50);
@@ -44,15 +44,21 @@ MenuPanelGUI::MenuPanelGUI() : QMainWindow() {
     _layout->addWidget(_quitter);
     _layout->setSpacing(18);
 
-    _layoutLabel = new QHBoxLayout;
-    _layoutLabel->addWidget(_nameGame);
+    //_layoutLabel = new QHBoxLayout;
+    //_layoutLabel->addWidget(_nameGame);
 
 
     _layoutOfLayout = new QGridLayout(centralWidget);
-    _layoutOfLayout->addLayout(_layoutLabel,0,1);
+    //_layoutOfLayout->addLayout(_layoutLabel,0,1);
     _layoutOfLayout->addLayout(_layout,1,1);
 
-    //this->setLayout(_layoutOfLayout);
+
+    _layoutOfLayout->setRowStretch(0, 2);
+    _layoutOfLayout->setRowStretch(1, 3);
+    _layoutOfLayout->setRowStretch(2, 1);
+    _layoutOfLayout->setColumnStretch(0, 1);
+    _layoutOfLayout->setColumnStretch(1, 2);
+    _layoutOfLayout->setColumnStretch(2, 1);
 
 
     showMaximized();
