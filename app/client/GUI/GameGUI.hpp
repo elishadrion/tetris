@@ -14,12 +14,32 @@
 #include <QGroupBox>
 #include <QMainWindow>
 
+#include <vector>
+
+#include "common/Constants.hpp"
+
+
 
 class GameGUI : public QMainWindow {
     Q_OBJECT
 
-    QWidget *centralWidget;
-    QGridLayout *gridlayout;
+    QWidget *_centralWidget;
+    QGridLayout *_gridlayout;
+
+    bool _turn;
+    unsigned _life;
+    unsigned _trash[DECK_SIZE];
+    unsigned _hand[MAX_HAND];
+    unsigned _deck[DECK_SIZE];
+    unsigned _posed[MAX_POSED_CARD];
+    unsigned _posedLife[MAX_POSED_CARD];
+    unsigned _ennemyLife;
+    unsigned _ennemyTrash;
+    unsigned _ennemyHand;
+    unsigned _ennemyDeck;
+    unsigned _ennemyPosed[MAX_POSED_CARD];
+    unsigned _ennemyPosedLife[MAX_POSED_CARD];
+
 
 public:
     GameGUI();
