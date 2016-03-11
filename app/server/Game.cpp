@@ -147,9 +147,15 @@ void Game::checkDeckAndStart() {
  */
 void Game::addPlayerWaitGame(Player *player) {
     if(!PlayerWaitGame.empty()) {
-        Player* p1 = PlayerWaitGame.back(); // gets last player
-        PlayerWaitGame.pop_back();
-        new Game(p1, player); // creates game
+        // Si on a trouvé le joueur dans la liste
+        if(std::find(PlayerWaitGame.begin(), PlayerWaitGame.end(), player) != PlayerWaitGame.end()) {
+            WizardLogger::info(player->getName() + " attend déjà");
+        } else {
+
+            Player* p1 = PlayerWaitGame.back(); // gets last player
+            PlayerWaitGame.pop_back();
+            new Game(p1, player); // creates game
+        }
 
     } else {
         PlayerWaitGame.insert(PlayerWaitGame.begin(), player); // adds player to the waiting list

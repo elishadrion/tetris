@@ -7,5 +7,5 @@ DESTDIR = $${top}
 
 OTHER_FILES +=
 
-RESOURCES += \
-    images.qrc
+#RESOURCES += \
+#    images.qrc

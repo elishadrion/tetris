@@ -13,6 +13,7 @@ namespace PacketManager {
     /* Manage recev packet */
     void manageDisconnectRequest(Player*, Packet::packet*);
     void managNewGameRequest(Player*, Packet::packet*);
+    void manageCancelWait(Player*, Packet::packet*);
 
     /* API for other service */
     void managePacket(Player*, Packet::packet*);

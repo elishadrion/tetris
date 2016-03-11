@@ -12,6 +12,9 @@
 #include <QFont>
 #include <QPalette>
 #include <QMainWindow>
+#include <QMessageBox>
+
+#include "PacketManager.hpp"
 
 #include "common/WizardLogger.hpp"
 
@@ -35,6 +38,12 @@ class MenuPanelGUI : public QMainWindow {
 
 public:
     MenuPanelGUI();
+
+public slots:
+    void quitApp();
+    void makeBeginGame();
+    void makeCancelWait();
+
 
 };
 

@@ -17,6 +17,7 @@ MenuPanelGUI::MenuPanelGUI() : QMainWindow() {
     _gameStart = new QPushButton(" Lancer une partie ");
     _gameStart->setMaximumHeight(50);
     _gameStart->setMaximumWidth(200);
+    QObject::connect(_gameStart, SIGNAL(clicked()), this, SLOT(makeBeginGame()));
 
     _checkCollection = new QPushButton(" Ouvrir la collection ");
     _checkCollection->setMaximumHeight(50);
@@ -33,7 +34,7 @@ MenuPanelGUI::MenuPanelGUI() : QMainWindow() {
     _quitter = new QPushButton(" Quitter ");
     _quitter->setMaximumHeight(50);
     _quitter->setMaximumWidth(200);
-    QObject::connect(_quitter, SIGNAL(clicked()), qApp, SLOT(quit()));
+    QObject::connect(_quitter, SIGNAL(clicked()), this, SLOT(quitApp()));
 
 
     _layout = new QGridLayout;
@@ -65,3 +66,21 @@ MenuPanelGUI::MenuPanelGUI() : QMainWindow() {
 
 }
 
+void MenuPanelGUI::makeBeginGame() {
+    PacketManager::registerAsPlayer();
+    QMessageBox sb;
+    sb.setWindowTitle("Attente de Partie");
+    sb.setText("En attente d'une partie");
+    sb.setStandardButtons(QMessageBox::Cancel);
+    sb.connect(sb.button(QMessageBox::Cancel), SIGNAL(clicked()), this, SLOT(makeCancelWait()));
+}
+
+void MenuPanelGUI::makeCancelWait() {
+    WizardLogger::info("Cancel wait game");
+    PacketManager::cancelWaiting();
+}
+
+void MenuPanelGUI::quitApp() {
+    PacketManager::sendDisconnection();
+    qApp->quit();
+}

@@ -24,7 +24,9 @@ GUI::~GUI() {
     }
 }
 
-void GUI::displayFatalError(std::string error) {}
+void GUI::displayFatalError(std::string error) {
+    WizardLogger::info("[displayFatalError] Pas encore intégré");
+}
 
 void GUI::displayLoginPrompt() {
     loginPanel = new LoginPanelGUI();
@@ -40,14 +42,37 @@ void GUI::valideLogin() {
 }
 
 void GUI::displayMainWindow() {
-
+    WizardLogger::warning("Aucune action pour afficher le menu principal");
 }
 
-void GUI::displayFriendsWindow() {}
-void GUI::displayCollectionWindow() {}
-void GUI::displayDeckWindow() {} //TODO get ID ?
-void GUI::displayWait() {}
-void GUI::displayGame() {}
-void GUI::displayClassement() {}
-void GUI::focusTchat() {}
-void GUI::displayPopup(std::string message) {}
+void GUI::displayFriendsWindow() {
+    WizardLogger::info("[displayFriendsWindow] Pas encore intégré");
+}
+
+void GUI::displayCollectionWindow() {
+    WizardLogger::info("[displayCollectionWindow] Pas encore intégré");
+}
+
+void GUI::displayDeckWindow() { //TODO get ID ?
+    WizardLogger::info("[displayDeckWindow] Pas encore intégré");
+}
+
+void GUI::displayWait() {
+    WizardLogger::info("[displayWait] Pas encore intégré");
+}
+
+void GUI::displayGame() {
+    WizardLogger::info("[displayGame] Pas encore intégré");
+}
+
+void GUI::displayClassement() {
+    WizardLogger::info("[displayClassement] Pas encore intégré");
+}
+
+void GUI::focusTchat() {
+    WizardLogger::info("[focusTchat] Pas encore intégré");
+}
+
+void GUI::displayPopup(std::string message) {
+    WizardLogger::info("[displayPopup] Pas encore intégré");
+}

@@ -14,7 +14,7 @@ void PacketManager::managePacket(Player *player, Packet::packet* customPacket) {
                                           break;
         case Packet::WAITING_ID :         PacketManager::managNewGameRequest(player, customPacket);
                                           break;
-        case Packet::CANCEL_ID :          //PacketManager::manageDisconnectRequest(player, customPacket);
+        case Packet::CANCEL_ID :          PacketManager::manageCancelWait(player, customPacket);
                                           break;
         default :                         WizardLogger::warning("Paquet inconnue reçu");
                                           break;
@@ -98,6 +98,11 @@ void PacketManager::sendEndGame(Player *player, int victory) {
 void PacketManager::manageDisconnectRequest(Player *player, Packet::packet* disconnectReqPacket) {
     WizardLogger::info(player->getName()+" se déconnecte");
     player->logout();
+}
+
+void PacketManager::manageCancelWait(Player *player, Packet::packet* cancelReqPacket) {
+    WizardLogger::info(player->getName() + " a annulé sa demande de jouer");
+    Game::removePlayerWaitGame(player);
 }
 
 void PacketManager::managNewGameRequest(Player *player, Packet::packet* newGameRequest) {
