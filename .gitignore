@@ -1,6 +1,4 @@
-# Lib src stuff
-/app/other/log4cpp-src/build/
-
+*.pdf
 # Docu stuff
 /docu/*
 
@@ -13,6 +11,7 @@
 
 # Mac OS X debug
 *.o.dSYM
+.DS_Store
 
 # Precompiled Headers
 *.gch
