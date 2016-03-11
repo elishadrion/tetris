@@ -84,7 +84,7 @@ void MenuPanelGUI::quitApp() {
  * Slot to call when the player will play
  */
 void MenuPanelGUI::makeReqToPlayGame() {
-    PacketManager::registerAsPlayer();
+    PacketManager::makeGameRequest();
 
     connect(this, SIGNAL(mustBeginGame(std::string)), this, SLOT(makeOpenGame(std::string)));
 
@@ -113,7 +113,7 @@ void MenuPanelGUI::makeReqToPlayGame() {
  */
 void MenuPanelGUI::makeCancelWait() {
     WizardLogger::info("Cancel wait game");
-    PacketManager::cancelWaiting();
+    PacketManager::makeGameCancelRequest();
 }
 
 

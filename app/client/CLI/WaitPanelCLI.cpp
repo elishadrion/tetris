@@ -38,7 +38,7 @@ void WaitPanelCLI::focus() {
     update_panels();
     doupdate();
     
-    PacketManager::registerAsPlayer();
+    PacketManager::makeGameRequest();
 
     /* Loop through to get user requests with F1 to valide */
     int input;

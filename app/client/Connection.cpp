@@ -84,7 +84,7 @@ Connection::~Connection() {
  * @param size : the packet global size, to be sure to send all data
  * @throw : an error occure during sending packet, CLI/GUI must catch it
  */
-void Connection::sendPacket(Packet *packet, size_t size) {
+void Connection::sendPacket(Packet::packet *packet, size_t size) {
     try {
         if (send(_clientSocket, packet, size, 0) != size) {
             throw std::string("Tout le packet n'a pas été envoyé");

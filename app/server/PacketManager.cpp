@@ -135,7 +135,7 @@ void PacketManager::manageConvQuitRequest(Player* player, Packet::pseudoPacket* 
  * @param pseudo : the other player's pseudo
  */
 void PacketManager::startConv(Player* player, std::string pseudo) {
-    Packet::pseudoPacket *newConvPacket = new Packet::pseudoPacket;
+    Packet::pseudoPacket *newConvPacket = new Packet::pseudoPacket();
     
     /* Set ID and pseudo */
     newConvPacket->ID = Packet::TCHAT_NEW_CONV_ID;
@@ -151,7 +151,7 @@ void PacketManager::startConv(Player* player, std::string pseudo) {
  * @param message : the string to send (!> MESSAGES_MAX_SIZE)
  */
 void PacketManager::sendMessageTchat(Player* player, std::string message) {
-    Packet::tchatMessagePacket *messagePacket = new Packet::tchatMessagePacket;
+    Packet::tchatMessagePacket *messagePacket = new Packet::tchatMessagePacket();
     
     /* Set message */
     for (int i = 0 ; i < message.size() ; ++i) messagePacket->msg[i] = message[i];
@@ -166,7 +166,7 @@ void PacketManager::sendMessageTchat(Player* player, std::string message) {
  * @param pseudo : other player
  */
 void PacketManager::endConv(Player* player, std::string pseudo) {
-    Packet::pseudoPacket *endConvPacket = new Packet::pseudoPacket;
+    Packet::pseudoPacket *endConvPacket = new Packet::pseudoPacket();
     
     /* Set ID and pseudo */
     endConvPacket->ID = Packet::TCHAT_END_CONV_ID;
@@ -194,7 +194,7 @@ void PacketManager::manageFriendListRequest(Player* player, Packet::packet* pack
  * @param pseudo : the other player's pseudo
  */
 void PacketManager::sendFriendRequest(Player* player, std::string pseudo) {
-    Packet::pseudoPacket *friendRequest = new Packet::pseudoPacket;
+    Packet::pseudoPacket *friendRequest = new Packet::pseudoPacket();
     
     /* Set ID and pseudo */
     friendRequest->ID = Packet::FRIENDS_LIST_ID;
@@ -232,7 +232,7 @@ void PacketManager::manageChooseDeck(Player* player, Packet::intPacket* deckChoo
  * @param ennemyPseudo
  */
 void PacketManager::initGame(Player *player, std::string ennemyPseudo) {
-    Packet::pseudoPacket *newGamePacket = new Packet::pseudoPacket;
+    Packet::pseudoPacket *newGamePacket = new Packet::pseudoPacket();
     
     /* Set ID and ennemy's pseudo */
     newGamePacket->ID = Packet::LAUNCH_ID;
@@ -278,7 +278,7 @@ void PacketManager::sendTurnInfo(Player* player, std::string currentPlayer, Play
  * @param card : new drawed card
  */
 void PacketManager::sendCard(Player* player, Card* card) {
-    Packet::intPacket *drawPacket = new Packet::intPacket;
+    Packet::intPacket *drawPacket = new Packet::intPacket();
     
     /* Set ID and ID */
     drawPacket->ID = Packet::DRAW_ID;
@@ -294,7 +294,7 @@ void PacketManager::sendCard(Player* player, Card* card) {
  * @param amount : nbr of card to drop
  */
 void PacketManager::askDefausse(Player* player, int amount) {
-    Packet::intPacket *askDropPacket = new Packet::intPacket;
+    Packet::intPacket *askDropPacket = new Packet::intPacket();
     
     /* Set ID and amount */
     askDropPacket->ID = Packet::ASK_DROP_ID;
@@ -310,7 +310,7 @@ void PacketManager::askDefausse(Player* player, int amount) {
  * @param card : new droped card (-1 for sync)
  */
 void PacketManager::sendDrop(Player* player, int ID) {
-    Packet::intPacket *dropPacket = new Packet::intPacket;
+    Packet::intPacket *dropPacket = new Packet::intPacket();
     
     /* Set ID and amount */
     dropPacket->ID = Packet::DROP_ID;
@@ -330,7 +330,7 @@ void PacketManager::sendDrop(Player* player, int ID) {
  * @param finalLife : final life of the target after attack
  */
 void PacketManager::sendAttack(Player* player, std::string pseudo, int targetID, int cardWichAttack, unsigned int finalLife) {
-    Packet::attackPacket *attackPacket = new Packet::attackPacket;
+    Packet::attackPacket *attackPacket = new Packet::attackPacket();
     
     /* Set ID and other info */
     attackPacket->ID = Packet::ATTACK_ID;
@@ -353,7 +353,7 @@ void PacketManager::sendAttack(Player* player, std::string pseudo, int targetID,
  * @param finalLife : final life of the target after attack
  */
 void PacketManager::sendSpell(Player* player, std::string pseudo, int ID, int targetID, unsigned int finalLife) {
-    Packet::attackPacket *spellPacket = new Packet::attackPacket;
+    Packet::attackPacket *spellPacket = new Packet::attackPacket();
     
     /* Set ID and other info */
     spellPacket->ID = Packet::SPELL_ID;
@@ -373,7 +373,7 @@ void PacketManager::sendSpell(Player* player, std::string pseudo, int ID, int ta
  * @param card : card's ID win
  */
 void PacketManager::sendEndGame(Player* player, int victory, int card) {
-    Packet::endGamePacket *endPacket = new Packet::endGamePacket;
+    Packet::endGamePacket *endPacket = new Packet::endGamePacket();
     
     /* Set victory flag and card ID (-1 for no card) */
     endPacket->data.victory = victory;

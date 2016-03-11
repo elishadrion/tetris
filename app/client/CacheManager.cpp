@@ -67,6 +67,6 @@ void CacheManager::addToCache(Card* card) {
 
 Card *CacheManager::requestCard(unsigned ID) {
     waiting = true;
-    PacketManager::requestCard(ID);
+    PacketManager::makeCardRequest(ID);
     while(waiting);
 }

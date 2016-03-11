@@ -151,7 +151,9 @@ void FriendPanelCLI::manageFriend(bool remove) {
                 pseudo = field_buffer(field[1], 0);
                 
                 /* Send it to the server */
-                PacketManager::manageFriend(pseudo, remove);
+                PacketManager::makeFriendRequest(pseudo);
+                
+                //TODO remove localy ?
                 
                 return;
             default:

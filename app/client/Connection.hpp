@@ -46,7 +46,7 @@ class Connection {
 public:
     Connection(char*);
     ~Connection();
-    void sendPacket(Packet*, size_t);
+    void sendPacket(Packet::packet*, size_t);
 };
 
 #endif /* CONNECTION_HPP */

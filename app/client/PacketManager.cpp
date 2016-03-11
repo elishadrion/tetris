@@ -6,133 +6,83 @@ extern CacheManager *cacheManager;
 void PacketManager::managePacket(Packet::packet* customPacket) {
     /* We get ID of the packet after cast void* to packet* */
     switch(customPacket->ID) {
-        /* LOGIN PROCESS */
-        case Packet::LOGIN_REQ_ID :       WizardLogger::warning("Paquet invalide reçu : LoginRequest");
+        /* Login process */
+        case Packet::LOGIN_REQ_ID :       WizardLogger::warning("Paquet de requête de login reçu");
                                           break;
-        /* Register new player */
-        case Packet::REGIST_REQ_ID :      WizardLogger::warning("Paquet invalide reçu : RegistrationRequest");
+        case Packet::REGIST_REQ_ID :      WizardLogger::warning("Paquet de requête d'inscription reçu");
                                           break;
-        /* Result from the request */
         case Packet::LOGIN_RES_ID :       loginResult((Packet::intPacket*) customPacket);
-                                          break;
-        /* Player Disconnect */
-        case Packet::DISCONNECT_ID :      WizardLogger::warning("Paquet invalide reçu : DisconnectInfo");
                                           break;
         /* Recieve player informations */
         case Packet::PLAYER_INFO_ID :     playerInfo((Packet::playerInfoPacket*) customPacket);
                                           break;
-        /* Game start */
-        case Packet::LAUNCH_ID :          wizardDisplay->launchGame(((Packet::pseudoPacket*) customPacket)->pseudo);
+        case Packet::DISCONNECT_ID :      WizardLogger::warning("Paquet de déconnection reçu");
                                           break;
-        default :                         WizardLogger::error("Paquet inconnu reçu : "+customPacket->ID);
+        /* Card process */
+        case Packet::CARTE_REQ_ID :       WizardLogger::warning("Paquet de requête de carte reçu");
+                                          break;
+        case Packet::CARTE_INFO_ID :      saveCardInfo((Packet::cardInfosPacket*) customPacket);
+                                          break;
+        case Packet::CARTE_IMG_REQ_ID :   WizardLogger::warning("Paquet de requête d'image de carte reçu");
+                                          break;
+        case Packet::CARTE_IMG_ID :       saveCardImg((Packet::cardImgPacket*) customPacket);
+                                          break;
+        /* Tchat process */
+        case Packet::TCHAT_CONV_REQ_ID :  WizardLogger::warning("Paquet de nouvelle conversation (tchat) reçu");
+                                          break;
+        case Packet::TCHAT_NEW_CONV_ID :  startNewConv((Packet::pseudoPacket*) customPacket);
+                                          break;
+        case Packet::TCHAT_MESSAGE_ID :   getMessage((Packet::tchatMessagePacket*) customPacket);
+                                          break;
+        case Packet::TCHAT_END_REQ_ID :   WizardLogger::warning("Paquet de fin de conversation (tchat) reçu");
+                                          break;
+        case Packet::TCHAT_END_CONV_ID :  stopConv((Packet::pseudoPacket*) customPacket);
+                                          break;
+        /* Friend process */
+        case Packet::FRIEND_ADD_ID :      WizardLogger::warning("Paquet d'ajout d'ami reçu");
+                                          break;
+        case Packet::FRIEND_DEL_ID :      removeFriend((Packet::pseudoPacket*) customPacket);
+                                          break;
+        case Packet::FRIENDS_REQ_ID :     requestFriend((Packet::pseudoPacket*) customPacket);
+                                          break;
+        case Packet::FRIENDS_LIST_REQ_ID :WizardLogger::warning("Paquet de requête de liste d'ami reçu");
+                                          break;
+        case Packet::FRIENDS_LIST_ID :    updateFriendList((Packet::friendListPacket*) customPacket);
+                                          break;
+        /* Launching game process */
+        case Packet::WAITING_ID :         WizardLogger::warning("Paquet d'attende de partie reçu");
+                                          break;
+        case Packet::CANCEL_ID :          WizardLogger::warning("Paquet d'annulation de partie reçu");
+                                          break;
+        case Packet::LAUNCH_ID :          askDeck((Packet::packet*) customPacket);
+                                          break;
+        case Packet::DECK_CHOOS_ID :      WizardLogger::warning("Paquet de choix de deck reçu");
+                                          break;
+        /* Game process */
+        case Packet::TURN_ID :            setTurn((Packet::turnPacket*) customPacket);
+                                          break;
+        case Packet::DRAW_ID :            setDraw((Packet::intPacket*) customPacket);
+                                          break;
+        case Packet::ASK_DROP_ID :        askDrop((Packet::intPacket*) customPacket);
+                                          break;
+        case Packet::DROP_ID :            WizardLogger::warning("Paquet de drop reçu");
+                                          break;
+        case Packet::ATTACK_ID :          manageAttack((Packet::attackPacket*) customPacket);
+                                          break;
+        case Packet::SPELL_ID :           manageSpell((Packet::attackPacket*) customPacket);
+                                          break;
+        case Packet::END_TURN_ID :        WizardLogger::warning("Paquet de fin de tour reçu");
+                                          break;
+        case Packet::QUIT_ID :            WizardLogger::warning("Paquet de fin de partie (quit) reçu");
+                                          break;
+        case Packet::END_GAME_ID :        manageEndGame((Packet::endGamePacket*) customPacket);
+                                          break;
+        default :                         WizardLogger::warning("Paquet inconnue reçu");
                                           break;
     }
 }
 
-//======================================================================================
-
-void PacketManager::makeLoginRequest(const char *pseudo, const char *password) {
-    /* Create and complete a new loginPacket */
-    Packet::loginRequestPacket *loginPacket = new Packet::loginRequestPacket();
-    for (int i = 0 ; i < MAX_PSEUDO_SIZE ; ++i) {
-        loginPacket->pseudo[i] = pseudo[i];
-    }
-    for (int i = 0 ; i < MAX_PSEUDO_SIZE ; ++i) {
-        loginPacket->password[i] = password[i];
-    }
-    
-    /* Send it to the server */
-    conn->sendPacket((Packet*) loginPacket, sizeof(*loginPacket));
-    
-    /* Clean memory */
-    delete loginPacket;
-}
-
-void PacketManager::makeRegistrationRequest(const char *pseudo, const char *password) {
-    /* Create and complete a new loginPacket and modify ID to match registration request */
-    Packet::loginRequestPacket *registrationPacket = new Packet::loginRequestPacket();
-    registrationPacket->ID = Packet::REGIST_REQ_ID;
-    for (int i = 0 ; i < MAX_PSEUDO_SIZE ; ++i) {
-        registrationPacket->pseudo[i] = pseudo[i];
-    }
-    for (int i = 0 ; i < MAX_PSEUDO_SIZE ; ++i) {
-        registrationPacket->password[i] = password[i];
-    }
-    
-    /* Send it to the server */
-    conn->sendPacket((Packet*) registrationPacket, sizeof(*registrationPacket));
-    
-    /* Clean memory */
-    delete registrationPacket;
-}
-
-void PacketManager::sendDisconnection() {
-    /* Create and specify a new logoutPacket */
-    Packet::packet *logoutPacket = new Packet::packet();
-    logoutPacket->ID = Packet::DISCONNECT_ID;
-    
-    /* Send it to the server */
-    conn->sendPacket((Packet*) logoutPacket, sizeof(*logoutPacket));
-    
-    /* Clean memory */
-    delete logoutPacket;
-}
-
-void PacketManager::manageFriend(const char* pseudo, bool remove) {
-    Packet::pseudoPacket* manageFriendPacket = new Packet::pseudoPacket();
-    
-    /* Set ID to addFriendRequest or removeFriendRequest */
-    if (remove)
-        manageFriendPacket->ID = Packet::FRIEND_DEL_ID;
-    else
-        manageFriendPacket->ID = Packet::FRIEND_ADD_ID;
-    
-    /* Send pseudo */
-    for (int i = 0 ; i < MAX_PSEUDO_SIZE ; ++i) {
-        manageFriendPacket->pseudo[i] = pseudo[i];
-    }
-    
-    /* Send it to the server */
-    conn->sendPacket((Packet*) manageFriendPacket, sizeof(*manageFriendPacket));
-    
-    /* Clean memory */
-    delete manageFriendPacket;
-}
-
-void PacketManager::requestCard(unsigned ID) {
-    Packet::intPacket* cardRequest = new Packet::intPacket();
-    cardRequest->data = ID;
-    
-    /* Send it to the server */
-    conn->sendPacket((Packet*) cardRequest, sizeof(*cardRequest));
-    
-    /* Clean memory */
-    delete cardRequest;
-}
-
-void PacketManager::registerAsPlayer() {
-    Packet::packet* waitGamePacket = new Packet::packet();
-    waitGamePacket->ID = Packet::WAITING_ID;
-    
-    /* Send it to the server */
-    conn->sendPacket((Packet*) waitGamePacket, sizeof(*waitGamePacket));
-    
-    /* Clean memory */
-    delete waitGamePacket;
-}
-
-void PacketManager::cancelWaiting() {
-    Packet::packet* cancelWaitingPacket = new Packet::packet();
-    cancelWaitingPacket->ID = Packet::CANCEL_ID;
-    
-    /* Send it to the server */
-    conn->sendPacket((Packet*) cancelWaitingPacket, sizeof(*cancelWaitingPacket));
-    
-    /* Clean memory */
-    delete cancelWaitingPacket;
-}
-
-//======================================================================================
+//===========================LOGIN PROCESS===========================================
 
 void PacketManager::loginResult(const Packet::intPacket* resultPacket) {
     /* Check if size is correct to detect corrupted packet */
@@ -151,8 +101,347 @@ void PacketManager::playerInfo(const Packet::playerInfoPacket* playerPacket) {
     wizardDisplay->valideLogin();
 }
 
-void PacketManager::getCard(const Packet::cardInfosPacket* cardInfo) {
-    Card *newCard = new Card(cardInfo->data.carteID, cardInfo->data.monster, std::string(cardInfo->data.name),
-    std::string(cardInfo->data.description), cardInfo->data.energyCost, cardInfo->data.maxHP);
+/* Send a login request to the server
+ * @param pseudo : pseudo array of the user
+ * @param password : password array of the user
+ */
+void PacketManager::makeLoginRequest(const char *pseudo, const char *password) {
+    /* Create and complete a new loginPacket */
+    Packet::loginRequestPacket *loginPacket = new Packet::loginRequestPacket();
+    for (int i = 0 ; i < MAX_PSEUDO_SIZE ; ++i) {
+        loginPacket->pseudo[i] = pseudo[i];
+    }
+    for (int i = 0 ; i < MAX_PSEUDO_SIZE ; ++i) {
+        loginPacket->password[i] = password[i];
+    }
+    
+    /* Send it to the server */
+    conn->sendPacket((Packet::packet*) loginPacket, sizeof(*loginPacket));
+    
+    /* Clean memory */
+    delete loginPacket;
+}
+
+/* Send a login request to the server
+ * @param pseudo : pseudo array of the user
+ * @param password : password array of the user
+ */
+void PacketManager::makeRegistrationRequest(const char *pseudo, const char *password) {
+    /* Create and complete a new loginPacket and modify ID to match registration request */
+    Packet::loginRequestPacket *registrationPacket = new Packet::loginRequestPacket();
+    registrationPacket->ID = Packet::REGIST_REQ_ID;
+    for (int i = 0 ; i < MAX_PSEUDO_SIZE ; ++i) {
+        registrationPacket->pseudo[i] = pseudo[i];
+    }
+    for (int i = 0 ; i < MAX_PSEUDO_SIZE ; ++i) {
+        registrationPacket->password[i] = password[i];
+    }
+    
+    /* Send it to the server */
+    conn->sendPacket((Packet::packet*) registrationPacket, sizeof(*registrationPacket));
+    
+    /* Clean memory */
+    delete registrationPacket;
+}
+
+/* Send a disconnection signal to the server (help detect crash) */
+void PacketManager::sendDisconnection() {
+    /* Create and specify a new logoutPacket */
+    Packet::packet *logoutPacket = new Packet::packet();
+    logoutPacket->ID = Packet::DISCONNECT_ID;
+    
+    /* Send it to the server */
+    conn->sendPacket((Packet::packet*) logoutPacket, sizeof(*logoutPacket));
+    
+    /* Clean memory */
+    delete logoutPacket;
+}
+
+//============================CARD PROCESS===========================================
+
+void PacketManager::saveCardInfo(const Packet::cardInfosPacket* cardPacket) {
+    Card *newCard = new Card(cardPacket->data.carteID, cardPacket->data.monster, std::string(cardPacket->data.name),
+    std::string(cardPacket->data.description), cardPacket->data.energyCost, cardPacket->data.maxHP);
     cacheManager->addToCache(newCard);
+}
+
+void PacketManager::saveCardImg(const Packet::cardImgPacket* cardImgPacket) {
+    //TODO save to file
+}
+
+/* Request card's information
+ * @param ID : the card's ID
+ */
+void PacketManager::makeCardRequest(const unsigned ID) {
+    Packet::intPacket *cardReqPacket = new Packet::intPacket();
+    
+    /* Set ID and ID */
+    cardReqPacket->ID = Packet::CARTE_REQ_ID;
+    cardReqPacket->data = ID;
+    
+    /* Send and free */
+    conn->sendPacket((Packet::packet*) cardReqPacket, sizeof(*cardReqPacket));
+    delete cardReqPacket;
+}
+
+/* Request card's picture
+ * @param ID : the card's ID
+ */
+void PacketManager::makeCardImgRequest(const unsigned ID) {
+    Packet::intPacket *cardImgReqPacket = new Packet::intPacket();
+    
+    /* Set ID and ID */
+    cardImgReqPacket->ID = Packet::CARTE_IMG_REQ_ID;
+    cardImgReqPacket->data = ID;
+    
+    /* Send and free */
+    conn->sendPacket((Packet::packet*) cardImgReqPacket, sizeof(*cardImgReqPacket));
+    delete cardImgReqPacket;
+}
+
+//============================TCHAT PROCESS===========================================
+
+void PacketManager::startNewConv(const Packet::pseudoPacket* newConvPacket) {
+    //TODO start new conversation
+}
+
+void PacketManager::getMessage(const Packet::tchatMessagePacket* messagePacket) {
+    //TODO display message
+}
+
+void PacketManager::stopConv(const Packet::pseudoPacket* endConvPacket) {
+    //TODO stop a conversation
+}
+
+/* Ask to start a new conversation with someone
+ * @param pseudo : other player's pseudo
+ */
+void PacketManager::makeTchatRequest(const std::string pseudo) {
+    Packet::pseudoPacket *newConvReq = new Packet::pseudoPacket();
+    
+    /* Set ID and pseudo */
+    newConvReq->ID = Packet::TCHAT_CONV_REQ_ID;
+    for (int i = 0 ; i < pseudo.size() ; ++i) newConvReq->pseudo[i] = pseudo[i];
+    
+    /* Send and free */
+    conn->sendPacket((Packet::packet*) newConvReq, sizeof(*newConvReq));
+    delete newConvReq;
+}
+
+
+/* Send a message to someone
+ * @param message : the message to send
+ */
+void PacketManager::sendMessage(const std::string message) {
+    Packet::tchatMessagePacket *messagePacket = new Packet::tchatMessagePacket();
+    
+    /* Set message */
+    for (int i = 0 ; i < message.size() ; ++i) messagePacket->msg[i] = message[i];
+    
+    /* Send and free */
+    conn->sendPacket((Packet::packet*) messagePacket, sizeof(*messagePacket));
+    delete messagePacket;
+}
+
+
+/* Ask to stop a conversation with someone
+ * @param pseudo : other player's pseudo
+ */
+void PacketManager::makeTchatStopRequest(const std::string pseudo) {
+    Packet::pseudoPacket *stopConvReq = new Packet::pseudoPacket();
+    
+    /* Set ID and pseudo */
+    stopConvReq->ID = Packet::TCHAT_END_REQ_ID;
+    for (int i = 0 ; i < pseudo.size() ; ++i) stopConvReq->pseudo[i] = pseudo[i];
+    
+    /* Send and free */
+    conn->sendPacket((Packet::packet*) stopConvReq, sizeof(*stopConvReq));
+    delete stopConvReq;
+}
+
+//============================FRIEND PROCESS===========================================
+
+void PacketManager::removeFriend(const Packet::pseudoPacket* removeFriendPacket) {
+    //TODO remove friend from friend list
+}
+
+void PacketManager::requestFriend(const Packet::pseudoPacket* friendRequestPacket) {
+    //TODO ask if user want to be friend
+}
+
+void PacketManager::updateFriendList(const Packet::friendListPacket* friendListPacket) {
+    //TODO update friend list
+}
+
+/* Send a friend request
+ * @param pseudo : other player's pseudo
+ */
+void PacketManager::makeFriendRequest(const char* pseudo) {
+    Packet::pseudoPacket *friendReq = new Packet::pseudoPacket();
+    
+    /* Set ID and pseudo */
+    friendReq->ID = Packet::FRIEND_ADD_ID;
+    for (int i = 0 ; i < MAX_PSEUDO_SIZE ; ++i) friendReq->pseudo[i] = pseudo[i];
+    
+    /* Send and free */
+    conn->sendPacket((Packet::packet*) friendReq, sizeof(*friendReq));
+    delete friendReq;
+}
+
+/* Ask for friend list update */
+void PacketManager::makeFriendListRequest() {
+    /* Create and specify a new logoutPacket */
+    Packet::packet *friendListReq = new Packet::packet();
+    friendListReq->ID = Packet::FRIENDS_LIST_REQ_ID;
+    
+    /* Send it to the server */
+    conn->sendPacket((Packet::packet*) friendListReq, sizeof(*friendListReq));
+    
+    /* Clean memory */
+    delete friendListReq;
+}
+
+//============================LAUNCHING PROCESS=========================================
+
+void PacketManager::askDeck(const Packet::packet* packet) {
+    //TODO ask to player his deck for party
+}
+
+/* Inform server we are ready and wainting for party */
+void PacketManager::makeGameRequest() {
+    /* Create and specify a new logoutPacket */
+    Packet::packet *gameReq = new Packet::packet();
+    gameReq->ID = Packet::WAITING_ID;
+    
+    /* Send it to the server */
+    conn->sendPacket((Packet::packet*) gameReq, sizeof(*gameReq));
+    
+    /* Clean memory */
+    delete gameReq;
+}
+
+/* Inform server thant we wont anymore play */
+void PacketManager::makeGameCancelRequest() {
+    /* Create and specify a new logoutPacket */
+    Packet::packet *cancelInfo = new Packet::packet();
+    cancelInfo->ID = Packet::CANCEL_ID;
+    
+    /* Send it to the server */
+    conn->sendPacket((Packet::packet*) cancelInfo, sizeof(*cancelInfo));
+    
+    /* Clean memory */
+    delete cancelInfo;
+}
+
+void PacketManager::sendSelectedDeck(const int ID) {
+    Packet::intPacket *sendChoosenDeck = new Packet::intPacket();
+    
+    /* Set ID and ID */
+    sendChoosenDeck->ID = Packet::DECK_CHOOS_ID;
+    sendChoosenDeck->data = ID;
+    
+    /* Send and free */
+    conn->sendPacket((Packet::packet*) sendChoosenDeck, sizeof(*sendChoosenDeck));
+    delete sendChoosenDeck;
+}
+
+//==============================GAME PROCESS============================================
+
+void PacketManager::setTurn(const Packet::turnPacket* turnPacket) {
+    //TODO update in-game info and inform if it's our turn
+}
+
+void PacketManager::setDraw(const Packet::intPacket* drawPacket) {
+    //TODO update in-game hand (and deck)
+}
+
+void PacketManager::askDrop(const Packet::intPacket* askDropPacket) {
+    //TODO ask to trash a certain amount
+}
+
+void PacketManager::manageAttack(const Packet::attackPacket* attackPacket) {
+    //TODO update in-game info with an attack
+}
+
+void PacketManager::manageSpell(const Packet::attackPacket* spellPacket) {
+    //TODO update in-game info with a spell
+}
+
+void PacketManager::manageEndGame(const Packet::endGamePacket* endPacket) {
+    //TODO tell if we win and display winner's new card
+}
+
+/* Inform server to trash a card
+ * @param ID : the card's ID
+ */
+void PacketManager::sendDrop(const int ID) {
+    Packet::intPacket *dropCard = new Packet::intPacket();
+    
+    /* Set ID and ID */
+    dropCard->ID = Packet::DROP_ID;
+    dropCard->data = ID;
+    
+    /* Send and free */
+    conn->sendPacket((Packet::packet*) dropCard, sizeof(*dropCard));
+    delete dropCard;
+}
+
+/* Inform server for an attack attempt
+ * @param from : ID of card doing attack
+ * @param target : ID of the target's card (or -1 for player)
+ */
+void PacketManager::sendAttack(const int from, const int target) {
+    Packet::attackPacket *attackPacket = new Packet::attackPacket();
+    
+    /* Set ID and info (server fix pseudo and finalLife) */
+    attackPacket->ID = Packet::ATTACK_ID;
+    attackPacket->data.ID = from;
+    attackPacket->data.target = target;
+    
+    /* Send and free */
+    conn->sendPacket((Packet::packet*) attackPacket, sizeof(*attackPacket));
+    delete attackPacket;
+}
+
+/* Inform server for a spell attempt
+ * @param from : ID of card doing spell
+ * @param target : ID of the target's card (or -1 for player)
+ */
+void PacketManager::sendSpell(const int from, const int target) {
+    Packet::attackPacket *spellPacket = new Packet::attackPacket();
+    
+    /* Set ID and info (server fix pseudo and finalLife) */
+    spellPacket->ID = Packet::SPELL_ID;
+    spellPacket->data.ID = from;
+    spellPacket->data.target = target;
+    
+    /* Send and free */
+    conn->sendPacket((Packet::packet*) spellPacket, sizeof(*spellPacket));
+    delete spellPacket;
+}
+
+/* Inform server that we have finish our turn */
+void PacketManager::endTurn() {
+    /* Create and specify a new logoutPacket */
+    Packet::packet *endTurn = new Packet::packet();
+    endTurn->ID = Packet::END_TURN_ID;
+    
+    /* Send it to the server */
+    conn->sendPacket((Packet::packet*) endTurn, sizeof(*endTurn));
+    
+    /* Clean memory */
+    delete endTurn;
+}
+
+/* Inform server that we (rage) quit party and we loose */
+void PacketManager::quit() {
+    /* Create and specify a new logoutPacket */
+    Packet::packet *quit = new Packet::packet();
+    quit->ID = Packet::QUIT_ID;
+    
+    /* Send it to the server */
+    conn->sendPacket((Packet::packet*) quit, sizeof(*quit));
+    
+    /* Clean memory */
+    delete quit;
 }
