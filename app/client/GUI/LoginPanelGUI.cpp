@@ -1,52 +1,6 @@
 #include "LoginPanelGUI.hpp"
 
 
-void LoginPanelGUI::makeLogin() {
-    const char* pseudo = _strPseudo.c_str();
-    const char* mdp = _strMdp.c_str();
-    PacketManager::makeLoginRequest(pseudo, mdp);
-}
-
-void LoginPanelGUI::makeRegister() {
-    const char* pseudo = _strPseudo.c_str();
-    const char* mdp = _strMdp.c_str();
-    PacketManager::makeRegistrationRequest(pseudo, mdp);
-}
-
-/**
- * Change the string pseudo
- * @param qstr the new QString
- */
-void LoginPanelGUI::setStrPseudo(QString qstr) {
-    _strPseudo = qstr.toStdString();
-}
-
-/**
- * Change the string password
- * @param qstr the new QString
- */
-void LoginPanelGUI::setStrMdp(QString qstr) {
-    _strMdp = qstr.toStdString();
-}
-
-/**
- * Call the mustPrintResult
- * @param message which must be print
- */
-void LoginPanelGUI::callPrintLoginResult(std::string message) {
-    QString msg = QString::fromUtf8(message.c_str());
-    emit mustPrintResult(msg);
-}
-
-void LoginPanelGUI::callDisplayMainMenu() {
-    emit mustDisplayMainMenu();
-}
-
-void LoginPanelGUI::displayMainMenu() {
-    new MenuPanelGUI();
-    close();
-}
-
 /**
  * Constructor
  */
@@ -116,7 +70,27 @@ LoginPanelGUI::LoginPanelGUI() : QWidget() {
     QObject::connect(_m_mdp, SIGNAL(textChanged(QString)), this, SLOT(setStrMdp(QString)));
 }
 
+
 /**
+ * Call the mustPrintResult (emit)
+ * @param message which must be print
+ */
+void LoginPanelGUI::callPrintLoginResult(std::string message) {
+    QString msg = QString::fromUtf8(message.c_str());
+    emit mustPrintResult(msg);
+}
+
+
+/**
+ * Call the mustDisplayMainMenu (emit)
+ */
+void LoginPanelGUI::callDisplayMainMenu() {
+    emit mustDisplayMainMenu();
+}
+
+
+/**
+ * Display the login result
  *
  * @param message to display
  */
@@ -125,4 +99,52 @@ void LoginPanelGUI::loginDisplayResult(const QString message) {
     QMessageBox::critical(this, titre, message);
 }
 
+
+/**
+ * Make login request
+ */
+void LoginPanelGUI::makeLogin() {
+    const char* pseudo = _strPseudo.c_str();
+    const char* mdp = _strMdp.c_str();
+    PacketManager::makeLoginRequest(pseudo, mdp);
+}
+
+
+/**
+ * Make register request
+ */
+void LoginPanelGUI::makeRegister() {
+    const char* pseudo = _strPseudo.c_str();
+    const char* mdp = _strMdp.c_str();
+    PacketManager::makeRegistrationRequest(pseudo, mdp);
+}
+
+
+/**
+ * Change the string pseudo
+ *
+ * @param qstr the new QString
+ */
+void LoginPanelGUI::setStrPseudo(QString qstr) {
+    _strPseudo = qstr.toStdString();
+}
+
+
+/**
+ * Change the string password
+ *
+ * @param qstr the new QString
+ */
+void LoginPanelGUI::setStrMdp(QString qstr) {
+    _strMdp = qstr.toStdString();
+}
+
+
+/**
+ * Display the main menu and close this
+ */
+void LoginPanelGUI::displayMainMenu() {
+    new MenuPanelGUI();
+    close();
+}
 

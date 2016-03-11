@@ -1,5 +1,8 @@
 #include "MenuPanelGUI.hpp"
 
+/**
+ * Constructor
+ */
 MenuPanelGUI::MenuPanelGUI() : QMainWindow() {
 
     setStyleSheet("QMainWindow { background-image: url(:/Images/bg.png); } "
@@ -7,11 +10,6 @@ MenuPanelGUI::MenuPanelGUI() : QMainWindow() {
 
     centralWidget = new QWidget(this);
     setCentralWidget(centralWidget);
-
-//    _nameGame = new QLabel(" ");
-//    _nameGame->setFont(QFont("FOLKARD",75));
-//    _nameGame->setAlignment(Qt::AlignHCenter);
-//    _nameGame->setFixedHeight(110);
 
 
     _gameStart = new QPushButton(" Lancer une partie ");
@@ -45,12 +43,8 @@ MenuPanelGUI::MenuPanelGUI() : QMainWindow() {
     _layout->addWidget(_quitter);
     _layout->setSpacing(18);
 
-    //_layoutLabel = new QHBoxLayout;
-    //_layoutLabel->addWidget(_nameGame);
-
 
     _layoutOfLayout = new QGridLayout(centralWidget);
-    //_layoutOfLayout->addLayout(_layoutLabel,0,1);
     _layoutOfLayout->addLayout(_layout,1,1);
 
 
@@ -66,6 +60,19 @@ MenuPanelGUI::MenuPanelGUI() : QMainWindow() {
 
 }
 
+
+/**
+ * Slot to quit application
+ */
+void MenuPanelGUI::quitApp() {
+    PacketManager::sendDisconnection();
+    qApp->quit();
+}
+
+
+/**
+ * Slot to call when the player will play
+ */
 void MenuPanelGUI::makeBeginGame() {
     PacketManager::registerAsPlayer();
     QMessageBox sb;
@@ -79,24 +86,33 @@ void MenuPanelGUI::makeBeginGame() {
     sb.connect(sb.button(QMessageBox::Cancel), SIGNAL(clicked()), this, SLOT(makeCancelWait()));
     // DEBUG
     sb.connect(sb.button(QMessageBox::Ignore), SIGNAL(clicked()), this, SLOT(makeOpenGame()));
+
     sb.exec();
 }
 
+
+/**
+ * Slot to call when the player no longer wants play
+ */
 void MenuPanelGUI::makeCancelWait() {
     WizardLogger::info("Cancel wait game");
     PacketManager::cancelWaiting();
 }
 
+
+/**
+ * Slot to open the game
+ */
 void MenuPanelGUI::makeOpenGame() {
     this->hide();
     new GameGUI();
 }
 
+
+/**
+ * Slot to open the MainMenu
+ */
 void MenuPanelGUI::makeOpen() {
     this->show();
 }
 
-void MenuPanelGUI::quitApp() {
-    PacketManager::sendDisconnection();
-    qApp->quit();
-}
