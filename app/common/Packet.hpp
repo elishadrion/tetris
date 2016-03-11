@@ -9,41 +9,44 @@ class Packet {
 public:
     /* All packet ID */
     enum IDList {
-        /* LOGIN PROCESS */
-        LOGIN_REQ_ID = 11,
-        REGIST_REQ_ID = 12,
-        LOGIN_RES_ID = 13, /* Error code to convert in message (popup) */
-        DISCONNECT_ID = 14, /* DEFAULT PACKET */
-        PLAYER_INFO_ID = 15, /* Success so get all player infos needed */
+        /* LOGIN PROCESS (all but the last in a mini-feature) */
+        LOGIN_REQ_ID = 11, /* DEFAULT PACKET */
+        REGIST_REQ_ID = 12, /* DEFAULT PACKET */
+        LOGIN_RES_ID = 13, /* Error code to convert in message (intPacket) */
+        PLAYER_INFO_ID = 14, /* Success so get all player infos needed */
+        DISCONNECT_ID = 15, /* DEFAULT PACKET */
         /* CARDS PROCESS */
-        CARTE_REQ_ID = 21,
-        CARTE_INFO_ID = 22,
-        CARTE_IMG_ID = 23,
-        /* TCHAT & FRIEND PROCESS */
-        TCHAT_CONV_REQ_ID = 31, /* Get TCHAT_END_CONV_ID if failed */
-        TCHAT_NEW_CONV_ID = 32,
+        CARTE_REQ_ID = 21, /* intPacket */
+        CARTE_INFO_ID = 22, /* Send all card info (no img) */
+        CARTE_IMG_REQ_ID = 23, /* intPacket */
+        CARTE_IMG_ID = 24, /* intPacket */
+        /* TCHAT */
+        TCHAT_CONV_REQ_ID = 31, /* Get TCHAT_END_CONV_ID if failed (pseudoPacket) */
+        TCHAT_NEW_CONV_ID = 32, /* pseudoPacket */
         TCHAT_MESSAGE_ID = 33, /* No success verification */
-        TCHAT_END_REQ_ID = 34,
-        TCHAT_END_CONV_ID = 35,
-        FRIEND_ADD_ID = 36, /* Get FRIEND_DEL_ID if failed (use managPacket) */
-        FRIEND_DEL_ID = 37,  /* !> use managPacket */
-        FRIENDS_REQ_ID = 38, /* Do you want to be friend ? (use managPacket) */
-        FRIENDS_LIST_ID = 39,
+        TCHAT_END_REQ_ID = 34, /* pseudoPacket */
+        TCHAT_END_CONV_ID = 35, /* pseudoPacket */
+        /* FRIEND */
+        FRIEND_ADD_ID = 41, /* Get FRIEND_DEL_ID if failed (use pseudoPacket) */
+        FRIEND_DEL_ID = 42,  /* pseudoPacket */
+        FRIENDS_REQ_ID = 43, /* Do you want to be friend ? (use pseudoPacket) */
+        FRIENDS_LIST_REQ_ID = 44, /* DEFAULT PACKET */
+        FRIENDS_LIST_ID = 45, /* Send all friendList */
         /* LAUNCHING GAME PROCESS */
-        WAITING_ID = 41, /* DEFAULT PACKET */
-        CANCEL_ID = 42, /* DEFAULT PACKET */
-        LAUNCH_ID = 43, /* DEFAULT PACKET - ask for deck */
-        DECK_CHOOS_ID = 44, /* !> use login error packet for int */
+        WAITING_ID = 51, /* DEFAULT PACKET */
+        CANCEL_ID = 52, /* DEFAULT PACKET */
+        LAUNCH_ID = 53, /* DEFAULT PACKET - ask for deck */
+        DECK_CHOOS_ID = 54, /* intPacket */
         /* GAME PROCESS */
-        TURN_ID = 51, /* Signal the current player turn (use managPacket) */
-        DRAW_ID = 52, /* !> use managePacket */
-        ASK_DROP_ID = 53, /* Ask to draw a certain amount of card */
-        DROP_ID = 54, /* A packet by droped card (use loginError) */
-        ATTACK_ID = 55,
-        SPELL_ID = 56,
-        END_TURN_ID = 57, /* Send to server to signal end of turn (DEFAULT PACKET) */
-        QUIT_ID = 58, /* DEFAULT PACKET */
-        END_GAME_ID = 59, /* !> use actionPacket */
+        TURN_ID = 61, /* Signal the current player turn */
+        DRAW_ID = 62, /* intPacket */
+        ASK_DROP_ID = 63, /* Ask to draw a certain amount of card */
+        DROP_ID = 64, /* A packet by droped card (use intPacket) */
+        ATTACK_ID = 65, /* send attacker, target's ID (-1 for player) */
+        SPELL_ID = 66, /* send wizard, speel's ID */
+        END_TURN_ID = 67, /* Send to server to signal end of turn (DEFAULT PACKET) */
+        QUIT_ID = 68, /* DEFAULT PACKET */
+        END_GAME_ID = 69, /* !> use actionPacket */
     };
     
     /* Default size of all packets (without data) */
@@ -54,6 +57,20 @@ public:
         int ID;
         int size = 0;
     } packet;
+    
+    /* Packet with only int */
+    typedef struct {
+        int ID;
+        int size = sizeof(int);
+        int data;
+    } intPacket;
+    
+    /* Packet with only pseudo */
+    typedef struct {
+        int ID;
+        int size = sizeof(char)*MAX_PSEUDO_SIZE;
+        char pseudo[MAX_PSEUDO_SIZE];
+    } pseudoPacket;
 
 //=========================LOGIN PROCESS=================================
 
@@ -64,13 +81,6 @@ public:
         char pseudo[MAX_PSEUDO_SIZE];
         char password[MAX_PSEUDO_SIZE];
     } loginRequestPacket;
-    
-    /* Login error code */
-    typedef struct {
-        int ID = LOGIN_RES_ID;
-        int size = sizeof(int);
-        int resultCode;
-    } loginResultPacket;
     
     /* Player info (sucess login) */
     typedef struct {
@@ -88,13 +98,6 @@ public:
     } playerInfoPacket;
 
 //========================CARDS PROCESS===================================
-    
-    /* Card info request */
-    typedef struct {
-        int ID = CARTE_REQ_ID;
-        int size = sizeof(int);
-        unsigned carteID;
-    } carteRequestPacket;
     
     /* Card info */
     typedef struct {
@@ -119,18 +122,11 @@ public:
 
 //====================TCHAT & FRIEND PROCESS==============================
     
-    /* Tchat new/del (or friend or new game or turn) request */
-    typedef struct {
-        int ID;
-        int size = sizeof(char)*MAX_PSEUDO_SIZE;
-        char pseudo[MAX_PSEUDO_SIZE];
-    } managPacket;
-    
     /* Tchat message packet (width*height) */
     typedef struct {
         int ID = TCHAT_MESSAGE_ID;
         int size = sizeof(char)*MESSAGES_MAX_SIZE;
-        char pseudo[MESSAGES_MAX_SIZE];
+        char msg[MESSAGES_MAX_SIZE];
     } tchatMessagePacket;
     
     /* Player's friends list only */
@@ -142,16 +138,51 @@ public:
 
 //=========================GAME=============================================
     
+    /* Send all data for sync to the client when turn change */
+    typedef struct {
+        int ID = TURN_ID;
+        typedef struct {
+            char pseudo[MESSAGES_MAX_SIZE]; /* Player's name for current turn */
+            int life;
+            int trash[DECK_SIZE];
+            int hand[MAX_HAND];
+            int deck[DECK_SIZE];
+            int posed[MAX_POSED_CARD];
+            int posedLife[MAX_POSED_CARD];
+            int ennemyLife;
+            int ennemyTrash;
+            int ennemyHand;
+            int ennemyDeck;
+            int ennemyPosed[MAX_POSED_CARD];
+            int ennemyPosedLife[MAX_POSED_CARD];
+        } turnData;
+        int size = sizeof(turnData);
+        turnData data;
+    } turnPacket;
+    
     /* Packet for attack or play spell (or win game) */
     typedef struct {
         int ID;
         typedef struct {
             char pseudo[MESSAGES_MAX_SIZE]; /* Player doing attack or spell or winning */
+            int ID; /* monster doing attack or spell */
             int target; /* Target card ID (-1 for player) OR ID for spell card to play (or win card) */
-        } actionData;
-        int size = sizeof(actionData);
-        actionData data;
-    } actionPacket;
+            unsigned finalLife; /* Final life of the target */
+        } attackData;
+        int size = sizeof(attackData);
+        attackData data;
+    } attackPacket;
+    
+    /* Inform about end of the game */
+    typedef struct {
+        int ID = END_GAME_ID;
+        typedef struct {
+            int victory; /* -1: lose | 0: nobody | 1: win */
+            int card; /* Card he win */
+        } winData;
+        int size = sizeof(winData);
+        winData data;
+    } endGamePacket;
 
 //==========================================================================
     

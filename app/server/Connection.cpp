@@ -166,9 +166,9 @@ void* Connection::newPlayerThread(void* data) {
 }
 
 void Connection::sendResponse(int errorCode, int socket) {
-    Packet::loginResultPacket *loginResult = new Packet::loginResultPacket();
-    loginResult->resultCode = errorCode;
-    send(socket, loginResult, sizeof(Packet::loginResultPacket), 0);
+    Packet::intPacket *loginResult = new Packet::intPacket();
+    loginResult->data = errorCode;
+    send(socket, loginResult, sizeof(Packet::intPacket), 0);
     delete loginResult;
 }
 

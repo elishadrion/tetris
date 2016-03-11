@@ -331,11 +331,8 @@ void Game::nextPlayer() {
     _currentPlayer->addMaxEnergy();
     int energie = _currentPlayer->resetEnergy();
 
-    PacketManager::setTurn(_player1, _currentPlayer->getName());
-    PacketManager::setTurn(_player2, _currentPlayer->getName());
-
-    PacketManager::sendInfoStartTurn(_currentPlayer, energie,
-        getAdversePlayer()->nbrCardInHand());
+    PacketManager::sendTurnInfo(_player1, _currentPlayer->getName(), _player1, _player2);
+    PacketManager::sendTurnInfo(_player2, _currentPlayer->getName(), _player2, _player1);
 
     beginTurn();
 }
@@ -350,11 +347,11 @@ void Game::nextPlayer() {
  * @param heal of the attack entity
  */
 void Game::sendInfoAction(PlayerInGame* pIG, int cardWichAttack, int attackCard,
-    bool isEffect, bool newCard, unsigned heal) {
-    PacketManager::sendAttack(_player1, pIG->getName(),
-        cardWichAttack, isEffect, newCard, attackCard, heal);
-    PacketManager::sendAttack(_player2, pIG->getName(),
-        cardWichAttack, isEffect, newCard, attackCard, heal);
+    bool isEffect, bool newCard, unsigned heal) {//TODO can't send all like these, seperate attack and spell
+    //PacketManager::sendAttack(_player1, pIG->getName(),
+        //cardWichAttack, isEffect, newCard, attackCard, heal);
+    //PacketManager::sendAttack(_player2, pIG->getName(),
+        //cardWichAttack, isEffect, newCard, attackCard, heal);
 }
 
 
@@ -514,8 +511,8 @@ void Game::isPlayerInLife(PlayerInGame* pIG) {
         pIG->addDefeat();
         pAdverse->addWin();
 
-        PacketManager::sendEndGame(_player1, _player1==pAdverse ? 1 : -1);
-        PacketManager::sendEndGame(_player2, _player2==pAdverse ? 1 : -1);
+        PacketManager::sendEndGame(_player1, _player1==pAdverse ? 1 : -1, -1);//TODO replace -1 by card's ID
+        PacketManager::sendEndGame(_player2, _player2==pAdverse ? 1 : -1, -1);//TODO replace -1 by card's ID
 
 
         Card* card = CardManager::chooseCardWin();
@@ -567,7 +564,7 @@ Error Game::placeCard(PlayerInGame* pIG, Card* placeCard) {
  * @param pIG who disconnect
  */
 void Game::endParty(PlayerInGame* pIG) {
-    PacketManager::sendEndGame(getAdversePlayer(pIG), 0);
+    PacketManager::sendEndGame(getAdversePlayer(pIG), 0, -1);
     delete _player1;
     delete _player2;
     delete this;
