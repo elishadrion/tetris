@@ -15,7 +15,7 @@
 #include <QMessageBox>
 
 #include "PacketManager.hpp"
-
+#include "GUI/GameGUI.hpp"
 #include "common/WizardLogger.hpp"
 
 
@@ -43,6 +43,8 @@ public slots:
     void quitApp();
     void makeBeginGame();
     void makeCancelWait();
+    void makeOpenGame();
+    void makeOpen();
 
 
 };

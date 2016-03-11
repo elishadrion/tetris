@@ -72,13 +72,28 @@ void MenuPanelGUI::makeBeginGame() {
     sb.setWindowTitle("Attente de Partie");
     sb.setText("En attente d'une partie");
     sb.setStandardButtons(QMessageBox::Cancel);
+
+    // DEBUG
+    sb.addButton(QMessageBox::Ignore);
+
     sb.connect(sb.button(QMessageBox::Cancel), SIGNAL(clicked()), this, SLOT(makeCancelWait()));
+    // DEBUG
+    sb.connect(sb.button(QMessageBox::Ignore), SIGNAL(clicked()), this, SLOT(makeOpenGame()));
     sb.exec();
 }
 
 void MenuPanelGUI::makeCancelWait() {
     WizardLogger::info("Cancel wait game");
     PacketManager::cancelWaiting();
+}
+
+void MenuPanelGUI::makeOpenGame() {
+    this->hide();
+    new GameGUI();
+}
+
+void MenuPanelGUI::makeOpen() {
+    this->show();
 }
 
 void MenuPanelGUI::quitApp() {
