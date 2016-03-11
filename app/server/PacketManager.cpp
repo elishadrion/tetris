@@ -101,7 +101,6 @@ void PacketManager::manageDisconnectRequest(Player *player, Packet::packet* disc
 }
 
 void PacketManager::manageCancelWait(Player *player, Packet::packet* cancelReqPacket) {
-    WizardLogger::info(player->getName() + " a annulé sa demande de jouer");
     Game::removePlayerWaitGame(player);
 }
 

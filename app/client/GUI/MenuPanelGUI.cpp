@@ -73,6 +73,7 @@ void MenuPanelGUI::makeBeginGame() {
     sb.setText("En attente d'une partie");
     sb.setStandardButtons(QMessageBox::Cancel);
     sb.connect(sb.button(QMessageBox::Cancel), SIGNAL(clicked()), this, SLOT(makeCancelWait()));
+    sb.exec();
 }
 
 void MenuPanelGUI::makeCancelWait() {
