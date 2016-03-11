@@ -1,8 +1,15 @@
 #include "MenuPanelGUI.hpp"
 
-MenuPanelGUI::MenuPanelGUI() : QWidget() {
+MenuPanelGUI::MenuPanelGUI() : QMainWindow() {
 
-    _nameGame = new QLabel(" Wizard Poker ");
+    //setStyleSheet("QWidget{background-image: url(./bg.png);}");
+    //thiss->setStyleSheet("background-image: url(./bg.png);");
+    this->setStyleSheet("background-image: url(./bg.png);QWidget {background-color: white;}");
+
+    centralWidget = new QWidget(this);
+    this->setCentralWidget(centralWidget);
+
+    _nameGame = new QLabel(" ");
     _nameGame->setFont(QFont("FOLKARD",75));
     _nameGame->setAlignment(Qt::AlignHCenter);
     _nameGame->setFixedHeight(110);
@@ -41,12 +48,13 @@ MenuPanelGUI::MenuPanelGUI() : QWidget() {
     _layoutLabel->addWidget(_nameGame);
 
 
-    _layoutOfLayout = new QGridLayout;
+    _layoutOfLayout = new QGridLayout(centralWidget);
     _layoutOfLayout->addLayout(_layoutLabel,0,1);
     _layoutOfLayout->addLayout(_layout,1,1);
 
-    setLayout(_layoutOfLayout);
-    //setStyleSheet("QWidget{background-image: url(/Users/Amean/Desktop/bg.jpg);}");
+    //this->setLayout(_layoutOfLayout);
+
+
     showMaximized();
 
 }

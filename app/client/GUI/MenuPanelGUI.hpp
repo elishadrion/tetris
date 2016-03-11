@@ -11,12 +11,15 @@
 #include <QLabel>
 #include <QFont>
 #include <QPalette>
+#include <QMainWindow>
 
 #include "common/WizardLogger.hpp"
 
 
-class MenuPanelGUI : public QWidget {
+class MenuPanelGUI : public QMainWindow {
     Q_OBJECT
+
+    QWidget *centralWidget;
 
     QLabel *_nameGame;
     QPushButton *_gameStart;
