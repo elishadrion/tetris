@@ -5,7 +5,8 @@
  */
 MenuPanelGUI::MenuPanelGUI() : QMainWindow() {
 
-    setStyleSheet("QMainWindow { background-image: url(:/Images/bg.png); background-position: center center; } "
+    setStyleSheet("QMainWindow { background-image: url(:/Images/bg.png) 0 0 0 0 stretch stretch; "
+                  "background-repeat: no-repeat; background-position: center center; } "
                   "QPushButton { background-color: white; }");
 
     centralWidget = new QWidget(this);
