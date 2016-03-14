@@ -91,7 +91,6 @@ int main(int argc, char** argv) {
 
     QApplication app(argc, argv);
     if(activeGUI) {
-        // TO DO
         wizardDisplay = new GUI();
     } else {
         /* We init in CLI mode

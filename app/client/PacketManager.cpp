@@ -97,9 +97,9 @@ void PacketManager::loginResult(const Packet::intPacket* resultPacket) {
 }
 
 void PacketManager::playerInfo(const Packet::playerInfoPacket* playerPacket) {
-    WizardLogger::warning(playerPacket->data.pseudo);
-    WizardLogger::warning(std::to_string(playerPacket->data.victories));
-    WizardLogger::warning(std::to_string(playerPacket->data.defeats));
+    WizardLogger::info(playerPacket->data.pseudo);
+    WizardLogger::info(std::to_string(playerPacket->data.victories));
+    WizardLogger::info(std::to_string(playerPacket->data.defeats));
     wizardDisplay->valideLogin();
 }
 
