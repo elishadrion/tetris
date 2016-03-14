@@ -15,6 +15,9 @@
 /* Number of card in deck */
 #define DECK_SIZE 20
 
+/* Max lenght of a deck name */
+#define MAX_DECK_NAME 32
+
 /* Max card in hand */
 #define MAX_HAND 7
 

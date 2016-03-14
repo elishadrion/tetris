@@ -3,8 +3,11 @@
 
 #include <string>
 #include <vector>
+#include <algorithm>
 
 #include "common/Constants.hpp"
+#include "common/Error.hpp"
+
 class CacheManager;
 #include "CacheManager.hpp"
 
@@ -16,7 +19,7 @@ class Player {
 
     std::string _username;
     unsigned _collection[MAX_CARDS];
-    int _decks[MAX_DECKS];
+    std::vector<std::string> _decks;
     std::string _friendsList[MAX_FRIENDS];
     unsigned _victories;
     unsigned _defeats;
@@ -25,7 +28,7 @@ class Player {
     /* In-game infos */
     bool _inGame;
     std::vector<int> _hand;
-    int _deckSize;
+    std::vector<int> _cardInDeck;
     int _trashSize;
     int _ennemyPosed[MAX_POSED_CARD];
     int _posed[MAX_POSED_CARD];
@@ -33,22 +36,22 @@ class Player {
 
 
 public:
-    Player(std::string username, unsigned collection[MAX_CARDS], int decks[MAX_DECKS],
+    Player(std::string username, unsigned collection[MAX_CARDS], std::vector<std::string> decks,
            std::string friends[MAX_FRIENDS],unsigned victories, unsigned defeats);
     
     /* Setter */
     inline void addCardCollection(unsigned ID) { _collection[ID]++; }
     inline void adjudicateVictory() { _victories++; }
     inline void adjudicateDefeat() { _defeats++; }
-    void addDeck(int ID);
-    void removeDeck(int ID);
+    Error addDeck(std::string);
+    Error removeDeck(std::string);
     void addFriend(std::string pseudo);
     void removeFriend(std::string pseudo);
     
     /* Getter */
     inline std::string getName() const { return _username; }
     inline unsigned *getCollection() { return _collection; }
-    inline int *getDeck() { return _decks; }
+    inline std::vector<std::string> getDeck() { return _decks; }
     inline std::string *getFriends() { return _friendsList; }
     inline unsigned getVictories() const { return _victories; }
     inline unsigned getDefeats() const { return _defeats; }
@@ -60,7 +63,7 @@ public:
         for(int i = 0; i < _hand.size(); ++i)
             if(_hand[i] == ID) _hand.erase(_hand.begin()+i);
     }
-    inline void changeDeck(int amount) { _deckSize += amount; }
+    // inline void changeDeck(int amount) { _deckSize += amount; } TO DO: remove ?
     inline void changeTrash(int amount) { _trashSize += amount; }
     inline void ennemyPose(int ID) {
         for(int i = 0; i < MAX_POSED_CARD; ++i)
@@ -77,7 +80,7 @@ public:
     /* Getter in-game */
     inline bool isGame() const { return _inGame; }
     inline std::vector<int> *getHand() { return &_hand; }
-    inline int getDeckSize() const { return _deckSize; }
+    inline int getDeckSize() const { return _decks.size(); } // TO DO: remove ?
     inline int getTrashSize() const { return _trashSize; }
     inline int *getEnnemyPosed() { return _ennemyPosed; }
     inline int *getPosed() { return _posed; }

@@ -13,8 +13,8 @@
 Deck::Deck(std::string name, std::vector<Card*> listCard):
     Collection(listCard), _name(name) {
 
-    if(name.size() > LIMITNAME) {
-        _name = name.substr(0, LIMITNAME);
+    if(name.size() > MAX_DECK_NAME) {
+        _name = name.substr(0, MAX_DECK_NAME);
         // verify that name is not the same that an other deck ?
     }
 
@@ -29,8 +29,8 @@ Deck::Deck(std::string name, std::vector<Card*> listCard):
 Deck::Deck(std::string name, std::vector<unsigned> listCard):
     Collection(listCard), _name(name) {
 
-    if(name.size() > LIMITNAME) {
-        _name = name.substr(0, LIMITNAME);
+    if(name.size() > MAX_DECK_NAME) {
+        _name = name.substr(0, MAX_DECK_NAME);
         // verify that name is not the same that an other deck ?
     }
 }
@@ -82,7 +82,7 @@ Error Deck::addCard(Card* card) {
     Error res;
     if(_listCard.size() >= DECK_SIZE) {
         WizardLogger::error("Un deck a maximum 20 cartes");
-        res = Error::DeckFull;
+        res = Error::MaxCardInDeck;
     } else {
         res = Collection::addCard(card);
     }

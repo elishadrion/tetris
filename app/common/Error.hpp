@@ -10,9 +10,12 @@ enum Error {
     UnknowError = 5,
     NotEffectForPlayer = 6,
     NotEffectForMonster = 7,
-    DeckFull = 8,
-    SameCardMax = 9,
-    CollectionFull = 10
+    MaxCardInDeck = 8, /* The number of card in deck is limited */
+    SameCardMax = 9, /* The number of the same card in a collection/deck */
+    CollectionFull = 10, /* The number of card in collection is limited */
+    MaxDeck = 11, /* The number of deck is limited */
+    MustOneDeckMin = 12, /* The player must have one deck */
+    DeckNotFound = 13
 };
 
 

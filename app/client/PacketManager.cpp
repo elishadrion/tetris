@@ -103,7 +103,22 @@ void PacketManager::playerInfo(const Packet::playerInfoPacket* playerPacket) {
 
     std::string pseudo = playerPacket->data.pseudo;
     unsigned* collection = const_cast<unsigned*>(playerPacket->data.collection);
-    int* decks = const_cast<int*>(playerPacket->data.decks);
+    char* charDecks = const_cast<char*>(playerPacket->data.decks);
+    std::vector<std::string> decks;
+    for(unsigned nbrDeck = 0; nbrDeck < MAX_DECKS; ++nbrDeck) {
+        std::string current = "";
+        unsigned positionStart = nbrDeck*MAX_DECK_NAME;
+
+        for(unsigned i = 0; i < MAX_DECK_NAME && charDecks[positionStart+i] != ' '; ++i) {
+            current += charDecks[positionStart+i];
+        }
+
+        if(current != "") {
+            decks.push_back(current);
+            WizardLogger::info("Lecture de: " + current);
+        }
+    }
+    WizardLogger::info("Nombre de deck: " + std::to_string(decks.size()));
 
     // TO DO: vérifier que tout est bon
     std::string friends[MAX_FRIENDS];

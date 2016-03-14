@@ -31,14 +31,13 @@ class Player {
     std::vector<Deck*> _decks;
 
 protected:
-    std::vector<Deck*> getListDeck() {return _decks;}
     unsigned _victories;
     unsigned _defeats;
 
 public:
     Player(nlohmann::json&, int sockfd = 0);
 
-    inline void adjudicateVictory() {_victories++;};
+    inline void adjudicateVictory() {_victories++;}
     inline void adjudicateDefeat() {_defeats++;}
     inline Error addCardCollection(Card* c) {return _collection.addCard(c);}
     inline Collection *getCollection() {return &_collection;} //TODO needed for send collection to user
@@ -48,9 +47,10 @@ public:
     inline unsigned getVictories() const {return _victories;}
     inline unsigned getDefeats() const {return _defeats;}
 
+    std::vector<Deck*> getListDeck() {return _decks;}
     Deck* getDeck(std::string);
-    bool removeDeck(Deck*);
-    bool addDeck(Deck *);
+    Error removeDeck(Deck*);
+    Error addDeck(Deck *);
 
     void sendPacket(Packet::packet*, size_t);
     void recvLoop();

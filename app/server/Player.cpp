@@ -33,11 +33,15 @@ Deck* Player::getDeck(std::string deckName) {
  * @param deck to remove
  * @return True if all is ok (cann't delete if one deck)
  */
-bool Player::removeDeck(Deck* deck) {
-    bool res = false;
+Error Player::removeDeck(Deck* deck) {
+    Error res = Error::MustOneDeckMin;
+
     if(_decks.size() > 1) {
+        _decks.erase(
+            std::remove(_decks.begin(), _decks.end(), deck),
+            _decks.end());
         delete deck;
-        res = true;
+        res = Error::NoError;
     }
 
     return res;
@@ -49,11 +53,12 @@ bool Player::removeDeck(Deck* deck) {
  * @param deck the to wich must be add
  * @return True if all is ok (do nothing if not)
  */
-bool Player::addDeck(Deck* deck) {
-    bool res = false;
-    if(_decks.size() <= MAX_DECKS) {
+Error Player::addDeck(Deck* deck) {
+    Error res = Error::MaxDeck;
+
+    if(_decks.size() < MAX_DECKS) {
         _decks.push_back(deck);
-        res = true;
+        res = Error::NoError;
     }
 
     return res;

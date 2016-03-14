@@ -14,8 +14,10 @@ DeckChooseGUI::DeckChooseGUI(GameGUI* parent) : QMainWindow(parent) {
 
     _listDeck = new QListWidget;
     Player* player = Player::getPlayer();
-    for(unsigned i = 0; i < player->getDeckSize(); ++i) {
-        _listDeck->addItem("Deck: " + player->getDeck()[i]);
+    std::vector<std::string> listNomDeck = player->getDeck();
+
+    for(unsigned i = 0; i < listNomDeck.size(); ++i) {
+        _listDeck->addItem(QString(("Deck: " + static_cast<std::string>(listNomDeck[i])).c_str()));
     }
 
     _gridlayout->addWidget(_listDeck, 1, 1, 1, 2);

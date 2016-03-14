@@ -185,6 +185,25 @@ void Connection::sendSucess(Player* player, int socket) {
     /* Add player's info to packet */
     for (int i = 0 ; i < pseudo.size() ; ++i) playerPacket->data.pseudo[i] = pseudo[i];
     for (int i = 0 ; i < collection.size() ; ++i) playerPacket->data.collection[i] = collection[i];
+
+    std::string decks;
+    std::vector<Deck*> listDeck = player->getListDeck();
+    for(unsigned nbrDeck = 0; nbrDeck < listDeck.size(); ++nbrDeck) {
+        std::string nomDeck = static_cast<Deck*>(listDeck[nbrDeck])->getName();
+        decks += nomDeck;
+        for(unsigned i = 0; i < (MAX_DECK_NAME-nomDeck.size()); ++i) {
+            decks += " ";
+        }
+    }
+
+    for(int i = 0; i < (MAX_DECKS*MAX_DECK_NAME); ++i) {
+        if(i < decks.size()) {
+            playerPacket->data.decks[i] = decks[i];
+        } else {
+            playerPacket->data.decks[i] = ' ';
+        }
+    }
+
     //TODO playerPacket->data.decks = player->getName();
     //TODO playerPacket->data.friendsList = player->getName(); /!\ voir client/PacketManager::playerInfo(...)
     playerPacket->data.victories = player->getVictories();

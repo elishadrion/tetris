@@ -1,8 +1,6 @@
 #ifndef DECK_HPP
 #define	DECK_HPP
 
-#define LIMITNAME 20
-
 #include<string>
 #include<vector>
 
