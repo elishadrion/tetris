@@ -15,11 +15,12 @@
 #include <QGridLayout>
 
 #include "PacketManager.hpp"
-#include "MenuPanelGUI.hpp"
+
 
 class GUI;
 class LoginPanelGUI;
 #include "GUI.hpp"
+#include "MenuPanelGUI.hpp"
 
 
 class LoginPanelGUI : public QWidget {

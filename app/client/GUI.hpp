@@ -6,6 +6,7 @@
 
 #include "client/GUI/LoginPanelGUI.hpp"
 #include "client/GUI/MenuPanelGUI.hpp"
+#include "client/GUI/GameGUI.hpp"
 
 
 #include <QObject>
@@ -15,6 +16,7 @@ class GUI : public WizardDisplay, public QObject {
 
     LoginPanelGUI* loginPanel;
     MenuPanelGUI* menuPanel;
+    GameGUI* gamePanel;
 
 public:
     GUI();
@@ -34,9 +36,11 @@ public:
     void displayPopup(std::string) override;
 
     void launchGame(std::string) override;
+    void askDeck() override;
 
 
     void setMainMenu(MenuPanelGUI*);
+    void setGameMenu(GameGUI*);
 };
 
 

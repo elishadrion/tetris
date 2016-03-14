@@ -45,7 +45,15 @@ class GameGUI : public QMainWindow {
     void chooseDeck();
 
 public:
-    GameGUI(std::string);
+    GameGUI();
+    void callStartGame(std::string);
+
+signals:
+    void mustStartGame(std::string);
+
+public slots:
+    void makeStartGame(std::string);
+
 
 };
 

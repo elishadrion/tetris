@@ -3,7 +3,8 @@
 /**
  * Constructor
  */
-MenuPanelGUI::MenuPanelGUI() : QMainWindow() {
+MenuPanelGUI::MenuPanelGUI(GUI* parent) : QMainWindow() {
+    _gui = parent;
 
     setStyleSheet("QMainWindow { background-image: url(:/Images/bg.png) 0 0 0 0 stretch stretch; "
                   "background-repeat: no-repeat; background-position: center center; } "
@@ -63,12 +64,10 @@ MenuPanelGUI::MenuPanelGUI() : QMainWindow() {
 
 
 /**
- * Call the mustBeginGame (emit)
- *
- * @param pseudo of the adverse player
+ * Call the mustInitGame (emit)
  */
-void MenuPanelGUI::callBeginGame(std::string pseudo) {
-    emit mustBeginGame(pseudo);
+void MenuPanelGUI::callInitGame() {
+    emit mustInitGame();
 }
 
 
@@ -87,7 +86,7 @@ void MenuPanelGUI::quitApp() {
 void MenuPanelGUI::makeReqToPlayGame() {
     PacketManager::makeGameRequest();
 
-    connect(this, SIGNAL(mustBeginGame(std::string)), this, SLOT(makeOpenGame(std::string)));
+    connect(this, SIGNAL(mustInitGame()), this, SLOT(makeOpenGame()));
 
 
 
@@ -120,14 +119,12 @@ void MenuPanelGUI::makeCancelWait() {
 
 /**
  * Slot to open the game
- *
- * @param pseudo who play with us
  */
-void MenuPanelGUI::makeOpenGame(std::string pseudo) {
-    WizardLogger::info("Une partie avec " + pseudo + " a été trouvée");
+void MenuPanelGUI::makeOpenGame() {
+    WizardLogger::info("Une partie a été trouvée, ouverture du menu");
     this->hide();
     delete _msgBox;
-    new GameGUI(pseudo);
+    _gui->setGameMenu(new GameGUI());
 }
 
 

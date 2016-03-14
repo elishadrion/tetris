@@ -78,12 +78,20 @@ void GUI::displayPopup(std::string message) {
 }
 
 void GUI::launchGame(std::string pseudo) {
+    WizardLogger::info("Début de la partie");
+    gamePanel->callStartGame(pseudo);
+}
+
+void GUI::askDeck() {
     WizardLogger::info("Début du game et choix du deck");
-    menuPanel->callBeginGame(pseudo);
-    // Ask deck
+    menuPanel->callInitGame();
 }
 
 
 void GUI::setMainMenu(MenuPanelGUI* menu) {
     menuPanel = menu;
+}
+
+void GUI::setGameMenu(GameGUI* menuGame) {
+    gamePanel = menuGame;
 }

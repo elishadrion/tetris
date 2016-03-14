@@ -2,7 +2,8 @@
 
 
 void GameGUI::chooseDeck() {
-
+    // TO DO
+    // open pop-up
 }
 
 
@@ -11,7 +12,7 @@ void GameGUI::chooseDeck() {
  *
  * @param pseudo from the adverse player
  */
-GameGUI::GameGUI(std::string pseudo) : QMainWindow(), _pseudoAdverse(pseudo) {
+GameGUI::GameGUI() : QMainWindow(), _pseudoAdverse("") {
 
     _centralWidget = new QWidget(this);
     setCentralWidget(_centralWidget);
@@ -142,5 +143,15 @@ GameGUI::GameGUI(std::string pseudo) : QMainWindow(), _pseudoAdverse(pseudo) {
 
 }
 
+/**
+ * Call the mustStartGame (emit)
+ */
+void GameGUI::callStartGame(std::string pseudo) {
+    emit mustStartGame(pseudo);
+}
 
-
+void GameGUI::makeStartGame(std::string pseudo) {
+    // close popup for choose deck
+    // TO DO
+    _pseudoAdverse = pseudo;
+}

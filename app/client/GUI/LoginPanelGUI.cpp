@@ -146,7 +146,7 @@ void LoginPanelGUI::setStrMdp(QString qstr) {
  * Display the main menu and close this
  */
 void LoginPanelGUI::displayMainMenu() {
-    _gui->setMainMenu(new MenuPanelGUI());
+    _gui->setMainMenu(new MenuPanelGUI(_gui));
     close();
 }
 

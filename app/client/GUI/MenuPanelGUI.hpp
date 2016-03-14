@@ -21,8 +21,15 @@
 #include <string>
 
 
+class GUI;
+class MenuPanelGUI;
+#include "GUI.hpp"
+
+
 class MenuPanelGUI : public QMainWindow {
     Q_OBJECT
+
+    GUI* _gui;
 
     QWidget *centralWidget;
 
@@ -41,17 +48,17 @@ class MenuPanelGUI : public QMainWindow {
 
 
 public:
-    MenuPanelGUI();
-    void callBeginGame(std::string);
+    MenuPanelGUI(GUI*);
+    void callInitGame();
 
 signals:
-    void mustBeginGame(std::string);
+    void mustInitGame();
 
 public slots:
     void quitApp();
     void makeReqToPlayGame();
     void makeCancelWait();
-    void makeOpenGame(std::string);
+    void makeOpenGame();
     void makeOpen();
 
 
