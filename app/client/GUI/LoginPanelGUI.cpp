@@ -97,8 +97,8 @@ void LoginPanelGUI::callDisplayMainMenu() {
  * @param message to display
  */
 void LoginPanelGUI::loginDisplayResult(const QString message) {
-    const QString titre = "Erreur";
-    QMessageBox::critical(this, titre, message);
+    WizardLogger::info("Erreur Login: " + message.toStdString());
+    QMessageBox::critical(this, "Erreur", message);
 }
 
 

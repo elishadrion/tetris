@@ -79,7 +79,7 @@ void PacketManager::managePacket(Packet::packet* customPacket) {
                                           break;
         case Packet::END_GAME_ID :        manageEndGame((Packet::endGamePacket*) customPacket);
                                           break;
-        default :                         WizardLogger::warning("Paquet inconnue reçu");
+        default :                         WizardLogger::warning("Paquet inconnue reçu: " + customPacket->ID);
                                           break;
     }
 }
