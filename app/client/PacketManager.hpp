@@ -35,7 +35,6 @@ namespace PacketManager {
     void updateFriendList(const Packet::friendListPacket*); /* FRIENDS_LIST_ID */
     
     /* Wainting process */
-    void askDeck(); /* ASK_DECK_ID */
     void startGame(const Packet::pseudoPacket*); /* GAME_START_ID */
     
     /* Game process */

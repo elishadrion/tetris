@@ -54,7 +54,7 @@ void PacketManager::managePacket(Packet::packet* customPacket) {
                                           break;
         case Packet::CANCEL_ID :          WizardLogger::warning("Paquet d'annulation de partie reçu");
                                           break;
-        case Packet::ASK_DECK_ID :        askDeck();
+        case Packet::ASK_DECK_ID :        wizardDisplay->askDeck();
                                           break;
         case Packet::GAME_START_ID:       startGame((Packet::pseudoPacket*) customPacket);
                                           break;
@@ -324,12 +324,6 @@ void PacketManager::makeFriendListRequest() {
 }
 
 //============================LAUNCHING PROCESS=========================================
-
-void PacketManager::askDeck() {
-    WizardLogger::info("[Debug] askDeck");
-    //TODO ask to player his deck for party
-    wizardDisplay->askDeck();
-}
 
 void PacketManager::startGame(const Packet::pseudoPacket* packet) {
     wizardDisplay->launchGame(packet->pseudo);
