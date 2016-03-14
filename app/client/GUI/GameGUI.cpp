@@ -4,6 +4,9 @@
 void GameGUI::chooseDeck() {
     // TO DO
     // open pop-up
+
+    _choosDeck = new DeckChooseGUI(this);
+
 }
 
 
@@ -137,6 +140,8 @@ GameGUI::GameGUI() : QMainWindow(), _pseudoAdverse("") {
 
 
     this->showMaximized(); // set full screen
+
+    connect(this, SIGNAL(mustStartGame(std::string)), this, SLOT(makeStartGame(std::string)));
 
 
     chooseDeck();

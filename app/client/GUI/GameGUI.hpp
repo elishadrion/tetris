@@ -16,6 +16,9 @@
 
 #include <vector>
 
+#include "client/Player.hpp"
+#include "client/GUI/DeckChooseGUI.hpp"
+
 #include "common/Constants.hpp"
 
 
@@ -25,6 +28,8 @@ class GameGUI : public QMainWindow {
 
     QWidget *_centralWidget;
     QGridLayout *_gridlayout;
+    DeckChooseGUI *_choosDeck;
+
 
     std::string _pseudoAdverse;
 

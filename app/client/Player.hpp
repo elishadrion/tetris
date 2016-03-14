@@ -4,6 +4,10 @@
 #include <string>
 #include <vector>
 
+#include "common/Constants.hpp"
+#include "CacheManager.hpp"
+
+
 class Player {
     std::string _username;
     unsigned _collection[MAX_CARDS];

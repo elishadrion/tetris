@@ -95,16 +95,9 @@ void MenuPanelGUI::makeReqToPlayGame() {
     _msgBox->setText("En attente d'une partie");
     _msgBox->setStandardButtons(QMessageBox::Cancel);
 
-    // DEBUG
-    //_msgBox.addButton(QMessageBox::Ignore);
-
     _msgBox->connect(_msgBox->button(QMessageBox::Cancel), SIGNAL(clicked()), this, SLOT(makeCancelWait()));
-    // DEBUG
-    //_msgBox.connect(sb.button(QMessageBox::Ignore), SIGNAL(clicked()), this, SLOT(makeOpenGame()));
 
     _msgBox->exec();
-
-    WizardLogger::info("[DEBUG] Après");
 }
 
 
