@@ -10,6 +10,10 @@ class CacheManager;
 
 
 class Player {
+
+    static Player* instance;
+
+
     std::string _username;
     unsigned _collection[MAX_CARDS];
     int _decks[MAX_DECKS];
@@ -26,26 +30,20 @@ class Player {
     int _ennemyPosed[MAX_POSED_CARD];
     int _posed[MAX_POSED_CARD];
     std::string _ennemy;
+
+
 public:
-    Player(std::string username, unsigned collection[MAX_CARDS], int decks[MAX_DECKS], std::string friends[MAX_FRIENDS],
-    unsigned victories, unsigned defeats) : _username(username), _victories(victories), _defeats(defeats) {
-        for (int i = 0 ; i < MAX_CARDS ; ++i) _collection[i] = collection[i];
-        for (int i = 0 ; i < MAX_DECKS ; ++i) _decks[i] = decks[i];
-        for (int i = 0 ; i < MAX_FRIENDS ; ++i) _friendsList[i] = friends[i];
-    }
+    Player(std::string username, unsigned collection[MAX_CARDS], int decks[MAX_DECKS],
+           std::string friends[MAX_FRIENDS],unsigned victories, unsigned defeats);
     
     /* Setter */
     inline void addCardCollection(unsigned ID) { _collection[ID]++; }
-    inline void adjudicateVictory() { _victories++; };
+    inline void adjudicateVictory() { _victories++; }
     inline void adjudicateDefeat() { _defeats++; }
-    void addDeck(int ID) { for (int i = 0 ; i < MAX_DECKS ; ++i) if (_decks[i] == -1) _decks[i] = ID; }
-    void removeDeck(int ID) { for (int i = 0 ; i < MAX_DECKS ; ++i) if (_decks[i] == ID) _decks[i] = -1; }
-    void addFriend(std::string pseudo) {
-        for (int i = 0 ; i < MAX_FRIENDS ; ++i) if (_friendsList[i] == "") _friendsList[i] = pseudo;
-    }
-    void removeFriend(std::string pseudo) {
-        for (int i = 0 ; i < MAX_FRIENDS ; ++i) if (_friendsList[i] == pseudo) _friendsList[i] = "";
-    }
+    void addDeck(int ID);
+    void removeDeck(int ID);
+    void addFriend(std::string pseudo);
+    void removeFriend(std::string pseudo);
     
     /* Getter */
     inline std::string getName() const { return _username; }
@@ -58,13 +56,22 @@ public:
     /* Setter in-game */
     inline void setGame(bool game) { _inGame = game; }
     inline void drawCard(int ID) { _hand.push_back(ID); }
-    inline void dropCard(int ID) { for (int i = 0 ; i < _hand.size() ; ++i) if (_hand[i] == ID) _hand.erase(_hand.begin()+i); }
+    inline void dropCard(int ID) {
+        for(int i = 0; i < _hand.size(); ++i)
+            if(_hand[i] == ID) _hand.erase(_hand.begin()+i);
+    }
     inline void changeDeck(int amount) { _deckSize += amount; }
     inline void changeTrash(int amount) { _trashSize += amount; }
-    inline void ennemyPose(int ID) { for (int i = 0 ; i < MAX_POSED_CARD ; ++i) if (_ennemyPosed[i] == -1) _ennemyPosed[i] = ID; }
-    inline void ennemyDrop(int ID) { for (int i = 0 ; i < MAX_POSED_CARD ; ++i) if (_ennemyPosed[i] == ID) _ennemyPosed[i] = -1; }
-    inline void pose(int ID) { for (int i = 0 ; i < MAX_POSED_CARD ; ++i) if (_posed[i] == -1) _posed[i] = ID; }
-    inline void drop(int ID) { for (int i = 0 ; i < MAX_POSED_CARD ; ++i) if (_posed[i] == ID) _posed[i] = -1; }
+    inline void ennemyPose(int ID) {
+        for(int i = 0; i < MAX_POSED_CARD; ++i)
+            if(_ennemyPosed[i] == -1) _ennemyPosed[i] = ID;
+    }
+    inline void ennemyDrop(int ID) {
+        for(int i = 0; i < MAX_POSED_CARD; ++i)
+            if(_ennemyPosed[i] == ID) _ennemyPosed[i] = -1;
+    }
+    inline void pose(int ID) { for(int i = 0; i < MAX_POSED_CARD; ++i) if(_posed[i] == -1) _posed[i] = ID; }
+    inline void drop(int ID) { for(int i = 0; i < MAX_POSED_CARD; ++i) if(_posed[i] == ID) _posed[i] = -1; }
     inline void setEnnemy(std::string ennemy) { _ennemy = ennemy; }
     
     /* Getter in-game */
@@ -77,6 +84,9 @@ public:
     inline std::string getEnnemy() const { return _ennemy; }
     
     ~Player() = default;
+
+
+    static Player* getPlayer() { return instance; }
 };
 
 #endif  /* PLAYER_HPP */

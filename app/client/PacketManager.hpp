@@ -77,4 +77,4 @@ namespace PacketManager {
     void sendSpell(const int, const int); /* SPELL_ID (out) */
     void endTurn(); /* END_TURN_ID */
     void quit(); /* QUIT_ID */
-};
+}

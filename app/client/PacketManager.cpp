@@ -101,7 +101,6 @@ void PacketManager::playerInfo(const Packet::playerInfoPacket* playerPacket) {
     WizardLogger::info(std::to_string(playerPacket->data.victories));
     WizardLogger::info(std::to_string(playerPacket->data.defeats));
 
-    // TO DO
     std::string pseudo = playerPacket->data.pseudo;
     unsigned* collection = const_cast<unsigned*>(playerPacket->data.collection);
     int* decks = const_cast<int*>(playerPacket->data.decks);
