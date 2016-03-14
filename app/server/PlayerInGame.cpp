@@ -16,8 +16,8 @@ PlayerInGame::PlayerInGame(const Player& player, Game* game): Player(player),
     std::vector<Card*> _defausse(0);
     std::vector<CardMonster*> _cardsPlaced(0);
 
-    // TO DO @tutul
-    // askDeck(getListDeck());
+    // Ask to the palyer his deck
+    PacketManager::askDeck(this);
 }
 
 

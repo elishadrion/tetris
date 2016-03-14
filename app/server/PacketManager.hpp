@@ -59,7 +59,8 @@ namespace PacketManager {
     void sendFriendList(Player*); /* FRIENDS_LIST_ID */
     
     /* Game process */
-    void initGame(Player*, std::string); /* LAUNCH_ID */
+    void askDeck(Player*); /* ASK_DECK_ID */
+    void initGame(Player*, std::string); /* GAME_START_ID */
     void sendTurnInfo(Player*, std::string, PlayerInGame*, PlayerInGame*); /* TURN_ID (force sync) */
     void sendCard(Player*, Card*); /* DRAW_ID (nullptr for other player sync) */
     void askDefausse(Player*, int); /* ASK_DROP_ID */

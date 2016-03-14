@@ -54,7 +54,9 @@ void PacketManager::managePacket(Player *player, Packet::packet* customPacket) {
                                           break;
         case Packet::CANCEL_ID :          managCancelGameRequest(player, customPacket);
                                           break;
-        case Packet::LAUNCH_ID :          WizardLogger::warning("Paquet de lancement de partie reçu");
+        case Packet::ASK_DECK_ID :        WizardLogger::warning("Paquet d'initialisation de la partie reçu");
+                                          break;
+        case Packet::GAME_START_ID:       WizardLogger::warning("Paquet de début de partie reçu");
                                           break;
         case Packet::DECK_CHOOS_ID :      manageChooseDeck(player, (Packet::intPacket*) customPacket);
                                           break;
@@ -227,15 +229,39 @@ void PacketManager::manageChooseDeck(Player* player, Packet::intPacket* deckChoo
 
 //==============================GAME PROCESS============================================
 
-/* Init game and give player pseudo of his ennemy
+/**
+ * Ask to the player witch deck he would like
+ *
+ * @param player the player
+ */
+void PacketManager::askDeck(Player *player) {
+    WizardLogger::info("Demande à : " + player->getName() +
+                       " de choisir son deck");
+
+    Packet::packet *newGamePacket = new Packet::packet();
+
+    /* Set ID and ennemy's pseudo */
+    newGamePacket->ID = Packet::ASK_DECK_ID;
+
+    /* Send and free */
+    player->sendPacket((Packet::packet*) newGamePacket, sizeof(*newGamePacket));
+    delete newGamePacket;
+}
+
+/**
+ * Init game and give player pseudo of his ennemy
+ *
  * @param player : the player who to send this packet
  * @param ennemyPseudo
  */
 void PacketManager::initGame(Player *player, std::string ennemyPseudo) {
+    WizardLogger::info("Information de début de partie: " + player->getName() +
+                       " > " + ennemyPseudo);
+
     Packet::pseudoPacket *newGamePacket = new Packet::pseudoPacket();
     
     /* Set ID and ennemy's pseudo */
-    newGamePacket->ID = Packet::LAUNCH_ID;
+    newGamePacket->ID = Packet::GAME_START_ID;
     for (int i = 0 ; i < ennemyPseudo.size() ; ++i) newGamePacket->pseudo[i] = ennemyPseudo[i];
     
     /* Send and free */

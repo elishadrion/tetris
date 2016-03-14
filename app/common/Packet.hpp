@@ -35,8 +35,9 @@ public:
         /* LAUNCHING GAME PROCESS */
         WAITING_ID = 51, /* DEFAULT PACKET */
         CANCEL_ID = 52, /* DEFAULT PACKET */
-        LAUNCH_ID = 53, /* DEFAULT PACKET - ask for deck */
-        DECK_CHOOS_ID = 54, /* intPacket */
+        ASK_DECK_ID = 53, /* DEFAULT PACKET- ask for deck */
+        GAME_START_ID = 54,/* pseudoPacket */
+        DECK_CHOOS_ID = 55, /* intPacket */
         /* GAME PROCESS */
         TURN_ID = 61, /* Signal the current player turn */
         DRAW_ID = 62, /* intPacket */
