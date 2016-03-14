@@ -51,7 +51,7 @@ Player* PlayerManager::logIn(std::string username, std::string password, int soc
             (*current).getPass() == password) {
 
             _connected.push_back(current);
-            current -> updateSockfd(sockfd);
+            current->updateSockfd(sockfd);
             return current;
         }
     }
@@ -95,15 +95,19 @@ Player* PlayerManager::signUp(std::string username, std::string password, int so
     info["decks"].push_back(deck);
 
     Player* newPlayer = new Player(info);
-    newPlayer -> updateSockfd(sockfd);
+    newPlayer->updateSockfd(sockfd);
     _players.push_back(newPlayer);
+    // TO DO: save to the bdd ?
+    // TO DO: add to the _connected list ?
+
     return newPlayer;
 }
 
 void PlayerManager::savePlayers() const {
     nlohmann::json db;
     for (size_t i = 0; i < _players.size(); ++i)
-	db.push_back((*_players.at(i)).serialise());
+        db.push_back((*_players.at(i)).serialise());
+
     std::ofstream playersFile(PLAYERS_DB);
     playersFile << db.dump(4);
 
