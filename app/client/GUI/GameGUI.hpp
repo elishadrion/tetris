@@ -16,7 +16,6 @@
 
 #include <vector>
 
-#include "client/Player.hpp"
 #include "client/GUI/DeckChooseGUI.hpp"
 
 #include "common/Constants.hpp"

@@ -5,6 +5,7 @@
 #include <vector>
 
 #include "common/Constants.hpp"
+class CacheManager;
 #include "CacheManager.hpp"
 
 

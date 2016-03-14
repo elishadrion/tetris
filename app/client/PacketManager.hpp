@@ -7,6 +7,7 @@
 #include "Card.hpp"
 #include "WizardDisplay.hpp"
 #include "CacheManager.hpp"
+#include "Player.hpp"
 
 extern WizardDisplay *wizardDisplay;
 

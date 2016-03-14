@@ -13,8 +13,9 @@ DeckChooseGUI::DeckChooseGUI(GameGUI* parent) : QMainWindow(parent) {
     _gridlayout->addWidget(desc, 0, 1, 1, 2);
 
     _listDeck = new QListWidget;
-    _listDeck->addItem("test");
-    _listDeck->addItem("test 2");
+    for(unsigned i = 0; i < player->getDeckSize(); ++i) {
+        _listDeck->addItem("Deck: " + player->getDeck()[i]);
+    }
 
     _gridlayout->addWidget(_listDeck, 1, 1, 1, 2);
 

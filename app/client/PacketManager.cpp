@@ -100,6 +100,27 @@ void PacketManager::playerInfo(const Packet::playerInfoPacket* playerPacket) {
     WizardLogger::info(playerPacket->data.pseudo);
     WizardLogger::info(std::to_string(playerPacket->data.victories));
     WizardLogger::info(std::to_string(playerPacket->data.defeats));
+
+    // TO DO
+    std::string pseudo = playerPacket->data.pseudo;
+    unsigned* collection = const_cast<unsigned*>(playerPacket->data.collection);
+    int* decks = const_cast<int*>(playerPacket->data.decks);
+
+    // TO DO: vérifier que tout est bon
+    std::string friends[MAX_FRIENDS];
+    for(unsigned nbrAmi = 0; nbrAmi < MAX_FRIENDS; ++nbrAmi) {
+        std::string current = "";
+        for(unsigned i = 0; i < MAX_PSEUDO_SIZE; ++i) {
+            current+= playerPacket->data.friendsList[nbrAmi*MAX_PSEUDO_SIZE+i];
+        }
+        friends[nbrAmi] = current;
+    }
+
+    unsigned victories = playerPacket->data.victories;
+    unsigned defeats = playerPacket->data.defeats;
+
+    new Player(pseudo, collection, decks, friends, victories, defeats);
+
     wizardDisplay->valideLogin();
 }
 

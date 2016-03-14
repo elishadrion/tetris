@@ -186,7 +186,7 @@ void Connection::sendSucess(Player* player, int socket) {
     for (int i = 0 ; i < pseudo.size() ; ++i) playerPacket->data.pseudo[i] = pseudo[i];
     for (int i = 0 ; i < collection.size() ; ++i) playerPacket->data.collection[i] = collection[i];
     //TODO playerPacket->data.decks = player->getName();
-    //TODO playerPacket->data.friendsList = player->getName();
+    //TODO playerPacket->data.friendsList = player->getName(); /!\ voir client/PacketManager::playerInfo(...)
     playerPacket->data.victories = player->getVictories();
     playerPacket->data.defeats = player->getDefeats();
 

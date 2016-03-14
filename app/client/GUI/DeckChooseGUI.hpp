@@ -8,6 +8,9 @@
 #include <QButtonGroup>
 #include <QPushButton>
 
+#include "client/Player.hpp"
+extern Player *player;
+
 
 class DeckChooseGUI;
 class GameGUI;
