@@ -10,6 +10,7 @@ MenuPanelGUI::MenuPanelGUI(GUI* parent) : QMainWindow() {
                   "background-repeat: no-repeat; background-position: center center; } "
                   "QPushButton { background-color: white; }");
 
+    setWindowTitle("Menu principal");
     centralWidget = new QWidget(this);
     setCentralWidget(centralWidget);
 

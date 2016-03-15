@@ -17,6 +17,7 @@ class GameGUI;
 
 
 class DeckChooseGUI : public QMainWindow {
+    Q_OBJECT
 
     GameGUI* _gameGui;
     QWidget *_centralWidget;
@@ -25,6 +26,10 @@ class DeckChooseGUI : public QMainWindow {
 
 public:
     DeckChooseGUI(GameGUI*);
+
+public slots:
+    void valideDeck();
+
 
 };
 

@@ -28,9 +28,9 @@ class Player {
     std::string _username;
     std::string _password;
     Collection _collection;
-    std::vector<Deck*> _decks;
 
 protected:
+    std::vector<Deck*> _decks;
     unsigned _victories;
     unsigned _defeats;
 

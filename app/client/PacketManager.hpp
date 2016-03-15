@@ -68,7 +68,7 @@ namespace PacketManager {
     /* Wainting process */
     void makeGameRequest(); /* WAITING_ID */
     void makeGameCancelRequest(); /* CANCEL_ID */
-    void sendSelectedDeck(const int); /* DECK_CHOOS_ID */
+    void sendSelectedDeck(const char[MAX_DECK_NAME]); /* DECK_CHOOS_ID */
     
     /* Game process */
     void sendDrop(const int); /* DROP_ID */

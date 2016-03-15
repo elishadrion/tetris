@@ -58,7 +58,8 @@ void PacketManager::managePacket(Player *player, Packet::packet* customPacket) {
                                           break;
         case Packet::GAME_START_ID:       WizardLogger::warning("Paquet de début de partie reçu");
                                           break;
-        case Packet::DECK_CHOOS_ID :      manageChooseDeck(player, (Packet::intPacket*) customPacket);
+        case Packet::DECK_CHOOS_ID :      manageChooseDeck(dynamic_cast<PlayerInGame*>(player),
+                                                           (Packet::deckPacket*) customPacket);
                                           break;
         /* Game process */
         case Packet::TURN_ID :            WizardLogger::warning("Paquet d'informations de tours reçu");
@@ -223,8 +224,9 @@ void PacketManager::managNewGameRequest(Player* player, Packet::packet* packet) 
 void PacketManager::managCancelGameRequest(Player* player, Packet::packet* packet) {
     //TODO call cancel waiting in Game
 }
-void PacketManager::manageChooseDeck(Player* player, Packet::intPacket* deckChoosPacket) {
-    //TODO manage choosen deck ID and inform party
+void PacketManager::manageChooseDeck(PlayerInGame* player, Packet::deckPacket* deckChoosPacket) {
+    player->setDeck(deckChoosPacket->deck);
+    //TODO
 }
 
 //==============================GAME PROCESS============================================

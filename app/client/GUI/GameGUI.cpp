@@ -2,10 +2,7 @@
 
 
 void GameGUI::chooseDeck() {
-    // TO DO
-    // open pop-up
     _choosDeck = new DeckChooseGUI(this);
-
 }
 
 
@@ -14,10 +11,12 @@ void GameGUI::chooseDeck() {
  *
  * @param pseudo from the adverse player
  */
-GameGUI::GameGUI() : QMainWindow(), _pseudoAdverse("") {
+GameGUI::GameGUI() : QMainWindow() {
 
     _centralWidget = new QWidget(this);
     setCentralWidget(_centralWidget);
+
+    setWindowTitle("Jeux");
 
     _gridlayout = new QGridLayout(_centralWidget);
 
@@ -89,11 +88,17 @@ GameGUI::GameGUI() : QMainWindow(), _pseudoAdverse("") {
 
 
     // Passer
-    QPushButton *m_bouton = new QPushButton("Passer \nson tour");
-    _gridlayout->addWidget(m_bouton, 3, 11);
+    _nextTurnBouton = new QPushButton("Passer\nson tour");
+    _gridlayout->addWidget(_nextTurnBouton, 3, 11);
+    _nextTurnBouton->hide();
 
 
-//    // Tchat
+    _infoTour = new QLabel("Ce n'est pas\nvotre tour", this);
+    _gridlayout->addWidget(_infoTour, 3, 11);
+
+
+
+    // Tchat
     QVBoxLayout* tChat = new QVBoxLayout;
     strLabel = ("Tchat");
     label = new QLabel(strLabel);
@@ -155,7 +160,6 @@ void GameGUI::callStartGame(std::string pseudo) {
 }
 
 void GameGUI::makeStartGame(std::string pseudo) {
-    // close popup for choose deck
+    Player::getPlayer()->setEnnemy(pseudo);
     // TO DO
-    _pseudoAdverse = pseudo;
 }

@@ -44,11 +44,24 @@ dataIGPlayer PlayerInGame::getDataPlayer() {
  *
  * @param deck The selected deck
  */
-void PlayerInGame::setDeck(Deck *deck) {
-    _deck = new Deck(*deck); // copy the deck
-    _game->checkDeckAndStart();
+void PlayerInGame::setDeck(std::string deck) {
+    Deck* ptrDeck = nullptr;
+    int i = 0;
+    while(i < _decks.size() && ptrDeck != nullptr) {
+        Deck* currentDeck = _decks[i];
+        if(currentDeck->getName() == deck) {
+            ptrDeck = currentDeck;
+        }
+        ++i;
+    }
+
+    if(ptrDeck != nullptr) {
+        _deck = new Deck(*ptrDeck); // copy the deck
+        _game->checkDeckAndStart();
+    } else {
+        WizardLogger::warning("Le deck: " + deck + " n'a pas trouvé");
+    }
 }
-// TO DO @tutul méthode à appeler lorsque l'on recoit un deck
 
 
 /**

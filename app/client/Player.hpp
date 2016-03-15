@@ -28,6 +28,7 @@ class Player {
     /* In-game infos */
     bool _inGame;
     std::vector<int> _hand;
+    std::string _deckName; // Selected deck
     std::vector<int> _cardInDeck;
     int _trashSize;
     int _ennemyPosed[MAX_POSED_CARD];
@@ -51,7 +52,7 @@ public:
     /* Getter */
     inline std::string getName() const { return _username; }
     inline unsigned *getCollection() { return _collection; }
-    inline std::vector<std::string> getDeck() { return _decks; }
+    inline std::vector<std::string> getDecks() { return _decks; }
     inline std::string *getFriends() { return _friendsList; }
     inline unsigned getVictories() const { return _victories; }
     inline unsigned getDefeats() const { return _defeats; }
@@ -76,7 +77,10 @@ public:
     inline void pose(int ID) { for(int i = 0; i < MAX_POSED_CARD; ++i) if(_posed[i] == -1) _posed[i] = ID; }
     inline void drop(int ID) { for(int i = 0; i < MAX_POSED_CARD; ++i) if(_posed[i] == ID) _posed[i] = -1; }
     inline void setEnnemy(std::string ennemy) { _ennemy = ennemy; }
-    
+    void setDeck(std::string);
+    std::string getDeckName() { return _deckName; }
+
+
     /* Getter in-game */
     inline bool isGame() const { return _inGame; }
     inline std::vector<int> *getHand() { return &_hand; }

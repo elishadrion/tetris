@@ -34,7 +34,7 @@ namespace PacketManager {
     /* Launching game process */
     void managNewGameRequest(Player*, Packet::packet*); /* WAITING_ID */
     void managCancelGameRequest(Player*, Packet::packet*); /* CANCEL_ID */
-    void manageChooseDeck(Player*, Packet::intPacket*); /* DECK_CHOOS_ID */
+    void manageChooseDeck(PlayerInGame*, Packet::deckPacket*); /* DECK_CHOOS_ID */
     
     /* Game process */
     void manageDrop(Player*, Packet::intPacket*); /* DROP_ID */

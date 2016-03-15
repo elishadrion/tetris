@@ -29,24 +29,25 @@ class GameGUI : public QMainWindow {
     QGridLayout *_gridlayout;
     DeckChooseGUI *_choosDeck;
 
+    QPushButton *_nextTurnBouton;
+    QLabel *_infoTour;
 
-    std::string _pseudoAdverse;
-
-    bool _turn;
-    unsigned _life;
-    unsigned _trash[DECK_SIZE];
-    unsigned _hand[MAX_HAND];
-    unsigned _deck[DECK_SIZE];
-    unsigned _posed[MAX_POSED_CARD];
-    unsigned _posedLife[MAX_POSED_CARD];
-    unsigned _ennemyLife;
-    unsigned _ennemyTrash;
-    unsigned _ennemyHand;
-    unsigned _ennemyDeck;
-    unsigned _ennemyPosed[MAX_POSED_CARD];
-    unsigned _ennemyPosedLife[MAX_POSED_CARD];
+//    bool _turn;
+//    unsigned _life;
+//    unsigned _trash[DECK_SIZE];
+//    unsigned _hand[MAX_HAND];
+//    unsigned _deck[DECK_SIZE];
+//    unsigned _posed[MAX_POSED_CARD];
+//    unsigned _posedLife[MAX_POSED_CARD];
+//    unsigned _ennemyLife;
+//    unsigned _ennemyTrash;
+//    unsigned _ennemyHand;
+//    unsigned _ennemyDeck;
+//    unsigned _ennemyPosed[MAX_POSED_CARD];
+//    unsigned _ennemyPosedLife[MAX_POSED_CARD];
 
     void chooseDeck();
+
 
 public:
     GameGUI();

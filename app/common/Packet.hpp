@@ -37,7 +37,7 @@ public:
         CANCEL_ID = 52, /* DEFAULT PACKET */
         ASK_DECK_ID = 53, /* DEFAULT PACKET- ask for deck */
         GAME_START_ID = 54,/* pseudoPacket */
-        DECK_CHOOS_ID = 55, /* intPacket */
+        DECK_CHOOS_ID = 55, /* deckPacket */
         /* GAME PROCESS */
         TURN_ID = 61, /* Signal the current player turn */
         DRAW_ID = 62, /* intPacket */
@@ -139,6 +139,12 @@ public:
 
 //=========================GAME=============================================
     
+    typedef struct {
+        int ID = DECK_CHOOS_ID;
+        int size = sizeof(char)*MAX_DECK_NAME;
+        char deck[MAX_DECK_NAME];
+    } deckPacket;
+
     /* Send all data for sync to the client when turn change */
     typedef struct {
         int ID = TURN_ID;

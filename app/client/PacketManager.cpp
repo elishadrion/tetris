@@ -371,12 +371,12 @@ void PacketManager::makeGameCancelRequest() {
     delete cancelInfo;
 }
 
-void PacketManager::sendSelectedDeck(const int ID) {
-    Packet::intPacket *sendChoosenDeck = new Packet::intPacket();
+void PacketManager::sendSelectedDeck(const char* deck) {
+    Packet::deckPacket *sendChoosenDeck = new Packet::deckPacket();
     
     /* Set ID and ID */
     sendChoosenDeck->ID = Packet::DECK_CHOOS_ID;
-    sendChoosenDeck->data = ID;
+    for (int i = 0 ; i < MAX_DECK_NAME; ++i) sendChoosenDeck->deck[i] = deck[i];
     
     /* Send and free */
     conn->sendPacket((Packet::packet*) sendChoosenDeck, sizeof(*sendChoosenDeck));

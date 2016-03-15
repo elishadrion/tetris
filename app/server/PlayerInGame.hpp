@@ -63,7 +63,7 @@ public:
     std::vector<Card*> getCardsInHand();
     unsigned int nbrCardInHand();
 
-    void setDeck(Deck *deck);
+    void setDeck(std::string);
     bool isDeckDefined();
     Card* draw();
 

@@ -1,11 +1,30 @@
 #include "DeckChooseGUI.hpp"
 
-DeckChooseGUI::DeckChooseGUI(GameGUI* parent) : QMainWindow(parent) {
+
+void DeckChooseGUI::valideDeck() {
+    QList<QListWidgetItem *> listItem = _listDeck->selectedItems();
+    if(listItem.size() == 1) {
+        std::string select = listItem[0]->text().toStdString();
+
+        WizardLogger::info("Deck choisi: " + select);
+        Player::getPlayer()->setDeck(select);
+        close();
+
+    } else {
+        WizardLogger::warning("Nombre d'élément sélectionné incorrect " + listItem.size());
+    }
+
+}
+
+
+DeckChooseGUI::DeckChooseGUI(GameGUI* parent): QMainWindow(parent) {
     _gameGui = parent;
 
     // QListWidget;
     _centralWidget = new QWidget(this);
     setCentralWidget(_centralWidget);
+
+    setWindowTitle("Choix du deck");
 
     _gridlayout = new QGridLayout(_centralWidget);
 
@@ -14,11 +33,13 @@ DeckChooseGUI::DeckChooseGUI(GameGUI* parent) : QMainWindow(parent) {
 
     _listDeck = new QListWidget;
     Player* player = Player::getPlayer();
-    std::vector<std::string> listNomDeck = player->getDeck();
+    std::vector<std::string> listNomDeck = player->getDecks();
 
     for(unsigned i = 0; i < listNomDeck.size(); ++i) {
-        _listDeck->addItem(QString(("Deck: " + static_cast<std::string>(listNomDeck[i])).c_str()));
+        _listDeck->addItem(QString(static_cast<std::string>(listNomDeck[i]).c_str()));
     }
+    _listDeck->item(0)->setSelected(true);
+
 
     _gridlayout->addWidget(_listDeck, 1, 1, 1, 2);
 
@@ -39,6 +60,9 @@ DeckChooseGUI::DeckChooseGUI(GameGUI* parent) : QMainWindow(parent) {
     _gridlayout->setColumnStretch(3, 1);
 
 
+    QObject::connect(okButton, SIGNAL(clicked()), this, SLOT(valideDeck()));
+    //QObject::connect(cancelButton, SIGNAL(clicked()), this, SLOT(cancelDeck()));
 
     show();
 }
+

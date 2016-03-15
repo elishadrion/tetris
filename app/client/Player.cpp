@@ -56,3 +56,19 @@ void Player::removeFriend(std::string pseudo) {
         }
     }
 }
+
+
+////////////////////// IN GAME //////////////////////
+void Player::setDeck(std::string deckName) {
+    if(_deckName == "") {
+        WizardLogger::info("Envoie du nom du deck: " + deckName);
+
+        _deckName = deckName;
+        PacketManager::sendSelectedDeck(_deckName.c_str());
+
+    } else {
+        WizardLogger::warning("Le deck à déjà été définit");
+    }
+}
+
+
