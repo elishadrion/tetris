@@ -38,19 +38,21 @@ public:
         ASK_DECK_ID = 53, /* DEFAULT PACKET- ask for deck */
         GAME_START_ID = 54,/* pseudoPacket */
         DECK_CHOOS_ID = 55, /* deckPacket */
-        /* GAME PROCESS */
-        TURN_ID = 61, /* Signal the current player turn */
-        DRAW_ID = 62, /* intPacket */
-        ASK_DROP_ID = 63, /* Ask to drop a certain amount of card */
-        DROP_ID = 64, /* A packet by droped card (use intPacket) */
-        ATTACK_ID = 65, /* send attacker, target's ID (-1 for player) */
-        SPELL_ID = 66, /* send wizard, speel's ID */
-        END_TURN_ID = 67, /* Send to server to signal end of turn (DEFAULT PACKET) */
-        QUIT_ID = 68, /* DEFAULT PACKET */
-        END_GAME_ID = 69, /* !> use actionPacket */
         /* CLASSEMENT */
-        ASK_CLASSEMENT_ID = 71, // DEFAULT PACKET
-        SEND_CLASSEMENT_ID = 72 // ClassementPacket
+        ASK_CLASSEMENT_ID = 61, /* DEFAULT PACKET */
+        SEND_CLASSEMENT_ID = 62 /* ClassementPacket */
+        /* GAME PROCESS */
+        TURN_ID = 71, /* Signal the current player turn */
+        DRAW_ID = 72, /* intPacket */
+        ASK_DROP_ID = 73, /* Ask to drop a certain amount of card */
+        DROP_ID = 74, /* A packet by droped card (use intPacket) */
+        ATTACK_ID = 75, /* send attacker, target's ID (-1 for player) */
+        SPELL_ID = 76, /* send wizard, speel's ID */
+        POSE_ID = 77, /* Signal a new posed card */
+        UNPOSE_ID = 78, /* Signal a new remove card */
+        END_TURN_ID = 79, /* Send to server to signal end of turn (DEFAULT PACKET) */
+        QUIT_ID = 80, /* DEFAULT PACKET */
+        END_GAME_ID = 81, /* !> use actionPacket */
     };
     
     /* Default size of all packets (without data) */
@@ -147,6 +149,14 @@ public:
         int size = sizeof(char)*MAX_DECK_NAME;
         char deck[MAX_DECK_NAME];
     } deckPacket;
+    
+    /* Posed or unposed card from game */
+    typedef struct {
+        int ID;
+        int size = sizeof(int)+sizeof(char)*MAX_PSEUDO_SIZE;
+        int cardId; /* Card posed or unposed */
+        char pseudo[MAX_PSEUDO_SIZE]; /* Player's pseudo */
+    } poseCardPacket;
 
     /* Send all data for sync to the client when turn change */
     typedef struct {
@@ -196,6 +206,7 @@ public:
 
 
 //============================ CLASSEMENT ================================
+
     typedef struct {
         int ID = SEND_CLASSEMENT_ID;
         typedef struct {
