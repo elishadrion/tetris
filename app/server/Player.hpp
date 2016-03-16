@@ -15,8 +15,14 @@
 #include "common/Packet.hpp"
 #include "PacketManager.hpp"
 
+class Player;
+class PlayerInGame;
+class PlayerConnect;
+#include "PlayerConnect.hpp"
+
 #include "common/WizardLogger.hpp"
 #include "common/Constants.hpp"
+
 
 /**
  * One class per player.  This object stocks the socket to communicate with player
@@ -24,10 +30,11 @@
  */
 class Player {
 
-    int _sockfd;
     std::string _username;
     std::string _password;
     Collection _collection;
+
+    PlayerConnect *_playerConnect;
 
     unsigned getRatio() const;
 
@@ -44,7 +51,7 @@ public:
     inline void adjudicateDefeat() {_defeats++;}
     inline Error addCardCollection(Card* c) {return _collection.addCard(c);}
     inline Collection *getCollection() {return &_collection;} //TODO needed for send collection to user
-    inline void updateSockfd(int a) {_sockfd = a;}
+    void updateSockfd(int sock);
     inline std::string getName() const {return _username;}
     inline std::string getPass() const {return _password;}
     inline unsigned getVictories() const {return _victories;}
@@ -65,7 +72,11 @@ public:
     bool operator==(const std::string&) const;
     bool operator<(const Player&) const;
     bool operator>(const Player&) const;
-    virtual ~Player() { close(_sockfd); }
+
+    void overwrite(const Player&);
+
+
+    virtual ~Player() { delete _playerConnect; }
 };
 
 #endif  /* PLAYER_HPP */
