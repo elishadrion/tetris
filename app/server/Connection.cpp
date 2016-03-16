@@ -52,6 +52,7 @@ Connection::Connection() {
 
 Connection::~Connection() {
     WizardLogger::warning("BALAPKZFPIZD");
+    pm -> savePlayers();
     close(_serverSocket);
 }
 
