@@ -65,7 +65,7 @@ namespace PacketManager {
     /* Game process */
     void askDeck(Player*); /* ASK_DECK_ID */
     void initGame(Player*, std::string); /* GAME_START_ID */
-    void sendTurnInfo(Player*, std::string, PlayerInGame*, PlayerInGame*); /* TURN_ID (force sync) */
+    void sendTurnInfo(PlayerInGame*, PlayerInGame*, bool); /* TURN_ID (force sync) */
     void sendCard(Player*, Card*); /* DRAW_ID (nullptr for other player sync) */
     void askDefausse(Player*, int); /* ASK_DROP_ID */
     void sendDrop(Player*, int); /* DROP_ID (for second player sync, amount of drop) */

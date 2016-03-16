@@ -32,6 +32,8 @@ public:
     Card* getCardOnIndex(const unsigned index);
     std::vector<unsigned> getCardsId() const;
 
+    unsigned size();
+
     virtual ~Collection() = default;
 };
 

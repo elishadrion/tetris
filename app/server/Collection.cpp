@@ -121,7 +121,14 @@ Card* Collection::getCardOnIndex(const unsigned index) {
 std::vector<unsigned> Collection::getCardsId() const {
     std::vector<unsigned> res;
     for (size_t i = 0; i < _listCard.size(); ++i) {
-	res.push_back(_listCard.at(i) -> getId());
+        res.push_back(_listCard.at(i) -> getId());
     }
     return res;
+}
+
+/**
+ * Get the number of card in the collection
+ */
+unsigned Collection::size() {
+    return _listCard.size();
 }

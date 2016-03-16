@@ -113,6 +113,9 @@ void Game::checkDeckAndStart() {
     if(_player1->isDeckDefined() && _player2->isDeckDefined()) {
 
         _gameStatut = GameStatut::IN_GAME;
+        PacketManager::initGame(_player1, getAdversePlayer(_player1)->getName());
+        PacketManager::initGame(_player2, getAdversePlayer(_player2)->getName());
+
         unsigned int i = 0;
         while(i < 5) {
             _player1->draw();
@@ -120,10 +123,7 @@ void Game::checkDeckAndStart() {
             ++i;
         }
 
-
-        PacketManager::initGame(_player1, getAdversePlayer(_player1)->getName());
-        PacketManager::initGame(_player2, getAdversePlayer(_player2)->getName());
-
+        nextPlayer();
 
         /*
             send CardInHand
@@ -332,8 +332,8 @@ void Game::nextPlayer() {
     _currentPlayer->addMaxEnergy();
     int energie = _currentPlayer->resetEnergy();
 
-    PacketManager::sendTurnInfo(_player1, _currentPlayer->getName(), _player1, _player2);
-    PacketManager::sendTurnInfo(_player2, _currentPlayer->getName(), _player2, _player1);
+    PacketManager::sendTurnInfo(_player1, _player2, _currentPlayer==_player1);
+    PacketManager::sendTurnInfo(_player2, _player1, _currentPlayer==_player2);
 
     beginTurn();
 }

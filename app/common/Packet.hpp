@@ -41,7 +41,7 @@ public:
         /* GAME PROCESS */
         TURN_ID = 61, /* Signal the current player turn */
         DRAW_ID = 62, /* intPacket */
-        ASK_DROP_ID = 63, /* Ask to draw a certain amount of card */
+        ASK_DROP_ID = 63, /* Ask to drop a certain amount of card */
         DROP_ID = 64, /* A packet by droped card (use intPacket) */
         ATTACK_ID = 65, /* send attacker, target's ID (-1 for player) */
         SPELL_ID = 66, /* send wizard, speel's ID */
@@ -152,7 +152,7 @@ public:
     typedef struct {
         int ID = TURN_ID;
         typedef struct {
-            char pseudo[MESSAGES_MAX_SIZE]; /* Player's name for current turn */
+            bool turn;
             int life;
             int trash[DECK_SIZE];
             int hand[MAX_HAND];

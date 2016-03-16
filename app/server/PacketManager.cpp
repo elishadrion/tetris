@@ -301,14 +301,60 @@ void PacketManager::manageQuitGame(Player* player, Packet::packet* packet) {
     //TODO tell Game about (rage) quit
 }
 
-/* Send all info needed for sync to the client
- * @param player : the player who to send this packet
+/**
+ * Send all info needed for sync to the clients
  * @param currentPlayer : the player who his the turn
  * @param playerInGame : the player (in-game)
  * @param ennemyInGame : the ennemy player (in-game)
  */
-void PacketManager::sendTurnInfo(Player* player, std::string currentPlayer, PlayerInGame* playerInGame, PlayerInGame* ennemyInGame) {
+void PacketManager::sendTurnInfo(PlayerInGame* current, PlayerInGame* adverse, bool hisTurn) {
     //TODO Send all info for sync
+
+    Packet::turnPacket *turnPacket =  new Packet::turnPacket();
+
+    turnPacket->data.turn = hisTurn;
+
+    turnPacket->data.life = current->getHeal();
+
+    std::vector<Card*> listDefausse = current->getDefausse();
+    for(unsigned i = 0; i < listDefausse.size(); ++i) {
+        turnPacket->data.trash[i] = static_cast<Card*>(listDefausse[i])->getId();
+    }
+
+    std::vector<Card*> listHand = current->getCardsInHand();
+    for(unsigned i = 0; i < listHand.size(); ++i) {
+        turnPacket->data.hand[i] = static_cast<Card*>(listHand[i])->getId();
+    }
+
+    std::vector<unsigned> listDeckId = static_cast<Deck*>(current->getDeck())->getCardsId();
+    for(unsigned i = 0; i < listDeckId.size(); ++i) {
+        turnPacket->data.deck[i] = listDeckId[i];
+    }
+
+    std::vector<CardMonster*> listCardPlace = current->getCardsPlaced();
+    for(unsigned i = 0; i < listCardPlace.size(); ++i) {
+        CardMonster* currentCardMonster = static_cast<CardMonster*>(listCardPlace[i]);
+        turnPacket->data.posed[i] = currentCardMonster->getId();
+        turnPacket->data.posedLife[i] = currentCardMonster->getLife();
+    }
+
+    turnPacket->data.ennemyLife = adverse->getHeal();
+    turnPacket->data.ennemyTrash = adverse->nbrCardDefausse();
+    turnPacket->data.ennemyHand = adverse->nbrCardInHand();
+    turnPacket->data.ennemyDeck = adverse->nbrCardDeck();
+
+    std::vector<CardMonster*> listAdverseCardPlace = adverse->getCardsPlaced();
+    for(unsigned i = 0; i < listAdverseCardPlace.size(); ++i) {
+        CardMonster* currentCardMonster = static_cast<CardMonster*>(listAdverseCardPlace[i]);
+        turnPacket->data.ennemyPosed[i] = currentCardMonster->getId();
+        turnPacket->data.ennemyPosedLife[i] = currentCardMonster->getLife();
+    }
+
+
+    /* Send and free */
+    current->sendPacket((Packet::packet*) turnPacket, sizeof(*turnPacket));
+    delete turnPacket;
+
 }
 
 /* Send draw card to the player

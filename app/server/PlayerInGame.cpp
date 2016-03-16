@@ -78,6 +78,22 @@ bool PlayerInGame::isDeckDefined() {
     return _deck != nullptr;
 }
 
+/**
+ * Get the current deck
+ *
+ * @return the deck
+ */
+Deck* PlayerInGame::getDeck() {
+    return _deck;
+}
+
+/**
+ * Get number of card in the deck
+ */
+unsigned PlayerInGame::nbrCardDeck() {
+    return getDeck()->size();
+}
+
 
 /**
  * Gets random card of deck and place it in
@@ -100,6 +116,7 @@ Card* PlayerInGame::draw() {
 
 /**
  * Returns the placed cards
+ * @return the vector of card placed
  */
 std::vector<CardMonster*> PlayerInGame::getCardsPlaced() {
     return _cardsPlaced;
@@ -107,9 +124,32 @@ std::vector<CardMonster*> PlayerInGame::getCardsPlaced() {
 
 /**
  * Returns the cards in hand
+ * @return the vector of card in hand
  */
 std::vector<Card*> PlayerInGame::getCardsInHand() {
     return _cardsInHand;
+}
+
+/**
+ * Return the size of card in hand
+ */
+unsigned PlayerInGame::nbrCardInHand() {
+    return getCardsInHand().size();
+}
+
+/**
+ * Get defausse card
+ * @return the vector of defausse card
+ */
+std::vector<Card*> PlayerInGame::getDefausse() {
+    return _defausse;
+}
+
+/**
+ * Get defausse size
+ */
+unsigned PlayerInGame::nbrCardDefausse() {
+    return getDefausse().size();
 }
 
 
@@ -130,10 +170,6 @@ int PlayerInGame::resetEnergy() {
     return _energy;
 }
 
-
-unsigned PlayerInGame::nbrCardInHand() {
-    return static_cast<unsigned>(_cardsInHand.size());
-}
 
 //Checks if the player have currently enough energy to play a certain card
 bool PlayerInGame::haveEnoughEnergy(Card* card) {

@@ -63,10 +63,14 @@ public:
     dataIGPlayer getDataPlayer();
     std::vector<CardMonster*> getCardsPlaced();
     std::vector<Card*> getCardsInHand();
-    unsigned int nbrCardInHand();
+    unsigned nbrCardInHand();
+    std::vector<Card*> getDefausse();
+    unsigned nbrCardDefausse();
 
     void setDeck(std::string);
     bool isDeckDefined();
+    Deck* getDeck();
+    unsigned nbrCardDeck();
     Card* draw();
 
     bool haveEnoughEnergy(Card* card);
