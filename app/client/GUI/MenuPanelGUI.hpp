@@ -17,6 +17,9 @@
 #include "PacketManager.hpp"
 #include "GUI/GameGUI.hpp"
 #include "common/WizardLogger.hpp"
+class RankingGUI;
+class MenuPanelGUI;
+#include "RankingGUI.hpp"
 
 #include <string>
 
@@ -30,8 +33,6 @@ class MenuPanelGUI : public QMainWindow {
     Q_OBJECT
 
     GUI* _gui;
-
-    QWidget *centralWidget;
 
     QLabel *_nameGame;
     QPushButton *_gameStart;
@@ -54,11 +55,14 @@ public:
 signals:
     void mustInitGame();
 
-public slots:
+private slots:
     void quitApp();
     void makeReqToPlayGame();
     void makeCancelWait();
     void makeOpenGame();
+    void makeOpenClassement();
+
+public slots:
     void makeOpen();
 
 

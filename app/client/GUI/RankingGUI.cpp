@@ -1,6 +1,15 @@
 #include "RankingGUI.hpp"
 
-RankingGui::RankingGui() : QWidget(){
+RankingGui::RankingGui(MenuPanelGUI* menu) : QMainWindow(), _menu(menu) {
+
+    setStyleSheet("QMainWindow { background-image: url(:/Images/ligue_justicie.jpg) 0 0 0 0 stretch stretch; "
+                  "background-repeat: no-repeat; background-position: center center; } "
+                  "QPushButton { background-color: white; } "
+                  "QLabel { background-color: rgba(187, 187, 187, 0.72); }");
+
+    setWindowTitle("Classement");
+    QWidget *centralWidget = new QWidget(this);
+    setCentralWidget(centralWidget);
 
     _namePlayer = new QLabel("    Nom du joueur    ");
     _namePlayer->setFixedHeight(30);
@@ -32,18 +41,24 @@ RankingGui::RankingGui() : QWidget(){
     _layoutTitles->addLayout(_layoutRatio,0,3);
     _layoutTitles->setAlignment(Qt::AlignCenter);
 
+
     _back =  new QPushButton("Retour");
     _back->setMaximumHeight(50);
     _back->setMaximumWidth(200);
+    QObject::connect(_back, SIGNAL(clicked()), this, SLOT(makeClose()));
 
     _layoutButton = new QGridLayout;
     _layoutButton->addWidget(_back);
 
-    _layoutOfLayout = new QGridLayout;
+    _layoutOfLayout = new QGridLayout(centralWidget);
     _layoutOfLayout->addLayout(_layoutTitles,0,1);
     _layoutOfLayout->addLayout(_layoutButton,1,1);
 
-    setLayout(_layoutOfLayout);
     showMaximized();
 
+}
+
+void RankingGui::makeClose() {
+    _menu->makeOpen();
+    this->close();
 }

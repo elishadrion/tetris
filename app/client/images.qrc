@@ -1,5 +1,6 @@
-<!DOCTYPE RCC><RCC version="1.0">
-<qresource>
-    <file>Images/bg.png</file>
-</qresource>
+<RCC>
+    <qresource prefix="/">
+        <file>Images/bg.png</file>
+        <file>Images/ligue_justicie.jpg</file>
+    </qresource>
 </RCC>

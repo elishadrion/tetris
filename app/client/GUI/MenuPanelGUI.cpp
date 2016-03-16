@@ -1,5 +1,7 @@
 #include "MenuPanelGUI.hpp"
 
+
+
 /**
  * Constructor
  */
@@ -11,7 +13,7 @@ MenuPanelGUI::MenuPanelGUI(GUI* parent) : QMainWindow() {
                   "QPushButton { background-color: white; }");
 
     setWindowTitle("Menu principal");
-    centralWidget = new QWidget(this);
+    QWidget *centralWidget = new QWidget(this);
     setCentralWidget(centralWidget);
 
 
@@ -31,6 +33,7 @@ MenuPanelGUI::MenuPanelGUI(GUI* parent) : QMainWindow() {
     _ranking = new QPushButton(" Classement ");
     _ranking->setMaximumHeight(50);
     _ranking->setMaximumWidth(200);
+    QObject::connect(_ranking, SIGNAL(clicked()), this, SLOT(makeOpenClassement()));
 
     _quitter = new QPushButton(" Quitter ");
     _quitter->setMaximumHeight(50);
@@ -118,8 +121,16 @@ void MenuPanelGUI::makeOpenGame() {
     WizardLogger::info("Une partie a été trouvée, ouverture du menu");
     this->hide();
     _msgBox->close();
-//    delete _msgBox;
     _gui->setGameMenu(new GameGUI());
+}
+
+/**
+ * Slot to open the Classement
+ */
+void MenuPanelGUI::makeOpenClassement() {
+    WizardLogger::info("Ouverture du classement");
+    new RankingGui(this);
+    this->hide();
 }
 
 
@@ -128,5 +139,6 @@ void MenuPanelGUI::makeOpenGame() {
  */
 void MenuPanelGUI::makeOpen() {
     this->show();
+    showMaximized();
 }
 

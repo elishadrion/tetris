@@ -2,6 +2,7 @@
 #define RANKINGGUI_HPP
 
 #include <QApplication>
+#include <QMainWindow>
 #include <QPushButton>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
@@ -10,7 +11,14 @@
 #include <QLabel>
 #include <QFont>
 
-class RankingGui : public QWidget{
+class RankingGui;
+#include "MenuPanelGUI.hpp"
+
+class RankingGui : public QMainWindow {
+    Q_OBJECT
+
+    MenuPanelGUI* _menu;
+
     QLabel *_namePlayer;
     QLabel *_victories;
     QLabel *_defeats;
@@ -27,7 +35,11 @@ class RankingGui : public QWidget{
     QGridLayout *_layoutOfLayout;
 
 public:
-    RankingGui();
+    RankingGui(MenuPanelGUI*);
+
+private slots:
+    void makeClose();
+
 };
 
 #endif // RANKINGGUI_HPP
