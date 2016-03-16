@@ -2,10 +2,12 @@
 
 ChatManagerGUI::ChatManagerGUI(QWidget* parent): QWidget(parent) {
 
+    _layout = new QGridLayout(this);
     _tab = new QTabWidget(this);
     _friends= new QListWidget;
 
-    //_tab->setFixedSize(250,250);   //A ENLEVER !!!!!!!
+    _layout->addWidget(_tab,0,0);
+
     _tab->addTab(_friends,tr("General"));
 
     _friends->addItem("J-P");   //A ENLEVER !!!!!!!

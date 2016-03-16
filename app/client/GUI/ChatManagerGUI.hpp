@@ -7,11 +7,13 @@
 #include <QTabWidget>
 #include <QTabBar>
 #include <QListWidget>
+#include <QGridLayout>
 #include "ChatWidget.hpp"
 
 class ChatManagerGUI : public QWidget {
     Q_OBJECT
 
+    QGridLayout *_layout;
     QTabWidget *_tab;
     QListWidget *_friends;
 
