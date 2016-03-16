@@ -40,7 +40,7 @@ public:
         DECK_CHOOS_ID = 55, /* deckPacket */
         /* CLASSEMENT */
         ASK_CLASSEMENT_ID = 61, /* DEFAULT PACKET */
-        SEND_CLASSEMENT_ID = 62 /* ClassementPacket */
+        SEND_CLASSEMENT_ID = 62, /* ClassementPacket */
         /* GAME PROCESS */
         TURN_ID = 71, /* Signal the current player turn */
         DRAW_ID = 72, /* intPacket */

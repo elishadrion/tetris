@@ -100,7 +100,6 @@ GameGUI::GameGUI() : QMainWindow() {
 
     // Tchat
     ChatManagerGUI* tchat = new ChatManagerGUI(this);
-    tchat->setStyleSheet("background-color: yellow;");
 
     _gridlayout->addWidget(tchat, 0, 13, 6, 3);
 
