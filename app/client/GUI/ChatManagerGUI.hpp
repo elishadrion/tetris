@@ -9,13 +9,14 @@
 #include <QListWidget>
 #include "ChatWidget.hpp"
 
-class ChatManagerGUI : public QWidget{
-Q_OBJECT
-public:
-    ChatManagerGUI();
-private:
+class ChatManagerGUI : public QWidget {
+    Q_OBJECT
+
     QTabWidget *_tab;
     QListWidget *_friends;
+
+public:
+    ChatManagerGUI(QWidget*);
 
 private slots:
     void closeTab(int);

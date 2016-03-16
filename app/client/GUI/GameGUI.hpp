@@ -16,7 +16,8 @@
 
 #include <vector>
 
-#include "client/GUI/DeckChooseGUI.hpp"
+#include "DeckChooseGUI.hpp"
+#include "ChatManagerGUI.hpp"
 
 #include "common/Constants.hpp"
 

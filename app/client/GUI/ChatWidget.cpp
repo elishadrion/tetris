@@ -1,7 +1,7 @@
 #include "ChatWidget.hpp"
 
 
-ChatWidget::ChatWidget(std::string pseudo): _friend(pseudo),QWidget(){
+ChatWidget::ChatWidget(std::string pseudo, QWidget* parent): _friend(pseudo),QWidget(parent){
 
     _gridlayout = new QGridLayout(this);
 
@@ -9,7 +9,7 @@ ChatWidget::ChatWidget(std::string pseudo): _friend(pseudo),QWidget(){
 
     _text=new QTextBrowser(this);
 
-    _send = new QPushButton("Send");
+    _send = new QPushButton("Envoyer");
     _m_send= new QLineEdit(this);
 
     _layout->addWidget(_m_send);
@@ -23,6 +23,6 @@ ChatWidget::ChatWidget(std::string pseudo): _friend(pseudo),QWidget(){
 }
 
 void ChatWidget::sendMessage(){
-    //Envois message au serveur
+    //TO DO: Envois message au serveur
     _m_send->clear();
 }

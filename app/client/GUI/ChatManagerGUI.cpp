@@ -1,11 +1,11 @@
 #include "ChatManagerGUI.hpp"
 
-ChatManagerGUI::ChatManagerGUI() : QWidget(){
+ChatManagerGUI::ChatManagerGUI(QWidget* parent): QWidget(parent) {
 
     _tab = new QTabWidget(this);
     _friends= new QListWidget;
 
-    _tab->setFixedSize(250,250);   //A ENLEVER !!!!!!!
+    //_tab->setFixedSize(250,250);   //A ENLEVER !!!!!!!
     _tab->addTab(_friends,tr("General"));
 
     _friends->addItem("J-P");   //A ENLEVER !!!!!!!
@@ -34,5 +34,5 @@ void ChatManagerGUI::closeTab(int i){
 
 void ChatManagerGUI::newTab(QListWidgetItem* item){
     std::string pseudo = item->text().toStdString();
-    _tab->addTab(new ChatWidget(pseudo),item->text());
+    _tab->addTab(new ChatWidget(pseudo, this),item->text());
 }

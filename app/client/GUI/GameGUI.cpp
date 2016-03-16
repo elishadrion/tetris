@@ -99,14 +99,10 @@ GameGUI::GameGUI() : QMainWindow() {
 
 
     // Tchat
-    QVBoxLayout* tChat = new QVBoxLayout;
-    strLabel = ("Tchat");
-    label = new QLabel(strLabel);
-    label->setStyleSheet("background-color: yellow");
-    tChat->addWidget(label, 6);
-    QTextEdit* textBox = new QTextEdit;
-    tChat->addWidget(textBox);
-    _gridlayout->addLayout(tChat, 0, 13, 6, 3);
+    ChatManagerGUI* tchat = new ChatManagerGUI(this);
+    tchat->setStyleSheet("background-color: yellow;");
+
+    _gridlayout->addWidget(tchat, 0, 13, 6, 3);
 
     // PUB
     QHBoxLayout* pub = new QHBoxLayout;
