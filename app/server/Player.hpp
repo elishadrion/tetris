@@ -34,18 +34,19 @@ class Player {
     std::string _password;
     Collection _collection;
 
-    PlayerConnect *_playerConnect;
-
     unsigned getRatio() const;
 
 
 protected:
+    PlayerConnect *_playerConnect;
     std::vector<Deck*> _decks;
     unsigned _victories;
     unsigned _defeats;
 
 public:
     Player(nlohmann::json&, int sockfd = 0);
+
+    virtual inline bool isPlayerInGame() {return false;}
 
     inline void adjudicateVictory() {_victories++;}
     inline void adjudicateDefeat() {_defeats++;}
@@ -65,6 +66,7 @@ public:
     void sendPacket(Packet::packet*, size_t);
     void recvLoop();
     void logout();
+    void setPlayerInGame(PlayerInGame*);
 
     std::string serialise() const;
     friend std::ostream& operator<<(std::ostream&, const Player&); // remove ?

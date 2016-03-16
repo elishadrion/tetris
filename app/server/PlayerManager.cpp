@@ -101,8 +101,7 @@ Player* PlayerManager::signUp(std::string username, std::string password, int so
     deck["cards"] = random_deck;
     info["decks"].push_back(deck);
 
-    Player* newPlayer = new Player(info);
-    newPlayer->updateSockfd(sockfd);
+    Player* newPlayer = new Player(info, sockfd);
     _players.push_back(newPlayer);
     // TO DO: save to the bdd ?
     // TO DO: add to the _connected list ?

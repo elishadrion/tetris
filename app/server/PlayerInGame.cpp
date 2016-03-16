@@ -9,12 +9,16 @@
 PlayerInGame::PlayerInGame(const Player& player, Game* game): Player(player),
     _deck(nullptr), _game(game) {
 
+    WizardLogger::info("Création d'un PlayerInGame: " + player.getName() + " > " + this->getName());
+
     _playerHeal = MAX_LIFE; //Player starts with 20 health points
      _energy = 0; //The current energy of the player
     _maxEnergy = 1; //Every turn the maximum energy is increased up to a maximum of 10
     std::vector<Card*> _cardsInHand(0);
     std::vector<Card*> _defausse(0);
     std::vector<CardMonster*> _cardsPlaced(0);
+
+    _playerConnect->setPlayerInGame(this);
 
     // Ask to the palyer his deck
     PacketManager::askDeck(this);
@@ -47,7 +51,7 @@ dataIGPlayer PlayerInGame::getDataPlayer() {
 void PlayerInGame::setDeck(std::string deck) {
     Deck* ptrDeck = nullptr;
     int i = 0;
-    while(i < _decks.size() && ptrDeck != nullptr) {
+    while(i < _decks.size() && ptrDeck == nullptr) {
         Deck* currentDeck = _decks[i];
         if(currentDeck->getName() == deck) {
             ptrDeck = currentDeck;
@@ -57,9 +61,10 @@ void PlayerInGame::setDeck(std::string deck) {
 
     if(ptrDeck != nullptr) {
         _deck = new Deck(*ptrDeck); // copy the deck
+        WizardLogger::info("Choix du deck: " + _deck->getName());
         _game->checkDeckAndStart();
     } else {
-        WizardLogger::warning("Le deck: " + deck + " n'a pas trouvé");
+        WizardLogger::warning("Le deck: " + deck + " n'a été pas trouvé");
     }
 }
 
@@ -186,4 +191,8 @@ void PlayerInGame::addWin() {
  */
 bool PlayerInGame::isDead() {
     return _playerHeal <= 0;
+}
+
+PlayerInGame::~PlayerInGame() {
+    _playerConnect->removePlayerInGame(this);
 }

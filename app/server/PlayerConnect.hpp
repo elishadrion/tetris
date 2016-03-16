@@ -17,11 +17,12 @@ class PlayerConnect {
     Player* getPlayerPtr();
 
 public:
-    PlayerConnect(int sockfd);
-    inline void updateSockfd(int a) {_sockfd = a;}
+    PlayerConnect(int sockfd, Player*);
+    inline void updateSockfd(int sock) {_sockfd = sock;}
     void sendPacket(Packet::packet*, size_t);
     void recvLoop();
     void logout();
+    void setPlayerInGame(PlayerInGame*);
     void removePlayerInGame(PlayerInGame*);
 
     virtual ~PlayerConnect() { close(_sockfd); }

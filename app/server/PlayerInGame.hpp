@@ -58,6 +58,8 @@ public:
     PlayerInGame& operator=(const PlayerInGame&) = default; // copy operator
     PlayerInGame(const Player &, Game*);
 
+    virtual inline bool isPlayerInGame() {return true;}
+
     dataIGPlayer getDataPlayer();
     std::vector<CardMonster*> getCardsPlaced();
     std::vector<Card*> getCardsInHand();
@@ -80,7 +82,7 @@ public:
     void addWin();
     bool isDead();
 
-    virtual ~PlayerInGame() = default;
+    virtual ~PlayerInGame();
 };
 
 

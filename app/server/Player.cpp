@@ -1,7 +1,7 @@
 #include "include/json.hpp"
 #include "Player.hpp"
 
-Player::Player(nlohmann::json& info, int sockfd): _playerConnect(new PlayerConnect(sockfd)) {
+Player::Player(nlohmann::json& info, int sockfd): _playerConnect(new PlayerConnect(sockfd, this)) {
     _username = info["username"];
     _password = info["password"];
     _victories = info["victories"];
@@ -17,7 +17,6 @@ Player::Player(nlohmann::json& info, int sockfd): _playerConnect(new PlayerConne
     _collection = Collection(collection_cards);
 
 }
-
 
 /**
  * Get the ration (victories/(victories+defeats))
@@ -158,6 +157,10 @@ void Player::logout() {
     _playerConnect->logout();
 }
 
+
+void Player::setPlayerInGame(PlayerInGame* pIG) {
+    _playerConnect->setPlayerInGame(pIG);
+}
 
 void Player::overwrite(const Player& player) {
     _username = player._username;

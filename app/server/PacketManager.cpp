@@ -230,8 +230,12 @@ void PacketManager::managNewGameRequest(Player* player, Packet::packet* packet) 
 void PacketManager::managCancelGameRequest(Player* player, Packet::packet* packet) {
     //TODO call cancel waiting in Game
 }
-void PacketManager::manageChooseDeck(PlayerInGame* player, Packet::deckPacket* deckChoosPacket) {
-    player->setDeck(deckChoosPacket->deck);
+void PacketManager::manageChooseDeck(Player* player, Packet::deckPacket* deckChoosPacket) {
+    WizardLogger::info("Deck sélectionné pour " + player->getName());
+    if(player->isPlayerInGame()) {
+        static_cast<PlayerInGame*>(player)->setDeck(deckChoosPacket->deck);
+        WizardLogger::info("PLAYER in game pour le set deck");
+    }
     //TODO
 }
 

@@ -3,7 +3,17 @@
 #include "PlayerInGame.hpp"
 
 Player* PlayerConnect::getPlayerPtr() {
-    return (_pIG == nullptr) ? _player : _pIG;
+    Player* ptr;
+    if(_pIG == nullptr) {
+        ptr = _player;
+        WizardLogger::info("PConnect: player");
+    } else {
+        ptr = _pIG;
+        WizardLogger::info("PConnect: player In Game");
+    }
+
+    return ptr;
+    //return (_pIG == nullptr) ? _player : _pIG;
 }
 
 
@@ -11,7 +21,8 @@ Player* PlayerConnect::getPlayerPtr() {
  * Constructor
  * @param sockfd socket for the connection
  */
-PlayerConnect::PlayerConnect(int sockfd): _sockfd(sockfd) { }
+PlayerConnect::PlayerConnect(int sockfd, Player* player): _sockfd(sockfd),
+    _player(player), _pIG(nullptr) { }
 
 
 /**
@@ -68,6 +79,15 @@ void PlayerConnect::recvLoop() {
     WizardLogger::error("La connexion avec le client \""+getPlayerPtr()->getName()+"\" semble avoir été interrompue !");
     //TODO remove player
 }
+
+/**
+ * Define the player InGame
+ * @param pIG playerInGame
+ */
+void PlayerConnect::setPlayerInGame(PlayerInGame* pIG) {
+    _pIG = pIG;
+}
+
 
 /**
  * Overwrite Player information with PlayerInGame information

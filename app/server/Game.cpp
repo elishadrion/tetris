@@ -117,6 +117,7 @@ void Game::checkDeckAndStart() {
         while(i < 5) {
             _player1->draw();
             _player2->draw();
+            ++i;
         }
 
 
