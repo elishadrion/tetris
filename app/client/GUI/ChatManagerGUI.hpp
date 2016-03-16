@@ -7,7 +7,7 @@
 #include <QTabWidget>
 #include <QTabBar>
 #include <QListWidget>
-#include "ChatWidget.h"
+#include "ChatWidget.hpp"
 
 class ChatManagerGUI : public QWidget{
 Q_OBJECT

@@ -1,4 +1,4 @@
-#include "ChatManagerGUI.h"
+#include "ChatManagerGUI.hpp"
 
 ChatManagerGUI::ChatManagerGUI() : QWidget(){
 

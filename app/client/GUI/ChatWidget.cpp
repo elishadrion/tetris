@@ -1,4 +1,4 @@
-#include "ChatWidget.h"
+#include "ChatWidget.hpp"
 
 
 ChatWidget::ChatWidget(std::string pseudo): _friend(pseudo),QWidget(){
