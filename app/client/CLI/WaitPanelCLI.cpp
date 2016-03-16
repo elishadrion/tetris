@@ -50,5 +50,5 @@ void WaitPanelCLI::focus() {
         wrefresh(window);
     }
     
-    //TODO PacketManager::unregisterAsPlayer();
+    PacketManager::makeGameCancelRequest();
 }
