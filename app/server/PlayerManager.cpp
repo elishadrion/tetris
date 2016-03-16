@@ -1,5 +1,7 @@
 #include "PlayerManager.hpp"
 
+std::vector<Player*> PlayerManager::_players;
+
 void PlayerManager::loadPlayers() {
     std::ifstream playersFile;
     try {
@@ -21,25 +23,30 @@ void PlayerManager::loadPlayers() {
     playersFile.close();
 }
 
-std::string PlayerManager::getRanking() {
-    std::string ranking;
+/**
+ * Send the ranking of the player
+ *
+ * @param player who must recieve informations
+ */
+void PlayerManager::sendRanking(Player* player) {
+    // Init var
+    std::vector<std::string> list_name;
+    std::vector<int> list_victories;
+    std::vector<int> list_defeats;
+
+    // Sorted player
     std::vector<Player*> sorted_players(_players);
-    for (size_t i = 0; i < _players.size(); ++i) {
-        std::cout << sorted_players.at(i) -> getVictories() << "\n";
-    }
 
     std::sort(sorted_players.begin(), sorted_players.end());
-    for (size_t i = 0; i < _players.size(); ++i) {
-        std::cout << sorted_players.at(i) -> getVictories() << "\n";
+
+    for (size_t i = 0; i < sorted_players.size() && i < MAX_PLAYER_CLASSEMENT; ++i) {
+        Player* currentPlayer = sorted_players.at(i);
+        list_name.push_back(currentPlayer->getName());
+        list_victories.push_back(currentPlayer->getVictories());
+        list_defeats.push_back(currentPlayer->getDefeats());
     }
 
-
-    ranking.append("Nom\t\tVictoires\tDefaites\n");
-
-    for (size_t i = 0; i < sorted_players.size(); ++i)
-        ranking << *sorted_players.at(i);
-
-    return ranking;
+    PacketManager::sendClassement(player, list_name, list_victories, list_defeats);
 }
 
 

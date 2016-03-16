@@ -80,6 +80,12 @@ void PacketManager::managePacket(Player *player, Packet::packet* customPacket) {
                                           break;
         case Packet::END_GAME_ID :        WizardLogger::warning("Paquet de fin de partie reçu");
                                           break;
+        /* Classement process */
+        case Packet::ASK_CLASSEMENT_ID:   PlayerManager::sendRanking(player);
+                                          break;
+        case Packet::SEND_CLASSEMENT_ID:  WizardLogger::warning("Packet pour envoyer le classement reçu");
+                                          break;
+
         default :                         WizardLogger::warning("Paquet inconnue reçu");
                                           break;
     }
@@ -411,3 +417,48 @@ void PacketManager::sendEndGame(Player* player, int victory, int card) {
     player->sendPacket((Packet::packet*) endPacket, sizeof(*endPacket));
     delete endPacket;
 }
+
+
+
+//=================================== CLASSEMENT ======================================
+/**
+ * Send the 50 best player stats
+ *
+ * @param player who would like recieve informations
+ * @param list_name list of playerName
+ * @param list_victories list of victories
+ * @param list_defeats list of defets
+ */
+void PacketManager::sendClassement(Player* player, std::vector<std::string> list_name,
+                                   std::vector<int> list_victories, std::vector<int> list_defeats) {
+
+    Packet::ClassementPacket *classementPacket = new Packet::ClassementPacket();
+
+    // Asset: nombre de player == nombre de victoires == nombre de défaites
+
+    // Set Player List
+    for(unsigned i = 0; i < list_name.size(); ++i) {
+        unsigned current = i*MAX_PSEUDO_SIZE;
+        std::string pseudo = list_name[i];
+        unsigned nbrChar;
+
+        for(nbrChar = 0; nbrChar < pseudo.size(); ++nbrChar) {
+            classementPacket->data.pseudo[current++] = pseudo[nbrChar];
+        }
+
+    }
+
+    // Set victories & defeats
+    for(unsigned i = 0; i < list_name.size(); ++i) {
+        classementPacket->data.victories[i] = list_victories[i];
+        classementPacket->data.defeats[i] = list_defeats[i];
+    }
+
+
+    /* Send and free */
+    player->sendPacket((Packet::packet*) classementPacket, sizeof(*classementPacket));
+    delete classementPacket;
+}
+
+
+

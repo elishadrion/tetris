@@ -48,6 +48,9 @@ public:
         END_TURN_ID = 67, /* Send to server to signal end of turn (DEFAULT PACKET) */
         QUIT_ID = 68, /* DEFAULT PACKET */
         END_GAME_ID = 69, /* !> use actionPacket */
+        /* CLASSEMENT */
+        ASK_CLASSEMENT_ID = 71, // DEFAULT PACKET
+        SEND_CLASSEMENT_ID = 72 // ClassementPacket
     };
     
     /* Default size of all packets (without data) */
@@ -73,7 +76,7 @@ public:
         char pseudo[MAX_PSEUDO_SIZE];
     } pseudoPacket;
 
-//=========================LOGIN PROCESS=================================
+//=========================LOGIN PROCESS==================================
 
     /* Login or register packet */
     typedef struct {
@@ -137,7 +140,7 @@ public:
         char friendsList[MAX_FRIENDS*MAX_PSEUDO_SIZE]; /* Every MAX_PSEUDO_SIZE it's a pseudo */
     } friendListPacket;
 
-//=========================GAME=============================================
+//=========================GAME===========================================
     
     typedef struct {
         int ID = DECK_CHOOS_ID;
@@ -191,7 +194,20 @@ public:
         winData data;
     } endGamePacket;
 
-//==========================================================================
+
+//============================ CLASSEMENT ================================
+    typedef struct {
+        int ID = SEND_CLASSEMENT_ID;
+        typedef struct {
+            char pseudo[MAX_PSEUDO_SIZE*MAX_PLAYER_CLASSEMENT];
+            int victories[MAX_PLAYER_CLASSEMENT];
+            int defeats[MAX_PLAYER_CLASSEMENT];
+        } classementData;
+        int size = sizeof(classementData);
+        classementData data;
+    } ClassementPacket;
+
+//========================================================================
     
     /* Maximum size of a packets */
     static const int packetMaxSize = sizeof(cardImgPacket);

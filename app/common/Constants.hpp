@@ -52,6 +52,9 @@
 /* Max size of messages */
 #define MESSAGES_MAX_SIZE 150
 
+//============ CLASSEMENT ===============
+#define MAX_PLAYER_CLASSEMENT 50
+
 //============CONNECTION=================
 
 /* Port for C/S communication */

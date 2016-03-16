@@ -5,6 +5,7 @@
 
 #include "Card.hpp"
 #include "Collection.hpp"
+#include "PlayerManager.hpp"
 
 class Player;
 class PlayerInGame;
@@ -42,6 +43,9 @@ namespace PacketManager {
     void manageSpell(Player*, Packet::attackPacket*); /* SPELL_ID (in) */
     void manageEndTurn(Player*, Packet::packet*); /* END_TURN_ID */
     void manageQuitGame(Player*, Packet::packet*); /* QUIT_ID */
+
+    /* Classement */
+    void sendClassement(Player*, std::vector<std::string>,std::vector<int>, std::vector<int>); /* SEND_CLASSEMENT_ID */
     
     //===========================SEND==========================================
     

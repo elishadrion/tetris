@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <random>
 
+class Player;
 #include "Player.hpp"
 #include "include/json.hpp"
 #include "common/Packet.hpp"
@@ -14,10 +15,10 @@
 
 class PlayerManager {
     std::vector<Player*> _connected;
-    std::vector<Player*> _players;
+    static std::vector<Player*> _players;
 public:
     PlayerManager() = default;
-    std::string getRanking();
+    static void sendRanking(Player*);
     void loadPlayers();
     void savePlayers() const;
     Player* signUp(std::string, std::string, int);
