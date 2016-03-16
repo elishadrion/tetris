@@ -29,6 +29,9 @@ class Player {
     std::string _password;
     Collection _collection;
 
+    unsigned getRatio() const;
+
+
 protected:
     std::vector<Deck*> _decks;
     unsigned _victories;
@@ -57,8 +60,8 @@ public:
     void logout();
 
     std::string serialise() const;
-    friend std::ostream& operator<<(std::ostream&, const Player&);
-    friend std::string& operator<<(std::string&, const Player&);
+    friend std::ostream& operator<<(std::ostream&, const Player&); // remove ?
+    friend std::string& operator<<(std::string&, const Player&); // remove ?
     bool operator==(const std::string&) const;
     bool operator<(const Player&) const;
     bool operator>(const Player&) const;

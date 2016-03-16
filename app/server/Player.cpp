@@ -17,6 +17,19 @@ Player::Player(nlohmann::json& info, int sockfd) : _sockfd(sockfd) {
 }
 
 /**
+ * Get the ration (victories/(victories+defeats))
+ */
+unsigned Player::getRatio() const {
+    unsigned res = 0;
+    unsigned total = getVictories()+getDefeats();
+    if(total > 0) {
+        res = getVictories()/total;
+    }
+
+    return res;
+}
+
+/**
  * Get the deck with this name
  *
  * @param deckname the name of the deck
@@ -65,7 +78,7 @@ Error Player::addDeck(Deck* deck) {
 }
 
 bool Player::operator<(const Player &other) const {
-    return ((*this).getVictories() < other.getVictories());
+    return this->getRatio() < other.getRatio();
 }
 
 bool Player::operator>(const Player &other) const {
@@ -85,20 +98,22 @@ std::string Player::serialise() const {
     info["collection"] = _collection.getCardsId();
     info["decks"];
     for (size_t i = 0; i < _decks.size(); ++i) {
-	nlohmann::json deck;
-	deck["deckName"] = _decks.at(i) -> getName();
-	deck["cards"] = _decks.at(i) -> getCardsId();
-	info["decks"].push_back(deck);
+        nlohmann::json deck;
+        deck["deckName"] = _decks.at(i)->getName();
+        deck["cards"] = _decks.at(i)->getCardsId();
+        info["decks"].push_back(deck);
     }
 
     return info.dump();
 }
 
+// Not used now
 std::ostream& operator<<(std::ostream& os, const Player& c) {
     os << c._username << c.getVictories() << "\t" << c.getDefeats() << "\n";
     return os;
 }
 
+// Not used now
 std::string& operator<<(std::string& str, const Player& c) {
     str.append(c.getName() + "\t\t" +
 	       std::to_string(c.getVictories()) + "\t\t" +
