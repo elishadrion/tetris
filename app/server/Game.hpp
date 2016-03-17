@@ -67,7 +67,7 @@ public:
     Error attackWithCardAffectPlayer(PlayerInGame*, CardMonster*);
     void nextPlayer();
 
-    void sendInfoAction(PlayerInGame*,int,int,bool,bool,unsigned);
+    void sendInfoAction(std::string, int, int, unsigned, bool, bool);
 
 
 private:

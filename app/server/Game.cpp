@@ -144,6 +144,7 @@ void Game::checkDeckAndStart() {
 /**
  * Adds a player to the waiting list
  * If there is more than one player who is waiting, then it creates a Game
+ * {STATIC}
  *
  * @param player the new player waiting
  */
@@ -167,6 +168,7 @@ void Game::addPlayerWaitGame(Player *player) {
 
 /**
  * Remove a player from the waiting list
+ * {STATIC}
  *
  * @param player the player to remove
  */
@@ -178,6 +180,14 @@ void Game::removePlayerWaitGame(Player *player) {
             PlayerWaitGame.end());
             WizardLogger::info(player->getName() + " n'attend plus de partie");
     }
+}
+
+
+/**
+ * Current player draw a card
+ */
+void Game::draw() {
+    draw(_currentPlayer);
 }
 
 
@@ -203,14 +213,6 @@ void Game::draw(PlayerInGame* pIG) {
 
 
 /**
- * Current player draw a card
- */
-void Game::draw() {
-    draw(_currentPlayer);
-}
-
-
-/**
  * Function when player place card and attack player
  *
  * @param pIG player who place the card
@@ -228,8 +230,9 @@ Error Game::placeCardAffectPlayer(PlayerInGame* pIG, Card* cardPlaced) {
             PlayerInGame* pAdverse = getAdversePlayer(pIG);
             cardPlaced->applyEffect(*pAdverse, *this);
             // Send information to clients
-            sendInfoAction(pIG, cardPlaced->getId(), -1, true, true, pAdverse->getHeal());
-            isPlayerInLife(pAdverse); // Is player inlife ?
+            sendInfoAction(pIG->getName(), cardPlaced->getId(), -1, pAdverse->getHeal(),
+                           true, !cardPlaced->isMonster());
+            isPlayerInLife(pAdverse); // Is player in life ?
         } else {
             res = Error::NotEffectForPlayer;
         }
@@ -258,7 +261,8 @@ Error Game::placeCard(PlayerInGame* pIG, Card* cardPlaced,
         cardPlaced->applyEffect(*targetCard, *this);
 
         // Send information to clients
-        sendInfoAction(pIG, cardPlaced->getId(), targetCard->getId(), true, true, targetCard->getLife());
+        sendInfoAction(pIG->getName(), cardPlaced->getId(), targetCard->getId(), targetCard->getLife(),
+                       true, !cardPlaced->isMonster());
     }
 
     return res;
@@ -283,7 +287,8 @@ Error Game::attackWithCard(PlayerInGame* pIG, CardMonster* card,
                 this->getAdversePlayer()->defausseCardPlaced(targetCard);
             }
 
-            sendInfoAction(pIG, card->getId(), targetCard->getId(), false, false, targetCard->getLife());
+            sendInfoAction(pIG->getName(), card->getId(), targetCard->getId(), targetCard->getLife(),
+                           false, false);
         } else {
             res = Error::MustAttackTaunt;
         }
@@ -310,7 +315,7 @@ Error Game::attackWithCardAffectPlayer(PlayerInGame* pIG,
             PlayerInGame* pAdverse = getAdversePlayer(pIG);
             card->dealDamage(*pAdverse);
 
-            sendInfoAction(pIG, card->getId(), -1, false, false, pAdverse->getHeal());
+            sendInfoAction(pIG->getName(), card->getId(), -1, pAdverse->getHeal(), false, false);
             isPlayerInLife(pAdverse);
         } else {
             res = Error::MustAttackTaunt;
@@ -345,17 +350,28 @@ void Game::nextPlayer() {
  * Send information
  *
  * @param pIG who play
- * @param cardWichAttack
- * @param attackCard card which is attack (-1 if player)
+ * @param cardID
+ * @param targetCard card which is attack (-1 if player)
+ * @param heal of the attack entity
  * @param isEffect is the attack an effect
  * @param newCard is the card new on the board
- * @param heal of the attack entity
+ * @param isCardEffect the card who attack is a card effect
  */
-void Game::sendInfoAction(PlayerInGame* pIG, int cardWichAttack, int attackCard,
-    bool isEffect, bool newCard, unsigned heal) {//TODO can't send all like these, seperate attack and spell
+void Game::sendInfoAction(std::string pseudo, int cardID, int targetCard, unsigned heal,
+    bool newCard, bool isCardEffect) {
 
-    PacketManager::sendAttack(_player1, pIG->getName(), attackCard, cardWichAttack, heal, isEffect, newCard);
-    PacketManager::sendAttack(_player2, pIG->getName(), attackCard, cardWichAttack, heal, isEffect, newCard);
+    if(!newCard) {
+        PacketManager::sendAttack(_player1, pseudo, cardID, targetCard, heal);
+        PacketManager::sendAttack(_player2, pseudo, cardID, targetCard, heal);
+    } else {
+        if(isCardEffect) {
+            PacketManager::sendPlaceSpellCard(_player1, pseudo, cardID, targetCard, heal);
+            PacketManager::sendPlaceSpellCard(_player2, pseudo, cardID, targetCard, heal);
+        } else {
+            PacketManager::sendPlaceMonsterCard(_player1, pseudo, cardID, targetCard, heal);
+            PacketManager::sendPlaceMonsterCard(_player2, pseudo, cardID, targetCard, heal);
+        }
+    }
 }
 
 
@@ -489,7 +505,7 @@ void Game::isPlayerInLife(PlayerInGame* pIG) {
         pAdverse->addWin();
 
 
-        bool p1Win = _player1 == pAdverse;
+        bool p1Win = (_player1 == pAdverse);
         int winCard = CardManager::chooseCardWin()->getId();
 
         PacketManager::sendEndGame(_player1, p1Win ? 1 : -1, p1Win ? winCard : -1);

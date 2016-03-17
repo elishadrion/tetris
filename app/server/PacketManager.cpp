@@ -72,15 +72,6 @@ void PacketManager::managePacket(Player *player, Packet::packet* customPacket) {
                                           break;
         case Packet::DROP_ID :            manageDrop(player, (Packet::intPacket*) customPacket);
                                           break;
-        case Packet::S_ATTACK_ID:         WizardLogger::warning("Packet d'attack d'une carte (serveur)");
-                                          break;
-        case Packet::S_PLACE_CARD_ID:     WizardLogger::warning("Packet pour poser une carte (serveur)");
-                                          break;
-        case Packet::S_PLACE_SPELL_ID:    WizardLogger::warning("Packet pour poser une carte sort (serveur)");
-                                          break;
-        case Packet::S_PLACE_CARD_MAKE_SPELL_ID:
-                                          WizardLogger::warning("Packet pour une carte placé avec un effet (serveur)");
-                                          break;
         case Packet::C_ATTACK_ID:
                                           break;
         case Packet::C_PLACE_CARD_ID:
@@ -89,6 +80,12 @@ void PacketManager::managePacket(Player *player, Packet::packet* customPacket) {
                                           break;
         case Packet::C_PLACE_CARD_MAKE_SPELL_ID:
 
+                                          break;
+        case Packet::S_ATTACK_ID:         WizardLogger::warning("Packet d'attack d'une carte (serveur)");
+                                          break;
+        case Packet::S_PLACE_CARD_ID:     WizardLogger::warning("Packet pour poser une carte (serveur)");
+                                          break;
+        case Packet::S_PLACE_SPELL_ID:    WizardLogger::warning("Packet pour poser une carte sort (serveur)");
                                           break;
         case Packet::END_TURN_ID :        manageEndTurn(player, customPacket);
                                           break;
@@ -378,7 +375,8 @@ void PacketManager::sendTurnInfo(PlayerInGame* current, PlayerInGame* adverse, b
 
 }
 
-/* Send draw card to the player
+/**
+ * Send draw card to the player
  * @param player : the player who to send this packet
  * @param card : new drawed card
  */
@@ -394,7 +392,8 @@ void PacketManager::sendCard(Player* player, Card* card) {
     delete drawPacket;
 }
 
-/* Ask player to drop a certain amount of card
+/**
+ * Ask player to drop a certain amount of card
  * @param player : the player who to send this packet
  * @param amount : nbr of card to drop
  */
@@ -410,7 +409,8 @@ void PacketManager::askDefausse(Player* player, int amount) {
     delete askDropPacket;
 }
 
-/* Send droped card to the player
+/**
+ * Send droped card to the player
  * @param player : the player who to send this packet
  * @param card : new droped card (-1 for sync)
  */
@@ -426,37 +426,74 @@ void PacketManager::sendDrop(Player* player, int ID) {
     delete dropPacket;
 }
 
+
 /**
- * Send attack informations
- * @param player : the player who to send this packet
- * @param pseudo : attacking player's pseudo
- * @param targetID : ID of the target (-1 for player, other for cardMonster)
- * @param cardWichAttack : Card which attack the other
- * @param finalLife : final life of the target after attack
+ * Call when card attack an other
+ *
+ * @param player player who must recieve information
+ * @param pseudo of the player who place
+ * @param cardID wich is placed
+ * @param targetCardID wich have dammage
+ * @param heal of the target card
  */
-void PacketManager::sendAttack(Player* player, std::string pseudo, int targetID, int cardWichAttack,
-                               unsigned int finalLife, bool isEffect, bool newCard) {
+void PacketManager::sendAttack(Player* player, std::string pseudo, int cardID, int targetCardID,
+                               unsigned heal) {
+    sendPrivateAttackPacket(player, pseudo, cardID, targetCardID, heal, Packet::S_ATTACK_ID);
+}
 
-    if(newCard) {
+/**
+ * Call when card monster is placed
+ *
+ * @param player player who must recieve information
+ * @param pseudo of the player who place
+ * @param cardID wich is placed
+ * @param targetCardID wich have dammage
+ * @param heal of the target card
+ */
+void PacketManager::sendPlaceMonsterCard(Player* player, std::string pseudo, int cardID, int targetCardID,
+                                         unsigned heal) {
+    sendPrivateAttackPacket(player, pseudo, cardID, targetCardID, heal, Packet::S_PLACE_CARD_ID);
+}
 
-    }
-    /*
-    Packet::attackPacket *attackPacket = new Packet::attackPacket();
-    
-    /* Set ID and other info *
-    attackPacket->ID = Packet::ATTACK_ID;
+/**
+ * Call when card spell is placed
+ *
+ * @param player player who must recieve information
+ * @param pseudo of the player who place
+ * @param cardID wich is placed
+ * @param targetCardID wich have dammage
+ * @param heal of the target card
+ */
+void PacketManager::sendPlaceSpellCard(Player* player, std::string pseudo, int cardID, int targetCardID,
+                                         unsigned heal) {
+    sendPrivateAttackPacket(player, pseudo, cardID, targetCardID, heal, Packet::S_PLACE_SPELL_ID);
+}
+
+/**
+ * PRIVATE function for place and attack packet
+ *
+ * @param player player who must recieve information
+ * @param pseudo of the player who place
+ * @param cardID wich is placed
+ * @param targetCardID wich have dammage
+ * @param heal of the target card
+ * @param PacketID specific which packet
+ */
+void PacketManager::sendPrivateAttackPacket(Player* player, std::string pseudo, int cardID, int targetCardID,
+                                     unsigned heal, int packetID) {
+    Packet::attackPacket* attackPacket = new Packet::attackPacket();
+
+    attackPacket->ID = packetID;
     for (int i = 0 ; i < pseudo.size() ; ++i) attackPacket->data.pseudo[i] = pseudo[i];
-    attackPacket->data.target = targetID;
-    attackPacket->data.ID = cardWichAttack;
-    attackPacket->data.finalLife = finalLife;
-    attackPacket->data.isEffect = isEffect;
-    attackPacket->data.isNewCard = newCard;
-    
-    /* Send and free *
+    attackPacket->data.idCard = cardID;
+    attackPacket->data.targetCard = targetCardID;
+    attackPacket->data.heal = heal;
+
+    /* Send and free */
     player->sendPacket((Packet::packet*) attackPacket, sizeof(*attackPacket));
     delete attackPacket;
-    */
 }
+
 
 /**
  * Send information about the new life of a player

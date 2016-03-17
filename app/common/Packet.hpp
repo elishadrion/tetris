@@ -47,17 +47,16 @@ public:
         ASK_DROP_ID = 73, /* Ask to drop a certain amount of card */
         DROP_ID = 74, /* A packet by droped card (use intPacket) */
         C_ATTACK_ID = 75, /* client - cTwoCardPacket */
-        C_PLACE_CARD_ID = 76, /* client - intPacket */
+        C_PLACE_CARD_ID = 76, /* client - intPacket - must may be removed */
         C_PLACE_SPELL_ID = 77, /* client - cTwoCardPacket */
         C_PLACE_CARD_MAKE_SPELL_ID = 78, /* client - cPlaceCardMakeSpellPacket */
-        S_ATTACK_ID = 79, /* server - sAttackPacket */
-        S_PLACE_CARD_ID = 80, /* server - pseudoIntPacket */
-        S_PLACE_SPELL_ID = 81, /* server - sAttackPacket */
-        S_PLACE_CARD_MAKE_SPELL_ID = 82, /* server - sPlaceCardMakeSpellPacket */
-        PLAYER_DAMAGE_ID = 83, /* damage when player havent card in deck - pseudoIntPacket */
-        END_TURN_ID = 84, /* Send to server to signal end of turn (DEFAULT PACKET) */
-        QUIT_ID = 85, /* DEFAULT PACKET */
-        END_GAME_ID = 86, /* !> use actionPacket */
+        S_ATTACK_ID = 79, /* server - attackPacket */
+        S_PLACE_SPELL_ID = 80, /* server - attackPacket */
+        S_PLACE_CARD_ID = 81, /* server - attackPacket */
+        PLAYER_DAMAGE_ID = 82, /* damage when player havent card in deck - pseudoIntPacket */
+        END_TURN_ID = 83, /* Send to server to signal end of turn (DEFAULT PACKET) */
+        QUIT_ID = 84, /* DEFAULT PACKET */
+        END_GAME_ID = 85, /* !> use actionPacket */
         ERROR_ID = 100 /* intPacket */
     };
     
@@ -223,20 +222,7 @@ public:
         } attackData;
         int size = sizeof(attackData);
         attackData data;
-    } sAttackPacket;
-
-    typedef struct {
-        int ID = S_PLACE_CARD_MAKE_SPELL_ID;
-        typedef struct {
-            char pseudo[MAX_PSEUDO_SIZE];
-            int idCard;
-            int targetCard;
-            int placedCard;
-            unsigned heal;
-        } placeMakeSpellData;
-        int size = sizeof(placeMakeSpellData);
-        placeMakeSpellData data;
-    } sPlaceCardMakeSpellPacket;
+    } attackPacket;
 
 
 

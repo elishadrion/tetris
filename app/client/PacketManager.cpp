@@ -69,14 +69,6 @@ void PacketManager::managePacket(Packet::packet* customPacket) {
                                           break;
         case Packet::DROP_ID :            WizardLogger::warning("Paquet de drop reçu");
                                           break;
-        case Packet::S_ATTACK_ID:
-                                          break;
-        case Packet::S_PLACE_CARD_ID:
-                                          break;
-        case Packet::S_PLACE_SPELL_ID:
-                                          break;
-        case Packet::S_PLACE_CARD_MAKE_SPELL_ID:
-                                          break;
         case Packet::C_ATTACK_ID:         WizardLogger::warning("Packet d'attack d'une carte (client)");
                                           break;
         case Packet::C_PLACE_CARD_ID:     WizardLogger::warning("Packet pour poser une carte (client)");
@@ -86,9 +78,12 @@ void PacketManager::managePacket(Packet::packet* customPacket) {
         case Packet::C_PLACE_CARD_MAKE_SPELL_ID:
                                           WizardLogger::warning("Packet pour une carte placé avec un effet (client)");
                                           break;
-
-//        case Packet::ATTACK_ID :          manageAttack((Packet::attackPacket*) customPacket);
-//                                          break;
+        case Packet::S_ATTACK_ID:
+                                          break;
+        case Packet::S_PLACE_CARD_ID:
+                                          break;
+        case Packet::S_PLACE_SPELL_ID:
+                                          break;
         case Packet::END_TURN_ID :        WizardLogger::warning("Paquet de fin de tour reçu");
                                           break;
         case Packet::QUIT_ID :            WizardLogger::warning("Paquet de fin de partie (quit) reçu");
