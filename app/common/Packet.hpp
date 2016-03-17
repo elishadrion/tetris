@@ -211,15 +211,15 @@ public:
             int targetCard;
             unsigned heal;
         } attackData;
-        attackData data;
         int size = sizeof(attackData);
+        attackData data;
     } sAttackPacket;
 
     typedef struct {
         int ID = S_PLACE_CARD_ID;
+        int size = (sizeof(char)*MESSAGES_MAX_SIZE)+sizeof(int);
         char pseudo[MESSAGES_MAX_SIZE];
         int idCard;
-        int size = (sizeof(char)*MESSAGES_MAX_SIZE)+sizeof(int);
     } sPlaceCardPacket;
 
     typedef struct {
@@ -231,8 +231,8 @@ public:
             int placedCard;
             unsigned heal;
         } placeMakeSpellData;
-        placeMakeSpellData data;
         int size = sizeof(placeMakeSpellData);
+        placeMakeSpellData data;
     } sPlaceCardMakeSpellPacket;
 
 
