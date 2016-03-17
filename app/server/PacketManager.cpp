@@ -434,46 +434,46 @@ void PacketManager::sendDrop(Player* player, int ID) {
  * @param cardWichAttack : Card which attack the other
  * @param finalLife : final life of the target after attack
  */
-//void PacketManager::sendAttack(Player* player, std::string pseudo, int targetID, int cardWichAttack,
-//                               unsigned int finalLife, bool isEffect, bool newCard) {
-//    Packet::attackPacket *attackPacket = new Packet::attackPacket();
+void PacketManager::sendAttack(Player* player, std::string pseudo, int targetID, int cardWichAttack,
+                               unsigned int finalLife, bool isEffect, bool newCard) {
+
+    if(newCard) {
+
+    }
+    /*
+    Packet::attackPacket *attackPacket = new Packet::attackPacket();
     
-//    /* Set ID and other info */
-//    attackPacket->ID = Packet::ATTACK_ID;
-//    for (int i = 0 ; i < pseudo.size() ; ++i) attackPacket->data.pseudo[i] = pseudo[i];
-//    attackPacket->data.target = targetID;
-//    attackPacket->data.ID = cardWichAttack;
-//    attackPacket->data.finalLife = finalLife;
-//    attackPacket->data.isEffect = isEffect;
-//    attackPacket->data.isNewCard = newCard;
+    /* Set ID and other info *
+    attackPacket->ID = Packet::ATTACK_ID;
+    for (int i = 0 ; i < pseudo.size() ; ++i) attackPacket->data.pseudo[i] = pseudo[i];
+    attackPacket->data.target = targetID;
+    attackPacket->data.ID = cardWichAttack;
+    attackPacket->data.finalLife = finalLife;
+    attackPacket->data.isEffect = isEffect;
+    attackPacket->data.isNewCard = newCard;
     
-//    /* Send and free */
-//    player->sendPacket((Packet::packet*) attackPacket, sizeof(*attackPacket));
-//    delete attackPacket;
-//}
+    /* Send and free *
+    player->sendPacket((Packet::packet*) attackPacket, sizeof(*attackPacket));
+    delete attackPacket;
+    */
+}
 
 /**
- * Send spell informations
- * @param player : the player who to send this packet
- * @param pseudo : attacking player's pseudo
- * @param ID : Card which do spell
- * @param targetID : ID of the target (-1 for player, other for cardMonster)
- * @param finalLife : final life of the target after attack
+ * Send information about the new life of a player
+ * @param player the play who to send this packet
+ * @param pseudo who loose life
+ * @param life new life of the player
  */
-//void PacketManager::sendSpell(Player* player, std::string pseudo, int ID, int targetID, unsigned int finalLife) {
-//    Packet::attackPacket *spellPacket = new Packet::attackPacket();
-    
-//    /* Set ID and other info */
-//    spellPacket->ID = Packet::SPELL_ID;
-//    for (int i = 0 ; i < pseudo.size() ; ++i) spellPacket->data.pseudo[i] = pseudo[i];
-//    spellPacket->data.ID = ID;
-//    spellPacket->data.target = targetID;
-//    spellPacket->data.finalLife = finalLife;
-    
-//    /* Send and free */
-//    player->sendPacket((Packet::packet*) spellPacket, sizeof(*spellPacket));
-//    delete spellPacket;
-//}
+void PacketManager::playerDamage(Player* player, std::string pseudo, int life) {
+    Packet::pseudoIntPacket* playerDamage = new Packet::pseudoIntPacket();
+
+    playerDamage->ID = Packet::PLAYER_DAMAGE_ID;
+    for (int i = 0 ; i < pseudo.size() ; ++i) playerDamage->pseudo[i] = pseudo[i];
+    playerDamage->data = life;
+
+    player->sendPacket((Packet::packet*) playerDamage, sizeof(*playerDamage));
+    delete playerDamage;
+}
 
 
 

@@ -69,7 +69,7 @@ namespace PacketManager {
     void sendCard(Player*, Card*); /* DRAW_ID (nullptr for other player sync) */
     void askDefausse(Player*, int); /* ASK_DROP_ID */
     void sendDrop(Player*, int); /* DROP_ID (for second player sync, amount of drop) */
-//    void sendAttack(Player*, std::string, int, int, unsigned int, bool, bool); /* ATTACK_ID (out) */
-    //void sendSpell(Player*, std::string, int, int, unsigned int); /* SPELL_ID (out) */
+    void sendAttack(Player*, std::string, int, int, unsigned int, bool, bool); /* ATTACK_ID (out) */
+    void playerDamage(Player*, std::string, int); /* PLAYER_DAMAGE_ID */
     void sendEndGame(Player*, int, int); /* END_GAME_ID (-1: lose | 0: null | 1:win + new card) */
 }

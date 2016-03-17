@@ -51,12 +51,14 @@ public:
         C_PLACE_SPELL_ID = 77, /* client - cTwoCardPacket */
         C_PLACE_CARD_MAKE_SPELL_ID = 78, /* client - cPlaceCardMakeSpellPacket */
         S_ATTACK_ID = 79, /* server - sAttackPacket */
-        S_PLACE_CARD_ID = 80, /* server - sPlaceCardPacket */
+        S_PLACE_CARD_ID = 80, /* server - pseudoIntPacket */
         S_PLACE_SPELL_ID = 81, /* server - sAttackPacket */
         S_PLACE_CARD_MAKE_SPELL_ID = 82, /* server - sPlaceCardMakeSpellPacket */
-        END_TURN_ID = 83, /* Send to server to signal end of turn (DEFAULT PACKET) */
-        QUIT_ID = 84, /* DEFAULT PACKET */
-        END_GAME_ID = 85 /* !> use actionPacket */
+        PLAYER_DAMAGE_ID = 83, /* pseudoIntPacket */
+        END_TURN_ID = 84, /* Send to server to signal end of turn (DEFAULT PACKET) */
+        QUIT_ID = 85, /* DEFAULT PACKET */
+        END_GAME_ID = 86, /* !> use actionPacket */
+        ERROR_ID = 100 /* intPacket */
     };
     
     /* Default size of all packets (without data) */
@@ -81,6 +83,14 @@ public:
         int size = sizeof(char)*MAX_PSEUDO_SIZE;
         char pseudo[MAX_PSEUDO_SIZE];
     } pseudoPacket;
+
+    typedef struct {
+        int ID = S_PLACE_CARD_ID;
+        int size = (sizeof(char)*MAX_PSEUDO_SIZE)+sizeof(int);
+        char pseudo[MAX_PSEUDO_SIZE];
+        int data;
+    } pseudoIntPacket;
+
 
 //=========================LOGIN PROCESS==================================
 
@@ -206,7 +216,7 @@ public:
     typedef struct {
         int ID;
         typedef struct {
-            char pseudo[MESSAGES_MAX_SIZE];
+            char pseudo[MAX_PSEUDO_SIZE];
             int idCard;
             int targetCard;
             unsigned heal;
@@ -216,16 +226,9 @@ public:
     } sAttackPacket;
 
     typedef struct {
-        int ID = S_PLACE_CARD_ID;
-        int size = (sizeof(char)*MESSAGES_MAX_SIZE)+sizeof(int);
-        char pseudo[MESSAGES_MAX_SIZE];
-        int idCard;
-    } sPlaceCardPacket;
-
-    typedef struct {
         int ID = S_PLACE_CARD_MAKE_SPELL_ID;
         typedef struct {
-            char pseudo[MESSAGES_MAX_SIZE];
+            char pseudo[MAX_PSEUDO_SIZE];
             int idCard;
             int targetCard;
             int placedCard;
@@ -249,6 +252,7 @@ public:
         int size = sizeof(classementData);
         classementData data;
     } ClassementPacket;
+
 
 //========================================================================
     

@@ -192,7 +192,8 @@ void Game::draw(PlayerInGame* pIG) {
         pIG->takeDamage(4);
         isPlayerInLife();
 
-        // TO DO @tutul send player damage ?
+        PacketManager::playerDamage(_player1, pIG->getName(), pIG->getHeal());
+        PacketManager::playerDamage(_player2, pIG->getName(), pIG->getHeal());
 
     } else {
         PacketManager::sendCard(pIG, res);
