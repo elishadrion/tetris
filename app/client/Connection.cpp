@@ -38,7 +38,11 @@ Connection::Connection(char* hostName) {
 
         /* Configure socket to use TCP keepalive protocole */
         setsockopt(_clientSocket, SOL_SOCKET, SO_KEEPALIVE, &_keepon, sizeof(_keepon));
+        #ifdef __linux__
+        setsockopt(_clientSocket, IPPROTO_TCP, TCP_KEEPIDLE, &_keepidle, sizeof(_keepidle));
+        #else
         setsockopt(_clientSocket, IPPROTO_TCP, TCP_KEEPIDLE_ALL, &_keepidle, sizeof(_keepidle));
+        #endif
         setsockopt(_clientSocket, IPPROTO_TCP, TCP_KEEPCNT, &_keepcnt, sizeof(_keepcnt));
         setsockopt(_clientSocket, IPPROTO_TCP, TCP_KEEPINTVL, &_keepintvl, sizeof(_keepintvl));
 

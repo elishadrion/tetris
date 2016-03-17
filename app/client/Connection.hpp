@@ -22,7 +22,9 @@ class Connection {
     int _clientSocket;
     
     /* TCP keepalive OSX compatibility (@carlos) */
+    #ifdef __APPLE__
     int TCP_KEEPIDLE_ALL = 1;
+    #endif
 
     /* Active TCP keep alive protocole */
     int _keepon = 1;

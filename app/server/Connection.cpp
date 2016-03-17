@@ -77,7 +77,11 @@ void Connection::mainLoop() {
 
             /* Configure socket to use TCP keepalive protocole */
             setsockopt(clientSocket, SOL_SOCKET, SO_KEEPALIVE, &_keepon, sizeof(_keepon));
+            #ifdef __linux__
+            setsockopt(clientSocket, IPPROTO_TCP, TCP_KEEPIDLE, &_keepidle, sizeof(_keepidle));
+            #else
             setsockopt(clientSocket, IPPROTO_TCP, TCP_KEEPIDLE_ALL, &_keepidle, sizeof(_keepidle));
+            #endif
             setsockopt(clientSocket, IPPROTO_TCP, TCP_KEEPCNT, &_keepcnt, sizeof(_keepcnt));
             setsockopt(clientSocket, IPPROTO_TCP, TCP_KEEPINTVL, &_keepintvl, sizeof(_keepintvl));
 
