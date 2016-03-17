@@ -58,6 +58,18 @@ public:
     /* Start game with player in param */
     virtual void launchGame(std::string) {}
 
+    /* Call when a card is placed */
+    virtual void placeCard(bool adverse, int cardId) {}
+
+    /* Call when a spell card is placed */
+    virtual void placeSpellCard(bool adverse, int cardId) {}
+
+    /* Call when a card is placed and attack other card with spell */
+    virtual void placeCardAndSpell(bool adverse, int cardId, int attackCard, unsigned heal) {}
+
+    /* Call when a card attack an other card */
+    virtual void attackCard(bool adverse, int cardMakeAttack, int attackCard, unsigned heal) {}
+
 };
 
 #endif  /* WIZARDDISPLAY_HPP */

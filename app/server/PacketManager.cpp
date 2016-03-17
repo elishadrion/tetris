@@ -8,9 +8,11 @@ void PacketManager::managePacket(Player *player, Packet::packet* customPacket) {
     /* We get ID of the packet after cast void* to packet* */
     switch(customPacket->ID) {
         /* Login process */
-        case Packet::LOGIN_REQ_ID :       WizardLogger::warning("ATTENTION, les requêtes de login doivent directement être gérée");
+        case Packet::LOGIN_REQ_ID :       WizardLogger::warning(
+                                            "ATTENTION, les requêtes de login doivent directement être gérée");
                                           break;
-        case Packet::REGIST_REQ_ID :      WizardLogger::warning("ATTENTION, les requêtes d'inscription doivent directement être gérée");
+        case Packet::REGIST_REQ_ID :      WizardLogger::warning(
+                                            "ATTENTION, les requêtes d'inscription doivent directement être gérée");
                                           break;
         case Packet::LOGIN_RES_ID :       WizardLogger::warning("Paquet de résolution de login reçu");
                                           break;
@@ -70,9 +72,23 @@ void PacketManager::managePacket(Player *player, Packet::packet* customPacket) {
                                           break;
         case Packet::DROP_ID :            manageDrop(player, (Packet::intPacket*) customPacket);
                                           break;
-        case Packet::ATTACK_ID :          manageAttack(player, (Packet::attackPacket*) customPacket);
+        case Packet::S_ATTACK_ID:         WizardLogger::warning("Packet d'attack d'une carte (serveur)");
                                           break;
-        case Packet::SPELL_ID :           manageSpell(player, (Packet::attackPacket*) customPacket);
+        case Packet::S_PLACE_CARD_ID:     WizardLogger::warning("Packet pour poser une carte (serveur)");
+                                          break;
+        case Packet::S_PLACE_SPELL_ID:    WizardLogger::warning("Packet pour poser une carte sort (serveur)");
+                                          break;
+        case Packet::S_PLACE_CARD_MAKE_SPELL_ID:
+                                          WizardLogger::warning("Packet pour une carte placé avec un effet (serveur)");
+                                          break;
+        case Packet::C_ATTACK_ID:
+                                          break;
+        case Packet::C_PLACE_CARD_ID:
+                                          break;
+        case Packet::C_PLACE_SPELL_ID:
+                                          break;
+        case Packet::C_PLACE_CARD_MAKE_SPELL_ID:
+
                                           break;
         case Packet::END_TURN_ID :        manageEndTurn(player, customPacket);
                                           break;
@@ -285,13 +301,18 @@ void PacketManager::manageDrop(Player* player, Packet::intPacket* dropIDPacket) 
     //TODO tell Game wich card is drop
 }
 
-void PacketManager::manageAttack(Player* player, Packet::attackPacket* attackPacket) {
-    //TODO tell Game about attack
-}
+//void PacketManager::manageAttack(Player* player, Packet::attackPacket* attackPacket) {
+//    //TODO tell Game about attack
 
-void PacketManager::manageSpell(Player* player, Packet::attackPacket* spellPacket) {
-    //TODO tell Game about spell
-}
+//    if(player->isPlayerInGame()) {
+//        PlayerInGame* pIG = static_cast<PlayerInGame*>(player);
+//    }
+
+//}
+
+//void PacketManager::manageSpell(Player* player, Packet::attackPacket* spellPacket) {
+//    //TODO tell Game about spell
+//}
 
 void PacketManager::manageEndTurn(Player* player, Packet::packet* packet) {
     //TODO tell Game about end of turn
@@ -308,7 +329,7 @@ void PacketManager::manageQuitGame(Player* player, Packet::packet* packet) {
  * @param ennemyInGame : the ennemy player (in-game)
  */
 void PacketManager::sendTurnInfo(PlayerInGame* current, PlayerInGame* adverse, bool hisTurn) {
-    //TODO Send all info for sync
+    //TODO modification because inutilised information
 
     Packet::turnPacket *turnPacket =  new Packet::turnPacket();
 
@@ -413,20 +434,23 @@ void PacketManager::sendDrop(Player* player, int ID) {
  * @param cardWichAttack : Card which attack the other
  * @param finalLife : final life of the target after attack
  */
-void PacketManager::sendAttack(Player* player, std::string pseudo, int targetID, int cardWichAttack, unsigned int finalLife) {
-    Packet::attackPacket *attackPacket = new Packet::attackPacket();
+//void PacketManager::sendAttack(Player* player, std::string pseudo, int targetID, int cardWichAttack,
+//                               unsigned int finalLife, bool isEffect, bool newCard) {
+//    Packet::attackPacket *attackPacket = new Packet::attackPacket();
     
-    /* Set ID and other info */
-    attackPacket->ID = Packet::ATTACK_ID;
-    for (int i = 0 ; i < pseudo.size() ; ++i) attackPacket->data.pseudo[i] = pseudo[i];
-    attackPacket->data.target = targetID;
-    attackPacket->data.ID = cardWichAttack;
-    attackPacket->data.finalLife = finalLife;
+//    /* Set ID and other info */
+//    attackPacket->ID = Packet::ATTACK_ID;
+//    for (int i = 0 ; i < pseudo.size() ; ++i) attackPacket->data.pseudo[i] = pseudo[i];
+//    attackPacket->data.target = targetID;
+//    attackPacket->data.ID = cardWichAttack;
+//    attackPacket->data.finalLife = finalLife;
+//    attackPacket->data.isEffect = isEffect;
+//    attackPacket->data.isNewCard = newCard;
     
-    /* Send and free */
-    player->sendPacket((Packet::packet*) attackPacket, sizeof(*attackPacket));
-    delete attackPacket;
-}
+//    /* Send and free */
+//    player->sendPacket((Packet::packet*) attackPacket, sizeof(*attackPacket));
+//    delete attackPacket;
+//}
 
 /**
  * Send spell informations
@@ -436,22 +460,25 @@ void PacketManager::sendAttack(Player* player, std::string pseudo, int targetID,
  * @param targetID : ID of the target (-1 for player, other for cardMonster)
  * @param finalLife : final life of the target after attack
  */
-void PacketManager::sendSpell(Player* player, std::string pseudo, int ID, int targetID, unsigned int finalLife) {
-    Packet::attackPacket *spellPacket = new Packet::attackPacket();
+//void PacketManager::sendSpell(Player* player, std::string pseudo, int ID, int targetID, unsigned int finalLife) {
+//    Packet::attackPacket *spellPacket = new Packet::attackPacket();
     
-    /* Set ID and other info */
-    spellPacket->ID = Packet::SPELL_ID;
-    for (int i = 0 ; i < pseudo.size() ; ++i) spellPacket->data.pseudo[i] = pseudo[i];
-    spellPacket->data.ID = ID;
-    spellPacket->data.target = targetID;
-    spellPacket->data.finalLife = finalLife;
+//    /* Set ID and other info */
+//    spellPacket->ID = Packet::SPELL_ID;
+//    for (int i = 0 ; i < pseudo.size() ; ++i) spellPacket->data.pseudo[i] = pseudo[i];
+//    spellPacket->data.ID = ID;
+//    spellPacket->data.target = targetID;
+//    spellPacket->data.finalLife = finalLife;
     
-    /* Send and free */
-    player->sendPacket((Packet::packet*) spellPacket, sizeof(*spellPacket));
-    delete spellPacket;
-}
+//    /* Send and free */
+//    player->sendPacket((Packet::packet*) spellPacket, sizeof(*spellPacket));
+//    delete spellPacket;
+//}
 
-/* Send end game signal (victory or defeat)
+
+
+/**
+ * Send end game signal (victory or defeat)
  * @param player : the player who to send this packet
  * @param victory : 1 say win, -1 lose and 0 if player disconnect
  * @param card : card's ID win

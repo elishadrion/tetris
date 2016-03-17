@@ -46,13 +46,17 @@ public:
         DRAW_ID = 72, /* intPacket */
         ASK_DROP_ID = 73, /* Ask to drop a certain amount of card */
         DROP_ID = 74, /* A packet by droped card (use intPacket) */
-        ATTACK_ID = 75, /* send attacker, target's ID (-1 for player) */
-        SPELL_ID = 76, /* send wizard, speel's ID */
-        POSE_ID = 77, /* Signal a new posed card */
-        UNPOSE_ID = 78, /* Signal a new remove card */
-        END_TURN_ID = 79, /* Send to server to signal end of turn (DEFAULT PACKET) */
-        QUIT_ID = 80, /* DEFAULT PACKET */
-        END_GAME_ID = 81, /* !> use actionPacket */
+        C_ATTACK_ID = 75, /* client - cTwoCardPacket */
+        C_PLACE_CARD_ID = 76, /* client - intPacket */
+        C_PLACE_SPELL_ID = 77, /* client - cTwoCardPacket */
+        C_PLACE_CARD_MAKE_SPELL_ID = 78, /* client - cPlaceCardMakeSpellPacket */
+        S_ATTACK_ID = 79, /* server - sAttackPacket */
+        S_PLACE_CARD_ID = 80, /* server - sPlaceCardPacket */
+        S_PLACE_SPELL_ID = 81, /* server - sAttackPacket */
+        S_PLACE_CARD_MAKE_SPELL_ID = 82, /* server - sPlaceCardMakeSpellPacket */
+        END_TURN_ID = 83, /* Send to server to signal end of turn (DEFAULT PACKET) */
+        QUIT_ID = 84, /* DEFAULT PACKET */
+        END_GAME_ID = 85 /* !> use actionPacket */
     };
     
     /* Default size of all packets (without data) */
@@ -149,14 +153,6 @@ public:
         int size = sizeof(char)*MAX_DECK_NAME;
         char deck[MAX_DECK_NAME];
     } deckPacket;
-    
-    /* Posed or unposed card from game */
-    typedef struct {
-        int ID;
-        int size = sizeof(int)+sizeof(char)*MAX_PSEUDO_SIZE;
-        int cardId; /* Card posed or unposed */
-        char pseudo[MAX_PSEUDO_SIZE]; /* Player's pseudo */
-    } poseCardPacket;
 
     /* Send all data for sync to the client when turn change */
     typedef struct {
@@ -180,19 +176,6 @@ public:
         turnData data;
     } turnPacket;
     
-    /* Packet for attack or play spell (or win game) */
-    typedef struct {
-        int ID;
-        typedef struct {
-            char pseudo[MESSAGES_MAX_SIZE]; /* Player doing attack or spell or winning */
-            int ID; /* monster doing attack or spell */
-            int target; /* Target card ID (-1 for player) OR ID for spell card to play (or win card) */
-            unsigned finalLife; /* Final life of the target */
-        } attackData;
-        int size = sizeof(attackData);
-        attackData data;
-    } attackPacket;
-    
     /* Inform about end of the game */
     typedef struct {
         int ID = END_GAME_ID;
@@ -203,6 +186,55 @@ public:
         int size = sizeof(winData);
         winData data;
     } endGamePacket;
+
+    typedef struct {
+        int ID;
+        int size = sizeof(int)*2;
+        int cardId; /* Card who make attack */
+        int targetCard; /* Card target */
+    } cTwoCardPacket;
+
+    typedef struct {
+        int ID = C_PLACE_CARD_MAKE_SPELL_ID;
+        int size = sizeof(int)*3;
+        int idCard;
+        int targetCard;
+        int placedCard;
+    } cPlaceCardMakeSpellPacket;
+
+
+    typedef struct {
+        int ID;
+        typedef struct {
+            char pseudo[MESSAGES_MAX_SIZE];
+            int idCard;
+            int targetCard;
+            unsigned heal;
+        } attackData;
+        attackData data;
+        int size = sizeof(attackData);
+    } sAttackPacket;
+
+    typedef struct {
+        int ID = S_PLACE_CARD_ID;
+        char pseudo[MESSAGES_MAX_SIZE];
+        int idCard;
+        int size = (sizeof(char)*MESSAGES_MAX_SIZE)+sizeof(int);
+    } sPlaceCardPacket;
+
+    typedef struct {
+        int ID = S_PLACE_CARD_MAKE_SPELL_ID;
+        typedef struct {
+            char pseudo[MESSAGES_MAX_SIZE];
+            int idCard;
+            int targetCard;
+            int placedCard;
+            unsigned heal;
+        } placeMakeSpellData;
+        placeMakeSpellData data;
+        int size = sizeof(placeMakeSpellData);
+    } sPlaceCardMakeSpellPacket;
+
 
 
 //============================ CLASSEMENT ================================

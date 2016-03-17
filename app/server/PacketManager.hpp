@@ -39,8 +39,8 @@ namespace PacketManager {
     
     /* Game process */
     void manageDrop(Player*, Packet::intPacket*); /* DROP_ID */
-    void manageAttack(Player*, Packet::attackPacket*); /* ATTACK_ID (in) */
-    void manageSpell(Player*, Packet::attackPacket*); /* SPELL_ID (in) */
+//    void manageAttack(Player*, Packet::attackPacket*); /* ATTACK_ID (in) */
+//    void manageSpell(Player*, Packet::attackPacket*); /* SPELL_ID (in) */
     void manageEndTurn(Player*, Packet::packet*); /* END_TURN_ID */
     void manageQuitGame(Player*, Packet::packet*); /* QUIT_ID */
 
@@ -69,7 +69,7 @@ namespace PacketManager {
     void sendCard(Player*, Card*); /* DRAW_ID (nullptr for other player sync) */
     void askDefausse(Player*, int); /* ASK_DROP_ID */
     void sendDrop(Player*, int); /* DROP_ID (for second player sync, amount of drop) */
-    void sendAttack(Player*, std::string, int, int, unsigned int); /* ATTACK_ID (out) */
-    void sendSpell(Player*, std::string, int, int, unsigned int); /* SPELL_ID (out) */
+//    void sendAttack(Player*, std::string, int, int, unsigned int, bool, bool); /* ATTACK_ID (out) */
+    //void sendSpell(Player*, std::string, int, int, unsigned int); /* SPELL_ID (out) */
     void sendEndGame(Player*, int, int); /* END_GAME_ID (-1: lose | 0: null | 1:win + new card) */
 }

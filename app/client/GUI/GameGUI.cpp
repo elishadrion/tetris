@@ -99,7 +99,7 @@ GameGUI::GameGUI() : QMainWindow() {
 
 
     // Tchat
-    ChatManagerGUI* tchat = new ChatManagerGUI(this);
+    ChatManagerGUI* tchat = new ChatManagerGUI(0);
 
     _gridlayout->addWidget(tchat, 0, 13, 6, 3);
 

@@ -41,8 +41,8 @@ namespace PacketManager {
     void setTurn(const Packet::turnPacket*); /* TURN_ID */
     void setDraw(const Packet::intPacket*); /* DRAW_ID */
     void askDrop(const Packet::intPacket*); /* ASK_DROP_ID */
-    void manageAttack(const Packet::attackPacket*); /* ATTACK_ID (in) */
-    void manageSpell(const Packet::attackPacket*); /* SPELL_ID (in) */
+    //void manageAttack(const Packet::attackPacket*); /* ATTACK_ID (in) */
+    //void manageSpell(const Packet::attackPacket*); /* SPELL_ID (in) */
     void manageEndGame(const Packet::endGamePacket*); /* END_GAME_ID */
     
     //============================SEND======================================
@@ -72,8 +72,9 @@ namespace PacketManager {
     
     /* Game process */
     void sendDrop(const int); /* DROP_ID */
-    void sendAttack(const int, const int); /* ATTACK_ID (out) */
-    void sendSpell(const int, const int); /* SPELL_ID (out) */
+//    void sendPlaceCard(const int, const int); /* ATTACK_ID */
+//    void sendAttack(const int, const int); /* ATTACK_ID (out) */
+    //void sendSpell(const int, const int); /* SPELL_ID (out) */
     void endTurn(); /* END_TURN_ID */
     void quit(); /* QUIT_ID */
 }

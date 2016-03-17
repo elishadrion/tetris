@@ -128,7 +128,8 @@ void Game::checkDeckAndStart() {
         /*
             send CardInHand
              => sendStartTurnInfo(Player*, dataIGPlayer, std::std::vector<CardMonster*>, int, int, int)
-             with current player info, ennemy placed card, ennemy card in hand, ennemy card in deck (and ennemy card in trash ?)
+             with current player info, ennemy placed card, ennemy card in hand, ennemy card in deck
+                (and ennemy card in trash ?)
                 [you must send both packet, the first start the game and the second start the player turn
                  OR we add ataIGPlayer in the initGame, you choose]
 
@@ -330,7 +331,7 @@ void Game::nextPlayer() {
         ++_turn;
     }
     _currentPlayer->addMaxEnergy();
-    int energie = _currentPlayer->resetEnergy();
+    _currentPlayer->resetEnergy();
 
     PacketManager::sendTurnInfo(_player1, _player2, _currentPlayer==_player1);
     PacketManager::sendTurnInfo(_player2, _player1, _currentPlayer==_player2);
@@ -345,14 +346,15 @@ void Game::nextPlayer() {
  * @param pIG who play
  * @param cardWichAttack
  * @param attackCard card which is attack (-1 if player)
+ * @param isEffect is the attack an effect
+ * @param newCard is the card new on the board
  * @param heal of the attack entity
  */
 void Game::sendInfoAction(PlayerInGame* pIG, int cardWichAttack, int attackCard,
     bool isEffect, bool newCard, unsigned heal) {//TODO can't send all like these, seperate attack and spell
-    //PacketManager::sendAttack(_player1, pIG->getName(),
-        //cardWichAttack, isEffect, newCard, attackCard, heal);
-    //PacketManager::sendAttack(_player2, pIG->getName(),
-        //cardWichAttack, isEffect, newCard, attackCard, heal);
+
+    PacketManager::sendAttack(_player1, pIG->getName(), attackCard, cardWichAttack, heal, isEffect, newCard);
+    PacketManager::sendAttack(_player2, pIG->getName(), attackCard, cardWichAttack, heal, isEffect, newCard);
 }
 
 

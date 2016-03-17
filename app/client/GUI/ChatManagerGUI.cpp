@@ -1,6 +1,6 @@
 #include "ChatManagerGUI.hpp"
 
-ChatManagerGUI::ChatManagerGUI(QWidget* parent): QWidget(parent) {
+ChatManagerGUI::ChatManagerGUI(QWidget* parent = 0): QWidget(parent) {
 
     _layout = new QGridLayout(this);
     _tab = new QTabWidget(this);
@@ -29,6 +29,8 @@ ChatManagerGUI::ChatManagerGUI(QWidget* parent): QWidget(parent) {
 
     connect(_friends, SIGNAL(itemDoubleClicked(QListWidgetItem*)), this, SLOT(newTab(QListWidgetItem*)));
 }
+
+
 
 void ChatManagerGUI::closeTab(int i){
     _tab->removeTab(i);

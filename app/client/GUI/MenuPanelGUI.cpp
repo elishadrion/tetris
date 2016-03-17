@@ -41,6 +41,10 @@ MenuPanelGUI::MenuPanelGUI(GUI* parent) : QMainWindow() {
     QObject::connect(_quitter, SIGNAL(clicked()), this, SLOT(quitApp()));
 
 
+    // Tchat
+    QWidget* tchat = new ChatManagerGUI(0);
+
+
     _layout = new QGridLayout;
     _layout->addWidget(_gameStart);
     _layout->addWidget(_checkCollection);
@@ -51,15 +55,19 @@ MenuPanelGUI::MenuPanelGUI(GUI* parent) : QMainWindow() {
 
 
     _layoutOfLayout = new QGridLayout(centralWidget);
-    _layoutOfLayout->addLayout(_layout,1,1);
+    _layoutOfLayout->addLayout(_layout,2,1);
+    _layoutOfLayout->addWidget(tchat, 1, 3, 2, 1);
 
 
-    _layoutOfLayout->setRowStretch(0, 2);
-    _layoutOfLayout->setRowStretch(1, 3);
-    _layoutOfLayout->setRowStretch(2, 1);
-    _layoutOfLayout->setColumnStretch(0, 1);
-    _layoutOfLayout->setColumnStretch(1, 2);
-    _layoutOfLayout->setColumnStretch(2, 1);
+    _layoutOfLayout->setRowStretch(0, 1);
+    _layoutOfLayout->setRowStretch(1, 1);
+    _layoutOfLayout->setRowStretch(2, 3);
+    _layoutOfLayout->setRowStretch(3, 1);
+
+    _layoutOfLayout->setColumnStretch(0, 5);
+    _layoutOfLayout->setColumnStretch(1, 9);
+    _layoutOfLayout->setColumnStretch(2, 2);
+    _layoutOfLayout->setColumnStretch(3, 3);
 
 
     showMaximized();

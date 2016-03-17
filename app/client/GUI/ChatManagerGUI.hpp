@@ -10,6 +10,8 @@
 #include <QGridLayout>
 #include "ChatWidget.hpp"
 
+#include "common/WizardLogger.hpp"
+
 class ChatManagerGUI : public QWidget {
     Q_OBJECT
 
