@@ -75,6 +75,7 @@ public:
     bool operator<(const Player&) const;
     bool operator>(const Player&) const;
 
+    void removePlayerInGame(PlayerInGame*);
     void overwrite(const Player&);
 
 

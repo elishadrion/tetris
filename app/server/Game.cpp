@@ -391,33 +391,6 @@ void Game::endTurn() {
 
 }
 
-/*
- * Function when the game is init to
- * send information to all players
- *
-void Game::sendInitInfo() {
-    sendInitInfo(_player1);
-    sendInitInfo(_player2);
-}
-
-
-/*
- * Function when the game is init to
- * send informtaions to the player
- *
- * @param pIG to send message
- *
-void Game::sendInitInfo(PlayerInGame* pIG) {
-    pIG->getCardsInHand(); // CardsInHand
-    pIG == _currentPlayer; // His turn ?
-    getAdversePlayer(pIG); // Adverse player
-
-
-    // TO DO @tutul
-    // Send initGame (see upper) + setTurn (see upper) + sendStartTurnInfo (see upper)
-    // No ???
-}
-*/
 
 /**
  * Verify that player can play
@@ -515,15 +488,12 @@ void Game::isPlayerInLife(PlayerInGame* pIG) {
         pIG->addDefeat();
         pAdverse->addWin();
 
-        PacketManager::sendEndGame(_player1, _player1==pAdverse ? 1 : -1, -1);//TODO replace -1 by card's ID
-        PacketManager::sendEndGame(_player2, _player2==pAdverse ? 1 : -1, -1);//TODO replace -1 by card's ID
 
+        bool p1Win = _player1 == pAdverse;
+        int winCard = CardManager::chooseCardWin()->getId();
 
-        Card* card = CardManager::chooseCardWin();
-        //pAdverse->addCardCollection(card); wait Carlos
-        // TO DO @tutul
-        // send cardWin ?
-
+        PacketManager::sendEndGame(_player1, p1Win ? 1 : -1, p1Win ? winCard : -1);
+        PacketManager::sendEndGame(_player2, (!p1Win) ? 1 : -1, (!p1Win) ? winCard : -1);
 
         delete this;
     }
@@ -569,7 +539,16 @@ Error Game::placeCard(PlayerInGame* pIG, Card* placeCard) {
  */
 void Game::endParty(PlayerInGame* pIG) {
     PacketManager::sendEndGame(getAdversePlayer(pIG), 0, -1);
+    delete this;
+}
+
+
+/**
+ * Destructor
+ */
+Game::~Game() {
+    _player1->removePlayerInGame(_player1);
+    _player2->removePlayerInGame(_player2);
     delete _player1;
     delete _player2;
-    delete this;
 }

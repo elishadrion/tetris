@@ -162,6 +162,10 @@ void Player::setPlayerInGame(PlayerInGame* pIG) {
     _playerConnect->setPlayerInGame(pIG);
 }
 
+void Player::removePlayerInGame(PlayerInGame* pIG) {
+    _playerConnect->removePlayerInGame(pIG);
+}
+
 void Player::overwrite(const Player& player) {
     _username = player._username;
     _password = player._password;

@@ -51,7 +51,7 @@ public:
     Game(); // Default constuctor
     Game(const Game&); // Copy constructor
     Game& operator=(const Game&) = default; // Copy operator
-    virtual ~Game() = default;
+    ~Game();
 
     // Function before the game
     void checkDeckAndStart();

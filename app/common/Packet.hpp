@@ -54,7 +54,7 @@ public:
         S_PLACE_CARD_ID = 80, /* server - pseudoIntPacket */
         S_PLACE_SPELL_ID = 81, /* server - sAttackPacket */
         S_PLACE_CARD_MAKE_SPELL_ID = 82, /* server - sPlaceCardMakeSpellPacket */
-        PLAYER_DAMAGE_ID = 83, /* pseudoIntPacket */
+        PLAYER_DAMAGE_ID = 83, /* damage when player havent card in deck - pseudoIntPacket */
         END_TURN_ID = 84, /* Send to server to signal end of turn (DEFAULT PACKET) */
         QUIT_ID = 85, /* DEFAULT PACKET */
         END_GAME_ID = 86, /* !> use actionPacket */
