@@ -42,7 +42,7 @@ class PlayerInGame : public Player {
 
     std::vector<Card*> _cardsInHand;
     std::vector<Card*> _defausse;
-    std::vector<CardMonster*> _cardsPlaced;
+    CardMonster* _cardsPlaced[MAX_POSED_CARD];
     Deck *_deck;
     int _playerHeal;
     int _energy;
@@ -61,7 +61,7 @@ public:
 
     // Getters
     dataIGPlayer getDataPlayer();
-    CardMonster* getCardsPlaced();
+    CardMonster** getCardsPlaced();
     std::vector<Card*> getCardsInHand();
     unsigned nbrCardInHand();
     std::vector<Card*> getDefausse();
@@ -73,6 +73,8 @@ public:
     Deck* getDeck();
     unsigned nbrCardDeck();
     Card* draw();
+    int getPlacedCardPosition(CardMonster*);
+    CardMonster* getCardAtPosition(unsigned);
 
     // Game info and action
     bool haveEnoughEnergy(Card* card);

@@ -63,8 +63,8 @@ public:
     Error placeCardAffectPlayer(PlayerInGame*, Card*);
     Error placeCard(PlayerInGame*, CardMonster*);
     Error placeCard(PlayerInGame*, Card*, CardMonster*);
-    Error attackWithCard(PlayerInGame*, CardMonster*, CardMonster*);
-    Error attackWithCardAffectPlayer(PlayerInGame*, CardMonster*);
+    Error attackWithCard(PlayerInGame*, unsigned, unsigned);
+    Error attackWithCardAffectPlayer(PlayerInGame*, unsigned);
     void nextPlayer();
 
     void sendInfoAction(std::string, int, int, unsigned, bool, bool);

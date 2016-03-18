@@ -344,11 +344,16 @@ void PacketManager::sendTurnInfo(PlayerInGame* current, PlayerInGame* adverse, b
         turnPacket->data.deck[i] = listDeckId[i];
     }
 
-    std::vector<CardMonster*> listCardPlace = current->getCardsPlaced();
-    for(unsigned i = 0; i < listCardPlace.size(); ++i) {
-        CardMonster* currentCardMonster = static_cast<CardMonster*>(listCardPlace[i]);
-        turnPacket->data.posed[i] = currentCardMonster->getId();
-        turnPacket->data.posedLife[i] = currentCardMonster->getLife();
+    CardMonster** listCardPlace = current->getCardsPlaced();
+    for(unsigned i = 0; i < MAX_POSED_CARD; ++i) {
+        CardMonster* currentCardMonster = listCardPlace[i];
+        if(currentCardMonster != nullptr) {
+            turnPacket->data.posed[i] = currentCardMonster->getId();
+            turnPacket->data.posedLife[i] = currentCardMonster->getLife();
+        } else {
+            turnPacket->data.posed[i] = -1;
+            turnPacket->data.posedLife[i] = 0;
+        }
     }
 
     turnPacket->data.ennemyLife = adverse->getHeal();
@@ -356,11 +361,16 @@ void PacketManager::sendTurnInfo(PlayerInGame* current, PlayerInGame* adverse, b
     turnPacket->data.ennemyHand = adverse->nbrCardInHand();
     turnPacket->data.ennemyDeck = adverse->nbrCardDeck();
 
-    std::vector<CardMonster*> listAdverseCardPlace = adverse->getCardsPlaced();
-    for(unsigned i = 0; i < listAdverseCardPlace.size(); ++i) {
-        CardMonster* currentCardMonster = static_cast<CardMonster*>(listAdverseCardPlace[i]);
-        turnPacket->data.ennemyPosed[i] = currentCardMonster->getId();
-        turnPacket->data.ennemyPosedLife[i] = currentCardMonster->getLife();
+    CardMonster** listAdverseCardPlace = adverse->getCardsPlaced();
+    for(unsigned i = 0; i < MAX_POSED_CARD; ++i) {
+        CardMonster* currentCardMonster = listAdverseCardPlace[i];
+        if(currentCardMonster != nullptr) {
+            turnPacket->data.ennemyPosed[i] = currentCardMonster->getId();
+            turnPacket->data.ennemyPosedLife[i] = currentCardMonster->getLife();
+        } else {
+            turnPacket->data.ennemyPosed[i] = -1;
+            turnPacket->data.ennemyPosedLife[i] = 0;
+        }
     }
 
 

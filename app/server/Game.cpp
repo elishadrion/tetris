@@ -213,7 +213,7 @@ void Game::draw(PlayerInGame* pIG) {
  */
 Error Game::placeCardAffectPlayer(PlayerInGame* pIG, Card* cardPlaced) {
 
-    Error res = placeCard(pIG, cardPlaced);
+    Error res = canPlaceCard(pIG, cardPlaced);
 
     if(res == Error::NoError && cardPlaced->gotEffect()) {
         if(cardPlaced->canBeApplyOnPlayer()) {
@@ -245,12 +245,12 @@ Error Game::placeCard(PlayerInGame* pIG, CardMonster* cardPlaced) {
     Error res = canPlaceCard(pIG, cardPlaced);
 
     if(res == Error::NoError) {
-        int position = getRealPosition(pIG, pIG->placeCard(placeCard));
-        PacketManager::sendPlaceMonsterCard(_player1, pIG->getName(), cardPlaced->getId(), position);
+        int position = getRealPosition(pIG, pIG->placeCard(cardPlaced));
+        //PacketManager::sendPlaceMonsterCard(_player1, pIG->getName(), cardPlaced->getId(), position);
 
         // Send information to clients
-        sendInfoAction(pIG->getName(), cardPlaced->getId(), targetCard->getId(), targetCard->getLife(),
-                       true, !cardPlaced->isMonster());
+        //sendInfoAction(pIG->getName(), cardPlaced->getId(), targetCard->getId(), targetCard->getLife(),
+        //               true, !cardPlaced->isMonster());
     }
 
     return res;
@@ -268,7 +268,7 @@ Error Game::placeCard(PlayerInGame* pIG, CardMonster* cardPlaced) {
 Error Game::placeCard(PlayerInGame* pIG, Card* cardPlaced,
     CardMonster* targetCard) {
 
-    Error res = placeCard(pIG, cardPlaced);
+    Error res = canPlaceCard(pIG, cardPlaced);
 
     if(res == Error::NoError) {
         // Verify if effect can be apply on monster
@@ -290,19 +290,24 @@ Error Game::placeCard(PlayerInGame* pIG, Card* cardPlaced,
  * @param targetCard card which is attack
  * @return Error or "NoError" if all is ok
  */
-Error Game::attackWithCard(PlayerInGame* pIG, CardMonster* card,
-    CardMonster* targetCard) {
+Error Game::attackWithCard(PlayerInGame* pIG, unsigned cardPosition,
+    unsigned targetPosition) {
+
+    PlayerInGame* adverse = getAdversePlayer(pIG);
+
+    CardMonster* card = pIG->getCardAtPosition(getRelativePosition(pIG, cardPosition));
+    CardMonster* targetCard = adverse->getCardAtPosition(getRelativePosition(adverse, targetPosition));
 
     Error res = canPlayerAttack(pIG, card);
     if(res == Error::NoError) {
         if(verifyTaunt(pIG, targetCard)) {
             card->dealDamage(*targetCard);
             if(targetCard->isDead()) {
-                this->getAdversePlayer()->defausseCardPlaced(targetCard);
+                this->getAdversePlayer()->defausseCardPlaced(targetPosition);
             }
 
-            sendInfoAction(pIG->getName(), card->getId(), targetCard->getId(), targetCard->getLife(),
-                           false, false);
+//            sendInfoAction(pIG->getName(), card->getId(), targetCard->getId(), targetCard->getLife(),
+//                           false, false);
         } else {
             res = Error::MustAttackTaunt;
         }
@@ -320,8 +325,9 @@ Error Game::attackWithCard(PlayerInGame* pIG, CardMonster* card,
  * @param targetCard card which is attack
  * @return Error or "NoError" if all is ok
  */
-Error Game::attackWithCardAffectPlayer(PlayerInGame* pIG,
-    CardMonster* card) {
+Error Game::attackWithCardAffectPlayer(PlayerInGame* pIG, unsigned cardPosition) {
+
+    CardMonster* card = pIG->getCardAtPosition(getRelativePosition(pIG, cardPosition));
 
     Error res = canPlayerAttack(pIG, card);
     if(res == Error::NoError) {
@@ -329,7 +335,7 @@ Error Game::attackWithCardAffectPlayer(PlayerInGame* pIG,
             PlayerInGame* pAdverse = getAdversePlayer(pIG);
             card->dealDamage(*pAdverse);
 
-            sendInfoAction(pIG->getName(), card->getId(), -1, pAdverse->getHeal(), false, false);
+            //sendInfoAction(pIG->getName(), card->getId(), -1, pAdverse->getHeal(), false, false);
             isPlayerInLife(pAdverse);
         } else {
             res = Error::MustAttackTaunt;
@@ -374,18 +380,18 @@ void Game::nextPlayer() {
 void Game::sendInfoAction(std::string pseudo, int cardID, int targetCard, unsigned heal,
     bool newCard, bool isCardEffect) {
 
-    if(!newCard) {
-        PacketManager::sendAttack(_player1, pseudo, cardID, targetCard, heal);
-        PacketManager::sendAttack(_player2, pseudo, cardID, targetCard, heal);
-    } else {
-        if(isCardEffect) {
-            PacketManager::sendPlaceSpellCard(_player1, pseudo, cardID, targetCard, heal);
-            PacketManager::sendPlaceSpellCard(_player2, pseudo, cardID, targetCard, heal);
-        } else {
-            PacketManager::sendPlaceMonsterCard(_player1, pseudo, cardID, targetCard, heal);
-            PacketManager::sendPlaceMonsterCard(_player2, pseudo, cardID, targetCard, heal);
-        }
-    }
+//    if(!newCard) {
+//        PacketManager::sendAttack(_player1, pseudo, cardID, targetCard, heal);
+//        PacketManager::sendAttack(_player2, pseudo, cardID, targetCard, heal);
+//    } else {
+//        if(isCardEffect) {
+//            PacketManager::sendPlaceSpellCard(_player1, pseudo, cardID, targetCard, heal);
+//            PacketManager::sendPlaceSpellCard(_player2, pseudo, cardID, targetCard, heal);
+//        } else {
+//            PacketManager::sendPlaceMonsterCard(_player1, pseudo, cardID, targetCard, heal);
+//            PacketManager::sendPlaceMonsterCard(_player2, pseudo, cardID, targetCard, heal);
+//        }
+//    }
 }
 
 

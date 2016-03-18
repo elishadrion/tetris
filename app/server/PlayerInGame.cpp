@@ -16,7 +16,6 @@ PlayerInGame::PlayerInGame(const Player& player, Game* game): Player(player),
     _maxEnergy = 1; //Every turn the maximum energy is increased up to a maximum of 10
     std::vector<Card*> _cardsInHand(0);
     std::vector<Card*> _defausse(0);
-    CardMonster _cardsPlaced[MAX_POSED_CARD];
 
     _playerConnect->setPlayerInGame(this);
 
@@ -31,7 +30,7 @@ PlayerInGame::PlayerInGame(const Player& player, Game* game): Player(player),
  * Returns the placed cards
  * @return the vector of card placed
  */
-CardMonster* PlayerInGame::getCardsPlaced() {
+CardMonster** PlayerInGame::getCardsPlaced() {
     return _cardsPlaced;
 }
 
@@ -144,6 +143,38 @@ Card* PlayerInGame::draw() {
     return res;
 }
 
+
+/**
+ * Get the relative position of a card
+ *
+ * @param card which we would like the position
+ * @return -1 if not found, number else
+ */
+int PlayerInGame::getPlacedCardPosition(CardMonster* card) {
+    int res = -1;
+    bool found = false;
+    while(res < MAX_POSED_CARD && !found) {
+        ++res;
+        found = getCardsPlaced()[res] == card;
+    }
+
+    if(!found) {
+        res = -1;
+    }
+
+    return res;
+}
+
+
+/**
+ * Get the card at the relative position
+ *
+ * @param position the position of the card
+ * @return the monster card or nullptr
+ */
+CardMonster* PlayerInGame::getCardAtPosition(unsigned position) {
+    return getCardsPlaced()[position];
+}
 
 
 //////////// Game info ////////////
@@ -287,7 +318,7 @@ bool PlayerInGame::isDead() {
  * Increment the number of turn for all placed cards
  */
 void PlayerInGame::incrementAllPlaceCard() {
-    CardMonster* cardPlaced = getCardsPlaced();
+    CardMonster** cardPlaced = getCardsPlaced();
     for (size_t i = 0; i < MAX_POSED_CARD; ++i) {
         CardMonster* cardMonster = cardPlaced[i];
         if(cardMonster != nullptr) {
@@ -304,7 +335,7 @@ void PlayerInGame::incrementAllPlaceCard() {
 bool PlayerInGame::haveOneCardTaunt() {
     bool res = true;
 
-    CardMonster* cardPlaced = getCardsPlaced();
+    CardMonster** cardPlaced = getCardsPlaced();
     unsigned i = 0;
     while(i < MAX_POSED_CARD && res) {
         CardMonster* currentCard = cardPlaced[i];
