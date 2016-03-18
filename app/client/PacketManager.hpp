@@ -8,6 +8,7 @@
 #include "WizardDisplay.hpp"
 #include "CacheManager.hpp"
 #include "Player.hpp"
+#include "GameManager.hpp"
 
 extern WizardDisplay *wizardDisplay;
 

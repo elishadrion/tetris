@@ -1,5 +1,8 @@
 #include "CacheManager.hpp"
 
+std::vector<Card*> CacheManager::cardCache;
+bool CacheManager::waiting;
+
 CacheManager::~CacheManager() {
     /* Delete all card in cache */
     for (int i = 0 ; i < cardCache.size() ; ++i) {

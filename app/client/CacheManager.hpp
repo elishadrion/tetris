@@ -10,16 +10,16 @@
 #include "common/WizardLogger.hpp"
 
 class CacheManager {
-    std::vector<Card*> cardCache;
-    bool waiting;
+    static std::vector<Card*> cardCache;
+    static bool waiting;
     
-    Card *requestCard(unsigned);
+    static Card *requestCard(unsigned);
 public:
     CacheManager() = default;
     ~CacheManager();
     
-    Card *getCard(unsigned);
-    Card *getCard(std::string);
+    static Card *getCard(unsigned);
+    static Card *getCard(std::string);
     
     void addToCache(Card*);
 };

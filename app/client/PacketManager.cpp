@@ -441,22 +441,6 @@ void PacketManager::askDrop(const Packet::intPacket* askDropPacket) {
     //TODO ask to trash a certain amount
 }
 
-//void PacketManager::manageAttack(const Packet::attackPacket* attackPacket) {
-//    bool adverse = (Player::getPlayer()->getName() == attackPacket->data.pseudo);
-
-//    if(attackPacket->data.isNewCard) {
-//        wizardDisplay->placeCard(adverse, attackPacket->data.ID);
-//    }
-
-//    wizardDisplay->attackCard(adverse, attackPacket->data.ID, attackPacket->data.target,
-//                              attackPacket->data.isEffect, attackPacket->data.finalLife);
-
-//}
-
-//void PacketManager::manageSpell(const Packet::attackPacket* spellPacket) {
-//    //TODO update in-game info with a spell
-//}
-
 
 void PacketManager::manageAttack(Packet::attackPacket* attackPacket) {
 
@@ -467,10 +451,20 @@ void PacketManager::managePlaceSpell(Packet::placeAttackSpellPacket* placeAttack
 }
 
 void PacketManager::managePlaceCard(Packet::placeCardPacket* placeCardPacket) {
+    GameManager* gm = GameManager::getInstance();
+    unsigned cardId = placeCardPacket->idCard;
+    unsigned position = placeCardPacket->cardPosition;
 
+    if(placeCardPacket->pseudo == Player::getPlayer()->getName()) {
+        gm->placeCard(cardId, position);
+    } else {
+        gm->ennemyPlaceCard(cardId, position);
+    }
 }
 
 void PacketManager::managePlaceCardAttack(Packet::placeAttackPacket* placeAttackPacket) {
+    GameManager* gm = GameManager::getInstance();
+
 
 }
 

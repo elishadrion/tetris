@@ -24,6 +24,7 @@ public:
     explicit Card(unsigned id, bool isMonster, std::string name, std::string description, unsigned energy, unsigned HP) :
         _id(id), _monster(isMonster), _name(name), _description(description), _energyCost(energy),
         _maxHP(HP), _HP(HP), _img("cache/"+name) {}
+    Card(const Card&) = default;
     ~Card() = default;
     
     /* Getter */
@@ -34,6 +35,8 @@ public:
     inline unsigned getEnergyCost() { return _energyCost; }
     inline unsigned getMaxHP(){ return _maxHP; }
     inline unsigned getHP(){ return _HP; }
+    inline void setHP(unsigned heal) { _HP = heal; }
+    inline bool isDead() { return _HP <= 0; }
     
     /* Check if img is in cache and ask it if not */
     std::string getImg() {

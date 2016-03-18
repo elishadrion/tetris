@@ -2,10 +2,23 @@
 
 GameManager* GameManager::_instance;
 
-
+/**
+ * Get the main instance
+ *
+ * @return the instance of this class
+ */
 GameManager* GameManager::getInstance() {
     return _instance;
 }
+
+
+/**
+ * Constructor
+ * @param pseudo of the adverse player
+ */
+GameManager::GameManager(std::string pseudo): _ennemy(pseudo), _heal(MAX_LIFE),
+    _adverseHeal(MAX_LIFE), _energy(0), _adverseEnergy(0) { }
+
 
 /**
  * Set deck and send information to the server
@@ -25,4 +38,179 @@ void GameManager::setDeck(std::string deckName) {
 }
 
 
+/**
+ * Remove a card from the hand of the player
+ *
+ * @param adverse player or not
+ * @param card which must be remove
+ */
+void GameManager::removeCardFromHand(Card* card) {
+    bool fini = false;
+
+    unsigned i = 0;
+    unsigned taille = _hand.size();
+    Card* elem;
+    while(i < taille && !fini) {
+        elem = _hand[i];
+        if(elem == card) {
+            _hand[i] = _hand[taille-1];
+            _hand.pop_back();
+            fini = true;
+        }
+        ++i;
+    }
+}
+
+/**
+ * Decreases number of in hand adverse card
+ */
+void GameManager::removeAdverseCardFromHand() {
+    --_adverseHandNumber;
+}
+
+
+/**
+ * Call when the player place a card
+ *
+ * @param cardID the id of the card
+ * @param position position of this card (to identify this)
+ */
+void GameManager::placeCard(int cardID, unsigned position) {
+    Card* card = new Card(*CacheManager::getCard(cardID));
+    card->setPosition(position);
+    _posed[position%7] = card;
+    _energy -= card->getEnergyCost();
+    wizardDisplay->placeCard(card);
+}
+
+/**
+ * Call when the adverse player place a card
+ *
+ * @param cardID the id of the placed card
+ * @param position of this card
+ */
+void GameManager::ennemyPlaceCard(int cardID, unsigned position) {
+    Card* defaultCard = CacheManager::getCard(cardID);
+    removeCardFromHand(defaultCard);
+
+    // Copy card
+    Card* card = new Card(*defaultCard);
+    card->setPosition(position);
+    _ennemyPosed[position%MAX_POSED_CARD] = card;
+    _adverseEnergy -= card->getEnergyCost();
+    wizardDisplay->placeAdverseCard(card);
+}
+
+/**
+ * Call when the player place card and attack
+ *
+ * @param cardID the id of the new card
+ * @param position of the new card
+ * @param targetPosition position of the target card (-1 if adverse player)
+ * @param heal of the target card after
+ */
+void GameManager::placeCardAndAttack(bool isEffectCard, int cardID, unsigned position,
+                                     int targetPosition, unsigned heal) {
+    Card* defaultCard = CacheManager::getCard(cardID);
+    removeCardFromHand(defaultCard);
+    Card* card = defaultCard;
+
+    if(!isEffectCard) {
+        card = new Card(*defaultCard); // copy card
+        card->setPosition(position);
+        _posed[position%MAX_POSED_CARD] = card;
+    }
+
+    _energy -= card->getEnergyCost();
+    if(targetPosition == -1) {
+        _adverseHeal = heal;
+        wizardDisplay->placeCardAndAttackPlayer(card);
+    } else {
+        Card* enemyCard = static_cast<Card*>(_ennemyPosed[targetPosition%MAX_POSED_CARD]);
+        enemyCard->setHP(heal);
+        wizardDisplay->placeCardAndAttack(card, enemyCard);
+        if(enemyCard->isDead()) {
+            // TO DO
+            // DETOBEL36
+        }
+    }
+
+}
+
+/**
+ * Call when the adverse player place card an attack
+ *
+ * @param cardID the id of the new card
+ * @param position of the new card
+ * @param targetPosition position of the target card (-1 if adverse player)
+ * @param heal of the target card after
+ */
+void GameManager::placeAdverseCardAndAttack(bool isEffectCard, int cardID, unsigned position,
+                                            int targetPosition, unsigned heal) {
+    Card* defaultCard = CacheManager::getCard(cardID);
+    removeCardFromHand(defaultCard);
+    Card* card = defaultCard;
+
+    if(!isEffectCard) {
+        card = new Card(*defaultCard); // copy card
+        card->setPosition(position);
+        _ennemyPosed[position%MAX_POSED_CARD] = card;
+    }
+
+    _adverseEnergy -= card->getEnergyCost();
+
+    if(targetPosition == -1) {
+        _heal = heal;
+        wizardDisplay->placeAdverseCardAndAttackPlayer(card);
+    } else {
+        Card* enemyCard = static_cast<Card*>(_posed[targetPosition%MAX_POSED_CARD]);
+        enemyCard->setHP(heal);
+        wizardDisplay->placeAdverseCardAndAttack(card, enemyCard);
+        if(enemyCard->isDead()) {
+            // TO DO
+            // DETOBEL36
+        }
+    }
+}
+
+
+/**
+ * Call when a card attack an other or adverse player
+ *
+ * @param cardPosition the card which attack
+ * @param targetPosition the card wich IS attack (-1 for advers player)
+ * @param heal of the target at end
+ */
+void GameManager::attackCard(unsigned cardPosition, int targetPosition, unsigned heal) {
+    Card* card = _posed[cardPosition%MAX_POSED_CARD];
+    if(targetPosition == -1) {
+        _adverseHeal = heal;
+        wizardDisplay->attackPlayer(card);
+    } else {
+        Card* ennemyCard = _ennemyPosed[targetPosition%MAX_POSED_CARD];
+        ennemyCard->setHP(heal);
+        wizardDisplay->attackCard(card, ennemyCard);
+    }
+
+}
+
+/**
+ * Call when adverse card attack an other or adverse player
+ *
+ * @param cardPosition the card wich make attack
+ * @param targetPosition the card wich IS attack (-1 for advers player)
+ * @param heal of the target at end
+ */
+void GameManager::adverseAttackCard(unsigned cardPosition, int targetPosition, unsigned heal) {
+    Card* card = _ennemyPosed[cardPosition%MAX_POSED_CARD];
+    if(targetPosition == -1) {
+        _heal = heal;
+        wizardDisplay->adverseAttackPlayer(card);
+    } else {
+        Card* ennemyCard = _posed[targetPosition%MAX_POSED_CARD];
+        ennemyCard->setHP(heal);
+        wizardDisplay->adverseAttackCard(card, ennemyCard);
+    }
+
+}
 

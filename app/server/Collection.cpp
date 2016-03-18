@@ -74,9 +74,19 @@ void Collection::removeCard(int i) {
  * @param card the card to remove
  */
 void Collection::removeCard(Card* card) {
-    _listCard.erase(
-        std::remove(_listCard.begin(), _listCard.end(), card),
-        _listCard.end());
+    bool fini = false;
+
+    unsigned i = 0;
+    unsigned taille = _listCard.size();
+    while(i < taille && !fini) {
+        Card* elem = _listCard[i];
+        if(elem == card) {
+            _listCard[i] = _listCard[taille-1];
+            _listCard.pop_back();
+            fini = true;
+        }
+        ++i;
+    }
 }
 
 

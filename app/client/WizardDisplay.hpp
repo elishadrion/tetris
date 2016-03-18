@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 
+#include "Card.hpp"
+
 
 class WizardDisplay {
 public:
@@ -44,17 +46,97 @@ public:
     /* Start game with player in param */
     virtual void launchGame(std::string) {}
 
-    /* Call when a card is placed */
-    virtual void placeCard(bool adverse, int cardId) {}
+    /**
+     * Call when player place card
+     *
+     * @param card which is place
+     */
+    virtual void placeCard(Card*) {}
 
-    /* Call when a spell card is placed */
-    virtual void placeSpellCard(bool adverse, int cardId) {}
+    /**
+     * Call when adverse player place card
+     *
+     * @param card which is place
+     */
+    virtual void placeAdverseCard(Card*) {}
 
-    /* Call when a card is placed and attack other card with spell */
-    virtual void placeCardAndSpell(bool adverse, int cardId, int attackCard, unsigned heal) {}
+    /**
+     * Call when a spell card is placed (and attack an other)
+     *
+     * @param the new card
+     * @param the target card
+     */
+    virtual void placeSpellCard(Card*, Card*) {}
 
-    /* Call when a card attack an other card */
-    virtual void attackCard(bool adverse, int cardMakeAttack, int attackCard, unsigned heal) {}
+    /**
+     * Call when a adverse spell card is placed (and attack an other)
+     *
+     * @param the new card
+     * @param the target card
+     */
+    virtual void placeAdverseSpellCard(Card*, Card*) {}
+
+
+    /**
+     * Call when card is placed (and attack an other)
+     *
+     * @param the new card
+     * @param the target card
+     */
+    virtual void placeCardAndAttack(Card*, Card*) {}
+
+    /**
+     * Call when card is placed (and attack adverse player)
+     *
+     * @param the new card
+     */
+    virtual void placeCardAndAttackPlayer(Card*) {}
+
+    /**
+     * Call when a adverse spell card is placed (and attack an other)
+     *
+     * @param the new card
+     * @param the target card
+     */
+    virtual void placeAdverseCardAndAttack(Card*, Card*) {}
+
+    /**
+     * Call when a adverse spell card is placed (and attack other player)
+     *
+     * @param the new card
+     */
+    virtual void placeAdverseCardAndAttackPlayer(Card*) {}
+
+    /**
+     * Call when a card attack an other card
+     *
+     * @param the card wich attack
+     * @param the card wich IS attack
+     */
+    virtual void attackCard(Card*, Card*) {}
+
+    /**
+     * Call when an adverse card attack an other card
+     *
+     * @param the card wich attack
+     * @param the card wich IS attack
+     */
+    virtual void adverseAttackCard(Card*, Card*) {}
+
+    /**
+     * Call when a card attack adverse player
+     *
+     * @param the card wich attack
+     */
+    virtual void attackPlayer(Card*) {}
+
+    /**
+     * Call when an adverse card attack current player
+     *
+     * @param the card wich attack
+     */
+    virtual void adverseAttackPlayer(Card*) {}
+
 
 };
 

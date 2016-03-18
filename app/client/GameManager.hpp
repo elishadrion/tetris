@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 
+#include "Card.hpp"
 #include "common/Constants.hpp"
 #include "common/WizardLogger.hpp"
 #include "PacketManager.hpp"
@@ -14,36 +15,49 @@ class GameManager {
     static GameManager* _instance;
 
     bool _inGame;
-    std::vector<int> _hand;
     std::string _deckName; // Selected deck
-    std::vector<int> _cardInDeck;
-    std::vector<int> _trash;
-    std::vector<int> _posed;
-    std::vector<int> _ennemyPosed;
+    std::vector<Card*> _hand;
+    unsigned _adverseHandNumber;
+    std::vector<Card*> _trash;
+    Card* _posed[MAX_POSED_CARD];
+    Card* _ennemyPosed[MAX_POSED_CARD];
     std::string _ennemy;
 
+    unsigned _heal;
+    unsigned _adverseHeal;
+
+    unsigned _energy;
+    unsigned _adverseEnergy;
 
 
 public:
     static GameManager* getInstance();
 
-    GameManager(std::string pseudo): _ennemy(pseudo) {}
+    GameManager(std::string);
 
     // Getters
     inline bool isGame() const { return _instance != nullptr; }
+    inline Card** getAdversePosed() { return _ennemyPosed; }
+    inline Card** getPosed() { return _posed; }
     inline int getTrashSize() const { return _trash.size(); }
-    inline std::vector<int> getAdversePosed() { return _ennemyPosed; }
-    inline std::vector<int> getPosed() { return _posed; }
     inline std::string getEnnemy() const { return _ennemy; }
+    inline unsigned getEnergy() const { return _energy; }
+    inline unsigned getAdverseEnergy() const { return _adverseEnergy; }
+    inline unsigned getHeal() const { return _heal; }
+    inline unsigned getAdverseHeal() const { return _adverseHeal; }
 
     // Action during the game
-    inline void drawCard(int ID) { _hand.push_back(ID); }
-//    inline void ennemyPlaceCard(int ID, int position);
-//    inline void placeCard(int ID, int position);
+    inline void drawCard(Card* card) { _hand.push_back(card); }
     void setDeck(std::string);
+    void removeCardFromHand(Card*);
+    void removeAdverseCardFromHand();
     inline std::string getDeckName() { return _deckName; }
-
-
+    void placeCard(int, unsigned);
+    void ennemyPlaceCard(int, unsigned);
+    void placeCardAndAttack(bool, int, unsigned, int, unsigned);
+    void placeAdverseCardAndAttack(bool, int, unsigned, int, unsigned);
+    void attackCard(unsigned, int, unsigned);
+    void adverseAttackCard(unsigned, int, unsigned);
 
 
 //    Not allready implemented
@@ -51,6 +65,7 @@ public:
 //        for(int i = 0; i < _hand.size(); ++i)
 //            if(_hand[i] == ID) _hand.erase(_hand.begin()+i);
 //    }
+
 //    Not allready implemented
 //    inline void ennemyDrop(int ID) {
 //        for(int i = 0; i < MAX_POSED_CARD; ++i)
