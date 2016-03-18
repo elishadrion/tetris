@@ -18,6 +18,7 @@
 
 #include "DeckChooseGUI.hpp"
 #include "ChatManagerGUI.hpp"
+#include "GameManager.hpp"
 
 #include "common/Constants.hpp"
 

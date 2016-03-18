@@ -9,6 +9,7 @@
 #include <QPushButton>
 
 #include "client/Player.hpp"
+#include "GameManager.hpp"
 
 
 class DeckChooseGUI;

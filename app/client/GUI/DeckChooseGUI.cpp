@@ -7,7 +7,7 @@ void DeckChooseGUI::valideDeck() {
         std::string select = listItem[0]->text().toStdString();
 
         WizardLogger::info("Deck choisi: " + select);
-        Player::getPlayer()->setDeck(select);
+        GameManager::getInstance()->setDeck(select);
         close();
 
     } else {

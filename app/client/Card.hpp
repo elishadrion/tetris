@@ -18,6 +18,8 @@ class Card {
     std::string _img;
     bool waitingCache;
 
+    unsigned _position; // Only during the game !
+
 public:
     explicit Card(unsigned id, bool isMonster, std::string name, std::string description, unsigned energy, unsigned HP) :
         _id(id), _monster(isMonster), _name(name), _description(description), _energyCost(energy),
@@ -65,6 +67,10 @@ public:
         /* Unblock wainting thread */
         waitingCache = false;
     }
+
+    inline void setPosition(unsigned pos) { _position = pos; }
+    inline unsigned getPosition() { return _position; }
+
 };
 
 #endif	/* CARD_HPP */

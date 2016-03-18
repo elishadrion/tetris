@@ -155,6 +155,6 @@ void GameGUI::callStartGame(std::string pseudo) {
 }
 
 void GameGUI::makeStartGame(std::string pseudo) {
-    Player::getPlayer()->setEnnemy(pseudo);
+    new GameManager(pseudo);
     // TO DO
 }
