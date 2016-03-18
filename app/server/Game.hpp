@@ -62,6 +62,7 @@ public:
     void draw(); // current player draw a card
     void draw(PlayerInGame*); // current player draw a card
     Error placeCardAffectPlayer(PlayerInGame*, Card*);
+    Error placeCard(PlayerInGame*, CardMonster*);
     Error placeCard(PlayerInGame*, Card*, CardMonster*);
     Error attackWithCard(PlayerInGame*, CardMonster*, CardMonster*);
     Error attackWithCardAffectPlayer(PlayerInGame*, CardMonster*);
@@ -74,10 +75,6 @@ private:
     void beginTurn(); // function when the turn begin
     void endTurn();
 
-    // Function to InitGame
-    //void sendInitInfo();
-    //void sendInitInfo(PlayerInGame*);
-
     // During the game
     Error canPlayerAttack(PlayerInGame*,CardMonster*);
     bool verifyTaunt(PlayerInGame*,CardMonster*);
@@ -86,7 +83,9 @@ private:
     void isPlayerInLife();
     void isPlayerInLife(PlayerInGame* pIG);
 
-    Error placeCard(PlayerInGame*, Card*);
+    int getRealPosition(PlayerInGame*, int);
+    int getRelativePosition(PlayerInGame*, int);
+    Error canPlaceCard(PlayerInGame*, Card*);
     void endParty(PlayerInGame*);
 
 };

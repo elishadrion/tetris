@@ -242,6 +242,30 @@ Error Game::placeCardAffectPlayer(PlayerInGame* pIG, Card* cardPlaced) {
 }
 
 
+/**
+ * Function when player place card
+ *
+ * @param pIG player who place the card
+ * @param cardPlaced the card the must be place
+ * @param targetCard the card which will have the effect if
+ * the placed card have it
+ */
+Error Game::placeCard(PlayerInGame* pIG, CardMonster* cardPlaced) {
+
+    Error res = canPlaceCard(pIG, cardPlaced);
+
+    if(res == Error::NoError) {
+        int position = pIG->placeCard(placeCard);
+        PacketManager::sendPlaceMonsterCard(_player1, pIG->getName(), cardPlaced->getId(), )
+
+        // Send information to clients
+        sendInfoAction(pIG->getName(), cardPlaced->getId(), targetCard->getId(), targetCard->getLife(),
+                       true, !cardPlaced->isMonster());
+    }
+
+    return res;
+}
+
 
 /**
  * Function when player place card
@@ -517,6 +541,40 @@ void Game::isPlayerInLife(PlayerInGame* pIG) {
 
 
 /**
+ * Calcul the real position of a card on the board (if player 2 make + MAX_POSED_CARD)
+ *
+ * @param pIG playerInGame who have this relative position
+ * @param initPosition relative position of the player
+ * @return the real position
+ */
+int Game::getRealPosition(PlayerInGame* pIG, int initPosition) {
+    int res = initPosition;
+    if(pIG == _player2) {
+        res += MAX_POSED_CARD;
+    }
+
+    return res;
+}
+
+/**
+ * Calcul the relative position of a card for this player (if player 2 make - MAX_POSED_CARD)
+ *
+ * @param pIG playerInGame who we would like the relative position
+ * @param initPosition real position of the card on the board
+ * @return the relative position
+ */
+int Game::getRelativePosition(PlayerInGame* pIG, int initPosition) {
+    int res = initPosition;
+    if(pIG == _player2) {
+        res -= MAX_POSED_CARD;
+    }
+
+    return res;
+}
+
+
+
+/**
  * Function when player place card. This function place the card
  * and verify that all is ok
  *
@@ -524,15 +582,15 @@ void Game::isPlayerInLife(PlayerInGame* pIG) {
  * @param placeCard which is place
  * @return Error or "NoError" if all is ok
  */
-Error Game::placeCard(PlayerInGame* pIG, Card* placeCard) {
+Error Game::canPlaceCard(PlayerInGame* pIG, Card* placeCard) {
     Error res = Error::UnknowError;
 
     if(pIG == _currentPlayer) {
         if(!placeCard->isMonster() || havePlace(pIG)) {
             if(pIG->haveEnoughEnergy(placeCard)) {
-                if(placeCard->isMonster()) {
-                    pIG->placeCard(dynamic_cast<CardMonster*>(placeCard));
-                }
+//                if(placeCard->isMonster()) {
+//                    pIG->placeCard(dynamic_cast<CardMonster*>(placeCard));
+//                }
                 res = Error::NoError;
 
             } else {
