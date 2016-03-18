@@ -41,6 +41,10 @@ namespace PacketManager {
     void setTurn(const Packet::turnPacket*); /* TURN_ID */
     void setDraw(const Packet::intPacket*); /* DRAW_ID */
     void askDrop(const Packet::intPacket*); /* ASK_DROP_ID */
+    void manageAttack(Packet::attackPacket*);
+    void managePlaceSpell(Packet::placeAttackSpellPacket*);
+    void managePlaceCard(Packet::placeCardPacket*);
+    void managePlaceCardAttack(Packet::placeAttackPacket*);
     //void manageAttack(const Packet::attackPacket*); /* ATTACK_ID (in) */
     //void manageSpell(const Packet::attackPacket*); /* SPELL_ID (in) */
     void manageEndGame(const Packet::endGamePacket*); /* END_GAME_ID */

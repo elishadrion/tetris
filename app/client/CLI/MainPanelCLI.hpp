@@ -42,13 +42,13 @@ extern WizardDisplay *wizardDisplay;
 class MainPanelCLI : public CLIPanel {
     WINDOW *window;
     PANEL  *panel;
-    
+
     void updateColor(int, int);
     void doRequest(int);
 public:
     MainPanelCLI();
     ~MainPanelCLI() = default;
-    
+
     void show() override;
     void hide() override;
     void focus() override;

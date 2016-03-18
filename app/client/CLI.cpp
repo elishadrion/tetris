@@ -205,4 +205,4 @@ void CLI::focusTchat() {
 }
 
 //TODO
-void CLI::displayPopup(std::string message) {}
+void CLI::diaplayError(std::string message) {}

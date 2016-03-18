@@ -23,34 +23,20 @@ public:
     /* Validate login process, must call displayMainWindow after */
     virtual void valideLogin() = 0;
 
-    /* Display the mainWindow
-     * Must be safe enought to avoid memory leak or function call hell
-     */
-    virtual void displayMainWindow() =0; // remove ?
+    /////////////// MUST BE REMOVE ///////////////////////////////
+    virtual void displayMainWindow() {}
+    virtual void displayFriendsWindow() {}
+    virtual void displayCollectionWindow() {}
+    virtual void displayDeckWindow() {}
+    virtual void displayWait() {}
+    virtual void displayGame() {}
+    virtual void displayClassement() {}
+    virtual void focusTchat() {}
 
-    /* Display friends list */
-    virtual void displayFriendsWindow() =0; // remove ?
 
-    /* Display player's collection */
-    virtual void displayCollectionWindow() =0; // remove ?
 
-    /* Display player's deck content TODO: get ID ? */
-    virtual void displayDeckWindow() =0; // remove ?
-
-    /* Wait for game ready (can cancel ?) */
-    virtual void displayWait() =0;  // remove ?
-
-    /* Display in-game layout */
-    virtual void displayGame() =0; // remove ?
-
-    /* Display classement */
-    virtual void displayClassement() =0; // remove ?
-
-    /* Focus on tchat windows/panel, use it when start a conversation (exemple) */
-    virtual void focusTchat() =0; // remove ?
-
-    /* Display popup message */
-    virtual void displayPopup(std::string) =0; // remove ?
+    /* Display error message */
+    virtual void diaplayError(std::string) =0;
 
     /* Ask to te play to choose her deck */
     virtual void askDeck() {}

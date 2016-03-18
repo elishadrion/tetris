@@ -25,15 +25,7 @@ public:
     void displayLoginPrompt() override;
     void displayLoginResult(std::string) override;
     void valideLogin() override;
-    void displayMainWindow() override;
-    void displayFriendsWindow() override;
-    void displayCollectionWindow() override;
-    void displayDeckWindow() override; //TODO get ID ?
-    void displayWait() override;
-    void displayGame() override;
-    void displayClassement() override;
-    void focusTchat() override;
-    void displayPopup(std::string) override;
+    void diaplayError(std::string) override;
 
     void launchGame(std::string) override;
     void askDeck() override;

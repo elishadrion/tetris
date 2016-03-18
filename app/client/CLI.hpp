@@ -56,6 +56,7 @@
 
 #define PANEL_TOTAL_NUMBER 8
 
+
 class CLI : public WizardDisplay {
     /* All panel used by the CLI */
     CLIPanel *_panelList[PANEL_TOTAL_NUMBER];
@@ -77,15 +78,15 @@ public:
     void displayLoginPrompt() override;
     void displayLoginResult(std::string) override;
     void valideLogin() override;
-    void displayMainWindow() override;
-    void displayFriendsWindow() override;
-    void displayCollectionWindow() override;
-    void displayDeckWindow() override; //TODO get ID ?
-    void displayWait() override;
-    void displayGame() override;
-    void displayClassement() override;
-    void focusTchat() override;
-    void displayPopup(std::string) override;
+    void displayMainWindow();
+    void displayFriendsWindow();
+    void displayCollectionWindow();
+    void displayDeckWindow(); //TODO get ID ?
+    void displayWait();
+    void displayGame();
+    void displayClassement();
+    void focusTchat();
+    void diaplayError(std::string) override;
 };
 
 #endif /* CLI_HPP */

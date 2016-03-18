@@ -6,6 +6,7 @@ extern CacheManager *cacheManager;
 void PacketManager::managePacket(Packet::packet* customPacket) {
     /* We get ID of the packet after cast void* to packet* */
     switch(customPacket->ID) {
+
         /* Login process */
         case Packet::LOGIN_REQ_ID :       WizardLogger::warning("Paquet de requête de login reçu");
                                           break;
@@ -13,11 +14,13 @@ void PacketManager::managePacket(Packet::packet* customPacket) {
                                           break;
         case Packet::LOGIN_RES_ID :       loginResult((Packet::intPacket*) customPacket);
                                           break;
+
         /* Recieve player informations */
         case Packet::PLAYER_INFO_ID :     playerInfo((Packet::playerInfoPacket*) customPacket);
                                           break;
         case Packet::DISCONNECT_ID :      WizardLogger::warning("Paquet de déconnection reçu");
                                           break;
+
         /* Card process */
         case Packet::CARTE_REQ_ID :       WizardLogger::warning("Paquet de requête de carte reçu");
                                           break;
@@ -27,6 +30,7 @@ void PacketManager::managePacket(Packet::packet* customPacket) {
                                           break;
         case Packet::CARTE_IMG_ID :       saveCardImg((Packet::cardImgPacket*) customPacket);
                                           break;
+
         /* Tchat process */
         case Packet::TCHAT_CONV_REQ_ID :  WizardLogger::warning("Paquet de nouvelle conversation (tchat) reçu");
                                           break;
@@ -38,6 +42,7 @@ void PacketManager::managePacket(Packet::packet* customPacket) {
                                           break;
         case Packet::TCHAT_END_CONV_ID :  stopConv((Packet::pseudoPacket*) customPacket);
                                           break;
+
         /* Friend process */
         case Packet::FRIEND_ADD_ID :      WizardLogger::warning("Paquet d'ajout d'ami reçu");
                                           break;
@@ -49,6 +54,7 @@ void PacketManager::managePacket(Packet::packet* customPacket) {
                                           break;
         case Packet::FRIENDS_LIST_ID :    updateFriendList((Packet::friendListPacket*) customPacket);
                                           break;
+
         /* Launching game process */
         case Packet::WAITING_ID :         WizardLogger::warning("Paquet d'attende de partie reçu");
                                           break;
@@ -60,6 +66,7 @@ void PacketManager::managePacket(Packet::packet* customPacket) {
                                           break;
         case Packet::DECK_CHOOS_ID :      WizardLogger::warning("Paquet de choix de deck reçu");
                                           break;
+
         /* Game process */
         case Packet::TURN_ID :            setTurn((Packet::turnPacket*) customPacket);
                                           break;
@@ -78,12 +85,14 @@ void PacketManager::managePacket(Packet::packet* customPacket) {
         case Packet::C_PLACE_CARD_MAKE_SPELL_ID:
                                           WizardLogger::warning("Packet pour une carte placé avec un effet (client)");
                                           break;
-        case Packet::S_ATTACK_ID:
+        case Packet::S_ATTACK_ID:         manageAttack((Packet::attackPacket*) customPacket);
                                           break;
-        case Packet::S_PLACE_CARD_ID:
+        case Packet::S_PLACE_SPELL_ID:    managePlaceSpell((Packet::placeAttackSpellPacket*) customPacket);
                                           break;
-        case Packet::S_PLACE_SPELL_ID:
+        case Packet::S_PLACE_CARD_ID:     managePlaceCard((Packet::placeCardPacket*) customPacket);
                                           break;
+        case Packet::S_PLACE_CARD_AND_ATTACK_ID:
+                                          managePlaceCardAttack((Packet::placeAttackPacket*) customPacket);
         case Packet::END_TURN_ID :        WizardLogger::warning("Paquet de fin de tour reçu");
                                           break;
         case Packet::QUIT_ID :            WizardLogger::warning("Paquet de fin de partie (quit) reçu");
@@ -103,7 +112,7 @@ void PacketManager::loginResult(const Packet::intPacket* resultPacket) {
         WizardLogger::error("Paquet de résultat de login corrompu reçu ("
         +std::to_string(resultPacket->size)+"/"+std::to_string(sizeof(int))+")");
     }
-    
+
     wizardDisplay->displayLoginResult("Erreur durant le login");
 }
 
@@ -149,7 +158,9 @@ void PacketManager::playerInfo(const Packet::playerInfoPacket* playerPacket) {
     wizardDisplay->valideLogin();
 }
 
-/* Send a login request to the server
+/**
+ * Send a login request to the server
+ *
  * @param pseudo : pseudo array of the user
  * @param password : password array of the user
  */
@@ -170,7 +181,9 @@ void PacketManager::makeLoginRequest(const char *pseudo, const char *password) {
     delete loginPacket;
 }
 
-/* Send a login request to the server
+/**
+ * Send a login request to the server
+ *
  * @param pseudo : pseudo array of the user
  * @param password : password array of the user
  */
@@ -192,7 +205,9 @@ void PacketManager::makeRegistrationRequest(const char *pseudo, const char *pass
     delete registrationPacket;
 }
 
-/* Send a disconnection signal to the server (help detect crash) */
+/**
+ * Send a disconnection signal to the server (help detect crash)
+ */
 void PacketManager::sendDisconnection() {
     /* Create and specify a new logoutPacket */
     Packet::packet *logoutPacket = new Packet::packet();
@@ -217,7 +232,9 @@ void PacketManager::saveCardImg(const Packet::cardImgPacket* cardImgPacket) {
     //TODO save to file
 }
 
-/* Request card's information
+/**
+ * Request card's information
+ *
  * @param ID : the card's ID
  */
 void PacketManager::makeCardRequest(const unsigned ID) {
@@ -232,7 +249,9 @@ void PacketManager::makeCardRequest(const unsigned ID) {
     delete cardReqPacket;
 }
 
-/* Request card's picture
+/**
+ * Request card's picture
+ *
  * @param ID : the card's ID
  */
 void PacketManager::makeCardImgRequest(const unsigned ID) {
@@ -261,7 +280,9 @@ void PacketManager::stopConv(const Packet::pseudoPacket* endConvPacket) {
     //TODO stop a conversation
 }
 
-/* Ask to start a new conversation with someone
+/**
+ * Ask to start a new conversation with someone
+ *
  * @param pseudo : other player's pseudo
  */
 void PacketManager::makeTchatRequest(const std::string pseudo) {
@@ -277,7 +298,9 @@ void PacketManager::makeTchatRequest(const std::string pseudo) {
 }
 
 
-/* Send a message to someone
+/**
+ * Send a message to someone
+ *
  * @param message : the message to send
  */
 void PacketManager::sendMessage(const std::string message) {
@@ -292,7 +315,9 @@ void PacketManager::sendMessage(const std::string message) {
 }
 
 
-/* Ask to stop a conversation with someone
+/**
+ * Ask to stop a conversation with someone
+ *
  * @param pseudo : other player's pseudo
  */
 void PacketManager::makeTchatStopRequest(const std::string pseudo) {
@@ -321,7 +346,9 @@ void PacketManager::updateFriendList(const Packet::friendListPacket* friendListP
     //TODO update friend list
 }
 
-/* Send a friend request
+/**
+ * Send a friend request
+ *
  * @param pseudo : other player's pseudo
  */
 void PacketManager::makeFriendRequest(const char* pseudo) {
@@ -336,7 +363,9 @@ void PacketManager::makeFriendRequest(const char* pseudo) {
     delete friendReq;
 }
 
-/* Ask for friend list update */
+/**
+ * Ask for friend list update
+ */
 void PacketManager::makeFriendListRequest() {
     /* Create and specify a new logoutPacket */
     Packet::packet *friendListReq = new Packet::packet();
@@ -356,7 +385,9 @@ void PacketManager::startGame(const Packet::pseudoPacket* packet) {
 }
 
 
-/* Inform server we are ready and wainting for party */
+/**
+ * Inform server we are ready and wainting for party
+ */
 void PacketManager::makeGameRequest() {
     /* Create and specify a new logoutPacket */
     Packet::packet *gameReq = new Packet::packet();
@@ -369,7 +400,9 @@ void PacketManager::makeGameRequest() {
     delete gameReq;
 }
 
-/* Inform server thant we wont anymore play */
+/**
+ * Inform server thant we wont anymore play
+ */
 void PacketManager::makeGameCancelRequest() {
     /* Create and specify a new logoutPacket */
     Packet::packet *cancelInfo = new Packet::packet();
@@ -424,11 +457,31 @@ void PacketManager::askDrop(const Packet::intPacket* askDropPacket) {
 //    //TODO update in-game info with a spell
 //}
 
+
+void PacketManager::manageAttack(Packet::attackPacket* attackPacket) {
+
+}
+
+void PacketManager::managePlaceSpell(Packet::placeAttackSpellPacket* placeAttackSpellPacket) {
+
+}
+
+void PacketManager::managePlaceCard(Packet::placeCardPacket* placeCardPacket) {
+
+}
+
+void PacketManager::managePlaceCardAttack(Packet::placeAttackPacket* placeAttackPacket) {
+
+}
+
+
 void PacketManager::manageEndGame(const Packet::endGamePacket* endPacket) {
     //TODO tell if we win and display winner's new card
 }
 
-/* Inform server to trash a card
+/**
+ * Inform server to trash a card
+ *
  * @param ID : the card's ID
  */
 void PacketManager::sendDrop(const int ID) {
@@ -498,7 +551,9 @@ void PacketManager::sendDrop(const int ID) {
 //    delete spellPacket;
 //}
 
-/* Inform server that we have finish our turn */
+/**
+ * Inform server that we have finish our turn
+ */
 void PacketManager::endTurn() {
     /* Create and specify a new logoutPacket */
     Packet::packet *endTurn = new Packet::packet();
@@ -511,7 +566,9 @@ void PacketManager::endTurn() {
     delete endTurn;
 }
 
-/* Inform server that we (rage) quit party and we loose */
+/**
+ * Inform server that we (rage) quit party and we loose
+ */
 void PacketManager::quit() {
     /* Create and specify a new logoutPacket */
     Packet::packet *quit = new Packet::packet();
@@ -523,3 +580,4 @@ void PacketManager::quit() {
     /* Clean memory */
     delete quit;
 }
+
