@@ -33,7 +33,7 @@
 #define MAX_PSEUDO_SIZE 30
 
 /* Max life for player */
-#define MAX_LIFE 50
+#define MAX_LIFE 20
 
 /* Max energy for player */
 #define MAX_ENERGY 10

@@ -15,7 +15,8 @@ enum Error {
     CollectionFull = 10, /* The number of card in collection is limited */
     MaxDeck = 11, /* The number of deck is limited */
     MustOneDeckMin = 12, /* The player must have one deck */
-    DeckNotFound = 13
+    DeckNotFound = 13,
+    CardNotFound = 14
 };
 
 

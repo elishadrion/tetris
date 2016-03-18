@@ -15,7 +15,7 @@ public:
 
     virtual void apply(CardMonster* target, Game*) override;
     virtual void apply(PlayerInGame* target, Game*) override;
-    virtual bool canBeApplyOnPlayer() override {return true;};
+    virtual bool canBeApplyOnPlayer() override {return true;}
 };
 
 /**
@@ -42,7 +42,7 @@ void Heal::apply(CardMonster* target, Game* game) {
  * @return void 
  */
 void Heal::apply(PlayerInGame* target, Game* game) {
-    target->getHealed(_healValue);
+    target->addHeal(_healValue);
 }
 
 #endif	/* HEAL_HPP */

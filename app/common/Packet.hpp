@@ -46,9 +46,9 @@ public:
         DRAW_ID = 72, /* intPacket */
         ASK_DROP_ID = 73, /* Ask to drop a certain amount of card */
         DROP_ID = 74, /* A packet by droped card (use intPacket) */
-        C_ATTACK_ID = 75, /* client - cTwoCardPacket */
+        C_ATTACK_ID = 75, /* client - twoCardPacket */
         C_PLACE_CARD_ID = 76, /* client - intPacket - must may be removed */
-        C_PLACE_SPELL_ID = 77, /* client - cTwoCardPacket */
+        C_PLACE_SPELL_ID = 77, /* client - twoCardPacket */
         C_PLACE_CARD_MAKE_SPELL_ID = 78, /* client - cPlaceCardMakeSpellPacket */
         S_ATTACK_ID = 79, /* server - attackPacket */
         S_PLACE_SPELL_ID = 80, /* server - attackPacket */
@@ -201,7 +201,7 @@ public:
         int size = sizeof(int)*2;
         int cardId; /* Card who make attack */
         int targetCard; /* Card target */
-    } cTwoCardPacket;
+    } twoCardPacket;
 
     typedef struct {
         int ID = C_PLACE_CARD_MAKE_SPELL_ID;

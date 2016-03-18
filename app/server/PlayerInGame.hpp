@@ -47,7 +47,6 @@ class PlayerInGame : public Player {
     int _playerHeal;
     int _energy;
     unsigned int _maxEnergy;
-    unsigned int const _limitEnergy = MAX_ENERGY; //The maximum energy can't go further than this
     Game* _game;
 
 
@@ -60,6 +59,7 @@ public:
 
     virtual inline bool isPlayerInGame() {return true;}
 
+    // Getters
     dataIGPlayer getDataPlayer();
     std::vector<CardMonster*> getCardsPlaced();
     std::vector<Card*> getCardsInHand();
@@ -67,24 +67,31 @@ public:
     std::vector<Card*> getDefausse();
     unsigned nbrCardDefausse();
 
+    // Deck information
     void setDeck(std::string);
     bool isDeckDefined();
     Deck* getDeck();
     unsigned nbrCardDeck();
     Card* draw();
 
+    // Game info
     bool haveEnoughEnergy(Card* card);
     void addMaxEnergy();
     int resetEnergy();
     void defausseCardPlaced(CardMonster*);
+    void defausseCardInHand(Card*);
     void placeCard(CardMonster*);
     void takeDamage(unsigned int);
-    void getHealed(unsigned int);
-
+    void addHeal(unsigned int);
     int getHeal();
+    bool isDead();
+
+    Game* getGame();
+
+
+    // End Game
     void addDefeat();
     void addWin();
-    bool isDead();
 
     virtual ~PlayerInGame();
 };

@@ -72,7 +72,7 @@ void PacketManager::managePacket(Player *player, Packet::packet* customPacket) {
                                           break;
         case Packet::DROP_ID :            manageDrop(player, (Packet::intPacket*) customPacket);
                                           break;
-        case Packet::C_ATTACK_ID:
+        case Packet::C_ATTACK_ID:         manageAttack(player, (Packet::twoCardPacket*) customPacket);
                                           break;
         case Packet::C_PLACE_CARD_ID:
                                           break;
@@ -298,18 +298,13 @@ void PacketManager::manageDrop(Player* player, Packet::intPacket* dropIDPacket) 
     //TODO tell Game wich card is drop
 }
 
-//void PacketManager::manageAttack(Player* player, Packet::attackPacket* attackPacket) {
-//    //TODO tell Game about attack
-
-//    if(player->isPlayerInGame()) {
-//        PlayerInGame* pIG = static_cast<PlayerInGame*>(player);
-//    }
-
-//}
-
-//void PacketManager::manageSpell(Player* player, Packet::attackPacket* spellPacket) {
-//    //TODO tell Game about spell
-//}
+void PacketManager::manageAttack(Player *player, Packet::twoCardPacket* attackPacekt) {
+    if(player->isPlayerInGame()) {
+        // TO DO
+    } else {
+        WizardLogger::warning("ManageAttack appellé par un player et non un PlayerInGame");
+    }
+}
 
 void PacketManager::manageEndTurn(Player* player, Packet::packet* packet) {
     //TODO tell Game about end of turn

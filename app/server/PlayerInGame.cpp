@@ -25,6 +25,8 @@ PlayerInGame::PlayerInGame(const Player& player, Game* game): Player(player),
 }
 
 
+///////////// Getters /////////////
+
 /**
  * Gets data information from this player to send it
  *
@@ -38,10 +40,57 @@ dataIGPlayer PlayerInGame::getDataPlayer() {
     data.cardsInHand = this->_cardsInHand;
     data.cardsPlaced = this->_cardsPlaced;
     data.maxEnergy = this->_maxEnergy;
-    data.limitEnergy = this->_limitEnergy;
+    data.limitEnergy = MAX_ENERGY;
 
     return data;
 }
+
+
+/**
+ * Returns the placed cards
+ * @return the vector of card placed
+ */
+std::vector<CardMonster*> PlayerInGame::getCardsPlaced() {
+    return _cardsPlaced;
+}
+
+
+/**
+ * Returns the cards in hand
+ * @return the vector of card in hand
+ */
+std::vector<Card*> PlayerInGame::getCardsInHand() {
+    return _cardsInHand;
+}
+
+
+/**
+ * Return the size of card in hand
+ */
+unsigned PlayerInGame::nbrCardInHand() {
+    return getCardsInHand().size();
+}
+
+
+/**
+ * Get defausse card
+ * @return the vector of defausse card
+ */
+std::vector<Card*> PlayerInGame::getDefausse() {
+    return _defausse;
+}
+
+
+/**
+ * Get defausse size
+ */
+unsigned PlayerInGame::nbrCardDefausse() {
+    return getDefausse().size();
+}
+
+
+
+//////////// Deck info ////////////
 
 /**
  * Sets the player deck and notifies it at the game object
@@ -78,6 +127,7 @@ bool PlayerInGame::isDeckDefined() {
     return _deck != nullptr;
 }
 
+
 /**
  * Get the current deck
  *
@@ -86,6 +136,7 @@ bool PlayerInGame::isDeckDefined() {
 Deck* PlayerInGame::getDeck() {
     return _deck;
 }
+
 
 /**
  * Get number of card in the deck
@@ -114,48 +165,25 @@ Card* PlayerInGame::draw() {
 
 
 
-/**
- * Returns the placed cards
- * @return the vector of card placed
- */
-std::vector<CardMonster*> PlayerInGame::getCardsPlaced() {
-    return _cardsPlaced;
-}
+//////////// Game info ////////////
 
 /**
- * Returns the cards in hand
- * @return the vector of card in hand
+ * Check if the player have enought energy to play a certain card
+ * @param card the card to test
+ * @return true if all is ok
  */
-std::vector<Card*> PlayerInGame::getCardsInHand() {
-    return _cardsInHand;
-}
-
-/**
- * Return the size of card in hand
- */
-unsigned PlayerInGame::nbrCardInHand() {
-    return getCardsInHand().size();
-}
-
-/**
- * Get defausse card
- * @return the vector of defausse card
- */
-std::vector<Card*> PlayerInGame::getDefausse() {
-    return _defausse;
-}
-
-/**
- * Get defausse size
- */
-unsigned PlayerInGame::nbrCardDefausse() {
-    return getDefausse().size();
+bool PlayerInGame::haveEnoughEnergy(Card* card) {
+    return this->_energy > 0 &&
+        card->getEnergyCost() <= static_cast<unsigned>(this->_energy);
 }
 
 
+/**
+ * Increment the max energy of the player (if possible)
+ */
 void PlayerInGame::addMaxEnergy() {
-    if (_maxEnergy < _limitEnergy) {
-      _maxEnergy++;
+    if (_maxEnergy < MAX_ENERGY) {
+        _maxEnergy++;
     }
 }
 
@@ -171,54 +199,82 @@ int PlayerInGame::resetEnergy() {
 }
 
 
-//Checks if the player have currently enough energy to play a certain card
-bool PlayerInGame::haveEnoughEnergy(Card* card) {
-    return this->_energy > 0 &&
-        card->getEnergyCost() <= static_cast<unsigned>(this->_energy);
-}
-
-void PlayerInGame::defausseCardPlaced(CardMonster* card) {
-    auto it = std::find(_cardsPlaced.begin(), _cardsPlaced.end(), card);
+/**
+ * Remove card from the placed card to the defausse
+ *
+ * @param card which must be defausse
+ * @return noError if all is ok or error
+ */
+Error PlayerInGame::defausseCardPlaced(CardMonster* card) {
+    std::vector<CardMonster*>::iterator it = std::find(_cardsPlaced.begin(), _cardsPlaced.end(), card);
     if(it != _cardsPlaced.end()) {
         _cardsPlaced.erase(it);
         _defausse.push_back(card);
+    } else {
+
     }
 }
 
+
+/**
+ * Defausse a card
+ *
+ * @param card wich must remove
+ * @return noError if all is ok or error
+ */
+Error PlayerInGame::defausseCardInHand(Card* card) {
+    Error res = Error::CardNotFound;
+    std::vector<Card*>::iterator it = std::find(_cardsInHand.begin(), _cardsInHand.end(), card);
+    if(it != _cardsInHand.end()) {
+        _cardsInHand.erase(it);
+        _defausse.push_back(card);
+        res = Error::NoError;
+    }
+
+    return res;
+}
+
+/**
+ * Place the card to the board
+ *
+ * @param card which must be placed
+ */
 void PlayerInGame::placeCard(CardMonster* card) {
     _cardsPlaced.push_back(card);
 }
 
+
+/**
+ * Remove heal of this player
+ *
+ * @param damage quantity of heal to remove
+ */
 void PlayerInGame::takeDamage(unsigned int damage){
     _playerHeal -= damage;
 }
 
 
-void PlayerInGame::getHealed(unsigned int heal){
-    const int maxHP = 20;
+/**
+ * Add heal of this player
+ *
+ * @param heal quantity of heal to add
+ */
+void PlayerInGame::addHeal(unsigned int heal){
+    const int maxHP = MAX_LIFE;
     _playerHeal += heal;
-    if(_playerHeal > maxHP){
+    if(_playerHeal > maxHP) {
         _playerHeal = maxHP; //Can't go higher than the max
     }
 }
 
 
+/**
+ * Get the number of heal
+ *
+ * @return the heal of this player
+ */
 int PlayerInGame::getHeal() {
     return _playerHeal;
-}
-
-/**
- * Adds a defeat to the player
- */
-void PlayerInGame::addDefeat() {
-    ++_defeats;
-}
-
-/**
- * Adds a win to the player
- */
-void PlayerInGame::addWin() {
-    ++_victories;
 }
 
 
@@ -229,6 +285,40 @@ bool PlayerInGame::isDead() {
     return _playerHeal <= 0;
 }
 
+
+/**
+ * Get the game
+ *
+ * @return the game of this player
+ */
+Game* PlayerInGame::getGame() {
+    return _game;
+}
+
+
+//////////// Game End /////////////
+
+/**
+ * Adds a defeat to the player
+ */
+void PlayerInGame::addDefeat() {
+    ++_defeats;
+}
+
+
+/**
+ * Adds a win to the player
+ */
+void PlayerInGame::addWin() {
+    ++_victories;
+}
+
+
+///////////////////////////////////
+
+/**
+ * Destructor
+ */
 PlayerInGame::~PlayerInGame() {
     _playerConnect->removePlayerInGame(this);
 }
