@@ -26,31 +26,31 @@ public:
     /* Display the mainWindow
      * Must be safe enought to avoid memory leak or function call hell
      */
-    virtual void displayMainWindow() =0;
+    virtual void displayMainWindow() =0; // remove ?
 
     /* Display friends list */
-    virtual void displayFriendsWindow() =0;
+    virtual void displayFriendsWindow() =0; // remove ?
 
     /* Display player's collection */
-    virtual void displayCollectionWindow() =0;
+    virtual void displayCollectionWindow() =0; // remove ?
 
     /* Display player's deck content TODO: get ID ? */
-    virtual void displayDeckWindow() =0;
+    virtual void displayDeckWindow() =0; // remove ?
 
     /* Wait for game ready (can cancel ?) */
-    virtual void displayWait() =0;
+    virtual void displayWait() =0;  // remove ?
 
     /* Display in-game layout */
-    virtual void displayGame() =0;
+    virtual void displayGame() =0; // remove ?
 
     /* Display classement */
-    virtual void displayClassement() =0;
+    virtual void displayClassement() =0; // remove ?
 
     /* Focus on tchat windows/panel, use it when start a conversation (exemple) */
-    virtual void focusTchat() =0;
+    virtual void focusTchat() =0; // remove ?
 
     /* Display popup message */
-    virtual void displayPopup(std::string) =0;
+    virtual void displayPopup(std::string) =0; // remove ?
 
     /* Ask to te play to choose her deck */
     virtual void askDeck() {}
