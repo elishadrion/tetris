@@ -203,6 +203,71 @@ void Game::draw(PlayerInGame* pIG) {
 
 
 /**
+ * Function when player place card
+ *
+ * @param pIG player who place the card
+ * @param cardPlaced the card the must be place
+ */
+Error Game::placeCard(PlayerInGame* pIG, CardMonster* cardPlaced) {
+
+    Error res = canPlaceCard(pIG, cardPlaced);
+
+    if(res == Error::NoError) {
+        int position = getRealPosition(pIG, pIG->placeCard(cardPlaced));
+        // DETOBEL36
+//        PacketManager::sendPlaceMonsterCard(_player1, pIG->getName(), cardPlaced->getId(), position);
+//        PacketManager::sendPlaceMonsterCard(_player2, pIG->getName(), cardPlaced->getId(), position);
+
+    }
+
+    return res;
+}
+
+
+/**
+ * Function when player place card and attack an other
+ *
+ * @param pIG player who place the card
+ * @param cardPlaced the card the must be place
+ * @param targetCard the card which will have the effect if
+ * the placed card have it
+ */
+Error Game::placeCardAffect(PlayerInGame* pIG, Card* cardPlaced,
+    unsigned targetPosition) {
+
+    Error res = canPlaceCard(pIG, cardPlaced);
+
+    if(res == Error::NoError) {
+        PlayerInGame* adverse = getAdversePlayer(pIG);
+        CardMonster* targetCard = adverse->getCardAtPosition(getRelativePosition(adverse, targetPosition));
+
+        // Verify if effect can be apply on monster
+        cardPlaced->applyEffect(*targetCard, *this);
+
+
+        // Send information to clients
+        std::string pseudo = pIG->getName();
+        int placedCardId = cardPlaced->getId();
+        unsigned lifeTarget = targetCard->getLife();
+
+        if(cardPlaced->isMonster()) {
+            CardMonster* monsterCard = static_cast<CardMonster*>(cardPlaced);
+            int positionNewCard = getRealPosition(pIG, pIG->placeCard(monsterCard));
+            PacketManager::sendPlaceMonsterCard(_player1, pseudo, placedCardId, positionNewCard,
+                                                targetPosition, lifeTarget);
+            PacketManager::sendPlaceMonsterCard(_player2, pseudo, placedCardId, positionNewCard,
+                                                targetPosition, lifeTarget);
+        } else {
+            PacketManager::sendPlaceSpellCard(_player1, pseudo, placedCardId, targetPosition, lifeTarget);
+            PacketManager::sendPlaceSpellCard(_player2, pseudo, placedCardId, targetPosition, lifeTarget);
+        }
+    }
+
+    return res;
+}
+
+
+/**
  * Function when player place card and attack player
  *
  * @param pIG player who place the card
@@ -220,8 +285,9 @@ Error Game::placeCardAffectPlayer(PlayerInGame* pIG, Card* cardPlaced) {
             PlayerInGame* pAdverse = getAdversePlayer(pIG);
             cardPlaced->applyEffect(*pAdverse, *this);
             // Send information to clients
-            sendInfoAction(pIG->getName(), cardPlaced->getId(), -1, pAdverse->getHeal(),
-                           true, !cardPlaced->isMonster());
+            // DETOBEL 36
+//            sendInfoAction(pIG->getName(), cardPlaced->getId(), -1, pAdverse->getHeal(),
+//                           true, !cardPlaced->isMonster());
             isPlayerInLife(pAdverse); // Is player in life ?
         } else {
             res = Error::NotEffectForPlayer;
@@ -231,56 +297,6 @@ Error Game::placeCardAffectPlayer(PlayerInGame* pIG, Card* cardPlaced) {
     return res;
 }
 
-
-/**
- * Function when player place card
- *
- * @param pIG player who place the card
- * @param cardPlaced the card the must be place
- * @param targetCard the card which will have the effect if
- * the placed card have it
- */
-Error Game::placeCard(PlayerInGame* pIG, CardMonster* cardPlaced) {
-
-    Error res = canPlaceCard(pIG, cardPlaced);
-
-    if(res == Error::NoError) {
-        int position = getRealPosition(pIG, pIG->placeCard(cardPlaced));
-        //PacketManager::sendPlaceMonsterCard(_player1, pIG->getName(), cardPlaced->getId(), position);
-
-        // Send information to clients
-        //sendInfoAction(pIG->getName(), cardPlaced->getId(), targetCard->getId(), targetCard->getLife(),
-        //               true, !cardPlaced->isMonster());
-    }
-
-    return res;
-}
-
-
-/**
- * Function when player place card
- *
- * @param pIG player who place the card
- * @param cardPlaced the card the must be place
- * @param targetCard the card which will have the effect if
- * the placed card have it
- */
-Error Game::placeCard(PlayerInGame* pIG, Card* cardPlaced,
-    CardMonster* targetCard) {
-
-    Error res = canPlaceCard(pIG, cardPlaced);
-
-    if(res == Error::NoError) {
-        // Verify if effect can be apply on monster
-        cardPlaced->applyEffect(*targetCard, *this);
-
-        // Send information to clients
-        sendInfoAction(pIG->getName(), cardPlaced->getId(), targetCard->getId(), targetCard->getLife(),
-                       true, !cardPlaced->isMonster());
-    }
-
-    return res;
-}
 
 
 /**
@@ -306,8 +322,9 @@ Error Game::attackWithCard(PlayerInGame* pIG, unsigned cardPosition,
                 this->getAdversePlayer()->defausseCardPlaced(targetPosition);
             }
 
-//            sendInfoAction(pIG->getName(), card->getId(), targetCard->getId(), targetCard->getLife(),
-//                           false, false);
+            // DEOBEL36:
+            // PacketManager::sendAttack(_player1, pIG->getName(), cardPosition, targetPosition, targetCard->getLife());
+            // PacketManager::sendAttack(_player2, pIG->getName(), cardPosition, targetPosition, targetCard->getLife());
         } else {
             res = Error::MustAttackTaunt;
         }
@@ -335,7 +352,9 @@ Error Game::attackWithCardAffectPlayer(PlayerInGame* pIG, unsigned cardPosition)
             PlayerInGame* pAdverse = getAdversePlayer(pIG);
             card->dealDamage(*pAdverse);
 
-            //sendInfoAction(pIG->getName(), card->getId(), -1, pAdverse->getHeal(), false, false);
+            // DETOBEL
+//             PacketManager::sendAttack(_player1, pIG->getName(), cardPosition, -1, pAdverse->getHeal());
+//             PacketManager::sendAttack(_player2, pIG->getName(), cardPosition, -1, pAdverse->getHeal());
             isPlayerInLife(pAdverse);
         } else {
             res = Error::MustAttackTaunt;

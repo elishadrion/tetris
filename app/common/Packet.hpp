@@ -51,7 +51,7 @@ public:
         C_PLACE_SPELL_ID = 77, // client - twoCardPacket
         C_PLACE_CARD_MAKE_SPELL_ID = 78, // client - twoCardPacket
         S_ATTACK_ID = 79, // server - attackPacket
-        S_PLACE_SPELL_ID = 80, // server - placeAttackPacket
+        S_PLACE_SPELL_ID = 80, // server - placeAttackSpellPacket
         S_PLACE_CARD_ID = 81, // server - placeCardPacket
         S_PLACE_CARD_AND_ATTACK_ID = 82, // server - placeAttackPacket
         PLAYER_DAMAGE_ID = 83, /* damage when player havent card in deck - pseudoIntPacket */
@@ -217,7 +217,19 @@ public:
     } attackPacket;
 
     typedef struct {
-        int ID;
+        int ID = S_PLACE_SPELL_ID;
+        typedef struct {
+            char pseudo[MAX_PSEUDO_SIZE];
+            int idCard;
+            int targetPosition;
+            unsigned heal;
+        } placeAttackSpellData;
+        int size = sizeof(placeAttackSpellData);
+        placeAttackSpellData data;
+    } placeAttackSpellPacket;
+
+    typedef struct {
+        int ID = S_PLACE_CARD_AND_ATTACK_ID;
         typedef struct {
             char pseudo[MAX_PSEUDO_SIZE];
             int idCard;

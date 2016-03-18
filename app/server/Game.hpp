@@ -60,9 +60,9 @@ public:
     // Function during the game
     void draw(); // current player draw a card
     void draw(PlayerInGame*); // current player draw a card
-    Error placeCardAffectPlayer(PlayerInGame*, Card*);
     Error placeCard(PlayerInGame*, CardMonster*);
-    Error placeCard(PlayerInGame*, Card*, CardMonster*);
+    Error placeCardAffect(PlayerInGame*, Card*, unsigned);
+    Error placeCardAffectPlayer(PlayerInGame*, Card*);
     Error attackWithCard(PlayerInGame*, unsigned, unsigned);
     Error attackWithCardAffectPlayer(PlayerInGame*, unsigned);
     void nextPlayer();
