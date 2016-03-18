@@ -39,7 +39,7 @@ namespace PacketManager {
     
     /* Game process */
     void manageDrop(Player*, Packet::intPacket*); /* DROP_ID */
-//    void manageAttack(Player*, Packet::attackPacket*); /* ATTACK_ID (in) */
+    void manageAttack(Player*, Packet::twoCardPacket*); /* C_ATTACK_ID */
 //    void manageSpell(Player*, Packet::attackPacket*); /* SPELL_ID (in) */
     void manageEndTurn(Player*, Packet::packet*); /* END_TURN_ID */
     void manageQuitGame(Player*, Packet::packet*); /* QUIT_ID */

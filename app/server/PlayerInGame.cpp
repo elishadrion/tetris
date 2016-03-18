@@ -206,13 +206,16 @@ int PlayerInGame::resetEnergy() {
  * @return noError if all is ok or error
  */
 Error PlayerInGame::defausseCardPlaced(CardMonster* card) {
+    Error res = Error::CardNotFound;
+
     std::vector<CardMonster*>::iterator it = std::find(_cardsPlaced.begin(), _cardsPlaced.end(), card);
     if(it != _cardsPlaced.end()) {
         _cardsPlaced.erase(it);
         _defausse.push_back(card);
-    } else {
-
+        res = Error::NoError;
     }
+
+    return res;
 }
 
 
