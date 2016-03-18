@@ -44,7 +44,6 @@ class Game {
     //void sendInformation(PlayerInGame*,dataIGPlayer, dataIGPlayer); // Not use
     PlayerInGame* getAdversePlayer(PlayerInGame* player);
     PlayerInGame* getAdversePlayer();
-    std::vector<CardMonster*> getAdversePlacedCard(PlayerInGame* player);
 
 
 public:

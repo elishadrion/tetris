@@ -68,16 +68,6 @@ PlayerInGame* Game::getAdversePlayer() {
 }
 
 
-/**
- * Gets the ennemy placed card
- *
- * @param player the current player
- */
-std::vector<CardMonster*> Game::getAdversePlacedCard(PlayerInGame* player) {
-    return getAdversePlayer(player)->getCardsPlaced();
-}
-
-
 
 //////////// PUBLIC ////////////
 
@@ -255,8 +245,8 @@ Error Game::placeCard(PlayerInGame* pIG, CardMonster* cardPlaced) {
     Error res = canPlaceCard(pIG, cardPlaced);
 
     if(res == Error::NoError) {
-        int position = pIG->placeCard(placeCard);
-        PacketManager::sendPlaceMonsterCard(_player1, pIG->getName(), cardPlaced->getId(), )
+        int position = getRealPosition(pIG, pIG->placeCard(placeCard));
+        PacketManager::sendPlaceMonsterCard(_player1, pIG->getName(), cardPlaced->getId(), position);
 
         // Send information to clients
         sendInfoAction(pIG->getName(), cardPlaced->getId(), targetCard->getId(), targetCard->getLife(),
@@ -406,11 +396,7 @@ void Game::sendInfoAction(std::string pseudo, int cardID, int targetCard, unsign
  */
 void Game::beginTurn() {
     // Increment number of turn
-    std::vector<CardMonster*> cardPlaced = _currentPlayer->getCardsPlaced();
-    for (size_t i = 0; i < cardPlaced.size(); ++i) {
-        cardPlaced[i]->incrementTour();
-    }
-
+    _currentPlayer->incrementAllPlaceCard();
 
     while(_currentPlayer->nbrCardInHand() < 5) {
         draw();
@@ -481,16 +467,7 @@ bool Game::verifyTaunt(PlayerInGame* pIG, CardMonster *card) {
  * @return True if all is ok, False if a card is taunt
  */
 bool Game::verifyTaunt(PlayerInGame* pIG) {
-    bool res = true;
-
-    std::vector<CardMonster*> cardPlaced = pIG->getCardsPlaced();
-    size_t i = 0;
-    while(i < cardPlaced.size() && res) {
-        res = !(cardPlaced[i]->isTaunt());
-        ++i;
-    }
-
-    return res;
+    return pIG->haveOneCardTaunt();
 }
 
 
@@ -501,7 +478,7 @@ bool Game::verifyTaunt(PlayerInGame* pIG) {
  * @return True if the have place
  */
 bool Game::havePlace(PlayerInGame* pIG) {
-    return pIG->getCardsPlaced().size() < MAX_POSED_CARD;
+    return pIG->havePlace();
 }
 
 
@@ -566,6 +543,9 @@ int Game::getRealPosition(PlayerInGame* pIG, int initPosition) {
 int Game::getRelativePosition(PlayerInGame* pIG, int initPosition) {
     int res = initPosition;
     if(pIG == _player2) {
+        if(initPosition < MAX_POSED_CARD) {
+            WizardLogger::error("Le calcul relatif de la carte est erroné");
+        }
         res -= MAX_POSED_CARD;
     }
 

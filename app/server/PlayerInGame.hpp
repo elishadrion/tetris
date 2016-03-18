@@ -61,7 +61,7 @@ public:
 
     // Getters
     dataIGPlayer getDataPlayer();
-    std::vector<CardMonster*> getCardsPlaced();
+    CardMonster* getCardsPlaced();
     std::vector<Card*> getCardsInHand();
     unsigned nbrCardInHand();
     std::vector<Card*> getDefausse();
@@ -74,18 +74,20 @@ public:
     unsigned nbrCardDeck();
     Card* draw();
 
-    // Game info
+    // Game info and action
     bool haveEnoughEnergy(Card* card);
     void addMaxEnergy();
     int resetEnergy();
-    Error defausseCardPlaced(CardMonster*);
+    Error defausseCardPlaced(unsigned);
     Error defausseCardInHand(Card*);
-    void placeCard(CardMonster*);
+    int placeCard(CardMonster*);
     void takeDamage(unsigned int);
     void addHeal(unsigned int);
     int getHeal();
     bool isDead();
-
+    void incrementAllPlaceCard();
+    bool haveOneCardTaunt();
+    bool havePlace();
     Game* getGame();
 
 

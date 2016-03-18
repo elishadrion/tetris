@@ -16,7 +16,7 @@ PlayerInGame::PlayerInGame(const Player& player, Game* game): Player(player),
     _maxEnergy = 1; //Every turn the maximum energy is increased up to a maximum of 10
     std::vector<Card*> _cardsInHand(0);
     std::vector<Card*> _defausse(0);
-    std::vector<CardMonster*> _cardsPlaced(0);
+    CardMonster _cardsPlaced[MAX_POSED_CARD];
 
     _playerConnect->setPlayerInGame(this);
 
@@ -28,29 +28,10 @@ PlayerInGame::PlayerInGame(const Player& player, Game* game): Player(player),
 ///////////// Getters /////////////
 
 /**
- * Gets data information from this player to send it
- *
- * @param isTurn of the current player
- */
-dataIGPlayer PlayerInGame::getDataPlayer() {
-    dataIGPlayer data;
-
-    data.playerHeal = this->_playerHeal;
-    data.energy = this->_energy;
-    data.cardsInHand = this->_cardsInHand;
-    data.cardsPlaced = this->_cardsPlaced;
-    data.maxEnergy = this->_maxEnergy;
-    data.limitEnergy = MAX_ENERGY;
-
-    return data;
-}
-
-
-/**
  * Returns the placed cards
  * @return the vector of card placed
  */
-std::vector<CardMonster*> PlayerInGame::getCardsPlaced() {
+CardMonster* PlayerInGame::getCardsPlaced() {
     return _cardsPlaced;
 }
 
@@ -202,16 +183,15 @@ int PlayerInGame::resetEnergy() {
 /**
  * Remove card from the placed card to the defausse
  *
- * @param card which must be defausse
+ * @param cardPosition position of the card that must be defausse
  * @return noError if all is ok or error
  */
-Error PlayerInGame::defausseCardPlaced(CardMonster* card) {
+Error PlayerInGame::defausseCardPlaced(unsigned cardPosition) {
     Error res = Error::CardNotFound;
 
-    std::vector<CardMonster*>::iterator it = std::find(_cardsPlaced.begin(), _cardsPlaced.end(), card);
-    if(it != _cardsPlaced.end()) {
-        _cardsPlaced.erase(it);
-        _defausse.push_back(card);
+    if(_cardsPlaced[cardPosition] != nullptr) {
+        _defausse.push_back(_cardsPlaced[cardPosition]);
+        _cardsPlaced[cardPosition] = nullptr;
         res = Error::NoError;
     }
 
@@ -241,9 +221,24 @@ Error PlayerInGame::defausseCardInHand(Card* card) {
  * Place the card to the board
  *
  * @param card which must be placed
+ * @return -1 if not enought place
  */
-void PlayerInGame::placeCard(CardMonster* card) {
-    _cardsPlaced.push_back(card);
+int PlayerInGame::placeCard(CardMonster* card) {
+    unsigned res = -1;
+    bool find = false;
+
+    while(res < MAX_POSED_CARD && !find) {
+        ++res;
+        find = (_cardsPlaced[res] == nullptr);
+    }
+
+    if(find) {
+        _cardsPlaced[res] = card;
+    } else {
+        res = -1;
+    }
+
+    return res;
 }
 
 
@@ -286,6 +281,57 @@ int PlayerInGame::getHeal() {
  */
 bool PlayerInGame::isDead() {
     return _playerHeal <= 0;
+}
+
+/**
+ * Increment the number of turn for all placed cards
+ */
+void PlayerInGame::incrementAllPlaceCard() {
+    CardMonster* cardPlaced = getCardsPlaced();
+    for (size_t i = 0; i < MAX_POSED_CARD; ++i) {
+        CardMonster* cardMonster = cardPlaced[i];
+        if(cardMonster != nullptr) {
+            cardMonster->incrementTour();
+        }
+    }
+}
+
+/**
+ * Verify if the player have a Taunt card
+ *
+ * @return True if he have one taunt card
+ */
+bool PlayerInGame::haveOneCardTaunt() {
+    bool res = true;
+
+    CardMonster* cardPlaced = getCardsPlaced();
+    unsigned i = 0;
+    while(i < MAX_POSED_CARD && res) {
+        CardMonster* currentCard = cardPlaced[i];
+        if(currentCard != nullptr) {
+            res = !(currentCard->isTaunt());
+        }
+        ++i;
+    }
+
+    return res;
+}
+
+
+/**
+ * Check if the player have enought place on the board
+ * to place a card
+ *
+ * @return true if enought place
+ */
+bool PlayerInGame::havePlace() {
+    unsigned i = 0;
+    bool res = false;
+    while(i < MAX_POSED_CARD && !res) {
+        res = (getCardsPlaced()[i] == nullptr);
+    }
+
+    return res;
 }
 
 
