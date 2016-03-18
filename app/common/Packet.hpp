@@ -46,17 +46,18 @@ public:
         DRAW_ID = 72, /* intPacket */
         ASK_DROP_ID = 73, /* Ask to drop a certain amount of card */
         DROP_ID = 74, /* A packet by droped card (use intPacket) */
-        C_ATTACK_ID = 75, /* client - twoCardPacket */
-        C_PLACE_CARD_ID = 76, /* client - intPacket - must may be removed */
-        C_PLACE_SPELL_ID = 77, /* client - twoCardPacket */
-        C_PLACE_CARD_MAKE_SPELL_ID = 78, /* client - cPlaceCardMakeSpellPacket */
-        S_ATTACK_ID = 79, /* server - attackPacket */
-        S_PLACE_SPELL_ID = 80, /* server - attackPacket */
-        S_PLACE_CARD_ID = 81, /* server - attackPacket */
-        PLAYER_DAMAGE_ID = 82, /* damage when player havent card in deck - pseudoIntPacket */
-        END_TURN_ID = 83, /* Send to server to signal end of turn (DEFAULT PACKET) */
-        QUIT_ID = 84, /* DEFAULT PACKET */
-        END_GAME_ID = 85, /* !> use actionPacket */
+        C_ATTACK_ID = 75, // client - twoCardPacket
+        C_PLACE_CARD_ID = 76, // client - intPacket
+        C_PLACE_SPELL_ID = 77, // client - twoCardPacket
+        C_PLACE_CARD_MAKE_SPELL_ID = 78, // client - twoCardPacket
+        S_ATTACK_ID = 79, // server - attackPacket
+        S_PLACE_SPELL_ID = 80, // server - placeAttackPacket
+        S_PLACE_CARD_ID = 81, // server - placeCardPacket
+        S_PLACE_CARD_AND_ATTACK_ID = 82, // server - placeAttackPacket
+        PLAYER_DAMAGE_ID = 83, /* damage when player havent card in deck - pseudoIntPacket */
+        END_TURN_ID = 84, /* Send to server to signal end of turn (DEFAULT PACKET) */
+        QUIT_ID = 85, /* DEFAULT PACKET */
+        END_GAME_ID = 86, /* !> use actionPacket */
         ERROR_ID = 100 /* intPacket */
     };
     
@@ -199,30 +200,42 @@ public:
     typedef struct {
         int ID;
         int size = sizeof(int)*2;
-        int cardId; /* Card who make attack */
-        int targetCard; /* Card target */
+        int cardPosition; /* Card who make attack */
+        int targetPosition; /* Card target */
     } twoCardPacket;
 
     typedef struct {
-        int ID = C_PLACE_CARD_MAKE_SPELL_ID;
-        int size = sizeof(int)*3;
-        int idCard;
-        int targetCard;
-        int placedCard;
-    } cPlaceCardMakeSpellPacket;
-
+        int ID = S_ATTACK_ID;
+        typedef struct {
+            char pseudo[MAX_PSEUDO_SIZE];
+            int cardPosition;
+            int targetPosition;
+            unsigned heal;
+        } attackData;
+        int size = sizeof(attackData);
+        attackData data;
+    } attackPacket;
 
     typedef struct {
         int ID;
         typedef struct {
             char pseudo[MAX_PSEUDO_SIZE];
             int idCard;
-            int targetCard;
+            int cardPosition;
+            int targetPosition;
             unsigned heal;
-        } attackData;
-        int size = sizeof(attackData);
-        attackData data;
-    } attackPacket;
+        } placeAttackData;
+        int size = sizeof(placeAttackData);
+        placeAttackData data;
+    } placeAttackPacket;
+
+    typedef struct {
+        int ID = Packet::S_PLACE_CARD_ID;
+        int size = sizeof(char)*MAX_PSEUDO_SIZE + 2*sizeof(int);
+        char pseudo[MAX_PSEUDO_SIZE];
+        int idCard;       // Id of the new card
+        int cardPosition; // Position on the board of the new card
+    } placeCardPacket;
 
 
 

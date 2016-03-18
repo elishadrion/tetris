@@ -427,27 +427,60 @@ void PacketManager::sendDrop(Player* player, int ID) {
  *
  * @param player player who must recieve information
  * @param pseudo of the player who place
- * @param cardID wich is placed
- * @param targetCardID wich have dammage
+ * @param cardPosition position of the card the is placed
+ * @param targetPosition position of the card wich have dammage
  * @param heal of the target card
  */
-void PacketManager::sendAttack(Player* player, std::string pseudo, int cardID, int targetCardID,
+void PacketManager::sendAttack(Player* player, std::string pseudo, int cardPosition, int targetPosition,
                                unsigned heal) {
-    sendPrivateAttackPacket(player, pseudo, cardID, targetCardID, heal, Packet::S_ATTACK_ID);
+
+    Packet::attackPacket* attackPacket = new Packet::attackPacket();
+
+    for (int i = 0 ; i < pseudo.size() ; ++i) attackPacket->data.pseudo[i] = pseudo[i];
+    attackPacket->data.cardPosition = cardPosition;
+    attackPacket->data.targetPosition = targetPosition;
+    attackPacket->data.heal = heal;
+
+    /* Send and free */
+    player->sendPacket((Packet::packet*) attackPacket, sizeof(*attackPacket));
+    delete attackPacket;
+}
+
+
+/**
+ * Call when a card monster is placed
+ *
+ * @param player who must recieve information
+ * @param pseudo of the player who place
+ * @param cardID wich is placed
+ * @param cardPosition position of the card in the board
+ */
+void PacketManager::sendPlaceMonsterCard(Player* player, std::string pseudo, int cardID, int cardPosition) {
+    Packet::placeCardPacket* placeCardPacket = new Packet::placeCardPacket();
+
+    for (int i = 0 ; i < pseudo.size() ; ++i) placeCardPacket->pseudo[i] = pseudo[i];
+    placeCardPacket->idCard = cardID;
+    placeCardPacket->cardPosition = cardPosition;
+
+    // Send and free
+    player->sendPacket((Packet::packet*) placeCardPacket, sizeof(*placeCardPacket));
+    delete placeCardPacket;
 }
 
 /**
- * Call when card monster is placed
+ * Call when card monster is placed and he attack somethink
  *
  * @param player player who must recieve information
  * @param pseudo of the player who place
  * @param cardID wich is placed
- * @param targetCardID wich have dammage
+ * @param cardPosition position of the new card
+ * @param targetPosition position of the attack card
  * @param heal of the target card
  */
-void PacketManager::sendPlaceMonsterCard(Player* player, std::string pseudo, int cardID, int targetCardID,
-                                         unsigned heal) {
-    sendPrivateAttackPacket(player, pseudo, cardID, targetCardID, heal, Packet::S_PLACE_CARD_ID);
+void PacketManager::sendPlaceMonsterCard(Player* player, std::string pseudo, int cardID, int cardPosition,
+                                         int targetPosition, unsigned heal) {
+    sendPrivatePlaceAttackPacket(player, pseudo, cardID, cardPosition, targetPosition, heal,
+                                 Packet::S_PLACE_CARD_AND_ATTACK_ID);
 }
 
 /**
@@ -456,37 +489,43 @@ void PacketManager::sendPlaceMonsterCard(Player* player, std::string pseudo, int
  * @param player player who must recieve information
  * @param pseudo of the player who place
  * @param cardID wich is placed
- * @param targetCardID wich have dammage
+ * @param cardPosition position of the new card
+ * @param targetPosition position of the attack card
  * @param heal of the target card
  */
-void PacketManager::sendPlaceSpellCard(Player* player, std::string pseudo, int cardID, int targetCardID,
-                                         unsigned heal) {
-    sendPrivateAttackPacket(player, pseudo, cardID, targetCardID, heal, Packet::S_PLACE_SPELL_ID);
+void PacketManager::sendPlaceSpellCard(Player* player, std::string pseudo, int cardID, int cardPosition,
+                                       int targetPosition, unsigned heal) {
+    sendPrivatePlaceAttackPacket(player, pseudo, cardID, cardPosition, targetPosition, heal,
+                                 Packet::S_PLACE_SPELL_ID);
 }
+
 
 /**
  * PRIVATE function for place and attack packet
  *
- * @param player player who must recieve information
+ * @param player who must recieve information
  * @param pseudo of the player who place
  * @param cardID wich is placed
- * @param targetCardID wich have dammage
+ * @param cardPosition position of the new card
+ * @param targetPosition position of the attack card
  * @param heal of the target card
  * @param PacketID specific which packet
  */
-void PacketManager::sendPrivateAttackPacket(Player* player, std::string pseudo, int cardID, int targetCardID,
-                                     unsigned heal, int packetID) {
-    Packet::attackPacket* attackPacket = new Packet::attackPacket();
+void PacketManager::sendPrivatePlaceAttackPacket(Player* player, std::string pseudo, int cardID, int cardPosition,
+                                                 int targetPosition, unsigned heal, int PacketID) {
 
-    attackPacket->ID = packetID;
-    for (int i = 0 ; i < pseudo.size() ; ++i) attackPacket->data.pseudo[i] = pseudo[i];
-    attackPacket->data.idCard = cardID;
-    attackPacket->data.targetCard = targetCardID;
-    attackPacket->data.heal = heal;
+    Packet::placeAttackPacket* placeAttackPacket = new Packet::placeAttackPacket();
 
-    /* Send and free */
-    player->sendPacket((Packet::packet*) attackPacket, sizeof(*attackPacket));
-    delete attackPacket;
+    placeAttackPacket->ID = PacketID;
+    for (int i = 0 ; i < pseudo.size() ; ++i) placeAttackPacket->data.pseudo[i] = pseudo[i];
+    placeAttackPacket->data.idCard = cardID;
+    placeAttackPacket->data.cardPosition = cardPosition;
+    placeAttackPacket->data.targetPosition = targetPosition;
+    placeAttackPacket->data.heal = heal;
+
+    // Send and free
+    player->sendPacket((Packet::packet*) placeAttackPacket, sizeof(*placeAttackPacket));
+    delete placeAttackPacket;
 }
 
 
