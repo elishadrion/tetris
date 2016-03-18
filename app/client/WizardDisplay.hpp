@@ -69,12 +69,27 @@ public:
     virtual void placeSpellCard(Card*, Card*) {}
 
     /**
+     * Call when a spell card is placed (and attack advers player)
+     *
+     * @param the new card
+     */
+    virtual void placeSpellPlayer(Card*) {}
+
+
+    /**
      * Call when a adverse spell card is placed (and attack an other)
      *
      * @param the new card
      * @param the target card
      */
     virtual void placeAdverseSpellCard(Card*, Card*) {}
+
+    /**
+     * Call when a adverse spell card is placed (and attack adverse player)
+     *
+     * @param the new card
+     */
+    virtual void placeAdverseSpellPlayer(Card*) {}
 
 
     /**

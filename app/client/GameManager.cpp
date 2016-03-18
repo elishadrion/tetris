@@ -72,20 +72,26 @@ void GameManager::removeAdverseCardFromHand() {
 /**
  * Call when the player place a card
  *
+ * @param isEffectCard or not
  * @param cardID the id of the card
  * @param position position of this card (to identify this)
  */
 void GameManager::placeCard(int cardID, unsigned position) {
-    Card* card = new Card(*CacheManager::getCard(cardID));
+    Card* card = CacheManager::getCard(cardID);
+    removeCardFromHand(card);
+
+    card = new Card(*card); // copy card
     card->setPosition(position);
     _posed[position%7] = card;
     _energy -= card->getEnergyCost();
+
     wizardDisplay->placeCard(card);
 }
 
 /**
  * Call when the adverse player place a card
  *
+ * @param isEffectCard or not
  * @param cardID the id of the placed card
  * @param position of this card
  */
@@ -98,6 +104,7 @@ void GameManager::ennemyPlaceCard(int cardID, unsigned position) {
     card->setPosition(position);
     _ennemyPosed[position%MAX_POSED_CARD] = card;
     _adverseEnergy -= card->getEnergyCost();
+
     wizardDisplay->placeAdverseCard(card);
 }
 
@@ -124,14 +131,22 @@ void GameManager::placeCardAndAttack(bool isEffectCard, int cardID, unsigned pos
     _energy -= card->getEnergyCost();
     if(targetPosition == -1) {
         _adverseHeal = heal;
-        wizardDisplay->placeCardAndAttackPlayer(card);
+        if(isEffectCard) {
+            wizardDisplay->placeSpellPlayer(card);
+        } else {
+            wizardDisplay->placeCardAndAttackPlayer(card);
+        }
     } else {
         Card* enemyCard = static_cast<Card*>(_ennemyPosed[targetPosition%MAX_POSED_CARD]);
         enemyCard->setHP(heal);
-        wizardDisplay->placeCardAndAttack(card, enemyCard);
-        if(enemyCard->isDead()) {
-            // TO DO
-            // DETOBEL36
+        if(isEffectCard) {
+            wizardDisplay->placeSpellCard(card, enemyCard);
+        } else {
+            wizardDisplay->placeCardAndAttack(card, enemyCard);
+            if(enemyCard->isDead()) {
+                // TO DO
+                // DETOBEL36
+            }
         }
     }
 
@@ -161,11 +176,19 @@ void GameManager::placeAdverseCardAndAttack(bool isEffectCard, int cardID, unsig
 
     if(targetPosition == -1) {
         _heal = heal;
-        wizardDisplay->placeAdverseCardAndAttackPlayer(card);
+        if(isEffectCard) {
+            wizardDisplay->placeAdverseSpellPlayer(card);
+        } else {
+            wizardDisplay->placeAdverseCardAndAttackPlayer(card);
+        }
     } else {
         Card* enemyCard = static_cast<Card*>(_posed[targetPosition%MAX_POSED_CARD]);
         enemyCard->setHP(heal);
-        wizardDisplay->placeAdverseCardAndAttack(card, enemyCard);
+        if(isEffectCard) {
+            wizardDisplay->placeAdverseSpellCard(card, enemyCard);
+        } else {
+            wizardDisplay->placeAdverseCardAndAttack(card, enemyCard);
+        }
         if(enemyCard->isDead()) {
             // TO DO
             // DETOBEL36
