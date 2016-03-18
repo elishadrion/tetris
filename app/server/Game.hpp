@@ -67,8 +67,6 @@ public:
     Error attackWithCardAffectPlayer(PlayerInGame*, unsigned);
     void nextPlayer();
 
-    void sendInfoAction(std::string, int, int, unsigned, bool, bool);
-
 
 private:
     void beginTurn(); // function when the turn begin

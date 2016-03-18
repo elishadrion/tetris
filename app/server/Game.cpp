@@ -52,7 +52,6 @@ PlayerInGame* Game::getAdversePlayer(PlayerInGame* player) {
     PlayerInGame* res;
 
     (player == _player1) ? res = _player2 : res = _player1;
-    // If not player1 or player2 then returns null :/
 
     return res;
 }
@@ -190,10 +189,10 @@ void Game::draw(PlayerInGame* pIG) {
     Card* res = pIG->draw();
     if(res == nullptr) { // If no card
         pIG->takeDamage(4);
-        isPlayerInLife();
 
         PacketManager::playerDamage(_player1, pIG->getName(), pIG->getHeal());
         PacketManager::playerDamage(_player2, pIG->getName(), pIG->getHeal());
+        isPlayerInLife();
 
     } else {
         PacketManager::sendCard(pIG, res);
@@ -214,9 +213,11 @@ Error Game::placeCard(PlayerInGame* pIG, CardMonster* cardPlaced) {
 
     if(res == Error::NoError) {
         int position = getRealPosition(pIG, pIG->placeCard(cardPlaced));
-        // DETOBEL36
-//        PacketManager::sendPlaceMonsterCard(_player1, pIG->getName(), cardPlaced->getId(), position);
-//        PacketManager::sendPlaceMonsterCard(_player2, pIG->getName(), cardPlaced->getId(), position);
+        std::string pseudo = pIG->getName();
+        int idCard = cardPlaced->getId();
+
+        PacketManager::sendPlaceMonsterCard(_player1, pseudo, idCard, position);
+        PacketManager::sendPlaceMonsterCard(_player2, pseudo, idCard, position);
 
     }
 
@@ -232,34 +233,66 @@ Error Game::placeCard(PlayerInGame* pIG, CardMonster* cardPlaced) {
  * @param targetCard the card which will have the effect if
  * the placed card have it
  */
-Error Game::placeCardAffect(PlayerInGame* pIG, Card* cardPlaced,
-    unsigned targetPosition) {
-
+Error Game::placeCardAffect(PlayerInGame* pIG, Card* cardPlaced, unsigned targetPosition) {
     Error res = canPlaceCard(pIG, cardPlaced);
 
     if(res == Error::NoError) {
-        PlayerInGame* adverse = getAdversePlayer(pIG);
-        CardMonster* targetCard = adverse->getCardAtPosition(getRelativePosition(adverse, targetPosition));
 
-        // Verify if effect can be apply on monster
-        cardPlaced->applyEffect(*targetCard, *this);
+        if(targetPosition == -1 && (!cardPlaced->gotEffect() || !cardPlaced->canBeApplyOnPlayer())) {
+            res = Error::NotEffectForPlayer;
 
+        } else if(!cardPlaced->gotEffect() || !cardPlaced->canBeApplyOnCard()) {
+            res = Error::NotEffectForPlayer;
 
-        // Send information to clients
-        std::string pseudo = pIG->getName();
-        int placedCardId = cardPlaced->getId();
-        unsigned lifeTarget = targetCard->getLife();
-
-        if(cardPlaced->isMonster()) {
-            CardMonster* monsterCard = static_cast<CardMonster*>(cardPlaced);
-            int positionNewCard = getRealPosition(pIG, pIG->placeCard(monsterCard));
-            PacketManager::sendPlaceMonsterCard(_player1, pseudo, placedCardId, positionNewCard,
-                                                targetPosition, lifeTarget);
-            PacketManager::sendPlaceMonsterCard(_player2, pseudo, placedCardId, positionNewCard,
-                                                targetPosition, lifeTarget);
         } else {
-            PacketManager::sendPlaceSpellCard(_player1, pseudo, placedCardId, targetPosition, lifeTarget);
-            PacketManager::sendPlaceSpellCard(_player2, pseudo, placedCardId, targetPosition, lifeTarget);
+
+            PlayerInGame* adverse = getAdversePlayer(pIG);
+            unsigned lifeTarget;
+
+            // If it's a card the is attack
+            if(targetPosition != -1) {
+                // Get the target Card
+                CardMonster* targetCard = adverse->getCardAtPosition(
+                                        getRelativePosition(adverse, targetPosition));
+
+                // Apply effect
+                cardPlaced->applyEffect(*targetCard, *this);
+                lifeTarget = targetCard->getLife(); // save heal
+
+            } else { // If we attack the adverse player
+
+                cardPlaced->applyEffect(*adverse, *this);
+                lifeTarget = adverse->getHeal(); // save heal
+            }
+
+
+
+            // Send information to clients
+            std::string pseudo = pIG->getName();
+            int placedCardId = cardPlaced->getId();
+
+            if(cardPlaced->isMonster()) {
+                // Get the position of the new card
+                int positionNewCard = getRealPosition(pIG,
+                                                 pIG->placeCard(static_cast<CardMonster*>(cardPlaced)));
+
+                PacketManager::sendPlaceMonsterCard(_player1, pseudo, placedCardId, positionNewCard,
+                                                    targetPosition, lifeTarget);
+                PacketManager::sendPlaceMonsterCard(_player2, pseudo, placedCardId, positionNewCard,
+                                                    targetPosition, lifeTarget);
+
+            } else {
+                PacketManager::sendPlaceSpellCard(_player1, pseudo, placedCardId, targetPosition, lifeTarget);
+                PacketManager::sendPlaceSpellCard(_player2, pseudo, placedCardId, targetPosition, lifeTarget);
+
+            }
+
+
+            // Verify that the player is death or not
+            if(targetPosition == -1) {
+                isPlayerInLife(adverse);
+            }
+
         }
     }
 
@@ -277,24 +310,7 @@ Error Game::placeCardAffect(PlayerInGame* pIG, Card* cardPlaced,
  * @return Error or "NoError" if all ok
  */
 Error Game::placeCardAffectPlayer(PlayerInGame* pIG, Card* cardPlaced) {
-
-    Error res = canPlaceCard(pIG, cardPlaced);
-
-    if(res == Error::NoError && cardPlaced->gotEffect()) {
-        if(cardPlaced->canBeApplyOnPlayer()) {
-            PlayerInGame* pAdverse = getAdversePlayer(pIG);
-            cardPlaced->applyEffect(*pAdverse, *this);
-            // Send information to clients
-            // DETOBEL 36
-//            sendInfoAction(pIG->getName(), cardPlaced->getId(), -1, pAdverse->getHeal(),
-//                           true, !cardPlaced->isMonster());
-            isPlayerInLife(pAdverse); // Is player in life ?
-        } else {
-            res = Error::NotEffectForPlayer;
-        }
-    }
-
-    return res;
+    return placeCardAffect(pIG, cardPlaced, -1);
 }
 
 
@@ -322,9 +338,11 @@ Error Game::attackWithCard(PlayerInGame* pIG, unsigned cardPosition,
                 this->getAdversePlayer()->defausseCardPlaced(targetPosition);
             }
 
-            // DEOBEL36:
-            // PacketManager::sendAttack(_player1, pIG->getName(), cardPosition, targetPosition, targetCard->getLife());
-            // PacketManager::sendAttack(_player2, pIG->getName(), cardPosition, targetPosition, targetCard->getLife());
+            std::string pseudo = pIG->getName();
+            unsigned life = targetCard->getLife();
+            PacketManager::sendAttack(_player1, pseudo, cardPosition, targetPosition, life);
+            PacketManager::sendAttack(_player2, pseudo, cardPosition, targetPosition, life);
+
         } else {
             res = Error::MustAttackTaunt;
         }
@@ -352,9 +370,10 @@ Error Game::attackWithCardAffectPlayer(PlayerInGame* pIG, unsigned cardPosition)
             PlayerInGame* pAdverse = getAdversePlayer(pIG);
             card->dealDamage(*pAdverse);
 
-            // DETOBEL
-//             PacketManager::sendAttack(_player1, pIG->getName(), cardPosition, -1, pAdverse->getHeal());
-//             PacketManager::sendAttack(_player2, pIG->getName(), cardPosition, -1, pAdverse->getHeal());
+            unsigned heal = pAdverse->getHeal();
+            std::string pseudo = pIG->getName();
+            PacketManager::sendAttack(_player1, pseudo, cardPosition, -1, heal);
+            PacketManager::sendAttack(_player2, pseudo, cardPosition, -1, heal);
             isPlayerInLife(pAdverse);
         } else {
             res = Error::MustAttackTaunt;
@@ -384,34 +403,6 @@ void Game::nextPlayer() {
     beginTurn();
 }
 
-
-/**
- * Send information
- *
- * @param pIG who play
- * @param cardID
- * @param targetCard card which is attack (-1 if player)
- * @param heal of the attack entity
- * @param isEffect is the attack an effect
- * @param newCard is the card new on the board
- * @param isCardEffect the card who attack is a card effect
- */
-void Game::sendInfoAction(std::string pseudo, int cardID, int targetCard, unsigned heal,
-    bool newCard, bool isCardEffect) {
-
-//    if(!newCard) {
-//        PacketManager::sendAttack(_player1, pseudo, cardID, targetCard, heal);
-//        PacketManager::sendAttack(_player2, pseudo, cardID, targetCard, heal);
-//    } else {
-//        if(isCardEffect) {
-//            PacketManager::sendPlaceSpellCard(_player1, pseudo, cardID, targetCard, heal);
-//            PacketManager::sendPlaceSpellCard(_player2, pseudo, cardID, targetCard, heal);
-//        } else {
-//            PacketManager::sendPlaceMonsterCard(_player1, pseudo, cardID, targetCard, heal);
-//            PacketManager::sendPlaceMonsterCard(_player2, pseudo, cardID, targetCard, heal);
-//        }
-//    }
-}
 
 
 //////////// PRIVATE ////////////
