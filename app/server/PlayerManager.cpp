@@ -103,19 +103,17 @@ Player* PlayerManager::signUp(std::string username, std::string password, int so
 
     Player* newPlayer = new Player(info, sockfd);
     _players.push_back(newPlayer);
-    // TO DO: save to the bdd ?
-    // TO DO: add to the _connected list ?
+    _connected.push_back(newPlayer);
 
     return newPlayer;
 }
 
 void PlayerManager::savePlayers() const {
-    nlohmann::json db;
+    nlohmann::json db = nlohmann::json::array();
     for (size_t i = 0; i < _players.size(); ++i)
-        db.push_back((*_players.at(i)).serialise());
+	db.push_back((*_players.at(i)).serialise());
 
     std::ofstream playersFile(PLAYERS_DB);
-    playersFile << db.dump(4);
-
+    playersFile << db.dump(2);
     playersFile.close();
 }

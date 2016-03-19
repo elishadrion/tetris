@@ -17,10 +17,8 @@ Connection *conn;
 void interrupt_handler(int signum) {
     WizardLogger::info("Interrupt Signal");
     delete conn;
-    exit(0);
+    exit(signum);
 }
-
-
 
 int main() {
     signal(SIGINT, interrupt_handler);
@@ -48,7 +46,7 @@ int main() {
     /* We initialise the listening server socket
      * If it fail, server can't go farther
      */
-    Connection *conn;
+
     try {
         conn = new Connection();
     } catch (...) {

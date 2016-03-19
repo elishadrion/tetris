@@ -99,8 +99,9 @@ bool Player::operator==(const std::string &other_name) const {
     return ((*this).getName() == other_name);
 }
 
-std::string Player::serialise() const {
+nlohmann::json Player::serialise() const {
     nlohmann::json info;
+    std::cout << _username << "\n";
     info["name"] = _username;
     info["password"] = _password;
     info["defeats"] = _defeats;
@@ -109,12 +110,12 @@ std::string Player::serialise() const {
     info["decks"];
     for (size_t i = 0; i < _decks.size(); ++i) {
         nlohmann::json deck;
-        deck["deckName"] = _decks.at(i)->getName();
-        deck["cards"] = _decks.at(i)->getCardsId();
+        deck["deckName"] = _decks.at(i) -> getName();
+        deck["cards"] = _decks.at(i) -> getCardsId();
         info["decks"].push_back(deck);
     }
 
-    return info.dump();
+    return info;
 }
 
 // Not used now

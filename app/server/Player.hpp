@@ -68,7 +68,7 @@ public:
     void logout();
     void setPlayerInGame(PlayerInGame*);
 
-    std::string serialise() const;
+    nlohmann::json serialise() const;
     friend std::ostream& operator<<(std::ostream&, const Player&); // remove ?
     friend std::string& operator<<(std::string&, const Player&); // remove ?
     bool operator==(const std::string&) const;
