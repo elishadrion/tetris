@@ -443,12 +443,18 @@ void PacketManager::askDrop(const Packet::intPacket* askDropPacket) {
 
 
 void PacketManager::manageAttack(Packet::attackPacket* attackPacket) {
+    GameManager* gm = GameManager::getInstance();
+    unsigned cardPosition = attackPacket->data.cardPosition;
+    int targetPosition = attackPacket->data.targetPosition;
+    unsigned heal = attackPacket->data.heal;
 
+    if(attackPacket->data.pseudo == Player::getPlayer()->getName()) {
+        gm->attackCard(cardPosition, targetPosition, heal);
+    } else {
+        gm->adverseAttackCard(cardPosition, targetPosition, heal);
+    }
 }
 
-void PacketManager::managePlaceSpell(Packet::placeAttackSpellPacket* placeAttackSpellPacket) {
-
-}
 
 void PacketManager::managePlaceCard(Packet::placeCardPacket* placeCardPacket) {
     GameManager* gm = GameManager::getInstance();
@@ -464,9 +470,33 @@ void PacketManager::managePlaceCard(Packet::placeCardPacket* placeCardPacket) {
 
 void PacketManager::managePlaceCardAttack(Packet::placeAttackPacket* placeAttackPacket) {
     GameManager* gm = GameManager::getInstance();
+    unsigned cardId = placeAttackPacket->data.idCard;
+    unsigned position = placeAttackPacket->data.cardPosition;
+    int targetPosition = placeAttackPacket->data.targetPosition;
+    unsigned heal = placeAttackPacket->data.heal;
 
 
+    if(placeAttackPacket->data.pseudo == Player::getPlayer()->getName()) {
+        gm->placeCardAndAttack(false, cardId, position, targetPosition, heal);
+    } else {
+        gm->placeAdverseCardAndAttack(false, cardId, position, targetPosition, heal);
+    }
 }
+
+
+void PacketManager::managePlaceSpell(Packet::placeAttackSpellPacket* placeAttackSpellPacket) {
+    GameManager* gm = GameManager::getInstance();
+    unsigned cardId = placeAttackSpellPacket->data.idCard;
+    int targetPosition = placeAttackSpellPacket->data.targetPosition;
+    unsigned heal = placeAttackSpellPacket->data.heal;
+
+    if(placeAttackSpellPacket->data.pseudo == Player::getPlayer()->getName()) {
+        gm->placeCardAndAttack(true, cardId, -1, targetPosition, heal);
+    } else {
+        gm->placeAdverseCardAndAttack(true, cardId, -1, targetPosition, heal);
+    }
+}
+
 
 
 void PacketManager::manageEndGame(const Packet::endGamePacket* endPacket) {
