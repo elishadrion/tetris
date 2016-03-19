@@ -45,6 +45,8 @@ public:
     virtual bool canBeApplyOnCard();
     virtual bool canBeApplyOnPlayer();
 
+    virtual Card* clone();
+
     //void setEnergyCost(unsigned int newCost){_energyCost = newCost}
     // maybe be able to change with spell cards (see that later)
 

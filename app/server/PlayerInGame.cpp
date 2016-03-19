@@ -255,7 +255,7 @@ Error PlayerInGame::removeInHandCard(Card* card) {
  */
 Error PlayerInGame::defausseCardInHand(Card* card) {
     Error res = removeInHandCard(card);
-    _defausse.push_back(new Card(*card));
+    _defausse.push_back(card->clone());
 
     return res;
 }
@@ -276,12 +276,13 @@ int PlayerInGame::placeCard(CardMonster* card) {
     }
 
     if(find) {
-
         CardMonster* newCard = new CardMonster(*card);
         _cardsPlaced[res] = newCard;
         _energy -= newCard->getEnergyCost();
+
     } else {
         res = -1;
+
     }
 
     return res;

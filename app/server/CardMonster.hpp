@@ -41,6 +41,8 @@ public:
     void setMaxLife(unsigned int newMax){_maxLife = newMax;}
     bool isDead();
 
+    virtual Card* clone();
+
 };
 
 

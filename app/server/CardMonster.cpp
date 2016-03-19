@@ -67,4 +67,15 @@ bool CardMonster::isDead() {
 	}
 }
 
+
+/**
+ * Clone the current card
+ *
+ * @return the new card
+ */
+Card* CardMonster::clone() {
+    return new CardMonster(*this);
+}
+
+
 CardMonster::~CardMonster() { }

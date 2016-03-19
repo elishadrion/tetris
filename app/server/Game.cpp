@@ -282,6 +282,7 @@ Error Game::placeCardAffect(PlayerInGame* pIG, Card* cardPlaced, unsigned target
                                                     targetPosition, lifeTarget);
 
             } else {
+                pIG->defausseCardInHand(cardPlaced);
                 PacketManager::sendPlaceSpellCard(_player1, pseudo, placedCardId, targetPosition, lifeTarget);
                 PacketManager::sendPlaceSpellCard(_player2, pseudo, placedCardId, targetPosition, lifeTarget);
 

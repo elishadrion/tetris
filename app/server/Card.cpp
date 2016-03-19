@@ -89,4 +89,15 @@ bool Card::canBeApplyOnCard(){
     return _effect->canBeApplyOnCard();
 }
 
+
+/**
+ * Clone the current card
+ *
+ * @return the new card
+ */
+Card* Card::clone() {
+    return new Card(*this);
+}
+
+
 Card::~Card() {}
