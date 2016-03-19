@@ -63,6 +63,7 @@ public:
     dataIGPlayer getDataPlayer();
     CardMonster** getCardsPlaced();
     std::vector<Card*> getCardsInHand();
+    Card* getCardInHand(unsigned);
     unsigned nbrCardInHand();
     std::vector<Card*> getDefausse();
     unsigned nbrCardDefausse();
@@ -81,6 +82,7 @@ public:
     void addMaxEnergy();
     int resetEnergy();
     Error defausseCardPlaced(unsigned);
+    Error removeInHandCard(Card*);
     Error defausseCardInHand(Card*);
     int placeCard(CardMonster*);
     void takeDamage(unsigned int);
@@ -91,6 +93,11 @@ public:
     bool haveOneCardTaunt();
     bool havePlace();
     Game* getGame();
+
+    // Request from client
+    Error reqAttack(unsigned, int);
+    Error reqPlaceCard(unsigned);
+    Error reqPlaceAttackCard(unsigned, int);
 
 
     // End Game

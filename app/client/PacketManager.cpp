@@ -80,8 +80,6 @@ void PacketManager::managePacket(Packet::packet* customPacket) {
                                           break;
         case Packet::C_PLACE_CARD_ID:     WizardLogger::warning("Packet pour poser une carte (client)");
                                           break;
-        case Packet::C_PLACE_SPELL_ID:    WizardLogger::warning("Packet pour poser une carte sort (client)");
-                                          break;
         case Packet::C_PLACE_CARD_MAKE_SPELL_ID:
                                           WizardLogger::warning("Packet pour une carte placé avec un effet (client)");
                                           break;
@@ -569,22 +567,6 @@ void PacketManager::sendPlaceCard(const unsigned idCard) {
     delete placePack;
 }
 
-/**
- * [Send] current player place spell card and attack a card on a specific position
- *
- * @param idCard the new card
- * @param targetPosition position of the card which IS attack (-1 for adverse player)
- */
-void PacketManager::sendPlaceSpellCard(const unsigned idCard, const int targetPosition) {
-    Packet::twoCardPacket *placeSpellPack = new Packet::twoCardPacket();
-
-    placeSpellPack->ID = Packet::C_PLACE_SPELL_ID;
-    placeSpellPack->cardOne = idCard;
-    placeSpellPack->cardTwo = targetPosition;
-
-    conn->sendPacket((Packet::packet*) placeSpellPack, sizeof(placeSpellPack));
-    delete placeSpellPack;
-}
 
 /**
  * [Send] Current player place card and attack an other

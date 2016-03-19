@@ -77,7 +77,6 @@ namespace PacketManager {
     void sendDrop(const int); /* DROP_ID */
     void sendAttack(const unsigned, const int); // C_ATTACK_ID
     void sendPlaceCard(const unsigned); // C_PLACE_CARD_ID
-    void sendPlaceSpellCard(const unsigned, const int); // C_PLACE_SPELL_ID
     void sendPlaceCardAttack(const unsigned, const int); // C_PLACE_CARD_MAKE_SPELL_ID
     void endTurn(); /* END_TURN_ID */
     void quit(); /* QUIT_ID */

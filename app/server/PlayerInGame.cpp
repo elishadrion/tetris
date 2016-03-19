@@ -229,6 +229,23 @@ Error PlayerInGame::defausseCardPlaced(unsigned cardPosition) {
     return res;
 }
 
+/**
+ * Remove a card from the hand of this player
+ *
+ * @param card wich must be remove
+ * @return noError if all is ok, else error
+ */
+Error PlayerInGame::removeInHandCard(Card* card) {
+    Error res = Error::CardNotFound;
+    std::vector<Card*>::iterator it = std::find(_cardsInHand.begin(), _cardsInHand.end(), card);
+    if(it != _cardsInHand.end()) {
+        _cardsInHand.erase(it);
+        res = Error::NoError;
+    }
+
+    return res;
+}
+
 
 /**
  * Defausse a card
@@ -237,19 +254,14 @@ Error PlayerInGame::defausseCardPlaced(unsigned cardPosition) {
  * @return noError if all is ok or error
  */
 Error PlayerInGame::defausseCardInHand(Card* card) {
-    Error res = Error::CardNotFound;
-    std::vector<Card*>::iterator it = std::find(_cardsInHand.begin(), _cardsInHand.end(), card);
-    if(it != _cardsInHand.end()) {
-        _cardsInHand.erase(it);
-        _defausse.push_back(card);
-        res = Error::NoError;
-    }
+    Error res = removeInHandCard(card);
+    _defausse.push_back(new Card(*card));
 
     return res;
 }
 
 /**
- * Place the card to the board
+ * Place the card to the board and remove energy
  *
  * @param card which must be placed
  * @return -1 if not enought place
@@ -264,7 +276,10 @@ int PlayerInGame::placeCard(CardMonster* card) {
     }
 
     if(find) {
-        _cardsPlaced[res] = card;
+
+        CardMonster* newCard = new CardMonster(*card);
+        _cardsPlaced[res] = newCard;
+        _energy -= newCard->getEnergyCost();
     } else {
         res = -1;
     }
@@ -375,6 +390,70 @@ Game* PlayerInGame::getGame() {
     return _game;
 }
 
+///////// Client request //////////
+
+/**
+ * Call when the client will make an attack
+ *
+ * @param positionCard card which MAKE attack
+ * @param positionTarget card wich IS attack
+ * @return noError if all is ok
+ */
+Error PlayerInGame::reqAttack(unsigned positionCard, int positionTarget) {
+    Error res;
+    if(positionTarget == -1) {
+        res = _game->attackWithCardAffectPlayer(this, positionCard);
+    } else {
+        res = _game->attackWithCard(this, positionCard, positionTarget);
+    }
+
+    return res;
+}
+
+/**
+ * Call when the client will place a card
+ * @param cardId the new card
+ * @return noError if all is ok
+ */
+Error PlayerInGame::reqPlaceCard(unsigned cardId) {
+    Error res;
+
+    Card* card = CardManager::getCardById(cardId);
+    if(card->isMonster()) {
+        CardMonster* monsterCard = static_cast<CardMonster*>(card);
+        res = _game->placeCard(this, monsterCard);
+    } else {
+        res = Error::CardNotFound;
+    }
+
+    return res;
+}
+
+
+/**
+ * Call when the client will place a spell card
+ *
+ * @param cardId the new card
+ * @param targetPosition the card wich must be attack
+ * @return noError if all is ok
+ */
+Error PlayerInGame::reqPlaceAttackCard(unsigned cardId, int targetPosition) {
+    Error res;
+
+    Card* card = CardManager::getCardById(cardId);
+    if(!card->isMonster()) {
+        if(targetPosition == -1) {
+            res = _game->placeCardAffectPlayer(this, card);
+        } else {
+            res = _game->placeCardAffect(this, card, targetPosition);
+        }
+    } else {
+        res = Error::CardNotFound;
+    }
+
+    return res;
+}
+
 
 //////////// Game End /////////////
 
@@ -400,5 +479,17 @@ void PlayerInGame::addWin() {
  * Destructor
  */
 PlayerInGame::~PlayerInGame() {
+
+    for(unsigned i = 0; i < MAX_POSED_CARD; ++i) {
+        if(_cardsPlaced[i] != nullptr) {
+            delete static_cast<CardMonster*>(_cardsPlaced[i]);
+            _cardsPlaced[i] = nullptr;
+        }
+    }
+
+    for(unsigned i = 0; i < _defausse.size(); ++i) {
+        delete _defausse[i];
+    }
+
     _playerConnect->removePlayerInGame(this);
 }

@@ -74,12 +74,10 @@ void PacketManager::managePacket(Player *player, Packet::packet* customPacket) {
                                           break;
         case Packet::C_ATTACK_ID:         manageAttack(player, (Packet::twoCardPacket*) customPacket);
                                           break;
-        case Packet::C_PLACE_CARD_ID:
-                                          break;
-        case Packet::C_PLACE_SPELL_ID:
+        case Packet::C_PLACE_CARD_ID:     managePlaceCard(player, (Packet::intPacket*) customPacket);
                                           break;
         case Packet::C_PLACE_CARD_MAKE_SPELL_ID:
-
+                                          managePlaceAttackCard(player, (Packet::twoCardPacket*) customPacket);
                                           break;
         case Packet::S_ATTACK_ID:         WizardLogger::warning("Packet d'attack d'une carte (serveur)");
                                           break;
@@ -301,13 +299,42 @@ void PacketManager::manageDrop(Player* player, Packet::intPacket* dropIDPacket) 
     //TODO tell Game wich card is drop
 }
 
-void PacketManager::manageAttack(Player *player, Packet::twoCardPacket* attackPacekt) {
+void PacketManager::manageAttack(Player *player, Packet::twoCardPacket* attackPacket) {
     if(player->isPlayerInGame()) {
-        // TO DO
+        PlayerInGame* pIG = static_cast<PlayerInGame*>(player);
+        Error res = pIG->reqAttack(attackPacket->cardOne, attackPacket->cardTwo);
+        if(res != Error::NoError) {
+            sendError(player, res);
+        }
     } else {
         WizardLogger::warning("ManageAttack appellé par un player et non un PlayerInGame");
     }
 }
+
+void PacketManager::managePlaceCard(Player* player, Packet::intPacket* placePacket) {
+    if(player->isPlayerInGame()) {
+        PlayerInGame* pIG = static_cast<PlayerInGame*>(player);
+        Error res = pIG->reqPlaceCard(placePacket->data);
+        if(res != Error::NoError) {
+            sendError(player, res);
+        }
+    } else {
+        WizardLogger::warning("ManagePlaceCard appellé par un player et non un PlayerInGame");
+    }
+}
+
+void PacketManager::managePlaceAttackCard(Player* player, Packet::twoCardPacket* placeAttackPacket) {
+    if(player->isPlayerInGame()) {
+        PlayerInGame* pIG = static_cast<PlayerInGame*>(player);
+        Error res = pIG->reqPlaceAttackCard(placeAttackPacket->cardOne, placeAttackPacket->cardTwo);
+        if(res != Error::NoError) {
+            sendError(player, res);
+        }
+    } else {
+        WizardLogger::warning("ManagePlaceAttackCard appellé par un player et non un PlayerInGame");
+    }
+}
+
 
 void PacketManager::manageEndTurn(Player* player, Packet::packet* packet) {
     //TODO tell Game about end of turn
@@ -575,7 +602,7 @@ void PacketManager::sendEndGame(Player* player, int victory, int card) {
 
 //=================================== CLASSEMENT ======================================
 /**
- * Send the 50 best player stats
+ * Send the MAX_PLAYER_CLASSEMENT best player stats
  *
  * @param player who would like recieve informations
  * @param list_name list of playerName
@@ -614,4 +641,21 @@ void PacketManager::sendClassement(Player* player, std::vector<std::string> list
 }
 
 
+//====================================== ERROR ========================================
+
+/**
+ * Send an error code
+ *
+ * @param error which must be send
+ */
+void PacketManager::sendError(Player* player, Error error) {
+    Packet::intPacket* errorPacket = new Packet::intPacket();
+
+    errorPacket->ID = Packet::ERROR_ID;
+    errorPacket->data = error;
+
+    /* Send and free */
+    player->sendPacket((Packet::packet*) errorPacket, sizeof(*errorPacket));
+    delete errorPacket;
+}
 

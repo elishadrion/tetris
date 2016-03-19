@@ -30,7 +30,7 @@ public:
     virtual Error addCard(int cardId) override;
 
     bool deleteDeck(PlayerInGame*);
-    Deck* copyDeck();
+    //Deck* copyDeck();
 
     bool operator==(const std::string&) const;
     static Deck* getDeck(std::string, std::vector<Deck*>);

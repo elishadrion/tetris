@@ -2,6 +2,7 @@
 
 #include "common/Packet.hpp"
 #include "common/WizardLogger.hpp"
+#include "common/Error.hpp"
 
 #include "Card.hpp"
 #include "Collection.hpp"
@@ -40,7 +41,8 @@ namespace PacketManager {
     /* Game process */
     void manageDrop(Player*, Packet::intPacket*); /* DROP_ID */
     void manageAttack(Player*, Packet::twoCardPacket*); /* C_ATTACK_ID */
-//    void manageSpell(Player*, Packet::attackPacket*); /* SPELL_ID (in) */
+    void managePlaceCard(Player*, Packet::intPacket*); // C_PLACE_CARD_ID
+    void managePlaceAttackCard(Player*, Packet::twoCardPacket*); // C_PLACE_CARD_MAKE_SPELL_ID
     void manageEndTurn(Player*, Packet::packet*); /* END_TURN_ID */
     void manageQuitGame(Player*, Packet::packet*); /* QUIT_ID */
 
@@ -75,4 +77,8 @@ namespace PacketManager {
     void sendPlaceSpellCard(Player*, std::string, int, int, unsigned);
     void playerDamage(Player*, std::string, int); /* PLAYER_DAMAGE_ID */
     void sendEndGame(Player*, int, int); /* END_GAME_ID (-1: lose | 0: null | 1:win + new card) */
+
+
+    void sendError(Player*, Error);
+
 }

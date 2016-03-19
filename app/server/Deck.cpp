@@ -107,15 +107,15 @@ Error Deck::addCard(int cardId) {
  *
  * @return the new deck
  */
-Deck* Deck::copyDeck() {
-    std::vector<Card*> newCardList;
-    for(unsigned i = 0; i < _listCard.size(); ++i) {
-        Card* currentCard = _listCard[i];
-        newCardList.push_back(new Card(*currentCard));
-    }
+//Deck* Deck::copyDeck() {
+//    std::vector<Card*> newCardList;
+//    for(unsigned i = 0; i < _listCard.size(); ++i) {
+//        Card* currentCard = _listCard[i];
+//        newCardList.push_back(new Card(*currentCard));
+//    }
 
-    return new Deck(_name, newCardList);
-}
+//    return new Deck(_name, newCardList);
+//}
 
 bool Deck::operator==(const std::string& deckName) const {
     return _name == deckName;

@@ -317,6 +317,7 @@ Error Game::placeCardAffectPlayer(PlayerInGame* pIG, Card* cardPlaced) {
 
 /**
  * Funciton when player attack a card
+ *
  * @param pIG who play
  * @param card which play
  * @param targetCard card which is attack
