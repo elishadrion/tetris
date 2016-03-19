@@ -53,7 +53,7 @@ std::string CardWidget::UnsignedToString(unsigned value)
 }
 
 void CardWidget::actualize(){
-    _pixmap		= new QPixmap("/home/dewit/Bureau/CardToonTest.png");
+    _pixmap		= new QPixmap("/home/dewit/Bureau/CardToon.png");
     _paint = new QPainter(_pixmap);
     _paint->drawText(24,228,_energy);
     _paint->drawText(74,228,_attack);
