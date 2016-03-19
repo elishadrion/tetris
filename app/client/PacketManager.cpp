@@ -441,7 +441,11 @@ void PacketManager::askDrop(const Packet::intPacket* askDropPacket) {
     //TODO ask to trash a certain amount
 }
 
-
+/**
+ * Call when an card attack an other
+ *
+ * @param attackPacket the packet
+ */
 void PacketManager::manageAttack(Packet::attackPacket* attackPacket) {
     GameManager* gm = GameManager::getInstance();
     unsigned cardPosition = attackPacket->data.cardPosition;
@@ -455,7 +459,11 @@ void PacketManager::manageAttack(Packet::attackPacket* attackPacket) {
     }
 }
 
-
+/**
+ * Call when a card is placed
+ *
+ * @param placeCardPacket the packet
+ */
 void PacketManager::managePlaceCard(Packet::placeCardPacket* placeCardPacket) {
     GameManager* gm = GameManager::getInstance();
     unsigned cardId = placeCardPacket->idCard;
@@ -468,6 +476,11 @@ void PacketManager::managePlaceCard(Packet::placeCardPacket* placeCardPacket) {
     }
 }
 
+/**
+ * Call when a card is placed and attack an other
+ *
+ * @param placeAttackPacket the packet
+ */
 void PacketManager::managePlaceCardAttack(Packet::placeAttackPacket* placeAttackPacket) {
     GameManager* gm = GameManager::getInstance();
     unsigned cardId = placeAttackPacket->data.idCard;
@@ -483,7 +496,11 @@ void PacketManager::managePlaceCardAttack(Packet::placeAttackPacket* placeAttack
     }
 }
 
-
+/**
+ * Call when a spell card is placed
+ *
+ * @param placeAttackSpellPacket the packet
+ */
 void PacketManager::managePlaceSpell(Packet::placeAttackSpellPacket* placeAttackSpellPacket) {
     GameManager* gm = GameManager::getInstance();
     unsigned cardId = placeAttackSpellPacket->data.idCard;
@@ -521,59 +538,71 @@ void PacketManager::sendDrop(const int ID) {
 }
 
 /**
- * Inform server for an attack attempt
- * @param from : ID of card doing attack
- * @param target : ID of the target's card (or -1 for player)
+ * Send to the server that a card attack an other card
+ *
+ * @param cardPosition the position of the card which make attack
+ * @param targetPosition of the card which IS attacked (-1 for adverse player)
  */
-//void PacketManager::sendAttack(const int from, const int target) {
-//    Packet::attackPacket *attackPacket = new Packet::attackPacket();
-    
-//    /* Set ID and info (server fix pseudo and finalLife) */
-//    attackPacket->ID = Packet::ATTACK_ID;
-//    attackPacket->data.ID = from;
-//    attackPacket->data.target = target;
-    
-//    /* Send and free */
-//    conn->sendPacket((Packet::packet*) attackPacket, sizeof(*attackPacket));
-//    delete attackPacket;
-//}
+void PacketManager::sendAttack(const unsigned cardPosition, const int targetPosition) {
+    Packet::twoCardPacket *attackPack = new Packet::twoCardPacket();
+
+    attackPack->ID = Packet::C_ATTACK_ID;
+    attackPack->cardOne = cardPosition;
+    attackPack->cardTwo = targetPosition;
+
+    conn->sendPacket((Packet::packet*) attackPack, sizeof(*attackPack));
+    delete attackPack;
+}
 
 /**
- * Inform server for an attack attempt
- * @param from : ID of card doing attack
- * @param target : ID of the target's card (or -1 for player)
+ * Send to the server, the new card that we would like place
+ *
+ * @param idCard of the new card
  */
-//void PacketManager::sendAttack(const int from, const int target) {
-//    Packet::attackPacket *attackPacket = new Packet::attackPacket();
+void PacketManager::sendPlaceCard(const unsigned idCard) {
+    Packet::intPacket *placePack = new Packet::intPacket();
 
-//    /* Set ID and info (server fix pseudo and finalLife) */
-//    attackPacket->ID = Packet::ATTACK_ID;
-//    attackPacket->data.ID = from;
-//    attackPacket->data.target = target;
+    placePack->ID = Packet::C_PLACE_CARD_ID;
+    placePack->data = idCard;
 
-//    /* Send and free */
-//    conn->sendPacket((Packet::packet*) attackPacket, sizeof(*attackPacket));
-//    delete attackPacket;
-//}
-
+    conn->sendPacket((Packet::packet*) placePack, sizeof(placePack));
+    delete placePack;
+}
 
 /**
- * Inform server for a spell attempt
- * @param from : ID of card doing spell
- * @param target : ID of the target's card (or -1 for player)
+ * [Send] current player place spell card and attack a card on a specific position
+ *
+ * @param idCard the new card
+ * @param targetPosition position of the card which IS attack (-1 for adverse player)
  */
-//void PacketManager::sendSpell(const int from, const int target) {
-//    Packet::attackPacket *spellPacket = new Packet::attackPacket();
-    
-//    /* Set ID and info (server fix pseudo and finalLife) */
-//    spellPacket->ID = Packet::SPELL_ID;
-//    spellPacket->data.ID = from;
-//    spellPacket->data.target = target;
-    
-//    /* Send and free */
-//    conn->sendPacket((Packet::packet*) spellPacket, sizeof(*spellPacket));
-//    delete spellPacket;
-//}
+void PacketManager::sendPlaceSpellCard(const unsigned idCard, const int targetPosition) {
+    Packet::twoCardPacket *placeSpellPack = new Packet::twoCardPacket();
+
+    placeSpellPack->ID = Packet::C_PLACE_SPELL_ID;
+    placeSpellPack->cardOne = idCard;
+    placeSpellPack->cardTwo = targetPosition;
+
+    conn->sendPacket((Packet::packet*) placeSpellPack, sizeof(placeSpellPack));
+    delete placeSpellPack;
+}
+
+/**
+ * [Send] Current player place card and attack an other
+ *
+ * @param idCard the new card
+ * @param targetPosition the target card wich will be attack (-1 for adverse player)
+ */
+void PacketManager::sendPlaceCardAttack(const unsigned idCard, const int targetPosition) {
+    Packet::twoCardPacket *placeAttackPack = new Packet::twoCardPacket();
+
+    placeAttackPack->ID = Packet::C_PLACE_CARD_MAKE_SPELL_ID;
+    placeAttackPack->cardOne = idCard;
+    placeAttackPack->cardTwo = targetPosition;
+
+    conn->sendPacket((Packet::packet*) placeAttackPack, sizeof(placeAttackPack));
+    delete placeAttackPack;
+}
+
 
 /**
  * Inform server that we have finish our turn

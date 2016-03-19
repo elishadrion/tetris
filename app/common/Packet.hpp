@@ -200,8 +200,8 @@ public:
     typedef struct {
         int ID;
         int size = sizeof(int)*2;
-        int cardPosition; /* Card who make attack */
-        int targetPosition; /* Card target */
+        int cardOne; /* Card1 */
+        int cardTwo; /* Card2 */
     } twoCardPacket;
 
     typedef struct {
