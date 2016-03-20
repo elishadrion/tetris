@@ -32,7 +32,7 @@ class GameGUI : public QMainWindow {
     DeckChooseGUI *_choosDeck;
 
     QPushButton *_nextTurnBouton;
-    QLabel *_infoTour;
+    QLabel *_nextTurnOff;
 
     void chooseDeck();
 

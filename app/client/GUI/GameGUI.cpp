@@ -92,16 +92,17 @@ GameGUI::GameGUI() : QMainWindow() {
     _gridlayout->addWidget(_nextTurnBouton, 3, 11);
     _nextTurnBouton->hide();
 
+    _nextTurnOff = new QLabel("Ce n'est pas\nvotre tour", this);
+    _gridlayout->addWidget(_nextTurnOff, 3, 11);
 
-    _infoTour = new QLabel("Ce n'est pas\nvotre tour", this);
-    _gridlayout->addWidget(_infoTour, 3, 11);
+
 
 
 
     // Tchat
     ChatManagerGUI* tchat = new ChatManagerGUI(0);
+    _gridlayout->addWidget(tchat, 1, 13, 5, 3);
 
-    _gridlayout->addWidget(tchat, 0, 13, 6, 3);
 
     // PUB
     QHBoxLayout* pub = new QHBoxLayout;
@@ -157,10 +158,10 @@ void GameGUI::callChangeTurn(int nbrTurn, bool isTurn) {
 void GameGUI::viewPassButton(bool value) {
     if(value) {
         _nextTurnBouton->show();
-        _infoTour->hide();
+        _nextTurnOff->hide();
     } else {
         _nextTurnBouton->hide();
-        _infoTour->show();
+        _nextTurnOff->show();
     }
 }
 
