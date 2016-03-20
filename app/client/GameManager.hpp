@@ -15,6 +15,8 @@ class GameManager {
     static GameManager* _instance;
 
     bool _inGame;
+    int _nbrTurn;
+    bool _isTurn;
     std::string _deckName; // Selected deck
     std::vector<Card*> _hand;
     unsigned _adverseHandNumber;
@@ -46,10 +48,13 @@ public:
     inline unsigned getHeal() const { return _heal; }
     inline unsigned getAdverseHeal() const { return _adverseHeal; }
 
-    // Action during the game
-    inline void setAdverse(std::string pseudo) { _ennemy = pseudo; }
-    inline void drawCard(Card* card) { _hand.push_back(card); }
+    // Init game
     void setDeck(std::string);
+    inline void setAdverse(std::string pseudo) { _ennemy = pseudo; }
+
+    // Action during the game
+    void setTurn(int, bool);
+    inline void drawCard(Card* card) { _hand.push_back(card); }
     void removeCardFromHand(Card*);
     void removeAdverseCardFromHand();
     inline std::string getDeckName() { return _deckName; }

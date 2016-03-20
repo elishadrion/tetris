@@ -163,26 +163,12 @@ public:
         char deck[MAX_DECK_NAME];
     } deckPacket;
 
-    /* Send all data for sync to the client when turn change */
+    /* Send information to tell about the player turn */
     typedef struct {
         int ID = TURN_ID;
-        typedef struct {
-            bool turn;
-            int life;
-            int trash[DECK_SIZE];
-            int hand[MAX_HAND];
-            int deck[DECK_SIZE];
-            int posed[MAX_POSED_CARD];
-            int posedLife[MAX_POSED_CARD];
-            int ennemyLife;
-            int ennemyTrash;
-            int ennemyHand;
-            int ennemyDeck;
-            int ennemyPosed[MAX_POSED_CARD];
-            int ennemyPosedLife[MAX_POSED_CARD];
-        } turnData;
-        int size = sizeof(turnData);
-        turnData data;
+        int size = sizeof(int)+sizeof(bool);
+        bool isTurn;
+        int nbrTurn;
     } turnPacket;
     
     /* Inform about end of the game */

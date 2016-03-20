@@ -17,7 +17,8 @@ GameManager* GameManager::getInstance() {
  * @param pseudo of the adverse player
  */
 GameManager::GameManager(): _ennemy(""), _heal(MAX_LIFE),
-    _adverseHeal(MAX_LIFE), _energy(0), _adverseEnergy(0), _deckName("") {
+    _adverseHeal(MAX_LIFE), _energy(0), _adverseEnergy(0), _deckName(""),
+    _nbrTurn(0), _isTurn(false) {
 
     _instance = this;
 }
@@ -38,6 +39,19 @@ void GameManager::setDeck(std::string deckName) {
     } else {
         WizardLogger::warning("Le deck à déjà été définit");
     }
+}
+
+
+/**
+ * Define information about the game
+ *
+ * @param nbrTurn number of turn since the begin of the game
+ * @param isTurn is the player turn
+ */
+void GameManager::setTurn(int nbrTurn, bool isTurn) {
+    _nbrTurn = nbrTurn;
+    _isTurn = isTurn;
+    // call WizardDisplay
 }
 
 

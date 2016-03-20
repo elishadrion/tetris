@@ -399,8 +399,8 @@ void Game::nextPlayer() {
     _currentPlayer->addMaxEnergy();
     _currentPlayer->resetEnergy();
 
-    PacketManager::sendTurnInfo(_player1, _player2, _currentPlayer==_player1);
-    PacketManager::sendTurnInfo(_player2, _player1, _currentPlayer==_player2);
+    PacketManager::sendTurnInfo(_player1, _turn, _currentPlayer==_player1);
+    PacketManager::sendTurnInfo(_player2, _turn, _currentPlayer==_player2);
 
     beginTurn();
 }

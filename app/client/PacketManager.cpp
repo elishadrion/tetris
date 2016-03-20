@@ -434,7 +434,8 @@ void PacketManager::sendSelectedDeck(const char* deck) {
 //==============================GAME PROCESS============================================
 
 void PacketManager::setTurn(const Packet::turnPacket* turnPacket) {
-    //TODO update in-game info and inform if it's our turn
+    GameManager* gm = GameManager::getInstance();
+    gm->setTurn(turnPacket->nbrTurn, turnPacket->isTurn);
 }
 
 void PacketManager::setDraw(const Packet::intPacket* drawPacket) {
