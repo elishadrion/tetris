@@ -108,6 +108,9 @@ void MainPanelCLI::doRequest(int entry) {
         case START_LINE:
             wizardDisplay->displayWait();
             break;
+        case START_LINE+2:
+            wizardDisplay->displayCollectionWindow();
+            break;
         case START_LINE+4:
             wizardDisplay->displayFriendsWindow();
             break;
