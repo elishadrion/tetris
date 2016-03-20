@@ -21,6 +21,7 @@ public:
     static void sendRanking(Player*);
     static void loadPlayers();
     void savePlayers() const;
+    Player* findPlayerByName(std::string);
     Player* signUp(std::string, std::string, int);
     Player* logIn(std::string, std::string, int);
     virtual ~PlayerManager() = default;

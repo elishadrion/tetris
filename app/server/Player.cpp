@@ -13,6 +13,12 @@ Player::Player(nlohmann::json& info, int sockfd): _playerConnect(new PlayerConne
         _decks.push_back(new Deck(deckName, cards));
     }
 
+    for (size_t i = 0; i < info["friends"].size(); ++i) {
+        Player* player = PlayerManager::findPlayerByName(info["friends"][i]);
+        if (player != nullptr)
+            _friends.push_back(player);
+    }
+
     std::vector<unsigned> collection_cards= info["collection"];
     _collection = Collection(collection_cards);
 

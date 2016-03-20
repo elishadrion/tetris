@@ -49,6 +49,20 @@ void PlayerManager::sendRanking(Player* player) {
     PacketManager::sendClassement(player, list_name, list_victories, list_defeats);
 }
 
+/* Search for a player with specific pseudo
+ * @param pseudo : the player's pseudo we are looking for
+ * @return Player* or nullptr if not exist
+ */
+Player* PlayerManager::findPlayerByName(std::string pseudo) {
+    for (size_t i = 0; i < _players.size(); i++) {
+        Player* current = _players.at(i);
+        if ((*current).getName() == pseudo)
+            return current;
+    }
+    WizardLogger::warning("Aucun joueur ne possède le pseudo "+pseudo);
+    return nullptr;
+}
+
 
 Player* PlayerManager::logIn(std::string username, std::string password, int sockfd) {
     for (size_t i = 0; i < _players.size(); i++) {

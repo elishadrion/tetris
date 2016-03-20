@@ -14,11 +14,14 @@
 #include "Deck.hpp"
 #include "common/Packet.hpp"
 #include "PacketManager.hpp"
+#include "FriendsManager.hpp"
 
 class Player;
 class PlayerInGame;
 class PlayerConnect;
+class PlayerManager;
 #include "PlayerConnect.hpp"
+#include "PlayerManager.hpp"
 
 #include "common/WizardLogger.hpp"
 #include "common/Constants.hpp"
@@ -40,6 +43,7 @@ class Player {
 protected:
     PlayerConnect *_playerConnect;
     std::vector<Deck*> _decks;
+    std::vector<Player*> _friends;
     unsigned _victories;
     unsigned _defeats;
 
