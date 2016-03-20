@@ -1,6 +1,7 @@
 #include "PlayerManager.hpp"
 
-std::vector<Player*> PlayerManager::_players;
+std::vector<Player*> PlayerManager::_connected = std::vector<Player*>();
+std::vector<Player*> PlayerManager::_players = std::vector<Player*>();
 
 void PlayerManager::loadPlayers() {
     std::ifstream playersFile;
@@ -19,7 +20,6 @@ void PlayerManager::loadPlayers() {
         nlohmann::json player_info = i.value();
         _players.push_back(new Player(player_info));
     }
-
     playersFile.close();
 }
 
@@ -122,7 +122,7 @@ Player* PlayerManager::signUp(std::string username, std::string password, int so
     return newPlayer;
 }
 
-void PlayerManager::savePlayers() const {
+void PlayerManager::savePlayers() {
     nlohmann::json db = nlohmann::json::array();
     for (size_t i = 0; i < _players.size(); ++i)
 	db.push_back((*_players.at(i)).serialise());

@@ -51,8 +51,8 @@ Connection::Connection() {
 }
 
 Connection::~Connection() {
-    WizardLogger::warning("BALAPKZFPIZD");
-    pm -> savePlayers();
+    WizardLogger::warning("Closing server connection");
+    PlayerManager::savePlayers();
     close(_serverSocket);
 }
 
@@ -145,9 +145,9 @@ void* Connection::newPlayerThread(void* data) {
 
                 /* We check if it's a login or a registration and send pseudo/password */
                 if (packet->ID != Packet::LOGIN_REQ_ID) {
-                    newPlayer = pm->signUp(pseudo, password, clientSocket);
+                    newPlayer = PlayerManager::signUp(pseudo, password, clientSocket);
                 } else {
-                    newPlayer = pm->logIn(pseudo, password, clientSocket);
+                    newPlayer = PlayerManager::logIn(pseudo, password, clientSocket);
                 }
 
                 /* If no player object created we fail and restart */

@@ -19,9 +19,8 @@
 class Player;
 class PlayerInGame;
 class PlayerConnect;
-class PlayerManager;
 #include "PlayerConnect.hpp"
-#include "PlayerManager.hpp"
+//#include "PlayerManager.hpp"
 
 #include "common/WizardLogger.hpp"
 #include "common/Constants.hpp"

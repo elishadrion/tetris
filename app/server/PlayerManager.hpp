@@ -13,18 +13,16 @@ class Player;
 
 #define PLAYERS_DB "server/assets/players.json"
 
-class PlayerManager {
-    std::vector<Player*> _connected;
-    static std::vector<Player*> _players;
-public:
-    PlayerManager() = default;
-    static void sendRanking(Player*);
-    static void loadPlayers();
-    void savePlayers() const;
+namespace PlayerManager {
+    extern std::vector<Player*> _connected;
+    extern std::vector<Player*> _players;
+
+    void sendRanking(Player*);
+    void loadPlayers();
+    void savePlayers();
     Player* findPlayerByName(std::string);
     Player* signUp(std::string, std::string, int);
     Player* logIn(std::string, std::string, int);
-    virtual ~PlayerManager() = default;
 };
 
 #endif /* PLAYERMANAGER_HPP */

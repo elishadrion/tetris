@@ -11,7 +11,6 @@
 
 #include "Effect.hpp"
 
-PlayerManager *pm;
 Connection *conn;
 
 void interrupt_handler(int signum) {
@@ -41,8 +40,7 @@ int main() {
     CardManager::loadAllCards();
 
 
-    pm = new PlayerManager();
-    pm -> loadPlayers();
+    PlayerManager::loadPlayers();
     /* We initialise the listening server socket
      * If it fail, server can't go farther
      */
