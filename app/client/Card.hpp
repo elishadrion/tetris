@@ -13,6 +13,7 @@ class Card {
     std::string _name;
     std::string _description;
     unsigned _energyCost;
+    unsigned _attack;
     const unsigned _maxHP;
     unsigned _HP;
     std::string _img;
@@ -21,9 +22,10 @@ class Card {
     unsigned _position; // Only during the game !
 
 public:
-    explicit Card(unsigned id, bool isMonster, std::string name, std::string description, unsigned energy, unsigned HP) :
+    explicit Card(unsigned id, bool isMonster, std::string name, std::string description, unsigned energy,
+                  unsigned HP, unsigned attack) :
         _id(id), _monster(isMonster), _name(name), _description(description), _energyCost(energy),
-        _maxHP(HP), _HP(HP), _img("cache/"+name) {}
+        _maxHP(HP), _HP(HP), _attack(attack), _img("cache/"+name) {}
     Card(const Card&) = default;
     ~Card() = default;
     
@@ -35,6 +37,7 @@ public:
     inline unsigned getEnergyCost() { return _energyCost; }
     inline unsigned getMaxHP(){ return _maxHP; }
     inline unsigned getHP(){ return _HP; }
+    inline unsigned getAttack() { return _attack; }
     inline void setHP(unsigned heal) { _HP = heal; }
     inline bool isDead() { return _HP <= 0; }
     

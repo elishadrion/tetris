@@ -14,6 +14,8 @@ PlayerInGame::PlayerInGame(const Player& player, Game* game): Player(player),
     std::vector<Card*> _cardsInHand(0);
     std::vector<Card*> _defausse(0);
 
+    for(unsigned i = 0; i < MAX_POSED_CARD; ++i) _cardsPlaced[i] = nullptr;
+
     _playerConnect->setPlayerInGame(this);
 }
 
@@ -127,14 +129,18 @@ unsigned PlayerInGame::nbrCardDeck() {
  * @return the card or nullptr
  */
 Card* PlayerInGame::draw() {
-    Card* res = nullptr;
-
     Card* randomCard = _deck->pickup();
+
+    std::string debug = getName();
+    debug += ": Card: ";
+    debug += std::to_string(randomCard->getId());
+
+    WizardLogger::info(debug);
     if(randomCard != nullptr) {
         _cardsInHand.push_back(randomCard);
     }
 
-    return res;
+    return randomCard;
 }
 
 

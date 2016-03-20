@@ -8,7 +8,11 @@
 #include <QPixmap>
 #include <QPainter>
 #include <QFont>
+#include <QString>
 #include <sstream>
+
+#include "Card.hpp"
+
 
 class CardWidget : public QWidget{
     Q_OBJECT
@@ -17,16 +21,19 @@ class CardWidget : public QWidget{
     QString _attack;
     QString _life;
 
+    Card* _card;
+
+
     QPainter *_paint;
 
     QPalette *_palette;
     QPixmap *_pixmap;
 
 public:
-    CardWidget(unsigned, unsigned, unsigned);
+    CardWidget(Card*);
     void resizeEvent(QResizeEvent*);
-    void setAttack(unsigned);
-    void setLife(unsigned);
+//    void setAttack(unsigned);
+//    void setLife(unsigned);
     std::string UnsignedToString(unsigned);
     void actualize();
 };

@@ -9,7 +9,6 @@
 #include "client/GUI/GameGUI.hpp"
 
 
-
 #include <QObject>
 
 
@@ -35,6 +34,7 @@ public:
     // Game
     void askDeck() override;
     void changeTurn(int, bool) override;
+    void drawCard(Card*) override;
 
     // Setter
     void setMainMenu(MenuPanelGUI*);

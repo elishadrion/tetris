@@ -43,6 +43,7 @@ public:
     inline unsigned getNbrTurn() const { return _nbrTurn; }
     inline Card** getAdversePosed() { return _ennemyPosed; }
     inline Card** getPosed() { return _posed; }
+    inline std::vector<Card*> getCardInHand() { return _hand; }
     inline int getTrashSize() const { return _trash.size(); }
     inline std::string getEnnemy() const { return _ennemy; }
     inline unsigned getEnergy() const { return _energy; }
@@ -56,7 +57,8 @@ public:
 
     // Action during the game
     void setTurn(unsigned, bool);
-    inline void drawCard(Card* card) { _hand.push_back(card); }
+    //inline void placeCard(Card* card) { _hand.push_back(card); }
+    void drawCard(unsigned);
     void removeCardFromHand(Card*);
     void removeAdverseCardFromHand();
     inline std::string getDeckName() { return _deckName; }

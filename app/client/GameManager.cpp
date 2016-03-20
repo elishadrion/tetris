@@ -54,6 +54,17 @@ void GameManager::setTurn(unsigned nbrTurn, bool isTurn) {
     wizardDisplay->changeTurn(nbrTurn, isTurn);
 }
 
+/**
+ * Call when the server inform that the player draw a card
+ *
+ * @param idCard of the draw card
+ */
+void GameManager::drawCard(unsigned idCard) {
+    Card* card = CacheManager::getCard(idCard);
+    _hand.push_back(card);
+    wizardDisplay->drawCard(card);
+}
+
 
 /**
  * Remove a card from the hand of the player

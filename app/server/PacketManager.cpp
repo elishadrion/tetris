@@ -121,12 +121,29 @@ void PacketManager::manageCardImgRequest(Player* player, Packet::intPacket* card
     //TODO get card form server database and call sendCardImg (block client recev :/)
 }
 
-/* Send all card's info to the client
+/**
+ * Send all card's info to the client
+ *
  * @param player : the player who to send this packet
  * @param card : the card's info needed
  */
 void PacketManager::sendCardInfo(Player* player, Card* card) {
-    //TODO send card info (no img) to the client
+    Packet::cardInfosPacket* cardPacket = new Packet::cardInfosPacket();
+
+    cardPacket->data.carteID = card->getId();
+    cardPacket->data.monster = card->isMonster();
+    for(unsigned i = 0; i < MAX_CARD_NAME; ++i) cardPacket->data.name[i] = card->getName()[i];
+    //for(unsigned i = 0; i < MAX_DESCRITION_SIZE; ++i) cardPacket->data.description[i] = card->getDescription()[i];
+    cardPacket->data.energyCost = card->getEnergyCost();
+    cardPacket->data.maxHP = card->getEnergyCost();
+    if(card->isMonster()) {
+        CardMonster* monsterCard = static_cast<CardMonster*>(card);
+        cardPacket->data.attack = monsterCard->getAttack();
+    }
+
+    /* Send and free */
+    player->sendPacket((Packet::packet*) cardPacket, sizeof(*cardPacket));
+    delete cardPacket;
 }
 
 

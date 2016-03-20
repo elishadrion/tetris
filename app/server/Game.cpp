@@ -109,7 +109,7 @@ void Game::checkDeckAndStart() {
         _gameStatut = GameStatut::IN_GAME;
 
         unsigned int i = 0;
-        while(i < 5) {
+        while(i < MIN_CARD_IN_HAND) {
             draw(_player1);
             draw(_player2);
             ++i;
@@ -190,6 +190,7 @@ void Game::draw() {
  */
 void Game::draw(PlayerInGame* pIG) {
     Card* res = pIG->draw();
+    WizardLogger::info("Game: draw: " + res->getName());
     if(res == nullptr) { // If no card
         pIG->takeDamage(4);
 
@@ -418,7 +419,7 @@ void Game::beginTurn() {
     // Increment number of turn
     _currentPlayer->incrementAllPlaceCard();
 
-    while(_currentPlayer->nbrCardInHand() < 5) {
+    while(_currentPlayer->nbrCardInHand() < MIN_CARD_IN_HAND) {
         draw();
     }
 

@@ -44,6 +44,13 @@ public:
     virtual void askDeck() {}
 
     /**
+     * Call when the player recieve one new card
+     *
+     * @param card wich is draw
+     */
+    virtual void drawCard(Card*) {}
+
+    /**
      * The turn change
      *
      * @param nbrTurn since the begin of the game

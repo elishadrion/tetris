@@ -15,6 +15,9 @@
 /* Number of card in deck */
 #define DECK_SIZE 20
 
+// Max lenght of card name
+#define MAX_CARD_NAME 50
+
 /* Max lenght of a deck name */
 #define MAX_DECK_NAME 32
 
@@ -26,6 +29,9 @@
 
 /* Max description size by card */
 #define MAX_DESCRITION_SIZE 120
+
+#define MIN_CARD_IN_HAND 5
+
 
 //===============USER=====================
 

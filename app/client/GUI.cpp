@@ -70,6 +70,10 @@ void GUI::changeTurn(int nbrTurn, bool isTurn) {
     gamePanel->callChangeTurn(nbrTurn, isTurn);
 }
 
+void GUI::drawCard(Card* card) {
+    gamePanel->callDrawCard(card);
+}
+
 
 ///////////// Setter ////////////
 

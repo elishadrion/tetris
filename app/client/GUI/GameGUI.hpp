@@ -19,6 +19,7 @@
 #include "DeckChooseGUI.hpp"
 #include "ChatManagerGUI.hpp"
 #include "GameManager.hpp"
+#include "CardWidget.hpp"
 
 #include "common/Constants.hpp"
 
@@ -41,14 +42,17 @@ class GameGUI : public QMainWindow {
 public:
     GameGUI();
     void callChangeTurn(int, bool);
+    void callDrawCard(Card*);
 
 signals:
     void nextPlayer(bool);
     void mustUpdateTurn(int);
+    void cardDraw(CardWidget*);
 
 private slots:
     void viewPassButton(bool);
     void updateTurn(int);
+    void addCardHand(CardWidget*);
 
 
 };

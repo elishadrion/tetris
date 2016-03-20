@@ -221,7 +221,8 @@ void PacketManager::sendDisconnection() {
 
 void PacketManager::saveCardInfo(const Packet::cardInfosPacket* cardPacket) {
     Card *newCard = new Card(cardPacket->data.carteID, cardPacket->data.monster, std::string(cardPacket->data.name),
-    std::string(cardPacket->data.description), cardPacket->data.energyCost, cardPacket->data.maxHP);
+                             std::string(cardPacket->data.description), cardPacket->data.energyCost,
+                             cardPacket->data.maxHP, cardPacket->data.attack);
     cacheManager->addToCache(newCard);
 }
 
@@ -428,12 +429,11 @@ void PacketManager::sendSelectedDeck(const char* deck) {
 //==============================GAME PROCESS============================================
 
 void PacketManager::setTurn(const Packet::turnPacket* turnPacket) {
-    GameManager* gm = GameManager::getInstance();
-    gm->setTurn(turnPacket->nbrTurn, turnPacket->isTurn);
+    GameManager::getInstance()->setTurn(turnPacket->nbrTurn, turnPacket->isTurn);
 }
 
 void PacketManager::setDraw(const Packet::intPacket* drawPacket) {
-    //TODO update in-game hand (and deck)
+    GameManager::getInstance()->drawCard(drawPacket->data);
 }
 
 void PacketManager::askDrop(const Packet::intPacket* askDropPacket) {

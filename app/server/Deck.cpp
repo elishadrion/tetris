@@ -62,8 +62,10 @@ bool Deck::isValide() {
  */
 Card* Deck::pickup() {
     Card* card;
+    WizardLogger::info("Pickup " + std::to_string(_listCard.size()));
     if(_listCard.size() > 0) {
         int chooseCard = rand() % static_cast<int>(_listCard.size()); // Chose random index
+        WizardLogger::info("Choix: " + std::to_string(chooseCard));
         card = getCardOnIndex(chooseCard); // gets id
         removeCard(chooseCard); // Removes the card
     }

@@ -64,14 +64,12 @@ GameGUI::GameGUI() : QMainWindow() {
 
 
     // Cartes en main
-    for(unsigned i = 0; i < 7; ++i) {
-        QHBoxLayout* carteInHand;
-        carteInHand= new QHBoxLayout;
-        strLabel = ("test2: " + i);
-        label = new QLabel(strLabel);
-        label->setStyleSheet("background-color: green");
-        carteInHand->addWidget(label);
-        _gridlayout->addLayout(carteInHand, 6, 3+i);
+    std::vector<Card*> listHand = GameManager::getInstance()->getCardInHand();
+    for(unsigned i = 0; i < listHand.size(); ++i) {
+        CardWidget* cardWidget = new CardWidget(listHand[i]);
+        //_gridlayout->addLayout(carteInHand, 6, 3+i);
+
+        // TO DO
     }
 
 
@@ -154,6 +152,7 @@ GameGUI::GameGUI() : QMainWindow() {
 
     connect(this, SIGNAL(nextPlayer(bool)), this, SLOT(viewPassButton(bool)));
     connect(this, SIGNAL(mustUpdateTurn(int)), this, SLOT(updateTurn(int)));
+    connect(this, SIGNAL(cardDraw(CardWidget*)), this, SLOT(addCardHand(CardWidget*)));
 
 
     chooseDeck();
@@ -164,6 +163,10 @@ GameGUI::GameGUI() : QMainWindow() {
 void GameGUI::callChangeTurn(int nbrTurn, bool isTurn) {
     emit nextPlayer(isTurn);
     emit mustUpdateTurn(nbrTurn);
+}
+
+void GameGUI::callDrawCard(Card* card) {
+    emit cardDraw(new CardWidget(card));
 }
 
 void GameGUI::viewPassButton(bool value) {
@@ -178,4 +181,8 @@ void GameGUI::viewPassButton(bool value) {
 
 void GameGUI::updateTurn(int nbrTurn) {
     // TO DO
+}
+
+void GameGUI::addCardHand(CardWidget* cardWidget) {
+
 }

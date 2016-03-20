@@ -129,6 +129,8 @@ public:
             char description[MAX_DESCRITION_SIZE];
             unsigned energyCost;
             unsigned maxHP;
+            unsigned attack;
+            // TO DO: effect ?
         } cardData;
         int size = sizeof(cardData);
         cardData data; /* We define it but we must include it */
