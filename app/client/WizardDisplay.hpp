@@ -43,9 +43,6 @@ public:
     /* Ask to te play to choose her deck */
     virtual void askDeck() {}
 
-    /* Start game with player in param */
-    virtual void launchGame(std::string) {}
-
     /**
      * The turn change
      *

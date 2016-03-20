@@ -28,7 +28,7 @@ class DeckChooseGUI : public QMainWindow {
 public:
     DeckChooseGUI(GameGUI*);
 
-public slots:
+private slots:
     void valideDeck();
 
 

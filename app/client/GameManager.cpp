@@ -16,7 +16,7 @@ GameManager* GameManager::getInstance() {
  * Constructor
  * @param pseudo of the adverse player
  */
-GameManager::GameManager(): _ennemy(""), _heal(MAX_LIFE),
+GameManager::GameManager(std::string pseudo): _ennemy(pseudo), _heal(MAX_LIFE),
     _adverseHeal(MAX_LIFE), _energy(0), _adverseEnergy(0), _deckName(""),
     _nbrTurn(0), _isTurn(false) {
 

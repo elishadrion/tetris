@@ -34,32 +34,20 @@ class GameGUI : public QMainWindow {
     QPushButton *_nextTurnBouton;
     QLabel *_infoTour;
 
-//    bool _turn;
-//    unsigned _life;
-//    unsigned _trash[DECK_SIZE];
-//    unsigned _hand[MAX_HAND];
-//    unsigned _deck[DECK_SIZE];
-//    unsigned _posed[MAX_POSED_CARD];
-//    unsigned _posedLife[MAX_POSED_CARD];
-//    unsigned _ennemyLife;
-//    unsigned _ennemyTrash;
-//    unsigned _ennemyHand;
-//    unsigned _ennemyDeck;
-//    unsigned _ennemyPosed[MAX_POSED_CARD];
-//    unsigned _ennemyPosedLife[MAX_POSED_CARD];
-
     void chooseDeck();
 
 
 public:
     GameGUI();
-    void callStartGame(std::string);
+    void callChangeTurn(int, bool);
 
 signals:
-    void mustStartGame(std::string);
+    void nextPlayer(bool);
+    void mustUpdateTurn(int);
 
-public slots:
-    void makeStartGame(std::string);
+private slots:
+    void viewPassButton(bool);
+    void updateTurn(int);
 
 
 };

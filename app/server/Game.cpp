@@ -23,6 +23,11 @@ Game::Game(Player* p1, Player* p2):
     // Constructor asks player which deck he would like
     _player1 = new PlayerInGame(*p1, this);
     _player2 = new PlayerInGame(*p2, this);
+
+    // Ask to the players his deck
+    PacketManager::askDeck(_player1, _player2->getName());
+    PacketManager::askDeck(_player2, _player1->getName());
+
     _currentPlayer = _player1;
     _turn = 0;
     _gameStatut = GameStatut::WAIT_DEC;
@@ -102,8 +107,6 @@ void Game::checkDeckAndStart() {
     if(_player1->isDeckDefined() && _player2->isDeckDefined()) {
 
         _gameStatut = GameStatut::IN_GAME;
-        PacketManager::initGame(_player1, getAdversePlayer(_player1)->getName());
-        PacketManager::initGame(_player2, getAdversePlayer(_player2)->getName());
 
         unsigned int i = 0;
         while(i < 5) {

@@ -15,9 +15,6 @@ PlayerInGame::PlayerInGame(const Player& player, Game* game): Player(player),
     std::vector<Card*> _defausse(0);
 
     _playerConnect->setPlayerInGame(this);
-
-    // Ask to the palyer his deck
-    PacketManager::askDeck(this);
 }
 
 

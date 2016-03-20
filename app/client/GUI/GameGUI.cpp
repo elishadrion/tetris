@@ -140,20 +140,30 @@ GameGUI::GameGUI() : QMainWindow() {
     show();
     this->showMaximized(); // set full screen
 
-    connect(this, SIGNAL(mustStartGame(std::string)), this, SLOT(makeStartGame(std::string)));
+    connect(this, SIGNAL(nextPlayer(bool)), this, SLOT(viewPassButton(bool)));
+    connect(this, SIGNAL(mustUpdateTurn(int)), this, SLOT(updateTurn(int)));
 
 
     chooseDeck();
 
 }
 
-/**
- * Call the mustStartGame (emit)
- */
-void GameGUI::callStartGame(std::string pseudo) {
-    emit mustStartGame(pseudo);
+
+void GameGUI::callChangeTurn(int nbrTurn, bool isTurn) {
+    emit nextPlayer(isTurn);
+    emit mustUpdateTurn(nbrTurn);
 }
 
-void GameGUI::makeStartGame(std::string pseudo) {
+void GameGUI::viewPassButton(bool value) {
+    if(value) {
+        _nextTurnBouton->show();
+        _infoTour->hide();
+    } else {
+        _nextTurnBouton->hide();
+        _infoTour->show();
+    }
+}
+
+void GameGUI::updateTurn(int nbrTurn) {
     // TO DO
 }

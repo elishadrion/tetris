@@ -60,9 +60,8 @@ void PacketManager::managePacket(Packet::packet* customPacket) {
                                           break;
         case Packet::CANCEL_ID :          WizardLogger::warning("Paquet d'annulation de partie reçu");
                                           break;
-        case Packet::ASK_DECK_ID :        wizardDisplay->askDeck();
-                                          break;
-        case Packet::GAME_START_ID:       startGame((Packet::pseudoPacket*) customPacket);
+        case Packet::ASK_DECK_AND_PSEUDO_ID :
+                                          askDeckAndPseudo((Packet::pseudoPacket*) customPacket);
                                           break;
         case Packet::DECK_CHOOS_ID :      WizardLogger::warning("Paquet de choix de deck reçu");
                                           break;
@@ -378,10 +377,9 @@ void PacketManager::makeFriendListRequest() {
 
 //============================LAUNCHING PROCESS=========================================
 
-void PacketManager::startGame(const Packet::pseudoPacket* packet) {
-    std::string pseudo = packet->pseudo;
-    GameManager::getInstance()->setAdverse(pseudo);
-    wizardDisplay->launchGame(pseudo);
+void PacketManager::askDeckAndPseudo(const Packet::pseudoPacket* packet) {
+    new GameManager(packet->pseudo);
+    wizardDisplay->askDeck();
 }
 
 
@@ -389,8 +387,6 @@ void PacketManager::startGame(const Packet::pseudoPacket* packet) {
  * Inform server we are ready and wainting for party
  */
 void PacketManager::makeGameRequest() {
-    new GameManager();
-
     /* Create and specify a new logoutPacket */
     Packet::packet *gameReq = new Packet::packet();
     gameReq->ID = Packet::WAITING_ID;
@@ -406,8 +402,6 @@ void PacketManager::makeGameRequest() {
  * Inform server thant we wont anymore play
  */
 void PacketManager::makeGameCancelRequest() {
-    delete GameManager::getInstance();
-
     /* Create and specify a new logoutPacket */
     Packet::packet *cancelInfo = new Packet::packet();
     cancelInfo->ID = Packet::CANCEL_ID;
@@ -630,6 +624,8 @@ void PacketManager::endTurn() {
  * Inform server that we (rage) quit party and we loose
  */
 void PacketManager::quit() {
+    //     delete GameManager::getInstance();
+
     /* Create and specify a new logoutPacket */
     Packet::packet *quit = new Packet::packet();
     quit->ID = Packet::QUIT_ID;

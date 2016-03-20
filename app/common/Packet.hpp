@@ -35,9 +35,8 @@ public:
         /* LAUNCHING GAME PROCESS */
         WAITING_ID = 51, /* DEFAULT PACKET */
         CANCEL_ID = 52, /* DEFAULT PACKET */
-        ASK_DECK_ID = 53, /* DEFAULT PACKET- ask for deck */
-        GAME_START_ID = 54,/* pseudoPacket */
-        DECK_CHOOS_ID = 55, /* deckPacket */
+        ASK_DECK_AND_PSEUDO_ID = 53, /* pseudoPacket - ask for deck and inform pseudo */
+        DECK_CHOOS_ID = 54, /* deckPacket */
         /* CLASSEMENT */
         ASK_CLASSEMENT_ID = 61, /* DEFAULT PACKET */
         SEND_CLASSEMENT_ID = 62, /* ClassementPacket */

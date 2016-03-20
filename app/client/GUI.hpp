@@ -22,16 +22,21 @@ class GUI : public WizardDisplay, public QObject {
 public:
     GUI();
     virtual ~GUI();
+
+    // Error
     void displayFatalError(std::string) override;
+    void diaplayError(std::string) override;
+
+    // Loggin
     void displayLoginPrompt() override;
     void displayLoginResult(std::string) override;
     void valideLogin() override;
-    void diaplayError(std::string) override;
 
-    void launchGame(std::string) override;
+    // Game
     void askDeck() override;
+    void changeTurn(int, bool) override;
 
-
+    // Setter
     void setMainMenu(MenuPanelGUI*);
     void setGameMenu(GameGUI*);
 };

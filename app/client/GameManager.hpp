@@ -35,7 +35,7 @@ class GameManager {
 public:
     static GameManager* getInstance();
 
-    GameManager();
+    GameManager(std::string);
 
     // Getters
     inline bool isGame() const { return _instance != nullptr; }
