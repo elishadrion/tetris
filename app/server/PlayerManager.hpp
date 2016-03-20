@@ -19,7 +19,7 @@ class PlayerManager {
 public:
     PlayerManager() = default;
     static void sendRanking(Player*);
-    void loadPlayers();
+    static void loadPlayers();
     void savePlayers() const;
     Player* signUp(std::string, std::string, int);
     Player* logIn(std::string, std::string, int);

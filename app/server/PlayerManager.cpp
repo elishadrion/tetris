@@ -82,7 +82,7 @@ Player* PlayerManager::signUp(std::string username, std::string password, int so
     }
 
     nlohmann::json info;
-    info["username"] = username;
+    info["name"] = username;
     info["password"] = password;
     info["victories"] = 0;
     info["defeats"] = 0;

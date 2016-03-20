@@ -1,8 +1,8 @@
 DOCU_DIR=../docu
 
 all:
-	doxygen doxygen.conf
-	$(MAKE) -C $(DOCU_DIR)/latex
+    doxygen doxygen.conf
+    $(MAKE) -C $(DOCU_DIR)/latex
 
 clean:
-	rm -rf $(DOCU_DIR) 2> /dev/nul
+    rm -rf $(DOCU_DIR) 2> /dev/nul

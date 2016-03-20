@@ -8,9 +8,6 @@
  */
 PlayerInGame::PlayerInGame(const Player& player, Game* game): Player(player),
     _deck(nullptr), _game(game) {
-
-    WizardLogger::info("Création d'un PlayerInGame: " + player.getName() + " > " + this->getName());
-
     _playerHeal = MAX_LIFE; //Player starts with 20 health points
      _energy = 0; //The current energy of the player
     _maxEnergy = 1; //Every turn the maximum energy is increased up to a maximum of 10

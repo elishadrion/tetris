@@ -1,5 +1,5 @@
-#ifndef CARDWIDGET_H
-#define CARDWIDGET_H
+#ifndef CARDWIDGET_HPP
+#define CARDWIDGET_HPP
 
 #include <string>
 #include <QApplication>
@@ -31,4 +31,4 @@ public:
     void actualize();
 };
 
-#endif // CARDWIDGET_H
+#endif // CARDWIDGET_HPP

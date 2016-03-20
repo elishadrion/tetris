@@ -1,4 +1,4 @@
-#include "CardWidget.h"
+#include "CardWidget.hpp"
 
 /*
  * Actualize peut etre remplacé par un paintevent ou une autre fonctionnalité
@@ -12,7 +12,7 @@ CardWidget::CardWidget(unsigned energy,unsigned attack, unsigned hp) :
     _life(QString::fromStdString(UnsignedToString(hp))){
 
     _palette	= new QPalette();
-    _pixmap		= new QPixmap("/home/dewit/Bureau/CardToon.png");
+    _pixmap		= new QPixmap(":/Images/CardToon.png");
     _paint = new QPainter(_pixmap);
 
     QFont font;
@@ -33,17 +33,17 @@ void CardWidget::resizeEvent(QResizeEvent*){
    _palette->setBrush(QPalette::Background,QBrush(_pixmap->scaled(width(),height())));
    setPalette(*_palette);
 
-};
+}
 
 void CardWidget::setAttack(unsigned attack){
     _attack = QString::fromStdString(UnsignedToString(attack));
     actualize();
-};
+}
 
 void CardWidget::setLife(unsigned hp){
     _life = QString::fromStdString(UnsignedToString(hp));
     actualize();
-};
+}
 
 std::string CardWidget::UnsignedToString(unsigned value)
 {

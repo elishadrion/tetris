@@ -3,17 +3,7 @@
 #include "PlayerInGame.hpp"
 
 Player* PlayerConnect::getPlayerPtr() {
-    Player* ptr;
-    if(_pIG == nullptr) {
-        ptr = _player;
-        WizardLogger::info("PConnect: player");
-    } else {
-        ptr = _pIG;
-        WizardLogger::info("PConnect: player In Game");
-    }
-
-    return ptr;
-    //return (_pIG == nullptr) ? _player : _pIG;
+    return (_pIG == nullptr) ? _player : _pIG;
 }
 
 

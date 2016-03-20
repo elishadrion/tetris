@@ -195,7 +195,7 @@ void Connection::sendSucess(Player* player, int socket) {
     for(unsigned nbrDeck = 0; nbrDeck < listDeck.size(); ++nbrDeck) {
         std::string nomDeck = static_cast<Deck*>(listDeck[nbrDeck])->getName();
         unsigned current = nbrDeck*MAX_DECK_NAME;
-        for(unsigned i = 0; i < nomDeck.size(); ++i) playerPacket->data.decks[current] = nomDeck[i];
+        for(unsigned i = 0; i < nomDeck.size(); ++i) playerPacket->data.decks[current+i] = nomDeck[i];
     }
 
 

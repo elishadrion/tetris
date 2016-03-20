@@ -2,7 +2,7 @@
 #include "Player.hpp"
 
 Player::Player(nlohmann::json& info, int sockfd): _playerConnect(new PlayerConnect(sockfd, this)) {
-    _username = info["username"];
+    _username = info["name"];
     _password = info["password"];
     _victories = info["victories"];
     _defeats = info["defeats"];
