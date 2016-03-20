@@ -192,10 +192,17 @@ void Connection::sendSucess(Player* player, int socket) {
     for (int i = 0 ; i < collection.size() ; ++i) playerPacket->data.collection[i] = collection[i];
 
     std::vector<Deck*> listDeck = player->getListDeck();
-    for(unsigned nbrDeck = 0; nbrDeck < listDeck.size(); ++nbrDeck) {
-        std::string nomDeck = static_cast<Deck*>(listDeck[nbrDeck])->getName();
-        unsigned current = nbrDeck*MAX_DECK_NAME;
-        for(unsigned i = 0; i < nomDeck.size(); ++i) playerPacket->data.decks[current+i] = nomDeck[i];
+    for(unsigned allDeck = 0; allDeck < MAX_DECKS; ++allDeck) {
+        // Variable
+        unsigned i = 0;
+        unsigned current = allDeck*MAX_DECK_NAME;
+
+        if(allDeck < listDeck.size()) {
+            std::string nomDeck = static_cast<Deck*>(listDeck[allDeck])->getName();
+            for(; i < nomDeck.size(); ++i) playerPacket->data.decks[current+i] = nomDeck[i];
+        }
+
+        for(; i < MAX_DECK_NAME; ++i) playerPacket->data.decks[current+i] = ' ';
     }
 
 

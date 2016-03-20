@@ -33,7 +33,7 @@ class GameManager {
 public:
     static GameManager* getInstance();
 
-    GameManager(std::string);
+    GameManager();
 
     // Getters
     inline bool isGame() const { return _instance != nullptr; }
@@ -47,6 +47,7 @@ public:
     inline unsigned getAdverseHeal() const { return _adverseHeal; }
 
     // Action during the game
+    inline void setAdverse(std::string pseudo) { _ennemy = pseudo; }
     inline void drawCard(Card* card) { _hand.push_back(card); }
     void setDeck(std::string);
     void removeCardFromHand(Card*);

@@ -379,7 +379,9 @@ void PacketManager::makeFriendListRequest() {
 //============================LAUNCHING PROCESS=========================================
 
 void PacketManager::startGame(const Packet::pseudoPacket* packet) {
-    wizardDisplay->launchGame(packet->pseudo);
+    std::string pseudo = packet->pseudo;
+    GameManager::getInstance()->setAdverse(pseudo);
+    wizardDisplay->launchGame(pseudo);
 }
 
 
@@ -387,6 +389,8 @@ void PacketManager::startGame(const Packet::pseudoPacket* packet) {
  * Inform server we are ready and wainting for party
  */
 void PacketManager::makeGameRequest() {
+    new GameManager();
+
     /* Create and specify a new logoutPacket */
     Packet::packet *gameReq = new Packet::packet();
     gameReq->ID = Packet::WAITING_ID;
@@ -402,6 +406,8 @@ void PacketManager::makeGameRequest() {
  * Inform server thant we wont anymore play
  */
 void PacketManager::makeGameCancelRequest() {
+    delete GameManager::getInstance();
+
     /* Create and specify a new logoutPacket */
     Packet::packet *cancelInfo = new Packet::packet();
     cancelInfo->ID = Packet::CANCEL_ID;
@@ -513,8 +519,9 @@ void PacketManager::managePlaceSpell(Packet::placeAttackSpellPacket* placeAttack
 }
 
 
-
 void PacketManager::manageEndGame(const Packet::endGamePacket* endPacket) {
+    // delete GameManager::getInstance();
+
     //TODO tell if we win and display winner's new card
 }
 

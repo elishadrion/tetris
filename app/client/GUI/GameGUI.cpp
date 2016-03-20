@@ -155,6 +155,5 @@ void GameGUI::callStartGame(std::string pseudo) {
 }
 
 void GameGUI::makeStartGame(std::string pseudo) {
-    new GameManager(pseudo);
     // TO DO
 }
