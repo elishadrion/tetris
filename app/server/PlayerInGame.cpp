@@ -452,6 +452,15 @@ Error PlayerInGame::reqPlaceAttackCard(unsigned cardId, int targetPosition) {
     return res;
 }
 
+/**
+ * Call when the client will end his turn
+ *
+ * @return noErrof if all is ok
+ */
+Error PlayerInGame::reqEndTurn() {
+    return _game->playerAskEndTurn(this);
+}
+
 
 //////////// Game End /////////////
 

@@ -17,20 +17,6 @@ class CardMonster;
 #include "common/Constants.hpp"
 
 
-/*
-Je pense que l'on en a plus besoin
-à voir avec @remy et @tutul
-*/
-struct dataIGPlayer {
-    int playerHeal;
-    int energy;
-    int maxEnergy;
-    int limitEnergy; // const here make error :/
-    std::vector<Card*> cardsInHand;
-    std::vector<CardMonster*> cardsPlaced;
-    bool turn;
-};
-
 // Declares before to avoid errors :/
 class Game;
 class PlayerInGame;
@@ -60,7 +46,6 @@ public:
     virtual inline bool isPlayerInGame() {return true;}
 
     // Getters
-    dataIGPlayer getDataPlayer();
     CardMonster** getCardsPlaced();
     std::vector<Card*> getCardsInHand();
     Card* getCardInHand(unsigned);
@@ -98,6 +83,7 @@ public:
     Error reqAttack(unsigned, int);
     Error reqPlaceCard(unsigned);
     Error reqPlaceAttackCard(unsigned, int);
+    Error reqEndTurn();
 
 
     // End Game

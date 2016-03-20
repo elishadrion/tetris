@@ -550,14 +550,18 @@ void PacketManager::sendDrop(const int ID) {
  * @param targetPosition of the card which IS attacked (-1 for adverse player)
  */
 void PacketManager::sendAttack(const unsigned cardPosition, const int targetPosition) {
-    Packet::twoCardPacket *attackPack = new Packet::twoCardPacket();
+    if(GameManager::getInstance()->isTurn()) {
+        Packet::twoCardPacket *attackPack = new Packet::twoCardPacket();
 
-    attackPack->ID = Packet::C_ATTACK_ID;
-    attackPack->cardOne = cardPosition;
-    attackPack->cardTwo = targetPosition;
+        attackPack->ID = Packet::C_ATTACK_ID;
+        attackPack->cardOne = cardPosition;
+        attackPack->cardTwo = targetPosition;
 
-    conn->sendPacket((Packet::packet*) attackPack, sizeof(*attackPack));
-    delete attackPack;
+        conn->sendPacket((Packet::packet*) attackPack, sizeof(*attackPack));
+        delete attackPack;
+    } else {
+        WizardLogger::warning("Impossible d'attaquer, ce n'est pas à votre tour de joueur");
+    }
 }
 
 /**
@@ -566,13 +570,17 @@ void PacketManager::sendAttack(const unsigned cardPosition, const int targetPosi
  * @param idCard of the new card
  */
 void PacketManager::sendPlaceCard(const unsigned idCard) {
-    Packet::intPacket *placePack = new Packet::intPacket();
+    if(GameManager::getInstance()->isTurn()) {
+        Packet::intPacket *placePack = new Packet::intPacket();
 
-    placePack->ID = Packet::C_PLACE_CARD_ID;
-    placePack->data = idCard;
+        placePack->ID = Packet::C_PLACE_CARD_ID;
+        placePack->data = idCard;
 
-    conn->sendPacket((Packet::packet*) placePack, sizeof(placePack));
-    delete placePack;
+        conn->sendPacket((Packet::packet*) placePack, sizeof(placePack));
+        delete placePack;
+    } else {
+        WizardLogger::warning("Impossible de placer une carte, ce n'est pas à votre tour de joueur");
+    }
 }
 
 
@@ -583,14 +591,19 @@ void PacketManager::sendPlaceCard(const unsigned idCard) {
  * @param targetPosition the target card wich will be attack (-1 for adverse player)
  */
 void PacketManager::sendPlaceCardAttack(const unsigned idCard, const int targetPosition) {
-    Packet::twoCardPacket *placeAttackPack = new Packet::twoCardPacket();
+    if(GameManager::getInstance()->isTurn()) {
+        Packet::twoCardPacket *placeAttackPack = new Packet::twoCardPacket();
 
-    placeAttackPack->ID = Packet::C_PLACE_CARD_MAKE_SPELL_ID;
-    placeAttackPack->cardOne = idCard;
-    placeAttackPack->cardTwo = targetPosition;
+        placeAttackPack->ID = Packet::C_PLACE_CARD_MAKE_SPELL_ID;
+        placeAttackPack->cardOne = idCard;
+        placeAttackPack->cardTwo = targetPosition;
 
-    conn->sendPacket((Packet::packet*) placeAttackPack, sizeof(placeAttackPack));
-    delete placeAttackPack;
+        conn->sendPacket((Packet::packet*) placeAttackPack, sizeof(placeAttackPack));
+        delete placeAttackPack;
+    } else {
+        WizardLogger::warning(
+                    "Impossible de placer une carte et attaquer, ce n'est pas à votre tour de joueur");
+    }
 }
 
 
@@ -598,15 +611,19 @@ void PacketManager::sendPlaceCardAttack(const unsigned idCard, const int targetP
  * Inform server that we have finish our turn
  */
 void PacketManager::endTurn() {
-    /* Create and specify a new logoutPacket */
-    Packet::packet *endTurn = new Packet::packet();
-    endTurn->ID = Packet::END_TURN_ID;
-    
-    /* Send it to the server */
-    conn->sendPacket((Packet::packet*) endTurn, sizeof(*endTurn));
-    
-    /* Clean memory */
-    delete endTurn;
+    if(GameManager::getInstance()->isTurn()) {
+        /* Create and specify a new logoutPacket */
+        Packet::packet *endTurn = new Packet::packet();
+        endTurn->ID = Packet::END_TURN_ID;
+
+        /* Send it to the server */
+        conn->sendPacket((Packet::packet*) endTurn, sizeof(*endTurn));
+
+        /* Clean memory */
+        delete endTurn;
+    } else {
+        WizardLogger::warning("Impossible de finir le tour, ce n'est pas à votre tour de joueur");
+    }
 }
 
 /**

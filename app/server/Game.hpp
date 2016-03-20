@@ -65,7 +65,7 @@ public:
     Error placeCardAffectPlayer(PlayerInGame*, Card*);
     Error attackWithCard(PlayerInGame*, unsigned, unsigned);
     Error attackWithCardAffectPlayer(PlayerInGame*, unsigned);
-    void nextPlayer();
+    Error playerAskEndTurn(PlayerInGame*);
 
 
 private:
@@ -79,11 +79,12 @@ private:
     bool havePlace(PlayerInGame*);
     void isPlayerInLife();
     void isPlayerInLife(PlayerInGame* pIG);
+    void nextPlayer();
 
     int getRealPosition(PlayerInGame*, int);
     int getRelativePosition(PlayerInGame*, int);
     Error canPlaceCard(PlayerInGame*, Card*);
-    void endParty(PlayerInGame*);
+    void endGame(PlayerInGame*);
 
 };
 

@@ -355,7 +355,7 @@ Error Game::attackWithCard(PlayerInGame* pIG, unsigned cardPosition,
 
 
 /**
- * Funciton when player attack a card
+ * Function when player attack a card
 
  * @param pIG who play
  * @param card which play
@@ -387,23 +387,21 @@ Error Game::attackWithCardAffectPlayer(PlayerInGame* pIG, unsigned cardPosition)
 
 
 /**
- * Switches player turn
+ * Call when a player will end his turn
+ *
+ * @param player who would end his turn
+ * @return Error or "NoError" if all is ok
  */
-void Game::nextPlayer() {
-    (_currentPlayer == _player1) ? _currentPlayer = _player2 : _currentPlayer = _player1;
-    WizardLogger::info("C'est maintenant au tour de " + _currentPlayer->getName());
-
-    if(_currentPlayer == _player1) {
-        ++_turn;
+Error Game::playerAskEndTurn(PlayerInGame* player) {
+    Error res = Error::NotHisTurn;
+    if(player == _currentPlayer) {
+        res = Error::NoError;
+        nextPlayer();
     }
-    _currentPlayer->addMaxEnergy();
-    _currentPlayer->resetEnergy();
 
-    PacketManager::sendTurnInfo(_player1, _turn, _currentPlayer==_player1);
-    PacketManager::sendTurnInfo(_player2, _turn, _currentPlayer==_player2);
-
-    beginTurn();
+    return res;
 }
+
 
 
 
@@ -536,6 +534,26 @@ void Game::isPlayerInLife(PlayerInGame* pIG) {
 
 
 /**
+ * Switches player turn
+ */
+void Game::nextPlayer() {
+    (_currentPlayer == _player1) ? _currentPlayer = _player2 : _currentPlayer = _player1;
+    WizardLogger::info("C'est maintenant au tour de " + _currentPlayer->getName());
+
+    if(_currentPlayer == _player1) {
+        ++_turn;
+    }
+    _currentPlayer->addMaxEnergy();
+    _currentPlayer->resetEnergy();
+
+    PacketManager::sendTurnInfo(_player1, _turn, _currentPlayer==_player1);
+    PacketManager::sendTurnInfo(_player2, _turn, _currentPlayer==_player2);
+
+    beginTurn();
+}
+
+
+/**
  * Calcul the real position of a card on the board (if player 2 make + MAX_POSED_CARD)
  *
  * @param pIG playerInGame who have this relative position
@@ -609,7 +627,7 @@ Error Game::canPlaceCard(PlayerInGame* pIG, Card* placeCard) {
  *
  * @param pIG who disconnect
  */
-void Game::endParty(PlayerInGame* pIG) {
+void Game::endGame(PlayerInGame* pIG) {
     PacketManager::sendEndGame(getAdversePlayer(pIG), 0, -1);
     delete this;
 }

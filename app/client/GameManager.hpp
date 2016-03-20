@@ -39,6 +39,7 @@ public:
 
     // Getters
     inline bool isGame() const { return _instance != nullptr; }
+    inline bool isTurn() const { return _isTurn; }
     inline Card** getAdversePosed() { return _ennemyPosed; }
     inline Card** getPosed() { return _posed; }
     inline int getTrashSize() const { return _trash.size(); }

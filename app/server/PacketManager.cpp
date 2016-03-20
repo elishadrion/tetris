@@ -337,7 +337,13 @@ void PacketManager::managePlaceAttackCard(Player* player, Packet::twoCardPacket*
 
 
 void PacketManager::manageEndTurn(Player* player, Packet::packet* packet) {
-    //TODO tell Game about end of turn
+    if(player->isPlayerInGame()) {
+        PlayerInGame* pIG = static_cast<PlayerInGame*>(player);
+        pIG->reqEndTurn();
+
+    } else {
+        WizardLogger::warning("manageEndTurn appellé par un player et non un PlayerInGame");
+    }
 }
 
 void PacketManager::manageQuitGame(Player* player, Packet::packet* packet) {
