@@ -15,7 +15,7 @@ class GameManager {
     static GameManager* _instance;
 
     bool _inGame;
-    int _nbrTurn;
+    unsigned _nbrTurn;
     bool _isTurn;
     std::string _deckName; // Selected deck
     std::vector<Card*> _hand;
@@ -40,6 +40,7 @@ public:
     // Getters
     inline bool isGame() const { return _instance != nullptr; }
     inline bool isTurn() const { return _isTurn; }
+    inline unsigned getNbrTurn() const { return _nbrTurn; }
     inline Card** getAdversePosed() { return _ennemyPosed; }
     inline Card** getPosed() { return _posed; }
     inline int getTrashSize() const { return _trash.size(); }
@@ -54,7 +55,7 @@ public:
     inline void setAdverse(std::string pseudo) { _ennemy = pseudo; }
 
     // Action during the game
-    void setTurn(int, bool);
+    void setTurn(unsigned, bool);
     inline void drawCard(Card* card) { _hand.push_back(card); }
     void removeCardFromHand(Card*);
     void removeAdverseCardFromHand();

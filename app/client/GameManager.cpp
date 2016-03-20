@@ -48,7 +48,7 @@ void GameManager::setDeck(std::string deckName) {
  * @param nbrTurn number of turn since the begin of the game
  * @param isTurn is the player turn
  */
-void GameManager::setTurn(int nbrTurn, bool isTurn) {
+void GameManager::setTurn(unsigned nbrTurn, bool isTurn) {
     _nbrTurn = nbrTurn;
     _isTurn = isTurn;
     wizardDisplay->changeTurn(nbrTurn, isTurn);

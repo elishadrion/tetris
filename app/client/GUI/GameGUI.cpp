@@ -95,13 +95,26 @@ GameGUI::GameGUI() : QMainWindow() {
     _nextTurnOff = new QLabel("Ce n'est pas\nvotre tour", this);
     _gridlayout->addWidget(_nextTurnOff, 3, 11);
 
+    _infoGame = new QVBoxLayout;
+    // Adverse
+    QLabel* labelAdverse = new QLabel("Joueur adverse: ");
+    _infoGame->addWidget(labelAdverse);
+    QLabel* adverse = new QLabel(QString(GameManager::getInstance()->getEnnemy().c_str()));
+    _infoGame->addWidget(adverse);
+    // Turn
+    QLabel* labelTurn = new QLabel("Nombre de tour: ");
+    _infoGame->addWidget(labelTurn);
+    QLabel* turn = new QLabel(QString(
+                                  std::to_string(GameManager::getInstance()->getNbrTurn()).c_str())
+                              );
+    _infoGame->addWidget(turn);
 
-
+    _gridlayout->addLayout(_infoGame, 0, 13);
 
 
     // Tchat
     ChatManagerGUI* tchat = new ChatManagerGUI(0);
-    _gridlayout->addWidget(tchat, 1, 13, 5, 3);
+    _gridlayout->addWidget(tchat, 1, 13, 5, 1);
 
 
     // PUB
@@ -110,7 +123,7 @@ GameGUI::GameGUI() : QMainWindow() {
     label = new QLabel(strLabel);
     label->setStyleSheet("background-color: black; color: white;");
     pub->addWidget(label);
-    _gridlayout->addLayout(pub, 6, 13, 1, 3);
+    _gridlayout->addLayout(pub, 6, 13);
 
 
     // colonne de gauche
@@ -123,9 +136,7 @@ GameGUI::GameGUI() : QMainWindow() {
     _gridlayout->setColumnStretch(11, 1);
     _gridlayout->setColumnStretch(12, 1);
 
-    _gridlayout->setColumnStretch(13, 2); // tchat
-    _gridlayout->setColumnStretch(14, 2); // tchat
-    _gridlayout->setColumnStretch(15, 2); // tchat
+    _gridlayout->setColumnStretch(13, 6); // tchat
 
 
     // Ligne des cartes 1

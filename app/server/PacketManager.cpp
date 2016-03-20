@@ -338,7 +338,7 @@ void PacketManager::manageQuitGame(Player* player, Packet::packet* packet) {
  * @param nbrTurn during the begin of the game
  * @param isTurn is the player turn or not
  */
-void PacketManager::sendTurnInfo(Player* player, int nbrTurn, bool isTurn) {
+void PacketManager::sendTurnInfo(Player* player, unsigned nbrTurn, bool isTurn) {
 
     Packet::turnPacket *turnPacket =  new Packet::turnPacket();
 

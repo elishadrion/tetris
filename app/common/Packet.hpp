@@ -169,7 +169,7 @@ public:
         int ID = TURN_ID;
         int size = sizeof(int)+sizeof(bool);
         bool isTurn;
-        int nbrTurn;
+        unsigned nbrTurn;
     } turnPacket;
     
     /* Inform about end of the game */

@@ -14,6 +14,6 @@ namespace FriendsManager {
     void rejectFriendRequest(Player*, Player*);
     /* Cancel friendship */
     void cancelFriendship(Player*, Player*);
-};
+}
 
 #endif	/* FRIENDSMANAGER_HPP */

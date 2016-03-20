@@ -33,6 +33,7 @@ class GameGUI : public QMainWindow {
 
     QPushButton *_nextTurnBouton;
     QLabel *_nextTurnOff;
+    QVBoxLayout *_infoGame;
 
     void chooseDeck();
 
