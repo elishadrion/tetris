@@ -110,8 +110,8 @@ void Game::checkDeckAndStart() {
 
         unsigned int i = 0;
         while(i < 5) {
-            _player1->draw();
-            _player2->draw();
+            draw(_player1);
+            draw(_player2);
             ++i;
         }
 
@@ -199,6 +199,7 @@ void Game::draw(PlayerInGame* pIG) {
 
     } else {
         PacketManager::sendCard(pIG, res);
+        PacketManager::sendAdverseDraw(pIG);
     }
 
 }

@@ -43,19 +43,21 @@ public:
         /* GAME PROCESS */
         TURN_ID = 71, /* Signal the current player turn */
         DRAW_ID = 72, /* intPacket */
-        ASK_DROP_ID = 73, /* Ask to drop a certain amount of card */
-        DROP_ID = 74, /* A packet by droped card (use intPacket) */
-        C_ATTACK_ID = 75, // client - twoCardPacket
-        C_PLACE_CARD_ID = 76, // client - intPacket
-        C_PLACE_CARD_MAKE_SPELL_ID = 77, // client - twoCardPacket
-        S_ATTACK_ID = 78, // server - attackPacket
-        S_PLACE_SPELL_ID = 79, // server - placeAttackSpellPacket
-        S_PLACE_CARD_ID = 80, // server - placeCardPacket
-        S_PLACE_CARD_AND_ATTACK_ID = 81, // server - placeAttackPacket
-        PLAYER_DAMAGE_ID = 82, /* damage when player havent card in deck - pseudoIntPacket */
-        END_TURN_ID = 83, /* Send to server to signal end of turn (DEFAULT PACKET) */
-        QUIT_ID = 84, /* DEFAULT PACKET */
-        END_GAME_ID = 85, /* !> use actionPacket */
+        ADVERSE_DRAW_ID = 73, // Adverse player draw a card - DEFAULT PACKET
+        ASK_DROP_ID = 74, /* Ask to drop a certain amount of card */
+        DROP_ID = 75, /* A packet by droped card (use intPacket) */
+        C_ATTACK_ID = 76, // client - twoCardPacket
+        C_PLACE_CARD_ID = 77, // client - intPacket
+        C_PLACE_CARD_MAKE_SPELL_ID = 78, // client - twoCardPacket
+        S_ATTACK_ID = 79, // server - attackPacket
+        S_PLACE_SPELL_ID = 80, // server - placeAttackSpellPacket
+        S_PLACE_CARD_ID = 81, // server - placeCardPacket
+        S_PLACE_CARD_AND_ATTACK_ID = 82, // server - placeAttackPacket
+        PLAYER_DAMAGE_ID = 83, /* damage when player havent card in deck - pseudoIntPacket */
+        END_TURN_ID = 84, /* Send to server to signal end of turn (DEFAULT PACKET) */
+        QUIT_ID = 85, /* DEFAULT PACKET */
+        END_GAME_ID = 86, /* !> use actionPacket */
+        // ERROR
         ERROR_ID = 100 /* intPacket */
     };
     

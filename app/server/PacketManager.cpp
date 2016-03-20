@@ -353,6 +353,7 @@ void PacketManager::sendTurnInfo(Player* player, int nbrTurn, bool isTurn) {
 
 /**
  * Send draw card to the player
+ *
  * @param player : the player who to send this packet
  * @param card : new drawed card
  */
@@ -367,6 +368,24 @@ void PacketManager::sendCard(Player* player, Card* card) {
     player->sendPacket((Packet::packet*) drawPacket, sizeof(*drawPacket));
     delete drawPacket;
 }
+
+/**
+ * Send information to the player that adverse player have
+ * draw a card
+ *
+ * @param player who will reciev the packet
+ */
+void PacketManager::sendAdverseDraw(Player* player) {
+    Packet::packet *advDrawPacket = new Packet::packet();
+
+    advDrawPacket->ID = Packet::ADVERSE_DRAW_ID;
+
+    /* Send and free */
+    player->sendPacket((Packet::packet*) advDrawPacket, sizeof(*advDrawPacket));
+    delete advDrawPacket;
+}
+
+
 
 /**
  * Ask player to drop a certain amount of card
