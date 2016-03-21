@@ -207,7 +207,7 @@ void GameGUI::addCardHand(CardWidget* cardWidget) {
     }
 
     if(find) {
-        _gridlayout->addItem(cardWidget, 7, 2+i);
+        _gridlayout->addWidget(cardWidget, 7, 2+i);
     } else {
         WizardLogger::error("Impossible de posée la carte (plus assez de place)");
     }

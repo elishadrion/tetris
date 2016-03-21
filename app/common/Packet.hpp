@@ -125,7 +125,7 @@ public:
         typedef struct {
             unsigned carteID;
             bool monster;
-            char name[MAX_PSEUDO_SIZE];
+            char name[MAX_CARD_NAME];
             char description[MAX_DESCRITION_SIZE];
             unsigned energyCost;
             unsigned maxHP;

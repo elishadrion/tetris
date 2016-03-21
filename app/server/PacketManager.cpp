@@ -114,7 +114,9 @@ void PacketManager::manageDisconnectRequest(Player* player, Packet::packet* disc
 //============================CARD PROCESS===========================================
 
 void PacketManager::manageCardRequest(Player* player, Packet::intPacket* cardRequest) {
-    //TODO get card form server database and call sendCardInfo (block client recev :/)
+    unsigned id = cardRequest->data;
+    WizardLogger::info("Demande d'information concernant la carte: " + std::to_string(id));
+    sendCardInfo(player, CardManager::getCardById(id));
 }
 
 void PacketManager::manageCardImgRequest(Player* player, Packet::intPacket* cardRequest) {
@@ -128,11 +130,19 @@ void PacketManager::manageCardImgRequest(Player* player, Packet::intPacket* card
  * @param card : the card's info needed
  */
 void PacketManager::sendCardInfo(Player* player, Card* card) {
+    WizardLogger::info("Envoie d'information concernant la carte: " +
+                       std::to_string(card->getId()));
     Packet::cardInfosPacket* cardPacket = new Packet::cardInfosPacket();
 
     cardPacket->data.carteID = card->getId();
     cardPacket->data.monster = card->isMonster();
-    for(unsigned i = 0; i < MAX_CARD_NAME; ++i) cardPacket->data.name[i] = card->getName()[i];
+    for(unsigned i = 0; i < MAX_CARD_NAME; ++i) {
+        if(i < card->getName().size()) {
+            cardPacket->data.name[i] = card->getName()[i];
+        } else {
+            cardPacket->data.name[i] = ' ';
+        }
+    }
     //for(unsigned i = 0; i < MAX_DESCRITION_SIZE; ++i) cardPacket->data.description[i] = card->getDescription()[i];
     cardPacket->data.energyCost = card->getEnergyCost();
     cardPacket->data.maxHP = card->getEnergyCost();

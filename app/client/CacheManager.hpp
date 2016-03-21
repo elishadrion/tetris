@@ -13,7 +13,7 @@ class CacheManager {
     static std::vector<Card*> cardCache;
     static bool waiting;
     
-    static Card *requestCard(unsigned);
+    static void *requestCard(unsigned);
 public:
     CacheManager() = default;
     ~CacheManager();
