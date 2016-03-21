@@ -40,25 +40,35 @@ void PlayerConnect::sendPacket(Packet::packet *packet, size_t size) {
 void PlayerConnect::recvLoop() {
     /* Read data from buffer */
     ssize_t readSize;
+        
+    /* Packet's data size (for buffer) */
+    size_t dataSize;
 
     /* Loop to wait with select client messages */
     while(1) {
-        /* Allocate maximum size for an unknow incoming packet */
-        void *packet = malloc(Packet::packetMaxSize);
+        /* Allocate size to read the two first int (ID and size) */
+        void *packet = malloc(Packet::packetSize);
 
         /* Try to get packet from server */
-        readSize = recv(_sockfd, packet, Packet::packetMaxSize, 0);
+        readSize = recv(_sockfd, packet, Packet::packetSize, 0);
         if (readSize <= 0) {
-            WizardLogger::error("Connexion interrompue avec le client : "+getPlayerPtr()->getName());
             break;
         } else if (readSize < Packet::packetSize) {
-            WizardLogger::error("Impossible de récupérer un packet du client : "+getPlayerPtr()->getName());
+            WizardLogger::error("Impossible de récupérer un packet du client");
         } else {
-            /* We terminate resize memory alloc */
-            packet = realloc(packet, readSize);
+            /* If there are other informations, we need to read the buffer again */
+            dataSize = reinterpret_cast<Packet::packet*>(packet)->size;
+            if (dataSize > 0) {
+                /* We resize memory alloc */
+                packet = realloc(packet, dataSize);
+                
+                /* Get all data and combine array (and clean memory after) */
+                readSize = recv(_sockfd, packet+Packet::packetSize, dataSize, 0);
+                //TODO what do we do ??? if (readSize < dataSize) throw std::string("Impossible de récupérer les données du packet");
+            }
 
             /* We send the packet to the PacketManager for verification and interpretation */
-            PacketManager::managePacket(getPlayerPtr(),reinterpret_cast<Packet::packet*>(packet));
+            PacketManager::managePacket(_player, reinterpret_cast<Packet::packet*>(packet));
         }
 
         /* Free packet from memory */

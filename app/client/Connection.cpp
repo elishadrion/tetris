@@ -38,11 +38,7 @@ Connection::Connection(char* hostName) {
 
         /* Configure socket to use TCP keepalive protocole */
         setsockopt(_clientSocket, SOL_SOCKET, SO_KEEPALIVE, &_keepon, sizeof(_keepon));
-        #ifdef __linux__
         setsockopt(_clientSocket, IPPROTO_TCP, TCP_KEEPIDLE, &_keepidle, sizeof(_keepidle));
-        #else
-        setsockopt(_clientSocket, IPPROTO_TCP, TCP_KEEPIDLE_ALL, &_keepidle, sizeof(_keepidle));
-        #endif
         setsockopt(_clientSocket, IPPROTO_TCP, TCP_KEEPCNT, &_keepcnt, sizeof(_keepcnt));
         setsockopt(_clientSocket, IPPROTO_TCP, TCP_KEEPINTVL, &_keepintvl, sizeof(_keepintvl));
 
@@ -50,13 +46,6 @@ Connection::Connection(char* hostName) {
         WizardLogger::info("Tentative de connexion au serveur");
         if (connect(_clientSocket, (struct sockaddr *)&server_addr, sizeof(struct sockaddr)) == -1) {
             std::string error = "Impossible de se connecter au serveur : ";
-            error += strerror(errno);
-            throw std::runtime_error(error);
-        }
-
-        /* We create a new Thread for listen the server informations */
-        if (pthread_create(&_recvThread, NULL, recvLoop, (void*)&_clientSocket) == -1) {
-            std::string error = "Impossible de créer un nouveau thread pour écouter le serveur : ";
             error += strerror(errno);
             throw std::runtime_error(error);
         }
@@ -78,8 +67,7 @@ Connection::Connection(char* hostName) {
 }
 
 Connection::~Connection() {
-    /* Close thread and socket */
-    pthread_cancel(_recvThread);
+    /* Close socket */
     close(_clientSocket);
 }
 
@@ -99,45 +87,43 @@ void Connection::sendPacket(Packet::packet *packet, size_t size) {
     }
 }
 
-/* Threaded loop to wait and receve server packet
- * It can be cancelled at any time, normally override block from recv
- * @param data : int* to the clientSocked
+/* Listen for an incoming packet from server
+ * @throw : an error occure during reading packet, CLI/GUI must catch it
  */
-void* Connection::recvLoop(void* data) {
-    /* Enable asynchronous cancel (thread can be canceled at any time) from deferred */
-    pthread_setcanceltype(PTHREAD_CANCEL_ASYNCHRONOUS, (int*) PTHREAD_CANCEL_DEFERRED);
+void Connection::recvPacket() {
+    try {
+        /* Read packet from buffer */
+        ssize_t readSize;
+        
+        /* Packet's data size (for buffer) */
+        size_t dataSize;
 
-    /* Convert to get _clientSocket addr */
-    int clientSocket = *static_cast<int*>(data);
-
-    /* Read data from buffer */
-    ssize_t readSize;
-
-    /* Loop to wait with select server messages */
-    while(1) {
-        /* Allocate maximum size for an unknow incoming packet */
-        void *packet = malloc(Packet::packetMaxSize);
+        /* Allocate size to read the two first int (ID and size) */
+        void *packet = malloc(Packet::packetSize);
 
         /* Try to get packet from server */
-        readSize = recv(clientSocket, packet, Packet::packetMaxSize, 0);
-        if (readSize <= 0) {
-            WizardLogger::fatal("Connexion interrompue avec le serveur");
-            break;
-        } else if (readSize < Packet::packetSize) {
-            WizardLogger::error("Impossible de récupérer un packet du serveur");
-        } else {
-            /* We terminate resize memory alloc */
-            packet = realloc(packet, readSize);
-
-            /* We send the packet to the PacketManager for verification and interpretation */
-            PacketManager::managePacket(reinterpret_cast<Packet::packet*>(packet));
+        readSize = recv(_clientSocket, packet, Packet::packetSize, 0);
+        if (readSize < Packet::packetSize) throw std::string("Impossible de récupérer un packet du serveur");
+        
+        /* If there are other informations, we need to read the buffer again */
+        dataSize = reinterpret_cast<Packet::packet*>(packet)->size;
+        if (dataSize > 0) {
+            /* We resize memory alloc */
+            packet = realloc(packet, dataSize);
+            
+            /* Get all data and combine array (and clean memory after) */
+            readSize = recv(_clientSocket, packet+Packet::packetSize, dataSize, 0);
+            if (readSize < dataSize) throw std::string("Impossible de récupérer les données du packet");
         }
+            
+
+        /* We send the packet to the PacketManager for verification and interpretation */
+        PacketManager::managePacket(reinterpret_cast<Packet::packet*>(packet));
 
         /* Free packet from memory */
         free(packet);
+    } catch (const std::string &message) {
+        WizardLogger::error(message);
+        throw;
     }
-
-    /* ERROR occure so we must inform the user */
-    wizardDisplay->displayFatalError("La connexion avec le serveur semble avoir été interrompue !");
-    return nullptr;
 }
