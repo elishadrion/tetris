@@ -67,6 +67,7 @@ void GUI::askDeck() {
 
 
 void GUI::changeTurn(int nbrTurn, bool isTurn) {
+    WizardLogger::info("Change turn");
     gamePanel->callChangeTurn(nbrTurn, isTurn);
 }
 

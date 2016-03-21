@@ -220,6 +220,7 @@ void PacketManager::sendDisconnection() {
 //============================CARD PROCESS===========================================
 
 void PacketManager::saveCardInfo(const Packet::cardInfosPacket* cardPacket) {
+    WizardLogger::info("Récepetion de la carte: " + cardPacket->data.carteID);
     Card *newCard = new Card(cardPacket->data.carteID, cardPacket->data.monster, std::string(cardPacket->data.name),
                              std::string(cardPacket->data.description), cardPacket->data.energyCost,
                              cardPacket->data.maxHP, cardPacket->data.attack);
@@ -429,10 +430,12 @@ void PacketManager::sendSelectedDeck(const char* deck) {
 //==============================GAME PROCESS============================================
 
 void PacketManager::setTurn(const Packet::turnPacket* turnPacket) {
+    WizardLogger::info("Récepetion d'une information sur le tour");
     GameManager::getInstance()->setTurn(turnPacket->nbrTurn, turnPacket->isTurn);
 }
 
 void PacketManager::setDraw(const Packet::intPacket* drawPacket) {
+    WizardLogger::info("Récepetion de la carte piochée : " + drawPacket->data);
     GameManager::getInstance()->drawCard(drawPacket->data);
 }
 
