@@ -107,7 +107,6 @@ bool Player::operator==(const std::string &other_name) const {
 
 nlohmann::json Player::serialise() const {
     nlohmann::json info;
-    std::cout << _username << "\n";
     info["name"] = _username;
     info["password"] = _password;
     info["defeats"] = _defeats;
