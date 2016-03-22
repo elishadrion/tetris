@@ -44,7 +44,6 @@ class LoginPanelCLI : public CLIPanel {
     FIELD *field[4];
 
     /* Control bool */
-    bool isWainting;
     bool success;
 
     /* cols of form (for printInMiddle) */

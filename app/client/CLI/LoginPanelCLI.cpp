@@ -1,6 +1,6 @@
 #include "LoginPanelCLI.hpp"
 
-LoginPanelCLI::LoginPanelCLI() : isWainting(false), success(false) {
+LoginPanelCLI::LoginPanelCLI() : success(false) {
     /* Initialize field and set some options
      * LabelField - PseudoField - LabelField2 - PasswordField
      * <height> <width> <toprow> <leftcol> <offscreen> <nbuffers>
@@ -184,7 +184,6 @@ void LoginPanelCLI::printError(std::string message) {
     beep();
     printInMiddle((char*)message.c_str(), COLOR_PAIR(1));
     setFocusToField();
-    isWainting = false;
 }
 
 void LoginPanelCLI::printInMiddle(char *string, chtype color) {
@@ -212,22 +211,8 @@ void LoginPanelCLI::setFocusToField() {
 }
 
 void LoginPanelCLI::printWait(char* message) {
-    isWainting = true;
     printInMiddle(message, COLOR_PAIR(2));
-    //while(isWainting) { refresh(); } /* Avoid current thread to stop and exit program */
     refresh();
-    /* Lock, register as waiting thread (and wait) and unlock */
-    pthread_mutex_lock(&wizardDisplay->packetStackMutex);
-    pthread_cond_wait(&wizardDisplay->packetStackCond, &wizardDisplay->packetStackMutex);
-    pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
-    
-    if (wizardDisplay->packetStack.empty()) {
-        WizardLogger::info("Login réussi");
-        success = true;
-    } else {
-        printError(*reinterpret_cast<std::string*>(wizardDisplay->packetStack.back()));
-        wizardDisplay->packetStack.pop_back();
-    }
 }
 
 void LoginPanelCLI::proceed(bool registration) {
@@ -239,7 +224,11 @@ void LoginPanelCLI::proceed(bool registration) {
     
     /* Get the password from the second field */
     char *password = field_buffer(field[3], 0);
-
+    
+    /* Lock */
+    pthread_mutex_lock(&wizardDisplay->packetStackMutex);
+    
+    /* Display wainting message and do request */
     if (registration) {
         WizardLogger::info("Enregistrement en cours");
         PacketManager::makeRegistrationRequest(pseudo, password);
@@ -249,4 +238,19 @@ void LoginPanelCLI::proceed(bool registration) {
         PacketManager::makeLoginRequest(pseudo, password);
         printWait(LOGIN_IN_PROGRESS);
     }
+    
+    /* Wait for result */
+    pthread_cond_wait(&wizardDisplay->packetStackCond, &wizardDisplay->packetStackMutex);
+    
+    /* Check result */
+    if (wizardDisplay->packetStack.empty()) {
+        WizardLogger::info("Login réussi");
+        success = true;
+    } else {
+        printError(*reinterpret_cast<std::string*>(wizardDisplay->packetStack.back()));
+        wizardDisplay->packetStack.pop_back();
+    }
+    
+    /* Unlock */
+    pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
 }
