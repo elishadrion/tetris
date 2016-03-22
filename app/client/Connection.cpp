@@ -38,11 +38,7 @@ Connection::Connection(char* hostName) {
 
         /* Configure socket to use TCP keepalive protocole */
         setsockopt(_clientSocket, SOL_SOCKET, SO_KEEPALIVE, &_keepon, sizeof(_keepon));
-        #ifdef __linux__
         setsockopt(_clientSocket, IPPROTO_TCP, TCP_KEEPIDLE, &_keepidle, sizeof(_keepidle));
-        #else
-        setsockopt(_clientSocket, IPPROTO_TCP, TCP_KEEPIDLE_ALL, &_keepidle, sizeof(_keepidle));
-        #endif
         setsockopt(_clientSocket, IPPROTO_TCP, TCP_KEEPCNT, &_keepcnt, sizeof(_keepcnt));
         setsockopt(_clientSocket, IPPROTO_TCP, TCP_KEEPINTVL, &_keepintvl, sizeof(_keepintvl));
 
@@ -112,22 +108,32 @@ void* Connection::recvLoop(void* data) {
 
     /* Read data from buffer */
     ssize_t readSize;
+    
+    /* Packet's data size */
+    size_t dataSize;
 
     /* Loop to wait with select server messages */
     while(1) {
-        /* Allocate maximum size for an unknow incoming packet */
-        void *packet = malloc(Packet::packetMaxSize);
+        /* Allocate size to read the two first int (ID and size) */
+        void *packet = malloc(Packet::packetSize);
 
         /* Try to get packet from server */
-        readSize = recv(clientSocket, packet, Packet::packetMaxSize, 0);
+        readSize = recv(clientSocket, packet, Packet::packetSize, 0);
         if (readSize <= 0) {
-            WizardLogger::fatal("Connexion interrompue avec le serveur");
             break;
         } else if (readSize < Packet::packetSize) {
             WizardLogger::error("Impossible de récupérer un packet du serveur");
         } else {
-            /* We terminate resize memory alloc */
-            packet = realloc(packet, readSize);
+            /* If there are other informations, we need to read the buffer again */
+            dataSize = reinterpret_cast<Packet::packet*>(packet)->size;
+            if (dataSize > 0) {
+                /* We terminate resize memory alloc */
+                packet = realloc(packet, Packet::packetSize+dataSize);
+                
+                /* Get all data and combine array (and clean memory after) */
+                readSize = recv(clientSocket, packet+Packet::packetSize, dataSize, 0);
+                if (readSize < dataSize) WizardLogger::error("Impossible de récupérer les données du packet");
+            }
 
             /* We send the packet to the PacketManager for verification and interpretation */
             PacketManager::managePacket(reinterpret_cast<Packet::packet*>(packet));
