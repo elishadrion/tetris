@@ -1,4 +1,6 @@
 #include <string>
+#include <vector>
+#include <pthread.h>
 
 #include "common/Constants.hpp"
 #include "common/Packet.hpp"

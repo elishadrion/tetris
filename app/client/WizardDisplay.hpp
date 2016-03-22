@@ -3,12 +3,21 @@
 
 #include <string>
 #include <vector>
+#include <pthread.h>
 
 #include "Card.hpp"
 
 
 class WizardDisplay {
 public:
+    #ifndef PACKET_MANAGER_THREAD_SAFE
+    #define PACKET_MANAGER_THREAD_SAFE
+    pthread_mutex_t packetStackMutex = PTHREAD_MUTEX_INITIALIZER;
+    pthread_cond_t packetStackCond = PTHREAD_COND_INITIALIZER;
+    std::vector<void*> packetStack;
+    #endif
+    
+    
     /* Create or remove interface (CLI/GUI) */
     WizardDisplay() = default;
     virtual ~WizardDisplay() = default;

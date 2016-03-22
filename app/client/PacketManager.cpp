@@ -109,8 +109,12 @@ void PacketManager::loginResult(const Packet::intPacket* resultPacket) {
         WizardLogger::error("Paquet de résultat de login corrompu reçu ("
         +std::to_string(resultPacket->size)+"/"+std::to_string(sizeof(int))+")");
     }
-
-    wizardDisplay->displayLoginResult("Erreur durant le login");
+    
+    /* Lock, signal other thread and unlock */
+    pthread_mutex_lock(&wizardDisplay->packetStackMutex);
+    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new std::string("Erreur durant le login")));
+    pthread_cond_broadcast(&wizardDisplay->packetStackCond);
+    pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
 }
 
 void PacketManager::playerInfo(const Packet::playerInfoPacket* playerPacket) {
@@ -151,8 +155,11 @@ void PacketManager::playerInfo(const Packet::playerInfoPacket* playerPacket) {
     unsigned defeats = playerPacket->data.defeats;
 
     new Player(pseudo, collection, decks, friends, victories, defeats);
-
-    wizardDisplay->valideLogin();
+    
+    /* Lock, signal other thread and unlock */
+    pthread_mutex_lock(&wizardDisplay->packetStackMutex);
+    pthread_cond_broadcast(&wizardDisplay->packetStackCond);
+    pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
 }
 
 /**

@@ -177,10 +177,8 @@ void LoginPanelCLI::focus() {
     }
 }
 
-/* Display and error message in red top of the fileds
- * Can be use for error like field empty or login error
- * @message : the string to display as an error
- */
+//========================PRIVATE=============================
+
 void LoginPanelCLI::printError(std::string message) {
     WizardLogger::error(message);
     beep();
@@ -188,15 +186,6 @@ void LoginPanelCLI::printError(std::string message) {
     setFocusToField();
     isWainting = false;
 }
-
-/* Close LoginPanelCLI and set signal to open MainPanel */
-void LoginPanelCLI::valideLogin() {
-    WizardLogger::info("Login réussi");
-    success = true;
-    isWainting = false;
-}
-
-//========================PRIVATE=============================
 
 void LoginPanelCLI::printInMiddle(char *string, chtype color) {
     int length, width, x, y;
@@ -225,7 +214,20 @@ void LoginPanelCLI::setFocusToField() {
 void LoginPanelCLI::printWait(char* message) {
     isWainting = true;
     printInMiddle(message, COLOR_PAIR(2));
-    while(isWainting) { refresh(); } /* Avoid current thread to stop and exit program */
+    //while(isWainting) { refresh(); } /* Avoid current thread to stop and exit program */
+    refresh();
+    /* Lock, register as waiting thread (and wait) and unlock */
+    pthread_mutex_lock(&wizardDisplay->packetStackMutex);
+    pthread_cond_wait(&wizardDisplay->packetStackCond, &wizardDisplay->packetStackMutex);
+    pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
+    
+    if (wizardDisplay->packetStack.empty()) {
+        WizardLogger::info("Login réussi");
+        success = true;
+    } else {
+        printError(*reinterpret_cast<std::string*>(wizardDisplay->packetStack.back()));
+        wizardDisplay->packetStack.pop_back();
+    }
 }
 
 void LoginPanelCLI::proceed(bool registration) {

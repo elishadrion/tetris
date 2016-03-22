@@ -24,6 +24,8 @@
 /* To call the login process */
 #include "client/PacketManager.hpp"
 
+#include "client/WizardDisplay.hpp"
+
 #include "CLIPanel.hpp"
 
 #define LABEL_LENGHT 26
@@ -33,6 +35,8 @@
 #define MAX_SIZE_ERROR "TAILLE MAXIMUM DE 30 CHAR "
 #define LOGIN_IN_PROGRESS "      LOGIN EN COURS      "
 #define REGISTRATION_IN_PROGRESS " ENREGISTREMENT EN COURS  "
+
+extern WizardDisplay *wizardDisplay;
 
 class LoginPanelCLI : public CLIPanel {
     WINDOW *window;
@@ -62,7 +66,6 @@ public:
     ~LoginPanelCLI() = default;
 
     void printError(std::string);
-    void valideLogin();
 
     void hide() override;
     void focus() override;
