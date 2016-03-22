@@ -82,11 +82,11 @@ void CLI::displayLoginPrompt() {
 }
 
 void CLI::displayLoginResult(std::string errorMessage) {
-    static_cast<LoginPanelCLI*>(_panelList[LOGIN])->printError(errorMessage);
+    //static_cast<LoginPanelCLI*>(_panelList[LOGIN])->printError(errorMessage);
 }
 
 void CLI::valideLogin() {
-    static_cast<LoginPanelCLI*>(_panelList[LOGIN])->valideLogin();
+    //static_cast<LoginPanelCLI*>(_panelList[LOGIN])->valideLogin();
 }
 
 void CLI::displayMainWindow() {
