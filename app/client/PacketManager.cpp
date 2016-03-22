@@ -231,7 +231,13 @@ void PacketManager::saveCardInfo(const Packet::cardInfosPacket* cardPacket) {
     Card *newCard = new Card(cardPacket->data.carteID, cardPacket->data.monster, std::string(cardPacket->data.name),
                              std::string(cardPacket->data.description), cardPacket->data.energyCost,
                              cardPacket->data.maxHP, cardPacket->data.attack);
-    cacheManager->addToCache(newCard);
+    
+    /* Lock, signal other thread and unlock */
+    pthread_mutex_lock(&wizardDisplay->packetStackMutex);
+    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(newCard));
+    pthread_cond_broadcast(&wizardDisplay->packetStackCond);
+    pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
+    //TODO cacheManager->addToCache(newCard);
 }
 
 void PacketManager::saveCardImg(const Packet::cardImgPacket* cardImgPacket) {
@@ -438,12 +444,25 @@ void PacketManager::sendSelectedDeck(const char* deck) {
 
 void PacketManager::setTurn(const Packet::turnPacket* turnPacket) {
     WizardLogger::info("Récepetion d'une information sur le tour");
-    GameManager::getInstance()->setTurn(turnPacket->nbrTurn, turnPacket->isTurn);
+    
+    /* Lock, signal other thread and unlock */
+    pthread_mutex_lock(&wizardDisplay->packetStackMutex);
+    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(turnPacket->nbrTurn)));
+    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new bool(turnPacket->isTurn)));
+    pthread_cond_broadcast(&wizardDisplay->packetStackCond);
+    pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
+    //TODO GameManager::getInstance()->setTurn(turnPacket->nbrTurn, turnPacket->isTurn);
 }
 
 void PacketManager::setDraw(const Packet::intPacket* drawPacket) {
     WizardLogger::info("Récepetion de la carte piochée : " + drawPacket->data);
-    GameManager::getInstance()->drawCard(drawPacket->data);
+    
+    /* Lock, signal other thread and unlock */
+    pthread_mutex_lock(&wizardDisplay->packetStackMutex);
+    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(drawPacket->data)));
+    pthread_cond_broadcast(&wizardDisplay->packetStackCond);
+    pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
+    //TODO GameManager::getInstance()->drawCard(drawPacket->data);
 }
 
 void PacketManager::askDrop(const Packet::intPacket* askDropPacket) {
@@ -457,15 +476,21 @@ void PacketManager::askDrop(const Packet::intPacket* askDropPacket) {
  */
 void PacketManager::manageAttack(Packet::attackPacket* attackPacket) {
     GameManager* gm = GameManager::getInstance();
-    unsigned cardPosition = attackPacket->data.cardPosition;
-    int targetPosition = attackPacket->data.targetPosition;
-    unsigned heal = attackPacket->data.heal;
-
+    
+    /* Lock, signal other thread and unlock */
+    pthread_mutex_lock(&wizardDisplay->packetStackMutex);
+    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(attackPacket->data.cardPosition)));
+    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(attackPacket->data.targetPosition)));
+    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(attackPacket->data.heal)));
     if(attackPacket->data.pseudo == Player::getPlayer()->getName()) {
-        gm->attackCard(cardPosition, targetPosition, heal);
+        wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new bool(true)));
+        //TODO gm->attackCard(cardPosition, targetPosition, heal);
     } else {
-        gm->adverseAttackCard(cardPosition, targetPosition, heal);
+        wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new bool(false)));
+        //TODO gm->adverseAttackCard(cardPosition, targetPosition, heal);
     }
+    pthread_cond_broadcast(&wizardDisplay->packetStackCond);
+    pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
 }
 
 /**
@@ -475,14 +500,20 @@ void PacketManager::manageAttack(Packet::attackPacket* attackPacket) {
  */
 void PacketManager::managePlaceCard(Packet::placeCardPacket* placeCardPacket) {
     GameManager* gm = GameManager::getInstance();
-    unsigned cardId = placeCardPacket->idCard;
-    unsigned position = placeCardPacket->cardPosition;
-
+    
+    /* Lock, signal other thread and unlock */
+    pthread_mutex_lock(&wizardDisplay->packetStackMutex);
+    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(placeCardPacket->idCard)));
+    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(placeCardPacket->cardPosition)));
     if(placeCardPacket->pseudo == Player::getPlayer()->getName()) {
-        gm->placeCard(cardId, position);
+        wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new bool(true)));
+        //TODO gm->placeCard(cardId, position);
     } else {
-        gm->ennemyPlaceCard(cardId, position);
+        wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new bool(false)));
+        //TODO gm->ennemyPlaceCard(cardId, position);
     }
+    pthread_cond_broadcast(&wizardDisplay->packetStackCond);
+    pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
 }
 
 /**
@@ -492,17 +523,22 @@ void PacketManager::managePlaceCard(Packet::placeCardPacket* placeCardPacket) {
  */
 void PacketManager::managePlaceCardAttack(Packet::placeAttackPacket* placeAttackPacket) {
     GameManager* gm = GameManager::getInstance();
-    unsigned cardId = placeAttackPacket->data.idCard;
-    unsigned position = placeAttackPacket->data.cardPosition;
-    int targetPosition = placeAttackPacket->data.targetPosition;
-    unsigned heal = placeAttackPacket->data.heal;
-
-
+    
+    /* Lock, signal other thread and unlock */
+    pthread_mutex_lock(&wizardDisplay->packetStackMutex);
+    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(placeAttackPacket->data.idCard)));
+    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(placeAttackPacket->data.cardPosition)));
+    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(placeAttackPacket->data.targetPosition)));
+    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(placeAttackPacket->data.heal)));
     if(placeAttackPacket->data.pseudo == Player::getPlayer()->getName()) {
-        gm->placeCardAndAttack(false, cardId, position, targetPosition, heal);
+        wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new bool(true)));
+        //TODO gm->placeCardAndAttack(false, cardId, position, targetPosition, heal);
     } else {
-        gm->placeAdverseCardAndAttack(false, cardId, position, targetPosition, heal);
+        wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new bool(false)));
+        //TODO gm->placeAdverseCardAndAttack(false, cardId, position, targetPosition, heal);
     }
+    pthread_cond_broadcast(&wizardDisplay->packetStackCond);
+    pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
 }
 
 /**
@@ -512,15 +548,21 @@ void PacketManager::managePlaceCardAttack(Packet::placeAttackPacket* placeAttack
  */
 void PacketManager::managePlaceSpell(Packet::placeAttackSpellPacket* placeAttackSpellPacket) {
     GameManager* gm = GameManager::getInstance();
-    unsigned cardId = placeAttackSpellPacket->data.idCard;
-    int targetPosition = placeAttackSpellPacket->data.targetPosition;
-    unsigned heal = placeAttackSpellPacket->data.heal;
-
+    
+    /* Lock, signal other thread and unlock */
+    pthread_mutex_lock(&wizardDisplay->packetStackMutex);
+    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(placeAttackSpellPacket->data.idCard)));
+    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(placeAttackSpellPacket->data.targetPosition)));
+    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(placeAttackSpellPacket->data.heal)));
     if(placeAttackSpellPacket->data.pseudo == Player::getPlayer()->getName()) {
-        gm->placeCardAndAttack(true, cardId, -1, targetPosition, heal);
+        wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new bool(true)));
+        //TODO gm->placeCardAndAttack(true, cardId, -1, targetPosition, heal);
     } else {
-        gm->placeAdverseCardAndAttack(true, cardId, -1, targetPosition, heal);
+        wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new bool(false)));
+        //TODO gm->placeAdverseCardAndAttack(true, cardId, -1, targetPosition, heal);
     }
+    pthread_cond_broadcast(&wizardDisplay->packetStackCond);
+    pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
 }
 
 
