@@ -176,9 +176,6 @@ void PacketManager::makeLoginRequest(const char *pseudo, const char *password) {
     
     /* Clean memory */
     delete loginPacket;
-    
-    /* Wait for result */
-    conn->recvPacket();
 }
 
 /**
@@ -203,9 +200,6 @@ void PacketManager::makeRegistrationRequest(const char *pseudo, const char *pass
     
     /* Clean memory */
     delete registrationPacket;
-    
-    /* Wait for result */
-    conn->recvPacket();
 }
 
 /**
@@ -252,9 +246,6 @@ void PacketManager::makeCardRequest(const unsigned ID) {
     /* Send and free */
     conn->sendPacket((Packet::packet*) cardReqPacket, sizeof(*cardReqPacket));
     delete cardReqPacket;
-    
-    /* Wait for result */
-    conn->recvPacket();
 }
 
 /**
@@ -272,9 +263,6 @@ void PacketManager::makeCardImgRequest(const unsigned ID) {
     /* Send and free */
     conn->sendPacket((Packet::packet*) cardImgReqPacket, sizeof(*cardImgReqPacket));
     delete cardImgReqPacket;
-    
-    /* Wait for result */
-    conn->recvPacket();
 }
 
 //============================TCHAT PROCESS===========================================
@@ -306,9 +294,6 @@ void PacketManager::makeTchatRequest(const std::string pseudo) {
     /* Send and free */
     conn->sendPacket((Packet::packet*) newConvReq, sizeof(*newConvReq));
     delete newConvReq;
-    
-    /* Wait for result */
-    conn->recvPacket();
 }
 
 
@@ -390,9 +375,6 @@ void PacketManager::makeFriendListRequest() {
     
     /* Clean memory */
     delete friendListReq;
-    
-    /* Wait for result */
-    conn->recvPacket();
 }
 
 //============================LAUNCHING PROCESS=========================================
@@ -416,9 +398,6 @@ void PacketManager::makeGameRequest() {
     
     /* Clean memory */
     delete gameReq;
-    
-    /* Wait for result */
-    conn->recvPacket();
 }
 
 /**
@@ -446,9 +425,6 @@ void PacketManager::sendSelectedDeck(const char* deck) {
     /* Send and free */
     conn->sendPacket((Packet::packet*) sendChoosenDeck, sizeof(*sendChoosenDeck));
     delete sendChoosenDeck;
-    
-    /* Wait for result */
-    conn->recvPacket();
 }
 
 //==============================GAME PROCESS============================================
@@ -562,9 +538,6 @@ void PacketManager::sendDrop(const int ID) {
     /* Send and free */
     conn->sendPacket((Packet::packet*) dropCard, sizeof(*dropCard));
     delete dropCard;
-    
-    /* Wait for result */
-    conn->recvPacket();
 }
 
 /**
@@ -583,9 +556,6 @@ void PacketManager::sendAttack(const unsigned cardPosition, const int targetPosi
 
         conn->sendPacket((Packet::packet*) attackPack, sizeof(*attackPack));
         delete attackPack;
-    
-        /* Wait for result */
-        conn->recvPacket();
     } else {
         WizardLogger::warning("Impossible d'attaquer, ce n'est pas à votre tour de joueur");
     }
@@ -605,9 +575,6 @@ void PacketManager::sendPlaceCard(const unsigned idCard) {
 
         conn->sendPacket((Packet::packet*) placePack, sizeof(placePack));
         delete placePack;
-    
-        /* Wait for result */
-        conn->recvPacket();
     } else {
         WizardLogger::warning("Impossible de placer une carte, ce n'est pas à votre tour de joueur");
     }
@@ -630,9 +597,6 @@ void PacketManager::sendPlaceCardAttack(const unsigned idCard, const int targetP
 
         conn->sendPacket((Packet::packet*) placeAttackPack, sizeof(placeAttackPack));
         delete placeAttackPack;
-    
-        /* Wait for result */
-        conn->recvPacket();
     } else {
         WizardLogger::warning(
                     "Impossible de placer une carte et attaquer, ce n'est pas à votre tour de joueur");
@@ -654,9 +618,6 @@ void PacketManager::endTurn() {
 
         /* Clean memory */
         delete endTurn;
-    
-        /* Wait for result */
-        conn->recvPacket();
     } else {
         WizardLogger::warning("Impossible de finir le tour, ce n'est pas à votre tour de joueur");
     }

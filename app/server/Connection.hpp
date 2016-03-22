@@ -29,6 +29,11 @@ class Connection {
     int _serverSocket;
     unsigned int _sinSize;
 
+    /* TCP keepalive OSX compatibility (@carlos) */
+    #ifdef __APPLE__
+    int TCP_KEEPIDLE_ALL = 1;
+    #endif
+
     /* Correct non opening socket after crash */
     int _reuse = 1;
 

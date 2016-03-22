@@ -20,6 +20,11 @@ class Connection {
     struct sockaddr_in server_addr;
     struct hostent *host;
     int _clientSocket;
+    
+    /* TCP keepalive OSX compatibility (@carlos) */
+    #ifdef __APPLE__
+    int TCP_KEEPIDLE_ALL = 1;
+    #endif
 
     /* Active TCP keep alive protocole */
     int _keepon = 1;
@@ -36,11 +41,14 @@ class Connection {
      * (TCP_KEEPINTVL socket option)
      */
     int _keepintvl = 5;
+
+    /* Thread for non blocking all program when using recv */
+    pthread_t _recvThread;
+    static void* recvLoop(void* data);
 public:
     Connection(char*);
     ~Connection();
     void sendPacket(Packet::packet*, size_t);
-    void recvPacket();
 };
 
 #endif /* CONNECTION_HPP */
