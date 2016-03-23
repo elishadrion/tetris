@@ -7,34 +7,26 @@
 
 CardWidget::CardWidget(Card* card) :
     QWidget(), _card(card),
-    _energy(QString::fromStdString(UnsignedToString(card->getEnergyCost()))),
-    _life(QString::fromStdString(UnsignedToString(card->getHP()))) {
+    _energy(QString::fromStdString(UnsignedToString(card->getEnergyCost()))){
 
     if(card->isMonster()) {
         _attack = QString::fromStdString(UnsignedToString(card->getAttack()));
+        _life = QString::fromStdString(UnsignedToString(card->getHP()));
     }
 
-    _palette	= new QPalette();
-    _pixmap		= new QPixmap(":/Images/CardToon.png");
-    _paint = new QPainter(_pixmap);
-
-    QFont font;
-    font.setPixelSize(15);
-    _paint->setFont(font);
-
-    _palette->setBrush(QPalette::Background,QBrush(*_pixmap));
-    setPalette(*_palette);
-
-    _paint->drawText(24,228,_energy);
-    _paint->drawText(77,228,_attack);
-    _paint->drawText(121,228,_life);
+    _label = new QLabel(this);
+    _label->setScaledContents(true);
+    _label->setFixedSize(0,0);
+    actualize();
 
 }
 
-void CardWidget::resizeEvent(QResizeEvent*){
+void CardWidget::resizeEvent(QResizeEvent* event){
 
-   _palette->setBrush(QPalette::Background,QBrush(_pixmap->scaled(width(),height())));
-   setPalette(*_palette);
+    QWidget::resizeEvent(event);
+    QSize picSize = _label->pixmap()->size();
+    picSize.scale(size(),Qt::KeepAspectRatio);
+    _label->setFixedSize(picSize);
 
 }
 
@@ -46,16 +38,23 @@ std::string CardWidget::UnsignedToString(unsigned value) {
 
 void CardWidget::actualize(){
     _energy = QString::fromStdString(UnsignedToString(_card->getEnergyCost()));
-    _life = QString::fromStdString(UnsignedToString(_card->getHP()));
     if(_card->isMonster()) {
         _attack = QString::fromStdString(UnsignedToString(_card->getAttack()));
+        _life = QString::fromStdString(UnsignedToString(_card->getHP()));
     }
 
-    _pixmap		= new QPixmap(":/Images/CardToon.png");
-    _paint = new QPainter(_pixmap);
-    _paint->drawText(24,228,_energy);
-    _paint->drawText(74,228,_attack);
-    _paint->drawText(118,228,_life);
+    QPixmap pic(":/Images/CardToon.png");
+    QPainter paint(&pic);
+
+    QFont font;
+    font.setPixelSize(15);
+    paint.setFont(font);
+
+    paint.drawText(24,228,_energy);
+    paint.drawText(77,228,_attack);
+    paint.drawText(121,228,_life);
+
+    _label->setPixmap(pic);
 
 }
 
