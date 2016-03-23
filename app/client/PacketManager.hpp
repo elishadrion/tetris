@@ -28,9 +28,7 @@ namespace PacketManager {
     void saveCardImg(const Packet::cardImgPacket*); /* CARTE_IMG_ID */
     
     /* Tchat process */
-    void startNewConv(const Packet::pseudoPacket*); /* TCHAT_NEW_CONV_ID */
-    void getMessage(const Packet::tchatMessagePacket*); /* TCHAT_MESSAGE_ID (in) */
-    void stopConv(const Packet::pseudoPacket*); /* TCHAT_END_CONV_ID */
+    void getMessage(const Packet::tchatRecevMsgPacket*); /* TCHAT_RECEV_MSG_ID */
     
     /* Friends process */
     void removeFriend(const Packet::pseudoPacket*); /* FRIEND_DEL_ID */
@@ -62,9 +60,7 @@ namespace PacketManager {
     void makeCardImgRequest(const unsigned); /* CARTE_IMG_REQ_ID */
     
     /* Tchat process */
-    void makeTchatRequest(const std::string); /* TCHAT_CONV_REQ_ID */
-    void sendMessage(const std::string); /* TCHAT_MESSAGE_ID (out) */
-    void makeTchatStopRequest(const std::string); /* TCHAT_END_REQ_ID */
+    void sendMessage(const std::string, const std::string); /* TCHAT_SEND_MSG_ID (out) */
     
     /* Friends process */
     void makeFriendRequest(const char*); /* FRIEND_ADD_ID | FRIEND_DEL_ID */
