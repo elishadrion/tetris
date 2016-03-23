@@ -108,35 +108,22 @@ void* Connection::recvLoop(void* data) {
 
     /* Read data from buffer */
     ssize_t readSize;
-    
-    /* Packet's data size */
-    size_t dataSize;
 
     /* Loop to wait with select server messages */
     while(1) {
-        /* Allocate size to read the two first int (ID and size) */
-        void *packet = malloc(Packet::packetSize);
+        /* Allocate maximum size for an unknow incoming packet */
+        void *packet = malloc(Packet::packetMaxSize);
 
         /* Try to get packet from server */
-        readSize = recv(clientSocket, packet, Packet::packetSize, 0);
+        readSize = recv(clientSocket, packet, Packet::packetMaxSize, 0);
         if (readSize <= 0) {
             break;
         } else if (readSize < Packet::packetSize) {
             WizardLogger::error("Impossible de récupérer un packet du serveur " +
                                 std::to_string(reinterpret_cast<Packet::packet*>(packet)->ID));
         } else {
-            /* If there are other informations, we need to read the buffer again */
-            dataSize = reinterpret_cast<Packet::packet*>(packet)->size;
-            if (dataSize > 0) {
-                /* We terminate resize memory alloc */
-                packet = realloc(packet, Packet::packetSize+dataSize);
-                
-                /* Get all data and combine array (and clean memory after) */
-                readSize = recv(clientSocket, packet+Packet::packetSize, dataSize, 0);
-                if (readSize < dataSize) WizardLogger::error("Impossible de récupérer les données du packet");
-            }
-
-            /* We send the packet to the PacketManager for verification and interpretation */
+            /* We terminate resize memory alloc */
+            packet = realloc(packet, readSize);
             PacketManager::managePacket(reinterpret_cast<Packet::packet*>(packet));
         }
 
