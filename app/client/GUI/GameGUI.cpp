@@ -166,7 +166,7 @@ GameGUI::GameGUI() : QMainWindow() {
 
     connect(this, SIGNAL(nextPlayer(bool)), this, SLOT(viewPassButton(bool)));
     connect(this, SIGNAL(mustUpdateTurn(int)), this, SLOT(updateTurn(int)));
-    connect(this, SIGNAL(cardDraw(CardWidget*)), this, SLOT(addCardHand(CardWidget*)));
+    connect(this, SIGNAL(cardDraw(Card*)), this, SLOT(addCardHand(Card*)));
 
 
     chooseDeck();
@@ -179,7 +179,7 @@ void GameGUI::callChangeTurn(int nbrTurn, bool isTurn) {
 }
 
 void GameGUI::callDrawCard(Card* card) {
-    emit cardDraw(new CardWidget(card));
+    emit cardDraw(card);
 }
 
 void GameGUI::viewPassButton(bool value) {
@@ -196,7 +196,7 @@ void GameGUI::updateTurn(int nbrTurn) {
     _nbrTurn->setText(QString(std::to_string(nbrTurn).c_str()));
 }
 
-void GameGUI::addCardHand(CardWidget* cardWidget) {
+void GameGUI::addCardHand(Card* card) {
     WizardLogger::info("GUI: addCard");
     bool find;
     int i = 0;
@@ -207,7 +207,7 @@ void GameGUI::addCardHand(CardWidget* cardWidget) {
     }
 
     if(find) {
-        _gridlayout->addWidget(cardWidget, 7, 2+i);
+        _gridlayout->addWidget(new CardWidget(card), 7, 2+i);
     } else {
         WizardLogger::error("Impossible de posée la carte (plus assez de place)");
     }

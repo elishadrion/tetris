@@ -49,12 +49,12 @@ public:
 signals:
     void nextPlayer(bool);
     void mustUpdateTurn(int);
-    void cardDraw(CardWidget*);
+    void cardDraw(Card*);
 
 private slots:
     void viewPassButton(bool);
     void updateTurn(int);
-    void addCardHand(CardWidget*);
+    void addCardHand(Card*);
 
 
 };

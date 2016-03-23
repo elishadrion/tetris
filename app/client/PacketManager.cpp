@@ -121,8 +121,8 @@ void PacketManager::loginResult(const Packet::intPacket* resultPacket) {
 
 void PacketManager::playerInfo(const Packet::playerInfoPacket* playerPacket) {
     WizardLogger::info(playerPacket->data.pseudo);
-    WizardLogger::info(std::to_string(playerPacket->data.victories));
-    WizardLogger::info(std::to_string(playerPacket->data.defeats));
+    WizardLogger::info("victoire" + std::to_string(playerPacket->data.victories));
+    WizardLogger::info("défaite: " + std::to_string(playerPacket->data.defeats));
 
     std::string pseudo = playerPacket->data.pseudo;
     unsigned* collection = const_cast<unsigned*>(playerPacket->data.collection);
