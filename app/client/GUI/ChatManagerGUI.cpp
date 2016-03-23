@@ -1,7 +1,8 @@
 #include "ChatManagerGUI.hpp"
 
-std::map<std::string,ChatWidget*> ChatManagerGUI::_listTab;
+std::vector<std::string> ChatManagerGUI::_listTab;
 ChatManagerGUI* ChatManagerGUI::_instance;
+std::mutex ChatManagerGUI::mtx;
 
 
 ChatManagerGUI::ChatManagerGUI(QWidget* parent): QWidget(parent) {
@@ -36,9 +37,7 @@ ChatManagerGUI::ChatManagerGUI(QWidget* parent): QWidget(parent) {
     _tab->tabBar()->tabButton(0,QTabBar::RightSide)->resize(0,0);
 
     connect(_friends, SIGNAL(itemDoubleClicked(QListWidgetItem*)), this, SLOT(newTab(QListWidgetItem*)));
-//    connect(this, SIGNAL(sigNewMessage(QString, QString, QString)),
-//            this, SLOT(recvMessage(QString, QString, QString)));
-
+    connect(this, SIGNAL(openNewTab(QString)), this, SLOT(newTab(QString)));
 
     _instance = this;
 }
@@ -51,23 +50,21 @@ ChatManagerGUI::ChatManagerGUI(QWidget* parent): QWidget(parent) {
  * @param playerTo player who reciev message
  * @param msg send message
  */
-void ChatManagerGUI::reqNewMessage(std::string playerFrom, std::string playerTo, std::string msg) {
+void ChatManagerGUI::reqNewMessage(std::string playerFrom, std::string playerTo,
+                                   std::string msg) {
 
-
-//    ChatWidget* chatWidget;
-//    if(playerFrom.toStdString() == Player::getPlayer()->getName()) {
-//        chatWidget = getChatWidget(playerTo.toStdString());
-//    } else {
-//        chatWidget = getChatWidget(playerFrom.toStdString());
-//    }
-
-
-    emit sigNewMessage(QString(playerFrom.c_str()), QString(playerTo.c_str()), QString(msg.c_str()));
+    mtx.lock();
+    emit openNewTab(QString(playerFrom.c_str()));
+    mtx.lock();
+    emit sigNewMessage(QString(playerFrom.c_str()), QString(playerTo.c_str()),
+                       QString(msg.c_str()));
+    mtx.unlock();
 }
 
 void ChatManagerGUI::closeTab(int i){
     QString Qstr = _tab->tabText(i);
-    std::map<std::string,ChatWidget*>::iterator it = _listTab.find(Qstr.toStdString());
+    std::vector<std::string>::iterator it =
+            std::find(_listTab.begin(), _listTab.end(), Qstr.toStdString());
     if(it != _listTab.end()) {
         _listTab.erase(it);
     } else {
@@ -77,53 +74,23 @@ void ChatManagerGUI::closeTab(int i){
     _tab->removeTab(i);
 }
 
-void ChatManagerGUI::newTab(QListWidgetItem* item){
-    std::string pseudo = item->text().toStdString();
-    if(_listTab.count(pseudo) == 0) {
-        ChatWidget* chatWidget = new ChatWidget(pseudo, this);
-        _tab->addTab(chatWidget, item->text());
-        _listTab[pseudo] = chatWidget;
+void ChatManagerGUI::newTab(QString pseudo){
+    std::string strPseudo = pseudo.toStdString();
+
+    std::vector<std::string>::iterator it =
+            std::find(_listTab.begin(), _listTab.end(), strPseudo);
+    if(strPseudo != Player::getPlayer()->getName() && it == _listTab.end()) {
+        ChatWidget* chatWidget = new ChatWidget(strPseudo, this);
+        _tab->addTab(chatWidget, pseudo);
+        _listTab.push_back(strPseudo);
 
         connect(this, SIGNAL(sigNewMessage(QString, QString, QString)),
                 chatWidget, SLOT(showNewMessage(QString, QString, QString)));
-    } else {
-        WizardLogger::info("Une fenêtre de tchat existe déjà avec " + pseudo);
-    }
-}
-
-/**
- * Player reciev a new message
- *
- * @param playerFrom player who send message
- * @param playerTo player who reciev message
- * @param msg which is send
- */
-void ChatManagerGUI::newMessage(QString playerFrom, QString playerTo,
-                                QString msg) {
-
-    ChatWidget* chatWidget;
-    if(playerFrom.toStdString() == Player::getPlayer()->getName()) {
-        chatWidget = getChatWidget(playerTo.toStdString());
-    } else {
-        chatWidget = getChatWidget(playerFrom.toStdString());
     }
 
-    emit chatWidget->recvMessage(playerFrom, playerTo, msg);
-
+    mtx.unlock();
 }
 
-/**
- * Search a ChatWidget whith the pseudo
- *
- * @param pseudo that we searsh
- * @return the ChatWidget or nullptr
- */
-ChatWidget* ChatManagerGUI::getChatWidget(std::string pseudo) {
-    ChatWidget* res = nullptr;
-    std::map<std::string,ChatWidget*>::iterator it = _listTab.find(pseudo);
-    if(it != _listTab.end()) {
-        res = it->second;
-    }
-    return res;
+void ChatManagerGUI::newTab(QListWidgetItem* item){
+    newTab(item->text());
 }
-

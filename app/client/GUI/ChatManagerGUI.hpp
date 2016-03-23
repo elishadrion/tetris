@@ -4,6 +4,7 @@
 #include <QApplication>
 #include <QWidget>
 #include <string>
+#include <mutex>          // std::mutex
 #include <QTabWidget>
 #include <QTabBar>
 #include <QListWidget>
@@ -18,7 +19,8 @@ class ChatManagerGUI : public QWidget {
     Q_OBJECT
 
     static ChatManagerGUI* _instance;
-    static std::map<std::string,ChatWidget*>_listTab;
+    static std::vector<std::string>_listTab;
+    static std::mutex mtx;
 
     QGridLayout *_layout;
     QTabWidget *_tab;
@@ -30,15 +32,14 @@ public:
     void reqNewMessage(std::string, std::string, std::string);
 
 signals:
+    void openNewTab(QString);
     void sigNewMessage(QString, QString, QString);
 
 private slots:
     void closeTab(int);
+    void newTab(QString);
     void newTab(QListWidgetItem*);
-    void newMessage(QString, QString, QString);
 
-private:
-    ChatWidget* getChatWidget(std::string);
 
 };
 

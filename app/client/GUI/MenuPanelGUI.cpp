@@ -40,10 +40,6 @@ MenuPanelGUI::MenuPanelGUI(GUI* parent) : QMainWindow() {
     QObject::connect(_quitter, SIGNAL(clicked()), this, SLOT(quitApp()));
 
 
-    // Tchat
-    QWidget* tchat = new ChatManagerGUI(0);
-
-
     _layout = new QGridLayout;
     _layout->addWidget(_gameStart);
     _layout->addWidget(_checkCollection);
@@ -55,7 +51,7 @@ MenuPanelGUI::MenuPanelGUI(GUI* parent) : QMainWindow() {
 
     _layoutOfLayout = new QGridLayout(centralWidget);
     _layoutOfLayout->addLayout(_layout,2,1);
-    _layoutOfLayout->addWidget(tchat, 1, 3, 2, 1);
+    _layoutOfLayout->addWidget(new ChatManagerGUI(0), 1, 3, 2, 1); // Tchat
 
 
     _layoutOfLayout->setRowStretch(0, 1);

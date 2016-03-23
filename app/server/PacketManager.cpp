@@ -34,16 +34,6 @@ void PacketManager::managePacket(Player *player, Packet::packet* customPacket) {
                                           break;
         case Packet::TCHAT_RECEV_MSG_ID : WizardLogger::info("Message de tchat reçu");
                                           break;
-//        case Packet::TCHAT_CONV_REQ_ID :  manageConvRequest(player, (Packet::pseudoPacket*) customPacket);
-//                                          break;
-//        case Packet::TCHAT_NEW_CONV_ID :  WizardLogger::warning("Paquet de nouvelle conversation (tchat) reçu");
-//                                          break;
-//        case Packet::TCHAT_MESSAGE_ID :   manageMessageTchat(player, (Packet::tchatMessagePacket*) customPacket);
-//                                          break;
-//        case Packet::TCHAT_END_REQ_ID :   manageConvQuitRequest(player, (Packet::pseudoPacket*) customPacket);
-//                                          break;
-//        case Packet::TCHAT_END_CONV_ID :  WizardLogger::warning("Paquet de fin de conversation (tchat) reçu");
-//                                          break;
         /* Friend process */
         case Packet::FRIEND_ADD_ID :      manageFriendRequest(player, (Packet::pseudoPacket*) customPacket);
                                           break;
@@ -184,12 +174,7 @@ void PacketManager::playerSendMsg(Player* player, const Packet::tchatSendMsgPack
     Player* play = PlayerManager::findPlayerByName(playerTo);
     if(play != nullptr) { // Verify that he is friends
         // Get message
-        std::string msg = "";
-        int i = 0;
-        while(i < MESSAGES_MAX_SIZE && msgPacket->msg[i] != ' ') {
-            msg += msgPacket->msg[i];
-            ++i;
-        }
+        std::string msg(msgPacket->msg);
 
         WizardLogger::info("Message de: " + player->getName() + " vers: " +
                            playerTo + " => " + msg);
@@ -238,65 +223,6 @@ void PacketManager::sendPlayerRecdvMsg(Player* player, std::string playerFrom,
     player->sendPacket((Packet::packet*) tchatPacket, sizeof(*tchatPacket));
     delete tchatPacket;
 }
-
-//void PacketManager::manageConvRequest(Player* player, Packet::pseudoPacket* convReqPacket) {
-//    //TODO must call tchatManager (must be unblocking)
-//}
-
-//void PacketManager::manageMessageTchat(Player* player, Packet::tchatMessagePacket* messagePacket) {
-//    //TODO must call tchatManager (must be unblocking)
-//}
-
-//void PacketManager::manageConvQuitRequest(Player* player, Packet::pseudoPacket* convReqPacket) {
-//    //TODO must call tchatManager (must be unblocking)
-//}
-
-///* Signal a new conversation to the client
-// * @param player : the player who to send this packet
-// * @param pseudo : the other player's pseudo
-// */
-//void PacketManager::startConv(Player* player, std::string pseudo) {
-//    Packet::pseudoPacket *newConvPacket = new Packet::pseudoPacket();
-    
-//    /* Set ID and pseudo */
-//    newConvPacket->ID = Packet::TCHAT_NEW_CONV_ID;
-//    for (int i = 0 ; i < pseudo.size() ; ++i) newConvPacket->pseudo[i] = pseudo[i];
-    
-//    /* Send and free */
-//    player->sendPacket((Packet::packet*) newConvPacket, sizeof(*newConvPacket));
-//    delete newConvPacket;
-//}
-
-///* Send a message to the client
-// * @param player : the player who to send this packet
-// * @param message : the string to send (!> MESSAGES_MAX_SIZE)
-// */
-//void PacketManager::sendMessageTchat(Player* player, std::string message) {
-//    Packet::tchatMessagePacket *messagePacket = new Packet::tchatMessagePacket();
-    
-//    /* Set message */
-//    for (int i = 0 ; i < message.size() ; ++i) messagePacket->msg[i] = message[i];
-    
-//    /* Send and free */
-//    player->sendPacket((Packet::packet*) messagePacket, sizeof(*messagePacket));
-//    delete messagePacket;
-//}
-
-///* Signal the end of the conversation between pseudo's player and the client
-// * @param player : the player who to send this packet
-// * @param pseudo : other player
-// */
-//void PacketManager::endConv(Player* player, std::string pseudo) {
-//    Packet::pseudoPacket *endConvPacket = new Packet::pseudoPacket();
-    
-//    /* Set ID and pseudo */
-//    endConvPacket->ID = Packet::TCHAT_END_CONV_ID;
-//    for (int i = 0 ; i < pseudo.size() ; ++i) endConvPacket->pseudo[i] = pseudo[i];
-    
-//    /* Send and free */
-//    player->sendPacket((Packet::packet*) endConvPacket, sizeof(*endConvPacket));
-//    delete endConvPacket;
-//}
 
 //============================FRIEND PROCESS===========================================
 

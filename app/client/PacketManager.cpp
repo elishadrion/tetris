@@ -277,7 +277,36 @@ void PacketManager::makeCardImgRequest(const unsigned ID) {
 //============================TCHAT PROCESS===========================================
 
 void PacketManager::getMessage(const Packet::tchatRecevMsgPacket* messagePacket) {
-    wizardDisplay->recevTchatMsg(messagePacket->pseudoFrom, messagePacket->pseudoTo, messagePacket->msg);
+    int i;
+
+    std::string pseudoFrom = "";
+    i = 0;
+    while(i < MAX_PSEUDO_SIZE && messagePacket->pseudoFrom[i] != ' ') {
+        pseudoFrom += messagePacket->pseudoFrom[i];
+        ++i;
+    }
+
+    std::string pseudoTo = "";
+    i = 0;
+    while(i < MAX_PSEUDO_SIZE && messagePacket->pseudoTo[i] != ' ') {
+        pseudoTo += messagePacket->pseudoTo[i];
+        ++i;
+    }
+
+    std::string finalMsg = "";
+    std::string current = "";
+    for(int j = 0; j < MESSAGES_MAX_SIZE; ++j) {
+        char elem = messagePacket->msg[j];
+        if(elem != ' ') {
+            finalMsg += current;
+            current = "";
+            finalMsg += elem;
+        } else {
+            current += elem;
+        }
+    }
+
+    wizardDisplay->recevTchatMsg(pseudoFrom, pseudoTo, finalMsg);
 }
 
 void PacketManager::sendMessage(const std::string toPlayer, const std::string message) {
