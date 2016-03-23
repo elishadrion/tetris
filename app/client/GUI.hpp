@@ -7,6 +7,7 @@
 #include "client/GUI/LoginPanelGUI.hpp"
 #include "client/GUI/MenuPanelGUI.hpp"
 #include "client/GUI/GameGUI.hpp"
+#include "client/GUI/ChatManagerGUI.hpp"
 
 
 #include <QObject>
@@ -33,6 +34,9 @@ public:
     void askDeck() override;
     void changeTurn(int, bool) override;
     void drawCard(Card*) override;
+
+    // Tchat
+    void recevTchatMsg(std::string, std::string, std::string);
 
     // Setter
     void setMainMenu(MenuPanelGUI*);

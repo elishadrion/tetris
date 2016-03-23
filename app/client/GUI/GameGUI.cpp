@@ -116,8 +116,7 @@ GameGUI::GameGUI() : QMainWindow() {
 
 
     // Tchat
-    ChatManagerGUI* tchat = new ChatManagerGUI(0);
-    _gridlayout->addWidget(tchat, 1, 13, 5, 1);
+    _gridlayout->addWidget(ChatManagerGUI::getInstance(), 1, 13, 5, 1);
 
 
     // PUB

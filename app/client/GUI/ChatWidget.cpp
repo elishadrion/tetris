@@ -19,10 +19,22 @@ ChatWidget::ChatWidget(std::string pseudo, QWidget* parent): _friend(pseudo),QWi
     _gridlayout->addLayout(_layout,1,0);
 
     QObject::connect(_send,SIGNAL(clicked()),this,SLOT(sendMessage()));
+//    QObject::connect(this, SIGNAL(recvMessage(QString, QString, QString)),
+//                     this, SLOT(showNewMessage(QString, QString, QString)));
 
 }
 
 void ChatWidget::sendMessage(){
-    //TO DO: Envois message au serveur
+    PacketManager::sendMessage(_friend, _m_send->text().toStdString());
     _m_send->clear();
+}
+
+void ChatWidget::showNewMessage(QString playerFrom, QString playerTo,
+                                QString msg) {
+    QString text = playerFrom;
+    text += " -> ";
+    text += playerTo;
+    text += ": ";
+    text += msg;
+    _text->append(text);
 }

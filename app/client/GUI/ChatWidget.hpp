@@ -10,6 +10,9 @@
 #include <QGridLayout>
 #include <QTextBrowser>
 
+#include "PacketManager.hpp"
+
+
 class ChatWidget : public QWidget{
     Q_OBJECT
 
@@ -23,8 +26,12 @@ class ChatWidget : public QWidget{
 public:
     ChatWidget(std::string pseudo, QWidget*);
 
+signals:
+    void recvMessage(QString, QString, QString);
+
 private slots:
     void sendMessage();
+    void showNewMessage(QString, QString, QString);
 };
 
 #endif // CHATWIDGET_H

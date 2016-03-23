@@ -65,6 +65,15 @@ void GUI::drawCard(Card* card) {
 }
 
 
+///////////// Tchat /////////////
+
+void GUI::recevTchatMsg(std::string playerFrom, std::string playerTo,
+                        std::string msg) {
+
+    WizardLogger::info("Réception du message de " + playerFrom);
+    ChatManagerGUI::getInstance()->reqNewMessage(playerFrom, playerTo, msg);
+}
+
 ///////////// Setter ////////////
 
 void GUI::setMainMenu(MenuPanelGUI* menu) {

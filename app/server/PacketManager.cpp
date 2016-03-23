@@ -191,6 +191,9 @@ void PacketManager::playerSendMsg(Player* player, const Packet::tchatSendMsgPack
             ++i;
         }
 
+        WizardLogger::info("Message de: " + player->getName() + " vers: " +
+                           playerTo + " => " + msg);
+
         std::string playerFrom = player->getName();
         sendPlayerRecdvMsg(player, playerFrom, playerTo, msg);
         sendPlayerRecdvMsg(play, playerFrom, playerTo, msg);
