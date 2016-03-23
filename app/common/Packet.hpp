@@ -135,8 +135,8 @@ public:
     
     typedef struct {
         int ID = CARTE_IMG_ID;
-        int size = 80000; /* Max size is currently 80Ko */
-        void* data[80000]; /* Must be complete image binary data */
+        int size = 95000; /* Max size is currently 95Ko */
+        void* data[95000]; /* Must be complete image binary data */
     } cardImgPacket;
 
 //====================TCHAT & FRIEND PROCESS==============================
