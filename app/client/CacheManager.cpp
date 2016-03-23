@@ -1,7 +1,6 @@
 #include "CacheManager.hpp"
 
 std::vector<Card*> CacheManager::cardCache;
-bool CacheManager::waiting;
 
 CacheManager::~CacheManager() {
     /* Delete all card in cache */
@@ -59,21 +58,25 @@ Card *CacheManager::getCard(std::string name) {
     return nullptr;
 }
 
-/* Add card to cache and stop waiting for it */
-void CacheManager::addToCache(Card* card) {
-    WizardLogger::info("Ajout d'une carte au cache: " + card->getID());
-    if (card != nullptr)
-        cardCache.push_back(card);
-    waiting = false;
-}
-
 //=========================PRIVATE========================
 
 void *CacheManager::requestCard(unsigned ID) {
-    waiting = true;
+    /* Lock and request card */
+    pthread_mutex_lock(&wizardDisplay->packetStackMutex);
     PacketManager::makeCardRequest(ID);
-    int i;
-    while(waiting) {
-        i = 1;
+    
+    /* Wait for result */
+    pthread_cond_wait(&wizardDisplay->packetStackCond, &wizardDisplay->packetStackMutex);
+    
+    /* Check result */
+    if (!wizardDisplay->packetStack.empty()) {
+        /* Copy card and save it (remove stack one) */
+        Card card = *reinterpret_cast<Card*>(wizardDisplay->packetStack.back());
+        WizardLogger::info("Ajout d'une carte au cache: " + card.getID());
+        cardCache.push_back(&card);
+        wizardDisplay->packetStack.pop_back();
     }
+    
+    /* Unlock */
+    pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
 }

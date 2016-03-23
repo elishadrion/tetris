@@ -7,11 +7,15 @@
 #include "Card.hpp"
 #include "PacketManager.hpp"
 
+/* For mutex */
+#include "WizardDisplay.hpp"
+
 #include "common/WizardLogger.hpp"
+
+extern WizardDisplay *wizardDisplay;
 
 class CacheManager {
     static std::vector<Card*> cardCache;
-    static bool waiting;
     
     static void *requestCard(unsigned);
 public:
@@ -20,8 +24,6 @@ public:
     
     static Card *getCard(unsigned);
     static Card *getCard(std::string);
-    
-    void addToCache(Card*);
 };
 
 #endif  /* CACHE_MANAGER_HPP */
