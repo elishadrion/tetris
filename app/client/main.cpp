@@ -38,20 +38,7 @@ bool isIP(std::string arg) {
 
 
 int main(int argc, char** argv) {
-    /* We initialise the static logger system
-     * If it fail, client must to stop because log is important !
-     */
-    try {
-        srand (time(NULL));
-        int random = rand() % 100;
-        WizardLogger::initLogger(false, "WizardLogger_" + std::to_string(random));
-    } catch (std::exception ex) {
-        std::cerr << "Impossible d'initialiser le logger : " << ex.what() << std::endl;
-        return EXIT_FAILURE;
-    }
-
-    WizardLogger::info("Starting client");
-    
+    /* Check if we launch as CLI or GUI and get adress */
     std::string adress = "localhost";
     bool activeGUI = true;
     if(argc > 1) {
@@ -65,18 +52,25 @@ int main(int argc, char** argv) {
         if(argc > 2) {
             std::string arg2 = argv[2];
             if(isIP(arg2)) {
-                if(adress == "localhost") {
+                if(adress == "localhost")
                     adress = arg2;
-                } else {
-                    std::string warnMsg = "Vous aviez déjà définit";
-                    warnMsg += " l'adresse dans l'argument 1";
-                    WizardLogger::warning(warnMsg);
-                }
             } else {
                 activeGUI = (arg2 == "GUI");
             }
         }
     }
+    
+    /* We initialise the static logger system
+     * If it fail, client must to stop because log is important !
+     */
+    try {
+        WizardLogger::initLogger(activeGUI, "WizardLogger");
+    } catch (std::exception ex) {
+        std::cerr << "Impossible d'initialiser le logger : " << ex.what() << std::endl;
+        return EXIT_FAILURE;
+    }
+
+    WizardLogger::info("Starting client");
 
 
     /* We initialise the connection between client and server
