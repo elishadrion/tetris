@@ -96,7 +96,8 @@ void PacketManager::managePacket(Packet::packet* customPacket) {
                                           break;
         case Packet::END_GAME_ID :        manageEndGame((Packet::endGamePacket*) customPacket);
                                           break;
-        default :                         WizardLogger::warning("Paquet inconnue reçu: " + customPacket->ID);
+        default :                         WizardLogger::warning("Paquet inconnue reçu: " +
+                                                            std::to_string(customPacket->ID));
                                           break;
     }
 }
@@ -106,8 +107,9 @@ void PacketManager::managePacket(Packet::packet* customPacket) {
 void PacketManager::loginResult(const Packet::intPacket* resultPacket) {
     /* Check if size is correct to detect corrupted packet */
     if (resultPacket->size != sizeof(int)) {
-        WizardLogger::error("Paquet de résultat de login corrompu reçu ("
-        +std::to_string(resultPacket->size)+"/"+std::to_string(sizeof(int))+")");
+        WizardLogger::error("Paquet de résultat de login corrompu reçu (" +
+                            std::to_string(resultPacket->size) + "/" +
+                            std::to_string(sizeof(int))+")");
     }
     
     /* Lock, signal other thread and unlock */
@@ -455,14 +457,15 @@ void PacketManager::setTurn(const Packet::turnPacket* turnPacket) {
 }
 
 void PacketManager::setDraw(const Packet::intPacket* drawPacket) {
-    WizardLogger::info("Récepetion de la carte piochée : " + drawPacket->data);
+    WizardLogger::info("Récepetion de la carte piochée : " + std::to_string(drawPacket->data));
     
     /* Lock, signal other thread and unlock */
     pthread_mutex_lock(&wizardDisplay->packetStackMutex);
     wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(drawPacket->data)));
     pthread_cond_broadcast(&wizardDisplay->packetStackCond);
     pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
-    //TODO GameManager::getInstance()->drawCard(drawPacket->data);
+
+    GameManager::getInstance()->drawCard(drawPacket->data);
 }
 
 void PacketManager::askDrop(const Packet::intPacket* askDropPacket) {

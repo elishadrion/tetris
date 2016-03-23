@@ -144,6 +144,7 @@ std::string& operator<<(std::string& str, const Player& c) {
  * @throw : an error occure during sending packet, must catch it
  */
 void Player::sendPacket(Packet::packet *packet, size_t size) {
+    WizardLogger::info("Envoie du packet: " + std::to_string(packet->ID));
     _playerConnect->sendPacket(packet, size);
 }
 

@@ -1,9 +1,6 @@
 #include "MenuPanelGUI.hpp"
 
 
-
-
-
 /**
  * Constructor
  */
@@ -101,7 +98,6 @@ void MenuPanelGUI::makeReqToPlayGame() {
     PacketManager::makeGameRequest();
 
     connect(this, SIGNAL(mustInitGame()), this, SLOT(makeOpenGame()));
-
 
 
     _msgBox = new QMessageBox(this);

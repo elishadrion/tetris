@@ -13,6 +13,9 @@
 #include "CLI.hpp"
 #include "GUI.hpp"
 
+#include <stdlib.h>     /* srand, rand */
+
+
 /* Main is not an object so we must use global namespace instead of main->conn */
 Connection *conn;
 WizardDisplay *wizardDisplay;
@@ -39,7 +42,9 @@ int main(int argc, char** argv) {
      * If it fail, client must to stop because log is important !
      */
     try {
-        WizardLogger::initLogger(false, "WizardLogger");
+        srand (time(NULL));
+        int random = rand() % 100;
+        WizardLogger::initLogger(false, "WizardLogger_" + std::to_string(random));
     } catch (std::exception ex) {
         std::cerr << "Impossible d'initialiser le logger : " << ex.what() << std::endl;
         return EXIT_FAILURE;

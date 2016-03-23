@@ -122,7 +122,8 @@ void* Connection::recvLoop(void* data) {
         if (readSize <= 0) {
             break;
         } else if (readSize < Packet::packetSize) {
-            WizardLogger::error("Impossible de récupérer un packet du serveur");
+            WizardLogger::error("Impossible de récupérer un packet du serveur " +
+                                std::to_string(reinterpret_cast<Packet::packet*>(packet)->ID));
         } else {
             /* If there are other informations, we need to read the buffer again */
             dataSize = reinterpret_cast<Packet::packet*>(packet)->size;
