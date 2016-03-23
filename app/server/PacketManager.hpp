@@ -25,9 +25,11 @@ namespace PacketManager {
     void manageCardImgRequest(Player*, Packet::intPacket*); /* CARTE_IMG_REQ_ID */
     
     /* Tchat process */
-    void manageConvRequest(Player*, Packet::pseudoPacket*); /* TCHAT_CONV_REQ_ID */
-    void manageMessageTchat(Player*, Packet::tchatMessagePacket*); /* TCHAT_MESSAGE_ID (in) */
-    void manageConvQuitRequest(Player*, Packet::pseudoPacket*); /* TCHAT_END_REQ_ID */
+    void playerSendMsg(Player*, const Packet::tchatSendMsgPacket*); /* TCHAT_SEND_MSG_ID */
+//    void manageConvRequest(Player*, Packet::pseudoPacket*); /* TCHAT_CONV_REQ_ID */
+//    void manageMessageTchat(Player*, Packet::tchatMessagePacket*); /* TCHAT_MESSAGE_ID (in) */
+//    void manageConvQuitRequest(Player*, Packet::pseudoPacket*); /* TCHAT_END_REQ_ID */
+
     
     /* Friend process */
     void manageFriendRequest(Player*, Packet::pseudoPacket*); /* FRIEND_ADD_ID | FRIEND_DEL_ID */
@@ -56,9 +58,10 @@ namespace PacketManager {
     void sendCardImg(Player*, Card*); /* CARTE_IMG_ID */
     
     /* Tchat process */
-    void startConv(Player*, std::string); /* TCHAT_NEW_CONV_ID */
-    void sendMessageTchat(Player*, std::string); /* TCHAT_MESSAGE_ID (out) */
-    void endConv(Player*, std::string); /* TCHAT_END_CONV_ID */
+    void sendPlayerRecdvMsg(Player*, std::string, std::string, std::string); /* TCHAT_RECEV_MSG_ID */
+//    void startConv(Player*, std::string); /* TCHAT_NEW_CONV_ID */
+//    void sendMessageTchat(Player*, std::string); /* TCHAT_MESSAGE_ID (out) */
+//    void endConv(Player*, std::string); /* TCHAT_END_CONV_ID */
     
     /* Friend process */
     void sendFriendRequest(Player*, std::string); /* FRIENDS_REQ_ID */

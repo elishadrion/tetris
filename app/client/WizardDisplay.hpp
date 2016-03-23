@@ -174,6 +174,15 @@ public:
      */
     virtual void adverseAttackPlayer(Card*) {}
 
+    //////////////////////// TCHAT ////////////////////////
+
+    /**
+     * Call when player recev message
+     * @param playerFrom who send the message
+     * @param playerTo who recev the message
+     * @param msg the message
+     */
+    virtual void recevTchatMsg(std::string, std::string, std::string) {}
 
 };
 

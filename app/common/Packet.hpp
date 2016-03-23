@@ -21,11 +21,8 @@ public:
         CARTE_IMG_REQ_ID = 23, /* intPacket */
         CARTE_IMG_ID = 24, /* intPacket */
         /* TCHAT */
-        TCHAT_CONV_REQ_ID = 31, /* Get TCHAT_END_CONV_ID if failed (pseudoPacket) */
-        TCHAT_NEW_CONV_ID = 32, /* pseudoPacket */
-        TCHAT_MESSAGE_ID = 33, /* No success verification */
-        TCHAT_END_REQ_ID = 34, /* pseudoPacket */
-        TCHAT_END_CONV_ID = 35, /* pseudoPacket */
+        TCHAT_SEND_MSG_ID = 31, /* tchatSendMsgPacket */
+        TCHAT_RECEV_MSG_ID = 32, /* tchatRecevMsgPacket */
         /* FRIEND */
         FRIEND_ADD_ID = 41, /* Get FRIEND_DEL_ID if failed (use pseudoPacket) */
         FRIEND_DEL_ID = 42,  /* pseudoPacket */
@@ -146,10 +143,19 @@ public:
     
     /* Tchat message packet (width*height) */
     typedef struct {
-        int ID = TCHAT_MESSAGE_ID;
-        int size = sizeof(char)*MESSAGES_MAX_SIZE;
+        int ID = TCHAT_SEND_MSG_ID;
+        int size = sizeof(char)*(MESSAGES_MAX_SIZE+MAX_PSEUDO_SIZE);
+        char pseudoTo[MAX_PSEUDO_SIZE];
         char msg[MESSAGES_MAX_SIZE];
-    } tchatMessagePacket;
+    } tchatSendMsgPacket;
+
+    typedef struct {
+        int ID = TCHAT_RECEV_MSG_ID;
+        int size = sizeof(char)*(MESSAGES_MAX_SIZE+2*MAX_PSEUDO_SIZE);
+        char pseudoFrom[MAX_PSEUDO_SIZE];
+        char pseudoTo[MAX_PSEUDO_SIZE];
+        char msg[MESSAGES_MAX_SIZE];
+    } tchatRecevMsgPacket;
     
     /* Player's friends list only */
     typedef struct {
