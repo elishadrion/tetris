@@ -23,6 +23,7 @@ PlayerConnect::PlayerConnect(int sockfd, Player* player): _sockfd(sockfd),
  * @throw : an error occure during sending packet, must catch it
  */
 void PlayerConnect::sendPacket(Packet::packet *packet, size_t size) {
+    WizardLogger::info("Envoie du packet: " + std::to_string(packet->ID));
     try {
         if (send(_sockfd, packet, size, 0) != size) {
             throw std::string("Tout le packet n'a pas été envoyé à "+ getPlayerPtr()->getName());
