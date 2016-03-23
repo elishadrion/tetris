@@ -22,9 +22,7 @@ class CardWidget : public QWidget{
     QString _life;
 
     Card* _card;
-
     QLabel* _label;
-    QPixmap* _pixmap;
 
 public:
     CardWidget(Card*);
