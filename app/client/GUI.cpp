@@ -47,17 +47,6 @@ void GUI::displayLoginPrompt() {
 }
 
 
-void GUI::displayLoginResult(std::string message) {
-    loginPanel->callPrintLoginResult(message);
-}
-
-
-void GUI::valideLogin() {
-    loginPanel->callDisplayMainMenu();
-}
-
-
-
 ///////////// Game //////////////
 
 void GUI::askDeck() {

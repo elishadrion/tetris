@@ -29,10 +29,10 @@ public:
     virtual void displayLoginPrompt() =0;
 
     /* Used to print result of the login process (thread safe) */
-    virtual void displayLoginResult(std::string) =0;
+    virtual void displayLoginResult(std::string) {} // REMOVE
 
     /* Validate login process, must call displayMainWindow after */
-    virtual void valideLogin() = 0;
+    virtual void valideLogin() {} // REMOVE
 
     /////////////// MUST BE REMOVE ///////////////////////////////
     virtual void displayMainWindow() {}

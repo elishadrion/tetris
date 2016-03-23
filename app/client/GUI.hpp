@@ -28,8 +28,6 @@ public:
 
     // Loggin
     void displayLoginPrompt() override;
-    void displayLoginResult(std::string) override;
-    void valideLogin() override;
 
     // Game
     void askDeck() override;

@@ -64,41 +64,20 @@ LoginPanelGUI::LoginPanelGUI(GUI* parent) : QWidget() {
 
     QObject::connect(_login, SIGNAL(clicked()), this, SLOT(makeLogin()));
     QObject::connect(_signIn, SIGNAL(clicked()), this, SLOT(makeRegister()));
-    QObject::connect(this, SIGNAL(mustPrintResult(QString)), this, SLOT(loginDisplayResult(QString)));
-    QObject::connect(this, SIGNAL(mustDisplayMainMenu()), this, SLOT(displayMainMenu()));
 
 
     QObject::connect(_m_pseudo, SIGNAL(textChanged(QString)), this, SLOT(setStrPseudo(QString)));
     QObject::connect(_m_mdp, SIGNAL(textChanged(QString)), this, SLOT(setStrMdp(QString)));
 }
 
-
-/**
- * Call the mustPrintResult (emit)
- * @param message which must be print
- */
-void LoginPanelGUI::callPrintLoginResult(std::string message) {
-    QString msg = QString::fromUtf8(message.c_str());
-    emit mustPrintResult(msg);
-}
-
-
-/**
- * Call the mustDisplayMainMenu (emit)
- */
-void LoginPanelGUI::callDisplayMainMenu() {
-    emit mustDisplayMainMenu();
-}
-
-
 /**
  * Display the login result
  *
  * @param message to display
  */
-void LoginPanelGUI::loginDisplayResult(const QString message) {
-    WizardLogger::info("Erreur Login: " + message.toStdString());
-    QMessageBox::critical(this, "Erreur", message);
+void LoginPanelGUI::loginDisplayResult(const std::string message) {
+    WizardLogger::info("Erreur Login: " + message);
+    QMessageBox::critical(this, "Erreur", QString(message.c_str()));
 }
 
 
@@ -106,20 +85,52 @@ void LoginPanelGUI::loginDisplayResult(const QString message) {
  * Make login request
  */
 void LoginPanelGUI::makeLogin() {
-    const char* pseudo = _strPseudo.c_str();
-    const char* mdp = _strMdp.c_str();
-    PacketManager::makeLoginRequest(pseudo, mdp);
+    login(false);
 }
-
 
 /**
  * Make register request
  */
 void LoginPanelGUI::makeRegister() {
+    login(true);
+}
+
+/**
+ * Process to make login
+ *
+ * @param newUser True if it's register (false if it's login)
+ */
+void LoginPanelGUI::login(bool newUser) {
     const char* pseudo = _strPseudo.c_str();
     const char* mdp = _strMdp.c_str();
-    PacketManager::makeRegistrationRequest(pseudo, mdp);
+
+    /* Lock */
+    pthread_mutex_lock(&wizardDisplay->packetStackMutex);
+
+    // Packet manager
+    if(newUser) {
+        PacketManager::makeRegistrationRequest(pseudo, mdp);
+    } else {
+        PacketManager::makeLoginRequest(pseudo, mdp);
+    }
+
+    /* Wait for result */
+    pthread_cond_wait(&wizardDisplay->packetStackCond, &wizardDisplay->packetStackMutex);
+
+    /* Check result */
+    if (wizardDisplay->packetStack.empty()) {
+        WizardLogger::info("Authentification réussi");
+        displayMainMenu();
+    } else {
+        loginDisplayResult(*reinterpret_cast<std::string*>(wizardDisplay->packetStack.back()));
+        wizardDisplay->packetStack.pop_back();
+    }
+
+    /* Unlock */
+    pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
+
 }
+
 
 
 /**

@@ -16,6 +16,9 @@
 
 #include "PacketManager.hpp"
 
+#include "client/WizardDisplay.hpp"
+extern WizardDisplay *wizardDisplay;
+
 
 class GUI;
 class LoginPanelGUI;
@@ -41,22 +44,18 @@ class LoginPanelGUI : public QWidget {
     std::string _strPseudo;
     std::string _strMdp;
 
+    void login(bool);
+    void loginDisplayResult(std::string);
+    void displayMainMenu();
+
 public:
     LoginPanelGUI(GUI*);
-    void callPrintLoginResult(std::string);
-    void callDisplayMainMenu();
 
 public slots:
-    void loginDisplayResult(QString);
     void makeLogin();
     void makeRegister();
     void setStrPseudo(QString);
     void setStrMdp(QString);
-    void displayMainMenu();
-
-signals:
-    void mustPrintResult(QString);
-    void mustDisplayMainMenu();
 
 
 };
