@@ -20,7 +20,6 @@ class Player;
 class PlayerInGame;
 class PlayerConnect;
 #include "PlayerConnect.hpp"
-//#include "PlayerManager.hpp"
 
 #include "common/WizardLogger.hpp"
 #include "common/Constants.hpp"

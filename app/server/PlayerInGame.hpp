@@ -38,7 +38,6 @@ class PlayerInGame : public Player {
 
 public:
 
-    //PlayerInGame(); // not valide but better for less Warnings :D
     PlayerInGame(const PlayerInGame&) = default; // copy constructor
     PlayerInGame& operator=(const PlayerInGame&) = default; // copy operator
     PlayerInGame(const Player &, Game*);

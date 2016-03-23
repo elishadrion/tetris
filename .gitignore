@@ -52,6 +52,7 @@ Makefile
 *.out
 *.app
 *_wizard
+run_tests
 
 # Backup files
 *.tex~
