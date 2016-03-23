@@ -17,8 +17,8 @@ class PlayerConnect {
     Player* getPlayerPtr();
 
 public:
-    #ifndef PACKET_MANAGER_THREAD_SAFE
-    #define PACKET_MANAGER_THREAD_SAFE
+    #ifndef PLAYERCONNECT_PACKET_THREAD_SAFE
+    #define PLAYERCONNECT_PACKET_THREAD_SAFE
     pthread_mutex_t packetStackMutex = PTHREAD_MUTEX_INITIALIZER;
     pthread_cond_t packetStackCond = PTHREAD_COND_INITIALIZER;
     std::vector<void*> packetStack;

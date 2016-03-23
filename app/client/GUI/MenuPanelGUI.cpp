@@ -95,10 +95,7 @@ void MenuPanelGUI::quitApp() {
  * Slot to call when the player will play
  */
 void MenuPanelGUI::makeReqToPlayGame() {
-    PacketManager::makeGameRequest();
-
     connect(this, SIGNAL(mustInitGame()), this, SLOT(makeOpenGame()));
-
 
     _msgBox = new QMessageBox(this);
     _msgBox->setWindowTitle("Attente de Partie");
@@ -106,6 +103,8 @@ void MenuPanelGUI::makeReqToPlayGame() {
     _msgBox->setStandardButtons(QMessageBox::Cancel);
 
     _msgBox->connect(_msgBox->button(QMessageBox::Cancel), SIGNAL(clicked()), this, SLOT(makeCancelWait()));
+    
+    PacketManager::makeGameRequest();
 
     _msgBox->exec();
 }
