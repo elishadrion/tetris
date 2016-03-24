@@ -7,9 +7,6 @@
 #include "Card.hpp"
 #include "PacketManager.hpp"
 
-/* For mutex */
-#include "WizardDisplay.hpp"
-
 #include "common/WizardLogger.hpp"
 
 extern WizardDisplay *wizardDisplay;

@@ -234,13 +234,7 @@ void PacketManager::saveCardInfo(const Packet::cardInfosPacket* cardPacket) {
     Card *newCard = new Card(cardPacket->data.carteID, cardPacket->data.monster, std::string(cardPacket->data.name),
                              std::string(cardPacket->data.description), cardPacket->data.energyCost,
                              cardPacket->data.maxHP, cardPacket->data.attack);
-    
-    /* Lock, signal other thread and unlock */
-    pthread_mutex_lock(&wizardDisplay->packetStackMutex);
-    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(newCard));
-    pthread_cond_broadcast(&wizardDisplay->packetStackCond);
-    pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
-    //TODO cacheManager->addToCache(newCard);
+    cacheManager->addCard(newCard);
 }
 
 void PacketManager::saveCardImg(const Packet::cardImgPacket* cardImgPacket) {
