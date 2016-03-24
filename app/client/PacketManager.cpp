@@ -159,10 +159,16 @@ void PacketManager::playerInfo(const Packet::playerInfoPacket* playerPacket) {
 }
 
 void PacketManager::loginComplete(const Packet::packet* packet) {
+    WizardLogger::info("Fin du chargement");
+
     /* Lock, signal other thread and unlock */
     pthread_mutex_lock(&wizardDisplay->packetStackMutex);
     pthread_cond_broadcast(&wizardDisplay->packetStackCond);
     pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
+
+    usleep(1000);
+    WizardLogger::info("Nbr Cards: " +
+                       std::to_string(CacheManager::getNbrCard()));
 }
 
 /**

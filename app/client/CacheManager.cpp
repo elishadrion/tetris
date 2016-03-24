@@ -52,3 +52,7 @@ void CacheManager::addCard(Card* newCard) {
     if (newCard != nullptr)
         cardCache.push_back(newCard);
 }
+
+unsigned CacheManager::getNbrCard() {
+    return static_cast<unsigned>(cardCache.size());
+}

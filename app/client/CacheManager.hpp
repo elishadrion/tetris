@@ -21,6 +21,7 @@ public:
     static Card *getCard(std::string);
     
     static void addCard(Card*);
+    static unsigned getNbrCard();
 };
 
 #endif  /* CACHE_MANAGER_HPP */

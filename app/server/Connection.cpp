@@ -172,8 +172,10 @@ void* Connection::newPlayerThread(void* data) {
             }
         }
         
+        usleep(1000);
         Packet::packet *endLogin = new Packet::packet();
         endLogin->ID = Packet::LOGIN_COMPLETE_ID;
+        WizardLogger::info("Fin du chargement");
         send(clientSocket, endLogin, sizeof(Packet::packet), 0);
         delete endLogin;
         
