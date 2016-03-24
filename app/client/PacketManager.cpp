@@ -506,7 +506,7 @@ void PacketManager::setDraw(const Packet::intPacket* drawPacket) {
     pthread_cond_broadcast(&wizardDisplay->packetStackCond);
     pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
 
-    GameManager::getInstance()->drawCard(drawPacket->data);
+    //TODO GameManager::getInstance()->drawCard(drawPacket->data);
 }
 
 void PacketManager::askDrop(const Packet::intPacket* askDropPacket) {
