@@ -63,6 +63,7 @@ namespace PacketManager {
     void askDeck(Player*, std::string); /* ASK_DECK_AND_PSEUDO_ID */
     void sendTurnInfo(Player*, unsigned, bool); /* TURN_ID */
     void sendCard(Player*, Card*); /* DRAW_ID (nullptr for other player sync) */
+    void sendDrawBegin(Player*, std::vector<unsigned>);
     void sendAdverseDraw(Player*); /* ADVERSE_DRAW_ID */
     void askDefausse(Player*, int); /* ASK_DROP_ID */
     void sendDrop(Player*, int); /* DROP_ID (for second player sync, amount of drop) */

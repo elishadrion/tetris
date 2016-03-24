@@ -109,26 +109,17 @@ void Game::checkDeckAndStart() {
         _gameStatut = GameStatut::IN_GAME;
 
         unsigned int i = 0;
+        std::vector<unsigned> handPlayer1;
+        std::vector<unsigned> handPlayer2;
         while(i < MIN_CARD_IN_HAND) {
-            draw(_player1);
-            draw(_player2);
+            handPlayer1.push_back(_player1->draw()->getId());
+            handPlayer2.push_back(_player2->draw()->getId());
             ++i;
         }
+        PacketManager::sendDrawBegin(_player1, handPlayer1);
+        PacketManager::sendDrawBegin(_player2, handPlayer2);
 
         nextPlayer();
-
-        /*
-            send CardInHand
-             => sendStartTurnInfo(Player*, dataIGPlayer, std::std::vector<CardMonster*>, int, int, int)
-             with current player info, ennemy placed card, ennemy card in hand, ennemy card in deck
-                (and ennemy card in trash ?)
-                [you must send both packet, the first start the game and the second start the player turn
-                 OR we add ataIGPlayer in the initGame, you choose]
-
-            https://thegithubbers.slack.com/archives/communication/p1456306333000004
-            TO DO @tutul
-        */
-
     }
 }
 

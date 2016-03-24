@@ -201,7 +201,7 @@ void GameGUI::addCardHand(Card* card) {
     int i = 0;
 
     while(i < MAX_HAND && !find) {
-        find = (_gridlayout->itemAtPosition(7, 3+i) != 0);
+        find = (_gridlayout->itemAtPosition(7, 3+i) == 0);
         ++i;
     }
 

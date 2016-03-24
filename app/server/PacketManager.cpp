@@ -371,6 +371,23 @@ void PacketManager::sendTurnInfo(Player* player, unsigned nbrTurn, bool isTurn) 
 }
 
 /**
+ * Call when the game start
+ *
+ * @param player who must recev packet
+ * @param listCard list of draw card
+ */
+void PakcetManager::sendDrawBegin(Player* player, std::vector<unsigned> listCard) {
+    Packet::beginDrawPacket *drawPacket = new Packet::beginDrawPacket();
+
+    for(unsigned i = 0; i < MIN_CARD_IN_HAND; ++i) {
+        drawPacket->listID[i] = listCard[i];
+    }
+
+    player->sendPacket((Player::packet*) drawPacket, sizeof(*drawPacket));
+    delete drawPacket;
+}
+
+/**
  * Send draw card to the player
  *
  * @param player : the player who to send this packet

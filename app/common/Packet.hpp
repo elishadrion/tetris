@@ -39,21 +39,22 @@ public:
         SEND_CLASSEMENT_ID = 62, /* ClassementPacket */
         /* GAME PROCESS */
         TURN_ID = 71, /* Signal the current player turn */
-        DRAW_ID = 72, /* intPacket */
-        ADVERSE_DRAW_ID = 73, // Adverse player draw a card - DEFAULT PACKET
-        ASK_DROP_ID = 74, /* Ask to drop a certain amount of card */
-        DROP_ID = 75, /* A packet by droped card (use intPacket) */
-        C_ATTACK_ID = 76, // client - twoCardPacket
-        C_PLACE_CARD_ID = 77, // client - intPacket
-        C_PLACE_CARD_MAKE_SPELL_ID = 78, // client - twoCardPacket
-        S_ATTACK_ID = 79, // server - attackPacket
-        S_PLACE_SPELL_ID = 80, // server - placeAttackSpellPacket
-        S_PLACE_CARD_ID = 81, // server - placeCardPacket
-        S_PLACE_CARD_AND_ATTACK_ID = 82, // server - placeAttackPacket
-        PLAYER_DAMAGE_ID = 83, /* damage when player havent card in deck - pseudoIntPacket */
-        END_TURN_ID = 84, /* Send to server to signal end of turn (DEFAULT PACKET) */
-        QUIT_ID = 85, /* DEFAULT PACKET */
-        END_GAME_ID = 86, /* !> use actionPacket */
+        BEGIN_DRAW_ID = 72, // When the game start - drawPacket
+        DRAW_ID = 73, /* intPacket */
+        ADVERSE_DRAW_ID = 74, // Adverse player draw a card - DEFAULT PACKET
+        ASK_DROP_ID = 75, /* Ask to drop a certain amount of card */
+        DROP_ID = 76, /* A packet by droped card (use intPacket) */
+        C_ATTACK_ID = 77, // client - twoCardPacket
+        C_PLACE_CARD_ID = 78, // client - intPacket
+        C_PLACE_CARD_MAKE_SPELL_ID = 79, // client - twoCardPacket
+        S_ATTACK_ID = 80, // server - attackPacket
+        S_PLACE_SPELL_ID = 81, // server - placeAttackSpellPacket
+        S_PLACE_CARD_ID = 82, // server - placeCardPacket
+        S_PLACE_CARD_AND_ATTACK_ID = 83, // server - placeAttackPacket
+        PLAYER_DAMAGE_ID = 84, /* damage when player havent card in deck - pseudoIntPacket */
+        END_TURN_ID = 85, /* Send to server to signal end of turn (DEFAULT PACKET) */
+        QUIT_ID = 86, /* DEFAULT PACKET */
+        END_GAME_ID = 87, /* !> use actionPacket */
         // ERROR
         ERROR_ID = 100 /* intPacket */
     };
@@ -179,6 +180,14 @@ public:
         bool isTurn;
         unsigned nbrTurn;
     } turnPacket;
+
+    typedef struct {
+        int ID = BEGIN_DRAW_ID;
+        int size = sizeof(unsigned)*(MIN_CARD_IN_HAND+1);
+        unsigned listID[MIN_CARD_IN_HAND];
+        unsigned min_hand = MIN_CARD_IN_HAND;
+    } beginDrawPacket;
+
     
     /* Inform about end of the game */
     typedef struct {
