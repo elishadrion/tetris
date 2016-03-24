@@ -345,7 +345,7 @@
   },
   {
     "id": 65,
-    "name": "Docteur Cool",
+    "name": "Tortue géniale",
     "energie" : 3,
     "effect" : 1,
     "vie" : 3,
@@ -353,7 +353,7 @@
   },
   {
     "id": 66,
-    "name": "Mage Enragé",
+    "name": "Krilin",
     "energie" : 5,
     "effect" : 4,
     "vie" : 4,
@@ -361,7 +361,7 @@
   },
   {
     "id": 69,
-    "name": "CéZar",
+    "name": "Yusuke",
     "energie" : 4,
     "effect" : -1,
     "vie" : 7,
@@ -369,7 +369,7 @@
   },
   {
     "id": 70,
-    "name": "BalthaZar",
+    "name": "Kuwabara",
     "energie" : 6,
     "effect" : 0,
     "vie" : 4,
@@ -377,7 +377,7 @@
   },
   {
     "id": 71,
-    "name": "HaSard",
+    "name": "Hiei",
     "energie" : 8,
     "effect" : 11,
     "vie" : 5,
@@ -385,7 +385,7 @@
   },
   {
     "id": 72,
-    "name": "AsZar",
+    "name": "Kurama",
     "energie" : 10,
     "effect" : -1,
     "vie" : 9,
@@ -393,7 +393,7 @@
   },
   {
     "id": 73,
-    "name": "BulbiZar",
+    "name": "Bugs Bunny",
     "energie" : 3,
     "effect" : 1,
     "vie" : 3,
@@ -401,7 +401,7 @@
   },
   {
     "id": 74,
-    "name": "BiZarre",
+    "name": "Daffy Duck",
     "energie" : 5,
     "effect" : 0,
     "vie" : 2,
@@ -409,7 +409,7 @@
   },
   {
     "id": 75,
-    "name": "Zarbi",
+    "name": "Speedy Gonzales",
     "energie" : 1,
     "effect" : -1,
     "vie" : 1,
@@ -417,7 +417,7 @@
   },
   {
     "id": 76,
-    "name": "LéZard",
+    "name": "Titeuf",
     "energie" : 4,
     "effect" : -1,
     "vie" : 6,
@@ -425,7 +425,7 @@
   },
   {
     "id": 77,
-    "name": "MoZart",
+    "name": "Cédric",
     "energie" : 7,
     "effect" : 8,
     "vie" : 5,
@@ -433,7 +433,7 @@
   },
   {
     "id": 78,
-    "name": "BanlieuSard",
+    "name": "Courage",
     "energie" : 3,
     "effect" : 4,
     "vie" : 3,
@@ -441,7 +441,7 @@
   },
   {
     "id": 79,
-    "name": "MaquiZard",
+    "name": "Le bus magique",
     "energie" : 5,
     "effect" : -1,
     "vie" : 3,
@@ -449,7 +449,7 @@
   },
   {
     "id": 80,
-    "name": "Le Beau Gosse",
+    "name": "Batman",
     "energie" : 5,
     "effect" : -1,
     "vie" : 4,
@@ -457,7 +457,7 @@
   },
   {
     "id": 81,
-    "name": "Secrétariat",
+    "name": "Superman",
     "energie" : 3,
     "effect" : 1,
     "vie" : 3,
@@ -465,7 +465,7 @@
   },
   {
     "id": 82,
-    "name": "Barre de fer",
+    "name": "Spider-man",
     "energie" : 2,
     "effect" : -1,
     "vie" : 2,
@@ -473,7 +473,7 @@
   },
   {
     "id": 83,
-    "name": "Le Génie",
+    "name": "Wolverine",
     "energie" : 4,
     "effect" : 2,
     "vie" : 3,
@@ -481,7 +481,7 @@
   },
   {
     "id": 84,
-    "name": "Monstre",
+    "name": "Charle Xavier",
     "energie" : 1,
     "effect" : 3,
     "vie" : 5,
@@ -489,7 +489,7 @@
   },
   {
     "id": 85,
-    "name": "Carte",
+    "name": "Flash",
     "energie" : 2,
     "effect" : 4,
     "vie" : 1,
@@ -497,7 +497,7 @@
   },
   {
     "id": 86,
-    "name": "Gehol",
+    "name": "Inspecteur Gadget",
     "energie" : 3,
     "effect" : 2,
     "vie" : 3,
@@ -505,7 +505,7 @@
   },
   {
     "id": 87,
-    "name": "Banana!",
+    "name": "Sophie et Finot",
     "energie" : 3,
     "effect" : 3,
     "vie" : 2,
@@ -513,7 +513,7 @@
   },
   {
     "id": 88,
-    "name": "Chuck Norris",
+    "name": "Marsupilami",
     "energie" : 7,
     "effect" : 5,
     "vie" : 5,
@@ -521,7 +521,7 @@
   },
   {
     "id": 89,
-    "name": "Big Mamma",
+    "name": "Dexter",
     "energie" : 5,
     "effect" : -1,
     "vie" : 8,
@@ -529,7 +529,7 @@
   },
   {
     "id": 90,
-    "name": "Pierre-Paul-Jacques",
+    "name": "Mandark",
     "energie" : 3,
     "effect" : -1,
     "vie" : 3,
@@ -537,7 +537,7 @@
   },
   {
     "id": 91,
-    "name": "Le Survivant",
+    "name": "Grosminet",
     "energie" : 5,
     "effect" : 6,
     "vie" : 7,
@@ -545,7 +545,7 @@
   },
   {
     "id": 92,
-    "name": "Alain Térieur",
+    "name": "Titi",
     "energie" : 3,
     "effect" : 5,
     "vie" : 3,
@@ -553,7 +553,7 @@
   },
   {
     "id": 93,
-    "name": "Alex Térieur",
+    "name": "Coyote",
     "energie" : 2,
     "effect" : -1,
     "vie" : 2,
@@ -561,7 +561,7 @@
   },
   {
     "id": 94,
-    "name": "Sarah Pelle",
+    "name": "Bip Bip",
     "energie" : 4,
     "effect" : 15,
     "vie" : 3,
@@ -569,7 +569,7 @@
   },
   {
     "id": 95,
-    "name": "Sarah Croche",
+    "name": "Taz",
     "energie" : 6,
     "effect" : 16,
     "vie" : 5,
@@ -577,7 +577,7 @@
   },
   {
     "id": 96,
-    "name": "Gandalf",
+    "name": "Yakko",
     "energie" : 6,
     "effect" : 8,
     "vie" : 3,
@@ -585,7 +585,7 @@
   },
   {
     "id": 97,
-    "name": "Pikachu",
+    "name": "Wakko",
     "energie" : 4,
     "effect" : -1,
     "vie" : 3,
@@ -593,7 +593,7 @@
   },
   {
     "id": 98,
-    "name": "Anonymous",
+    "name": "Dot",
     "energie" : 5,
     "effect" : 9,
     "vie" : 2,
@@ -601,7 +601,7 @@
   },
   {
     "id": 99,
-    "name": "M.Anonyme",
+    "name": "Charlotte",
     "energie" : 4,
     "effect" : -1,
     "vie" : 5,
@@ -609,7 +609,7 @@
   },
   {
     "id": 100,
-    "name": "Inconnu",
+    "name": "Jimmy",
     "energie" : 1,
     "effect" : -1,
     "vie" : 1,
