@@ -617,7 +617,7 @@
   },
   {
     "id": 101,
-    "name": "Les Inconnus",
+    "name": "Carl",
     "energie" : 3,
     "effect" : -1,
     "vie" : 6,
@@ -625,7 +625,7 @@
   },
   {
     "id": 102,
-    "name": "Terminator",
+    "name": "Sheen",
     "energie" : 8,
     "effect" : 10,
     "vie" : 4,
@@ -633,7 +633,7 @@
   },
   {
     "id": 103,
-    "name": "Robocop",
+    "name": "Totally Spies",
     "energie" : 3,
     "effect" : -1,
     "vie" : 4,
@@ -641,7 +641,7 @@
   },
   {
     "id": 104,
-    "name": "Totoro",
+    "name": "Franklin",
     "energie" : 4,
     "effect" : 9,
     "vie" : 7,
@@ -649,7 +649,7 @@
   },
   {
     "id": 105,
-    "name": "L'homme Invisible",
+    "name": "The Mask",
     "energie" : 4,
     "effect" : 11,
     "vie" : 2,
@@ -657,7 +657,7 @@
   },
   {
     "id": 106,
-    "name": "Sangoku",
+    "name": "Angelica",
     "energie" : 5,
     "effect" : -1,
     "vie" : 3,
@@ -665,7 +665,7 @@
   },
   {
     "id": 107,
-    "name": "Prof",
+    "name": "Charles",
     "energie" : 4,
     "effect" : 11,
     "vie" : 1,
@@ -673,7 +673,7 @@
   },
   {
     "id": 108,
-    "name": "Examen",
+    "name": "Les Grumeaux",
     "energie" : 3,
     "effect" : 12,
     "vie" : 2,
@@ -681,7 +681,7 @@
   },
   {
     "id": 109,
-    "name": "Projet",
+    "name": "Casse-bonbon",
     "energie" : 7,
     "effect" : 13,
     "vie" : 2,
@@ -689,7 +689,7 @@
   },
   {
     "id": 110,
-    "name": "Le bon élève",
+    "name": "Marcelino",
     "energie" : 5,
     "effect" : 12,
     "vie" : 3,
@@ -697,7 +697,7 @@
   },
   {
     "id": 111,
-    "name": "Le tricheur",
+    "name": "Norbert",
     "energie" : 3,
     "effect" : -1,
     "vie" : 3,
@@ -705,7 +705,7 @@
   },
   {
     "id": 112,
-    "name": "Le doubleur",
+    "name": "Daggett",
     "energie" : 2,
     "effect" : -1,
     "vie" : 3,
@@ -713,7 +713,7 @@
   },
   {
     "id": 113,
-    "name": "Nyan Cat",
+    "name": "Popeye",
     "energie" : 6,
     "effect" : 13,
     "vie" : 3,
@@ -721,7 +721,7 @@
   },
   {
     "id": 114,
-    "name": "Cours théorique",
+    "name": "Niki Larson",
     "energie" : 8,
     "effect" : 14,
     "vie" : 3,
@@ -729,7 +729,7 @@
   },
   {
     "id": 115,
-    "name": "TDfoncé",
+    "name": "Jackie Chan",
     "energie" : 7,
     "effect" : 11,
     "vie" : 5,
@@ -737,7 +737,7 @@
   },
   {
     "id": 116,
-    "name": "Travaux pratiques",
+    "name": "Jade",
     "energie" : 6,
     "effect" : 6,
     "vie" : 6,
@@ -745,7 +745,7 @@
   },
   {
     "id": 117,
-    "name": "La cafet'",
+    "name": "L'oncle'",
     "energie" : 6,
     "effect" : 14,
     "vie" : 3,
@@ -753,7 +753,7 @@
   },
   {
     "id": 118,
-    "name": "La Jefke",
+    "name": "Albator",
     "energie" : 4,
     "effect" : 8,
     "vie" : 3,
@@ -761,7 +761,7 @@
   },
   {
     "id": 119,
-    "name": "Billy",
+    "name": "La Panthère Rose",
     "energie" : 3,
     "effect" : -1,
     "vie" : 4,
@@ -769,7 +769,7 @@
   },
   {
     "id": 120,
-    "name": "Jean-Marie-Edouard",
+    "name": "Scooby",
     "energie" : 3,
     "effect" : -1,
     "vie" : 3,
@@ -777,7 +777,7 @@
   },
   {
     "id": 121,
-    "name": "René la Taupe",
+    "name": "Sammy",
     "energie" : 3,
     "effect" : 15,
     "vie" : 3,
@@ -785,7 +785,7 @@
   },
   {
     "id": 122,
-    "name": "Keno",
+    "name": "Daphné",
     "energie" : 3,
     "effect" : 16,
     "vie" : 4,
@@ -793,7 +793,7 @@
   },
   {
     "id": 123,
-    "name": "Lucianno",
+    "name": "Fred",
     "energie" : 7,
     "effect" : -1,
     "vie" : 5,
@@ -801,7 +801,7 @@
   },
   {
     "id": 124,
-    "name": "Massart",
+    "name": "Vera",
     "energie" : 5,
     "effect" : -1,
     "vie" : 6,
@@ -809,7 +809,7 @@
   },
   {
     "id": 125,
-    "name": "Jorissen",
+    "name": "Pepper Ann",
     "energie" : 5,
     "effect" : 7,
     "vie" : 3,
@@ -817,7 +817,7 @@
   },
   {
     "id": 126,
-    "name": "Geeraerts",
+    "name": "Michien Michat",
     "energie" : 3,
     "effect" : 5,
     "vie" : 5,
@@ -825,7 +825,7 @@
   },
   {
     "id": 127,
-    "name": "Stéphane",
+    "name": "Homer",
     "energie" : 2,
     "effect" : -1,
     "vie" : 2,
@@ -833,7 +833,7 @@
   },
   {
     "id": 128,
-    "name": "Cédric",
+    "name": "Marge",
     "energie" : 3,
     "effect" : 4,
     "vie" : 4,
@@ -841,7 +841,7 @@
   },
   {
     "id": 129,
-    "name": "François",
+    "name": "Lisa",
     "energie" : 5,
     "effect" : 5,
     "vie" : 5,
@@ -849,7 +849,7 @@
   },
   {
     "id": 130,
-    "name": "Naïm",
+    "name": "Bart",
     "energie" : 2,
     "effect" : -1,
     "vie" : 3,
@@ -857,7 +857,7 @@
   },
   {
     "id": 131,
-    "name": "Alessia",
+    "name": "Maggie",
     "energie" : 3,
     "effect" : 3,
     "vie" : 3,
@@ -865,7 +865,7 @@
   },
   {
     "id": 132,
-    "name": "Audrey",
+    "name": "Team Kangoo",
     "energie" : 4,
     "effect" : 4,
     "vie" : 4,
@@ -873,7 +873,7 @@
   },
   {
     "id": 133,
-    "name": "Markowitch",
+    "name": "Famille Delajungle",
     "energie" : 6,
     "effect" : 6,
     "vie" : 6,
@@ -881,7 +881,7 @@
   },
   {
     "id": 134,
-    "name": "Nikita",
+    "name": "Famille Pirate",
     "energie" : 7,
     "effect" : 7,
     "vie" : 7,
@@ -889,7 +889,7 @@
   },
   {
     "id": 135,
-    "name": "Roggeman",
+    "name": "Martin Matin",
     "energie" : 8,
     "effect" : 8,
     "vie" : 8,
@@ -897,7 +897,7 @@
   },
   {
     "id": 136,
-    "name": "Richard",
+    "name": "Statik Choc",
     "energie" : 9,
     "effect" : 9,
     "vie" : 9,
@@ -905,7 +905,7 @@
   },
   {
     "id": 137,
-    "name": "Sylvie",
+    "name": "Tic",
     "energie" : 2,
     "effect" : 2,
     "vie" : 2,
@@ -913,7 +913,7 @@
   },
   {
     "id": 138,
-    "name": "Goosens",
+    "name": "Tac",
     "energie" : 10,
     "effect" : 10,
     "vie" : 10,
@@ -921,55 +921,55 @@
   },
   {
     "id": 139,
-    "name": "Fortz",
-    "energie" : 11,
+    "name": "Jake Long (Humain)",
+    "energie" : 4,
     "effect" : 11,
-    "vie" : 11,
-    "attack" : 11
+    "vie" : 2,
+    "attack" : 2
   },
   {
     "id": 140,
-    "name": "Hernalsteen",
-    "energie" : 12,
+    "name": "Jake Long (Dragon)",
+    "energie" : 8,
     "effect" : 12,
-    "vie" : 12,
-    "attack" : 12
+    "vie" : 5,
+    "attack" : 6
   },
   {
     "id": 141,
-    "name": "Jacopo",
-    "energie" : 13,
+    "name": "Kim Possible",
+    "energie" : 4,
     "effect" : 13,
-    "vie" : 13,
-    "attack" : 13
+    "vie" : 2,
+    "attack" : 2
   },
   {
     "id": 142,
-    "name": "Jansen",
-    "energie" : 14,
+    "name": "Rufus",
+    "energie" : 8,
     "effect" : 14,
-    "vie" : 14,
-    "attack" : 14
+    "vie" : 5,
+    "attack" : 6
   },
   {
     "id": 143,
-    "name": "Anciaux",
-    "energie" : 15,
+    "name": "Robin",
+    "energie" : 6,
     "effect" : 15,
-    "vie" : 15,
-    "attack" : 15
+    "vie" : 4,
+    "attack" : 5
   },
   {
     "id": 144,
-    "name": "La Fuente",
-    "energie" : 16,
+    "name": "Cléo",
+    "energie" : 3,
     "effect" : 16,
-    "vie" : 16,
-    "attack" : 16
+    "vie" : 1,
+    "attack" : 1
   },
   {
     "id": 145,
-    "name": "De Smet",
+    "name": "Chico",
     "energie" : 8,
     "effect" : -1,
     "vie" : 3,
@@ -977,23 +977,23 @@
   },
   {
     "id": 146,
-    "name": "Petit ours brun",
-    "energie" : 2,
+    "name": "Red Devil",
+    "energie" : 3,
     "effect" : -1,
     "vie" : 3,
     "attack" : 3
   },
   {
     "id": 147,
-    "name": "Glados",
+    "name": "Monsieur Belette",
     "energie" : 4,
-    "effect" : -1,
-    "vie" : 3,
-    "attack" : 6
+    "effect" : 0,
+    "vie" : 4,
+    "attack" : 4
   },
     {
     "id": 148,
-    "name": "Team Rocket",
+    "name": "Je Grand Babouin",
     "energie" : 6,
     "effect" : -1,
     "vie" : 6,
@@ -1001,7 +1001,7 @@
   },
    {
     "id": 149,
-    "name": "?",
+    "name": "Johnny Bravo",
     "energie" : 2,
     "effect" : -1,
     "vie" : 3,
