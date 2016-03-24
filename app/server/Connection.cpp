@@ -162,14 +162,14 @@ void* Connection::newPlayerThread(void* data) {
     /* If login is ok, we launch recvloop from Player after sending player's info to client */
     if (loginOK) {
         sendSucess(newPlayer, clientSocket);
+        usleep(100);
     
         /* Send all cards */
-        for (int i = 0 ; i < CardManager::getNbrCard()+1; ++i) {
+        for (int i = 1; i <= CardManager::getNbrCard(); ++i) {
             Card* card = CardManager::getCardById(i);
             if (card != nullptr) {
                 PacketManager::sendCardInfo(newPlayer, card);
                 Packet::packet *confirm = (Packet::packet*) malloc(sizeof(Packet::packet));
-                usleep(100);
                 readSize = recv(clientSocket, packet, sizeof(Packet::packet), 0);
                 free(confirm);
             }
