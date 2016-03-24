@@ -14,6 +14,8 @@ void PacketManager::managePacket(Packet::packet* customPacket) {
                                           break;
         case Packet::LOGIN_RES_ID :       loginResult((Packet::intPacket*) customPacket);
                                           break;
+        case Packet::LOGIN_COMPLETE_ID :  loginComplete(customPacket);
+                                          break;
 
         /* Recieve player informations */
         case Packet::PLAYER_INFO_ID :     playerInfo((Packet::playerInfoPacket*) customPacket);
@@ -22,8 +24,6 @@ void PacketManager::managePacket(Packet::packet* customPacket) {
                                           break;
 
         /* Card process */
-        case Packet::CARTE_REQ_ID :       WizardLogger::warning("Paquet de requête de carte reçu");
-                                          break;
         case Packet::CARTE_INFO_ID :      saveCardInfo((Packet::cardInfosPacket*) customPacket);
                                           break;
         case Packet::CARTE_IMG_REQ_ID :   WizardLogger::warning("Paquet de requête d'image de carte reçu");

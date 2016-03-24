@@ -167,13 +167,13 @@ void* Connection::newPlayerThread(void* data) {
         for (int i = 0 ; i < 200 ; ++i) {
             Card* card = CardManager::getCardById(i);
             if (card != nullptr) {
-                sendCardInfo(newPlayer, card);
+                PacketManager::sendCardInfo(newPlayer, card);
             }
         }
         
         Packet::packet *endLogin = new Packet::packet();
         endLogin->ID = Packet::LOGIN_COMPLETE_ID;
-        send(socket, endLogin, sizeof(Packet::packet), 0);
+        send(clientSocket, endLogin, sizeof(Packet::packet), 0);
         delete endLogin;
         
         newPlayer->recvLoop();

@@ -25,17 +25,6 @@ Card *CacheManager::getCard(unsigned ID) {
             return card;
     }
     
-    /* Card not found so we must add it to cache */
-    WizardLogger::warning("La carte "+std::to_string(ID)+" n'est pas dans le cache, requête auprès du serveur");
-    requestCard(ID);
-    
-    /* Search for card ID in cache */
-    for (int i = 0 ; i < cardCache.size() ; ++i) {
-        card = cardCache[i];
-        if (card->getID() == ID)
-            return card;
-    }
-    
     WizardLogger::error("La carte demandé semble ne pas exister ! Veuillez vérifier son ID");
     
     return nullptr;
@@ -62,10 +51,4 @@ Card *CacheManager::getCard(std::string name) {
 void CacheManager::addCard(Card* newCard) {
     if (newCard != nullptr)
         cardCache.push_back(newCard);
-}
-
-//=========================PRIVATE========================
-
-void *CacheManager::requestCard(unsigned ID) {
-    PacketManager::makeCardRequest(ID);
 }

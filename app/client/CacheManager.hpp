@@ -16,8 +16,6 @@ extern WizardDisplay *wizardDisplay;
 
 class CacheManager {
     static std::vector<Card*> cardCache;
-    
-    static void *requestCard(unsigned);
 public:
     CacheManager() = default;
     ~CacheManager();
