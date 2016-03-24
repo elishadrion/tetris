@@ -165,17 +165,17 @@ void* Connection::newPlayerThread(void* data) {
     
         /* Send all cards */
 
-        for (int i = 0 ; i < CardManager::getNbrCard(); ++i) {
+        for (int i = 0 ; i < CardManager::getNbrCard()+1; ++i) {
             Card* card = CardManager::getCardById(i);
             if (card != nullptr) {
                 PacketManager::sendCardInfo(newPlayer, card);
             }
+        
+            usleep(500);
         }
         
-        usleep(1000);
         Packet::packet *endLogin = new Packet::packet();
         endLogin->ID = Packet::LOGIN_COMPLETE_ID;
-        WizardLogger::info("Fin du chargement");
         send(clientSocket, endLogin, sizeof(Packet::packet), 0);
         delete endLogin;
         
