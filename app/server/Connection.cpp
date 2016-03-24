@@ -164,7 +164,8 @@ void* Connection::newPlayerThread(void* data) {
         sendSucess(newPlayer, clientSocket);
     
         /* Send all cards */
-        for (int i = 0 ; i < 200 ; ++i) {
+
+        for (int i = 0 ; i < CardManager::getNbrCard(); ++i) {
             Card* card = CardManager::getCardById(i);
             if (card != nullptr) {
                 PacketManager::sendCardInfo(newPlayer, card);

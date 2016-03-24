@@ -104,3 +104,8 @@ Card* CardManager::chooseCardWin(){
     //TODO check if card already exist for the player (max two same cards)
     return _listCard[idAleatoire];
 }
+
+unsigned CardManager::getNbrCard() {
+    return static_cast<unsigned>(_listCard.size());
+}
+

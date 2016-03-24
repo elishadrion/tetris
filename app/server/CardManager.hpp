@@ -24,6 +24,7 @@ public:
     static void loadAllCards();
 
     static Card* chooseCardWin();
+    static unsigned getNbrCard();
 };
 
 #endif

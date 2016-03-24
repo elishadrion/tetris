@@ -234,6 +234,7 @@ void PacketManager::saveCardInfo(const Packet::cardInfosPacket* cardPacket) {
     Card *newCard = new Card(cardPacket->data.carteID, cardPacket->data.monster, std::string(cardPacket->data.name),
                              std::string(cardPacket->data.description), cardPacket->data.energyCost,
                              cardPacket->data.maxHP, cardPacket->data.attack);
+
     cacheManager->addCard(newCard);
 }
 
