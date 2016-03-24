@@ -177,6 +177,8 @@ void* Connection::newPlayerThread(void* data) {
         
         Packet::packet *endLogin = new Packet::packet();
         endLogin->ID = Packet::LOGIN_COMPLETE_ID;
+        WizardLogger::info("Fin du chargement. Nombre de cartes: " +
+                           std::to_string(CardManager::getNbrCard()));
         send(clientSocket, endLogin, sizeof(Packet::packet), 0);
         delete endLogin;
         
