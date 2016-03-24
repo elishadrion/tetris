@@ -164,15 +164,15 @@ void* Connection::newPlayerThread(void* data) {
         sendSucess(newPlayer, clientSocket);
     
         /* Send all cards */
-
+        Packet::packet *confirm = (Packet::packet*) malloc(sizeof(Packet::packet));
         for (int i = 0 ; i < CardManager::getNbrCard()+1; ++i) {
             Card* card = CardManager::getCardById(i);
             if (card != nullptr) {
                 PacketManager::sendCardInfo(newPlayer, card);
+                readSize = recv(clientSocket, packet, sizeof(Packet::packet), 0);
             }
-        
-            usleep(500);
         }
+        free(confirm);
         
         Packet::packet *endLogin = new Packet::packet();
         endLogin->ID = Packet::LOGIN_COMPLETE_ID;

@@ -240,6 +240,11 @@ void PacketManager::saveCardInfo(const Packet::cardInfosPacket* cardPacket) {
                              cardPacket->data.maxHP, cardPacket->data.attack);
 
     cacheManager->addCard(newCard);
+    
+    /* Send confirmation */
+    Packet::packet *packet = new Packet::packet();
+    conn->sendPacket(packet, sizeof(*packet));
+    delete packet;
 }
 
 void PacketManager::saveCardImg(const Packet::cardImgPacket* cardImgPacket) {
