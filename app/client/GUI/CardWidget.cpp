@@ -6,13 +6,13 @@
 */
 
 CardWidget::CardWidget(Card* card) :
-    QWidget(), _card(card),
-    _energy(QString::fromStdString(UnsignedToString(card->getEnergyCost()))){
+    QWidget(), _card(card)
+    /*, _energy(QString::fromStdString(UnsignedToString(card->getEnergyCost())))*/ {
 
-    if(card->isMonster()) {
-        _attack = QString::fromStdString(UnsignedToString(card->getAttack()));
-        _life = QString::fromStdString(UnsignedToString(card->getHP()));
-    }
+//    if(card->isMonster()) {
+//        _attack = QString::fromStdString(UnsignedToString(card->getAttack()));
+//        _life = QString::fromStdString(UnsignedToString(card->getHP()));
+//    }
 
     _label = new QLabel(this);
     _label->setScaledContents(true);
@@ -37,10 +37,13 @@ std::string CardWidget::UnsignedToString(unsigned value) {
 }
 
 void CardWidget::actualize(){
-    _energy = QString::fromStdString(UnsignedToString(_card->getEnergyCost()));
+    QString energy = QString::fromStdString(UnsignedToString(_card->getEnergyCost()));
+    QString attack = "";
+    QString life = "";
+    QString nom = QString::fromStdString(_card->getName());
     if(_card->isMonster()) {
-        _attack = QString::fromStdString(UnsignedToString(_card->getAttack()));
-        _life = QString::fromStdString(UnsignedToString(_card->getHP()));
+        attack = QString::fromStdString(UnsignedToString(_card->getAttack()));
+        life = QString::fromStdString(UnsignedToString(_card->getHP()));
     }
 
     QPixmap pic(":/Images/CardToon.png");
@@ -50,9 +53,10 @@ void CardWidget::actualize(){
     font.setPixelSize(15);
     paint.setFont(font);
 
-    paint.drawText(24,228,_energy);
-    paint.drawText(77,228,_attack);
-    paint.drawText(121,228,_life);
+    paint.drawText(24,228,energy);
+    paint.drawText(77,228,attack);
+    paint.drawText(121,228,life);
+    paint.drawText(24,170,nom);
 
     _label->setPixmap(pic);
 

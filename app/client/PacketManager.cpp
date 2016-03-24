@@ -67,6 +67,8 @@ void PacketManager::managePacket(Packet::packet* customPacket) {
                                           break;
         case Packet::DRAW_ID :            setDraw((Packet::intPacket*) customPacket);
                                           break;
+        case Packet::ADVERSE_DRAW_ID:     wizardDisplay->adverseDrawCard();
+                                          break;
         case Packet::ASK_DROP_ID :        askDrop((Packet::intPacket*) customPacket);
                                           break;
         case Packet::DROP_ID :            WizardLogger::warning("Paquet de drop reçu");

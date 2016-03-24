@@ -122,8 +122,8 @@ void PacketManager::sendCardInfo(Player* player, Card* card) {
                        std::to_string(card->getId()));
     Packet::cardInfosPacket* cardPacket = new Packet::cardInfosPacket();
 
+    cardPacket->data.monster = false; // default
     cardPacket->data.carteID = card->getId();
-    cardPacket->data.monster = card->isMonster();
     for(unsigned i = 0; i < MAX_CARD_NAME; ++i) {
         if(i < card->getName().size()) {
             cardPacket->data.name[i] = card->getName()[i];
@@ -133,10 +133,11 @@ void PacketManager::sendCardInfo(Player* player, Card* card) {
     }
     for(unsigned i = 0; i < MAX_DESCRITION_SIZE; ++i) cardPacket->data.description[i] = ' ';
     cardPacket->data.energyCost = card->getEnergyCost();
-    cardPacket->data.maxHP = card->getEnergyCost();
     if(card->isMonster()) {
         CardMonster* monsterCard = static_cast<CardMonster*>(card);
+        cardPacket->data.monster = true;
         cardPacket->data.attack = monsterCard->getAttack();
+        cardPacket->data.maxHP = monsterCard->getMaxLife();
     }
 
     /* Send and free */

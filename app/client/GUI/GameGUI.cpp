@@ -23,34 +23,12 @@ GameGUI::GameGUI() : QMainWindow() {
     QString strLabel;
     QLabel* label;
 
-    // Cartes en main adverses face cachée
-//    for(unsigned i = 0; i < 7; ++i) {
-//        QHBoxLayout* carteAdv= new QHBoxLayout;
-//        strLabel = ("test: " + i);
-//        label = new QLabel(strLabel);
-//        label->setStyleSheet("background-color: red");
-//        carteAdv->addWidget(label);
-//        _gridlayout->addLayout(carteAdv, 0, 3+i);
-////        _gridlayout->setColumnStretch(3+i, 2);
-//    }
-
-
-    // Cartes posée adverse
-//    for(unsigned i = 0; i < 7; ++i) {
-//        QHBoxLayout* advPlaceCarte = new QHBoxLayout;
-//        strLabel = ("test2: " + i);
-//        label = new QLabel(strLabel);
-//        label->setStyleSheet("background-color: lightblue");
-//        advPlaceCarte->addWidget(label);
-//        _gridlayout->addLayout(advPlaceCarte, 2, 3+i);
-//    }
-
     // Deck Adverse
     QHBoxLayout* advDeckAdv = new QHBoxLayout;
-    label = new QLabel("Deck A");
+    label = new QLabel("DeckA");
     label->setStyleSheet("background-color: gray");
     advDeckAdv->addWidget(label);
-    _gridlayout->addLayout(advDeckAdv, 2, 1);
+    _gridlayout->addLayout(advDeckAdv, 3, 1);
 
 
     // Deck
@@ -58,38 +36,16 @@ GameGUI::GameGUI() : QMainWindow() {
     label = new QLabel("Deck");
     label->setStyleSheet("background-color: gray");
     advDeck->addWidget(label);
-    _gridlayout->addLayout(advDeck, 4, 1);
-
-
-    // Cartes en main
-//    std::vector<Card*> listHand = GameManager::getInstance()->getCardInHand();
-//    for(unsigned i = 0; i < listHand.size(); ++i) {
-//        CardWidget* cardWidget = new CardWidget(listHand[i]);
-//        //_gridlayout->addLayout(carteInHand, 6, 3+i);
-
-//        // TO DO
-//    }
-
-
-    // Cartes posée
-//    for(unsigned i = 0; i < 7; ++i) {
-//        QHBoxLayout* placeCarte;
-//        placeCarte = new QHBoxLayout;
-//        strLabel = ("test2: " + i);
-//        label = new QLabel(strLabel);
-//        label->setStyleSheet("background-color: blue");
-//        placeCarte->addWidget(label);
-//        _gridlayout->addLayout(placeCarte, 4, 3+i);
-//    }
+    _gridlayout->addLayout(advDeck, 5, 1);
 
 
     // Passer
     _nextTurnBouton = new QPushButton("Passer\nson tour");
-    _gridlayout->addWidget(_nextTurnBouton, 3, 11);
+    _gridlayout->addWidget(_nextTurnBouton, 4, 11);
     _nextTurnBouton->hide();
 
     _nextTurnOff = new QLabel("Ce n'est pas\nvotre tour", this);
-    _gridlayout->addWidget(_nextTurnOff, 3, 11);
+    _gridlayout->addWidget(_nextTurnOff, 4, 11);
 
     //////// INFO GAME ////////
     _infoGame = new QVBoxLayout;
@@ -116,7 +72,7 @@ GameGUI::GameGUI() : QMainWindow() {
 
 
     // Tchat
-    _gridlayout->addWidget(ChatManagerGUI::getInstance(), 1, 13, 5, 1);
+    _gridlayout->addWidget(ChatManagerGUI::getInstance(), 1, 13, 6, 1);
 
 
     // PUB
@@ -125,7 +81,7 @@ GameGUI::GameGUI() : QMainWindow() {
     label = new QLabel(strLabel);
     label->setStyleSheet("background-color: black; color: white;");
     pub->addWidget(label);
-    _gridlayout->addLayout(pub, 6, 13);
+    _gridlayout->addLayout(pub, 7, 13);
 
 
     // colonne de gauche
@@ -151,13 +107,13 @@ GameGUI::GameGUI() : QMainWindow() {
 
     // Ligne des cartes 1
     _gridlayout->setRowStretch(0, 2); // adverse player
-    _gridlayout->setRowStretch(1, 2); // adverse hand
-    _gridlayout->setRowStretch(2, 2); // adverse sort
-    _gridlayout->setRowStretch(3, 2); // adverse place
+    _gridlayout->setRowStretch(1, 3); // adverse hand
+    _gridlayout->setRowStretch(2, 3); // adverse sort
+    _gridlayout->setRowStretch(3, 5); // adverse place
     _gridlayout->setRowStretch(4, 1); // bouton passer
-    _gridlayout->setRowStretch(5, 3); // Card placed
-    _gridlayout->setRowStretch(6, 2); // Sort + espace
-    _gridlayout->setRowStretch(7, 2); // In Hand
+    _gridlayout->setRowStretch(5, 5); // Card placed
+    _gridlayout->setRowStretch(6, 4); // Sort + espace
+    _gridlayout->setRowStretch(7, 5); // In Hand
 
 
     show();

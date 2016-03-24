@@ -60,6 +60,11 @@ public:
     virtual void drawCard(Card*) {}
 
     /**
+     * Call when adverse player draw a card
+     */
+    virtual void adverseDrawCard() {}
+
+    /**
      * The turn change
      *
      * @param nbrTurn since the begin of the game

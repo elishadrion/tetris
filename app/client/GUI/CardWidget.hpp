@@ -17,10 +17,6 @@
 class CardWidget : public QWidget{
     Q_OBJECT
 
-    QString _energy;
-    QString _attack;
-    QString _life;
-
     Card* _card;
     QLabel* _label;
 

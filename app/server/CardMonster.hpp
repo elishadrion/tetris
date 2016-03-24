@@ -32,7 +32,7 @@ public:
     unsigned int getMaxLife(){return _maxLife;}
     unsigned int getNbrTourPose(){return _nbrTourPose;}
 
-    virtual bool isMonster() override { return false; }
+    virtual bool isMonster() override { return true; }
 
     bool isTaunt() { return _taunt; }
     void setTaunt(bool value){_taunt = value;}
