@@ -63,6 +63,8 @@ void PacketManager::managePacket(Packet::packet* customPacket) {
         /* Game process */
         case Packet::TURN_ID :            setTurn((Packet::turnPacket*) customPacket);
                                           break;
+        case Packet::BEGIN_DRAW_ID:       setBeginDraw((Packet::beginDrawPacket*) customPacket);
+                                          break;
         case Packet::DRAW_ID :            setDraw((Packet::intPacket*) customPacket);
                                           break;
         case Packet::ASK_DROP_ID :        askDrop((Packet::intPacket*) customPacket);
@@ -487,6 +489,18 @@ void PacketManager::setTurn(const Packet::turnPacket* turnPacket) {
     pthread_cond_broadcast(&wizardDisplay->packetStackCond);
     pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
     //TODO GameManager::getInstance()->setTurn(turnPacket->nbrTurn, turnPacket->isTurn);
+}
+
+/**
+ * Call when the game begin.  This packet inform of the inHand card
+ *
+ * @param drawPacket packet
+ */
+void PacketManager::setBeginDraw(const Packet::beginDrawPacket* drawPacket) {
+    WizardLogger::info("Récepetion des cartes piochées");
+    for(int i = 0; i < drawPacket->min_hand; ++i) {
+        GameManager::getInstance()->drawCard(drawPacket->listID[i]);
+    }
 }
 
 void PacketManager::setDraw(const Packet::intPacket* drawPacket) {

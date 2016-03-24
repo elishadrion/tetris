@@ -376,14 +376,14 @@ void PacketManager::sendTurnInfo(Player* player, unsigned nbrTurn, bool isTurn) 
  * @param player who must recev packet
  * @param listCard list of draw card
  */
-void PakcetManager::sendDrawBegin(Player* player, std::vector<unsigned> listCard) {
+void PacketManager::sendDrawBegin(Player* player, std::vector<unsigned> listCard) {
     Packet::beginDrawPacket *drawPacket = new Packet::beginDrawPacket();
 
     for(unsigned i = 0; i < MIN_CARD_IN_HAND; ++i) {
         drawPacket->listID[i] = listCard[i];
     }
 
-    player->sendPacket((Player::packet*) drawPacket, sizeof(*drawPacket));
+    player->sendPacket((Packet::packet*) drawPacket, sizeof(*drawPacket));
     delete drawPacket;
 }
 

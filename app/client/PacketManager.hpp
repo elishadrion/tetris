@@ -40,6 +40,7 @@ namespace PacketManager {
     
     /* Game process */
     void setTurn(const Packet::turnPacket*); /* TURN_ID */
+    void setBeginDraw(const Packet::beginDrawPacket*);
     void setDraw(const Packet::intPacket*); /* DRAW_ID */
     void* threadDraw(void*);
     void askDrop(const Packet::intPacket*); /* ASK_DROP_ID */
