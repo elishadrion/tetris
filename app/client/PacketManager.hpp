@@ -67,6 +67,10 @@ namespace PacketManager {
     void makeFriendRequest(const char*); /* FRIEND_ADD_ID | FRIEND_DEL_ID */
     void makeFriendListRequest(); /* FRIENDS_LIST_REQ_ID */
     
+    // Classement
+    void askClassement();
+    void manageClassement(Packet::classementPacket*);
+
     /* Wainting process */
     void makeGameRequest(); /* WAITING_ID */
     void makeGameCancelRequest(); /* CANCEL_ID */

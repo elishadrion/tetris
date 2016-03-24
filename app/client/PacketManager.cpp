@@ -49,6 +49,10 @@ void PacketManager::managePacket(Packet::packet* customPacket) {
         case Packet::FRIENDS_LIST_ID :    updateFriendList((Packet::friendListPacket*) customPacket);
                                           break;
 
+        // Classement
+        case Packet::SEND_CLASSEMENT_ID:  manageClassement((Packet::classementPacket*) customPacket);
+                                          break;
+
         /* Launching game process */
         case Packet::WAITING_ID :         WizardLogger::warning("Paquet d'attende de partie reçu");
                                           break;
@@ -427,6 +431,61 @@ void PacketManager::makeFriendListRequest() {
     
     /* Clean memory */
     delete friendListReq;
+}
+//============================== CLASSEMENT ============================================
+
+void PacketManager::askClassement() {
+    Packet::packet *askClassement = new Packet::packet();
+    askClassement->ID = Packet::ASK_CLASSEMENT_ID;
+
+    // Send
+    conn->sendPacket(askClassement, sizeof(*askClassement));
+    // Memory
+    delete askClassement;
+}
+
+void PacketManager::manageClassement(Packet::classementPacket* classementPacket) {
+    std::vector<std::string*> listPseudo;
+    std::vector<int> listVictories;
+    std::vector<int> listDefeats;
+
+    int nbrPlayer = 0;
+    std::string pseudo;
+    do {
+        // Pseudo //
+        pseudo = "";
+        int current = nbrPlayer*MAX_PSEUDO_SIZE;
+        int i = 0;
+        char elem = classementPacket->data.pseudo[current+i];
+        while(i < MAX_PSEUDO_SIZE && elem != ' ') {
+            pseudo += elem;
+            ++i;
+        }
+
+        if(pseudo != "") {
+            listPseudo.push_back(new std::string(pseudo));
+
+            // victoire //
+            listVictories.push_back(classementPacket->data.victories[nbrPlayer]);
+
+            // defeats //
+            listDefeats.push_back(classementPacket->data.defeats[nbrPlayer]);
+        }
+
+        ++nbrPlayer;
+
+    } while(nbrPlayer < MAX_PLAYER_CLASSEMENT && pseudo != "");
+
+
+    pthread_mutex_lock(&wizardDisplay->packetStackMutex);
+    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(
+                                             new std::vector<std::string*>(listPseudo)));
+    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(
+                                             new std::vector<int>(listVictories)));
+    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(
+                                             new std::vector<int>(listDefeats)));
+    pthread_cond_broadcast(&wizardDisplay->packetStackCond);
+    pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
 }
 
 //============================LAUNCHING PROCESS=========================================

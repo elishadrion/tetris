@@ -265,7 +265,7 @@ public:
         } classementData;
         int size = sizeof(classementData);
         classementData data;
-    } ClassementPacket;
+    } classementPacket;
 
 
 //========================================================================

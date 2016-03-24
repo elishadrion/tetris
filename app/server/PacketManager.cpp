@@ -609,7 +609,7 @@ void PacketManager::sendEndGame(Player* player, int victory, int card) {
 void PacketManager::sendClassement(Player* player, std::vector<std::string> list_name,
                                    std::vector<int> list_victories, std::vector<int> list_defeats) {
 
-    Packet::ClassementPacket *classementPacket = new Packet::ClassementPacket();
+    Packet::classementPacket *classementPacket = new Packet::classementPacket();
 
     // Asset: nombre de player == nombre de victoires == nombre de défaites
 

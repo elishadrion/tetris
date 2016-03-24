@@ -14,6 +14,12 @@
 class RankingGui;
 #include "MenuPanelGUI.hpp"
 
+#include "PacketManager.hpp"
+#include "client/WizardDisplay.hpp"
+extern WizardDisplay *wizardDisplay;
+
+
+
 class RankingGui : public QMainWindow {
     Q_OBJECT
 
