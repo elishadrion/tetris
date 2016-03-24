@@ -1,356 +1,242 @@
 [
   {
     "id": 1,
-    "name": "Seconde session",
+    "name": "KAMEHAMEHAAA",
     "energie": 5,
     "effect" : 6 
   },
   {
     "id": 2,
-    "name": "Blocus",
+    "name": "Pâté de crabe",
     "energie": 2,
     "effect" : 10 
   },
   {
     "id": 3,
-    "name": "Mauvaises notes",
+    "name": "Ninjutsu",
     "energie": 4,
     "effect" : 13 
   },
   {
     "id": 4,
-    "name": "Vacances",
+    "name": "Pizza",
     "energie": 1,
     "effect" : 3 
   },
   {
     "id": 5,
-    "name": "Guidance",
+    "name": "SuperSayen",
     "energie": 2,
     "effect" : 8 
   },
   {
     "id": 6,
-    "name": "Soutien du cercle",
+    "name": "Saï",
     "energie": 3,
     "effect" : 16 
   },
   {
     "id": 7,
-    "name": "Renforcement",
+    "name": "A Que Coucou",
     "energie": 4,
     "effect" : 0
   },
   {
     "id": 8,
-    "name": "Non assistance à élève en echec",
+    "name": "Bô",
     "energie": 3,
     "effect" : 5 
   },
   {
     "id": 9,
-    "name": "Veille de l'oral !",
+    "name": "Nunchaku",
     "energie": 3,
     "effect" : 9
   },
   {
     "id": 10,
-    "name": "Abandon",
+    "name": "Cowabunga",
     "energie": 6,
     "effect" : 11
   },
   {
     "id": 11,
-    "name": "DocHub",
+    "name": "Attrapez-les tous !",
     "energie": 2,
     "effect" : 15
   },
   {
     "id": 34,
-    "name": "Protection des Anciens",
+    "name": "Tchô !",
     "energie": 2,
     "effect" : 0
   },
   {
     "id": 35,
-    "name": "Soin Divin",
+    "name": "Super Potion",
     "energie": 3,
     "effect" : 3
   },
   {
     "id": 36,
-    "name": "Boule de feu mineur",
+    "name": "Conquérir le monde !",
     "energie": 1,
     "effect" : 4
   },
   {
     "id": 37,
-    "name": "Explosion Pyrotechnique",
+    "name": "Attaque Eclair !",
     "energie": 3,
     "effect" : 6
   },
   {
     "id": 38,
-    "name": "Bénédiction du Soleil",
+    "name": "Potion magique",
     "energie": 3,
     "effect" : 8
   },
   {
     "id": 39,
-    "name": "Bénédiction de la Lune",
+    "name": "Tir de l'aigle",
     "energie": 3,
     "effect" : 10
   },
   {
     "id": 40,
-    "name": "Plus faible qu'un poulet",
+    "name": "Costume moulant",
     "energie": 4,
     "effect" : 11
   },
   {
     "id": 41,
-    "name": "Fort comme une crevette",
+    "name": "Fusion!",
     "energie": 4,
     "effect" : 14
   },
   {
     "id": 42,
-    "name": "La Bonne Pioche",
+    "name": "Ninjatōs",
     "energie": 3,
     "effect" : 16
   },
   {
     "id": 43,
-    "name": "Fragile comme un poulet",
+    "name": "Whoopass",
     "energie": 5,
     "effect" : 12
   },
   {
       "id": 67,
-      "name": "BliZard",
+      "name": "Dodompa",
       "energie": 3,
       "effect": 6
   },
   {
       "id": 68,
-      "name": "BaZard",
+      "name": "Vendeur de carpettes",
       "energie": 2,
       "effect": 15
   },
   {
     "id": 150,
-    "name": "Like a Boss",
+    "name": "Batmobile",
     "energie": 5,
     "effect" : 9 
   },
   {
     "id": 151,
-    "name": "Diplôme",
+    "name": "Potion",
     "energie": 3,
     "effect" : 1 
   },
   {
     "id": 152,
-    "name": "Tâches administratives",
+    "name": "Rafale de vent",
     "energie": 4,
     "effect" : 4 
   },
   {
     "id": 153,
-    "name": "Visite des copies",
+    "name": "Super-force",
     "energie": 3,
     "effect" : 6 
   },
   {
     "id": 154,
-    "name": "Guilty and fat",
+    "name": "Kryptonite",
     "energie": 2,
     "effect" : 5 
   },
   {
     "id": 155,
-    "name": "Tutoriel",
+    "name": "Super-souffle",
     "energie": 5,
     "effect" : 10 
   },
   {
     "id": 156,
-    "name": "Sort",
+    "name": "Super-vision",
     "energie": 4,
     "effect" : 16
   },
   {
     "id": 157,
-    "name": "Un ptit lol?",
+    "name": "Go Go Gadget Helicopter!",
     "energie": 3,
     "effect" : 0 
   },
   {
     "id": 158,
-    "name": "Syndrome de la page blanche",
+    "name": "Cerveau en éruption",
     "energie": 6,
     "effect" : 12
   },
   {
     "id": 159,
-    "name": "Affichage des notes",
+    "name": "Scooby-Dooby-Doo",
     "energie": 7,
     "effect" : 14
   },
   {
     "id": 160,
-    "name": "OpenClassrooms",
+    "name": "Donut !",
     "energie": 4,
     "effect" : 15
   },
   {
     "id": 161,
-    "name": "Christ Is Back !",
+    "name": "Honneur à tous",
     "energie": 3,
     "effect" : 8
   },
   {
     "id": 162,
-    "name": "JAPON !",
+    "name": "Heigh-ho !",
     "energie": 3,
     "effect" : 0
   },
   {
     "id": 163,
-    "name": "Hadôken !",
+    "name": "Hakuna Matata",
     "energie": 1,
-    "effect" : 4
+    "effect" : 2
   },
   {
     "id": 164,
-    "name": "Deadline",
+    "name": "Comme un homme !",
     "energie": 3,
     "effect" : 6
   },
   {
     "id": 165,
-    "name": "Succès critique",
+    "name": "Girl power",
     "energie": 5,
     "effect" : 10
   },
   {
     "id": 166,
-    "name": "Réussite",
+    "name": "D'oh!",
     "energie": 4,
     "effect" : 9
-  },
-  {
-    "id": 167,
-    "name": "Salle Info",
-    "energie": 4,
-    "effect" : 15
-  },
-  {
-    "id": 168,
-    "name": "La bibli",
-    "energie": 2,
-    "effect" : 1
-  },
-  {
-    "id": 169,
-    "name": "Salle d'études",
-    "energie": 3,
-    "effect" : 2
-  },
-  {
-    "id": 170,
-    "name": "Présentation",
-    "energie": 5,
-    "effect" : 6
-  },
-  {
-      "id": 171,
-      "name": "Semaine tampon",
-      "energie": 4,
-      "effect": 3
-  },
-  {
-      "id": 172,
-      "name": "Un verre au pub!",
-      "energie": 3,
-      "effect": 2
-  },
-  {
-      "id": 173,
-      "name": "P.U.B",
-      "energie": 3,
-      "effect": 16
-  },
-    {
-    "id": 174,
-    "name": "Remise de projet",
-    "energie": 4,
-    "effect" : 11
-  },
-  {
-    "id": 175,
-    "name": "Echec critique",
-    "energie": 5,
-    "effect" : 14
-  },
-  {
-    "id": 176,
-    "name": "C'est ton destin",
-    "energie": 3,
-    "effect" : 0
-  },
-  {
-    "id": 177,
-    "name": "Harlem Shake",
-    "energie": 2,
-    "effect" : 0
-  },
-  {
-    "id": 178,
-    "name": "Tu doubles !",
-    "energie": 5,
-    "effect" : 6
-  },
-  {
-    "id": 179,
-    "name": "JUST DO IT !",
-    "energie": 6,
-    "effect" : 10
-  },
-  {
-    "id": 180,
-    "name": "Pulp Fiction",
-    "energie": 4,
-    "effect" : 7
-  },
-  {
-    "id": 181,
-    "name": "KAMEHAMEHAAA",
-    "energie": 5,
-    "effect" : 5
-  },
-  {
-    "id": 182,
-    "name": "La réponse D",
-    "energie": 2,
-    "effect" : 0
-  },
-  {
-      "id": 183,
-      "name": "Fuyez pauvres fous !",
-      "energie": 6,
-      "effect": 12
-  },
-  {
-      "id": 184,
-      "name": "Change de campus !",
-      "energie": 2,
-      "effect": 4
-  },
-  {
-      "id": 185,
-      "name": "The cake is a lie",
-      "energie": 1,
-      "effect": 0
   }
 ]
