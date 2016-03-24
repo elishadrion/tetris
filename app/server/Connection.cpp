@@ -169,6 +169,7 @@ void* Connection::newPlayerThread(void* data) {
             if (card != nullptr) {
                 PacketManager::sendCardInfo(newPlayer, card);
                 Packet::packet *confirm = (Packet::packet*) malloc(sizeof(Packet::packet));
+                usleep(100);
                 readSize = recv(clientSocket, packet, sizeof(Packet::packet), 0);
                 free(confirm);
             }
