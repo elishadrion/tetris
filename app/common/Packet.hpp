@@ -14,12 +14,12 @@ public:
         REGIST_REQ_ID = 12, /* DEFAULT PACKET */
         LOGIN_RES_ID = 13, /* Error code to convert in message (intPacket) */
         PLAYER_INFO_ID = 14, /* Success so get all player infos needed */
-        DISCONNECT_ID = 15, /* DEFAULT PACKET */
+        LOGIN_COMPLETE_ID = 15, /* DEFAULT PACKET */
+        DISCONNECT_ID = 16, /* DEFAULT PACKET */
         /* CARDS PROCESS */
-        CARTE_REQ_ID = 21, /* intPacket */
-        CARTE_INFO_ID = 22, /* Send all card info (no img) */
-        CARTE_IMG_REQ_ID = 23, /* intPacket */
-        CARTE_IMG_ID = 24, /* intPacket */
+        CARTE_INFO_ID = 21, /* Send all card info (no img) */
+        CARTE_IMG_REQ_ID = 22, /* intPacket */
+        CARTE_IMG_ID = 23, /* intPacket */
         /* TCHAT */
         TCHAT_SEND_MSG_ID = 31, /* tchatSendMsgPacket */
         TCHAT_RECEV_MSG_ID = 32, /* tchatRecevMsgPacket */

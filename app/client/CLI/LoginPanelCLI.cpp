@@ -246,6 +246,10 @@ void LoginPanelCLI::proceed(bool registration) {
     if (wizardDisplay->packetStack.empty()) {
         WizardLogger::info("Login réussi");
         success = true;
+        
+        /* We wait for cards */
+        printWait(CARDS_LOADING);
+        pthread_cond_wait(&wizardDisplay->packetStackCond, &wizardDisplay->packetStackMutex);
     } else {
         printError(*reinterpret_cast<std::string*>(wizardDisplay->packetStack.back()));
         wizardDisplay->packetStack.pop_back();

@@ -18,11 +18,11 @@ void PacketManager::managePacket(Player *player, Packet::packet* customPacket) {
                                           break;
         case Packet::PLAYER_INFO_ID :     WizardLogger::warning("Paquet de résolution de login reçu");
                                           break;
+        case Packet::LOGIN_COMPLETE_ID :  WizardLogger::warning("Paquet de résolution de login reçu");
+                                          break;
         case Packet::DISCONNECT_ID :      manageDisconnectRequest(player, customPacket);
                                           break;
         /* Card process */
-        case Packet::CARTE_REQ_ID :       manageCardRequest(player, (Packet::intPacket*) customPacket);
-                                          break;
         case Packet::CARTE_INFO_ID :      WizardLogger::warning("Paquet d'info de carte reçu");
                                           break;
         case Packet::CARTE_IMG_REQ_ID :   manageCardImgRequest(player, (Packet::intPacket*) customPacket);
@@ -106,12 +106,6 @@ void PacketManager::manageDisconnectRequest(Player* player, Packet::packet* disc
 }
 
 //============================CARD PROCESS===========================================
-
-void PacketManager::manageCardRequest(Player* player, Packet::intPacket* cardRequest) {
-    unsigned id = cardRequest->data;
-    WizardLogger::info("Demande d'information concernant la carte: " + std::to_string(id));
-    sendCardInfo(player, CardManager::getCardById(id));
-}
 
 void PacketManager::manageCardImgRequest(Player* player, Packet::intPacket* cardRequest) {
     //TODO get card form server database and call sendCardImg (block client recev :/)

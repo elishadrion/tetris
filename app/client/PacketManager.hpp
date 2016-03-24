@@ -1,6 +1,5 @@
 #include <string>
 #include <vector>
-#include <pthread.h>
 
 #include "common/Constants.hpp"
 #include "common/Packet.hpp"
@@ -15,11 +14,6 @@
 extern WizardDisplay *wizardDisplay;
 
 namespace PacketManager {
-
-    extern pthread_t _drawThread;
-    extern std::vector<int> _id_carte; // queue
-    extern pthread_mutex_t _card_mutex;
-
     void managePacket(Packet::packet*);
 
     //=============================RECEV=====================================
@@ -27,6 +21,7 @@ namespace PacketManager {
     /* Login process */
     void loginResult(const Packet::intPacket*); /* LOGIN_RES_ID */
     void playerInfo(const Packet::playerInfoPacket*); /* PLAYER_INFO_ID */
+    void loginComplete(const Packet::packet*); /* LOGIN_COMPLETE_ID */
     
     /* Card process */
     void saveCardInfo(const Packet::cardInfosPacket*); /* CARTE_INFO_ID */
@@ -62,7 +57,6 @@ namespace PacketManager {
     void sendDisconnection(); /* DISCONNECT_ID */
     
     /* Card process */
-    void makeCardRequest(const unsigned); /* CARTE_REQ_ID */
     void makeCardImgRequest(const unsigned); /* CARTE_IMG_REQ_ID */
     
     /* Tchat process */

@@ -21,7 +21,6 @@ namespace PacketManager {
     void manageDisconnectRequest(Player*, Packet::packet*); /* DISCONNECT_ID */
     
     /* Card process */
-    void manageCardRequest(Player*, Packet::intPacket*); /* CARTE_REQ_ID */
     void manageCardImgRequest(Player*, Packet::intPacket*); /* CARTE_IMG_REQ_ID */
     
     /* Tchat process */

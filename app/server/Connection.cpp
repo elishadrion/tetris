@@ -162,6 +162,14 @@ void* Connection::newPlayerThread(void* data) {
     /* If login is ok, we launch recvloop from Player after sending player's info to client */
     if (loginOK) {
         sendSucess(newPlayer, clientSocket);
+    
+        /* Send all cards */
+        for (int i = 0 ; i < 200 ; ++i) {
+            Card* card = CardManager::getCardById(i);
+            if (card != nullptr) {
+                sendCardInfo(newPlayer, card);
+            }
+        }
         newPlayer->recvLoop();
     }
 }

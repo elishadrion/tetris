@@ -101,6 +101,6 @@ Card* CardManager::chooseCardWin(){
     srand(time(NULL));
 
     int idAleatoire = (rand() % static_cast<unsigned>(_listCard.size())) + 1;
-
+    //TODO check if card already exist for the player (max two same cards)
     return _listCard[idAleatoire];
 }

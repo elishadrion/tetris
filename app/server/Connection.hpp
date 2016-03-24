@@ -19,6 +19,8 @@
 #include "PacketManager.hpp"
 #include "Player.hpp"
 #include "PlayerManager.hpp"
+#include "CardManager.hpp"
+#include "Card.hpp"
 
 #define BACKLOG 5       /* Pending connections the queue will hold */
 
