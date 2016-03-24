@@ -26,7 +26,7 @@ public:
                   unsigned HP, unsigned attack) :
         _id(id), _monster(isMonster), _name(name), _description(description), _energyCost(energy),
         _maxHP(HP), _HP(HP), _attack(attack), _img("cache/"+name) {}
-    Card(const Card&) = default;
+    //Card(const Card&) = default;
     ~Card() = default;
     
     /* Getter */

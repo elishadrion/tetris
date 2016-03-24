@@ -66,6 +66,7 @@ void GameManager::drawCard(unsigned idCard) {
 }
 
 
+
 /**
  * Remove a card from the hand of the player
  *

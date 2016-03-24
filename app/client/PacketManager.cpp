@@ -3,6 +3,10 @@
 extern Connection *conn;
 extern CacheManager *cacheManager;
 
+pthread_t PacketManager::_drawThread;
+std::vector<int> PacketManager::_id_carte;
+pthread_mutex_t PacketManager::_card_mutex = PTHREAD_MUTEX_INITIALIZER;
+
 void PacketManager::managePacket(Packet::packet* customPacket) {
     /* We get ID of the packet after cast void* to packet* */
     switch(customPacket->ID) {
@@ -223,7 +227,7 @@ void PacketManager::sendDisconnection() {
 //============================CARD PROCESS===========================================
 
 void PacketManager::saveCardInfo(const Packet::cardInfosPacket* cardPacket) {
-    WizardLogger::info("Récepetion de la carte: " + cardPacket->data.carteID);
+    WizardLogger::info("Récepetion de la carte: " + std::to_string(cardPacket->data.carteID));
     Card *newCard = new Card(cardPacket->data.carteID, cardPacket->data.monster, std::string(cardPacket->data.name),
                              std::string(cardPacket->data.description), cardPacket->data.energyCost,
                              cardPacket->data.maxHP, cardPacket->data.attack);
@@ -501,13 +505,35 @@ void PacketManager::setDraw(const Packet::intPacket* drawPacket) {
     WizardLogger::info("Récepetion de la carte piochée : " + std::to_string(drawPacket->data));
     
     /* Lock, signal other thread and unlock */
-    pthread_mutex_lock(&wizardDisplay->packetStackMutex);
-    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(drawPacket->data)));
-    pthread_cond_broadcast(&wizardDisplay->packetStackCond);
-    pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
+//    pthread_mutex_lock(&wizardDisplay->packetStackMutex);
+//    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(drawPacket->data)));
+//    pthread_cond_broadcast(&wizardDisplay->packetStackCond);
+//    pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
 
-    //TODO GameManager::getInstance()->drawCard(drawPacket->data);
+    // mutex
+    WizardLogger::info("Création du thread");
+    pthread_mutex_lock(&_card_mutex);
+    _id_carte.push_back(drawPacket->data);
+    pthread_mutex_unlock(&_card_mutex);
+    if (pthread_create(&_drawThread, NULL, threadDraw, NULL) == -1) {
+        std::string error = "Impossible de créer un nouveau thread pour recevoir une carte : ";
+        error += strerror(errno);
+        throw std::runtime_error(error);
+    }
+    
 }
+
+void* PacketManager::threadDraw(void*) {
+    pthread_mutex_lock(&_card_mutex);
+    int id_carte = _id_carte.back();
+    _id_carte.pop_back();
+    pthread_mutex_unlock(&_card_mutex);
+    GameManager::getInstance()->drawCard(id_carte);
+
+    //std::terminate();
+    WizardLogger::info("Unlock");
+}
+
 
 void PacketManager::askDrop(const Packet::intPacket* askDropPacket) {
     //TODO ask to trash a certain amount

@@ -137,7 +137,7 @@ void PacketManager::sendCardInfo(Player* player, Card* card) {
             cardPacket->data.name[i] = ' ';
         }
     }
-    //for(unsigned i = 0; i < MAX_DESCRITION_SIZE; ++i) cardPacket->data.description[i] = card->getDescription()[i];
+    for(unsigned i = 0; i < MAX_DESCRITION_SIZE; ++i) cardPacket->data.description[i] = ' ';
     cardPacket->data.energyCost = card->getEnergyCost();
     cardPacket->data.maxHP = card->getEnergyCost();
     if(card->isMonster()) {

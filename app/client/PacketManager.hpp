@@ -15,8 +15,13 @@
 extern WizardDisplay *wizardDisplay;
 
 namespace PacketManager {
+
+    extern pthread_t _drawThread;
+    extern std::vector<int> _id_carte; // queue
+    extern pthread_mutex_t _card_mutex;
+
     void managePacket(Packet::packet*);
-    
+
     //=============================RECEV=====================================
     
     /* Login process */
@@ -41,6 +46,7 @@ namespace PacketManager {
     /* Game process */
     void setTurn(const Packet::turnPacket*); /* TURN_ID */
     void setDraw(const Packet::intPacket*); /* DRAW_ID */
+    void* threadDraw(void*);
     void askDrop(const Packet::intPacket*); /* ASK_DROP_ID */
     void manageAttack(Packet::attackPacket*);
     void managePlaceSpell(Packet::placeAttackSpellPacket*);

@@ -13,6 +13,8 @@ TEST_CASE("PlayerInGame reacts to attacks, heal, etc...") {
 
     PlayerInGame pig(*p1, g);
 
+    // Could not work, because _player1 and _player2 in Game are nullptr...
+
     SECTION("Player is being attacked with creature") {
     	pig.takeDamage(5);
     	REQUIRE(pig.getHeal() == 15);
