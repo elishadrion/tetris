@@ -60,4 +60,4 @@ public slots:
 
 };
 
-#endif LOGINPANEL_GUI_HPP
+#endif // LOGINPANEL_GUI_HPP

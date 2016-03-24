@@ -112,7 +112,6 @@ void Game::checkDeckAndStart() {
         while(i < MIN_CARD_IN_HAND) {
             draw(_player1);
             draw(_player2);
-            sleep(1);
             ++i;
         }
 

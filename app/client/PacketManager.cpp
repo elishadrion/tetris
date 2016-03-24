@@ -492,11 +492,12 @@ void PacketManager::setTurn(const Packet::turnPacket* turnPacket) {
 void PacketManager::setDraw(const Packet::intPacket* drawPacket) {
     WizardLogger::info("Récepetion de la carte piochée : " + std::to_string(drawPacket->data));
     
-    /* Lock, signal other thread and unlock */
-    pthread_mutex_lock(&wizardDisplay->packetStackMutex);
-    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(drawPacket->data)));
-    pthread_cond_broadcast(&wizardDisplay->packetStackCond);
-    pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
+    GameManager::getInstance()->drawCard(drawPacket->data);
+//    /* Lock, signal other thread and unlock */
+//    pthread_mutex_lock(&wizardDisplay->packetStackMutex);
+//    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(drawPacket->data)));
+//    pthread_cond_broadcast(&wizardDisplay->packetStackCond);
+//    pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
     
 }
 
