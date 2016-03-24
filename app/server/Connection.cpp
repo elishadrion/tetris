@@ -170,6 +170,12 @@ void* Connection::newPlayerThread(void* data) {
                 sendCardInfo(newPlayer, card);
             }
         }
+        
+        Packet::packet *endLogin = new Packet::packet();
+        endLogin->ID = Packet::LOGIN_COMPLETE_ID;
+        send(socket, endLogin, sizeof(Packet::packet), 0);
+        delete endLogin;
+        
         newPlayer->recvLoop();
     }
 }
