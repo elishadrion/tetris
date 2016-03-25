@@ -5,7 +5,9 @@
  * plus adapté.
 */
 
-CardWidget::CardWidget(bool emplacement): _emplacement(emplacement), _card(nullptr) {
+CardWidget::CardWidget(bool emplacement, bool interact): QWidget(),
+    _emplacement(emplacement), _card(nullptr), _interact(interact) {
+
     _label = new QLabel(this);
     _label->setScaledContents(true);
     _label->setFixedSize(0,0);
@@ -13,7 +15,9 @@ CardWidget::CardWidget(bool emplacement): _emplacement(emplacement), _card(nullp
 }
 
 
-CardWidget::CardWidget(Card* card): QWidget(), _card(card), _emplacement(false) {
+CardWidget::CardWidget(Card* card): QWidget(), _card(card),
+    _emplacement(false), _interact(true) {
+
     _label = new QLabel(this);
     _label->setScaledContents(true);
     _label->setFixedSize(0,0);
@@ -34,9 +38,14 @@ void CardWidget::toggleSelect() {
  */
 void CardWidget::resizeEvent(QResizeEvent* event){
     QWidget::resizeEvent(event);
-    QSize picSize = _label->pixmap()->size();
-    picSize.scale(size(),Qt::KeepAspectRatio);
-    _label->setFixedSize(picSize);
+    if(!_emplacement) {
+        QSize picSize = _label->pixmap()->size();
+        picSize.scale(size(),Qt::KeepAspectRatio);
+        _label->setFixedSize(picSize);
+    } else {
+        QSize size = this->size();
+        _label->setFixedSize(size);
+    }
 }
 
 
@@ -100,8 +109,10 @@ void CardWidget::setSelect(bool value) {
 }
 
 void CardWidget::mousePressEvent(QMouseEvent *event) {
-    WizardLogger::info("bouton !");
-    toggleSelect();
+    if(_interact) {
+        WizardLogger::info("bouton !");
+        toggleSelect();
+    }
 }
 
 

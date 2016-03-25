@@ -64,6 +64,10 @@ void GUI::drawCard(Card* card) {
     gamePanel->callDrawCard(card);
 }
 
+void GUI::adverseDrawCard() {
+    gamePanel->callAdvDrawCard();
+}
+
 
 ///////////// Tchat /////////////
 

@@ -34,6 +34,7 @@ public:
     void askDeck() override;
     void changeTurn(int, bool) override;
     void drawCard(Card*) override;
+    void adverseDrawCard() override;
 
     // Tchat
     void recevTchatMsg(std::string, std::string, std::string);

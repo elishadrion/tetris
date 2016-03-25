@@ -38,24 +38,32 @@ class GameGUI : public QMainWindow {
     QVBoxLayout *_infoGame;
     QLabel* _nbrTurn;
 
+    CardWidget* _cardInHand[MAX_HAND];
+    CardWidget* _advCardInHand[MAX_HAND];
+    CardWidget* _cardBoard[MAX_POSED_CARD];
+    CardWidget* _advCardBoard[MAX_POSED_CARD];
+
 
     void chooseDeck();
-    void addCard(CardWidget*);
 
 public:
     GameGUI();
     void callChangeTurn(int, bool);
     void callDrawCard(Card*);
+    void callAdvDrawCard();
 
 signals:
     void nextPlayer(bool);
     void mustUpdateTurn(int);
     void cardDraw(Card*);
+    void advCardDraw();
 
 private slots:
     void viewPassButton(bool);
     void updateTurn(int);
     void placeInHandCard(Card*);
+    void placeAdvCard();
+    void placeOnBoard();
 
 
 };

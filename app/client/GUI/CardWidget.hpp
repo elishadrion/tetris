@@ -22,11 +22,12 @@ class CardWidget : public QWidget{
     QLabel* _label;
     bool _selected;
     bool _emplacement;
+    bool _interact;
 
     void toggleSelect();
 
 public:
-    CardWidget(bool = true);
+    CardWidget(bool = true, bool = true);
     CardWidget(Card*);
     void resizeEvent(QResizeEvent*);
     void actualize();

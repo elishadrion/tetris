@@ -13,6 +13,13 @@ void GameGUI::chooseDeck() {
  */
 GameGUI::GameGUI() : QMainWindow() {
 
+    // Init variable
+    for(int i = 0; i < MAX_HAND; ++i) {
+        _cardInHand[i] = nullptr;
+        _advCardInHand[i] = nullptr;
+    }
+
+    // Construct interface
     _centralWidget = new QWidget(this);
     setCentralWidget(_centralWidget);
 
@@ -46,6 +53,27 @@ GameGUI::GameGUI() : QMainWindow() {
 
     _nextTurnOff = new QLabel("Ce n'est pas\nvotre tour", this);
     _gridlayout->addWidget(_nextTurnOff, 4, 11);
+
+
+    // Emplacement
+    for(int i = 0; i < MAX_POSED_CARD; ++i) {
+        CardWidget* advCardWidget = new CardWidget(true, false);
+        _advCardBoard[i] = advCardWidget;
+        _gridlayout->addWidget(advCardWidget, 3, 3+i);
+
+        CardWidget* cardWidget = new CardWidget(true);
+        _cardBoard[i] = cardWidget;
+        _gridlayout->addWidget(cardWidget, 5, 3+i);
+
+    }
+
+    // Emplacement Carte sort
+    CardWidget* spellCardWidget = new CardWidget(true);
+    _gridlayout->addWidget(spellCardWidget, 6, 2);
+
+    CardWidget* advSpellCardWidget = new CardWidget(true, false);
+    _gridlayout->addWidget(advSpellCardWidget, 2, 2);
+
 
     //////// INFO GAME ////////
     _infoGame = new QVBoxLayout;
@@ -107,8 +135,8 @@ GameGUI::GameGUI() : QMainWindow() {
 
     // Ligne des cartes 1
     _gridlayout->setRowStretch(0, 2); // adverse player
-    _gridlayout->setRowStretch(1, 3); // adverse hand
-    _gridlayout->setRowStretch(2, 3); // adverse sort
+    _gridlayout->setRowStretch(1, 4); // adverse hand
+    _gridlayout->setRowStretch(2, 4); // adverse sort
     _gridlayout->setRowStretch(3, 5); // adverse place
     _gridlayout->setRowStretch(4, 1); // bouton passer
     _gridlayout->setRowStretch(5, 5); // Card placed
@@ -122,6 +150,7 @@ GameGUI::GameGUI() : QMainWindow() {
     connect(this, SIGNAL(nextPlayer(bool)), this, SLOT(viewPassButton(bool)));
     connect(this, SIGNAL(mustUpdateTurn(int)), this, SLOT(updateTurn(int)));
     connect(this, SIGNAL(cardDraw(Card*)), this, SLOT(placeInHandCard(Card*)));
+    connect(this, SIGNAL(advCardDraw()), this, SLOT(placeAdvCard()));
 
 
     chooseDeck();
@@ -145,6 +174,13 @@ void GameGUI::callChangeTurn(int nbrTurn, bool isTurn) {
  */
 void GameGUI::callDrawCard(Card* card) {
     emit cardDraw(card);
+}
+
+/**
+ * Call when adverse player draw a card
+ */
+void GameGUI::callAdvDrawCard() {
+    emit advCardDraw();
 }
 
 /**
@@ -177,28 +213,37 @@ void GameGUI::updateTurn(int nbrTurn) {
  * @param card the ne card
  */
 void GameGUI::placeInHandCard(Card* card) {
-    bool find;
     int i = 0;
 
-    while(i < MAX_HAND && !find) {
-        find = (_gridlayout->itemAtPosition(7, 3+i) == 0);
+    while(i < MAX_HAND && (_cardInHand[i] != nullptr)) {
         ++i;
     }
 
-    if(find) {
+    if(i != MAX_HAND) {
         CardWidget* cardWidget = new CardWidget(card);
-        _gridlayout->addWidget(cardWidget, 7, 2+i);
-        addCard(cardWidget);
+        _cardInHand[i] = cardWidget;
+        _gridlayout->addWidget(cardWidget, 7, 3+i);
     } else {
         WizardLogger::error("Impossible de posée la carte (plus assez de place)");
     }
 }
 
-/**
- * Call when a new card is place
- *
- * @param cardWidget the new widget
- */
-void GameGUI::addCard(CardWidget* cardWidget) {
-    // TO DO
+void GameGUI::placeAdvCard() {
+    int i = 0;
+    while(i < MAX_HAND && (_advCardInHand[i] != nullptr)) {
+        ++i;
+    }
+
+    if(i != MAX_HAND) {
+        CardWidget* cardWidget = new CardWidget(false);
+        _advCardInHand[i] = cardWidget;
+        _gridlayout->addWidget(cardWidget, 1, 3+i);
+    } else {
+        WizardLogger::error("Impossible de posée une carte adverse (plus assez de place)");
+    }
+
+}
+
+void GameGUI::placeOnBoard() {
+
 }

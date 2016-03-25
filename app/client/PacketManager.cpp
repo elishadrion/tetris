@@ -32,7 +32,7 @@ void PacketManager::managePacket(Packet::packet* customPacket) {
                                           break;
 
         /* Tchat process */
-        case Packet::TCHAT_RECEV_MSG_ID : getMessage((Packet::tchatRecevMsgPacket*) customPacket);
+        case Packet::TCHAT_RECEV_MSG_ID:  getMessage((Packet::tchatRecevMsgPacket*) customPacket);
                                           break;
         case Packet::TCHAT_SEND_MSG_ID :  WizardLogger::info("Message de tchat reçu");
                                           break;
@@ -44,7 +44,7 @@ void PacketManager::managePacket(Packet::packet* customPacket) {
                                           break;
         case Packet::FRIENDS_REQ_ID :     requestFriend((Packet::pseudoPacket*) customPacket);
                                           break;
-        case Packet::FRIENDS_LIST_REQ_ID :WizardLogger::warning("Paquet de requête de liste d'ami reçu");
+        case Packet::FRIENDS_LIST_REQ_ID: WizardLogger::warning("Paquet de requête de liste d'ami reçu");
                                           break;
         case Packet::FRIENDS_LIST_ID :    updateFriendList((Packet::friendListPacket*) customPacket);
                                           break;
@@ -58,7 +58,7 @@ void PacketManager::managePacket(Packet::packet* customPacket) {
                                           break;
         case Packet::CANCEL_ID :          WizardLogger::warning("Paquet d'annulation de partie reçu");
                                           break;
-        case Packet::ASK_DECK_AND_PSEUDO_ID :
+        case Packet::ASK_DECK_AND_PSEUDO_ID:
                                           askDeckAndPseudo((Packet::pseudoPacket*) customPacket);
                                           break;
         case Packet::DECK_CHOOS_ID :      WizardLogger::warning("Paquet de choix de deck reçu");
@@ -561,6 +561,7 @@ void PacketManager::setBeginDraw(const Packet::beginDrawPacket* drawPacket) {
     WizardLogger::info("Récepetion des cartes piochées");
     for(int i = 0; i < drawPacket->min_hand; ++i) {
         GameManager::getInstance()->drawCard(drawPacket->listID[i]);
+        wizardDisplay->adverseDrawCard();
     }
 }
 
