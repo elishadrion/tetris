@@ -669,7 +669,7 @@ void PacketManager::sendPlaceCard(const int idCard) {
 
         WizardLogger::info("Carte à placer " + std::to_string(placePack->data));
 
-        conn->sendPacket((Packet::packet*) placePack, sizeof(placePack));
+        conn->sendPacket((Packet::packet*) placePack, sizeof(*placePack));
         delete placePack;
     } else {
         WizardLogger::warning("Impossible de placer une carte, ce n'est pas à votre tour de joueur");
