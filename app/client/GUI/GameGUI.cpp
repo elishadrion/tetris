@@ -149,8 +149,8 @@ GameGUI::GameGUI() : QMainWindow(), _inHandSelect(nullptr) {
     show();
     this->showMaximized(); // set full screen
 
-    connect(this, SIGNAL(nextPlayer(bool)), this, SLOT(viewPassButton(bool)));
-    connect(this, SIGNAL(mustUpdateTurn(int)), this, SLOT(updateTurn(int)));
+    connect(this, SIGNAL(nextPlayer()), this, SLOT(viewPassButton()));
+    connect(this, SIGNAL(mustUpdateTurn()), this, SLOT(updateTurn()));
     connect(this, SIGNAL(cardDraw(Card*)), this, SLOT(placeInHandCard(Card*)));
     connect(this, SIGNAL(advCardDraw()), this, SLOT(drawAdvCard()));
     connect(_nextTurnBouton, SIGNAL(clicked()), this, SLOT(nextTurn()));
@@ -166,9 +166,9 @@ GameGUI::GameGUI() : QMainWindow(), _inHandSelect(nullptr) {
  * @param nbrTurn number of turn
  * @param isTurn is the player turn
  */
-void GameGUI::callChangeTurn(int nbrTurn, bool isTurn) {
-    emit nextPlayer(isTurn);
-    emit mustUpdateTurn(nbrTurn);
+void GameGUI::callChangeTurn() {
+    emit nextPlayer();
+    emit mustUpdateTurn();
 }
 
 /**
@@ -204,8 +204,8 @@ void GameGUI::callAdvPlaceCard(Card* card) {
  *
  * @param value true if visible
  */
-void GameGUI::viewPassButton(bool value) {
-    if(value) {
+void GameGUI::viewPassButton() {
+    if(GameManager::getInstance()->isTurn()) {
         _nextTurnBouton->show();
         _nextTurnOff->hide();
     } else {
@@ -219,8 +219,9 @@ void GameGUI::viewPassButton(bool value) {
  *
  * @param nbrTurn number of turn
  */
-void GameGUI::updateTurn(int nbrTurn) {
-    _nbrTurn->setText(QString(std::to_string(nbrTurn).c_str()));
+void GameGUI::updateTurn() {
+    _nbrTurn->setText(QString(std::to_string(
+                    GameManager::getInstance()->getNbrTurn()).c_str()));
 }
 
 /**

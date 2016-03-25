@@ -67,11 +67,8 @@ public:
 
     /**
      * The turn change
-     *
-     * @param nbrTurn since the begin of the game
-     * @param isTurn is the player turn of not
      */
-    virtual void changeTurn(int, bool) { }
+    virtual void changeTurn() { }
 
 
     /**

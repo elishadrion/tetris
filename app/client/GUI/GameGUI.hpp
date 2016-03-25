@@ -50,23 +50,23 @@ class GameGUI : public QMainWindow {
 
 public:
     GameGUI();
-    void callChangeTurn(int, bool);
+    void callChangeTurn();
     void callDrawCard(Card*);
     void callAdvDrawCard();
     void callPlaceCard(Card*);
     void callAdvPlaceCard(Card*);
 
 signals:
-    void nextPlayer(bool);
-    void mustUpdateTurn(int);
+    void nextPlayer();
+    void mustUpdateTurn();
     void cardDraw(Card*);
     void advCardDraw();
     void mustPlaceCard(Card*);
     void mustPlaceAdvCard(Card*);
 
 private slots:
-    void viewPassButton(bool);
-    void updateTurn(int);
+    void viewPassButton();
+    void updateTurn();
     void placeInHandCard(Card*);
     void drawAdvCard();
     void selectInHand(CardWidget*);

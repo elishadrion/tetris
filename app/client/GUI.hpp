@@ -32,7 +32,7 @@ public:
 
     // Game
     void askDeck() override;
-    void changeTurn(int, bool) override;
+    void changeTurn() override;
     void drawCard(Card*) override;
     void adverseDrawCard() override;
     void placeCard(Card *) override;

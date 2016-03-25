@@ -50,7 +50,7 @@ void GameManager::setDeck(std::string deckName) {
 void GameManager::setTurn(unsigned nbrTurn, bool isTurn) {
     _nbrTurn = nbrTurn;
     _isTurn = isTurn;
-    wizardDisplay->changeTurn(nbrTurn, isTurn);
+    wizardDisplay->changeTurn();
 }
 
 /**
