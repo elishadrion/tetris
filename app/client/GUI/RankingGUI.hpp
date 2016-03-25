@@ -14,6 +14,8 @@
 class RankingGui;
 #include "MenuPanelGUI.hpp"
 
+#include "client/CacheManager.hpp"
+
 #include "PacketManager.hpp"
 #include "client/WizardDisplay.hpp"
 extern WizardDisplay *wizardDisplay;

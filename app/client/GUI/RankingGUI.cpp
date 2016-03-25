@@ -50,59 +50,41 @@ RankingGui::RankingGui(MenuPanelGUI* menu) : QMainWindow(), _menu(menu) {
     /* Lock */
     pthread_mutex_lock(&wizardDisplay->packetStackMutex);
 
+    WizardLogger::info("Récupération du classement");
+
     // Packet manager
     PacketManager::askClassement();
 
     /* Wait for result */
     pthread_cond_wait(&wizardDisplay->packetStackCond, &wizardDisplay->packetStackMutex);
 
-    /* Check result */
-    if (!wizardDisplay->packetStack.empty()) {
-        WizardLogger::info("Récupération du classement");
-
-        listPseudo = *reinterpret_cast<std::vector<std::string*>*>(
-                                        wizardDisplay->packetStack.back());
-        wizardDisplay->packetStack.pop_back();
-
-        listVictories = *reinterpret_cast<std::vector<int>*>(
-                                        wizardDisplay->packetStack.back());
-        wizardDisplay->packetStack.pop_back();
-
-        listDefeats = *reinterpret_cast<std::vector<int>*>(
-                                        wizardDisplay->packetStack.back());
-        wizardDisplay->packetStack.pop_back();
-
-
-
-
-    } else {
-        WizardLogger::warning("Impossible de récupére le classement");
-    }
-
     /* Unlock */
     pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
-
-
 
     QVBoxLayout* colPseudo = new QVBoxLayout;
     QVBoxLayout* colVictories = new QVBoxLayout;
     QVBoxLayout* colDefeats = new QVBoxLayout;
     QVBoxLayout* colRatio = new QVBoxLayout;
-    for(int i = 0; i < listPseudo.size(); ++i) {
+    for(int i = 0; i < CacheManager::getRankingSize(); ++i) {
         // TO DO: convertir le pointeur de listPseudo en string
-        std::string strPseudo = *reinterpret_cast<std::string*>(listPseudo[i]);
-        QLabel* pseudo = new QLabel(QString::fromStdString(strPseudo));
+        QLabel* pseudo = new QLabel(QString::fromStdString(*CacheManager::getPseudoRanking(i)));
         colPseudo->addWidget(pseudo);
 
+        int victory = CacheManager::getVictoryRanking(i);
         QLabel* victories = new QLabel(
-                    QString::fromStdString(std::to_string(listVictories[i])));
+                    QString::fromStdString(std::to_string(victory)));
         colVictories->addWidget(victories);
 
+        int defeat = CacheManager::getDefeatRanking(i);
         QLabel* defeats = new QLabel(
-                    QString::fromStdString(std::to_string(listDefeats[i])));
+                    QString::fromStdString(std::to_string(defeat)));
         colDefeats->addWidget(defeats);
 
-        int ration = listVictories[i] / (listDefeats[i] + listVictories[i]);
+        int ration;
+        if (defeat + victory > 0)
+            ration = victory / (defeat + victory);
+        else
+            ration = 0;
         QLabel* ratio = new QLabel(
                     QString::fromStdString(std::to_string(ration)));
         colRatio->addWidget(ratio);

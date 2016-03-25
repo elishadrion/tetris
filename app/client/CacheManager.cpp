@@ -1,6 +1,9 @@
 #include "CacheManager.hpp"
 
 std::vector<Card*> CacheManager::cardCache;
+std::vector<std::string*> CacheManager::pseudoRankingCache;
+std::vector<int> CacheManager::victoryRankingCache;
+std::vector<int> CacheManager::defeatRankingCache;
 
 CacheManager::~CacheManager() {
     /* Delete all card in cache */
@@ -30,27 +33,27 @@ Card *CacheManager::getCard(unsigned ID) {
     return nullptr;
 }
 
-/* Get card by name from card local cache
- * @param name : the name of the card to find
- * @return the card pointer or nullptr if card isn't found in cache (error)
- */
-Card *CacheManager::getCard(std::string name) {
-    /* Search for card ID in cache */
-    for (int i = 0 ; i < cardCache.size() ; ++i) {
-        if (cardCache[i]->getName() == name)
-            return cardCache[i];
-    }
-    
-    /* Card not found so we must add it to cache */
-    WizardLogger::error("La carte "+name+" n'est pas dans le cache (cache incomplet ?)");
-    
-    return nullptr;
-}
+int CacheManager::getRankingSize() { return pseudoRankingCache.size(); } 
+std::string *CacheManager::getPseudoRanking(int i) { return pseudoRankingCache[i]; }
+int CacheManager::getVictoryRanking(int i) { return victoryRankingCache[i]; }
+int CacheManager::getDefeatRanking(int i) { return defeatRankingCache[i]; }
 
 /* Safe new card in cache (thread safe) */ 
 void CacheManager::addCard(Card* newCard) {
     if (newCard != nullptr)
         cardCache.push_back(newCard);
+}
+
+void CacheManager::addPseudoRanking(std::string *pseudo) {
+    pseudoRankingCache.push_back(pseudo);
+}
+
+void CacheManager::addVictoryRanking(int victory) {
+    victoryRankingCache.push_back(victory);
+}
+
+void CacheManager::addDefeatRanking(int defeat) {
+    defeatRankingCache.push_back(defeat);
 }
 
 unsigned CacheManager::getNbrCard() {

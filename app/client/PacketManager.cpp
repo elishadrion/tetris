@@ -447,10 +447,6 @@ void PacketManager::askClassement() {
 }
 
 void PacketManager::manageClassement(Packet::classementPacket* classementPacket) {
-    std::vector<std::string*>* listPseudo = new std::vector<std::string*>();
-    std::vector<int> listVictories;
-    std::vector<int> listDefeats;
-
     int nbrPlayer = 0;
     std::string pseudo;
     do {
@@ -465,13 +461,13 @@ void PacketManager::manageClassement(Packet::classementPacket* classementPacket)
         }
 
         if(pseudo != "") {
-            listPseudo->push_back(new std::string(pseudo));
+            CacheManager::addPseudoRanking(new std::string(pseudo));
 
             // victoire //
-            listVictories.push_back(classementPacket->data.victories[nbrPlayer]);
+            CacheManager::addVictoryRanking(classementPacket->data.victories[nbrPlayer]);
 
             // defeats //
-            listDefeats.push_back(classementPacket->data.defeats[nbrPlayer]);
+            CacheManager::addDefeatRanking(classementPacket->data.defeats[nbrPlayer]);
         }
 
         ++nbrPlayer;
@@ -482,11 +478,6 @@ void PacketManager::manageClassement(Packet::classementPacket* classementPacket)
 
 
     pthread_mutex_lock(&wizardDisplay->packetStackMutex);
-    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(listPseudo));
-    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(
-                                             new std::vector<int>(listVictories)));
-    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(
-                                             new std::vector<int>(listDefeats)));
     pthread_cond_broadcast(&wizardDisplay->packetStackCond);
     pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
 }
