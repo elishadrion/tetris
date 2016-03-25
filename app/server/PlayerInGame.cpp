@@ -267,7 +267,7 @@ Error PlayerInGame::defausseCardInHand(Card* card) {
  * @return -1 if not enought place
  */
 int PlayerInGame::placeCard(CardMonster* card) {
-    unsigned res = -1;
+    int res = -1;
     bool find = false;
 
     while(res < MAX_POSED_CARD && !find) {
@@ -279,6 +279,7 @@ int PlayerInGame::placeCard(CardMonster* card) {
         CardMonster* newCard = new CardMonster(*card);
         _cardsPlaced[res] = newCard;
         _energy -= newCard->getEnergyCost();
+        WizardLogger::info("Energy of player: " + std::to_string(_energy));
 
     } else {
         res = -1;
@@ -376,6 +377,12 @@ bool PlayerInGame::havePlace() {
     bool res = false;
     while(i < MAX_POSED_CARD && !res) {
         res = (getCardsPlaced()[i] == nullptr);
+        if(res) {
+            WizardLogger::info("parcours carte trouvé: " + std::to_string(i));
+        } else {
+            WizardLogger::info("parcours carte fail: " + std::to_string(i));
+        }
+        ++i;
     }
 
     return res;

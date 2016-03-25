@@ -209,12 +209,17 @@ Error Game::placeCard(PlayerInGame* pIG, CardMonster* cardPlaced) {
     Error res = canPlaceCard(pIG, cardPlaced);
 
     if(res == Error::NoError) {
-        int position = getRealPosition(pIG, pIG->placeCard(cardPlaced));
-        std::string pseudo = pIG->getName();
-        int idCard = cardPlaced->getId();
+        int relPosition = pIG->placeCard(cardPlaced);
+        if(relPosition == -1) {
+            res = Error::NotEnoughPlace;
+        } else {
+            int position = getRealPosition(pIG, relPosition);
+            std::string pseudo = pIG->getName();
+            int idCard = cardPlaced->getId();
 
-        PacketManager::sendPlaceMonsterCard(_player1, pseudo, idCard, position);
-        PacketManager::sendPlaceMonsterCard(_player2, pseudo, idCard, position);
+            PacketManager::sendPlaceMonsterCard(_player1, pseudo, idCard, position);
+            PacketManager::sendPlaceMonsterCard(_player2, pseudo, idCard, position);
+        }
 
     }
 
@@ -601,9 +606,6 @@ Error Game::canPlaceCard(PlayerInGame* pIG, Card* placeCard) {
     if(pIG == _currentPlayer) {
         if(!placeCard->isMonster() || havePlace(pIG)) {
             if(pIG->haveEnoughEnergy(placeCard)) {
-//                if(placeCard->isMonster()) {
-//                    pIG->placeCard(dynamic_cast<CardMonster*>(placeCard));
-//                }
                 res = Error::NoError;
 
             } else {
