@@ -1,6 +1,8 @@
 #ifndef ERROR_HPP
 #define	ERROR_HPP
 
+#include <string>
+
 enum Error {
     NoError = 0,
     NotEnoughEnergy = 1,
@@ -18,6 +20,10 @@ enum Error {
     DeckNotFound = 13,
     CardNotFound = 14
 };
+
+namespace ErrorAPI {
+    std::string errorToStr(int);
+}
 
 
 #endif	/* ERROR_HPP */

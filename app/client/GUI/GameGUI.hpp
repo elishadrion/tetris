@@ -13,6 +13,7 @@
 #include <QTabBar>
 #include <QGroupBox>
 #include <QMainWindow>
+#include <QMessageBox>
 
 #include <vector>
 
@@ -47,6 +48,7 @@ class GameGUI : public QMainWindow {
 
     void addEmplacement(int, bool);
     void placeCardOnBoard(CardWidget*);
+    void displayError(int);
 
 public:
     GameGUI();

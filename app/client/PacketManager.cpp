@@ -712,7 +712,7 @@ void PacketManager::sendPlaceCardAttack(const unsigned idCard, const int targetP
         placeAttackPack->cardOne = idCard;
         placeAttackPack->cardTwo = targetPosition;
 
-        conn->sendPacket((Packet::packet*) placeAttackPack, sizeof(placeAttackPack));
+        conn->sendPacket((Packet::packet*) placeAttackPack, sizeof(*placeAttackPack));
         delete placeAttackPack;
     } else {
         WizardLogger::warning(
@@ -758,6 +758,8 @@ void PacketManager::quit() {
 }
 
 void PacketManager::manageError(Packet::intPacket* errorPacket) {
+    WizardLogger::warning("Erreur: " + std::to_string(errorPacket->data));
+
     /* Lock, signal other thread and unlock */
     pthread_mutex_lock(&wizardDisplay->packetStackMutex);
     wizardDisplay->packetErrorStack.push_back(errorPacket->data);

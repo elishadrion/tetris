@@ -201,7 +201,11 @@ void GameGUI::placeCardOnBoard(CardWidget* emplacement) {
     }
 }
 
-
+void GameGUI::displayError(int errorId) {
+    QMessageBox messageBox;
+    messageBox.critical(this, QString::fromStdString("Erreur"),
+                        QString::fromStdString(ErrorAPI::errorToStr(errorId)));
+}
 
 
 /**
@@ -358,6 +362,7 @@ void GameGUI::selectEmplacement(CardWidget* cardWidget) {
             } else {
                 int error = reinterpret_cast<int>(wizardDisplay->packetErrorStack.back());
                 wizardDisplay->packetErrorStack.pop_back();
+                this->displayError(error);
                 // TO DO: View Error
             }
 
