@@ -15,6 +15,7 @@ public:
     pthread_mutex_t packetStackMutex = PTHREAD_MUTEX_INITIALIZER;
     pthread_cond_t packetStackCond = PTHREAD_COND_INITIALIZER;
     std::vector<void*> packetStack;
+    std::vector<int> packetErrorStack;
     #endif
     
     

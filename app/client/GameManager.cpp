@@ -35,7 +35,6 @@ void GameManager::setDeck(std::string deckName) {
 
         _deckName = deckName;
         PacketManager::sendSelectedDeck(_deckName.c_str());
-
     } else {
         WizardLogger::warning("Le deck à déjà été définit");
     }
@@ -111,7 +110,7 @@ void GameManager::placeCard(int cardID, unsigned position) {
 
     card = new Card(*card); // copy card
     card->setPosition(position);
-    _posed[position%7] = card;
+    _posed[position%MAX_POSED_CARD] = card;
     _energy -= card->getEnergyCost();
 
     wizardDisplay->placeCard(card);
@@ -227,14 +226,16 @@ void GameManager::placeAdverseCardAndAttack(bool isEffectCard, int cardID, unsig
 
 
 /**
- * Call when a card attack an other or adverse player
+ * Modify GameManager when the player attack other
  *
  * @param cardPosition the card which attack
  * @param targetPosition the card wich IS attack (-1 for advers player)
- * @param heal of the target at end
+ * @param heal the heal of the target card
  */
 void GameManager::attackCard(unsigned cardPosition, int targetPosition, unsigned heal) {
+    // Modify the GameManager
     Card* card = _posed[cardPosition%MAX_POSED_CARD];
+
     if(targetPosition == -1) {
         _adverseHeal = heal;
         wizardDisplay->attackPlayer(card);
@@ -243,7 +244,6 @@ void GameManager::attackCard(unsigned cardPosition, int targetPosition, unsigned
         ennemyCard->setHP(heal);
         wizardDisplay->attackCard(card, ennemyCard);
     }
-
 }
 
 /**

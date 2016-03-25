@@ -35,6 +35,9 @@ namespace PacketManager {
     void requestFriend(const Packet::pseudoPacket*); /* FRIENDS_REQ_ID */
     void updateFriendList(const Packet::friendListPacket*); /* FRIENDS_LIST_ID */
     
+    // Classement
+    void manageClassement(Packet::classementPacket*);
+
     /* Wainting process */
     void askDeckAndPseudo(const Packet::pseudoPacket*); /* GAME_START_ID */
     
@@ -50,6 +53,9 @@ namespace PacketManager {
     void managePlaceCardAttack(Packet::placeAttackPacket*);
     void manageEndGame(const Packet::endGamePacket*); /* END_GAME_ID */
     
+    // Error
+    void manageError(Packet::intPacket*);
+
     //============================SEND======================================
     
     /* Login process */
@@ -69,7 +75,6 @@ namespace PacketManager {
     
     // Classement
     void askClassement();
-    void manageClassement(Packet::classementPacket*);
 
     /* Wainting process */
     void makeGameRequest(); /* WAITING_ID */
@@ -83,4 +88,5 @@ namespace PacketManager {
     void sendPlaceCardAttack(const unsigned, const int); // C_PLACE_CARD_MAKE_SPELL_ID
     void endTurn(); /* END_TURN_ID */
     void quit(); /* QUIT_ID */
+
 }

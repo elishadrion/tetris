@@ -98,6 +98,8 @@ void PacketManager::managePacket(Packet::packet* customPacket) {
                                           break;
         case Packet::END_GAME_ID :        manageEndGame((Packet::endGamePacket*) customPacket);
                                           break;
+        case Packet::ERROR_ID:            manageError((Packet::intPacket*) customPacket);
+                                          break;
         default :                         WizardLogger::warning("Paquet inconnue reçu: " +
                                                             std::to_string(customPacket->ID));
                                           break;
@@ -445,7 +447,7 @@ void PacketManager::askClassement() {
 }
 
 void PacketManager::manageClassement(Packet::classementPacket* classementPacket) {
-    std::vector<std::string*> listPseudo;
+    std::vector<std::string*>* listPseudo = new std::vector<std::string*>();
     std::vector<int> listVictories;
     std::vector<int> listDefeats;
 
@@ -463,7 +465,7 @@ void PacketManager::manageClassement(Packet::classementPacket* classementPacket)
         }
 
         if(pseudo != "") {
-            listPseudo.push_back(new std::string(pseudo));
+            listPseudo->push_back(new std::string(pseudo));
 
             // victoire //
             listVictories.push_back(classementPacket->data.victories[nbrPlayer]);
@@ -476,10 +478,11 @@ void PacketManager::manageClassement(Packet::classementPacket* classementPacket)
 
     } while(nbrPlayer < MAX_PLAYER_CLASSEMENT && pseudo != "");
 
+    WizardLogger::info("Debug: taille vecteur: " + std::to_string(listPseudo->size()));
+
 
     pthread_mutex_lock(&wizardDisplay->packetStackMutex);
-    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(
-                                             new std::vector<std::string*>(listPseudo)));
+    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(listPseudo));
     wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(
                                              new std::vector<int>(listVictories)));
     wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(
@@ -542,14 +545,7 @@ void PacketManager::sendSelectedDeck(const char* deck) {
 
 void PacketManager::setTurn(const Packet::turnPacket* turnPacket) {
     WizardLogger::info("Récepetion d'une information sur le tour");
-    
-    /* Lock, signal other thread and unlock */
-    pthread_mutex_lock(&wizardDisplay->packetStackMutex);
-    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(turnPacket->nbrTurn)));
-    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new bool(turnPacket->isTurn)));
-    pthread_cond_broadcast(&wizardDisplay->packetStackCond);
-    pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
-    //TODO GameManager::getInstance()->setTurn(turnPacket->nbrTurn, turnPacket->isTurn);
+    GameManager::getInstance()->setTurn(turnPacket->nbrTurn, turnPacket->isTurn);
 }
 
 /**
@@ -583,20 +579,27 @@ void PacketManager::askDrop(const Packet::intPacket* askDropPacket) {
 void PacketManager::manageAttack(Packet::attackPacket* attackPacket) {
     GameManager* gm = GameManager::getInstance();
     
-    /* Lock, signal other thread and unlock */
-    pthread_mutex_lock(&wizardDisplay->packetStackMutex);
-    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(attackPacket->data.cardPosition)));
-    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(attackPacket->data.targetPosition)));
-    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(attackPacket->data.heal)));
-    if(attackPacket->data.pseudo == Player::getPlayer()->getName()) {
-        wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new bool(true)));
-        //TODO gm->attackCard(cardPosition, targetPosition, heal);
+    bool adverse = !(attackPacket->data.pseudo == Player::getPlayer()->getName());
+    unsigned cardPosition = attackPacket->data.cardPosition;
+    int targetPosition = attackPacket->data.targetPosition;
+    unsigned heal = attackPacket->data.heal;
+
+    if(gm->isTurn()) {
+        gm->attackCard(cardPosition, targetPosition, heal);
+
+        /* Lock, signal other thread and unlock */
+        pthread_mutex_lock(&wizardDisplay->packetStackMutex);
+        pthread_cond_broadcast(&wizardDisplay->packetStackCond);
+        pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
+
     } else {
-        wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new bool(false)));
-        //TODO gm->adverseAttackCard(cardPosition, targetPosition, heal);
+        if(adverse) {
+            gm->adverseAttackCard(cardPosition, targetPosition, heal);
+        } else {
+            WizardLogger::warning("Cela doit se faire avec les mutex");
+        }
     }
-    pthread_cond_broadcast(&wizardDisplay->packetStackCond);
-    pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
+
 }
 
 /**
@@ -607,19 +610,26 @@ void PacketManager::manageAttack(Packet::attackPacket* attackPacket) {
 void PacketManager::managePlaceCard(Packet::placeCardPacket* placeCardPacket) {
     GameManager* gm = GameManager::getInstance();
     
-    /* Lock, signal other thread and unlock */
-    pthread_mutex_lock(&wizardDisplay->packetStackMutex);
-    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(placeCardPacket->idCard)));
-    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(placeCardPacket->cardPosition)));
-    if(placeCardPacket->pseudo == Player::getPlayer()->getName()) {
-        wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new bool(true)));
-        //TODO gm->placeCard(cardId, position);
+    bool adverse = !(placeCardPacket->pseudo == Player::getPlayer()->getName());
+    int cardId = placeCardPacket->idCard;
+    unsigned position = placeCardPacket->cardPosition;
+
+    if(gm->isTurn()) {
+        gm->placeCard(cardId, position);
+
+        /* Lock, signal other thread and unlock */
+        pthread_mutex_lock(&wizardDisplay->packetStackMutex);
+        pthread_cond_broadcast(&wizardDisplay->packetStackCond);
+        pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
+
     } else {
-        wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new bool(false)));
-        //TODO gm->ennemyPlaceCard(cardId, position);
+        if(adverse) {
+            gm->ennemyPlaceCard(cardId, position);
+        } else {
+            WizardLogger::warning("Cela doit se faire avec les mutex");
+        }
     }
-    pthread_cond_broadcast(&wizardDisplay->packetStackCond);
-    pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
+
 }
 
 /**
@@ -795,3 +805,10 @@ void PacketManager::quit() {
     delete quit;
 }
 
+void PacketManager::manageError(Packet::intPacket* errorPacket) {
+    /* Lock, signal other thread and unlock */
+    pthread_mutex_lock(&wizardDisplay->packetStackMutex);
+    wizardDisplay->packetErrorStack.push_back(errorPacket->data);
+    pthread_cond_broadcast(&wizardDisplay->packetStackCond);
+    pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
+}
