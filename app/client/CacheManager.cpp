@@ -13,6 +13,8 @@ CacheManager::~CacheManager() {
     
     /* Erase all vector */
     cardCache.clear();
+    
+    clearRankingCache();
 }
 
 /* Get card by ID from card local cache
@@ -58,4 +60,16 @@ void CacheManager::addDefeatRanking(int defeat) {
 
 unsigned CacheManager::getNbrCard() {
     return static_cast<unsigned>(cardCache.size());
+}
+
+void CacheManager::clearRankingCache() {
+    /* Delete all pseudo in cache */
+    for (int i = 0 ; i < pseudoRankingCache.size() ; ++i) {
+        delete pseudoRankingCache[i];
+    }
+    
+    /* Erase all vector */
+    pseudoRankingCache.clear();
+    victoryRankingCache.clear();
+    defeatRankingCache.clear();
 }

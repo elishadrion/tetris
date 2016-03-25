@@ -32,6 +32,8 @@ public:
     static void addDefeatRanking(int);
     
     static unsigned getNbrCard();
+    
+    static void clearRankingCache();
 };
 
 #endif  /* CACHE_MANAGER_HPP */

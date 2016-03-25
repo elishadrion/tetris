@@ -51,6 +51,9 @@ RankingGui::RankingGui(MenuPanelGUI* menu) : QMainWindow(), _menu(menu) {
     pthread_mutex_lock(&wizardDisplay->packetStackMutex);
 
     WizardLogger::info("Récupération du classement");
+    
+    /* Clean cache before ask to server */
+    CacheManager::clearRankingCache();
 
     // Packet manager
     PacketManager::askClassement();
