@@ -315,6 +315,7 @@ void PacketManager::manageAttack(Player *player, Packet::twoCardPacket* attackPa
 void PacketManager::managePlaceCard(Player* player, Packet::intPacket* placePacket) {
     if(player->isPlayerInGame()) {
         PlayerInGame* pIG = static_cast<PlayerInGame*>(player);
+        WizardLogger::info("Carte à placer: " + std::to_string(placePacket->data));
         Error res = pIG->reqPlaceCard(placePacket->data);
         if(res != Error::NoError) {
             sendError(player, res);

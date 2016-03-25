@@ -113,7 +113,7 @@ void GameManager::placeCard(int cardID, unsigned position) {
     _posed[position%MAX_POSED_CARD] = card;
     _energy -= card->getEnergyCost();
 
-    wizardDisplay->placeCard(card);
+    //wizardDisplay->placeCard(card);
 }
 
 /**

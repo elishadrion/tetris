@@ -420,7 +420,7 @@ Error PlayerInGame::reqPlaceCard(unsigned cardId) {
     Error res;
 
     Card* card = CardManager::getCardById(cardId);
-    if(card->isMonster()) {
+    if(card != nullptr && card->isMonster()) {
         CardMonster* monsterCard = static_cast<CardMonster*>(card);
         res = _game->placeCard(this, monsterCard);
     } else {

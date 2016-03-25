@@ -120,8 +120,8 @@ void MenuPanelGUI::makeCancelWait() {
  */
 void MenuPanelGUI::makeOpenGame() {
     WizardLogger::info("Une partie a été trouvée, ouverture du menu");
-    this->hide();
     _msgBox->close();
+    this->hide();
     _gui->setGameMenu(new GameGUI());
 }
 

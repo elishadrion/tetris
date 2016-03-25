@@ -5,10 +5,10 @@ void DeckChooseGUI::valideDeck() {
     QList<QListWidgetItem *> listItem = _listDeck->selectedItems();
     if(listItem.size() == 1) {
         std::string select = listItem[0]->text().toStdString();
+        close();
 
         WizardLogger::info("Deck choisi: " + select);
         GameManager::getInstance()->setDeck(select);
-        close();
 
     } else {
         WizardLogger::warning("Nombre d'élément sélectionné incorrect " + listItem.size());

@@ -30,7 +30,6 @@ class GameGUI : public QMainWindow {
 
     QWidget *_centralWidget;
     QGridLayout *_gridlayout;
-    DeckChooseGUI *_choosDeck;
 
     QPushButton *_nextTurnBouton;
     QLabel *_nextTurnOff;
@@ -46,7 +45,8 @@ class GameGUI : public QMainWindow {
     CardWidget* _inHandSelect;
 
 
-    void chooseDeck();
+    void addEmplacement(int, bool);
+    void placeCardOnBoard(CardWidget*);
 
 public:
     GameGUI();
@@ -73,7 +73,6 @@ private slots:
     void unSelectInHand();
     void selectEmplacement(CardWidget*);
     void nextTurn();
-    void placeCard(Card*);
     void placeAdvCard(Card*);
 
 

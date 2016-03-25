@@ -76,7 +76,7 @@ public:
      *
      * @param card which is place
      */
-    virtual void placeCard(Card*) {}
+    //virtual void placeCard(Card*) {}
 
     /**
      * Call when adverse player place card

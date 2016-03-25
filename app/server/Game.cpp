@@ -119,6 +119,7 @@ void Game::checkDeckAndStart() {
         PacketManager::sendDrawBegin(_player1, handPlayer1);
         PacketManager::sendDrawBegin(_player2, handPlayer2);
 
+        usleep(100);
         nextPlayer();
     }
 }

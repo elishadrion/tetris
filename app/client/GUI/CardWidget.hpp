@@ -13,6 +13,7 @@
 #include <QMenu>
 
 #include "Card.hpp"
+#include "GameManager.hpp"
 
 
 class CardWidget : public QWidget{
@@ -37,6 +38,7 @@ public:
     unsigned getId() { return _card->getID(); }
     unsigned getPosition() { return _card->getPosition(); }
     void setPosition(unsigned pos) { _card->setPosition(pos); }
+    bool isMonster() { return _card->isMonster(); }
 
 signals:
     void selected(CardWidget*);

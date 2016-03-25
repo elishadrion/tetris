@@ -1,11 +1,6 @@
 #include "GameGUI.hpp"
 
 
-void GameGUI::chooseDeck() {
-    _choosDeck = new DeckChooseGUI(this);
-}
-
-
 /**
  * Constructor
  *
@@ -57,15 +52,8 @@ GameGUI::GameGUI() : QMainWindow(), _inHandSelect(nullptr) {
 
     // Emplacement
     for(int i = 0; i < MAX_POSED_CARD; ++i) {
-        CardWidget* advCardWidget = new CardWidget(true, false);
-        _advCardBoard[i] = advCardWidget;
-        _gridlayout->addWidget(advCardWidget, 3, 3+i);
-
-        CardWidget* cardWidget = new CardWidget(true);
-        _cardBoard[i] = cardWidget;
-        _gridlayout->addWidget(cardWidget, 5, 3+i);
-
-        connect(cardWidget, SIGNAL(selected(CardWidget*)), this, SLOT(selectEmplacement(CardWidget*)));
+        addEmplacement(i, true);
+        addEmplacement(i, false);
 
     }
 
@@ -156,9 +144,65 @@ GameGUI::GameGUI() : QMainWindow(), _inHandSelect(nullptr) {
     connect(_nextTurnBouton, SIGNAL(clicked()), this, SLOT(nextTurn()));
     connect(this, SIGNAL(mustPlaceAdvCard(Card*)), this, SLOT(placeAdvCard(Card*)));
 
-
-    chooseDeck();
+    // pop-up to choose deck
+    new DeckChooseGUI(this);
 }
+
+
+
+/**
+ * Add an emplacement to the board
+ *
+ * @param index number of the emplacement (left = 0)
+ * @param adverse True if adverse emplacement
+ */
+void GameGUI::addEmplacement(int index, bool adverse) {
+    CardWidget* cardWidget = new CardWidget(true, !adverse);
+    _gridlayout->addWidget(cardWidget, adverse ? 3 : 5, 3+index);
+
+    if(adverse) {
+        _advCardBoard[index] = cardWidget;
+    } else {
+        _cardBoard[index] = cardWidget;
+        connect(cardWidget, SIGNAL(selected(CardWidget*)), this, SLOT(selectEmplacement(CardWidget*)));
+    }
+}
+
+/**
+ * Place the selected card on the board
+ *
+ * @param emplacement of the card who must be placed
+ */
+void GameGUI::placeCardOnBoard(CardWidget* emplacement) {
+    if(_inHandSelect != nullptr) {
+        int nbrHand = 0;
+        while(nbrHand < MAX_HAND && _inHandSelect != _cardInHand[nbrHand]) {
+            ++nbrHand;
+        }
+        _gridlayout->removeWidget(_cardInHand[nbrHand]);
+        _cardInHand[nbrHand] = nullptr;
+
+        int nbrEmplacement = 0;
+        while(nbrEmplacement < MAX_POSED_CARD && emplacement != _cardBoard[nbrEmplacement]) {
+            ++nbrEmplacement;
+        }
+        int index = _gridlayout->indexOf(emplacement);
+        if(index != -1) {
+            int row, col, col_span, row_span;
+            _gridlayout->getItemPosition(index, &row, &col, &col_span, &row_span);
+            _gridlayout->addWidget(_inHandSelect, row, col, col_span, row_span);
+        }
+        emplacement->close();
+
+        _cardBoard[nbrEmplacement] = _inHandSelect;
+        _inHandSelect = nullptr;
+    } else {
+        WizardLogger::warning("Aucune carte sélectionnée");
+    }
+}
+
+
+
 
 /**
  * Call when the turn change (2 emit)
@@ -187,8 +231,6 @@ void GameGUI::callAdvDrawCard() {
     emit advCardDraw();
 }
 
-void GameGUI::callPlaceCard(Card * card) {} // TO DO
-
 /**
  * Call when adverse player place a card
  *
@@ -198,6 +240,7 @@ void GameGUI::callAdvPlaceCard(Card* card) {
     emit mustPlaceAdvCard(card);
 }
 
+// ================ SLOTS =======================
 
 /**
  * Change the view of the button "pass"
@@ -247,6 +290,9 @@ void GameGUI::placeInHandCard(Card* card) {
     }
 }
 
+/**
+ * Call when adverse player draw a new card
+ */
 void GameGUI::drawAdvCard() {
     int i = 0;
     while(i < MAX_HAND && (_advCardInHand[i] != nullptr)) {
@@ -254,7 +300,7 @@ void GameGUI::drawAdvCard() {
     }
 
     if(i != MAX_HAND) {
-        CardWidget* cardWidget = new CardWidget(false);
+        CardWidget* cardWidget = new CardWidget(false, false);
         _advCardInHand[i] = cardWidget;
         _gridlayout->addWidget(cardWidget, 1, 3+i);
     } else {
@@ -262,50 +308,95 @@ void GameGUI::drawAdvCard() {
     }
 }
 
+/**
+ * Call when player select card in hand
+ *
+ * @param cardWidget witch card is select
+ */
 void GameGUI::selectInHand(CardWidget* cardWidget) {
     if(_inHandSelect != nullptr) {
         _inHandSelect->setSelect(false);
     }
     _inHandSelect = cardWidget;
+    WizardLogger::info("Selection de la carte: " + std::to_string(cardWidget->getId()));
 }
 
+/**
+ * Call when player unselect card
+ */
 void GameGUI::unSelectInHand() {
     _inHandSelect = nullptr;
 }
 
 
+/**
+ * Call when we select an emplacement
+ *
+ * @param cardWidget emplacement selected
+ */
 void GameGUI::selectEmplacement(CardWidget* cardWidget) {
+    cardWidget->setSelect(false);
+
     if(_inHandSelect != nullptr) {
-        PacketManager::sendPlaceCard(_inHandSelect->getId());
-        _inHandSelect->setSelect(false);
-        _inHandSelect = nullptr;
-        cardWidget->setSelect(false);
-    } else {
-        cardWidget->setSelect(false);
+        if(_inHandSelect->isMonster()) {
+            /* Lock */
+            pthread_mutex_lock(&wizardDisplay->packetStackMutex);
+
+            // Packet manager
+            WizardLogger::info("Placement de la carte: "+ std::to_string(_inHandSelect->getId()));
+            PacketManager::sendPlaceCard(_inHandSelect->getId());
+
+            /* Wait for result */
+            pthread_cond_wait(&wizardDisplay->packetStackCond, &wizardDisplay->packetStackMutex);
+
+            /* Check result */
+            if (wizardDisplay->packetErrorStack.empty()) {
+                WizardLogger::info("Pose la carte");
+
+                placeCardOnBoard(cardWidget);
+
+            } else {
+                int error = reinterpret_cast<int>(wizardDisplay->packetErrorStack.back());
+                wizardDisplay->packetErrorStack.pop_back();
+                // TO DO: View Error
+            }
+
+            /* Unlock */
+            pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
+        } else {
+            // ERROR
+            //
+        }
     }
 }
 
+/**
+ * Call when the player will change turn
+ */
 void GameGUI::nextTurn() {
     PacketManager::endTurn();
 }
 
-void GameGUI::placeCard(Card* card) {
-    for(int i = 0; i < MAX_HAND; ++i) {
-        //_cardInHand[i]->isEquivalent(card);
-    }
-}
 
-
+/**
+ * Call when adverse place a card
+ *
+ * @param card the card which must be placed
+ */
 void GameGUI::placeAdvCard(Card* card) {
-    delete _advCardInHand[0];
+    _advCardInHand[0]->close();
 
     int i = 0;
     while(i < MAX_POSED_CARD && !_advCardBoard[i]->isEmplacement()) {
         ++i;
     }
 
-    delete _advCardBoard[i];
-    CardWidget* cardWidget = new CardWidget(card);
-    _advCardBoard[i] = cardWidget;
-    _gridlayout->addWidget(cardWidget, 3, 3+i);
+    if(i != MAX_POSED_CARD) {
+        delete _advCardBoard[i];
+        CardWidget* cardWidget = new CardWidget(card);
+        _advCardBoard[i] = cardWidget;
+        _gridlayout->addWidget(cardWidget, 3, 3+i);
+    } else {
+        WizardLogger::warning("Impossible de placer la carte adverse (plus de place)");
+    }
 }

@@ -115,7 +115,7 @@ void CardWidget::setSelect(bool value) {
 }
 
 void CardWidget::mousePressEvent(QMouseEvent *event) {
-    if(_interact) {
+    if(_interact && GameManager::getInstance()->isTurn()) {
         toggleSelect();
     }
 }

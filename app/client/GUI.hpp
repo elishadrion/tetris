@@ -35,7 +35,7 @@ public:
     void changeTurn() override;
     void drawCard(Card*) override;
     void adverseDrawCard() override;
-    void placeCard(Card *) override;
+    //void placeCard(Card *) override;
     void placeAdverseCard(Card*) override;
 
     // Tchat

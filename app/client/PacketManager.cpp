@@ -239,6 +239,7 @@ void PacketManager::sendDisconnection() {
     delete logoutPacket;
 }
 
+
 //============================CARD PROCESS===========================================
 
 void PacketManager::saveCardInfo(const Packet::cardInfosPacket* cardPacket) {
@@ -275,6 +276,7 @@ void PacketManager::makeCardImgRequest(const unsigned ID) {
     conn->sendPacket((Packet::packet*) cardImgReqPacket, sizeof(*cardImgReqPacket));
     delete cardImgReqPacket;
 }
+
 
 //============================TCHAT PROCESS===========================================
 
@@ -337,58 +339,6 @@ void PacketManager::sendMessage(const std::string toPlayer, const std::string me
 }
 
 
-///**
-// * Ask to start a new conversation with someone
-// *
-// * @param pseudo : other player's pseudo
-// */
-//void PacketManager::makeTchatRequest(const std::string pseudo) {
-//    Packet::pseudoPacket *newConvReq = new Packet::pseudoPacket();
-    
-//    /* Set ID and pseudo */
-//    newConvReq->ID = Packet::TCHAT_CONV_REQ_ID;
-//    for (int i = 0 ; i < pseudo.size() ; ++i) newConvReq->pseudo[i] = pseudo[i];
-    
-//    /* Send and free */
-//    conn->sendPacket((Packet::packet*) newConvReq, sizeof(*newConvReq));
-//    delete newConvReq;
-//}
-
-
-///**
-// * Send a message to someone
-// *
-// * @param message : the message to send
-// */
-//void PacketManager::sendMessage(const std::string message) {
-//    Packet::tchatMessagePacket *messagePacket = new Packet::tchatMessagePacket();
-    
-//    /* Set message */
-//    for (int i = 0 ; i < message.size() ; ++i) messagePacket->msg[i] = message[i];
-    
-//    /* Send and free */
-//    conn->sendPacket((Packet::packet*) messagePacket, sizeof(*messagePacket));
-//    delete messagePacket;
-//}
-
-
-///**
-// * Ask to stop a conversation with someone
-// *
-// * @param pseudo : other player's pseudo
-// */
-//void PacketManager::makeTchatStopRequest(const std::string pseudo) {
-//    Packet::pseudoPacket *stopConvReq = new Packet::pseudoPacket();
-    
-//    /* Set ID and pseudo */
-//    stopConvReq->ID = Packet::TCHAT_END_REQ_ID;
-//    for (int i = 0 ; i < pseudo.size() ; ++i) stopConvReq->pseudo[i] = pseudo[i];
-    
-//    /* Send and free */
-//    conn->sendPacket((Packet::packet*) stopConvReq, sizeof(*stopConvReq));
-//    delete stopConvReq;
-//}
-
 //============================FRIEND PROCESS===========================================
 
 void PacketManager::removeFriend(const Packet::pseudoPacket* removeFriendPacket) {
@@ -434,17 +384,9 @@ void PacketManager::makeFriendListRequest() {
     /* Clean memory */
     delete friendListReq;
 }
+
+
 //============================== CLASSEMENT ============================================
-
-void PacketManager::askClassement() {
-    Packet::packet *askClassement = new Packet::packet();
-    askClassement->ID = Packet::ASK_CLASSEMENT_ID;
-
-    // Send
-    conn->sendPacket(askClassement, sizeof(*askClassement));
-    // Memory
-    delete askClassement;
-}
 
 void PacketManager::manageClassement(Packet::classementPacket* classementPacket) {
     int nbrPlayer = 0;
@@ -480,6 +422,17 @@ void PacketManager::manageClassement(Packet::classementPacket* classementPacket)
     pthread_cond_broadcast(&wizardDisplay->packetStackCond);
     pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
 }
+
+void PacketManager::askClassement() {
+    Packet::packet *askClassement = new Packet::packet();
+    askClassement->ID = Packet::ASK_CLASSEMENT_ID;
+
+    // Send
+    conn->sendPacket(askClassement, sizeof(*askClassement));
+    // Memory
+    delete askClassement;
+}
+
 
 //============================LAUNCHING PROCESS=========================================
 
@@ -531,6 +484,7 @@ void PacketManager::sendSelectedDeck(const char* deck) {
     delete sendChoosenDeck;
 }
 
+
 //==============================GAME PROCESS============================================
 
 void PacketManager::setTurn(const Packet::turnPacket* turnPacket) {
@@ -549,6 +503,7 @@ void PacketManager::setBeginDraw(const Packet::beginDrawPacket* drawPacket) {
         GameManager::getInstance()->drawCard(drawPacket->listID[i]);
         wizardDisplay->adverseDrawCard();
     }
+    WizardLogger::info("Fin de la boucle parcourant les cartes piochées");
 }
 
 void PacketManager::setDraw(const Packet::intPacket* drawPacket) {
@@ -561,36 +516,6 @@ void PacketManager::askDrop(const Packet::intPacket* askDropPacket) {
     //TODO ask to trash a certain amount
 }
 
-/**
- * Call when an card attack an other
- *
- * @param attackPacket the packet
- */
-void PacketManager::manageAttack(Packet::attackPacket* attackPacket) {
-    GameManager* gm = GameManager::getInstance();
-    
-    bool adverse = !(attackPacket->data.pseudo == Player::getPlayer()->getName());
-    unsigned cardPosition = attackPacket->data.cardPosition;
-    int targetPosition = attackPacket->data.targetPosition;
-    unsigned heal = attackPacket->data.heal;
-
-    if(gm->isTurn()) {
-        gm->attackCard(cardPosition, targetPosition, heal);
-
-        /* Lock, signal other thread and unlock */
-        pthread_mutex_lock(&wizardDisplay->packetStackMutex);
-        pthread_cond_broadcast(&wizardDisplay->packetStackCond);
-        pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
-
-    } else {
-        if(adverse) {
-            gm->adverseAttackCard(cardPosition, targetPosition, heal);
-        } else {
-            WizardLogger::warning("Cela doit se faire avec les mutex");
-        }
-    }
-
-}
 
 /**
  * Call when a card is placed
@@ -622,30 +547,6 @@ void PacketManager::managePlaceCard(Packet::placeCardPacket* placeCardPacket) {
 
 }
 
-/**
- * Call when a card is placed and attack an other
- *
- * @param placeAttackPacket the packet
- */
-void PacketManager::managePlaceCardAttack(Packet::placeAttackPacket* placeAttackPacket) {
-    GameManager* gm = GameManager::getInstance();
-    
-    /* Lock, signal other thread and unlock */
-    pthread_mutex_lock(&wizardDisplay->packetStackMutex);
-    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(placeAttackPacket->data.idCard)));
-    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(placeAttackPacket->data.cardPosition)));
-    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(placeAttackPacket->data.targetPosition)));
-    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(placeAttackPacket->data.heal)));
-    if(placeAttackPacket->data.pseudo == Player::getPlayer()->getName()) {
-        wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new bool(true)));
-        //TODO gm->placeCardAndAttack(false, cardId, position, targetPosition, heal);
-    } else {
-        wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new bool(false)));
-        //TODO gm->placeAdverseCardAndAttack(false, cardId, position, targetPosition, heal);
-    }
-    pthread_cond_broadcast(&wizardDisplay->packetStackCond);
-    pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
-}
 
 /**
  * Call when a spell card is placed
@@ -654,7 +555,7 @@ void PacketManager::managePlaceCardAttack(Packet::placeAttackPacket* placeAttack
  */
 void PacketManager::managePlaceSpell(Packet::placeAttackSpellPacket* placeAttackSpellPacket) {
     GameManager* gm = GameManager::getInstance();
-    
+
     /* Lock, signal other thread and unlock */
     pthread_mutex_lock(&wizardDisplay->packetStackMutex);
     wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(placeAttackSpellPacket->data.idCard)));
@@ -671,6 +572,63 @@ void PacketManager::managePlaceSpell(Packet::placeAttackSpellPacket* placeAttack
     pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
 }
 
+
+/**
+ * Call when an card attack an other
+ *
+ * @param attackPacket the packet
+ */
+void PacketManager::manageAttack(Packet::attackPacket* attackPacket) {
+    GameManager* gm = GameManager::getInstance();
+
+    bool adverse = !(attackPacket->data.pseudo == Player::getPlayer()->getName());
+    unsigned cardPosition = attackPacket->data.cardPosition;
+    int targetPosition = attackPacket->data.targetPosition;
+    unsigned heal = attackPacket->data.heal;
+
+    if(gm->isTurn()) {
+        gm->attackCard(cardPosition, targetPosition, heal);
+
+        /* Lock, signal other thread and unlock */
+        pthread_mutex_lock(&wizardDisplay->packetStackMutex);
+        pthread_cond_broadcast(&wizardDisplay->packetStackCond);
+        pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
+
+    } else {
+        if(adverse) {
+            gm->adverseAttackCard(cardPosition, targetPosition, heal);
+        } else {
+            WizardLogger::warning("Cela doit se faire avec les mutex");
+        }
+    }
+
+}
+
+
+/**
+ * Call when a card is placed and attack an other
+ *
+ * @param placeAttackPacket the packet
+ */
+void PacketManager::managePlaceCardAttack(Packet::placeAttackPacket* placeAttackPacket) {
+    GameManager* gm = GameManager::getInstance();
+
+    /* Lock, signal other thread and unlock */
+    pthread_mutex_lock(&wizardDisplay->packetStackMutex);
+    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(placeAttackPacket->data.idCard)));
+    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(placeAttackPacket->data.cardPosition)));
+    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(placeAttackPacket->data.targetPosition)));
+    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(placeAttackPacket->data.heal)));
+    if(placeAttackPacket->data.pseudo == Player::getPlayer()->getName()) {
+        wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new bool(true)));
+        //TODO gm->placeCardAndAttack(false, cardId, position, targetPosition, heal);
+    } else {
+        wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new bool(false)));
+        //TODO gm->placeAdverseCardAndAttack(false, cardId, position, targetPosition, heal);
+    }
+    pthread_cond_broadcast(&wizardDisplay->packetStackCond);
+    pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
+}
 
 void PacketManager::manageEndGame(const Packet::endGamePacket* endPacket) {
     // delete GameManager::getInstance();
@@ -696,6 +654,29 @@ void PacketManager::sendDrop(const int ID) {
 }
 
 /**
+ * Send to the server, the new card that we would like place
+ *
+ * @param idCard of the new card
+ */
+void PacketManager::sendPlaceCard(const int idCard) {
+    if(GameManager::getInstance()->isTurn()) {
+        Packet::intPacket *placePack = new Packet::intPacket();
+
+        WizardLogger::info("Carte à placer " + std::to_string(idCard));
+
+        placePack->ID = Packet::C_PLACE_CARD_ID;
+        placePack->data = idCard;
+
+        WizardLogger::info("Carte à placer " + std::to_string(placePack->data));
+
+        conn->sendPacket((Packet::packet*) placePack, sizeof(placePack));
+        delete placePack;
+    } else {
+        WizardLogger::warning("Impossible de placer une carte, ce n'est pas à votre tour de joueur");
+    }
+}
+
+/**
  * Send to the server that a card attack an other card
  *
  * @param cardPosition the position of the card which make attack
@@ -713,25 +694,6 @@ void PacketManager::sendAttack(const unsigned cardPosition, const int targetPosi
         delete attackPack;
     } else {
         WizardLogger::warning("Impossible d'attaquer, ce n'est pas à votre tour de joueur");
-    }
-}
-
-/**
- * Send to the server, the new card that we would like place
- *
- * @param idCard of the new card
- */
-void PacketManager::sendPlaceCard(const unsigned idCard) {
-    if(GameManager::getInstance()->isTurn()) {
-        Packet::intPacket *placePack = new Packet::intPacket();
-
-        placePack->ID = Packet::C_PLACE_CARD_ID;
-        placePack->data = idCard;
-
-        conn->sendPacket((Packet::packet*) placePack, sizeof(placePack));
-        delete placePack;
-    } else {
-        WizardLogger::warning("Impossible de placer une carte, ce n'est pas à votre tour de joueur");
     }
 }
 
