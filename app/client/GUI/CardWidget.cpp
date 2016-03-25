@@ -28,7 +28,14 @@ CardWidget::CardWidget(Card* card): QWidget(), _card(card),
  * Change card selection (select if unselect and vice versa
  */
 void CardWidget::toggleSelect() {
-    _selected ? setSelect(false) : setSelect(true);
+    setSelect(!_selected);
+    if(_selected) {
+        WizardLogger::info("toggle: new = true");
+        emit selected(this);
+    } else {
+        WizardLogger::info("toggle: new = false");
+        emit unSelected(this);
+    }
 }
 
 /**
@@ -101,16 +108,13 @@ void CardWidget::setSelect(bool value) {
     _selected = value;
     if(value) {
         this->setStyleSheet("border: 2px solid red;");
-        emit selected();
     } else {
         this->setStyleSheet("border: 0px solid black;");
-        emit unSelected();
     }
 }
 
 void CardWidget::mousePressEvent(QMouseEvent *event) {
     if(_interact) {
-        WizardLogger::info("bouton !");
         toggleSelect();
     }
 }

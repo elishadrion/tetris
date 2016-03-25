@@ -43,6 +43,8 @@ class GameGUI : public QMainWindow {
     CardWidget* _cardBoard[MAX_POSED_CARD];
     CardWidget* _advCardBoard[MAX_POSED_CARD];
 
+    CardWidget* _inHandSelect;
+
 
     void chooseDeck();
 
@@ -63,7 +65,9 @@ private slots:
     void updateTurn(int);
     void placeInHandCard(Card*);
     void placeAdvCard();
-    void placeOnBoard();
+    void selectInHand(CardWidget*);
+    void unSelectInHand();
+    void selectEmplacement(CardWidget*);
 
 
 };

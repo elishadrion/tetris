@@ -35,8 +35,8 @@ public:
     void setSelect(bool);
 
 signals:
-    void selected();
-    void unSelected();
+    void selected(CardWidget*);
+    void unSelected(CardWidget*);
 
 
 protected:

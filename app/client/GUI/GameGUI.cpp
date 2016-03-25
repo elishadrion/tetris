@@ -11,7 +11,7 @@ void GameGUI::chooseDeck() {
  *
  * @param pseudo from the adverse player
  */
-GameGUI::GameGUI() : QMainWindow() {
+GameGUI::GameGUI() : QMainWindow(), _inHandSelect(nullptr) {
 
     // Init variable
     for(int i = 0; i < MAX_HAND; ++i) {
@@ -65,10 +65,12 @@ GameGUI::GameGUI() : QMainWindow() {
         _cardBoard[i] = cardWidget;
         _gridlayout->addWidget(cardWidget, 5, 3+i);
 
+        connect(cardWidget, SIGNAL(selected(CardWidget*)), this, SLOT(selectEmplacement(CardWidget*)));
+
     }
 
     // Emplacement Carte sort
-    CardWidget* spellCardWidget = new CardWidget(true);
+    CardWidget* spellCardWidget = new CardWidget(true, false);
     _gridlayout->addWidget(spellCardWidget, 6, 2);
 
     CardWidget* advSpellCardWidget = new CardWidget(true, false);
@@ -222,6 +224,8 @@ void GameGUI::placeInHandCard(Card* card) {
     if(i != MAX_HAND) {
         CardWidget* cardWidget = new CardWidget(card);
         _cardInHand[i] = cardWidget;
+        connect(cardWidget, SIGNAL(selected(CardWidget*)), this, SLOT(selectInHand(CardWidget*)));
+        connect(cardWidget, SIGNAL(unSelected(CardWidget*)), this, SLOT(unSelectInHand()));
         _gridlayout->addWidget(cardWidget, 7, 3+i);
     } else {
         WizardLogger::error("Impossible de posée la carte (plus assez de place)");
@@ -241,9 +245,25 @@ void GameGUI::placeAdvCard() {
     } else {
         WizardLogger::error("Impossible de posée une carte adverse (plus assez de place)");
     }
-
 }
 
-void GameGUI::placeOnBoard() {
-
+void GameGUI::selectInHand(CardWidget* cardWidget) {
+    if(_inHandSelect != nullptr) {
+        _inHandSelect->setSelect(false);
+    }
+    _inHandSelect = cardWidget;
 }
+
+void GameGUI::unSelectInHand() {
+    _inHandSelect = nullptr;
+}
+
+
+void GameGUI::selectEmplacement(CardWidget* cardWidget) {
+    if(_inHandSelect != nullptr) {
+        // Call PacketManager whith mutex ect..
+    } else {
+        cardWidget->setSelect(false);
+    }
+}
+
