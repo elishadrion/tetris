@@ -121,22 +121,37 @@ GameGUI::GameGUI() : QMainWindow() {
 
     connect(this, SIGNAL(nextPlayer(bool)), this, SLOT(viewPassButton(bool)));
     connect(this, SIGNAL(mustUpdateTurn(int)), this, SLOT(updateTurn(int)));
-    connect(this, SIGNAL(cardDraw(Card*)), this, SLOT(addCardHand(Card*)));
+    connect(this, SIGNAL(cardDraw(Card*)), this, SLOT(placeInHandCard(Card*)));
 
 
     chooseDeck();
 }
 
-
+/**
+ * Call when the turn change (2 emit)
+ *
+ * @param nbrTurn number of turn
+ * @param isTurn is the player turn
+ */
 void GameGUI::callChangeTurn(int nbrTurn, bool isTurn) {
     emit nextPlayer(isTurn);
     emit mustUpdateTurn(nbrTurn);
 }
 
+/**
+ * Call when a player draw a card (emit)
+ *
+ * @param card the new card
+ */
 void GameGUI::callDrawCard(Card* card) {
     emit cardDraw(card);
 }
 
+/**
+ * Change the view of the button "pass"
+ *
+ * @param value true if visible
+ */
 void GameGUI::viewPassButton(bool value) {
     if(value) {
         _nextTurnBouton->show();
@@ -147,12 +162,21 @@ void GameGUI::viewPassButton(bool value) {
     }
 }
 
+/**
+ * Update the number of turn in the info label
+ *
+ * @param nbrTurn number of turn
+ */
 void GameGUI::updateTurn(int nbrTurn) {
     _nbrTurn->setText(QString(std::to_string(nbrTurn).c_str()));
 }
 
-void GameGUI::addCardHand(Card* card) {
-    WizardLogger::info("GUI: addCard");
+/**
+ * Call when the player reciev a new card in hand
+ *
+ * @param card the ne card
+ */
+void GameGUI::placeInHandCard(Card* card) {
     bool find;
     int i = 0;
 
@@ -162,8 +186,19 @@ void GameGUI::addCardHand(Card* card) {
     }
 
     if(find) {
-        _gridlayout->addWidget(new CardWidget(card), 7, 2+i);
+        CardWidget* cardWidget = new CardWidget(card);
+        _gridlayout->addWidget(cardWidget, 7, 2+i);
+        addCard(cardWidget);
     } else {
         WizardLogger::error("Impossible de posée la carte (plus assez de place)");
     }
+}
+
+/**
+ * Call when a new card is place
+ *
+ * @param cardWidget the new widget
+ */
+void GameGUI::addCard(CardWidget* cardWidget) {
+    // TO DO
 }

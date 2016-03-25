@@ -38,8 +38,9 @@ class GameGUI : public QMainWindow {
     QVBoxLayout *_infoGame;
     QLabel* _nbrTurn;
 
-    void chooseDeck();
 
+    void chooseDeck();
+    void addCard(CardWidget*);
 
 public:
     GameGUI();
@@ -54,7 +55,7 @@ signals:
 private slots:
     void viewPassButton(bool);
     void updateTurn(int);
-    void addCardHand(Card*);
+    void placeInHandCard(Card*);
 
 
 };

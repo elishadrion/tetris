@@ -3,5 +3,6 @@
         <file>Images/bg.png</file>
         <file>Images/ligue_justicie.jpg</file>
         <file>Images/CardToon.png</file>
+        <file>Images/CardMasked.png</file>
     </qresource>
 </RCC>
