@@ -53,21 +53,28 @@ public:
     void callChangeTurn(int, bool);
     void callDrawCard(Card*);
     void callAdvDrawCard();
+    void callPlaceCard(Card*);
+    void callAdvPlaceCard(Card*);
 
 signals:
     void nextPlayer(bool);
     void mustUpdateTurn(int);
     void cardDraw(Card*);
     void advCardDraw();
+    void mustPlaceCard(Card*);
+    void mustPlaceAdvCard(Card*);
 
 private slots:
     void viewPassButton(bool);
     void updateTurn(int);
     void placeInHandCard(Card*);
-    void placeAdvCard();
+    void drawAdvCard();
     void selectInHand(CardWidget*);
     void unSelectInHand();
     void selectEmplacement(CardWidget*);
+    void nextTurn();
+    void placeCard(Card*);
+    void placeAdvCard(Card*);
 
 
 };

@@ -68,6 +68,13 @@ void GUI::adverseDrawCard() {
     gamePanel->callAdvDrawCard();
 }
 
+void GUI::placeCard(Card* card) {
+    gamePanel->callPlaceCard(card);
+}
+
+void GUI::placeAdverseCard(Card * card) {
+    gamePanel->callAdvPlaceCard(card);
+}
 
 ///////////// Tchat /////////////
 

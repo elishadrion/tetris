@@ -125,7 +125,7 @@ void GameManager::placeCard(int cardID, unsigned position) {
  */
 void GameManager::ennemyPlaceCard(int cardID, unsigned position) {
     Card* defaultCard = CacheManager::getCard(cardID);
-    removeCardFromHand(defaultCard);
+    removeAdverseCardFromHand();
 
     // Copy card
     Card* card = new Card(*defaultCard);
@@ -191,7 +191,7 @@ void GameManager::placeCardAndAttack(bool isEffectCard, int cardID, unsigned pos
 void GameManager::placeAdverseCardAndAttack(bool isEffectCard, int cardID, unsigned position,
                                             int targetPosition, unsigned heal) {
     Card* defaultCard = CacheManager::getCard(cardID);
-    removeCardFromHand(defaultCard);
+    removeAdverseCardFromHand();
     Card* card = defaultCard;
 
     if(!isEffectCard) {

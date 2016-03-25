@@ -152,7 +152,9 @@ GameGUI::GameGUI() : QMainWindow(), _inHandSelect(nullptr) {
     connect(this, SIGNAL(nextPlayer(bool)), this, SLOT(viewPassButton(bool)));
     connect(this, SIGNAL(mustUpdateTurn(int)), this, SLOT(updateTurn(int)));
     connect(this, SIGNAL(cardDraw(Card*)), this, SLOT(placeInHandCard(Card*)));
-    connect(this, SIGNAL(advCardDraw()), this, SLOT(placeAdvCard()));
+    connect(this, SIGNAL(advCardDraw()), this, SLOT(drawAdvCard()));
+    connect(_nextTurnBouton, SIGNAL(clicked()), this, SLOT(nextTurn()));
+    connect(this, SIGNAL(mustPlaceAdvCard(Card*)), this, SLOT(placeAdvCard(Card*)));
 
 
     chooseDeck();
@@ -184,6 +186,18 @@ void GameGUI::callDrawCard(Card* card) {
 void GameGUI::callAdvDrawCard() {
     emit advCardDraw();
 }
+
+void GameGUI::callPlaceCard(Card * card) {} // TO DO
+
+/**
+ * Call when adverse player place a card
+ *
+ * @param card new card
+ */
+void GameGUI::callAdvPlaceCard(Card* card) {
+    emit mustPlaceAdvCard(card);
+}
+
 
 /**
  * Change the view of the button "pass"
@@ -232,7 +246,7 @@ void GameGUI::placeInHandCard(Card* card) {
     }
 }
 
-void GameGUI::placeAdvCard() {
+void GameGUI::drawAdvCard() {
     int i = 0;
     while(i < MAX_HAND && (_advCardInHand[i] != nullptr)) {
         ++i;
@@ -261,9 +275,36 @@ void GameGUI::unSelectInHand() {
 
 void GameGUI::selectEmplacement(CardWidget* cardWidget) {
     if(_inHandSelect != nullptr) {
-        // Call PacketManager whith mutex ect..
+        PacketManager::sendPlaceCard(_inHandSelect->getId());
+        _inHandSelect->setSelect(false);
+        _inHandSelect = nullptr;
+        cardWidget->setSelect(false);
     } else {
         cardWidget->setSelect(false);
     }
 }
 
+void GameGUI::nextTurn() {
+    PacketManager::endTurn();
+}
+
+void GameGUI::placeCard(Card* card) {
+    for(int i = 0; i < MAX_HAND; ++i) {
+        //_cardInHand[i]->isEquivalent(card);
+    }
+}
+
+
+void GameGUI::placeAdvCard(Card* card) {
+    delete _advCardInHand[0];
+
+    int i = 0;
+    while(i < MAX_POSED_CARD && !_advCardBoard[i]->isEmplacement()) {
+        ++i;
+    }
+
+    delete _advCardBoard[i];
+    CardWidget* cardWidget = new CardWidget(card);
+    _advCardBoard[i] = cardWidget;
+    _gridlayout->addWidget(cardWidget, 3, 3+i);
+}

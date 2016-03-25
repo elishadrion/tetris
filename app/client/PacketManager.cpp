@@ -458,6 +458,7 @@ void PacketManager::manageClassement(Packet::classementPacket* classementPacket)
         while(i < MAX_PSEUDO_SIZE && elem != ' ') {
             pseudo += elem;
             ++i;
+            elem = classementPacket->data.pseudo[current+i];
         }
 
         if(pseudo != "") {

@@ -33,6 +33,10 @@ public:
     void actualize();
     bool isSelect();
     void setSelect(bool);
+    bool isEmplacement() {return _emplacement;}
+    unsigned getId() { return _card->getID(); }
+    unsigned getPosition() { return _card->getPosition(); }
+    void setPosition(unsigned pos) { _card->setPosition(pos); }
 
 signals:
     void selected(CardWidget*);

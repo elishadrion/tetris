@@ -5,8 +5,9 @@
  * plus adapté.
 */
 
-CardWidget::CardWidget(bool emplacement, bool interact): QWidget(),
-    _emplacement(emplacement), _card(nullptr), _interact(interact) {
+CardWidget::CardWidget(bool emplacement, bool interact):
+    QWidget(), _emplacement(emplacement), _card(nullptr),
+    _interact(interact) {
 
     _label = new QLabel(this);
     _label->setScaledContents(true);
