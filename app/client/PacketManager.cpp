@@ -474,8 +474,6 @@ void PacketManager::manageClassement(Packet::classementPacket* classementPacket)
 
     } while(nbrPlayer < MAX_PLAYER_CLASSEMENT && pseudo != "");
 
-    WizardLogger::info("Debug: taille vecteur: " + std::to_string(listPseudo->size()));
-
 
     pthread_mutex_lock(&wizardDisplay->packetStackMutex);
     pthread_cond_broadcast(&wizardDisplay->packetStackCond);
