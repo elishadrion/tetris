@@ -60,7 +60,8 @@ public:
     void setTurn(unsigned, bool);
     //inline void placeCard(Card* card) { _hand.push_back(card); }
     void drawCard(unsigned);
-    void removeCardFromHand(Card*);
+    Card* removeCardFromHand(Card*);
+    Card* removeCardFromHand(unsigned);
     void removeAdverseCardFromHand();
     inline std::string getDeckName() { return _deckName; }
     void placeCard(int, unsigned);

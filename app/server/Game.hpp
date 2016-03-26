@@ -3,7 +3,6 @@
 #define	GAME_HPP
 
 #include <vector>
-#include <iostream> // MUST BE REMOVE
 
 
 #include "Player.hpp"

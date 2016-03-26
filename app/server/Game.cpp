@@ -278,13 +278,17 @@ Error Game::placeCardAffect(PlayerInGame* pIG, Card* cardPlaced, int targetPosit
 
             if(cardPlaced->isMonster()) {
                 // Get the position of the new card
-                int positionNewCard = getRealPosition(pIG,
-                                                 pIG->placeCard(static_cast<CardMonster*>(cardPlaced)));
+                int relPos = pIG->placeCard(static_cast<CardMonster*>(cardPlaced));
+                if(relPos == -1) {
+                    int positionNewCard = getRealPosition(pIG, relPos);
 
-                PacketManager::sendPlaceMonsterCard(_player1, pseudo, placedCardId, positionNewCard,
+                    PacketManager::sendPlaceMonsterCard(_player1, pseudo, placedCardId, positionNewCard,
                                                     targetPosition, lifeTarget);
-                PacketManager::sendPlaceMonsterCard(_player2, pseudo, placedCardId, positionNewCard,
+                    PacketManager::sendPlaceMonsterCard(_player2, pseudo, placedCardId, positionNewCard,
                                                     targetPosition, lifeTarget);
+                } else {
+                    res = Error::NotEnoughPlace;
+                }
 
             } else {
                 pIG->defausseCardInHand(cardPlaced);
@@ -337,12 +341,10 @@ Error Game::attackWithCard(PlayerInGame* pIG, int cardPosition,
     // TO DO: Verify that target card is a card of adverse player
     CardMonster* targetCard = getCardAtPosition(static_cast<unsigned>(targetPosition));
 
-    WizardLogger::info("Nombre de tour de la carte: " + std::to_string(card->getNbrTourPose()) +
-                       " | position: " + std::to_string(targetPosition));
     Error res = canPlayerAttack(pIG, card);
     if(res == Error::NoError) {
         if(verifyTaunt(pIG, targetCard)) {
-            card->dealDamage(*targetCard);
+            card->dealDamage(targetCard);
             if(targetCard->isDead()) {
                 this->getAdversePlayer()->defausseCardPlaced(targetPosition);
             }
@@ -453,10 +455,8 @@ void Game::endTurn() {
 Error Game::canPlayerAttack(PlayerInGame* pIG, CardMonster* card) {
     Error res = Error::UnknowError;
 
-    WizardLogger::info("Test de la carte " + std::to_string(card->getId()));
-    std::cout<<"canAttack: "<<card<<std::endl;
     if(pIG == _currentPlayer) {
-        if(card->getNbrTourPose() > 1) {
+        if(card->getNbrTourPose() > 0) {
             if(pIG->haveEnoughEnergy(card)) {
                 res = Error::NoError;
             } else {

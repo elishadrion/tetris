@@ -59,7 +59,7 @@ void GameManager::setTurn(unsigned nbrTurn, bool isTurn) {
  * @param idCard of the draw card
  */
 void GameManager::drawCard(unsigned idCard) {
-    Card* card = CacheManager::getCard(idCard);
+    Card* card = new Card(*CacheManager::getCard(idCard));
     _hand.push_back(card);
     wizardDisplay->drawCard(card);
 }
@@ -69,10 +69,21 @@ void GameManager::drawCard(unsigned idCard) {
 /**
  * Remove a card from the hand of the player
  *
- * @param adverse player or not
  * @param card which must be remove
+ * @return the removed card
  */
-void GameManager::removeCardFromHand(Card* card) {
+Card* GameManager::removeCardFromHand(Card* card) {
+    return removeCardFromHand(card->getID());
+}
+
+/**
+ * Remove a card from the hand of the player
+ *
+ * @param idCard which card id must be remove
+ * @return the removed card
+ */
+Card* GameManager::removeCardFromHand(unsigned idCard) {
+    Card* res = nullptr;
     bool fini = false;
 
     unsigned i = 0;
@@ -80,13 +91,17 @@ void GameManager::removeCardFromHand(Card* card) {
     Card* elem;
     while(i < taille && !fini) {
         elem = _hand[i];
-        if(elem == card) {
+        if(elem->getID() == idCard) {
+            res = _hand[i];
             _hand[i] = _hand[taille-1];
             _hand.pop_back();
             fini = true;
         }
         ++i;
     }
+
+
+    return res;
 }
 
 /**
@@ -105,15 +120,11 @@ void GameManager::removeAdverseCardFromHand() {
  * @param position position of this card (to identify this)
  */
 void GameManager::placeCard(int cardID, unsigned position) {
-    Card* card = CacheManager::getCard(cardID);
-    removeCardFromHand(card);
+    Card* card = removeCardFromHand(static_cast<unsigned>(cardID));
 
-    card = new Card(*card); // copy card
     card->setPosition(position);
     _posed[position%MAX_POSED_CARD] = card;
     _energy -= card->getEnergyCost();
-
-    //wizardDisplay->placeCard(card);
 }
 
 /**
@@ -146,12 +157,10 @@ void GameManager::ennemyPlaceCard(int cardID, unsigned position) {
  */
 void GameManager::placeCardAndAttack(bool isEffectCard, int cardID, unsigned position,
                                      int targetPosition, unsigned heal) {
-    Card* defaultCard = CacheManager::getCard(cardID);
-    removeCardFromHand(defaultCard);
-    Card* card = defaultCard;
+
+    Card* card = removeCardFromHand(cardID);;
 
     if(!isEffectCard) {
-        card = new Card(*defaultCard); // copy card
         card->setPosition(position);
         _posed[position%MAX_POSED_CARD] = card;
     }
@@ -231,11 +240,12 @@ void GameManager::attackCard(unsigned cardPosition, int targetPosition, unsigned
 
     if(targetPosition == -1) {
         _adverseHeal = heal;
-        wizardDisplay->attackPlayer(card);
     } else {
         Card* ennemyCard = _ennemyPosed[targetPosition%MAX_POSED_CARD];
         ennemyCard->setHP(heal);
-        wizardDisplay->attackCard(card, ennemyCard);
+        if(ennemyCard->getHP() <= 0) {
+            wizardDisplay->cardIsDead(ennemyCard, true);
+        }
     }
 }
 
@@ -255,6 +265,9 @@ void GameManager::adverseAttackCard(unsigned cardPosition, int targetPosition, u
         Card* ennemyCard = _posed[targetPosition%MAX_POSED_CARD];
         ennemyCard->setHP(heal);
         wizardDisplay->adverseAttackCard(card, ennemyCard);
+        if(ennemyCard->getHP() <= 0) {
+            wizardDisplay->cardIsDead(ennemyCard, false);
+        }
     }
 
 }

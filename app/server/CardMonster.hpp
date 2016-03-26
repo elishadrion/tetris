@@ -15,7 +15,7 @@ private:
     bool _taunt;
 
 public:
-    virtual void dealDamage(CardMonster& otherMonster);
+    virtual void dealDamage(CardMonster* otherMonster);
     virtual void dealDamage(PlayerInGame& player);
     virtual void incrementTour();
 

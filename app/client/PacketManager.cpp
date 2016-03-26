@@ -697,8 +697,11 @@ void PacketManager::sendAttack(const unsigned cardPosition, const int targetPosi
         Packet::twoCardPacket *attackPack = new Packet::twoCardPacket();
 
         attackPack->ID = Packet::C_ATTACK_ID;
-        attackPack->cardOne = cardPosition;
-        attackPack->cardTwo = targetPosition;
+        attackPack->cardOne = static_cast<int>(cardPosition);
+        attackPack->cardTwo = static_cast<int>(targetPosition);
+
+        WizardLogger::info("Carte: " + std::to_string(static_cast<int>(cardPosition))
+                           + " attaque: " + std::to_string(static_cast<int>(targetPosition)));
 
         conn->sendPacket((Packet::packet*) attackPack, sizeof(*attackPack));
         delete attackPack;

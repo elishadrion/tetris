@@ -30,8 +30,13 @@ CardMonster::CardMonster(CardMonster& otherMonster): Card(otherMonster),
  * @param card (other monster)
  * @return void
  */
-void CardMonster::dealDamage(CardMonster& otherMonster){
-	otherMonster.setLife(otherMonster.getLife() - this->getAttack());
+void CardMonster::dealDamage(CardMonster* otherMonster){
+    unsigned finalLife = 0;
+    unsigned monsterLife = otherMonster->getLife();
+    if(monsterLife > getAttack()) {
+        finalLife = monsterLife-getAttack();
+    }
+    otherMonster->setLife(finalLife);
 }
 
 /**

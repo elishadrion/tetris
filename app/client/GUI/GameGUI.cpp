@@ -402,7 +402,7 @@ void GameGUI::attack(CardWidget* cardWidget) {
         pthread_mutex_lock(&wizardDisplay->packetStackMutex);
 
         // Packet manager
-        PacketManager::sendAttack(_onBoardSelect->getId(), cardWidget->getPosition());
+        PacketManager::sendAttack(_onBoardSelect->getPosition(), cardWidget->getPosition());
 
         /* Wait for result */
         pthread_cond_wait(&wizardDisplay->packetStackCond, &wizardDisplay->packetStackMutex);
@@ -412,7 +412,9 @@ void GameGUI::attack(CardWidget* cardWidget) {
             WizardLogger::info("Card Attack");
 
             // actualise player informations
-            cardWidget->actualize(); // update heal of this card
+            if(cardWidget != nullptr) {
+                cardWidget->actualize(); // update heal of this card
+            }
 
         } else {
             int error = reinterpret_cast<int>(wizardDisplay->packetErrorStack.back());
@@ -736,11 +738,15 @@ void GameGUI::deadCard(Card* card, bool adv) {
     }
 
     int i = 0;
-    while(i < MAX_POSED_CARD && !listCardBoard[i]->isOnPosition(card->getPosition())) {
+    while(i < MAX_POSED_CARD &&
+          !listCardBoard[i]->isEmplacement() &&
+          !listCardBoard[i]->isOnPosition(card->getPosition())) {
         ++i;
     }
 
-    if(listCardBoard[i]->isOnPosition(card->getPosition())) {
+    if(!listCardBoard[i]->isEmplacement() &&
+            listCardBoard[i]->isOnPosition(card->getPosition())) {
+
         listCardBoard[i]->close();
         addEmplacement(i, adv);
         // Add to defausse
