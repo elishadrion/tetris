@@ -68,13 +68,18 @@ void GUI::adverseDrawCard() {
     gamePanel->callAdvDrawCard();
 }
 
-//void GUI::placeCard(Card* card) {
-//    gamePanel->callPlaceCard(card);
-//}
-
 void GUI::placeAdverseCard(Card * card) {
     gamePanel->callAdvPlaceCard(card);
 }
+
+void GUI::placeAdverseSpellCard(Card* card, Card* target) {
+    gamePanel->callPlaceAdvSpell(card, target);
+}
+
+void GUI::cardIsDead(Card* card, bool adv) {
+    gamePanel->callDeadCard(card, adv);
+}
+
 
 ///////////// Tchat /////////////
 

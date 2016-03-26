@@ -9,8 +9,8 @@ class Draw : public Effect{
 
     unsigned int _nDraw;
 public:
-    Draw(unsigned int nDraw):_nDraw(nDraw){};
-    ~Draw(){};
+    Draw(unsigned int nDraw):_nDraw(nDraw){}
+    ~Draw(){}
     
     virtual void apply(CardMonster*, Game*) override;
 };
@@ -20,9 +20,8 @@ public:
  *
  * @param target : the monster who get the effect
  * @param game : the game where the effect will be apply
- * @return void 
  */
-void Draw::apply(CardMonster* target, Game* game){
+void Draw::apply(CardMonster* target, Game* game) {
     for (std::size_t i=0; i<_nDraw; i++){
         game->draw();
     }

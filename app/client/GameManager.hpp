@@ -21,6 +21,7 @@ class GameManager {
     std::vector<Card*> _hand;
     unsigned _adverseHandNumber;
     std::vector<Card*> _trash;
+    std::vector<Card*> _advTrash;
     Card* _posed[MAX_POSED_CARD];
     Card* _ennemyPosed[MAX_POSED_CARD];
     std::string _ennemy;

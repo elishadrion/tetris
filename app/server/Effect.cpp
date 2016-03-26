@@ -24,23 +24,23 @@ Effect::Effect() {
  */
 void Effect::loadAllEffect() {
 
-    new Taunt();
-    new Heal(1);
-    new Heal(2);
-    new Heal(3);
-    new Damage(1);
-    new Damage(2);
-    new Damage(3);
-    new LifeBlessing(1);
-    new LifeBlessing(2);
-    new AttackBlessing(1);
-    new AttackBlessing(2);
-    new LifeCurse(1);
-    new LifeCurse(2);
-    new AttackCurse(1);
-    new AttackCurse(2);
-    new Draw(1);
-    new Draw(2);
+    new Taunt(); // 0
+    new Heal(1); // 1
+    new Heal(2); // 2
+    new Heal(3); // 3
+    new Damage(1); // 4
+    new Damage(2); // 5
+    new Damage(3); // 6
+    new LifeBlessing(1); // 7
+    new LifeBlessing(2); // 8
+    new AttackBlessing(1); // 9
+    new AttackBlessing(2); // 10
+    new LifeCurse(1); // 11
+    new LifeCurse(2); // 12
+    new AttackCurse(1); // 13
+    new AttackCurse(2); // 14
+    new Draw(1); // 15
+    new Draw(2); // 16
 }
 
 /**

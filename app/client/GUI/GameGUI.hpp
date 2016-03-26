@@ -56,7 +56,9 @@ class GameGUI : public QMainWindow {
     void addEmplacement(int, bool);
     void placeMonsterCardOnBoard(CardWidget*);
     void placeSpellCardOnBoard();
+    void placeAdvSpellOnBoard(CardWidget*);
     void removeInHandCard();
+    void removeAdvInHandCard();
     void displayError(int);
     void displayError(std::string);
 
@@ -67,6 +69,8 @@ public:
     void callAdvDrawCard();
     void callPlaceCard(Card*);
     void callAdvPlaceCard(Card*);
+    void callPlaceAdvSpell(Card*, Card*);
+    void callDeadCard(Card*, bool);
 
 signals:
     void nextPlayer();
@@ -75,6 +79,8 @@ signals:
     void advCardDraw();
     void mustPlaceCard(Card*);
     void mustPlaceAdvCard(Card*);
+    void mustPlaceAdvSpell(Card*, Card*);
+    void mustDeadCard(Card*, bool);
 
 private slots:
     void viewPassButton();
@@ -88,6 +94,9 @@ private slots:
     void nextTurn();
     void placeAdvCard(Card*);
     void removeSpell();
+    void removeAdvSpell();
+    void deadCard(Card*, bool);
+    void placeAdvSpell(Card*, Card*);
 
 
 };

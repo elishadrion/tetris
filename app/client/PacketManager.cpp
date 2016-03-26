@@ -564,6 +564,7 @@ void PacketManager::managePlaceSpell(Packet::placeAttackSpellPacket* placeAttack
     if(placeAttackSpellPacket->data.pseudo == Player::getPlayer()->getName()) {
         gm->placeCardAndAttack(true, cardId, -1, targetPosition, heal);
 
+        /* Lock, signal other thread and unlock */
         pthread_mutex_lock(&wizardDisplay->packetStackMutex);
         pthread_cond_broadcast(&wizardDisplay->packetStackCond);
         pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
@@ -572,7 +573,6 @@ void PacketManager::managePlaceSpell(Packet::placeAttackSpellPacket* placeAttack
         gm->placeAdverseCardAndAttack(true, cardId, -1, targetPosition, heal);
     }
 
-    /* Lock, signal other thread and unlock */
 }
 
 

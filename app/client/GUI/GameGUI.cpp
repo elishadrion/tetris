@@ -144,6 +144,8 @@ GameGUI::GameGUI() : QMainWindow(), _inHandSelect(nullptr),
     connect(this, SIGNAL(advCardDraw()), this, SLOT(drawAdvCard()));
     connect(_nextTurnBouton, SIGNAL(clicked()), this, SLOT(nextTurn()));
     connect(this, SIGNAL(mustPlaceAdvCard(Card*)), this, SLOT(placeAdvCard(Card*)));
+    connect(this, SIGNAL(mustPlaceAdvSpell(Card*, Card*)), this, SLOT(placeAdvSpell(Card*,Card*)));
+    connect(this, SIGNAL(mustDeadCard(Card*, bool)), this, SLOT(deadCard(Card*, bool)));
 
     // pop-up to choose deck
     new DeckChooseGUI(this);
@@ -209,8 +211,8 @@ void GameGUI::placeSpellCardOnBoard() {
         removeInHandCard();
 
         if(_timeSpell != nullptr) {
-            removeSpell();
             _timeSpell->stop();
+            removeSpell();
         }
 
         _spellCardWidget->hide();
@@ -227,9 +229,29 @@ void GameGUI::placeSpellCardOnBoard() {
     }
 }
 
+void GameGUI::placeAdvSpellOnBoard(CardWidget* cardWidget) {
+    if(cardWidget != nullptr) {
+        removeAdvInHandCard();
+
+        if(_timeAdvSpell != nullptr) {
+            _timeAdvSpell->stop();
+            removeAdvSpell();
+        }
+
+        _advSpellCardWidget->hide();
+        _advSpellCard = cardWidget;
+        _gridlayout->addWidget(_advSpellCard, 2, 2);
+
+        _timeAdvSpell = new QTimer(this);
+        connect(_timeAdvSpell, SIGNAL(timeout()), this, SLOT(removeAdvSpell()));
+        _timeAdvSpell->start(2000);
+        _timeAdvSpell->setSingleShot(true);
+    }
+}
+
 
 /**
- * Remove card who is select from hand
+ * Remove card which is select from hand
  */
 void GameGUI::removeInHandCard() {
     int nbrHand = 0;
@@ -240,6 +262,29 @@ void GameGUI::removeInHandCard() {
     _gridlayout->removeWidget(_cardInHand[nbrHand]); // remove widget
     _cardInHand[nbrHand] = nullptr; // remove from hand
 }
+
+/**
+ * Remove one card from the adverse hand
+ */
+void GameGUI::removeAdvInHandCard() {
+    int nbrHand = 0;
+    CardWidget* select = nullptr;
+    while(nbrHand < MAX_HAND && select == nullptr) {
+        if(_advCardInHand[nbrHand] != nullptr) {
+            select = _advCardInHand[nbrHand];
+        } else {
+            ++nbrHand;
+        }
+    }
+    if(select != nullptr) {
+        select->hide();
+        select->close();
+        _advCardInHand[nbrHand] = nullptr;
+    } else {
+        WizardLogger::warning("Impossible de supprimer une carte dans la main adverse");
+    }
+}
+
 
 void GameGUI::displayError(int errorId) {
     displayError(ErrorAPI::errorToStr(errorId));
@@ -293,6 +338,16 @@ void GameGUI::callAdvDrawCard() {
 void GameGUI::callAdvPlaceCard(Card* card) {
     emit mustPlaceAdvCard(card);
 }
+
+void GameGUI::callPlaceAdvSpell(Card* card, Card* target) {
+    emit mustPlaceAdvSpell(card, target);
+}
+
+
+void GameGUI::callDeadCard(Card* card, bool adv) {
+    emit mustDeadCard(card, adv);
+}
+
 
 // ================ SLOTS =======================
 
@@ -473,15 +528,7 @@ void GameGUI::nextTurn() {
  * @param card the card which must be placed
  */
 void GameGUI::placeAdvCard(Card* card) {
-    int nbrHand = 0;
-    while(nbrHand < MAX_HAND && _advCardInHand[nbrHand] == nullptr) {
-        ++nbrHand;
-    }
-    if(nbrHand != MAX_HAND) {
-        _advCardInHand[nbrHand]->close();
-    } else {
-        WizardLogger::warning("Impossible de supprimer une carte dans la main adverse");
-    }
+    removeAdvInHandCard();
 
 
     int i = 0;
@@ -510,3 +557,57 @@ void GameGUI::removeSpell() {
     _spellCardWidget->show();
 }
 
+void GameGUI::removeAdvSpell() {
+    _timeAdvSpell = nullptr;
+    if(_advSpellCard != nullptr) {
+        _advSpellCard->close();
+    }
+    _advSpellCardWidget->show();
+}
+
+void GameGUI::deadCard(Card* card, bool adv) {
+    int i = 0;
+    CardWidget** listCardBoard;
+    if(adv) {
+        listCardBoard = _advCardBoard;
+    } else {
+        listCardBoard = _cardBoard;
+    }
+
+    CardWidget* cardWidget = nullptr;
+    while(i < MAX_POSED_CARD && cardWidget == nullptr) {
+        if(listCardBoard[i]->isCard(card)) {
+            cardWidget = listCardBoard[i];
+            listCardBoard[i] = nullptr;
+        }
+        ++i;
+    }
+
+    if(cardWidget != nullptr) {
+        cardWidget->close();
+        // Add to defausse
+    } else {
+        WizardLogger::warning("Carte morte introuvable");
+    }
+}
+
+void GameGUI::placeAdvSpell(Card* card, Card* target) {
+    // card = adverse card who attack
+    // target = card who is attack (us card !)
+
+    placeAdvSpellOnBoard(new CardWidget(card));
+
+    int nbrTarget = 0;
+    CardWidget* targetWidget = nullptr;
+    while(nbrTarget < MAX_HAND && targetWidget == nullptr) {
+        if(_cardBoard[nbrTarget]->isCard(target)) {
+            targetWidget = _cardBoard[nbrTarget];
+        }
+        ++nbrTarget;
+    }
+
+    if(targetWidget != nullptr) {
+        targetWidget->actualize();
+    }
+
+}

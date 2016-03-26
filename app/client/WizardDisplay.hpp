@@ -70,36 +70,12 @@ public:
      */
     virtual void changeTurn() { }
 
-
-    /**
-     * Call when player place card
-     *
-     * @param card which is place
-     */
-    //virtual void placeCard(Card*) {}
-
     /**
      * Call when adverse player place card
      *
      * @param card which is place
      */
     virtual void placeAdverseCard(Card*) {}
-
-    /**
-     * Call when a spell card is placed (and attack an other)
-     *
-     * @param the new card
-     * @param the target card
-     */
-    virtual void placeSpellCard(Card*, Card*) {}
-
-    /**
-     * Call when a spell card is placed (and attack advers player)
-     *
-     * @param the new card
-     */
-    virtual void placeSpellPlayer(Card*) {}
-
 
     /**
      * Call when a adverse spell card is placed (and attack an other)
@@ -176,6 +152,14 @@ public:
      * @param the card wich attack
      */
     virtual void adverseAttackPlayer(Card*) {}
+
+    /**
+     * Call when a card is dead
+     * @param card which is dead
+     * @param adverse card or not
+     */
+    virtual void cardIsDead(Card*, bool) {}
+
 
     //////////////////////// TCHAT ////////////////////////
 

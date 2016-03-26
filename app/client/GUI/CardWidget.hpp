@@ -39,6 +39,7 @@ public:
     unsigned getPosition() { return _card->getPosition(); }
     void setPosition(unsigned pos) { _card->setPosition(pos); }
     bool isMonster() { return _card->isMonster(); }
+    bool isCard(Card* card) { return card == _card; }
 
 signals:
     void selected(CardWidget*);
