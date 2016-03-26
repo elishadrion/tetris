@@ -120,6 +120,14 @@ void LoginPanelGUI::login(bool newUser) {
     /* Check result */
     if (wizardDisplay->packetStack.empty()) {
         WizardLogger::info("Authentification réussi");
+        QMessageBox *msgBox = new QMessageBox(this);
+        msgBox->setWindowTitle("Chargement des cartes en cours...");
+        msgBox->show();
+
+        /* Wait for result */
+        pthread_cond_wait(&wizardDisplay->packetStackCond, &wizardDisplay->packetStackMutex);
+        
+        msgBox->hide();
         displayMainMenu();
     } else {
         loginDisplayResult(*reinterpret_cast<std::string*>(wizardDisplay->packetStack.back()));
