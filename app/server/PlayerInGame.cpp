@@ -340,6 +340,8 @@ void PlayerInGame::incrementAllPlaceCard() {
         CardMonster* cardMonster = cardPlaced[i];
         if(cardMonster != nullptr) {
             cardMonster->incrementTour();
+            WizardLogger::info("Nombre de tour de la carte " + cardMonster->getName() +
+                               + " = " + std::to_string(cardMonster->getNbrTourPose()));
         }
     }
 }
@@ -449,7 +451,7 @@ Error PlayerInGame::reqPlaceAttackCard(unsigned cardId, int targetPosition) {
     Error res;
 
     Card* card = CardManager::getCardById(cardId);
-    if(!card->isMonster()) {
+    if(card != nullptr) {
         if(targetPosition == -1) {
             res = _game->placeCardAffectPlayer(this, card);
         } else {

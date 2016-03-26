@@ -341,12 +341,12 @@ int GameGUI::getIndexBoard(CardWidget* card) {
  *
  * @param cardWidget which card is attack
  */
-void GameGUI::spellAttack(CardWidget* cardWidget) {
+void GameGUI::placeAndAttack(CardWidget* cardWidget) {
     /* Lock */
     pthread_mutex_lock(&wizardDisplay->packetStackMutex);
 
     // Packet manager
-    WizardLogger::info("Placement & attack sort: "+ std::to_string(_inHandSelect->getId()));
+    WizardLogger::info("Placement & attack: "+ std::to_string(_inHandSelect->getId()));
     PacketManager::sendPlaceCardAttack(_inHandSelect->getId(), cardWidget->getPosition());
 
     /* Wait for result */
@@ -356,7 +356,26 @@ void GameGUI::spellAttack(CardWidget* cardWidget) {
     if (wizardDisplay->packetErrorStack.empty()) {
         WizardLogger::info("Pose la carte & attack");
 
-        placeSpellCardOnBoard();
+        if(_inHandSelect->isMonster()) {
+
+            int i = 0;
+            while(i < MAX_POSED_CARD && !_cardBoard[i]->isEmplacement()) {
+                ++i;
+            }
+
+            if(i != MAX_POSED_CARD) {
+                _cardBoard[i]->close();
+                _cardBoard[i] = _inHandSelect;
+                _gridlayout->addWidget(_inHandSelect, 5, 3+i);
+            } else {
+                WizardLogger::warning(
+                            "Impossible de placer la carte & attaquer (plus de place)");
+            }
+
+
+        } else {
+            placeSpellCardOnBoard();
+        }
         cardWidget->actualize(); // update heal of this card
 
     } else {
@@ -369,6 +388,47 @@ void GameGUI::spellAttack(CardWidget* cardWidget) {
     pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
 }
 
+/**
+ * Call when the onBoardSelect attack
+ *
+ * @param cardWidget wich is attack
+ */
+void GameGUI::attack(CardWidget* cardWidget) {
+
+    if(_onBoardSelect != nullptr) {
+        /* Lock */
+        pthread_mutex_lock(&wizardDisplay->packetStackMutex);
+
+        // Packet manager
+        PacketManager::sendAttack(_onBoardSelect->getId(), cardWidget->getPosition());
+
+        /* Wait for result */
+        pthread_cond_wait(&wizardDisplay->packetStackCond, &wizardDisplay->packetStackMutex);
+
+        /* Check result */
+        if (wizardDisplay->packetErrorStack.empty()) {
+            WizardLogger::info("Card Attack");
+
+            // actualise player informations
+            cardWidget->actualize(); // update heal of this card
+
+        } else {
+            int error = reinterpret_cast<int>(wizardDisplay->packetErrorStack.back());
+            wizardDisplay->packetErrorStack.pop_back();
+            displayError(error);
+        }
+
+        /* Unlock */
+        pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
+
+    } else {
+        displayError("Vous devez sélectionner une carte qui va attaquer");
+    }
+}
+
+
+
+// ================== PUBLIC CALL =========================
 
 /**
  * Call when the turn change (2 emit)
@@ -380,6 +440,11 @@ void GameGUI::callChangeTurn() {
     if(_inHandSelect != nullptr) {
         _inHandSelect->setSelect(false);
         _inHandSelect = nullptr;
+    }
+
+    if(_onBoardSelect != nullptr) {
+        _onBoardSelect->setSelect(false);
+        _onBoardSelect = nullptr;
     }
 
     emit nextPlayer();
@@ -500,7 +565,7 @@ void GameGUI::selectCard(CardWidget* cardWidget) {
     if(getIndexBoard(cardWidget) != -1) {
         if(_inHandSelect != nullptr) {
             if(!_inHandSelect->isMonster()) {
-                spellAttack(cardWidget);
+                placeAndAttack(cardWidget);
 
                 _inHandSelect->setSelect(false);
                 _inHandSelect = nullptr;
@@ -597,13 +662,17 @@ void GameGUI::selectEmplacement(CardWidget* cardWidget) {
 void GameGUI::selectAdvCard(CardWidget * cardWidget) {
     cardWidget->setSelect(false);
 
-    // If card in hand select and is a spell card
+    // If card in hand select
     if(_inHandSelect != nullptr) {
-        if(!_inHandSelect->isMonster()) {
-            spellAttack(cardWidget);
-        } else {
-            // Attack
-        }
+        placeAndAttack(cardWidget);
+        _inHandSelect->setSelect(false);
+        _inHandSelect = nullptr;
+
+
+    } else if(_onBoardSelect != nullptr) {
+        attack(cardWidget);
+        _onBoardSelect->setSelect(false);
+        _onBoardSelect = nullptr;
     }
 }
 
@@ -660,7 +729,6 @@ void GameGUI::removeAdvSpell() {
 }
 
 void GameGUI::deadCard(Card* card, bool adv) {
-    int i = 0;
     CardWidget** listCardBoard;
     if(adv) {
         listCardBoard = _advCardBoard;
@@ -668,16 +736,15 @@ void GameGUI::deadCard(Card* card, bool adv) {
         listCardBoard = _cardBoard;
     }
 
+    int i = 0;
     CardWidget* cardWidget = nullptr;
-    while(i < MAX_POSED_CARD && cardWidget == nullptr) {
-        if(listCardBoard[i]->isCard(card)) {
-            cardWidget = listCardBoard[i];
-            listCardBoard[i] = nullptr;
-        }
+
+    while(i < MAX_POSED_CARD && !listCardBoard[i]->isCard(card)) {
         ++i;
     }
 
-    if(cardWidget != nullptr) {
+    if(listCardBoard[i]->isCard(card)) {
+        addEmplacement(i, adv);
         cardWidget->close();
         // Add to defausse
     } else {

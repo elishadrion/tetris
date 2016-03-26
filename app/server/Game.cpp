@@ -240,10 +240,13 @@ Error Game::placeCardAffect(PlayerInGame* pIG, Card* cardPlaced, unsigned target
 
     if(res == Error::NoError) {
 
-        if(targetPosition == -1 && (!cardPlaced->gotEffect() || !cardPlaced->canBeApplyOnPlayer())) {
+        if(targetPosition == -1 &&
+                (!cardPlaced->gotEffect() || !cardPlaced->canBeApplyOnPlayer())) {
+
             res = Error::NotEffectForPlayer;
 
         } else if(!cardPlaced->gotEffect() || !cardPlaced->canBeApplyOnCard()) {
+
             res = Error::NotEffectForMonster;
 
         } else {
@@ -326,11 +329,13 @@ Error Game::placeCardAffectPlayer(PlayerInGame* pIG, Card* cardPlaced) {
  * @return Error or "NoError" if all is ok
  */
 Error Game::attackWithCard(PlayerInGame* pIG, unsigned cardPosition,
-    unsigned targetPosition) {
+                            unsigned targetPosition) {
 
     CardMonster* card = getCardAtPosition(cardPosition);
+    // TO DO: Verify that target card is a card of adverse player
     CardMonster* targetCard = getCardAtPosition(targetPosition);
 
+    WizardLogger::info("Nombre de tour de la carte: " + std::to_string(card->getNbrTourPose()));
     Error res = canPlayerAttack(pIG, card);
     if(res == Error::NoError) {
         if(verifyTaunt(pIG, targetCard)) {
@@ -453,7 +458,7 @@ Error Game::canPlayerAttack(PlayerInGame* pIG, CardMonster* card) {
                 res = Error::NotEnoughEnergy;
             }
         } else {
-             res = Error::NOT_FIRST_TURN;
+             res = Error::NotFirstTurn;
         }
     } else {
         res = Error::NotHisTurn;

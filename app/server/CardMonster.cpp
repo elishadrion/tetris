@@ -46,11 +46,9 @@ void CardMonster::dealDamage(PlayerInGame& player){
 
 /**
  * Increment the tour of the monster
- *
- * @return void
  */
 void CardMonster::incrementTour(){
-	this->_nbrTourPose++;
+    ++_nbrTourPose;
 }
 
 /**
@@ -59,12 +57,7 @@ void CardMonster::incrementTour(){
  * @return true if the monster is dead
  */
 bool CardMonster::isDead() {
-	if (this->_life > 0){
-		return false;
-	}
-	else{
-		return true;
-	}
+    return _life <= 0;
 }
 
 

@@ -65,7 +65,7 @@ std::string ErrorAPI::errorToStr(int errorId) {
         msg = "Carte introuvable";
         break;
 
-    case NOT_FIRST_TURN:
+    case NotFirstTurn:
         msg = "Impossible d'attaquer au premier tour";
         break;
 

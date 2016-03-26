@@ -68,7 +68,8 @@ class GameGUI : public QMainWindow {
     int getIndexBoard(CardWidget*);
 
     // ACTION
-    void spellAttack(CardWidget*);
+    void placeAndAttack(CardWidget*);
+    void attack(CardWidget*);
 
 public:
     GameGUI();

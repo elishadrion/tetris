@@ -19,7 +19,7 @@ enum Error {
     MustOneDeckMin = 12, /* The player must have one deck */
     DeckNotFound = 13,
     CardNotFound = 14,
-    NOT_FIRST_TURN = 15
+    NotFirstTurn = 15
 };
 
 namespace ErrorAPI {
