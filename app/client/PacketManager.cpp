@@ -556,20 +556,23 @@ void PacketManager::managePlaceCard(Packet::placeCardPacket* placeCardPacket) {
 void PacketManager::managePlaceSpell(Packet::placeAttackSpellPacket* placeAttackSpellPacket) {
     GameManager* gm = GameManager::getInstance();
 
-    /* Lock, signal other thread and unlock */
-    pthread_mutex_lock(&wizardDisplay->packetStackMutex);
-    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(placeAttackSpellPacket->data.idCard)));
-    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(placeAttackSpellPacket->data.targetPosition)));
-    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(placeAttackSpellPacket->data.heal)));
+    int cardId = placeAttackSpellPacket->data.idCard;
+    int targetPosition = placeAttackSpellPacket->data.targetPosition;
+    unsigned heal = placeAttackSpellPacket->data.heal;
+
+
     if(placeAttackSpellPacket->data.pseudo == Player::getPlayer()->getName()) {
-        wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new bool(true)));
-        //TODO gm->placeCardAndAttack(true, cardId, -1, targetPosition, heal);
+        gm->placeCardAndAttack(true, cardId, -1, targetPosition, heal);
+
+        pthread_mutex_lock(&wizardDisplay->packetStackMutex);
+        pthread_cond_broadcast(&wizardDisplay->packetStackCond);
+        pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
+
     } else {
-        wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new bool(false)));
-        //TODO gm->placeAdverseCardAndAttack(true, cardId, -1, targetPosition, heal);
+        gm->placeAdverseCardAndAttack(true, cardId, -1, targetPosition, heal);
     }
-    pthread_cond_broadcast(&wizardDisplay->packetStackCond);
-    pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
+
+    /* Lock, signal other thread and unlock */
 }
 
 

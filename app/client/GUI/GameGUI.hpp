@@ -14,6 +14,7 @@
 #include <QGroupBox>
 #include <QMainWindow>
 #include <QMessageBox>
+#include <QTimer>
 
 #include <vector>
 
@@ -42,13 +43,22 @@ class GameGUI : public QMainWindow {
     CardWidget* _advCardInHand[MAX_HAND];
     CardWidget* _cardBoard[MAX_POSED_CARD];
     CardWidget* _advCardBoard[MAX_POSED_CARD];
+    CardWidget* _spellCardWidget;
+    CardWidget* _advSpellCardWidget;
 
     CardWidget* _inHandSelect;
+    CardWidget* _spellCard;
+    CardWidget* _advSpellCard;
+    QTimer* _timeSpell;
+    QTimer* _timeAdvSpell;
 
 
     void addEmplacement(int, bool);
-    void placeCardOnBoard(CardWidget*);
+    void placeMonsterCardOnBoard(CardWidget*);
+    void placeSpellCardOnBoard();
+    void removeInHandCard();
     void displayError(int);
+    void displayError(std::string);
 
 public:
     GameGUI();
@@ -74,8 +84,10 @@ private slots:
     void selectInHand(CardWidget*);
     void unSelectInHand();
     void selectEmplacement(CardWidget*);
+    void selectAdvCard(CardWidget*);
     void nextTurn();
     void placeAdvCard(Card*);
+    void removeSpell();
 
 
 };

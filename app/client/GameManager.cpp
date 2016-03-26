@@ -159,23 +159,28 @@ void GameManager::placeCardAndAttack(bool isEffectCard, int cardID, unsigned pos
     _energy -= card->getEnergyCost();
     if(targetPosition == -1) {
         _adverseHeal = heal;
-        if(isEffectCard) {
-            wizardDisplay->placeSpellPlayer(card);
-        } else {
-            wizardDisplay->placeCardAndAttackPlayer(card);
-        }
+//        if(isEffectCard) {
+//            wizardDisplay->placeSpellPlayer(card);
+//        } else {
+//            wizardDisplay->placeCardAndAttackPlayer(card);
+//        }
     } else {
         Card* enemyCard = static_cast<Card*>(_ennemyPosed[targetPosition%MAX_POSED_CARD]);
         enemyCard->setHP(heal);
-        if(isEffectCard) {
-            wizardDisplay->placeSpellCard(card, enemyCard);
-        } else {
-            wizardDisplay->placeCardAndAttack(card, enemyCard);
-            if(enemyCard->isDead()) {
-                // TO DO
-                // DETOBEL36
-            }
+
+        if(enemyCard->isDead()) {
+            // TO DO
         }
+
+//        if(isEffectCard) {
+//            wizardDisplay->placeSpellCard(card, enemyCard);
+//        } else {
+//            wizardDisplay->placeCardAndAttack(card, enemyCard);
+//            if(enemyCard->isDead()) {
+//                // TO DO
+//                // DETOBEL36
+//            }
+//        }
     }
 
 }
