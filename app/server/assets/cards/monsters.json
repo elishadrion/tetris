@@ -217,7 +217,7 @@
   },
   {
     "id": 49,
-    "name": "Stéréo Monovici",
+    "name": "Stereo Monovici",
     "energie" : 3,
     "effect" : 7,
     "vie" : 2,
@@ -281,7 +281,7 @@
   },
   {
     "id": 57,
-    "name": "Gérald",
+    "name": "Gerald",
     "energie" : 7,
     "effect" : 12,
     "vie" : 4,
@@ -329,7 +329,7 @@
   },
   {
     "id": 63,
-    "name": "Capitaine Planète",
+    "name": "Capitaine Planete",
     "energie" : 10,
     "effect" : 5,
     "vie" : 8,
@@ -345,7 +345,7 @@
   },
   {
     "id": 65,
-    "name": "Tortue géniale",
+    "name": "Tortue geniale",
     "energie" : 3,
     "effect" : 1,
     "vie" : 3,
@@ -425,7 +425,7 @@
   },
   {
     "id": 77,
-    "name": "Cédric",
+    "name": "Cedric",
     "energie" : 7,
     "effect" : 8,
     "vie" : 5,
@@ -761,7 +761,7 @@
   },
   {
     "id": 119,
-    "name": "La Panthère Rose",
+    "name": "La Panthere Rose",
     "energie" : 3,
     "effect" : -1,
     "vie" : 4,
@@ -785,7 +785,7 @@
   },
   {
     "id": 122,
-    "name": "Daphné",
+    "name": "Daphne",
     "energie" : 3,
     "effect" : 16,
     "vie" : 4,
@@ -961,7 +961,7 @@
   },
   {
     "id": 144,
-    "name": "Cléo",
+    "name": "Cleo",
     "energie" : 3,
     "effect" : 16,
     "vie" : 1,
