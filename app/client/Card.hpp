@@ -74,7 +74,10 @@ public:
         waitingCache = false;
     }
 
-    inline void setPosition(unsigned pos) { _position = pos; }
+    inline void setPosition(unsigned pos) {
+        _position = pos;
+        WizardLogger::info("new position " + std::to_string(pos));
+    }
     inline unsigned getPosition() { return _position; }
 
 };

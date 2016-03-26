@@ -58,10 +58,15 @@ void CardWidget::resizeEvent(QResizeEvent* event){
 
 void CardWidget::actualize(){
     if(_card != nullptr) { // Define card
+
         QString energy = QString::fromStdString(std::to_string(_card->getEnergyCost()));
         QString attack = "";
         QString life = "";
         if(_card->isMonster()) {
+            if(_card->getHP() <= 0) { // if no heal
+                close();
+                return;
+            }
             attack = QString::fromStdString(std::to_string(_card->getAttack()));
             life = QString::fromStdString(std::to_string(_card->getHP()));
         }

@@ -736,13 +736,13 @@ void GameGUI::deadCard(Card* card, bool adv) {
     }
 
     int i = 0;
-    while(i < MAX_POSED_CARD && !listCardBoard[i]->isCard(card)) {
+    while(i < MAX_POSED_CARD && !listCardBoard[i]->isOnPosition(card->getPosition())) {
         ++i;
     }
 
-    if(listCardBoard[i]->isCard(card)) {
-        addEmplacement(i, adv);
+    if(listCardBoard[i]->isOnPosition(card->getPosition())) {
         listCardBoard[i]->close();
+        addEmplacement(i, adv);
         // Add to defausse
     } else {
         WizardLogger::warning("Carte morte introuvable");
@@ -758,7 +758,9 @@ void GameGUI::placeAdvSpell(Card* card, Card* target) {
     int nbrTarget = 0;
     CardWidget* targetWidget = nullptr;
     while(nbrTarget < MAX_HAND && targetWidget == nullptr) {
-        if(_cardBoard[nbrTarget]->isCard(target)) {
+        if(!_cardBoard[nbrTarget]->isEmplacement() &&
+                _cardBoard[nbrTarget]->isOnPosition(target->getPosition())) {
+
             targetWidget = _cardBoard[nbrTarget];
         }
         ++nbrTarget;
@@ -779,10 +781,14 @@ void GameGUI::placeAdvCardAttack(Card* card, Card* target) {
     int position = 0;
     CardWidget* elem = nullptr;
     while(position < MAX_POSED_CARD && elem == nullptr) {
-        if(_cardBoard[position]->isCard(target)) {
+        if(!_cardBoard[position]->isEmplacement() &&
+                _cardBoard[position]->isOnPosition(target->getPosition())) {
             elem = _cardBoard[position];
-        } else if(_advCardBoard[position]->isCard(target)) {
+
+        } else if(!_advCardBoard[position]->isEmplacement() &&
+                  _advCardBoard[position]->isOnPosition(target->getPosition())) {
             elem = _advCardBoard[position];
+
         }
     }
 
