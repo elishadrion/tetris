@@ -24,6 +24,7 @@ public:
 void Draw::apply(CardMonster* target, Game* game) {
     for (std::size_t i=0; i<_nDraw; i++){
         game->draw();
+        usleep(100);
     }
 }
 

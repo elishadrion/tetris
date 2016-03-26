@@ -81,6 +81,7 @@ private:
     void isPlayerInLife(PlayerInGame* pIG);
     void nextPlayer();
 
+    CardMonster* getCardAtPosition(unsigned);
     int getRealPosition(PlayerInGame*, int);
     int getRelativePosition(PlayerInGame*, int);
     Error canPlaceCard(PlayerInGame*, Card*);

@@ -244,7 +244,7 @@ Error Game::placeCardAffect(PlayerInGame* pIG, Card* cardPlaced, unsigned target
             res = Error::NotEffectForPlayer;
 
         } else if(!cardPlaced->gotEffect() || !cardPlaced->canBeApplyOnCard()) {
-            res = Error::NotEffectForPlayer;
+            res = Error::NotEffectForMonster;
 
         } else {
 
@@ -254,8 +254,7 @@ Error Game::placeCardAffect(PlayerInGame* pIG, Card* cardPlaced, unsigned target
             // If it's a card the is attack
             if(targetPosition != -1) {
                 // Get the target Card
-                CardMonster* targetCard = adverse->getCardAtPosition(
-                                        getRelativePosition(adverse, targetPosition));
+                CardMonster* targetCard = getCardAtPosition(targetPosition);
 
                 // Apply effect
                 cardPlaced->applyEffect(*targetCard, *this);
@@ -329,10 +328,8 @@ Error Game::placeCardAffectPlayer(PlayerInGame* pIG, Card* cardPlaced) {
 Error Game::attackWithCard(PlayerInGame* pIG, unsigned cardPosition,
     unsigned targetPosition) {
 
-    PlayerInGame* adverse = getAdversePlayer(pIG);
-
-    CardMonster* card = pIG->getCardAtPosition(getRelativePosition(pIG, cardPosition));
-    CardMonster* targetCard = adverse->getCardAtPosition(getRelativePosition(adverse, targetPosition));
+    CardMonster* card = getCardAtPosition(cardPosition);
+    CardMonster* targetCard = getCardAtPosition(targetPosition);
 
     Error res = canPlayerAttack(pIG, card);
     if(res == Error::NoError) {
@@ -555,6 +552,23 @@ void Game::nextPlayer() {
     beginTurn();
 }
 
+
+/**
+ * Get the card at a specific position
+ *
+ * @param position of the card
+ * @return the card position
+ */
+CardMonster* Game::getCardAtPosition(unsigned position) {
+    CardMonster* cardMonster;
+    if(position > MAX_POSED_CARD) {
+        cardMonster = _player2->getCardAtPosition(position-MAX_POSED_CARD);
+    } else {
+        cardMonster = _player1->getCardAtPosition(position);
+    }
+
+    return cardMonster;
+}
 
 /**
  * Calcul the real position of a card on the board (if player 2 make + MAX_POSED_CARD)

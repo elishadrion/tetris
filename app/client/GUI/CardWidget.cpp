@@ -56,29 +56,30 @@ void CardWidget::resizeEvent(QResizeEvent* event){
     }
 }
 
-
 void CardWidget::actualize(){
     if(_card != nullptr) { // Define card
         QString energy = QString::fromStdString(std::to_string(_card->getEnergyCost()));
         QString attack = "";
         QString life = "";
-        QString nom = QString::fromStdString(_card->getName());
         if(_card->isMonster()) {
             attack = QString::fromStdString(std::to_string(_card->getAttack()));
             life = QString::fromStdString(std::to_string(_card->getHP()));
         }
 
-        QPixmap pic(":/Images/CardToon.png");
+        std::string nomImage = "./client/Images/Cards/";
+        nomImage += std::to_string(_card->getID());
+        nomImage += ".png";
+        QPixmap pic(nomImage.c_str());
         QPainter paint(&pic);
 
         QFont font;
-        font.setPixelSize(15);
+        font.setPixelSize(50);
         paint.setFont(font);
-
-        paint.drawText(24,228,energy);
-        paint.drawText(77,228,attack);
-        paint.drawText(121,228,life);
-        paint.drawText(24,170,nom);
+        paint.setPen(QColor(255, 255, 255));
+        // x, y
+        paint.drawText(50,70,energy);
+        paint.drawText(50,500,attack);
+        paint.drawText(340,500,life);
 
         _label->setPixmap(pic);
 

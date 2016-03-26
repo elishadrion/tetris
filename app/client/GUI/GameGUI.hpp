@@ -47,6 +47,7 @@ class GameGUI : public QMainWindow {
     CardWidget* _advSpellCardWidget;
 
     CardWidget* _inHandSelect;
+    CardWidget* _onBoardSelect;
     CardWidget* _spellCard;
     CardWidget* _advSpellCard;
     QTimer* _timeSpell;
@@ -61,6 +62,13 @@ class GameGUI : public QMainWindow {
     void removeAdvInHandCard();
     void displayError(int);
     void displayError(std::string);
+
+    // UTILS
+    int getIndexHand(CardWidget*);
+    int getIndexBoard(CardWidget*);
+
+    // ACTION
+    void spellAttack(CardWidget*);
 
 public:
     GameGUI();
@@ -87,8 +95,8 @@ private slots:
     void updateTurn();
     void placeInHandCard(Card*);
     void drawAdvCard();
-    void selectInHand(CardWidget*);
-    void unSelectInHand();
+    void selectCard(CardWidget*);
+    void unSelectCard(CardWidget*);
     void selectEmplacement(CardWidget*);
     void selectAdvCard(CardWidget*);
     void nextTurn();

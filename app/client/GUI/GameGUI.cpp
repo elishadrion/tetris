@@ -7,7 +7,8 @@
  * @param pseudo from the adverse player
  */
 GameGUI::GameGUI() : QMainWindow(), _inHandSelect(nullptr),
-    _timeSpell(nullptr), _timeAdvSpell(nullptr) {
+    _onBoardSelect(nullptr), _timeSpell(nullptr),
+    _timeAdvSpell(nullptr) {
 
     // Init variable
     for(int i = 0; i < MAX_HAND; ++i) {
@@ -105,23 +106,23 @@ GameGUI::GameGUI() : QMainWindow(), _inHandSelect(nullptr),
 
     // colonne de gauche
     _gridlayout->setColumnStretch(0, 1); // Espace
-    _gridlayout->setColumnStretch(1, 2); // Deck
-    _gridlayout->setColumnStretch(2, 2); // Sort
+    _gridlayout->setColumnStretch(1, 4); // Deck
+    _gridlayout->setColumnStretch(2, 4); // Sort
 
-    _gridlayout->setColumnStretch(3, 2); // Card 1
-    _gridlayout->setColumnStretch(4, 2); // Card 2
-    _gridlayout->setColumnStretch(5, 2); // Card 3
-    _gridlayout->setColumnStretch(6, 2); // Card 4
-    _gridlayout->setColumnStretch(7, 2); // Card 5
-    _gridlayout->setColumnStretch(8, 2); // Card 6
-    _gridlayout->setColumnStretch(9, 2); // Card 7
+    _gridlayout->setColumnStretch(3, 4); // Card 1
+    _gridlayout->setColumnStretch(4, 4); // Card 2
+    _gridlayout->setColumnStretch(5, 4); // Card 3
+    _gridlayout->setColumnStretch(6, 4); // Card 4
+    _gridlayout->setColumnStretch(7, 4); // Card 5
+    _gridlayout->setColumnStretch(8, 4); // Card 6
+    _gridlayout->setColumnStretch(9, 4); // Card 7
 
     // colonne de droite
     _gridlayout->setColumnStretch(10, 1); // Espace
-    _gridlayout->setColumnStretch(11, 2); // Next Turn
+    _gridlayout->setColumnStretch(11, 3); // Next Turn
     _gridlayout->setColumnStretch(12, 1); // Espace
 
-    _gridlayout->setColumnStretch(13, 6); // tchat
+    _gridlayout->setColumnStretch(13, 12); // tchat
 
 
     // Ligne des cartes 1
@@ -223,9 +224,6 @@ void GameGUI::placeSpellCardOnBoard() {
         connect(_timeSpell, SIGNAL(timeout()), this, SLOT(removeSpell()));
         _timeSpell->start(2000);
         _timeSpell->setSingleShot(true);
-
-        _inHandSelect->setSelect(false);
-        _inHandSelect = nullptr;
     }
 }
 
@@ -296,6 +294,80 @@ void GameGUI::displayError(std::string msg) {
                         QString::fromStdString(msg));
 }
 
+
+// ===================== UTILS ============================
+
+/**
+ * Get the index of an CardWidget in the vector Hand
+ *
+ * @param card which is search
+ * @return -1 if not found, index else
+ */
+int GameGUI::getIndexHand(CardWidget* card) {
+    int i = 0;
+    while(i < MAX_HAND && _cardInHand[i] != card) {
+        ++i;
+    }
+
+    if(_cardInHand[i] != card) {
+        i = -1;
+    }
+    return i;
+}
+
+/**
+ * Get the index of an CardWidget in the vector Board
+ *
+ * @param card which is search
+ * @return -1 if not found, index else
+ */
+int GameGUI::getIndexBoard(CardWidget* card) {
+    int i = 0;
+    while(i < MAX_POSED_CARD && _cardBoard[i] != card) {
+        ++i;
+    }
+
+    if(_cardBoard[i] != card) {
+        i = -1;
+    }
+    return i;
+
+}
+
+
+// ==================== ACTION ============================
+/**
+ * Call when the inHandSelect is a spell and attack
+ *
+ * @param cardWidget which card is attack
+ */
+void GameGUI::spellAttack(CardWidget* cardWidget) {
+    /* Lock */
+    pthread_mutex_lock(&wizardDisplay->packetStackMutex);
+
+    // Packet manager
+    WizardLogger::info("Placement & attack sort: "+ std::to_string(_inHandSelect->getId()));
+    PacketManager::sendPlaceCardAttack(_inHandSelect->getId(), cardWidget->getPosition());
+
+    /* Wait for result */
+    pthread_cond_wait(&wizardDisplay->packetStackCond, &wizardDisplay->packetStackMutex);
+
+    /* Check result */
+    if (wizardDisplay->packetErrorStack.empty()) {
+        WizardLogger::info("Pose la carte & attack");
+
+        placeSpellCardOnBoard();
+        cardWidget->actualize(); // update heal of this card
+
+    } else {
+        int error = reinterpret_cast<int>(wizardDisplay->packetErrorStack.back());
+        wizardDisplay->packetErrorStack.pop_back();
+        displayError(error);
+    }
+
+    /* Unlock */
+    pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
+}
 
 
 /**
@@ -391,8 +463,8 @@ void GameGUI::placeInHandCard(Card* card) {
     if(i != MAX_HAND) {
         CardWidget* cardWidget = new CardWidget(card);
         _cardInHand[i] = cardWidget;
-        connect(cardWidget, SIGNAL(selected(CardWidget*)), this, SLOT(selectInHand(CardWidget*)));
-        connect(cardWidget, SIGNAL(unSelected(CardWidget*)), this, SLOT(unSelectInHand()));
+        connect(cardWidget, SIGNAL(selected(CardWidget*)), this, SLOT(selectCard(CardWidget*)));
+        connect(cardWidget, SIGNAL(unSelected(CardWidget*)), this, SLOT(unSelectCard(CardWidget*)));
         _gridlayout->addWidget(cardWidget, 7, 3+i);
     } else {
         WizardLogger::error("Impossible de posée la carte (plus assez de place)");
@@ -412,8 +484,10 @@ void GameGUI::drawAdvCard() {
         CardWidget* cardWidget = new CardWidget(false, false);
         _advCardInHand[i] = cardWidget;
         _gridlayout->addWidget(cardWidget, 1, 3+i);
+
     } else {
         WizardLogger::error("Impossible de posée une carte adverse (plus assez de place)");
+
     }
 }
 
@@ -422,18 +496,60 @@ void GameGUI::drawAdvCard() {
  *
  * @param cardWidget witch card is select
  */
-void GameGUI::selectInHand(CardWidget* cardWidget) {
-    if(_inHandSelect != nullptr) {
-        _inHandSelect->setSelect(false);
+void GameGUI::selectCard(CardWidget* cardWidget) {
+    if(getIndexBoard(cardWidget) != -1) {
+        if(_inHandSelect != nullptr) {
+            if(!_inHandSelect->isMonster()) {
+                spellAttack(cardWidget);
+
+                _inHandSelect->setSelect(false);
+                _inHandSelect = nullptr;
+                cardWidget->setSelect(false);
+                return;
+
+            } else {
+                _inHandSelect->setSelect(false);
+                _inHandSelect = nullptr;
+            }
+        }
+
+        if(_onBoardSelect != nullptr) {
+            _onBoardSelect->setSelect(false);
+        }
+        _onBoardSelect = cardWidget;
+
+    } else if(getIndexHand(cardWidget) != -1) {
+        if(_onBoardSelect != nullptr) {
+            _onBoardSelect->setSelect(false);
+            _onBoardSelect = nullptr;
+        }
+
+        if(_inHandSelect != nullptr) {
+            _inHandSelect->setSelect(false);
+        }
+        _inHandSelect = cardWidget;
+    } else {
+        WizardLogger::info("Carte non trouvé ni dans la main ni sur le plateau");
     }
-    _inHandSelect = cardWidget;
     WizardLogger::info("Selection de la carte: " + std::to_string(cardWidget->getId()));
 }
 
 /**
  * Call when player unselect card
  */
-void GameGUI::unSelectInHand() {
+void GameGUI::unSelectCard(CardWidget* cardWidget) {
+    if(getIndexBoard(cardWidget) != -1) {
+        if(_onBoardSelect != nullptr) {
+            _onBoardSelect->setSelect(false);
+        }
+        _onBoardSelect = cardWidget;
+
+    } else if(getIndexHand(cardWidget) != -1) {
+        if(_inHandSelect != nullptr) {
+            _inHandSelect->setSelect(false);
+        }
+        _inHandSelect = cardWidget;
+    }
     _inHandSelect = nullptr;
 }
 
@@ -482,35 +598,13 @@ void GameGUI::selectAdvCard(CardWidget * cardWidget) {
     cardWidget->setSelect(false);
 
     // If card in hand select and is a spell card
-    if(_inHandSelect != nullptr && !_inHandSelect->isMonster()) {
-
-        /* Lock */
-        pthread_mutex_lock(&wizardDisplay->packetStackMutex);
-
-        // Packet manager
-        WizardLogger::info("Placement & attack sort: "+ std::to_string(_inHandSelect->getId()));
-        PacketManager::sendPlaceCardAttack(_inHandSelect->getId(), cardWidget->getPosition());
-
-        /* Wait for result */
-        pthread_cond_wait(&wizardDisplay->packetStackCond, &wizardDisplay->packetStackMutex);
-
-        /* Check result */
-        if (wizardDisplay->packetErrorStack.empty()) {
-            WizardLogger::info("Pose la carte & attack");
-
-            placeSpellCardOnBoard();
-            cardWidget->actualize(); // update heal of this card
-
+    if(_inHandSelect != nullptr) {
+        if(!_inHandSelect->isMonster()) {
+            spellAttack(cardWidget);
         } else {
-            int error = reinterpret_cast<int>(wizardDisplay->packetErrorStack.back());
-            wizardDisplay->packetErrorStack.pop_back();
-            displayError(error);
+            // Attack
         }
-
-        /* Unlock */
-        pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
     }
-
 }
 
 

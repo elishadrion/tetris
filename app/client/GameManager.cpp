@@ -163,6 +163,7 @@ void GameManager::placeCardAndAttack(bool isEffectCard, int cardID, unsigned pos
         Card* enemyCard = static_cast<Card*>(_ennemyPosed[targetPosition%MAX_POSED_CARD]);
         enemyCard->setHP(heal);
 
+        WizardLogger::info("Vie de la carte adverse: " + std::to_string(enemyCard->getHP()));
         if(enemyCard->isDead()) {
             _advTrash.push_back(enemyCard);
             wizardDisplay->cardIsDead(enemyCard, true);
