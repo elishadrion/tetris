@@ -736,15 +736,13 @@ void GameGUI::deadCard(Card* card, bool adv) {
     }
 
     int i = 0;
-    CardWidget* cardWidget = nullptr;
-
     while(i < MAX_POSED_CARD && !listCardBoard[i]->isCard(card)) {
         ++i;
     }
 
     if(listCardBoard[i]->isCard(card)) {
         addEmplacement(i, adv);
-        cardWidget->close();
+        listCardBoard[i]->close();
         // Add to defausse
     } else {
         WizardLogger::warning("Carte morte introuvable");
@@ -768,6 +766,8 @@ void GameGUI::placeAdvSpell(Card* card, Card* target) {
 
     if(targetWidget != nullptr) {
         targetWidget->actualize();
+    } else {
+        WizardLogger::warning("Carte visée non trouvé");
     }
 
 }

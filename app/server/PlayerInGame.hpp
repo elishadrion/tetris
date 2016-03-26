@@ -3,7 +3,7 @@
 
 #include <vector>
 #include <algorithm>
-
+#include <iostream> // MUST BE REMOVE
 
 #include "Deck.hpp"
 class Player;
@@ -65,12 +65,13 @@ public:
     bool haveEnoughEnergy(Card* card);
     void addMaxEnergy();
     int resetEnergy();
+    void removeEnergyFromCard(Card*);
     Error defausseCardPlaced(unsigned);
     Error removeInHandCard(Card*);
     Error defausseCardInHand(Card*);
     int placeCard(CardMonster*);
-    void takeDamage(unsigned int);
-    void addHeal(unsigned int);
+    void takeDamage(unsigned);
+    void addHeal(unsigned);
     int getHeal();
     bool isDead();
     void incrementAllPlaceCard();
@@ -79,9 +80,9 @@ public:
     Game* getGame();
 
     // Request from client
-    Error reqAttack(unsigned, int);
-    Error reqPlaceCard(unsigned);
-    Error reqPlaceAttackCard(unsigned, int);
+    Error reqAttack(int, int);
+    Error reqPlaceCard(int);
+    Error reqPlaceAttackCard(int, int);
     Error reqEndTurn();
 
 

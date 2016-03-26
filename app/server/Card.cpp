@@ -27,11 +27,10 @@ Card::Card(unsigned int id, std::string name, unsigned int energy,
  *
  * @param the monster targeted
  * @param the game where the effect will be apply
- * @return void
  */
-void Card::applyEffect(CardMonster& cardmonster, Game& game){
-    if(this->gotEffect() and this->canBeApplyOnCard()){
-        _effect->apply(&cardmonster, &game);
+void Card::applyEffect(CardMonster* cardmonster, Game* game){
+    if(this->gotEffect() && this->canBeApplyOnCard()){
+        _effect->apply(cardmonster, game);
     }
 }
 
@@ -40,11 +39,10 @@ void Card::applyEffect(CardMonster& cardmonster, Game& game){
  *
  * @param the player targeted
  * @param the game where the effect will be apply
- * @return void
  */
 void Card::applyEffect(PlayerInGame& player, Game& game){
-    if (this->gotEffect() and this->canBeApplyOnPlayer()){
-        _effect->apply(&player, &game );
+    if (this->gotEffect() && this->canBeApplyOnPlayer()){
+        _effect->apply(player, game );
     }
 }
 

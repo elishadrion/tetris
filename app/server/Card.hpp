@@ -31,8 +31,8 @@ private:
 
 
 public:
-    virtual void applyEffect(CardMonster& cardmonster, Game&);
-    virtual void applyEffect(PlayerInGame& player, Game&);
+    virtual void applyEffect(CardMonster* cardmonster, Game*);
+    virtual void applyEffect(PlayerInGame* player, Game*);
     virtual ~Card();
 
     unsigned int getId() const {return _id;}

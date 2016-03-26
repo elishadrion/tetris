@@ -85,7 +85,6 @@ Connection::~Connection() {
  * @throw : an error occure during sending packet, CLI/GUI must catch it
  */
 void Connection::sendPacket(Packet::packet *packet, size_t size) {
-    WizardLogger::info("Envoie du message: " + std::to_string(packet->ID));
     try {
         if (send(_clientSocket, packet, size, 0) != size) {
             throw std::string("Tout le packet n'a pas été envoyé");

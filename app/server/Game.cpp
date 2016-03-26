@@ -108,7 +108,7 @@ void Game::checkDeckAndStart() {
 
         _gameStatut = GameStatut::IN_GAME;
 
-        unsigned int i = 0;
+        unsigned i = 0;
         std::vector<unsigned> handPlayer1;
         std::vector<unsigned> handPlayer2;
         while(i < MIN_CARD_IN_HAND) {
@@ -235,7 +235,7 @@ Error Game::placeCard(PlayerInGame* pIG, CardMonster* cardPlaced) {
  * @param targetCard the card which will have the effect if
  * the placed card have it
  */
-Error Game::placeCardAffect(PlayerInGame* pIG, Card* cardPlaced, unsigned targetPosition) {
+Error Game::placeCardAffect(PlayerInGame* pIG, Card* cardPlaced, int targetPosition) {
     Error res = canPlaceCard(pIG, cardPlaced);
 
     if(res == Error::NoError) {
@@ -257,7 +257,8 @@ Error Game::placeCardAffect(PlayerInGame* pIG, Card* cardPlaced, unsigned target
             // If it's a card the is attack
             if(targetPosition != -1) {
                 // Get the target Card
-                CardMonster* targetCard = getCardAtPosition(targetPosition);
+                CardMonster* targetCard = getCardAtPosition(
+                            static_cast<unsigned>(targetPosition));
 
                 // Apply effect
                 cardPlaced->applyEffect(*targetCard, *this);
@@ -287,6 +288,7 @@ Error Game::placeCardAffect(PlayerInGame* pIG, Card* cardPlaced, unsigned target
 
             } else {
                 pIG->defausseCardInHand(cardPlaced);
+                pIG->removeEnergyFromCard(cardPlaced);
                 PacketManager::sendPlaceSpellCard(_player1, pseudo, placedCardId, targetPosition, lifeTarget);
                 PacketManager::sendPlaceSpellCard(_player2, pseudo, placedCardId, targetPosition, lifeTarget);
 
@@ -328,14 +330,15 @@ Error Game::placeCardAffectPlayer(PlayerInGame* pIG, Card* cardPlaced) {
  * @param targetCard card which is attack
  * @return Error or "NoError" if all is ok
  */
-Error Game::attackWithCard(PlayerInGame* pIG, unsigned cardPosition,
-                            unsigned targetPosition) {
+Error Game::attackWithCard(PlayerInGame* pIG, int cardPosition,
+                            int targetPosition) {
 
-    CardMonster* card = getCardAtPosition(cardPosition);
+    CardMonster* card = getCardAtPosition(static_cast<unsigned>(cardPosition));
     // TO DO: Verify that target card is a card of adverse player
-    CardMonster* targetCard = getCardAtPosition(targetPosition);
+    CardMonster* targetCard = getCardAtPosition(static_cast<unsigned>(targetPosition));
 
-    WizardLogger::info("Nombre de tour de la carte: " + std::to_string(card->getNbrTourPose()));
+    WizardLogger::info("Nombre de tour de la carte: " + std::to_string(card->getNbrTourPose()) +
+                       " | position: " + std::to_string(targetPosition));
     Error res = canPlayerAttack(pIG, card);
     if(res == Error::NoError) {
         if(verifyTaunt(pIG, targetCard)) {
@@ -366,7 +369,7 @@ Error Game::attackWithCard(PlayerInGame* pIG, unsigned cardPosition,
  * @param targetCard card which is attack
  * @return Error or "NoError" if all is ok
  */
-Error Game::attackWithCardAffectPlayer(PlayerInGame* pIG, unsigned cardPosition) {
+Error Game::attackWithCardAffectPlayer(PlayerInGame* pIG, int cardPosition) {
 
     CardMonster* card = pIG->getCardAtPosition(getRelativePosition(pIG, cardPosition));
 
@@ -450,6 +453,8 @@ void Game::endTurn() {
 Error Game::canPlayerAttack(PlayerInGame* pIG, CardMonster* card) {
     Error res = Error::UnknowError;
 
+    WizardLogger::info("Test de la carte " + std::to_string(card->getId()));
+    std::cout<<"canAttack: "<<card<<std::endl;
     if(pIG == _currentPlayer) {
         if(card->getNbrTourPose() > 1) {
             if(pIG->haveEnoughEnergy(card)) {

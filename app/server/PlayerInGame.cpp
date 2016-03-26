@@ -11,8 +11,6 @@ PlayerInGame::PlayerInGame(const Player& player, Game* game): Player(player),
     _playerHeal = MAX_LIFE; //Player starts with 20 health points
      _energy = 0; //The current energy of the player
     _maxEnergy = 1; //Every turn the maximum energy is increased up to a maximum of 10
-    std::vector<Card*> _cardsInHand(0);
-    std::vector<Card*> _defausse(0);
 
     for(unsigned i = 0; i < MAX_POSED_CARD; ++i) _cardsPlaced[i] = nullptr;
 
@@ -210,6 +208,18 @@ int PlayerInGame::resetEnergy() {
     return _energy;
 }
 
+/**
+ * Remove energy of the player (with the cost of the card)
+ *
+ * @param card whic define how much we loose
+ */
+void PlayerInGame::removeEnergyFromCard(Card* card) {
+    if(_energy < card->getEnergyCost()) {
+        WizardLogger::warning("Pas assez d'énergie !");
+    }
+    _energy -= card->getEnergyCost();
+}
+
 
 /**
  * Remove card from the placed card to the defausse
@@ -278,7 +288,7 @@ int PlayerInGame::placeCard(CardMonster* card) {
     if(find && removeInHandCard(card) == Error::NoError) {
         CardMonster* newCard = new CardMonster(*card);
         _cardsPlaced[res] = newCard;
-        _energy -= newCard->getEnergyCost();
+        removeEnergyFromCard(newCard);
         WizardLogger::info("Energy of player: " + std::to_string(_energy));
 
     } else {
@@ -295,8 +305,12 @@ int PlayerInGame::placeCard(CardMonster* card) {
  *
  * @param damage quantity of heal to remove
  */
-void PlayerInGame::takeDamage(unsigned int damage){
-    _playerHeal -= damage;
+void PlayerInGame::takeDamage(unsigned damage){
+    if(_playerHeal <= damage) {
+        _playerHeal = 0;
+    } else {
+        _playerHeal -= damage;
+    }
 }
 
 
@@ -305,7 +319,7 @@ void PlayerInGame::takeDamage(unsigned int damage){
  *
  * @param heal quantity of heal to add
  */
-void PlayerInGame::addHeal(unsigned int heal){
+void PlayerInGame::addHeal(unsigned heal){
     const int maxHP = MAX_LIFE;
     _playerHeal += heal;
     if(_playerHeal > maxHP) {
@@ -342,6 +356,7 @@ void PlayerInGame::incrementAllPlaceCard() {
             cardMonster->incrementTour();
             WizardLogger::info("Nombre de tour de la carte " + cardMonster->getName() +
                                + " = " + std::to_string(cardMonster->getNbrTourPose()));
+            std::cout<<cardMonster<<std::endl;
         }
     }
 }
@@ -379,11 +394,6 @@ bool PlayerInGame::havePlace() {
     bool res = false;
     while(i < MAX_POSED_CARD && !res) {
         res = (getCardsPlaced()[i] == nullptr);
-        if(res) {
-            WizardLogger::info("parcours carte trouvé: " + std::to_string(i));
-        } else {
-            WizardLogger::info("parcours carte fail: " + std::to_string(i));
-        }
         ++i;
     }
 
@@ -409,7 +419,7 @@ Game* PlayerInGame::getGame() {
  * @param positionTarget card wich IS attack
  * @return noError if all is ok
  */
-Error PlayerInGame::reqAttack(unsigned positionCard, int positionTarget) {
+Error PlayerInGame::reqAttack(int positionCard, int positionTarget) {
     Error res;
     if(positionTarget == -1) {
         res = _game->attackWithCardAffectPlayer(this, positionCard);
@@ -425,10 +435,10 @@ Error PlayerInGame::reqAttack(unsigned positionCard, int positionTarget) {
  * @param cardId the new card
  * @return noError if all is ok
  */
-Error PlayerInGame::reqPlaceCard(unsigned cardId) {
+Error PlayerInGame::reqPlaceCard(int cardId) {
     Error res;
 
-    Card* card = CardManager::getCardById(cardId);
+    Card* card = CardManager::getCardById(static_cast<unsigned>(cardId));
     if(card != nullptr && card->isMonster()) {
         CardMonster* monsterCard = static_cast<CardMonster*>(card);
         res = _game->placeCard(this, monsterCard);
@@ -447,10 +457,10 @@ Error PlayerInGame::reqPlaceCard(unsigned cardId) {
  * @param targetPosition the card wich must be attack
  * @return noError if all is ok
  */
-Error PlayerInGame::reqPlaceAttackCard(unsigned cardId, int targetPosition) {
+Error PlayerInGame::reqPlaceAttackCard(int cardId, int targetPosition) {
     Error res;
 
-    Card* card = CardManager::getCardById(cardId);
+    Card* card = CardManager::getCardById(static_cast<unsigned>(cardId));
     if(card != nullptr) {
         if(targetPosition == -1) {
             res = _game->placeCardAffectPlayer(this, card);

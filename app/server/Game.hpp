@@ -3,6 +3,8 @@
 #define	GAME_HPP
 
 #include <vector>
+#include <iostream> // MUST BE REMOVE
+
 
 #include "Player.hpp"
 #include "PlayerInGame.hpp"
@@ -40,8 +42,6 @@ class Game {
     Game(Player* p1, Player* p2);
 
     bool isInGame();
-    //void sendInformation(); // Not use
-    //void sendInformation(PlayerInGame*,dataIGPlayer, dataIGPlayer); // Not use
     PlayerInGame* getAdversePlayer(PlayerInGame* player);
     PlayerInGame* getAdversePlayer();
 
@@ -61,10 +61,10 @@ public:
     void draw(); // current player draw a card
     void draw(PlayerInGame*); // current player draw a card
     Error placeCard(PlayerInGame*, CardMonster*);
-    Error placeCardAffect(PlayerInGame*, Card*, unsigned);
+    Error placeCardAffect(PlayerInGame*, Card*, int);
     Error placeCardAffectPlayer(PlayerInGame*, Card*);
-    Error attackWithCard(PlayerInGame*, unsigned, unsigned);
-    Error attackWithCardAffectPlayer(PlayerInGame*, unsigned);
+    Error attackWithCard(PlayerInGame*, int, int);
+    Error attackWithCardAffectPlayer(PlayerInGame*, int);
     Error playerAskEndTurn(PlayerInGame*);
 
 
