@@ -79,6 +79,7 @@ public:
     void callPlaceCard(Card*);
     void callAdvPlaceCard(Card*);
     void callPlaceAdvSpell(Card*, Card*);
+    void callPlaceAdvCardAttack(Card*, Card*);
     void callDeadCard(Card*, bool);
 
 signals:
@@ -89,6 +90,7 @@ signals:
     void mustPlaceCard(Card*);
     void mustPlaceAdvCard(Card*);
     void mustPlaceAdvSpell(Card*, Card*);
+    void mustPlaceAdvCardAttack(Card*, Card*);
     void mustDeadCard(Card*, bool);
 
 private slots:
@@ -106,6 +108,7 @@ private slots:
     void removeAdvSpell();
     void deadCard(Card*, bool);
     void placeAdvSpell(Card*, Card*);
+    void placeAdvCardAttack(Card*, Card*);
 
 
 };

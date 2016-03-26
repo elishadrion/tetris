@@ -209,6 +209,7 @@ void GameManager::placeAdverseCardAndAttack(bool isEffectCard, int cardID, unsig
         } else {
             wizardDisplay->placeAdverseCardAndAttack(card, enemyCard);
         }
+
         if(enemyCard->isDead()) {
             _trash.push_back(enemyCard);
             wizardDisplay->cardIsDead(enemyCard, false);

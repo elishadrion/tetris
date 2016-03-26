@@ -146,6 +146,8 @@ GameGUI::GameGUI() : QMainWindow(), _inHandSelect(nullptr),
     connect(_nextTurnBouton, SIGNAL(clicked()), this, SLOT(nextTurn()));
     connect(this, SIGNAL(mustPlaceAdvCard(Card*)), this, SLOT(placeAdvCard(Card*)));
     connect(this, SIGNAL(mustPlaceAdvSpell(Card*, Card*)), this, SLOT(placeAdvSpell(Card*,Card*)));
+    connect(this, SIGNAL(mustPlaceAdvCardAttack(Card*, Card*)),
+            this, SLOT(placeAdvCardAttack(Card*, Card*)));
     connect(this, SIGNAL(mustDeadCard(Card*, bool)), this, SLOT(deadCard(Card*, bool)));
 
     // pop-up to choose deck
@@ -480,6 +482,9 @@ void GameGUI::callPlaceAdvSpell(Card* card, Card* target) {
     emit mustPlaceAdvSpell(card, target);
 }
 
+void GameGUI::callPlaceAdvCardAttack(Card* card, Card* target) {
+    emit mustPlaceAdvCardAttack(card, target);
+}
 
 void GameGUI::callDeadCard(Card* card, bool adv) {
     emit mustDeadCard(card, adv);
@@ -564,18 +569,12 @@ void GameGUI::drawAdvCard() {
 void GameGUI::selectCard(CardWidget* cardWidget) {
     if(getIndexBoard(cardWidget) != -1) {
         if(_inHandSelect != nullptr) {
-            if(!_inHandSelect->isMonster()) {
-                placeAndAttack(cardWidget);
+            placeAndAttack(cardWidget);
 
-                _inHandSelect->setSelect(false);
-                _inHandSelect = nullptr;
-                cardWidget->setSelect(false);
-                return;
-
-            } else {
-                _inHandSelect->setSelect(false);
-                _inHandSelect = nullptr;
-            }
+            _inHandSelect->setSelect(false);
+            _inHandSelect = nullptr;
+            cardWidget->setSelect(false);
+            return;
         }
 
         if(_onBoardSelect != nullptr) {
@@ -769,6 +768,28 @@ void GameGUI::placeAdvSpell(Card* card, Card* target) {
 
     if(targetWidget != nullptr) {
         targetWidget->actualize();
+    }
+
+}
+
+
+void GameGUI::placeAdvCardAttack(Card* card, Card* target) {
+    placeAdvCard(card);
+
+    int position = 0;
+    CardWidget* elem = nullptr;
+    while(position < MAX_POSED_CARD && elem == nullptr) {
+        if(_cardBoard[position]->isCard(target)) {
+            elem = _cardBoard[position];
+        } else if(_advCardBoard[position]->isCard(target)) {
+            elem = _advCardBoard[position];
+        }
+    }
+
+    if(elem != nullptr) {
+        elem->actualize();
+    } else {
+        WizardLogger::warning("Carte attaqué introuvable");
     }
 
 }

@@ -566,7 +566,7 @@ void Game::nextPlayer() {
  */
 CardMonster* Game::getCardAtPosition(unsigned position) {
     CardMonster* cardMonster;
-    if(position > MAX_POSED_CARD) {
+    if(position >= MAX_POSED_CARD) {
         cardMonster = _player2->getCardAtPosition(position-MAX_POSED_CARD);
     } else {
         cardMonster = _player1->getCardAtPosition(position);

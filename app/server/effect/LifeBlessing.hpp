@@ -9,8 +9,8 @@ class LifeBlessing : public Effect{
 
     unsigned int _lifeValue;
 public:
-    LifeBlessing(unsigned int lifeValue):_lifeValue(lifeValue){};
-    ~LifeBlessing(){};
+    LifeBlessing(unsigned int lifeValue):_lifeValue(lifeValue){}
+    ~LifeBlessing(){}
 
     virtual void apply(CardMonster*, Game*) override;
 };

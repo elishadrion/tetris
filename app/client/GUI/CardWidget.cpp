@@ -84,7 +84,8 @@ void CardWidget::actualize(){
         _label->setPixmap(pic);
 
     } else if(_emplacement) { // emplacement
-        _label->setStyleSheet("background-color: rgba(109, 109, 109, 0.37)");
+        _label->setStyleSheet("background-color: rgba(109, 109, 109, 0.25);"
+                              "border-radius: 15px;");
 
     } else { // masked card
         QPixmap pic(":/Images/CardMasked.png");

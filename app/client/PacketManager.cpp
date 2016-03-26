@@ -616,21 +616,28 @@ void PacketManager::manageAttack(Packet::attackPacket* attackPacket) {
 void PacketManager::managePlaceCardAttack(Packet::placeAttackPacket* placeAttackPacket) {
     GameManager* gm = GameManager::getInstance();
 
-    /* Lock, signal other thread and unlock */
-    pthread_mutex_lock(&wizardDisplay->packetStackMutex);
-    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(placeAttackPacket->data.idCard)));
-    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(placeAttackPacket->data.cardPosition)));
-    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(placeAttackPacket->data.targetPosition)));
-    wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new int(placeAttackPacket->data.heal)));
-    if(placeAttackPacket->data.pseudo == Player::getPlayer()->getName()) {
-        wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new bool(true)));
-        //TODO gm->placeCardAndAttack(false, cardId, position, targetPosition, heal);
+    bool adverse = !(placeAttackPacket->data.pseudo == Player::getPlayer()->getName());
+    unsigned cardId = placeAttackPacket->data.idCard;
+    unsigned cardPosition = placeAttackPacket->data.cardPosition;
+    int targetPosition = placeAttackPacket->data.targetPosition;
+    unsigned heal = placeAttackPacket->data.heal;
+
+    if(gm->isTurn()) {
+        gm->placeCardAndAttack(false, cardId, cardPosition, targetPosition, heal);
+
+        /* Lock, signal other thread and unlock */
+        pthread_mutex_lock(&wizardDisplay->packetStackMutex);
+        pthread_cond_broadcast(&wizardDisplay->packetStackCond);
+        pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
+
     } else {
-        wizardDisplay->packetStack.push_back(reinterpret_cast<void*>(new bool(false)));
-        //TODO gm->placeAdverseCardAndAttack(false, cardId, position, targetPosition, heal);
+        if(adverse) {
+            gm->placeAdverseCardAndAttack(false, cardId, cardPosition, targetPosition, heal);
+        } else {
+            WizardLogger::warning("Cela doit se faire avec les mutex");
+        }
     }
-    pthread_cond_broadcast(&wizardDisplay->packetStackCond);
-    pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
+
 }
 
 void PacketManager::manageEndGame(const Packet::endGamePacket* endPacket) {

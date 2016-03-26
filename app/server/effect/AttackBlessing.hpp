@@ -9,8 +9,8 @@ class AttackBlessing : public Effect{
 
     unsigned int _attackValue;
 public:
-    AttackBlessing(unsigned int attackValue):_attackValue(attackValue){};
-    ~AttackBlessing(){};
+    AttackBlessing(unsigned int attackValue):_attackValue(attackValue){}
+    ~AttackBlessing(){}
 
     void apply(CardMonster*, Game*) override;
 };

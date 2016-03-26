@@ -9,8 +9,8 @@ class LifeCurse : public Effect{
 
     unsigned int _lifeValue;
 public:
-    LifeCurse(unsigned int lifeValue):_lifeValue(lifeValue){};
-    ~LifeCurse(){};
+    LifeCurse(unsigned int lifeValue):_lifeValue(lifeValue){}
+    ~LifeCurse(){}
 
     virtual void apply(CardMonster*, Game*) override;
 };
@@ -24,7 +24,7 @@ public:
  */
 void LifeCurse::apply(CardMonster* target, Game* game){
     target->setMaxLife(_lifeValue);
-    if (target->getLife() > _lifeValue ){
+    if (target->getLife() > _lifeValue){
         target->setLife(_lifeValue);
     }
 }

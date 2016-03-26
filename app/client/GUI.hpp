@@ -36,8 +36,12 @@ public:
     void drawCard(Card*) override;
     void adverseDrawCard() override;
     void placeAdverseCard(Card*) override;
-    void placeAdverseSpellCard(Card *, Card *);
+    void placeAdverseSpellCard(Card *, Card *) override;
+    void placeAdverseCardAndAttack(Card *, Card *) override;
+    void placeAdverseSpellPlayer(Card *) override;
+    void placeAdverseCardAndAttackPlayer(Card *) override;
     void cardIsDead(Card*, bool) override;
+
 
     // Tchat
     void recevTchatMsg(std::string, std::string, std::string);

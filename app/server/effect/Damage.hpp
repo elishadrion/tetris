@@ -10,12 +10,12 @@ class Damage : public Effect{
 
     unsigned int _damageValue;
 public:
-    Damage(unsigned int damageValue):_damageValue(damageValue){};
-    ~Damage(){};
+    Damage(unsigned int damageValue):_damageValue(damageValue){}
+    ~Damage(){}
 
     virtual void apply(CardMonster*, Game*) override;
     virtual void apply(PlayerInGame*, Game*) override;
-    virtual bool canBeApplyOnPlayer() override {return true;};
+    virtual bool canBeApplyOnPlayer() override {return true;}
 };
 
 /**
@@ -26,7 +26,11 @@ public:
  * @return void 
  */
 void Damage::apply(CardMonster* target, Game* game){
-    target->setLife(target->getLife()-_damageValue);
+    unsigned newLife = 0;
+    if(target->getLife() > _damageValue) {
+        newLife = target->getLife()-_damageValue;
+    }
+    target->setLife(newLife);
 }
 
 /**

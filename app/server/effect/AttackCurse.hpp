@@ -9,8 +9,8 @@ class AttackCurse : public Effect{
 
     unsigned int _attackValue;
 public:
-    AttackCurse(unsigned int attackValue):_attackValue(attackValue){};
-    ~AttackCurse(){};
+    AttackCurse(unsigned int attackValue):_attackValue(attackValue){}
+    ~AttackCurse(){}
 
     virtual void apply(CardMonster*, Game*) override;
 };

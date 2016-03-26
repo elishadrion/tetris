@@ -76,6 +76,19 @@ void GUI::placeAdverseSpellCard(Card* card, Card* target) {
     gamePanel->callPlaceAdvSpell(card, target);
 }
 
+void GUI::placeAdverseCardAndAttack(Card * card, Card * target) {
+    gamePanel->callPlaceAdvCardAttack(card, target);
+}
+
+void GUI::placeAdverseSpellPlayer(Card* card) {
+    // TO DO
+}
+
+void GUI::placeAdverseCardAndAttackPlayer(Card* card) {
+    // TO DO
+}
+
+
 void GUI::cardIsDead(Card* card, bool adv) {
     gamePanel->callDeadCard(card, adv);
 }
