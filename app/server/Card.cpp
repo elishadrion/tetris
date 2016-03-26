@@ -40,9 +40,9 @@ void Card::applyEffect(CardMonster* cardmonster, Game* game){
  * @param the player targeted
  * @param the game where the effect will be apply
  */
-void Card::applyEffect(PlayerInGame& player, Game& game){
+void Card::applyEffect(PlayerInGame* player, Game* game){
     if (this->gotEffect() && this->canBeApplyOnPlayer()){
-        _effect->apply(player, game );
+        _effect->apply(player, game);
     }
 }
 

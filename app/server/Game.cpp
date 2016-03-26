@@ -261,12 +261,12 @@ Error Game::placeCardAffect(PlayerInGame* pIG, Card* cardPlaced, int targetPosit
                             static_cast<unsigned>(targetPosition));
 
                 // Apply effect
-                cardPlaced->applyEffect(*targetCard, *this);
+                cardPlaced->applyEffect(targetCard, this);
                 lifeTarget = targetCard->getLife(); // save heal
 
             } else { // If we attack the adverse player
 
-                cardPlaced->applyEffect(*adverse, *this);
+                cardPlaced->applyEffect(adverse, this);
                 lifeTarget = adverse->getHeal(); // save heal
             }
 
