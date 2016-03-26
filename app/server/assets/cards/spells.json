@@ -31,7 +31,7 @@
   },
   {
     "id": 6,
-    "name": "Saï",
+    "name": "Sai",
     "energie": 3,
     "effect" : 16 
   },
@@ -43,7 +43,7 @@
   },
   {
     "id": 8,
-    "name": "Bô",
+    "name": "Bo",
     "energie": 3,
     "effect" : 5 
   },
@@ -67,7 +67,7 @@
   },
   {
     "id": 34,
-    "name": "Tchô !",
+    "name": "Tcho !",
     "energie": 2,
     "effect" : 0
   },
@@ -115,7 +115,7 @@
   },
   {
     "id": 42,
-    "name": "Ninjatōs",
+    "name": "Ninjatos",
     "energie": 3,
     "effect" : 16
   },
