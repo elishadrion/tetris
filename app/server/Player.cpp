@@ -14,9 +14,9 @@ Player::Player(nlohmann::json& info, int sockfd): _playerConnect(new PlayerConne
     }
 
     for (size_t i = 0; i < info["friends"].size(); ++i) {
-        //TODO Player* player = PlayerManager::findPlayerByName(info["friends"][i]);
-        //if (player != nullptr)
-            //_friends.push_back(player);
+        Player* player = PlayerManager::findPlayerByName(info["friends"][i]);
+        if (player != nullptr)
+            _friends.push_back(player);
     }
 
     std::vector<unsigned> collection_cards= info["collection"];
@@ -107,10 +107,8 @@ bool Player::operator==(const std::string &other_name) const {
 
 nlohmann::json Player::serialise() const {
     nlohmann::json info;
-    info["name"] = _username;
-    info["password"] = _password;
-    info["defeats"] = _defeats;
-    info["victories"] = _victories;
+    info["name"] = _username; info["password"] = _password;
+    info["defeats"] = _defeats; info["victories"] = _victories;
     info["collection"] = _collection.getCardsId();
     info["decks"];
     for (size_t i = 0; i < _decks.size(); ++i) {
@@ -119,7 +117,10 @@ nlohmann::json Player::serialise() const {
         deck["cards"] = _decks.at(i) -> getCardsId();
         info["decks"].push_back(deck);
     }
-
+    for (size_t i = 0; i < _friends.size(); ++i) {
+	std::string playername = _friends.at(i) -> getName();
+	info["friends"].push_back(playername);
+    }
     return info;
 }
 

@@ -126,12 +126,13 @@ void PlayerManager::savePlayers() {
 	db.push_back((*_players.at(i)).serialise());
 
     std::ofstream playersFile(PLAYERS_DB);
-    playersFile << db.dump(2);
+    playersFile << db.dump();
     playersFile.close();
 }
 
 
 void PlayerManager::logOut(Player* player) {
+    savePlayers();
     for (size_t i = 0; i < _connected.size(); i++) {
         Player* current = _connected.at(i);
 

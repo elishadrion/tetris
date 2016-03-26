@@ -15,21 +15,11 @@ ChatManagerGUI::ChatManagerGUI(QWidget* parent): QWidget(parent) {
 
     _tab->addTab(_friends,tr("General"));
 
-    _friends->addItem("remy");     //A ENLEVER !!!!!!!
-    _friends->addItem("detobel");  //A ENLEVER !!!!!!!
-    _friends->addItem("carlos");   //A ENLEVER !!!!!!!
-    _friends->addItem("corentin"); //A ENLEVER !!!!!!!
-    _friends->addItem("raphael");  //A ENLEVER !!!!!!!
-    _friends->addItem("amin");     //A ENLEVER !!!!!!!
-    _friends->addItem("max");      //A ENLEVER !!!!!!!
 
-
-
-    /*
-     * for (int i = 0; i<sizeFriendList; i++){
-     *  _friends->addItem(FriendList[i]);
-     * }
-    */
+    for (int i = 0; i < MAX_FRIENDS; i++) {
+	QString playername = QString::fromStdString(Player::getPlayer() -> getFriends()[i]);
+	_friends -> addItem(playername);
+    }
 
 
     _tab->setTabsClosable(true);

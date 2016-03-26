@@ -13,7 +13,10 @@ Player::Player(std::string username, unsigned collection[MAX_CARDS], std::vector
     instance = this;
 
     for (int i = 0 ; i < MAX_CARDS ; ++i) _collection[i] = collection[i];
-    for (int i = 0 ; i < MAX_FRIENDS ; ++i) _friendsList[i] = friends[i]; // TO DO
+    for (int i = 0 ; i < MAX_FRIENDS ; ++i) {
+	_friendsList[i] = friends[i];
+	std::cout << friends[i] << "\n";
+    }
 }
 
 Error Player::addDeck(std::string name) {
@@ -70,5 +73,3 @@ void Player::removeFriend(std::string pseudo) {
 //        WizardLogger::warning("Le deck à déjà été définit");
 //    }
 //}
-
-
