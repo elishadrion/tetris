@@ -170,12 +170,16 @@ void GameManager::placeCardAndAttack(bool isEffectCard, int cardID, unsigned pos
         _adverseHeal = heal;
     } else {
         Card* enemyCard = static_cast<Card*>(_ennemyPosed[targetPosition%MAX_POSED_CARD]);
-        enemyCard->setHP(heal);
+        if(enemyCard != nullptr) {
+            enemyCard->setHP(heal);
 
-        WizardLogger::info("Vie de la carte adverse: " + std::to_string(enemyCard->getHP()));
-        if(enemyCard->isDead()) {
-            _advTrash.push_back(enemyCard);
-            wizardDisplay->cardIsDead(enemyCard, true);
+            WizardLogger::info("Vie de la carte adverse: " + std::to_string(enemyCard->getHP()));
+            if(enemyCard->isDead()) {
+                _advTrash.push_back(enemyCard);
+                wizardDisplay->cardIsDead(enemyCard, true);
+            }
+        } else {
+            WizardLogger::warning("Carte en position " + std::to_string(targetPosition) + " introuvable");
         }
     }
 
@@ -212,16 +216,20 @@ void GameManager::placeAdverseCardAndAttack(bool isEffectCard, int cardID, unsig
         }
     } else {
         Card* enemyCard = static_cast<Card*>(_posed[targetPosition%MAX_POSED_CARD]);
-        enemyCard->setHP(heal);
-        if(isEffectCard) {
-            wizardDisplay->placeAdverseSpellCard(card, enemyCard);
-        } else {
-            wizardDisplay->placeAdverseCardAndAttack(card, enemyCard);
-        }
+        if(enemyCard != nullptr) {
+            enemyCard->setHP(heal);
+            if(isEffectCard) {
+                wizardDisplay->placeAdverseSpellCard(card, enemyCard);
+            } else {
+                wizardDisplay->placeAdverseCardAndAttack(card, enemyCard);
+            }
 
-        if(enemyCard->isDead()) {
-            _trash.push_back(enemyCard);
-            wizardDisplay->cardIsDead(enemyCard, false);
+            if(enemyCard->isDead()) {
+                _trash.push_back(enemyCard);
+                wizardDisplay->cardIsDead(enemyCard, false);
+            }
+        } else {
+
         }
     }
 }

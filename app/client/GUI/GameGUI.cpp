@@ -738,14 +738,23 @@ void GameGUI::deadCard(Card* card, bool adv) {
     }
 
     int i = 0;
+    WizardLogger::info("[Debug] position search: " + std::to_string(card->getPosition()));
     while(i < MAX_POSED_CARD &&
-          !listCardBoard[i]->isEmplacement() &&
-          !listCardBoard[i]->isOnPosition(card->getPosition())) {
+          (listCardBoard[i]->isEmplacement() ||
+          !listCardBoard[i]->isOnPosition(card->getPosition()))) {
+
+        WizardLogger::info("[Debug] i: " + std::to_string(i));
+        if(listCardBoard[i]->isEmplacement()) {
+            WizardLogger::info("[Debug] isEmplacement");
+        } else {
+            WizardLogger::info("[Debug] current position: " +
+                               std::to_string(listCardBoard[i]->getPosition()));
+        }
+
         ++i;
     }
 
-    if(!listCardBoard[i]->isEmplacement() &&
-            listCardBoard[i]->isOnPosition(card->getPosition())) {
+    if(i < MAX_POSED_CARD) {
 
         listCardBoard[i]->close();
         addEmplacement(i, adv);
@@ -766,7 +775,6 @@ void GameGUI::placeAdvSpell(Card* card, Card* target) {
     while(nbrTarget < MAX_HAND && targetWidget == nullptr) {
         if(!_cardBoard[nbrTarget]->isEmplacement() &&
                 _cardBoard[nbrTarget]->isOnPosition(target->getPosition())) {
-
             targetWidget = _cardBoard[nbrTarget];
         }
         ++nbrTarget;
@@ -796,6 +804,7 @@ void GameGUI::placeAdvCardAttack(Card* card, Card* target) {
             elem = _advCardBoard[position];
 
         }
+        ++position;
     }
 
     if(elem != nullptr) {
