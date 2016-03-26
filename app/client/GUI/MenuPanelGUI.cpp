@@ -99,10 +99,10 @@ void MenuPanelGUI::makeReqToPlayGame() {
     _msgBox->setStandardButtons(QMessageBox::Cancel);
 
     _msgBox->connect(_msgBox->button(QMessageBox::Cancel), SIGNAL(clicked()), this, SLOT(makeCancelWait()));
-    
-    PacketManager::makeGameRequest();
+    _msgBox->show();
+    WizardLogger::info("ouverture de l'attente");
 
-    _msgBox->exec();
+    PacketManager::makeGameRequest();
 }
 
 
@@ -120,8 +120,8 @@ void MenuPanelGUI::makeCancelWait() {
  */
 void MenuPanelGUI::makeOpenGame() {
     WizardLogger::info("Une partie a été trouvée, ouverture du menu");
-    _msgBox->close();
     this->hide();
+    QTimer::singleShot(500,_msgBox,SLOT(close())); // Close after
     _gui->setGameMenu(new GameGUI());
 }
 

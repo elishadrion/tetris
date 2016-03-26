@@ -10,4 +10,8 @@
 #undef border
 #endif
 
+#ifdef timeout
+#undef timeout
+#endif
+
 #endif /* GUIDEFINE_HPP */

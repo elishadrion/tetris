@@ -13,6 +13,7 @@
 #include <QPalette>
 #include <QMainWindow>
 #include <QMessageBox>
+#include <QTimer>
 
 #include "PacketManager.hpp"
 #include "GUI/GameGUI.hpp"
