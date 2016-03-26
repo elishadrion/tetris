@@ -7,15 +7,16 @@ Player::Player(std::string username, unsigned collection[MAX_CARDS], std::vector
                std::string friends[MAX_FRIENDS], unsigned victories, unsigned defeats) :
         _username(username), _decks(decks), _victories(victories), _defeats(defeats) {
 
-    if(instance != nullptr)
+    if(instance != nullptr) {
         WizardLogger::error("Une instance de player existe déjà !");
+    } else {
+        instance = this;
 
-    instance = this;
-
-    for (int i = 0 ; i < MAX_CARDS ; ++i) _collection[i] = collection[i];
-    for (int i = 0 ; i < MAX_FRIENDS ; ++i) {
-	_friendsList[i] = friends[i];
-	std::cout << friends[i] << "\n";
+        for (int i = 0 ; i < MAX_CARDS ; ++i) _collection[i] = collection[i];
+        for (int i = 0 ; i < MAX_FRIENDS ; ++i) {
+	        _friendsList[i] = friends[i];
+	        std::cout << friends[i] << "\n";
+	    }
     }
 }
 
