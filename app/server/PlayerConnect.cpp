@@ -94,6 +94,9 @@ void PlayerConnect::removePlayerInGame(PlayerInGame* pIG) {
  * Close socket and interrupt player's thread
  */
 void PlayerConnect::logout() {
-    //TODO remove player from list and game, etc...
+    if (_pIG != nullptr)
+        removePlayerInGame(_pIG);
+        //TODO rage quit
+    PlayerManager::logOut(_player);
     pthread_exit(0);
 }

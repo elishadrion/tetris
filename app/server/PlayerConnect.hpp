@@ -5,7 +5,7 @@ class Player;
 class PlayerInGame;
 class PlayerConnect;
 #include "Player.hpp"
-
+#include "PlayerManager.hpp"
 
 class PlayerConnect {
     Player* _player;

@@ -68,15 +68,15 @@ Player* PlayerManager::logIn(std::string username, std::string password, int soc
     for (size_t i = 0; i < _players.size(); i++) {
         Player* current = _players.at(i);
 
-	if (std::find(_connected.begin(), _connected.end(), current) == _connected.end()) {
-	    if ((*current).getName() == username &&
-		(*current).getPass() == password) {
+	    if (std::find(_connected.begin(), _connected.end(), current) == _connected.end()) {
+	        if ((*current).getName() == username &&
+		    (*current).getPass() == password) {
 
-		_connected.push_back(current);
-		current->updateSockfd(sockfd);
-		return current;
+		    _connected.push_back(current);
+		    current->updateSockfd(sockfd);
+		    return current;
+	        }
 	    }
-	}
     }
     WizardLogger::warning("NO USER FOUND FOR PSEUDO " + username +". LOGIN FAILED");
     return nullptr;
@@ -89,8 +89,8 @@ Player* PlayerManager::signUp(std::string username, std::string password, int so
     }
 
     if (findPlayerByName(username) != nullptr) {
-	WizardLogger::warning("CHOSEN USERNAME (" + username + ") ALREADY EXISTS");
-	return nullptr;
+	    WizardLogger::warning("CHOSEN USERNAME (" + username + ") ALREADY EXISTS");
+	    return nullptr;
     }
 
     nlohmann::json info;
@@ -128,4 +128,17 @@ void PlayerManager::savePlayers() {
     std::ofstream playersFile(PLAYERS_DB);
     playersFile << db.dump(2);
     playersFile.close();
+}
+
+
+void PlayerManager::logOut(Player* player) {
+    for (size_t i = 0; i < _connected.size(); i++) {
+        Player* current = _connected.at(i);
+
+	    if (current == player) {
+	        _connected.erase(_connected.begin()+i);
+	        return;
+	    }
+    }
+    WizardLogger::warning("USER NOT FOUND " + player->getName() +".");
 }

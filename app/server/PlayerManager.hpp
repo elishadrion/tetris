@@ -23,6 +23,7 @@ namespace PlayerManager {
     Player* findPlayerByName(std::string);
     Player* signUp(std::string, std::string, int);
     Player* logIn(std::string, std::string, int);
+    void logOut(Player*);
 }
 
 #endif /* PLAYERMANAGER_HPP */

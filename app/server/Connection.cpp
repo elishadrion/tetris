@@ -183,6 +183,9 @@ void* Connection::newPlayerThread(void* data) {
         delete endLogin;
         
         newPlayer->recvLoop();
+        
+        /* Logout after deconnection */
+        PlayerManager::logOut(newPlayer);
     }
 }
 
