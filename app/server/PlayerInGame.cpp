@@ -195,7 +195,7 @@ bool PlayerInGame::haveEnoughEnergy(Card* card) {
  */
 void PlayerInGame::addMaxEnergy() {
     if (_maxEnergy < MAX_ENERGY) {
-        _maxEnergy++;
+        ++_maxEnergy;
     }
 }
 
@@ -275,7 +275,7 @@ int PlayerInGame::placeCard(CardMonster* card) {
         find = (_cardsPlaced[res] == nullptr);
     }
 
-    if(find) {
+    if(find && removeInHandCard(card) == Error::NoError) {
         CardMonster* newCard = new CardMonster(*card);
         _cardsPlaced[res] = newCard;
         _energy -= newCard->getEnergyCost();

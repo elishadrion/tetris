@@ -18,7 +18,8 @@ enum Error {
     MaxDeck = 11, /* The number of deck is limited */
     MustOneDeckMin = 12, /* The player must have one deck */
     DeckNotFound = 13,
-    CardNotFound = 14
+    CardNotFound = 14,
+    NOT_FIRST_TURN = 15
 };
 
 namespace ErrorAPI {

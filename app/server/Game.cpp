@@ -192,7 +192,7 @@ void Game::draw(PlayerInGame* pIG) {
 
     } else {
         PacketManager::sendCard(pIG, res);
-        PacketManager::sendAdverseDraw(pIG);
+        PacketManager::sendAdverseDraw(getAdversePlayer(pIG));
     }
 
 }
@@ -413,6 +413,7 @@ Error Game::playerAskEndTurn(PlayerInGame* player) {
  * Function when the turn begin
  */
 void Game::beginTurn() {
+    WizardLogger::info("Début du tour suivant !");
     // Increment number of turn
     _currentPlayer->incrementAllPlaceCard();
 
@@ -455,7 +456,7 @@ Error Game::canPlayerAttack(PlayerInGame* pIG, CardMonster* card) {
                 res = Error::NotEnoughEnergy;
             }
         } else {
-             res = Error::NotEnoughPlace;
+             res = Error::NOT_FIRST_TURN;
         }
     } else {
         res = Error::NotHisTurn;
@@ -542,7 +543,7 @@ void Game::nextPlayer() {
     (_currentPlayer == _player1) ? _currentPlayer = _player2 : _currentPlayer = _player1;
     WizardLogger::info("C'est maintenant au tour de " + _currentPlayer->getName());
 
-    if(_currentPlayer == _player1) {
+    if(_currentPlayer == _player2) {
         ++_turn;
     }
     _currentPlayer->addMaxEnergy();
