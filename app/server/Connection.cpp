@@ -208,7 +208,7 @@ void Connection::sendSucess(Player* player, int socket) {
 
     /* Add player's info to packet */
     for (int i = 0 ; i < pseudo.size() ; ++i) playerPacket->data.pseudo[i] = pseudo[i];
-    for (int i = 0 ; i < collection.size() ; ++i) playerPacket->data.collection[i] = collection[i];
+    for (int i = 0 ; i < collection.size() ; ++i) playerPacket->data.collection[collection[i]] += 1;
 
     std::vector<Deck*> listDeck = player->getListDeck();
     for(unsigned allDeck = 0; allDeck < MAX_DECKS; ++allDeck) {
