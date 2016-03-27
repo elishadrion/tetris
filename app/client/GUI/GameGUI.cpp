@@ -14,8 +14,8 @@ GameGUI::GameGUI() : QMainWindow(), _inHandSelect(nullptr),
 
     setStyleSheet("QMainWindow#principal { background-image: url(:/Images/bg2.png) 0 0 0 0 stretch stretch; "
                   "background-repeat: no-repeat; background-position: center center; } "
-                  "QPushButton { background-color: white; }"
-                  "QLabel { margin: 2px; background-color: white; border-radius: 15px;}");
+                  "QPushButton { background-color: rgba(236, 236, 236, 0.9); }"
+                  "QLabel { margin: 2px; background-color: rgba(236, 236, 236, 0.9); border-radius: 15px;}");
 
 
     // Init variable

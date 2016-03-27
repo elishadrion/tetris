@@ -19,9 +19,6 @@ void DeckChooseGUI::valideDeck() {
 
 DeckChooseGUI::DeckChooseGUI(GameGUI* parent): QMainWindow(parent) {
 
-    setStyleSheet("QMainWindow { background-image: none;} "
-                  "QPushButton { background-color: white; }");
-
     _centralWidget = new QWidget(this);
     setCentralWidget(_centralWidget);
 
