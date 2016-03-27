@@ -184,3 +184,13 @@ void Player::overwrite(const Player& player) {
     _victories = player._victories;
     _defeats = player._defeats;
 }
+
+void Player::addFriend (std::string friendName) {
+    Player* myfriend = PlayerManager::findPlayerByName(friendName);
+    for (size_t i = 0; i < _friends.size(); ++i) {
+	Player * current = _friends.at(i);
+	if (std::find(_friends.begin(), _friends.end(), current) == _friends.end()) {
+	    _friends.push_back(myfriend);
+	}
+    }
+}

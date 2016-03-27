@@ -11,6 +11,8 @@
 #include <QObject>
 #include <QLabel>
 #include <QFont>
+#include <QInputDialog>
+#include <QDir>
 
 
 #include "client/CacheManager.hpp"
@@ -27,19 +29,21 @@ class FriendsPanelGUI : public QMainWindow {
 
     MenuPanelGUI* _menu;
 
+    int friendPos = 0;
     QLabel *_people;
+    QVBoxLayout *_layoutPeople;
 
     QPushButton *_back;
     QPushButton *_addFriend;
     QPushButton *_removeFriend;
-    QVBoxLayout *_layoutPeople;
 
 public:
     FriendsPanelGUI(MenuPanelGUI*);
 
 private slots:
+    void showFriends(QGridLayout*);
+    void addFriend();
     void makeClose();
-
 };
 
 

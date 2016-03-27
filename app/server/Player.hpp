@@ -80,6 +80,7 @@ public:
 
     void removePlayerInGame(PlayerInGame*);
     void overwrite(const Player&);
+    void addFriend(std::string);
 
 
     virtual ~Player() { delete _playerConnect; }

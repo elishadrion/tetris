@@ -281,7 +281,12 @@ void PacketManager::sendPlayerRecdvMsg(Player* player, std::string playerFrom,
 //============================FRIEND PROCESS===========================================
 
 void PacketManager::manageFriendRequest(Player* player, Packet::pseudoPacket* friendRequest) {
-    //TODO call friendManager (must be unblocking) [if friend exist - delete it]
+    WizardLogger::info("Managing friend request");
+    std::string futureFriend(friendRequest -> pseudo);
+    futureFriend.erase(remove_if(futureFriend.begin(), futureFriend.end(), isspace),
+		       futureFriend.end());
+    player -> addFriend(futureFriend);
+    PlayerManager::findPlayerByName(futureFriend) -> addFriend(player -> getName());
 }
 
 void PacketManager::manageFriendListRequest(Player* player, Packet::packet* packet) {
@@ -296,11 +301,11 @@ void PacketManager::manageFriendListRequest(Player* player, Packet::packet* pack
  */
 void PacketManager::sendFriendRequest(Player* player, std::string pseudo) {
     Packet::pseudoPacket *friendRequest = new Packet::pseudoPacket();
-    
+
     /* Set ID and pseudo */
     friendRequest->ID = Packet::FRIENDS_LIST_ID;
     for (int i = 0 ; i < pseudo.size() ; ++i) friendRequest->pseudo[i] = pseudo[i];
-    
+
     /* Send and free */
     player->sendPacket((Packet::packet*) friendRequest, sizeof(*friendRequest));
     delete friendRequest;
@@ -464,11 +469,11 @@ void PacketManager::sendDrawBegin(Player* player, std::vector<unsigned> listCard
 void PacketManager::sendCard(Player* player, Card* card) {
     WizardLogger::info("[>] Envoie de sendCard");
     Packet::intPacket *drawPacket = new Packet::intPacket();
-    
+
     /* Set ID and ID */
     drawPacket->ID = Packet::DRAW_ID;
     drawPacket->data = card->getId();
-    
+
     /* Send and free */
     player->sendPacket((Packet::packet*) drawPacket, sizeof(*drawPacket));
     delete drawPacket;
@@ -501,11 +506,11 @@ void PacketManager::sendAdverseDraw(Player* player) {
 void PacketManager::askDefausse(Player* player, int amount) {
     WizardLogger::info("[>] Envoie de askDefausse");
     Packet::intPacket *askDropPacket = new Packet::intPacket();
-    
+
     /* Set ID and amount */
     askDropPacket->ID = Packet::ASK_DROP_ID;
     askDropPacket->data = amount;
-    
+
     /* Send and free */
     player->sendPacket((Packet::packet*) askDropPacket, sizeof(*askDropPacket));
     delete askDropPacket;
@@ -519,11 +524,11 @@ void PacketManager::askDefausse(Player* player, int amount) {
 void PacketManager::sendDrop(Player* player, int ID) {
     WizardLogger::info("[>] Envoie de sendDrop");
     Packet::intPacket *dropPacket = new Packet::intPacket();
-    
+
     /* Set ID and amount */
     dropPacket->ID = Packet::DROP_ID;
     dropPacket->data = ID;
-    
+
     /* Send and free */
     player->sendPacket((Packet::packet*) dropPacket, sizeof(*dropPacket));
     delete dropPacket;
@@ -664,11 +669,11 @@ void PacketManager::playerDamage(Player* player, std::string pseudo, int life) {
 void PacketManager::sendEndGame(Player* player, int victory, int card) {
     WizardLogger::info("[>] Envoie de sendEndGame");
     Packet::endGamePacket *endPacket = new Packet::endGamePacket();
-    
+
     /* Set victory flag and card ID (-1 for no card) */
     endPacket->data.victory = victory;
     endPacket->data.card = card;
-    
+
     /* Send and free */
     player->sendPacket((Packet::packet*) endPacket, sizeof(*endPacket));
     delete endPacket;
@@ -734,4 +739,3 @@ void PacketManager::sendError(Player* player, Error error) {
     player->sendPacket((Packet::packet*) errorPacket, sizeof(*errorPacket));
     delete errorPacket;
 }
-
