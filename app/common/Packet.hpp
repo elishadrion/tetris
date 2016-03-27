@@ -228,6 +228,7 @@ public:
             int idCard;
             int targetPosition;
             unsigned heal;
+            unsigned attack;
         } placeAttackSpellData;
         int size = sizeof(placeAttackSpellData);
         placeAttackSpellData data;
@@ -241,6 +242,7 @@ public:
             int cardPosition;
             int targetPosition;
             unsigned heal;
+            unsigned attack;
         } placeAttackData;
         int size = sizeof(placeAttackData);
         placeAttackData data;

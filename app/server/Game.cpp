@@ -255,6 +255,7 @@ Error Game::placeCardAffect(PlayerInGame* pIG, Card* cardPlaced, int targetPosit
 
             PlayerInGame* adverse = getAdversePlayer(pIG);
             unsigned lifeTarget;
+            unsigned attack = 0;
 
             // If it's a card the is attack
             if(targetPosition != -1) {
@@ -265,6 +266,7 @@ Error Game::placeCardAffect(PlayerInGame* pIG, Card* cardPlaced, int targetPosit
                 // Apply effect
                 cardPlaced->applyEffect(targetCard, this);
                 lifeTarget = targetCard->getLife(); // save heal
+                attack = targetCard->getAttack();
 
             } else { // If we attack the adverse player
                 cardPlaced->applyEffect(adverse, this);
@@ -284,9 +286,9 @@ Error Game::placeCardAffect(PlayerInGame* pIG, Card* cardPlaced, int targetPosit
                     int positionNewCard = getRealPosition(pIG, relPos);
 
                     PacketManager::sendPlaceMonsterCard(_player1, pseudo, placedCardId, positionNewCard,
-                                                    targetPosition, lifeTarget);
+                                                    targetPosition, lifeTarget, attack);
                     PacketManager::sendPlaceMonsterCard(_player2, pseudo, placedCardId, positionNewCard,
-                                                    targetPosition, lifeTarget);
+                                                    targetPosition, lifeTarget, attack);
                 } else {
                     res = Error::NotEnoughPlace;
                 }
@@ -294,8 +296,10 @@ Error Game::placeCardAffect(PlayerInGame* pIG, Card* cardPlaced, int targetPosit
             } else {
                 pIG->defausseCardInHand(cardPlaced);
                 pIG->removeEnergyFromCard(cardPlaced);
-                PacketManager::sendPlaceSpellCard(_player1, pseudo, placedCardId, targetPosition, lifeTarget);
-                PacketManager::sendPlaceSpellCard(_player2, pseudo, placedCardId, targetPosition, lifeTarget);
+                PacketManager::sendPlaceSpellCard(_player1, pseudo, placedCardId,
+                                                  targetPosition, lifeTarget, attack);
+                PacketManager::sendPlaceSpellCard(_player2, pseudo, placedCardId,
+                                                  targetPosition, lifeTarget, attack);
 
             }
 
@@ -347,7 +351,10 @@ Error Game::attackWithCard(PlayerInGame* pIG, int cardPosition,
         if(verifyTaunt(pIG, targetCard)) {
             card->dealDamage(targetCard);
             if(targetCard->isDead()) {
-                this->getAdversePlayer()->defausseCardPlaced(targetPosition);
+                getAdversePlayer()->defausseCardPlaced(targetPosition);
+            }
+            if(card->isDead()) {
+                pIG->defausseCardPlaced(cardPosition);
             }
 
             std::string pseudo = pIG->getName();

@@ -69,8 +69,8 @@ public:
     inline std::string getDeckName() { return _deckName; }
     void placeCard(int, unsigned);
     void ennemyPlaceCard(int, unsigned);
-    void placeCardAndAttack(bool, int, unsigned, int, unsigned);
-    void placeAdverseCardAndAttack(bool, int, unsigned, int, unsigned);
+    void placeCardAndAttack(bool, int, unsigned, int, unsigned, unsigned);
+    void placeAdverseCardAndAttack(bool, int, unsigned, int, unsigned, unsigned);
     void attackCard(unsigned, unsigned, int, unsigned);
     void adverseAttackCard(unsigned, unsigned, int, unsigned);
     void playerDamage(unsigned, bool);

@@ -37,8 +37,9 @@ public:
     inline unsigned getEnergyCost() { return _energyCost; }
     inline unsigned getMaxHP(){ return _maxHP; }
     inline unsigned getHP(){ return _HP; }
-    inline unsigned getAttack() { return _attack; }
     inline void setHP(unsigned heal) { _HP = heal; }
+    inline unsigned getAttack() { return _attack; }
+    inline void setAttack(unsigned attack) { _attack = attack; }
     inline bool isDead() { return _HP <= 0; }
     
     /* Check if img is in cache and ask it if not */

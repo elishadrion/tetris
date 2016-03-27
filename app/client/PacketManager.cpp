@@ -567,11 +567,12 @@ void PacketManager::managePlaceSpell(Packet::placeAttackSpellPacket* placeAttack
     int cardId = placeAttackSpellPacket->data.idCard;
     int targetPosition = placeAttackSpellPacket->data.targetPosition;
     unsigned heal = placeAttackSpellPacket->data.heal;
+    unsigned attack = placeAttackSpellPacket->data.attack;
 
 
     if(placeAttackSpellPacket->data.pseudo == Player::getPlayer()->getName()) {
 
-        gm->placeCardAndAttack(true, cardId, -1, targetPosition, heal);
+        gm->placeCardAndAttack(true, cardId, -1, targetPosition, heal, attack);
 
         /* Lock, signal other thread and unlock */
         pthread_mutex_lock(&wizardDisplay->packetStackMutex);
@@ -579,7 +580,7 @@ void PacketManager::managePlaceSpell(Packet::placeAttackSpellPacket* placeAttack
         pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
 
     } else {
-        gm->placeAdverseCardAndAttack(true, cardId, -1, targetPosition, heal);
+        gm->placeAdverseCardAndAttack(true, cardId, -1, targetPosition, heal, attack);
     }
 
 }
@@ -631,9 +632,10 @@ void PacketManager::managePlaceCardAttack(Packet::placeAttackPacket* placeAttack
     unsigned cardPosition = placeAttackPacket->data.cardPosition;
     int targetPosition = placeAttackPacket->data.targetPosition;
     unsigned heal = placeAttackPacket->data.heal;
+    unsigned attack = placeAttackPacket->data.attack;
 
     if(gm->isTurn()) {
-        gm->placeCardAndAttack(false, cardId, cardPosition, targetPosition, heal);
+        gm->placeCardAndAttack(false, cardId, cardPosition, targetPosition, heal, attack);
 
         /* Lock, signal other thread and unlock */
         pthread_mutex_lock(&wizardDisplay->packetStackMutex);
@@ -642,7 +644,7 @@ void PacketManager::managePlaceCardAttack(Packet::placeAttackPacket* placeAttack
 
     } else {
         if(adverse) {
-            gm->placeAdverseCardAndAttack(false, cardId, cardPosition, targetPosition, heal);
+            gm->placeAdverseCardAndAttack(false, cardId, cardPosition, targetPosition, heal, attack);
         } else {
             WizardLogger::warning("Cela doit se faire avec les mutex");
         }

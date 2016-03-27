@@ -509,7 +509,7 @@ void PacketManager::sendAttack(Player* player, std::string pseudo, int cardPosit
  * @param cardPosition position of the card in the board
  */
 void PacketManager::sendPlaceMonsterCard(Player* player, std::string pseudo, int cardID, int cardPosition) {
-    WizardLogger::info("[>] Envoie de sendPlaceMonsterCard");
+    WizardLogger::info("[>] Envoie de sendPlaceMonsterCard 1");
     Packet::placeCardPacket* placeCardPacket = new Packet::placeCardPacket();
 
     for (int i = 0 ; i < pseudo.size() ; ++i) placeCardPacket->pseudo[i] = pseudo[i];
@@ -532,8 +532,8 @@ void PacketManager::sendPlaceMonsterCard(Player* player, std::string pseudo, int
  * @param heal of the target card
  */
 void PacketManager::sendPlaceMonsterCard(Player* player, std::string pseudo, int cardID, int cardPosition,
-                                         int targetPosition, unsigned heal) {
-    WizardLogger::info("[>] Envoie de sendPlaceMonsterCard");
+                                         int targetPosition, unsigned heal, unsigned attack) {
+    WizardLogger::info("[>] Envoie de sendPlaceMonsterCard 2");
 
     Packet::placeAttackPacket* placeAttackPacket = new Packet::placeAttackPacket();
 
@@ -542,6 +542,7 @@ void PacketManager::sendPlaceMonsterCard(Player* player, std::string pseudo, int
     placeAttackPacket->data.cardPosition = cardPosition;
     placeAttackPacket->data.targetPosition = targetPosition;
     placeAttackPacket->data.heal = heal;
+    placeAttackPacket->data.attack = attack;
 
     // Send and free
     player->sendPacket((Packet::packet*) placeAttackPacket, sizeof(*placeAttackPacket));
@@ -559,7 +560,7 @@ void PacketManager::sendPlaceMonsterCard(Player* player, std::string pseudo, int
  * @param heal of the target card
  */
 void PacketManager::sendPlaceSpellCard(Player* player, std::string pseudo, int cardID,
-                                       int targetPosition, unsigned heal) {
+                                       int targetPosition, unsigned heal, unsigned attack) {
     WizardLogger::info("[>] Envoie de sendPlaceSpellCard");
 
     Packet::placeAttackSpellPacket* placeAttackSpellPacket = new Packet::placeAttackSpellPacket();
@@ -568,6 +569,7 @@ void PacketManager::sendPlaceSpellCard(Player* player, std::string pseudo, int c
     placeAttackSpellPacket->data.idCard = cardID;
     placeAttackSpellPacket->data.targetPosition = targetPosition;
     placeAttackSpellPacket->data.heal = heal;
+    placeAttackSpellPacket->data.attack = attack;
 
     // Send and free
     player->sendPacket((Packet::packet*) placeAttackSpellPacket, sizeof(*placeAttackSpellPacket));

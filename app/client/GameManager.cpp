@@ -189,7 +189,7 @@ void GameManager::ennemyPlaceCard(int cardID, unsigned position) {
  * @param heal of the target card after
  */
 void GameManager::placeCardAndAttack(bool isEffectCard, int cardID, unsigned position,
-                                     int targetPosition, unsigned heal) {
+                                     int targetPosition, unsigned heal, unsigned attack) {
 
     Card* card = removeCardFromHand(cardID);;
 
@@ -205,6 +205,7 @@ void GameManager::placeCardAndAttack(bool isEffectCard, int cardID, unsigned pos
         Card* enemyCard = getCardOnPosition(static_cast<unsigned>(targetPosition));
         if(enemyCard != nullptr) {
             enemyCard->setHP(heal);
+            enemyCard->setAttack(attack);
 
             WizardLogger::info("Vie de la carte adverse: " + std::to_string(enemyCard->getHP()));
             if(enemyCard->isDead()) {
@@ -228,7 +229,7 @@ void GameManager::placeCardAndAttack(bool isEffectCard, int cardID, unsigned pos
  * @param heal of the target card after
  */
 void GameManager::placeAdverseCardAndAttack(bool isEffectCard, int cardID, unsigned position,
-                                            int targetPosition, unsigned heal) {
+                                            int targetPosition, unsigned heal, unsigned attack) {
     Card* defaultCard = CacheManager::getCard(cardID);
     removeAdverseCardFromHand();
     Card* card = defaultCard;
@@ -253,6 +254,7 @@ void GameManager::placeAdverseCardAndAttack(bool isEffectCard, int cardID, unsig
         Card* enemyCard = getCardOnPosition(static_cast<unsigned>(targetPosition));
         if(enemyCard != nullptr) {
             enemyCard->setHP(heal);
+            enemyCard->setAttack(attack);
             if(isEffectCard) {
                 wizardDisplay->placeAdverseSpellCard(card, enemyCard);
             } else {
