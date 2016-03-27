@@ -41,6 +41,7 @@ public:
     void placeAdverseSpellPlayer(Card *) override;
     void placeAdverseCardAndAttackPlayer(Card *) override;
     void adverseAttackCard(Card*, Card*) override;
+    void adverseAttackPlayer(Card*) override;
     void cardIsDead(Card*, bool) override;
 
 

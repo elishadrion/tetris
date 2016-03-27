@@ -29,21 +29,19 @@ public:
     /* Only call once, when program begin */
     virtual void displayLoginPrompt() =0;
 
-    /* Used to print result of the login process (thread safe) */
-    virtual void displayLoginResult(std::string) =0;
-
-    /* Validate login process, must call displayMainWindow after */
-    virtual void valideLogin() = 0;
-
     /////////////// MUST BE REMOVE ?? ///////////////////////////////
-    virtual void displayMainWindow() =0;
-    virtual void displayFriendsWindow() =0;
-    virtual void displayCollectionWindow() =0;
-    virtual void displayDeckWindow() =0;
-    virtual void displayWait() =0;
-    virtual void displayGame() =0;
-    virtual void displayClassement() =0;
-    virtual void focusTchat() =0;
+    /* Used to print result of the login process (thread safe) */
+    virtual void displayLoginResult(std::string) {}
+    /* Validate login process, must call displayMainWindow after */
+    virtual void valideLogin() {}
+    virtual void displayMainWindow()  {}
+    virtual void displayFriendsWindow()  {}
+    virtual void displayCollectionWindow()  {}
+    virtual void displayDeckWindow() {}
+    virtual void displayWait() {}
+    virtual void displayGame() {}
+    virtual void displayClassement() {}
+    virtual void focusTchat() {}
 
 
 
@@ -92,22 +90,6 @@ public:
      */
     virtual void placeAdverseSpellPlayer(Card*) =0;
 
-
-    /**
-     * Call when card is placed (and attack an other)
-     *
-     * @param the new card
-     * @param the target card
-     */
-    virtual void placeCardAndAttack(Card*, Card*) =0;
-
-    /**
-     * Call when card is placed (and attack adverse player)
-     *
-     * @param the new card
-     */
-    virtual void placeCardAndAttackPlayer(Card*) =0;
-
     /**
      * Call when a adverse spell card is placed (and attack an other)
      *
@@ -124,27 +106,12 @@ public:
     virtual void placeAdverseCardAndAttackPlayer(Card*) =0;
 
     /**
-     * Call when a card attack an other card
-     *
-     * @param the card wich attack
-     * @param the card wich IS attack
-     */
-    virtual void attackCard(Card*, Card*) =0;
-
-    /**
      * Call when an adverse card attack an other card
      *
      * @param the card wich attack
      * @param the card wich IS attack
      */
     virtual void adverseAttackCard(Card*, Card*) =0;
-
-    /**
-     * Call when a card attack adverse player
-     *
-     * @param the card wich attack
-     */
-    virtual void attackPlayer(Card*) =0;
 
     /**
      * Call when an adverse card attack current player

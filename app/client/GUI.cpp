@@ -92,6 +92,10 @@ void GUI::adverseAttackCard(Card* card, Card* target) {
     gamePanel->callAdvAttack(card, target);
 }
 
+void GUI::adverseAttackPlayer(Card* card) {
+    gamePanel->callAdvAttack(card, nullptr);
+}
+
 
 void GUI::cardIsDead(Card* card, bool adv) {
     gamePanel->callDeadCard(card, adv);

@@ -942,21 +942,25 @@ void GameGUI::placeAdvCardAttack(Card* card, Card* target) {
 void GameGUI::advAttack(Card* card, Card* target) {
     // card utile pour faire des effets dans un futur  lointain :P
 
-    CardWidget* cardAdvWidget = nullptr;
-    unsigned current = 0;
-    while(cardAdvWidget == nullptr && current < MAX_POSED_CARD) {
-        CardWidget* cardCurrent = _cardBoard[current];
-        if(!cardCurrent->isEmplacement() &&
-                cardCurrent->getPosition()==target->getPosition()) {
-            cardAdvWidget = cardCurrent;
-        }
-        ++current;
-    }
-
-    if(cardAdvWidget != nullptr) {
-        cardAdvWidget->actualize();
+    if(target == nullptr) {
+        updatePlayerInfo();
     } else {
-        WizardLogger::warning("Carte qui est attaquée introuvable");
+        CardWidget* cardAdvWidget = nullptr;
+        unsigned current = 0;
+        while(cardAdvWidget == nullptr && current < MAX_POSED_CARD) {
+            CardWidget* cardCurrent = _cardBoard[current];
+            if(!cardCurrent->isEmplacement() &&
+                    cardCurrent->getPosition()==target->getPosition()) {
+                cardAdvWidget = cardCurrent;
+            }
+            ++current;
+        }
+
+        if(cardAdvWidget != nullptr) {
+            cardAdvWidget->actualize();
+        } else {
+            WizardLogger::warning("Carte qui est attaquée introuvable");
+        }
     }
 }
 
