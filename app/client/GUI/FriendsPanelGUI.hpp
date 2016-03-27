@@ -12,11 +12,11 @@
 #include <QLabel>
 #include <QFont>
 
-#include "MenuPanelGUI.hpp"
 
 #include "client/CacheManager.hpp"
 
 class FriendsPanelGUI;
+#include "MenuPanelGUI.hpp"
 #include "PacketManager.hpp"
 #include "client/WizardDisplay.hpp"
 

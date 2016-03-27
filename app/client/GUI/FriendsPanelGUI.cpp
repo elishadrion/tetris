@@ -24,31 +24,13 @@ FriendsPanelGUI::FriendsPanelGUI(MenuPanelGUI* menu) : QMainWindow(), _menu(menu
     std::vector<int> listVictories;
     std::vector<int> listDefeats;
 
-    /* Lock */
-    pthread_mutex_lock(&wizardDisplay->packetStackMutex);
-
-    //WizardLogger::info("Récupération du classement");
-
-    /* Clean cache before ask to server */
-    CacheManager::clearRankingCache();
-
-    // Packet manager
-
-    // ASK FRIENDS !!
-
-    //PacketManager::askClassement();
-
-    /* Wait for result */
-    pthread_cond_wait(&wizardDisplay->packetStackCond, &wizardDisplay->packetStackMutex);
-
-    /* Unlock */
-    pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
-
-
     _back =  new QPushButton("Retour");
     _back->setMaximumHeight(50);
     _back->setMaximumWidth(200);
     connect(_back, SIGNAL(clicked()), this, SLOT(makeClose()));
+
+    QGridLayout* layoutOfLayout = new QGridLayout(centralWidget);
+    layoutOfLayout->addWidget(_back);
 
     showMaximized();
 
