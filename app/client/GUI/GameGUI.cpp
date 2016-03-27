@@ -10,6 +10,12 @@ GameGUI::GameGUI() : QMainWindow(), _inHandSelect(nullptr),
     _onBoardSelect(nullptr), _timeSpell(nullptr),
     _timeAdvSpell(nullptr) {
 
+
+    setStyleSheet("QMainWindow { background-image: url(:/Images/bg2.png) 0 0 0 0 stretch stretch; "
+                  "background-repeat: no-repeat; background-position: center center; } "
+                  "QPushButton { background-color: white; }");
+
+
     // Init variable
     for(int i = 0; i < MAX_HAND; ++i) {
         _cardInHand[i] = nullptr;
@@ -26,14 +32,14 @@ GameGUI::GameGUI() : QMainWindow(), _inHandSelect(nullptr),
 
 
     // Deck Adverse
-    CardWidget advDeck = new CardWidget(TypeCardWidget::ADV_DECK, false);
+    CardWidget* advDeck = new CardWidget(TypeCardWidget::ADV_DECK, false);
     connect(this, SIGNAL(advCardDraw()), advDeck, SLOT(actualize()));
-    _gridlayout->addLayout(advDeck, 3, 1);
+    _gridlayout->addWidget(advDeck, 3, 1);
 
     // Deck
-    CardWidget deck = new CardWidget(TypeCardWidget::DECK, false);
+    CardWidget* deck = new CardWidget(TypeCardWidget::DECK, false);
     connect(this, SIGNAL(cardDraw(Card*)), deck, SLOT(actualize()));
-    _gridlayout->addLayout(deck, 5, 1);
+    _gridlayout->addWidget(deck, 5, 1);
 
 
     // Passer

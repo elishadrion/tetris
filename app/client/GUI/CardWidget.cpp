@@ -56,7 +56,7 @@ void CardWidget::resizeEvent(QResizeEvent* event){
     }
 }
 
-void CardWidget::actualize(){
+void CardWidget::actualize() {
     if(_card != nullptr && _typeCard == TypeCardWidget::CARD) { // Define card
 
         QString energy = QString::fromStdString(std::to_string(_card->getEnergyCost()));

@@ -51,10 +51,11 @@ public:
     bool isOnPosition(unsigned pos) { return _card->getPosition() == pos; }
 
 signals:
-    void actualize();
     void selected(CardWidget*);
     void unSelected(CardWidget*);
 
+public slots:
+    void actualize();
 
 protected:
     void mousePressEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
