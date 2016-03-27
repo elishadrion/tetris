@@ -666,13 +666,24 @@ void PacketManager::managePlayerDamage(Packet::pseudoIntPacket* playerDamagePack
 
 }
 
+/**
+ * Call when game is finish
+ *
+ * @param endPacket packet
+ */
 void PacketManager::manageEndGame(const Packet::endGamePacket* endPacket) {
-    // delete GameManager::getInstance();
-    GameManager* gm = GameManager::getInstance();
-    if(endPacket->data.victory == 1) { // win
-        Player::getPlayer()->addCardCollection(endPacket->data.card);
+    delete GameManager::getInstance();
+
+    int victory = endPacket->data.victory;
+    if(victory == 1) { // win
+        int cardId = endPacket->data.card;
+        Player::getPlayer()->addCardCollection(static_cast<unsigned>(cardId));
+        wizardDisplay->winGame(cardId);
+    } else if(victory == -1) {
+        wizardDisplay->looseGame();
+    } else {
+        wizardDisplay->endGame();
     }
-    //TODO tell if we win and display winner's new card
 }
 
 /**

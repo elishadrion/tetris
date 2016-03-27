@@ -121,6 +121,23 @@ public:
      */
     virtual void advPlayerDamage() {}
 
+    /**
+     * Call when player win game
+     *
+     * @param id of win card
+     */
+    virtual void winGame(int) {}
+
+    /**
+     * Call when player loose game
+     */
+    virtual void looseGame() {}
+
+    /**
+     * Call when game is finish (forfait)
+     */
+    virtual void endGame() {}
+
 
     //////////////////////// TCHAT ////////////////////////
 
