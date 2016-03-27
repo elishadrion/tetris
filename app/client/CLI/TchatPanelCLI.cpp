@@ -4,7 +4,7 @@
 std::vector<std::string> TchatPanelCLI::_messageBuffer;
 std::string TchatPanelCLI::_consoleBuffer[TCHAT_HEIGHT-2];
 
-TchatPanelCLI::TchatPanelCLI() {
+TchatPanelCLI::TchatPanelCLI(CLI* cli) : CLIPanel(cli) {
     /* We create the tchatBox/consoleBox */
     windows[0] = newwin(TCHAT_HEIGHT, TCHAT_WIDTH, 0, 65+2);
     box(windows[0], 0, 0);

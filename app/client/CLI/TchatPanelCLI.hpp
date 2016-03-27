@@ -15,6 +15,10 @@
 #include <string>
 #include <vector>
 
+class CLI;
+#include "client/CLI.hpp"
+
+class CLIPanel;
 #include "CLIPanel.hpp"
 
 /* define size for panel */
@@ -47,7 +51,7 @@ class TchatPanelCLI : public CLIPanel {
     static std::vector<std::string> _messageBuffer;
     static std::string _consoleBuffer[TCHAT_HEIGHT-2];
 public:
-    TchatPanelCLI();
+    TchatPanelCLI(CLI*);
     ~TchatPanelCLI();
     
     void addMessage(std::string);

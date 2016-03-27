@@ -26,6 +26,10 @@
 
 #include "client/WizardDisplay.hpp"
 
+class CLI;
+#include "client/CLI.hpp"
+
+class CLIPanel;
 #include "CLIPanel.hpp"
 
 #define LABEL_LENGHT 26
@@ -62,7 +66,7 @@ class LoginPanelCLI : public CLIPanel {
     void setFocusToField();
     void printInMiddle(char*, chtype);
 public:
-    LoginPanelCLI();
+    LoginPanelCLI(CLI*);
     ~LoginPanelCLI() = default;
 
     void printError(std::string);

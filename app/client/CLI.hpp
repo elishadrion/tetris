@@ -74,10 +74,11 @@ class CLI : public WizardDisplay {
 public:
     CLI();
     ~CLI();
+    
     void displayFatalError(std::string) override;
     void displayLoginPrompt() override;
-    void displayLoginResult(std::string) override;
-    void valideLogin() override;
+    void diaplayError(std::string) override;
+    
     void displayMainWindow();
     void displayFriendsWindow();
     void displayCollectionWindow();
@@ -86,7 +87,129 @@ public:
     void displayGame();
     void displayClassement();
     void focusTchat();
-    void diaplayError(std::string) override;
+    
+    
+
+    /* Ask to te play to choose her deck */
+    void askDeck() {}
+
+    /**
+     * Call when the player recieve one new card
+     *
+     * @param card wich is draw
+     */
+    void drawCard(Card*) {}
+
+    /**
+     * Call when adverse player draw a card
+     */
+    void adverseDrawCard() {}
+
+    /**
+     * The turn change
+     */
+    void changeTurn() {}
+
+    /**
+     * Call when adverse player place card
+     *
+     * @param card which is place
+     */
+    void placeAdverseCard(Card*) {}
+
+    /**
+     * Call when a adverse spell card is placed (and attack an other)
+     *
+     * @param the new card
+     * @param the target card
+     */
+    void placeAdverseSpellCard(Card*, Card*) {}
+
+    /**
+     * Call when a adverse spell card is placed (and attack adverse player)
+     *
+     * @param the new card
+     */
+    void placeAdverseSpellPlayer(Card*) {}
+
+
+    /**
+     * Call when card is placed (and attack an other)
+     *
+     * @param the new card
+     * @param the target card
+     */
+    void placeCardAndAttack(Card*, Card*) {}
+
+    /**
+     * Call when card is placed (and attack adverse player)
+     *
+     * @param the new card
+     */
+    void placeCardAndAttackPlayer(Card*) {}
+
+    /**
+     * Call when a adverse spell card is placed (and attack an other)
+     *
+     * @param the new card
+     * @param the target card
+     */
+    void placeAdverseCardAndAttack(Card*, Card*) {}
+
+    /**
+     * Call when a adverse spell card is placed (and attack other player)
+     *
+     * @param the new card
+     */
+    void placeAdverseCardAndAttackPlayer(Card*) {}
+
+    /**
+     * Call when a card attack an other card
+     *
+     * @param the card wich attack
+     * @param the card wich IS attack
+     */
+    void attackCard(Card*, Card*) {}
+
+    /**
+     * Call when an adverse card attack an other card
+     *
+     * @param the card wich attack
+     * @param the card wich IS attack
+     */
+    void adverseAttackCard(Card*, Card*) {}
+
+    /**
+     * Call when a card attack adverse player
+     *
+     * @param the card wich attack
+     */
+    void attackPlayer(Card*) {}
+
+    /**
+     * Call when an adverse card attack current player
+     *
+     * @param the card wich attack
+     */
+    void adverseAttackPlayer(Card*) {}
+
+    /**
+     * Call when a card is dead
+     * @param card which is dead
+     * @param adverse card or not
+     */
+    void cardIsDead(Card*, bool) {}
+
+
+    //////////////////////// TCHAT ////////////////////////
+
+    /**
+     * Call when player recev message
+     * @param playerFrom who send the message
+     * @param playerTo who recev the message
+     * @param msg the message
+     */
+    void recevTchatMsg(std::string, std::string, std::string) {}
 };
 
 #endif /* CLI_HPP */

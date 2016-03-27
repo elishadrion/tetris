@@ -1,6 +1,6 @@
 #include "WaitPanelCLI.hpp"
 
-WaitPanelCLI::WaitPanelCLI() : _inGame(false) {
+WaitPanelCLI::WaitPanelCLI(CLI* cli) : CLIPanel(cli), _inGame(false) {
     /* We create mainWindow where player can select what to do */
     window = newwin(MAIN_HEIGTH, MAIN_WIDTH, 0, 0);
     box(window, 0, 0);
@@ -44,7 +44,7 @@ void WaitPanelCLI::focus() {
     int input;
     while((input = wgetch(window)) != KEY_F(10)) {
         if (input == KEY_F(1))
-            wizardDisplay->focusTchat();
+            _cli->focusTchat();
         else
             beep();
         wrefresh(window);

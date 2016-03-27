@@ -3,13 +3,13 @@
 
 #include <panel.h>
 
-#include "client/WizardDisplay.hpp"
-
 #include "client/PacketManager.hpp"
 
-#include "CLIPanel.hpp"
+class CLI;
+#include "client/CLI.hpp"
 
-extern WizardDisplay *wizardDisplaydisplay;
+class CLIPanel;
+#include "CLIPanel.hpp"
 
 class WaitPanelCLI : public CLIPanel {
     WINDOW *window;
@@ -17,7 +17,7 @@ class WaitPanelCLI : public CLIPanel {
     
     bool _inGame;
 public:
-    WaitPanelCLI();
+    WaitPanelCLI(CLI*);
     ~WaitPanelCLI() = default;
     
     void show() override;

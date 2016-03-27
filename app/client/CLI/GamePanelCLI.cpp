@@ -1,6 +1,6 @@
 #include "GamePanelCLI.hpp"
 
-GamePanelCLI::GamePanelCLI() : ennemyPosedCard({}), posedCard({}), ennemyHandCardNumber({}), handCard({})  {
+GamePanelCLI::GamePanelCLI(CLI* cli) : CLIPanel(cli), ennemyPosedCard({}), posedCard({}), ennemyHandCardNumber({}), handCard({})  {
     /* We create mainWindow where player can select what to do */
     window = newwin(21, 63, 0, 0);
     box(window, 0, 0);

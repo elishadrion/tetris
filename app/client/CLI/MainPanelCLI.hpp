@@ -31,8 +31,13 @@
 /* To send disconnection signal */
 #include "client/PacketManager.hpp"
 
-#include "CLIPanel.hpp"
 #include "client/WizardDisplay.hpp"
+
+class CLI;
+#include "client/CLI.hpp"
+
+class CLIPanel;
+#include "CLIPanel.hpp"
 
 /* define starting line for mainMeny entry */
 #define START_LINE 5
@@ -46,7 +51,7 @@ class MainPanelCLI : public CLIPanel {
     void updateColor(int, int);
     void doRequest(int);
 public:
-    MainPanelCLI();
+    MainPanelCLI(CLI*);
     ~MainPanelCLI() = default;
 
     void show() override;

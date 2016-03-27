@@ -1,6 +1,6 @@
 #include "CollectionPanelCLI.hpp"
 
-CollectionPanelCLI::CollectionPanelCLI() : currentLine(0) {
+CollectionPanelCLI::CollectionPanelCLI(CLI* cli) : CLIPanel(cli), currentLine(0) {
     /* We create mainWindow where player can select what to do */
     window = newwin(MAIN_HEIGTH, MAIN_WIDTH, 0, 0);
     keypad(window, TRUE);
@@ -83,10 +83,10 @@ void CollectionPanelCLI::focus() {
                 }
                 break;
             case KEY_F(3):
-                wizardDisplay->displayDeckWindow();
+                _cli->displayDeckWindow();
                 break;
             case KEY_F(1):
-                wizardDisplay->focusTchat();
+                _cli->focusTchat();
                 break;
             default:
                 beep();

@@ -35,11 +35,11 @@
 
 #include "client/PacketManager.hpp"
 
+class CLI;
+#include "client/CLI.hpp"
+
+class CLIPanel;
 #include "CLIPanel.hpp"
-
-#include "client/WizardDisplay.hpp"
-
-extern WizardDisplay *wizardDisplay;
 
 class GamePanelCLI : public CLIPanel {
     WINDOW *window;
@@ -55,7 +55,7 @@ class GamePanelCLI : public CLIPanel {
     
     void update();
 public:
-    GamePanelCLI();
+    GamePanelCLI(CLI*);
     ~GamePanelCLI() = default;
     
     void ennemyPoseCard(int);

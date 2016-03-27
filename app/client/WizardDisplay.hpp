@@ -28,23 +28,7 @@ public:
 
     /* Only call once, when program begin */
     virtual void displayLoginPrompt() =0;
-
-    /////////////// MUST BE REMOVE ?? ///////////////////////////////
-    /* Used to print result of the login process (thread safe) */
-    virtual void displayLoginResult(std::string) {}
-    /* Validate login process, must call displayMainWindow after */
-    virtual void valideLogin() {}
-    virtual void displayMainWindow()  {}
-    virtual void displayFriendsWindow()  {}
-    virtual void displayCollectionWindow()  {}
-    virtual void displayDeckWindow() {}
-    virtual void displayWait() {}
-    virtual void displayGame() {}
-    virtual void displayClassement() {}
-    virtual void focusTchat() {}
-
-
-
+    
     /* Display error message */
     virtual void diaplayError(std::string) =0;
 

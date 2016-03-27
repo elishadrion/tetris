@@ -1,6 +1,6 @@
 #include "LoginPanelCLI.hpp"
 
-LoginPanelCLI::LoginPanelCLI() : success(false) {
+LoginPanelCLI::LoginPanelCLI(CLI* cli) : CLIPanel(cli), success(false) {
     /* Initialize field and set some options
      * LabelField - PseudoField - LabelField2 - PasswordField
      * <height> <width> <toprow> <leftcol> <offscreen> <nbuffers>

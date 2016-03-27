@@ -39,8 +39,11 @@
 /* To get friends info */
 #include "client/Player.hpp"
 
+class CLI;
+#include "client/CLI.hpp"
+
+class CLIPanel;
 #include "CLIPanel.hpp"
-#include "client/WizardDisplay.hpp"
 
 extern WizardDisplay *wizardDisplay;
 extern Player *player;
@@ -54,7 +57,7 @@ class FriendPanelCLI : public CLIPanel {
     void updateList();
     void manageFriend(bool remove = false);
 public:
-    FriendPanelCLI();
+    FriendPanelCLI(CLI*);
     ~FriendPanelCLI() = default;
 
     void show() override;

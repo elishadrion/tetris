@@ -1,6 +1,6 @@
 #include "FriendPanelCLI.hpp"
 
-FriendPanelCLI::FriendPanelCLI() {
+FriendPanelCLI::FriendPanelCLI(CLI* cli) : CLIPanel(cli) {
     /* We create mainWindow where player can select what to do */
     windows[0] = newwin(MAIN_HEIGTH, MAIN_WIDTH, 0, 0);
     box(windows[0], 0, 0);
@@ -69,7 +69,7 @@ void FriendPanelCLI::focus() {
     while((input = wgetch(windows[0])) != KEY_F(10)) {
         switch(input) {
             case KEY_F(1):
-                wizardDisplay->focusTchat();
+                _cli->focusTchat();
                 break;
             case KEY_F(3):
                 manageFriend();

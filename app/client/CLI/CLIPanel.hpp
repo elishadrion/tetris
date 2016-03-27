@@ -3,10 +3,15 @@
 
 #include "common/Constants.hpp"
 
+class CLI;
+#include "client/CLI.hpp"
+
 class CLIPanel {
+protected:
+    CLI *_cli;
 public:
     /* Create or remove interface panel */
-    CLIPanel() = default;
+    CLIPanel(CLI *cli) : _cli(cli) {}
     virtual ~CLIPanel() = default;
     
     virtual void show() =0;

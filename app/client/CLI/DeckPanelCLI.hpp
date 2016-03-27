@@ -6,13 +6,17 @@
 #include "client/Player.hpp"
 #include "common/WizardLogger.hpp"
 
+class CLI;
+#include "client/CLI.hpp"
+
+class CLIPanel;
 #include "CLIPanel.hpp"
 
 class DeckPanelCLI : public CLIPanel {
     WINDOW *window;
     PANEL  *panel;
 public:
-    DeckPanelCLI();
+    DeckPanelCLI(CLI*);
     ~DeckPanelCLI() = default;
     
     void updatePanel();

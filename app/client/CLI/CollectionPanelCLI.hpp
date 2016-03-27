@@ -14,21 +14,21 @@
 #include "client/CacheManager.hpp"
 #include "client/Card.hpp"
 
-#include "client/WizardDisplay.hpp"
+class CLI;
+#include "client/CLI.hpp"
 
+class CLIPanel;
 #include "CLIPanel.hpp"
 
 /* define starting line for mainMeny entry */
 #define START_LINE 5
-
-extern WizardDisplay* wizardDisplay;
 
 class CollectionPanelCLI : public CLIPanel {
     WINDOW *window;
     PANEL  *panel;
     unsigned currentLine;
 public:
-    CollectionPanelCLI();
+    CollectionPanelCLI(CLI*);
     ~CollectionPanelCLI() = default;
     
     void updatePanel();

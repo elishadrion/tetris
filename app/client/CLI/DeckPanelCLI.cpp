@@ -1,6 +1,6 @@
 #include "DeckPanelCLI.hpp"
 
-DeckPanelCLI::DeckPanelCLI() {
+DeckPanelCLI::DeckPanelCLI(CLI* cli) : CLIPanel(cli) {
     /* We create mainWindow where player can select what to do */
     window = newwin(MAIN_HEIGTH, MAIN_WIDTH, 0, 0);
     keypad(window, TRUE);
@@ -60,7 +60,7 @@ void DeckPanelCLI::focus() {
     while((input = wgetch(window)) != KEY_F(10)) {
         switch(input) {
             case KEY_F(1):
-                wizardDisplay->focusTchat();
+                _cli->focusTchat();
                 break;
             default:
                 beep();

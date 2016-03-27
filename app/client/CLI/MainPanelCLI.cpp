@@ -1,6 +1,6 @@
 #include "MainPanelCLI.hpp"
 
-MainPanelCLI::MainPanelCLI() {
+MainPanelCLI::MainPanelCLI(CLI* cli) : CLIPanel(cli) {
     /* We create mainWindow where player can select what to do */
     window = newwin(MAIN_HEIGTH, MAIN_WIDTH, 0, 0);
     box(window, 0, 0);
@@ -67,7 +67,7 @@ void MainPanelCLI::focus() {
                 }
                 break;
             case KEY_F(1):
-                wizardDisplay->focusTchat();
+                _cli->focusTchat();
                 break;
             case KEY_F(3):
                 doRequest(currentMenu);
@@ -106,16 +106,16 @@ void MainPanelCLI::updateColor(int previous, int next) {
 void MainPanelCLI::doRequest(int entry) {
     switch(entry) {
         case START_LINE:
-            wizardDisplay->displayWait();
+            _cli->displayWait();
             break;
         case START_LINE+2:
-            wizardDisplay->displayCollectionWindow();
+            _cli->displayCollectionWindow();
             break;
         case START_LINE+4:
-            wizardDisplay->displayFriendsWindow();
+            _cli->displayFriendsWindow();
             break;
         default:
-            wizardDisplay->displayFatalError("pas implémenter pour le moment");
+            beep();
             break;
     }
     refresh();
