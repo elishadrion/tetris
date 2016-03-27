@@ -109,24 +109,6 @@ void PacketManager::managePacket(Packet::packet* customPacket) {
     }
 }
 
-//====================================== UTILS ======================================
-
-std::string PacketManager::packetPseudoToString(char* pseudo) {
-    int i = 0;
-    std::string res = "";
-    while(i < MAX_PSEUDO_SIZE) {
-        char elem = static_cast<char>(pseudo[i]);
-        if(elem == ' ') {
-            return res;
-        }
-        res += elem;
-        ++i;
-    }
-
-    return res;
-}
-
-
 
 //===========================LOGIN PROCESS===========================================
 
@@ -551,8 +533,7 @@ void PacketManager::askDrop(const Packet::intPacket* askDropPacket) {
 void PacketManager::managePlaceCard(Packet::placeCardPacket* placeCardPacket) {
     GameManager* gm = GameManager::getInstance();
     
-    bool adverse = !(packetPseudoToString(placeCardPacket->pseudo) ==
-                                        Player::getPlayer()->getName());
+    bool adverse = !(placeCardPacket->pseudo == Player::getPlayer()->getName());
     int cardId = placeCardPacket->idCard;
     unsigned position = placeCardPacket->cardPosition;
 
@@ -588,8 +569,7 @@ void PacketManager::managePlaceSpell(Packet::placeAttackSpellPacket* placeAttack
     unsigned heal = placeAttackSpellPacket->data.heal;
 
 
-    if(packetPseudoToString(placeAttackSpellPacket->data.pseudo) ==
-            Player::getPlayer()->getName()) {
+    if(placeAttackSpellPacket->data.pseudo == Player::getPlayer()->getName()) {
 
         gm->placeCardAndAttack(true, cardId, -1, targetPosition, heal);
 
@@ -613,8 +593,7 @@ void PacketManager::managePlaceSpell(Packet::placeAttackSpellPacket* placeAttack
 void PacketManager::manageAttack(Packet::attackPacket* attackPacket) {
     GameManager* gm = GameManager::getInstance();
 
-    bool adverse = !(packetPseudoToString(attackPacket->data.pseudo) ==
-                        Player::getPlayer()->getName());
+    bool adverse = !(attackPacket->data.pseudo == Player::getPlayer()->getName());
     unsigned cardPosition = attackPacket->data.cardPosition;
     unsigned cardHeal = attackPacket->data.cardHeal;
     int targetPosition = attackPacket->data.targetPosition;
@@ -647,8 +626,7 @@ void PacketManager::manageAttack(Packet::attackPacket* attackPacket) {
 void PacketManager::managePlaceCardAttack(Packet::placeAttackPacket* placeAttackPacket) {
     GameManager* gm = GameManager::getInstance();
 
-    bool adverse = !(packetPseudoToString(placeAttackPacket->data.pseudo) ==
-                            Player::getPlayer()->getName());
+    bool adverse = !(placeAttackPacket->data.pseudo == Player::getPlayer()->getName());
     unsigned cardId = placeAttackPacket->data.idCard;
     unsigned cardPosition = placeAttackPacket->data.cardPosition;
     int targetPosition = placeAttackPacket->data.targetPosition;
@@ -680,8 +658,7 @@ void PacketManager::managePlaceCardAttack(Packet::placeAttackPacket* placeAttack
 void PacketManager::managePlayerDamage(Packet::pseudoIntPacket* playerDamagePacket) {
     GameManager* gm = GameManager::getInstance();
 
-    bool adv = packetPseudoToString(playerDamagePacket->pseudo) ==
-                        Player::getPlayer()->getName();
+    bool adv = playerDamagePacket->pseudo == Player::getPlayer()->getName();
     unsigned heal = static_cast<unsigned>(playerDamagePacket->data);
     gm->playerDamage(heal, adv);
 

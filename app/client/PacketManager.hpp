@@ -15,8 +15,6 @@ extern WizardDisplay *wizardDisplay;
 
 namespace PacketManager {
     void managePacket(Packet::packet*);
-    
-    std::string packetPseudoToString(char*);
 
 
     ///// Login process /////

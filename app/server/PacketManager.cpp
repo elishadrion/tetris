@@ -405,6 +405,7 @@ void PacketManager::sendDrawBegin(Player* player, std::vector<unsigned> listCard
  * @param card : new drawed card
  */
 void PacketManager::sendCard(Player* player, Card* card) {
+    WizardLogger::info("[>] Envoie de sendCard");
     Packet::intPacket *drawPacket = new Packet::intPacket();
     
     /* Set ID and ID */
@@ -423,6 +424,7 @@ void PacketManager::sendCard(Player* player, Card* card) {
  * @param player who will reciev the packet
  */
 void PacketManager::sendAdverseDraw(Player* player) {
+    WizardLogger::info("[>] Envoie de sendAdverseDraw");
     Packet::packet *advDrawPacket = new Packet::packet();
 
     advDrawPacket->ID = Packet::ADVERSE_DRAW_ID;
@@ -440,6 +442,7 @@ void PacketManager::sendAdverseDraw(Player* player) {
  * @param amount : nbr of card to drop
  */
 void PacketManager::askDefausse(Player* player, int amount) {
+    WizardLogger::info("[>] Envoie de askDefausse");
     Packet::intPacket *askDropPacket = new Packet::intPacket();
     
     /* Set ID and amount */
@@ -457,6 +460,7 @@ void PacketManager::askDefausse(Player* player, int amount) {
  * @param card : new droped card (-1 for sync)
  */
 void PacketManager::sendDrop(Player* player, int ID) {
+    WizardLogger::info("[>] Envoie de sendDrop");
     Packet::intPacket *dropPacket = new Packet::intPacket();
     
     /* Set ID and amount */
@@ -480,6 +484,7 @@ void PacketManager::sendDrop(Player* player, int ID) {
  */
 void PacketManager::sendAttack(Player* player, std::string pseudo, int cardPosition, unsigned cardHeal,
                                int targetPosition, unsigned targetHeal) {
+    WizardLogger::info("[>] Envoie de sendAttack");
 
     Packet::attackPacket* attackPacket = new Packet::attackPacket();
 
@@ -504,6 +509,7 @@ void PacketManager::sendAttack(Player* player, std::string pseudo, int cardPosit
  * @param cardPosition position of the card in the board
  */
 void PacketManager::sendPlaceMonsterCard(Player* player, std::string pseudo, int cardID, int cardPosition) {
+    WizardLogger::info("[>] Envoie de sendPlaceMonsterCard");
     Packet::placeCardPacket* placeCardPacket = new Packet::placeCardPacket();
 
     for (int i = 0 ; i < pseudo.size() ; ++i) placeCardPacket->pseudo[i] = pseudo[i];
@@ -527,7 +533,7 @@ void PacketManager::sendPlaceMonsterCard(Player* player, std::string pseudo, int
  */
 void PacketManager::sendPlaceMonsterCard(Player* player, std::string pseudo, int cardID, int cardPosition,
                                          int targetPosition, unsigned heal) {
-
+    WizardLogger::info("[>] Envoie de sendPlaceMonsterCard");
 
     Packet::placeAttackPacket* placeAttackPacket = new Packet::placeAttackPacket();
 
@@ -554,6 +560,7 @@ void PacketManager::sendPlaceMonsterCard(Player* player, std::string pseudo, int
  */
 void PacketManager::sendPlaceSpellCard(Player* player, std::string pseudo, int cardID,
                                        int targetPosition, unsigned heal) {
+    WizardLogger::info("[>] Envoie de sendPlaceSpellCard");
 
     Packet::placeAttackSpellPacket* placeAttackSpellPacket = new Packet::placeAttackSpellPacket();
 
@@ -576,6 +583,7 @@ void PacketManager::sendPlaceSpellCard(Player* player, std::string pseudo, int c
  * @param life new life of the player
  */
 void PacketManager::playerDamage(Player* player, std::string pseudo, int life) {
+    WizardLogger::info("[>] Envoie de playerDamage");
     Packet::pseudoIntPacket* playerDamage = new Packet::pseudoIntPacket();
 
     playerDamage->ID = Packet::PLAYER_DAMAGE_ID;
@@ -595,6 +603,7 @@ void PacketManager::playerDamage(Player* player, std::string pseudo, int life) {
  * @param card : card's ID win
  */
 void PacketManager::sendEndGame(Player* player, int victory, int card) {
+    WizardLogger::info("[>] Envoie de sendEndGame");
     Packet::endGamePacket *endPacket = new Packet::endGamePacket();
     
     /* Set victory flag and card ID (-1 for no card) */
