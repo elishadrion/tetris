@@ -38,6 +38,10 @@ class GameGUI : public QMainWindow {
     // Game Information
     QVBoxLayout *_infoGame;
     QLabel* _nbrTurn;
+    QLabel* _infoEnergy;
+    QLabel* _infoHeal;
+    QLabel* _infoAdvEnergy;
+    QLabel* _infoAdvHeal;
 
     CardWidget* _cardInHand[MAX_HAND];
     CardWidget* _advCardInHand[MAX_HAND];
@@ -60,6 +64,8 @@ class GameGUI : public QMainWindow {
     void placeAdvSpellOnBoard(CardWidget*);
     void removeInHandCard();
     void removeAdvInHandCard();
+    void updatePlayerInfo();
+    void updateAdvPlayerInfo();
     void displayError(int);
     void displayError(std::string);
 
@@ -102,6 +108,7 @@ private slots:
     void unSelectCard(CardWidget*);
     void selectEmplacement(CardWidget*);
     void selectAdvCard(CardWidget*);
+    void selectSpellEmplacement(CardWidget*);
     void nextTurn();
     void placeAdvCard(Card*);
     void removeSpell();

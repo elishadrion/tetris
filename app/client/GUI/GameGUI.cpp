@@ -60,10 +60,12 @@ GameGUI::GameGUI() : QMainWindow(), _inHandSelect(nullptr),
     }
 
     // Emplacement Carte sort
-    _spellCardWidget = new CardWidget(true, false);
+    _spellCardWidget = new CardWidget(true, true);
+    connect(_spellCardWidget, SIGNAL(selected(CardWidget*)),
+            this, SLOT(selectSpellEmplacement(CardWidget*)));
     _gridlayout->addWidget(_spellCardWidget, 6, 2);
 
-    _advSpellCardWidget = new CardWidget(true, false);
+    _advSpellCardWidget = new CardWidget(true, true);
     _gridlayout->addWidget(_advSpellCardWidget, 2, 2);
 
 
@@ -88,6 +90,41 @@ GameGUI::GameGUI() : QMainWindow(), _inHandSelect(nullptr),
     _infoGame->addLayout(infoTurn);
 
     _gridlayout->addLayout(_infoGame, 0, 13);
+
+
+    //////// INFO PLAYER ////////
+    QHBoxLayout* layoutInfoEnergy = new QHBoxLayout;
+    QLabel *labelEnergy = new QLabel(QString::fromStdString("Energie: "));
+    layoutInfoEnergy->addWidget(labelEnergy);
+    _infoEnergy = new QLabel(QString(
+                    std::to_string(GameManager::getInstance()->getEnergy()).c_str()));
+    layoutInfoEnergy->addWidget(_infoEnergy);
+    _gridlayout->addLayout(layoutInfoEnergy, 8, 5);
+
+    QHBoxLayout* layoutInfoHeal = new QHBoxLayout;
+    QLabel *labelHeal = new QLabel(QString::fromStdString("Vie: "));
+    layoutInfoHeal->addWidget(labelHeal);
+    _infoHeal = new QLabel(QString(
+                    std::to_string(GameManager::getInstance()->getHeal()).c_str()));
+    layoutInfoHeal->addWidget(_infoHeal);
+    _gridlayout->addLayout(layoutInfoHeal, 8, 7);
+
+    //////// ADV INFO PLAYER ////////
+    QHBoxLayout* layoutAdvInfoEnergy = new QHBoxLayout;
+    QLabel *labelAdvEnergy = new QLabel(QString::fromStdString("Energie: "));
+    layoutAdvInfoEnergy->addWidget(labelAdvEnergy);
+    _infoAdvEnergy = new QLabel(QString(
+                        std::to_string(GameManager::getInstance()->getAdverseEnergy()).c_str()));
+    layoutAdvInfoEnergy->addWidget(_infoAdvEnergy);
+    _gridlayout->addLayout(layoutAdvInfoEnergy, 0, 5);
+
+    QHBoxLayout* layoutAdvInfoHeal = new QHBoxLayout;
+    QLabel *labelAdvHeal = new QLabel(QString::fromStdString("Vie: "));
+    layoutAdvInfoHeal->addWidget(labelAdvHeal);
+    _infoAdvHeal = new QLabel(QString(
+                        std::to_string(GameManager::getInstance()->getAdverseHeal()).c_str()));
+    layoutAdvInfoHeal->addWidget(_infoAdvHeal);
+    _gridlayout->addLayout(layoutAdvInfoHeal, 0, 7);
 
 
 
@@ -134,6 +171,7 @@ GameGUI::GameGUI() : QMainWindow(), _inHandSelect(nullptr),
     _gridlayout->setRowStretch(5, 5); // Card placed
     _gridlayout->setRowStretch(6, 4); // Sort + espace
     _gridlayout->setRowStretch(7, 5); // In Hand
+    _gridlayout->setRowStretch(8, 1); // Infos player
 
 
     show();
@@ -202,6 +240,7 @@ void GameGUI::placeMonsterCardOnBoard(CardWidget* emplacement) {
         _cardBoard[nbrEmplacement] = _inHandSelect;
         _inHandSelect->setSelect(false);
         _inHandSelect = nullptr;
+        updatePlayerInfo();
 
     } else {
         WizardLogger::warning("Aucune carte sélectionnée");
@@ -246,6 +285,8 @@ void GameGUI::placeAdvSpellOnBoard(CardWidget* cardWidget) {
         connect(_timeAdvSpell, SIGNAL(timeout()), this, SLOT(removeAdvSpell()));
         _timeAdvSpell->start(2000);
         _timeAdvSpell->setSingleShot(true);
+
+        updateAdvPlayerInfo();
     }
 }
 
@@ -283,6 +324,20 @@ void GameGUI::removeAdvInHandCard() {
     } else {
         WizardLogger::warning("Impossible de supprimer une carte dans la main adverse");
     }
+}
+
+void GameGUI::updatePlayerInfo() {
+    _infoHeal->setText(QString(
+        std::to_string(GameManager::getInstance()->getHeal()).c_str()));
+    _infoEnergy->setText(QString(
+        std::to_string(GameManager::getInstance()->getEnergy()).c_str()));
+}
+
+void GameGUI::updateAdvPlayerInfo() {
+    _infoAdvHeal->setText(QString(
+        std::to_string(GameManager::getInstance()->getAdverseHeal()).c_str()));
+    _infoAdvEnergy->setText(QString(
+        std::to_string(GameManager::getInstance()->getAdverseEnergy()).c_str()));
 }
 
 
@@ -378,7 +433,8 @@ void GameGUI::placeAndAttack(CardWidget* cardWidget) {
         } else {
             placeSpellCardOnBoard();
         }
-        cardWidget->actualize(); // update heal of this card
+        updatePlayerInfo();      // update player info
+        cardWidget->actualize(); // update info of this card
 
     } else {
         int error = reinterpret_cast<int>(wizardDisplay->packetErrorStack.back());
@@ -415,6 +471,7 @@ void GameGUI::attack(CardWidget* cardWidget) {
             if(cardWidget != nullptr) {
                 cardWidget->actualize(); // update heal of this card
             }
+            updatePlayerInfo();
 
         } else {
             int error = reinterpret_cast<int>(wizardDisplay->packetErrorStack.back());
@@ -518,6 +575,8 @@ void GameGUI::viewPassButton() {
 void GameGUI::updateTurn() {
     _nbrTurn->setText(QString(std::to_string(
                     GameManager::getInstance()->getNbrTurn()).c_str()));
+    updatePlayerInfo();
+    updateAdvPlayerInfo();
 }
 
 /**
@@ -654,13 +713,11 @@ void GameGUI::selectEmplacement(CardWidget* cardWidget) {
 
             /* Unlock */
             pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
-        } else {
-            displayError("Vous devez sélectionner une cible (carte sort)");
         }
     }
 }
 
-void GameGUI::selectAdvCard(CardWidget * cardWidget) {
+void GameGUI::selectAdvCard(CardWidget* cardWidget) {
     cardWidget->setSelect(false);
 
     // If card in hand select
@@ -674,6 +731,14 @@ void GameGUI::selectAdvCard(CardWidget * cardWidget) {
         attack(cardWidget);
         _onBoardSelect->setSelect(false);
         _onBoardSelect = nullptr;
+    }
+}
+
+void GameGUI::selectSpellEmplacement(CardWidget* cardWidget) {
+    cardWidget->setSelect(false);
+    if(_inHandSelect != nullptr) {
+        // TO DO
+        // place spell without target
     }
 }
 
