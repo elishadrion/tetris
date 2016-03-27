@@ -27,6 +27,18 @@ DeckWidget::DeckWidget() : QWidget(){
     _grid->addWidget(_previous,1,0);
     _grid->addWidget(_next,1,4);
 
+    // TO DO
+    std::string _nom; // TO DO !
+
+    Player* player = Player::getPlayer();
+    if(!player->isDeckCardDefine()) {
+        player->loadDeckCard();
+    }
+
+    // List of the ID in this deck
+    std::vector<unsigned> listCard = player->getCardDeck(_nom);
+
+
     /*
     tempPage = new PageWidget();
     for(unsigned i=0;i<20;i++){

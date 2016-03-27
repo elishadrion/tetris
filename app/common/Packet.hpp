@@ -20,6 +20,8 @@ public:
         CARTE_INFO_ID = 21, /* Send all card info (no img) */
         CARTE_IMG_REQ_ID = 22, /* intPacket */
         CARTE_IMG_ID = 23, /* intPacket */
+        ASK_DECK_LIST_ID = 24,
+        LIST_DECK_ID = 25,
         /* TCHAT */
         TCHAT_SEND_MSG_ID = 31, /* tchatSendMsgPacket */
         TCHAT_RECEV_MSG_ID = 32, /* tchatRecevMsgPacket */
@@ -139,6 +141,19 @@ public:
         int size = 95000; /* Max size is currently 95Ko */
         void* data[95000]; /* Must be complete image binary data */
     } cardImgPacket;
+
+//========================DECK PROCESS===================================
+
+    typedef struct {
+        int ID = LIST_DECK_ID;
+        typedef struct {
+            char decksName[MAX_DECKS*MAX_DECK_NAME];
+            int deckList[MAX_DECKS*DECK_SIZE];
+        } listDeckData;
+        int size = sizeof(listDeckData);
+        listDeckData data;
+    } listDeckPacket;
+
 
 //====================TCHAT & FRIEND PROCESS==============================
     

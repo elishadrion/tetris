@@ -41,7 +41,14 @@ namespace PacketManager {
     void getMessage(const Packet::tchatRecevMsgPacket*); /* TCHAT_RECEV_MSG_ID */
     // Send
     void sendMessage(const std::string, const std::string); /* TCHAT_SEND_MSG_ID (out) */
-    
+
+    ///// Deck /////
+    // Recev
+    void manageListDeck(const Packet::listDeckPacket*);
+    // Send
+    void reqGetDeck();
+
+
 
     ///// Friends process /////
     // Recev

@@ -19,6 +19,7 @@ class Player {
     std::string _username;
     unsigned _collection[MAX_CARDS];
     std::vector<std::string> _decks;
+    std::vector<unsigned> _listCardDeck;
     std::string _friendsList[MAX_FRIENDS];
     unsigned _victories;
     unsigned _defeats;
@@ -37,6 +38,7 @@ public:
     Error removeDeck(std::string);
     void addFriend(std::string pseudo);
     void removeFriend(std::string pseudo);
+    void addDeckCard(std::vector<unsigned>);
     
     /* Getter */
     inline std::string getName() const { return _username; }
@@ -45,6 +47,11 @@ public:
     inline std::string *getFriends() { return _friendsList; }
     inline unsigned getVictories() const { return _victories; }
     inline unsigned getDefeats() const { return _defeats; }
+    inline bool isDeckCardDefine() const { return _listCardDeck.size() > 0; }
+
+    // Deck
+    std::vector<unsigned> getCardDeck(std::string);
+    void loadDeckCard();
 
     
     ~Player() = default;

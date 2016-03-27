@@ -347,6 +347,24 @@ void PacketManager::sendMessage(const std::string toPlayer, const std::string me
 }
 
 
+//============================DECK PROCESS===========================================
+
+
+void PacketManager::manageListDeck(const Packet::listDeckPacket* listDeckpacket) {
+
+}
+
+void PacketManager::reqGetDeck() {
+    Packet::packet* deckPacket = new Packet::packet();
+
+    deckPacket->ID = Packet::ASK_DECK_LIST_ID;
+
+    /* Send and free */
+    conn->sendPacket((Packet::packet*) deckPacket, sizeof(*deckPacket));
+    delete deckPacket;
+}
+
+
 //============================FRIEND PROCESS===========================================
 
 void PacketManager::removeFriend(const Packet::pseudoPacket* removeFriendPacket) {
