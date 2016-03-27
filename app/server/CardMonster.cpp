@@ -13,8 +13,8 @@
  * @param number of tour that the card is placed
  */
 CardMonster::CardMonster(unsigned int id, std::string name, unsigned int energy,
-    	int effect, bool aBool,unsigned int life, unsigned int attack,
-    	unsigned int nbrTour): Card::Card(id, name, energy, effect, aBool),
+        int effect, unsigned int life, unsigned int attack,
+        unsigned int nbrTour): Card::Card(id, name, energy, effect),
 		_life(life), _attack(attack), _maxLife(life), _nbrTourPose(nbrTour),
         _taunt(false) { }
 

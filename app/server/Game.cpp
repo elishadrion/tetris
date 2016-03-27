@@ -173,7 +173,7 @@ void Game::removePlayerWaitGame(Player *player) {
  * @return res True if player have draw (else, false)
  */
 bool Game::draw() {
-    draw(_currentPlayer);
+    return draw(_currentPlayer);
 }
 
 
@@ -184,7 +184,7 @@ bool Game::draw() {
  * @return res True if player have draw (else, false)
  */
 bool Game::draw(PlayerInGame* pIG) {
-    bool res = true;
+    bool valide = true;
 
     Card* res = pIG->draw();
     if(res == nullptr) { // If no card
@@ -195,7 +195,7 @@ bool Game::draw(PlayerInGame* pIG) {
         PacketManager::playerDamage(_player1, pIG->getName(), pIG->getHeal());
         PacketManager::playerDamage(_player2, pIG->getName(), pIG->getHeal());
         isPlayerInLife();
-        res = false;
+        valide = false;
 
     } else {
         WizardLogger::info(pIG->getName() + " a pioché la carte: " + res->getName());
@@ -203,7 +203,7 @@ bool Game::draw(PlayerInGame* pIG) {
         PacketManager::sendAdverseDraw(getAdversePlayer(pIG));
     }
 
-    return res;
+    return valide;
 }
 
 

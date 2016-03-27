@@ -20,7 +20,7 @@ public:
     virtual void incrementTour();
 
     CardMonster(unsigned int id, std::string name, unsigned int energy,
-    	int effect, bool,unsigned int life, unsigned int attack,
+        int effect,unsigned int life, unsigned int attack,
     	unsigned int nbrTour=0);
 
     CardMonster(CardMonster& otherMonster);

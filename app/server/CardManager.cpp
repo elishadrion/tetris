@@ -58,7 +58,7 @@ void CardManager::loadAllCards(){
         energy = i.value()["energie"];
         effect = i.value()["effect"];
         // Enregistrer la carte
-        _listCard[id]= new Card(id,name,energy,effect,true);
+        _listCard[id]= new Card(id,name,energy,effect);
 	}
 	spellFile.close();
 
@@ -85,7 +85,7 @@ void CardManager::loadAllCards(){
         life = i.value()["vie"];
         attack = i.value()["attack"];
         // Enregistrer la carte
-        _listCard[id]= new CardMonster(id,name,energy,effect,true,life,attack,0);
+        _listCard[id]= new CardMonster(id,name,energy,effect,life,attack,0);
 	}
 
 	cardFile.close();
