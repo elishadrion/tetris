@@ -778,8 +778,8 @@ void GameGUI::selectAdvPlayer(CardWidget* cardWidget) {
         pthread_mutex_lock(&wizardDisplay->packetStackMutex);
 
         // Packet manager
-        WizardLogger::info("Placement de la carte: "+ std::to_string(_inHandSelect->getId()));
         if(_inHandSelect != nullptr) {
+            WizardLogger::info("Placement de la carte: "+ std::to_string(_inHandSelect->getId()));
             PacketManager::sendPlaceCardAttack(_inHandSelect->getId(), -1);
         } else {
             PacketManager::sendAttack(_onBoardSelect->getPosition(), -1);

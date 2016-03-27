@@ -6,7 +6,8 @@
 */
 
 CardWidget::CardWidget(TypeCardWidget type, bool interact):
-    QWidget(), _card(nullptr), _interact(interact), _typeCard(type) {
+    QWidget(), _card(nullptr), _interact(interact), _typeCard(type),
+    _selected(false){
 
     _label = new QLabel(this);
     _label->setScaledContents(true);
@@ -16,7 +17,7 @@ CardWidget::CardWidget(TypeCardWidget type, bool interact):
 
 
 CardWidget::CardWidget(Card* card): QWidget(), _card(card),
-    _typeCard(TypeCardWidget::CARD), _interact(true) {
+    _typeCard(TypeCardWidget::CARD), _interact(true), _selected(false) {
 
     _label = new QLabel(this);
     _label->setScaledContents(true);
