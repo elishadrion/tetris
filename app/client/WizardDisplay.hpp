@@ -33,7 +33,7 @@ public:
     virtual void displayLoginResult(std::string) =0;
 
     /* Validate login process, must call displayMainWindow after */
-    virtual void valideLogin() {} =0;
+    virtual void valideLogin() = 0;
 
     /////////////// MUST BE REMOVE ?? ///////////////////////////////
     virtual void displayMainWindow() =0;
