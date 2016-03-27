@@ -61,7 +61,8 @@ void Player::removeFriend(std::string pseudo) {
     }
 }
 
-void Player::addDeckCard(std::vector<unsigned> listCardId) {
+void Player::addDeckCard(std::string nom, std::vector<unsigned> listCardId) {
+    _decks.push_back(nom);
     if(listCardId.size() == DECK_SIZE) {
         for(int i = 0; i < DECK_SIZE; ++i) {
             _listCardDeck.push_back(listCardId[i]);
@@ -69,6 +70,11 @@ void Player::addDeckCard(std::vector<unsigned> listCardId) {
     } else {
         WizardLogger::warning("Pour enregistrer un deck il doit avoir la bonne taille");
     }
+}
+
+void Player::resetAllDeckName() {
+    _decks.clear();
+    _listCardDeck.clear();
 }
 
 std::vector<unsigned> Player::getCardDeck(std::string nomDeck) {

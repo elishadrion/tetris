@@ -38,7 +38,7 @@ public:
     Error removeDeck(std::string);
     void addFriend(std::string pseudo);
     void removeFriend(std::string pseudo);
-    void addDeckCard(std::vector<unsigned>);
+    void addDeckCard(std::string, std::vector<unsigned>);
     
     /* Getter */
     inline std::string getName() const { return _username; }
@@ -50,6 +50,7 @@ public:
     inline bool isDeckCardDefine() const { return _listCardDeck.size() > 0; }
 
     // Deck
+    void resetAllDeckName();
     std::vector<unsigned> getCardDeck(std::string);
     void loadDeckCard();
 

@@ -352,6 +352,36 @@ void PacketManager::sendMessage(const std::string toPlayer, const std::string me
 
 void PacketManager::manageListDeck(const Packet::listDeckPacket* listDeckpacket) {
 
+    Player* player = Player::getPlayer();
+    player->resetAllDeckName;
+
+    for(unsigned nbrTotal = 0; nbrTotal < MAX_DECKS; ++nbrTotal) {
+        int current = MAX_DECK_NAME*nbrTotal;
+
+        std::string nomDeck = "";
+        bool next = true;
+        for(unsigned i = 0; i < MAX_DECK_NAME && next; ++i) {
+            char newChar = listDeckpacket->data.decksName[current+i];
+            next = newChar != ' ';
+            if(next) {
+                nomDeck += newChar;
+            }
+        }
+
+        std::vector<unsigned> listCard;
+        int currentCard = DECK_SIZE*nbrTotal;
+        for(unsigned i = 0; i < DECK_SIZE; ++i) {
+            listCard.push_back(listDeckpacket->data.deckList[currentCard+i]);
+        }
+
+        player->addDeckCard(nomDeck, listCard);
+    }
+
+
+    /* Lock, signal other thread and unlock */
+    pthread_mutex_lock(&wizardDisplay->packetStackMutex);
+    pthread_cond_broadcast(&wizardDisplay->packetStackCond);
+    pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
 }
 
 void PacketManager::reqGetDeck() {
