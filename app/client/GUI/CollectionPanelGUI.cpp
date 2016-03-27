@@ -39,7 +39,7 @@ _menu(menu){
     _labelNewDeck->setAlignment(Qt::AlignCenter);
 
     _nCardsAdd = new QLabel();
-    _nCardsAdd->setText(QString::fromStdString(unsignedToString(_nCards)) + "/20");
+    _nCardsAdd->setText(QString::fromStdString(std::to_string(_nCards)) + "/20");
     _nCardsAdd->setAlignment(Qt::AlignCenter);
 
     _addDeck = new QPushButton("Ajouter Deck");
@@ -53,13 +53,6 @@ _menu(menu){
 
     showMaximized();
 
-}
-
-std::string CollectionPanelGUI::unsignedToString(unsigned value)
-{
-    std::ostringstream temp;
-    temp<<value;
-    return temp.str();
 }
 
 void CollectionPanelGUI::addDeck(){

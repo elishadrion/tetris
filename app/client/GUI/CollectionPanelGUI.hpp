@@ -2,7 +2,6 @@
 #define COLLECTIONPANELGUI_HPP
 
 #include <string>
-#include <sstream>
 #include <QApplication>
 #include <QWidget>
 #include <QMainWindow>
@@ -37,7 +36,6 @@ class CollectionPanelGUI : public QMainWindow{
 
 public:
     CollectionPanelGUI(MenuPanelGUI*);
-    std::string unsignedToString(unsigned);
 
 private slots:
     void addDeck();

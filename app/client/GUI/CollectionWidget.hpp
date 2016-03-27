@@ -6,7 +6,6 @@
 #include <QGridLayout>
 #include <QTabWidget>
 #include <string>
-#include <sstream>
 #include <QTabBar>
 #include "CardWidget.hpp"
 #include "PageWidget.hpp"
@@ -29,7 +28,6 @@ class CollectionWidget : public QWidget{
 
 public:
     CollectionWidget();
-    std::string unsignedToString(unsigned);
 
 private slots:
     void nextPage();

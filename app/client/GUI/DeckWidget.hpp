@@ -9,7 +9,6 @@
 #include <QTabWidget>
 #include <QTabBar>
 #include <string>
-#include <sstream>
 
 #include "PageWidget.hpp"
 #include "CardWidget.hpp"
@@ -29,7 +28,6 @@ class DeckWidget : public QWidget{
 
 public:
     DeckWidget();
-    std::string unsignedToString(unsigned);
 
 private slots:
     void nextPage();

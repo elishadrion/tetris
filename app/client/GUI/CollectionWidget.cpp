@@ -17,7 +17,7 @@ CollectionWidget::CollectionWidget(): QWidget(){
     _grid->addWidget(_pages,0,0,1,5);
 
     _pageLabel = new QLabel();
-    _pageLabel->setText(QString::fromStdString(unsignedToString(page+1)));
+    _pageLabel->setText(QString::fromStdString(std::to_string(page+1)));
     _pageLabel->setAlignment(Qt::AlignCenter);
     _grid->addWidget(_pageLabel,1,2);
 
@@ -32,7 +32,7 @@ CollectionWidget::CollectionWidget(): QWidget(){
         if (i%10 == 0){
             page+=1;
             tempPage = new PageWidget();
-            _pages->addTab(tempPage,QString::fromStdString(unsignedToString(page)));
+            _pages->addTab(tempPage,QString::fromStdString(std::to_string(page)));
         }
         CardWidget *card = new CardWidget(i,i,i);
         tempPage->addCard(card);
@@ -43,18 +43,11 @@ CollectionWidget::CollectionWidget(): QWidget(){
     connect(_previous,SIGNAL(clicked()),this,SLOT(previousPage()));
 }
 
-std::string CollectionWidget::unsignedToString(unsigned value)
-{
-    std::ostringstream temp;
-    temp<<value;
-    return temp.str();
-}
-
 void CollectionWidget::nextPage(){
     if (_pages->currentIndex() < _pages->count()-1){
         _pages->setCurrentIndex(_pages->currentIndex()+1);
         currentPage+=1;
-        _pageLabel->setText(QString::fromStdString(unsignedToString(currentPage)));
+        _pageLabel->setText(QString::fromStdString(std::to_string(currentPage)));
     }
 }
 
@@ -62,6 +55,6 @@ void CollectionWidget::previousPage(){
     if (_pages->currentIndex() > 0){
         _pages->setCurrentIndex(_pages->currentIndex()-1);
         currentPage-=1;
-        _pageLabel->setText(QString::fromStdString(unsignedToString(currentPage)));
+        _pageLabel->setText(QString::fromStdString(std::to_string(currentPage)));
     }
 }
