@@ -29,6 +29,8 @@ class CollectionWidget : public QWidget{
     unsigned currentPage;
     unsigned* _collection;
 
+    // Util
+    PageWidget* getCurrentPage(int);
 
 public:
     CollectionWidget();
