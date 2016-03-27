@@ -22,6 +22,8 @@ class RankingGUI;
 class MenuPanelGUI;
 #include "RankingGUI.hpp"
 #include "PubManager.hpp"
+class CollectionPanelGUI;
+#include "CollectionPanelGUI.hpp"
 
 #include <string>
 
@@ -63,6 +65,7 @@ private slots:
     void makeCancelWait();
     void makeOpenGame();
     void makeOpenClassement();
+    void makeOpenCollection();
 
 public slots:
     void makeOpen();

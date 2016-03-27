@@ -26,6 +26,7 @@ MenuPanelGUI::MenuPanelGUI(GUI* parent) : QMainWindow() {
     _checkCollection = new QPushButton(" Ouvrir la collection ");
     _checkCollection->setMaximumHeight(50);
     _checkCollection->setMaximumWidth(200);
+    QObject::connect(_checkCollection, SIGNAL(clicked()), this, SLOT(makeOpenCollection()));
 
     _friendsList = new QPushButton(" Liste des amis ");
     _friendsList->setMaximumHeight(50);
@@ -138,6 +139,14 @@ void MenuPanelGUI::makeOpenClassement() {
     this->hide();
 }
 
+/**
+ * Slot to open the Collection
+ */
+void MenuPanelGUI::makeOpenCollection() {
+    WizardLogger::info("Ouverture de la collection");
+    new CollectionPanelGUI(this);
+    this->hide();
+}
 
 /**
  * Slot to open the MainMenu

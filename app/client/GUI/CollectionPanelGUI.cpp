@@ -1,0 +1,73 @@
+#include "CollectionPanelGUI.hpp"
+
+CollectionPanelGUI::CollectionPanelGUI(MenuPanelGUI* menu): QMainWindow(),
+_menu(menu){
+
+    setWindowTitle("Collection & Decks");
+
+    QWidget *centralWidget = new QWidget(this);
+    setCentralWidget(centralWidget);
+
+
+    _nCards=0;
+
+    _grid = new QGridLayout(centralWidget);
+    _collectionWidget = new CollectionWidget();
+
+    _grid->setColumnStretch(0,15);
+    _grid->setColumnStretch(1,3);
+    _grid->setColumnStretch(2,3);
+
+    _grid->setRowStretch(0,2);
+    _grid->setRowStretch(1,18);
+    _grid->setRowStretch(2,5);
+
+    _tab = new QTabWidget();
+
+    _tab->addTab(_collectionWidget,tr("Collection"));
+
+    _tab->addTab(new DeckWidget(),tr("Deck Early"));
+    _tab->addTab(new DeckWidget(),tr("Deck Heal"));
+    _tab->addTab(new DeckWidget(),tr("Deck Taunt Late"));
+    _tab->addTab(new DeckWidget(),tr("Deck YOLO"));
+
+    _grid->addWidget(_tab,0,0,3,1);
+
+    _newDeck = new QTextBrowser();
+
+    _labelNewDeck = new QLabel("Création d'un deck:");
+    _labelNewDeck->setAlignment(Qt::AlignCenter);
+
+    _nCardsAdd = new QLabel();
+    _nCardsAdd->setText(QString::fromStdString(unsignedToString(_nCards)) + "/20");
+    _nCardsAdd->setAlignment(Qt::AlignCenter);
+
+    _addDeck = new QPushButton("Ajouter Deck");
+
+    _grid->addWidget(_labelNewDeck,0,1);
+    _grid->addWidget(_nCardsAdd,0,2);
+    _grid->addWidget(_newDeck,1,1,1,2);
+    _grid->addWidget(_addDeck,2,1,1,2);
+
+    connect(_addDeck,SIGNAL(clicked()),this,SLOT(addDeck()));
+
+    showMaximized();
+
+}
+
+std::string CollectionPanelGUI::unsignedToString(unsigned value)
+{
+    std::ostringstream temp;
+    temp<<value;
+    return temp.str();
+}
+
+void CollectionPanelGUI::addDeck(){
+
+}
+
+void CollectionPanelGUI::closeEvent (QCloseEvent *event)
+{
+    _menu->makeOpen();
+	event->accept();
+}
