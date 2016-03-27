@@ -44,6 +44,12 @@ GamePanelCLI::GamePanelCLI(CLI* cli) : CLIPanel(cli), _ennemyHandSize(0)  {
     mvwprintw(window, MAIN_HEIGTH-2, 10, "#######");
     wattroff(window, COLOR_PAIR(2));
     
+    
+    
+    wattron(window, COLOR_PAIR(1));
+    mvwprintw(window, MAIN_HEIGTH-1, 2, "NE MARCHE PAS !!!");
+    wattroff(window, COLOR_PAIR(1));
+    
     refresh();
 }
 
@@ -64,17 +70,17 @@ void GamePanelCLI::update() {
     
     /* Draw our hand */
     wattron(window, COLOR_PAIR(3));
-    //Card** posedCard = GameManager::getInstance()->getPosed();
+    std::vector<Card*> hand = GameManager::getInstance()->getCardInHand();
     for (int i = 0 ; i < 5 ; ++i) {
         char* ID = (char*) malloc(sizeof(char)*9);
-        //if (posedCard[i] == 0x0)
+        if (hand.size() == 0 || hand[i] == 0x0)
             snprintf(ID, 9, "#     # ");
-        //else if (posedCard[i]->getID() > 9)
-            //snprintf(ID, 9, "#  %d # ", posedCard[i]->getID());
-        //else if (posedCard[i]->getID() > 99)
-            //snprintf(ID, 9, "# %d # ", posedCard[i]->getID());
-        //else
-            //snprintf(ID, 9, "#  %d  # ", posedCard[i]->getID());
+        else if (hand[i]->getID() > 9)
+            snprintf(ID, 9, "#  %d # ", hand[i]->getID());
+        else if (hand[i]->getID() > 99)
+            snprintf(ID, 9, "# %d # ", hand[i]->getID());
+        else
+            snprintf(ID, 9, "#  %d  # ", hand[i]->getID());
         
         mvwprintw(window, MAIN_HEIGTH-2, 18+(i*8), "####### ");
         mvwprintw(window, MAIN_HEIGTH-3, 18+(i*8), "#     # ");
@@ -155,11 +161,82 @@ void GamePanelCLI::hide() {
 }
 
 void GamePanelCLI::focus() {
-    getch();
+    while(true) { getch(); }
 }
     
-void GamePanelCLI::ennemyPoseCard(int cardID) {}
-void GamePanelCLI::poseCard(int cardID) {}
-void GamePanelCLI::updateEnnemyLife(int amount) {}
-void GamePanelCLI::updateLife(int amount) {}
-void GamePanelCLI::updateEnergy(int amount) {}
+void GamePanelCLI::drawCard(Card* card) {
+    _cli->recevTchatMsg(Player::getPlayer()->getName(), "PIOCHE", card->getName());
+    update();
+}
+
+void GamePanelCLI::adverseDrawCard() {
+    _cli->recevTchatMsg(GameManager::getInstance()->getEnnemy(), "PIOCHE", "");
+    _ennemyHandSize += 1;
+    update();
+}
+
+void GamePanelCLI::changeTurn() {
+    _cli->recevTchatMsg("GAME", "CHANGEMENT DE TOUR", "");
+    update();
+}
+
+void GamePanelCLI::placeAdverseCard(Card* card) {
+    _cli->recevTchatMsg(GameManager::getInstance()->getEnnemy(), "PLACE", card->getName());
+    update();
+}
+
+void GamePanelCLI::placeAdverseSpellCard(Card* from, Card* target) {
+    _cli->recevTchatMsg(GameManager::getInstance()->getEnnemy(), "SORT", "(see next)");
+    if (target != nullptr)
+        _cli->recevTchatMsg(from->getName(), target->getName(), "");
+    update();
+}
+
+void GamePanelCLI::placeAdverseSpellPlayer(Card* card) {
+    _cli->recevTchatMsg(GameManager::getInstance()->getEnnemy(), "SORT", card->getName());
+    update();
+}
+
+void GamePanelCLI::placeCardAndAttack(Card* from, Card* target) {
+    _cli->recevTchatMsg(Player::getPlayer()->getName(), "JOUE ET ATTAQUE", "(see next)");
+    if (target != nullptr)
+        _cli->recevTchatMsg(from->getName(), target->getName(), "");
+    update();
+}
+
+void GamePanelCLI::placeCardAndAttackPlayer(Card* card) {
+    _cli->recevTchatMsg(Player::getPlayer()->getName(), "ATTAQUE JOUEUR", card->getName());
+    update();
+}
+
+void GamePanelCLI::placeAdverseCardAndAttack(Card* from, Card* target) {
+    _cli->recevTchatMsg(Player::getPlayer()->getName(), "JOUE ET ATTAQUE", "(see next)");
+    if (target != nullptr)
+        _cli->recevTchatMsg(from->getName(), target->getName(), "");
+    update();
+}
+
+void GamePanelCLI::placeAdverseCardAndAttackPlayer(Card* card) {
+    
+}
+
+void GamePanelCLI::attackCard(Card* from, Card* target) {
+    
+}
+
+void GamePanelCLI::adverseAttackCard(Card* from, Card* target) {
+    
+}
+
+void GamePanelCLI::attackPlayer(Card* card) {
+    
+}
+
+void GamePanelCLI::adverseAttackPlayer(Card* card) {
+    
+}
+
+void GamePanelCLI::cardIsDead(Card* card, bool advers) {
+    
+}
+

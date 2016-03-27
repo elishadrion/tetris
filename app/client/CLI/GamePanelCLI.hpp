@@ -54,15 +54,25 @@ public:
     GamePanelCLI(CLI*);
     ~GamePanelCLI() = default;
     
-    void ennemyPoseCard(int);
-    void poseCard(int);
-    void updateEnnemyLife(int);
-    void updateLife(int);
-    void updateEnergy(int);
-    
     void show() override;
     void hide() override;
     void focus() override;
+    
+    void drawCard(Card*);
+    void adverseDrawCard();
+    void changeTurn();
+    void placeAdverseCard(Card*);
+    void placeAdverseSpellCard(Card*, Card*);
+    void placeAdverseSpellPlayer(Card*);
+    void placeCardAndAttack(Card*, Card*);
+    void placeCardAndAttackPlayer(Card*);
+    void placeAdverseCardAndAttack(Card*, Card*);
+    void placeAdverseCardAndAttackPlayer(Card*);
+    void attackCard(Card*, Card*);
+    void adverseAttackCard(Card*, Card*);
+    void attackPlayer(Card*);
+    void adverseAttackPlayer(Card*);
+    void cardIsDead(Card*, bool);
 };
 
 #endif	/* GamePanelCLI_HPP */
