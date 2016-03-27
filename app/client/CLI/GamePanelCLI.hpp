@@ -35,6 +35,8 @@
 
 #include "client/PacketManager.hpp"
 
+#include "client/GameManager.hpp"
+
 class CLI;
 #include "client/CLI.hpp"
 
@@ -45,13 +47,7 @@ class GamePanelCLI : public CLIPanel {
     WINDOW *window;
     PANEL  *panel;
     
-    std::vector<int> ennemyPosedCard;
-    std::vector<int> posedCard;
-    std::vector<int> ennemyHandCardNumber;
-    std::vector<int> handCard;
-    int ennemyLife;
-    int life;
-    int energy;
+    int _ennemyHandSize;
     
     void update();
 public:
