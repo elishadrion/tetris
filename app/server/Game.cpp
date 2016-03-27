@@ -267,7 +267,6 @@ Error Game::placeCardAffect(PlayerInGame* pIG, Card* cardPlaced, int targetPosit
                 lifeTarget = targetCard->getLife(); // save heal
 
             } else { // If we attack the adverse player
-
                 cardPlaced->applyEffect(adverse, this);
                 lifeTarget = adverse->getHeal(); // save heal
             }
@@ -281,7 +280,7 @@ Error Game::placeCardAffect(PlayerInGame* pIG, Card* cardPlaced, int targetPosit
             if(cardPlaced->isMonster()) {
                 // Get the position of the new card
                 int relPos = pIG->placeCard(static_cast<CardMonster*>(cardPlaced));
-                if(relPos == -1) {
+                if(relPos != -1) { // If emplacement found
                     int positionNewCard = getRealPosition(pIG, relPos);
 
                     PacketManager::sendPlaceMonsterCard(_player1, pseudo, placedCardId, positionNewCard,

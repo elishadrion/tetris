@@ -186,6 +186,7 @@ GameGUI::GameGUI() : QMainWindow(), _inHandSelect(nullptr),
     connect(this, SIGNAL(mustPlaceAdvSpell(Card*, Card*)), this, SLOT(placeAdvSpell(Card*,Card*)));
     connect(this, SIGNAL(mustPlaceAdvCardAttack(Card*, Card*)),
             this, SLOT(placeAdvCardAttack(Card*, Card*)));
+    connect(this, SIGNAL(mustAdvAttack(Card*, Card*)), this, SLOT(advAttack(Card*,Card*)));
     connect(this, SIGNAL(mustDeadCard(Card*, bool)), this, SLOT(deadCard(Card*, bool)));
 
     // pop-up to choose deck
@@ -388,7 +389,26 @@ int GameGUI::getIndexBoard(CardWidget* card) {
         i = -1;
     }
     return i;
+}
 
+CardWidget* GameGUI::getCardWOnPos(unsigned position) {
+
+    CardWidget* elem = nullptr;
+    int currentPos = 0;
+    while(currentPos < MAX_POSED_CARD && elem == nullptr) {
+        if(!_cardBoard[currentPos]->isEmplacement() &&
+                _cardBoard[currentPos]->isOnPosition(position)) {
+            elem = _cardBoard[currentPos];
+
+        } else if(!_advCardBoard[currentPos]->isEmplacement() &&
+                  _advCardBoard[currentPos]->isOnPosition(position)) {
+            elem = _advCardBoard[currentPos];
+
+        }
+        ++currentPos;
+    }
+
+    return elem;
 }
 
 
@@ -543,6 +563,10 @@ void GameGUI::callPlaceAdvSpell(Card* card, Card* target) {
 
 void GameGUI::callPlaceAdvCardAttack(Card* card, Card* target) {
     emit mustPlaceAdvCardAttack(card, target);
+}
+
+void GameGUI::callAdvAttack(Card* card, Card* target) {
+    emit mustAdvAttack(card, target);
 }
 
 void GameGUI::callDeadCard(Card* card, bool adv) {
@@ -835,15 +859,8 @@ void GameGUI::placeAdvSpell(Card* card, Card* target) {
 
     placeAdvSpellOnBoard(new CardWidget(card));
 
-    int nbrTarget = 0;
-    CardWidget* targetWidget = nullptr;
-    while(nbrTarget < MAX_HAND && targetWidget == nullptr) {
-        if(!_cardBoard[nbrTarget]->isEmplacement() &&
-                _cardBoard[nbrTarget]->isOnPosition(target->getPosition())) {
-            targetWidget = _cardBoard[nbrTarget];
-        }
-        ++nbrTarget;
-    }
+
+    CardWidget* targetWidget = getCardWOnPos(target->getPosition());
 
     if(targetWidget != nullptr) {
         targetWidget->actualize();
@@ -857,21 +874,7 @@ void GameGUI::placeAdvSpell(Card* card, Card* target) {
 void GameGUI::placeAdvCardAttack(Card* card, Card* target) {
     placeAdvCard(card);
 
-    int position = 0;
-    CardWidget* elem = nullptr;
-    while(position < MAX_POSED_CARD && elem == nullptr) {
-        if(!_cardBoard[position]->isEmplacement() &&
-                _cardBoard[position]->isOnPosition(target->getPosition())) {
-            elem = _cardBoard[position];
-
-        } else if(!_advCardBoard[position]->isEmplacement() &&
-                  _advCardBoard[position]->isOnPosition(target->getPosition())) {
-            elem = _advCardBoard[position];
-
-        }
-        ++position;
-    }
-
+    CardWidget* elem = getCardWOnPos(target->getPosition());
     if(elem != nullptr) {
         elem->actualize();
     } else {
@@ -879,3 +882,27 @@ void GameGUI::placeAdvCardAttack(Card* card, Card* target) {
     }
 
 }
+
+void GameGUI::advAttack(Card* card, Card* target) {
+    // card utile pour faire des effets dans un futur  lointain :P
+
+    CardWidget* cardAdvWidget = nullptr;
+    unsigned current = 0;
+    while(cardAdvWidget == nullptr && current < MAX_POSED_CARD) {
+        CardWidget* cardCurrent = _cardBoard[current];
+        if(!cardCurrent->isEmplacement() &&
+                cardCurrent->getPosition()==target->getPosition()) {
+            cardAdvWidget = cardCurrent;
+        }
+        ++current;
+    }
+
+    if(cardAdvWidget != nullptr) {
+        cardAdvWidget->actualize();
+    } else {
+        WizardLogger::warning("Carte qui est attaquée introuvable");
+    }
+}
+
+
+

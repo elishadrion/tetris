@@ -72,6 +72,7 @@ class GameGUI : public QMainWindow {
     // UTILS
     int getIndexHand(CardWidget*);
     int getIndexBoard(CardWidget*);
+    CardWidget* getCardWOnPos(unsigned);
 
     // ACTION
     void placeAndAttack(CardWidget*);
@@ -86,6 +87,7 @@ public:
     void callAdvPlaceCard(Card*);
     void callPlaceAdvSpell(Card*, Card*);
     void callPlaceAdvCardAttack(Card*, Card*);
+    void callAdvAttack(Card*,Card*);
     void callDeadCard(Card*, bool);
 
 signals:
@@ -97,6 +99,7 @@ signals:
     void mustPlaceAdvCard(Card*);
     void mustPlaceAdvSpell(Card*, Card*);
     void mustPlaceAdvCardAttack(Card*, Card*);
+    void mustAdvAttack(Card*, Card*);
     void mustDeadCard(Card*, bool);
 
 private slots:
@@ -116,6 +119,7 @@ private slots:
     void deadCard(Card*, bool);
     void placeAdvSpell(Card*, Card*);
     void placeAdvCardAttack(Card*, Card*);
+    void advAttack(Card*, Card*);
 
 
 };
