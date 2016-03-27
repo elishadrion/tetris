@@ -103,20 +103,10 @@ bool PlayerInGame::isDeckDefined() {
 
 
 /**
- * Get the current deck
- *
- * @return the deck
- */
-Deck* PlayerInGame::getDeck() {
-    return _deck;
-}
-
-
-/**
  * Get number of card in the deck
  */
 unsigned PlayerInGame::nbrCardDeck() {
-    return getDeck()->size();
+    return _deck->size();
 }
 
 

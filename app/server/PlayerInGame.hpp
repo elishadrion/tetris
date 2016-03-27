@@ -54,7 +54,6 @@ public:
     // Deck information
     void setDeck(std::string);
     bool isDeckDefined();
-    Deck* getDeck();
     unsigned nbrCardDeck();
     Card* draw();
     int getPlacedCardPosition(CardMonster*);
