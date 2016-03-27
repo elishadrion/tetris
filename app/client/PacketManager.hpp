@@ -16,6 +16,8 @@ extern WizardDisplay *wizardDisplay;
 namespace PacketManager {
     void managePacket(Packet::packet*);
     
+    std::string packetPseudoToString(char*);
+
 
     ///// Login process /////
     // Recev
@@ -79,6 +81,7 @@ namespace PacketManager {
     void managePlaceSpell(Packet::placeAttackSpellPacket*);
     void manageAttack(Packet::attackPacket*);
     void managePlaceCardAttack(Packet::placeAttackPacket*);
+    void managePlayerDamage(Packet::pseudoIntPacket*);
     void manageEndGame(const Packet::endGamePacket*); /* END_GAME_ID */
     // Send
     void sendDrop(const int); /* DROP_ID */

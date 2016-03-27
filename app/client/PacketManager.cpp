@@ -93,7 +93,7 @@ void PacketManager::managePacket(Packet::packet* customPacket) {
         case Packet::S_PLACE_CARD_AND_ATTACK_ID:
                                           managePlaceCardAttack((Packet::placeAttackPacket*) customPacket);
                                           break;
-        case Packet::PLAYER_DAMAGE_ID:    managePlayerDamage((Packet::pseudoIntPacket) customPacket);
+        case Packet::PLAYER_DAMAGE_ID:    managePlayerDamage((Packet::pseudoIntPacket*) customPacket);
                                           break;
         case Packet::END_TURN_ID :        WizardLogger::warning("Paquet de fin de tour reçu");
                                           break;
@@ -108,6 +108,25 @@ void PacketManager::managePacket(Packet::packet* customPacket) {
                                           break;
     }
 }
+
+//====================================== UTILS ======================================
+
+std::string PacketManager::packetPseudoToString(char* pseudo) {
+    int i = 0;
+    std::string res = "";
+    while(i < MAX_PSEUDO_SIZE) {
+        char elem = static_cast<char>(pseudo[i]);
+        if(elem == ' ') {
+            return res;
+        }
+        res += elem;
+        ++i;
+    }
+
+    return res;
+}
+
+
 
 //===========================LOGIN PROCESS===========================================
 
@@ -532,7 +551,8 @@ void PacketManager::askDrop(const Packet::intPacket* askDropPacket) {
 void PacketManager::managePlaceCard(Packet::placeCardPacket* placeCardPacket) {
     GameManager* gm = GameManager::getInstance();
     
-    bool adverse = !(placeCardPacket->pseudo == Player::getPlayer()->getName());
+    bool adverse = !(packetPseudoToString(placeCardPacket->pseudo) ==
+                                        Player::getPlayer()->getName());
     int cardId = placeCardPacket->idCard;
     unsigned position = placeCardPacket->cardPosition;
 
@@ -568,7 +588,9 @@ void PacketManager::managePlaceSpell(Packet::placeAttackSpellPacket* placeAttack
     unsigned heal = placeAttackSpellPacket->data.heal;
 
 
-    if(placeAttackSpellPacket->data.pseudo == Player::getPlayer()->getName()) {
+    if(packetPseudoToString(placeAttackSpellPacket->data.pseudo) ==
+            Player::getPlayer()->getName()) {
+
         gm->placeCardAndAttack(true, cardId, -1, targetPosition, heal);
 
         /* Lock, signal other thread and unlock */
@@ -591,7 +613,8 @@ void PacketManager::managePlaceSpell(Packet::placeAttackSpellPacket* placeAttack
 void PacketManager::manageAttack(Packet::attackPacket* attackPacket) {
     GameManager* gm = GameManager::getInstance();
 
-    bool adverse = !(attackPacket->data.pseudo == Player::getPlayer()->getName());
+    bool adverse = !(packetPseudoToString(attackPacket->data.pseudo) ==
+                        Player::getPlayer()->getName());
     unsigned cardPosition = attackPacket->data.cardPosition;
     int targetPosition = attackPacket->data.targetPosition;
     unsigned heal = attackPacket->data.heal;
@@ -623,7 +646,8 @@ void PacketManager::manageAttack(Packet::attackPacket* attackPacket) {
 void PacketManager::managePlaceCardAttack(Packet::placeAttackPacket* placeAttackPacket) {
     GameManager* gm = GameManager::getInstance();
 
-    bool adverse = !(placeAttackPacket->data.pseudo == Player::getPlayer()->getName());
+    bool adverse = !(packetPseudoToString(placeAttackPacket->data.pseudo) ==
+                            Player::getPlayer()->getName());
     unsigned cardId = placeAttackPacket->data.idCard;
     unsigned cardPosition = placeAttackPacket->data.cardPosition;
     int targetPosition = placeAttackPacket->data.targetPosition;
@@ -653,6 +677,12 @@ void PacketManager::managePlaceCardAttack(Packet::placeAttackPacket* placeAttack
  * @param playerDamagePacket the packet
  */
 void PacketManager::managePlayerDamage(Packet::pseudoIntPacket* playerDamagePacket) {
+    GameManager* gm = GameManager::getInstance();
+
+    bool adv = packetPseudoToString(playerDamagePacket->pseudo) ==
+                        Player::getPlayer()->getName();
+    unsigned heal = static_cast<unsigned>(playerDamagePacket->data);
+    gm->playerDamage(heal, adv);
 
 }
 
