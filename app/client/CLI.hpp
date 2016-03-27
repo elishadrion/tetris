@@ -87,11 +87,11 @@ public:
     void displayGame();
     void displayClassement();
     void focusTchat();
+    void askDeck();
 
     void recevTchatMsg(std::string, std::string, std::string);
     
     //////TODO///////////
-    void askDeck() {}
 
     void drawCard(Card*) {}
 
