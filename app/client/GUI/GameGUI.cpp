@@ -10,10 +10,12 @@ GameGUI::GameGUI() : QMainWindow(), _inHandSelect(nullptr),
     _onBoardSelect(nullptr), _timeSpell(nullptr),
     _timeAdvSpell(nullptr) {
 
+    setObjectName("principal");
 
-    setStyleSheet("QMainWindow { background-image: url(:/Images/bg2.png) 0 0 0 0 stretch stretch; "
+    setStyleSheet("QMainWindow#principal { background-image: url(:/Images/bg2.png) 0 0 0 0 stretch stretch; "
                   "background-repeat: no-repeat; background-position: center center; } "
-                  "QPushButton { background-color: white; }");
+                  "QPushButton { background-color: white; }"
+                  "QLabel { margin: 2px; background-color: white; border-radius: 15px;}");
 
 
     // Init variable

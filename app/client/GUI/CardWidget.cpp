@@ -89,7 +89,7 @@ void CardWidget::actualize() {
         _label->setPixmap(pic);
 
     } else if(_typeCard == TypeCardWidget::EMPLACEMENT) { // emplacement
-        _label->setStyleSheet("background-color: rgba(109, 109, 109, 0.25);"
+        _label->setStyleSheet("background-color: rgba(236, 236, 236, 0.88);"
                               "border-radius: 15px;");
 
     } else { // masked card
@@ -101,7 +101,7 @@ void CardWidget::actualize() {
 
             QPainter paint(&pic);
             QFont font;
-            font.setPixelSize(50);
+            font.setPixelSize(100);
             paint.setFont(font);
             paint.setPen(QColor(255, 255, 255));
 
@@ -113,7 +113,7 @@ void CardWidget::actualize() {
                 nbrCard = QString::fromStdString(
                         std::to_string(GameManager::getInstance()->getNbrAdvDeck()));
             }
-            paint.drawText(50,500,nbrCard);
+            paint.drawText(250,250,nbrCard);
         }
 
         _label->setPixmap(pic);
