@@ -7,7 +7,7 @@
 #                                  # #          #
 #                                  # #          #
 #                                  # #          #
-#           GamePanelCLI              # #          #
+#           GamePanelCLI           # #          #
 #               +                  # #  tchat   #
 #        cardInfo popup            # #          #
 #                                  # #          #

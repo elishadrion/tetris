@@ -244,8 +244,12 @@ void PacketManager::sendDisconnection() {
 
 void PacketManager::saveCardInfo(const Packet::cardInfosPacket* cardPacket) {
     WizardLogger::info("Récepetion de la carte: " + std::to_string(cardPacket->data.carteID));
-    Card *newCard = new Card(cardPacket->data.carteID, cardPacket->data.monster, std::string(cardPacket->data.name),
-                             std::string(cardPacket->data.description), cardPacket->data.energyCost,
+    std::string name(cardPacket->data.name);
+    std::string desc(cardPacket->data.description);
+    //TODO only remove space after name and desc
+    name.erase(remove_if(name.begin(), name.end(), isspace), name.end());
+    desc.erase(remove_if(desc.begin(), desc.end(), isspace), desc.end());
+    Card *newCard = new Card(cardPacket->data.carteID, cardPacket->data.monster, name, desc, cardPacket->data.energyCost,
                              cardPacket->data.maxHP, cardPacket->data.attack);
 
     cacheManager->addCard(newCard);

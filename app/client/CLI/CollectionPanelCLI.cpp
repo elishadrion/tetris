@@ -1,8 +1,9 @@
 #include "CollectionPanelCLI.hpp"
 
-CollectionPanelCLI::CollectionPanelCLI() {
+CollectionPanelCLI::CollectionPanelCLI() : currentLine(0) {
     /* We create mainWindow where player can select what to do */
     window = newwin(MAIN_HEIGTH, MAIN_WIDTH, 0, 0);
+    keypad(window, TRUE);
     box(window, 0, 0);
 
     /* Attach a panel to window */
@@ -12,43 +13,42 @@ CollectionPanelCLI::CollectionPanelCLI() {
     update_panels();
     doupdate();
     
-    attron(COLOR_PAIR(1));
-    mvwprintw(window, 1, 2, "[WIP]");
-    attroff(COLOR_PAIR(1));
+    wattron(window, COLOR_PAIR(2));
+    mvwprintw(window, 1, 2, "COLLECTION");
+    wattroff(window, COLOR_PAIR(2));
+    wattron(window, COLOR_PAIR(3));
+    mvwprintw(window, 1, 14, "[NOT WORKING]");
+    wattroff(window, COLOR_PAIR(3));
     
-    /* Update collection from server */
-    //PacketManager::requestCollection();
-    
-    /* Display */
-    updatePanel();
+    refresh();
 }
 
 void CollectionPanelCLI::updatePanel() {
-    for (int i = 0 ; i < MAIN_HEIGTH ; ++i) {
+    unsigned *collection = Player::getPlayer()->getCollection();
+    unsigned j = currentLine;
+    for (int i = 0 ; i < MAIN_HEIGTH-4 ; ++i) {
+        while (j < MAX_CARDS-MAIN_HEIGTH-4 && collection[j] == 0) ++j;
         /* If we have card to put, we put it */
-        if (i < _collection.size()) {
-            char* ID = (char*) malloc(sizeof(char)*10);
-            snprintf(ID, 10, "* ID : %d", _collection[i]);
-            mvwprintw(window, i+2, 2, ID);
+        if (j < MAX_CARDS-MAIN_HEIGTH-4 && collection[j] > 0) {
+            char* toPrint = (char*) malloc(sizeof(char)*60);
+            Card *card = CacheManager::getCard(j+1);
+            snprintf(toPrint, 60, "* (%dx) %s : %s", collection[j], card->getName().c_str(), card->getDescription().c_str());
+            mvwprintw(window, i+3, 2, toPrint);
+            free(toPrint);
+            ++j;
         }
     }
-}
-
-/* Add cards to local cache of collection
- * After that, update panel to display new card
- * TODO save collection cache in a player object ?
- * @param number : number of cards to add
- * @param cardList : array of cardID to add
- */
-void CollectionPanelCLI::addCardToCollection(int number, int* cardList) {
-    for (int i = 0 ; i < number ; ++i) _collection.push_back(cardList[i]);
-    updatePanel();
+    
+    wrefresh(window);
 }
 
 void CollectionPanelCLI::show() {
     show_panel(panel);
     update_panels();
     doupdate();
+    
+    /* Update content */
+    updatePanel();
 }
 
 void CollectionPanelCLI::hide() {
@@ -58,4 +58,36 @@ void CollectionPanelCLI::hide() {
 }
 
 void CollectionPanelCLI::focus() {
+    /* Set focus to MainPanelCLI */
+    top_panel(panel);
+    update_panels();
+    doupdate();
+
+    int input;
+    while((input = wgetch(window)) != KEY_F(10)) {
+        switch(input) {
+            case KEY_DOWN:
+                if (currentLine == MAX_CARDS-MAIN_HEIGTH-4) {
+                    beep();
+                } else {
+                    currentLine -= 1;
+                    updatePanel();
+                }
+                break;
+            case KEY_UP:
+                if (currentLine == 0) {
+                    beep();
+                } else {
+                    currentLine += 1;
+                    updatePanel();
+                }
+                break;
+            case KEY_F(1):
+                wizardDisplay->focusTchat();
+                break;
+            default:
+                beep();
+                break;
+        }
+    }
 }

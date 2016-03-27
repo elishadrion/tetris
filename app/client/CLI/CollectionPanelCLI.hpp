@@ -10,6 +10,9 @@
 #include "common/WizardLogger.hpp"
 
 #include "client/PacketManager.hpp"
+#include "client/Player.hpp"
+#include "client/CacheManager.hpp"
+#include "client/Card.hpp"
 
 #include "CLIPanel.hpp"
 
@@ -19,14 +22,11 @@
 class CollectionPanelCLI : public CLIPanel {
     WINDOW *window;
     PANEL  *panel;
-    
-    //TODO use a better item than a vector of int
-    std::vector<int> _collection;
+    unsigned currentLine;
 public:
     CollectionPanelCLI();
     ~CollectionPanelCLI() = default;
     
-    void addCardToCollection(int, int*);
     void updatePanel();
     
     void show() override;

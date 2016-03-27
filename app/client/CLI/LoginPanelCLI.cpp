@@ -200,7 +200,8 @@ void LoginPanelCLI::printInMiddle(char *string, chtype color) {
 	wattron(window, color);
 	mvwprintw(window, 0, x, "%s", string);
 	wattroff(window, color);
-	refresh();
+	
+	refresh(); //TODO don't display but if we use wrefresh, box not showing :/
 }
 
 void LoginPanelCLI::setFocusToField() {
@@ -212,7 +213,6 @@ void LoginPanelCLI::setFocusToField() {
 
 void LoginPanelCLI::printWait(char* message) {
     printInMiddle(message, COLOR_PAIR(2));
-    refresh();
 }
 
 void LoginPanelCLI::proceed(bool registration) {
@@ -230,13 +230,13 @@ void LoginPanelCLI::proceed(bool registration) {
     
     /* Display wainting message and do request */
     if (registration) {
-        WizardLogger::info("Enregistrement en cours");
+        WizardLogger::info("Enregistrement en cours"); //TODO don't display :/
+        printInMiddle(REGISTRATION_IN_PROGRESS, COLOR_PAIR(2));
         PacketManager::makeRegistrationRequest(pseudo, password);
-        printWait(REGISTRATION_IN_PROGRESS);
     } else {
-        WizardLogger::info("Login en cours");
+        WizardLogger::info("Login en cours"); //TODO don't display :/
+        printInMiddle(LOGIN_IN_PROGRESS, COLOR_PAIR(2));
         PacketManager::makeLoginRequest(pseudo, password);
-        printWait(LOGIN_IN_PROGRESS);
     }
     
     /* Wait for result */
@@ -248,7 +248,7 @@ void LoginPanelCLI::proceed(bool registration) {
         success = true;
         
         /* We wait for cards */
-        printWait(CARDS_LOADING);
+        printInMiddle(CARDS_LOADING, COLOR_PAIR(2)); //TODO don't display :/
         pthread_cond_wait(&wizardDisplay->packetStackCond, &wizardDisplay->packetStackMutex);
     } else {
         printError(*reinterpret_cast<std::string*>(wizardDisplay->packetStack.back()));
