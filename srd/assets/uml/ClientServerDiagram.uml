@@ -50,6 +50,12 @@ alt Tour du client1
   Serveur -> Client1 : sendInfoAction
   Serveur -> Client2 : sendInfoAction
   Client2 ->x Serveur : Client2 doit attendre son tour
+note right Serveur 
+Le Serveur ne vas pas recevoir les 
+messages envoyés par le Client2 
+tant que ce n'est pas son tour 
+(la croix représente ce "blocage")
+end note
   Client1 -> Serveur : attackWithCardAffectPlayer
   Serveur -> Client1 : sendInfoAction
   Serveur -> Client2 : sendInfoAction
