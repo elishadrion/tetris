@@ -52,6 +52,9 @@ public:
     inline unsigned getHeal() const { return _heal; }
     inline unsigned getAdverseHeal() const { return _adverseHeal; }
 
+    // Utils
+    Card* getCardOnPosition(unsigned);
+
     // Init game
     void setDeck(std::string);
     inline void setAdverse(std::string pseudo) { _ennemy = pseudo; }

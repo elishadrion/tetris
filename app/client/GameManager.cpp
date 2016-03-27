@@ -23,6 +23,20 @@ GameManager::GameManager(std::string pseudo): _ennemy(pseudo), _heal(MAX_LIFE),
     _instance = this;
 }
 
+Card* GameManager::getCardOnPosition(unsigned pos) {
+    Card* res = nullptr;
+    Card* posed = _posed[pos%MAX_POSED_CARD];
+    Card* advPosed = _ennemyPosed[pos%MAX_POSED_CARD];
+
+    if(posed != nullptr && posed->getPosition() == pos) {
+        res = posed;
+    } else if(advPosed != nullptr && advPosed->getPosition() == pos) {
+        res = advPosed;
+    }
+
+    return res;
+}
+
 
 /**
  * Set deck and send information to the server
@@ -181,7 +195,7 @@ void GameManager::placeCardAndAttack(bool isEffectCard, int cardID, unsigned pos
     if(targetPosition == -1) {
         _adverseHeal = heal;
     } else {
-        Card* enemyCard = static_cast<Card*>(_ennemyPosed[targetPosition%MAX_POSED_CARD]);
+        Card* enemyCard = getCardOnPosition(static_cast<unsigned>(targetPosition));
         if(enemyCard != nullptr) {
             enemyCard->setHP(heal);
 
@@ -228,7 +242,8 @@ void GameManager::placeAdverseCardAndAttack(bool isEffectCard, int cardID, unsig
             wizardDisplay->placeAdverseCardAndAttackPlayer(card);
         }
     } else {
-        Card* enemyCard = static_cast<Card*>(_posed[targetPosition%MAX_POSED_CARD]);
+        // get card on position
+        Card* enemyCard = getCardOnPosition(static_cast<unsigned>(targetPosition));
         if(enemyCard != nullptr) {
             enemyCard->setHP(heal);
             if(isEffectCard) {
