@@ -66,12 +66,6 @@ class ChatManager {
   + sendMessage() : string  
 }
 
-
-
-class CommService {
-  
-}
-
 class Connection {
   - server_addr : sockaddr_in
   - client_addr : sockaddr_in
@@ -83,6 +77,7 @@ class Connection {
   - {static} sendResponse() : void
   + mainLoop() : void
 }
+note left : Reliée à plusieurs classes. 
 
 class Deck {
   - name : string
@@ -227,6 +222,4 @@ Collection "1" *-- "100..*" Card
 Collection <|-- Deck: <<extend>> [Has 20 cards] >
 PacketManager -- Game
 GameStatut *-- Game
-
-
 @enduml
