@@ -163,7 +163,7 @@ void* Connection::newPlayerThread(void* data) {
     if (loginOK) {
         sendSucess(newPlayer, clientSocket);
         usleep(100);
-    
+
         /* Send all cards */
         for (int i = 1; i <= CardManager::getNbrCard(); ++i) {
             Card* card = CardManager::getCardById(i);
@@ -174,16 +174,16 @@ void* Connection::newPlayerThread(void* data) {
                 free(confirm);
             }
         }
-        
+
         Packet::packet *endLogin = new Packet::packet();
         endLogin->ID = Packet::LOGIN_COMPLETE_ID;
         WizardLogger::info("Fin du chargement. Nombre de cartes: " +
                            std::to_string(CardManager::getNbrCard()));
         send(clientSocket, endLogin, sizeof(Packet::packet), 0);
         delete endLogin;
-        
+
         newPlayer->recvLoop();
-        
+
         /* Logout after deconnection */
         PlayerManager::logOut(newPlayer);
     }
@@ -202,6 +202,8 @@ void Connection::sendSucess(Player* player, int socket) {
 
     /* Get collection */
     std::vector<unsigned> collection = player->getCollection()->getCardsId();
+
+    std::vector<Player*> friends = player -> getFriends();
 
     /* Get pseudo */
     std::string pseudo = player->getName();
@@ -225,7 +227,19 @@ void Connection::sendSucess(Player* player, int socket) {
     }
 
 
-    //TODO playerPacket->data.friendsList = player->getName(); /!\ voir client/PacketManager::playerInfo(...)
+    for (unsigned i = 0; i < friends.size(); ++i) {
+	std::string friend_name = friends.at(i) -> getName();
+	for (unsigned j = 0; j < MAX_PSEUDO_SIZE; ++j) {
+	    unsigned index = MAX_PSEUDO_SIZE * i + j;
+	    if (friend_name.size() > j) {
+		playerPacket -> data.friendsList[index] = friend_name[j];
+	    } else {
+		playerPacket -> data.friendsList[index] = ' ';
+	    }
+	}
+    }
+
+
     playerPacket->data.victories = player->getVictories();
     playerPacket->data.defeats = player->getDefeats();
 

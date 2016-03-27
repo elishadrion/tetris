@@ -59,6 +59,7 @@ public:
     inline std::string getPass() const {return _password;}
     inline unsigned getVictories() const {return _victories;}
     inline unsigned getDefeats() const {return _defeats;}
+    inline std::vector<Player*> getFriends() { return _friends; }
 
     std::vector<Deck*> getListDeck() {return _decks;}
     Deck* getDeck(std::string);
