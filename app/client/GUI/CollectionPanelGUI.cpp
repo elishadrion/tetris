@@ -28,7 +28,7 @@ _menu(menu){
 
     _decks = Player::getPlayer()->getDecks();
     for (std::size_t i=0;i<_decks.size();i++){
-        _tab->addTab(new DeckWidget(),QString::fromStdString(_decks[i]));
+        _tab->addTab(new DeckWidget(_decks[i]),QString::fromStdString(_decks[i]));
     }
 
     _grid->addWidget(_tab,0,0,3,1);

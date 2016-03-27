@@ -21,13 +21,14 @@ class DeckWidget : public QWidget{
     QLabel *_pageLabel;
     QPushButton *_next;
     QPushButton *_previous;
+    std::string _nom;
 
     PageWidget *tempPage;
     unsigned page;
     unsigned currentPage;
 
 public:
-    DeckWidget();
+    DeckWidget(std::string);
 
 private slots:
     void nextPage();

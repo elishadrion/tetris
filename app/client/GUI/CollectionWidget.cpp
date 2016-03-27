@@ -40,17 +40,6 @@ CollectionWidget::CollectionWidget(): QWidget(){
         }
     }
 
-//    tempPage = new PageWidget();
-//    for(std::size_t i = 0; i < taille; i++){
-//    	if(i%10 == 0){
-//    		page+=1;
-//            tempPage = new PageWidget();
-//            _pages->addTab(tempPage,QString::fromStdString(std::to_string(page)));
-//    	}
-//    	CardWidget *card= new CardWidget(CacheManager::getCard(_collection[i]));
-//    	tempPage->addCard(card);
-//    }
-
     connect(_next,SIGNAL(clicked()),this,SLOT(nextPage()));
     connect(_previous,SIGNAL(clicked()),this,SLOT(previousPage()));
 }
