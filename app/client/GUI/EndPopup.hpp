@@ -1,5 +1,5 @@
-#ifndef DECKCHOOSEGUI_H
-#define DECKCHOOSEGUI_H
+#ifndef ENDPOPUP_H
+#define ENDPOPUP_H
 
 #include <QMainWindow>
 #include <QWidget>
@@ -12,23 +12,24 @@
 #include "GameManager.hpp"
 
 
-class DeckChooseGUI;
+class EndPopup;
 class GameGUI;
 #include "GameGUI.hpp"
 
 
-class DeckChooseGUI : public QMainWindow {
+class EndPopup : public QMainWindow {
     Q_OBJECT
 
+    GameGUI* _gameGui;
     QWidget *_centralWidget;
     QListWidget* _listDeck;
     QGridLayout* _gridlayout;
 
 public:
-    DeckChooseGUI(GameGUI*);
+    EndPopup(QString, GameGUI*);
 
 private slots:
-    void valideDeck();
+    void valideQuit();
 
 
 };
@@ -36,4 +37,4 @@ private slots:
 
 
 
-#endif // DECKCHOOSEGUI_H
+#endif // ENDPOPUP_H

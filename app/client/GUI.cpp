@@ -109,16 +109,16 @@ void GUI::advPlayerDamage() {
 }
 
 
-void GUI::winGame(int) {
-
+void GUI::winGame(int card) {
+    gamePanel->callWinGame(card);
 }
 
 void GUI::looseGame() {
-
+    gamePanel->callLooseGame();
 }
 
 void GUI::endGame() {
-
+    gamePanel->callEndGame();
 }
 
 

@@ -198,6 +198,7 @@ GameGUI::GameGUI() : QMainWindow(), _inHandSelect(nullptr),
     connect(this, SIGNAL(mustUpdatePlayer()), this, SLOT(updatePlayerInfo()));
     connect(this, SIGNAL(mustUpdateAdvPlayer()), this, SLOT(updateAdvPlayerInfo()));
 
+    connect(this, SIGNAL(mustDisplayEndPopup(QString)), this, SLOT(displayEndPopup(QString)));
 
     // pop-up to choose deck
     new DeckChooseGUI(this);
@@ -589,6 +590,24 @@ void GameGUI::callAdvPlayerDamage() {
     emit mustUpdateAdvPlayer();
 }
 
+void GameGUI::callWinGame(int card) {
+    std::string msg = "Vous avez gagné ! ";
+    msg += "Vous recevez: ";
+    msg += CacheManager::getCard(card)->getName();
+    QString qString = QString::fromStdString(msg);
+    emit mustDisplayEndPopup(qString);
+}
+
+void GameGUI::callLooseGame() {
+    QString qString = QString::fromStdString("Vous avez perdu :(");
+    emit mustDisplayEndPopup(qString);
+}
+
+void GameGUI::callEndGame() {
+    QString qString = QString::fromStdString("Fin de la partie (déconnexion)");
+    emit mustDisplayEndPopup(qString);
+}
+
 
 // ================ SLOTS =======================
 
@@ -963,5 +982,7 @@ void GameGUI::advAttack(Card* card, Card* target) {
     }
 }
 
-
+void GameGUI::displayEndPopup(QString qStr) {
+    new EndPopup(qStr, this);
+}
 

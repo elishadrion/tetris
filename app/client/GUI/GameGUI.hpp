@@ -23,6 +23,7 @@
 #include "GameManager.hpp"
 #include "CardWidget.hpp"
 #include "PubManager.hpp"
+#include "EndPopup.hpp"
 
 #include "common/Constants.hpp"
 
@@ -93,6 +94,10 @@ public:
     void callPlayerDamage();
     void callAdvPlayerDamage();
 
+    void callWinGame(int);
+    void callLooseGame();
+    void callEndGame();
+
 
 signals:
     void nextPlayer();
@@ -107,6 +112,9 @@ signals:
     void mustDeadCard(Card*, bool);
     void mustUpdatePlayer();
     void mustUpdateAdvPlayer();
+
+    void mustDisplayEndPopup(QString);
+
 
 private slots:
     void viewPassButton();
@@ -129,6 +137,8 @@ private slots:
     void advAttack(Card*, Card*);
     void updatePlayerInfo();
     void updateAdvPlayerInfo();
+
+    void displayEndPopup(QString);
 
 
 };

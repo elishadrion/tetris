@@ -18,9 +18,9 @@ void DeckChooseGUI::valideDeck() {
 
 
 DeckChooseGUI::DeckChooseGUI(GameGUI* parent): QMainWindow(parent) {
-    _gameGui = parent;
 
-    // QListWidget;
+    setWindowFlags(Qt::WindowTitleHint);
+
     _centralWidget = new QWidget(this);
     setCentralWidget(_centralWidget);
 
@@ -44,10 +44,10 @@ DeckChooseGUI::DeckChooseGUI(GameGUI* parent): QMainWindow(parent) {
     _gridlayout->addWidget(_listDeck, 1, 1, 1, 2);
 
     QPushButton* okButton = new QPushButton("Valider");
-    _gridlayout->addWidget(okButton, 2, 1);
+    _gridlayout->addWidget(okButton, 2, 1, 1, 2);
 
-    QPushButton* cancelButton = new QPushButton("Annuler (et quitter la partie)");
-    _gridlayout->addWidget(cancelButton, 2, 2);
+    //QPushButton* cancelButton = new QPushButton("Annuler (et quitter la partie)");
+    //_gridlayout->addWidget(cancelButton, 2, 2);
 
     _gridlayout->setRowStretch(0, 1);
     _gridlayout->setRowStretch(1, 2);
