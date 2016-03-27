@@ -302,6 +302,8 @@ void PacketManager::manageDrop(Player* player, Packet::intPacket* dropIDPacket) 
 
 void PacketManager::manageAttack(Player *player, Packet::twoCardPacket* attackPacket) {
     if(player->isPlayerInGame()) {
+        WizardLogger::info("Appel de ManageAttack");
+
         PlayerInGame* pIG = static_cast<PlayerInGame*>(player);
         Error res = pIG->reqAttack(attackPacket->cardOne, attackPacket->cardTwo);
         if(res != Error::NoError) {
@@ -314,6 +316,8 @@ void PacketManager::manageAttack(Player *player, Packet::twoCardPacket* attackPa
 
 void PacketManager::managePlaceCard(Player* player, Packet::intPacket* placePacket) {
     if(player->isPlayerInGame()) {
+        WizardLogger::info("Appel de ManagePlaceCard");
+
         PlayerInGame* pIG = static_cast<PlayerInGame*>(player);
         WizardLogger::info("Carte à placer: " + std::to_string(placePacket->data));
         Error res = pIG->reqPlaceCard(placePacket->data);
@@ -327,6 +331,8 @@ void PacketManager::managePlaceCard(Player* player, Packet::intPacket* placePack
 
 void PacketManager::managePlaceAttackCard(Player* player, Packet::twoCardPacket* placeAttackPacket) {
     if(player->isPlayerInGame()) {
+        WizardLogger::info("Appel de ManagePlaceAttackCard");
+
         PlayerInGame* pIG = static_cast<PlayerInGame*>(player);
         Error res = pIG->reqPlaceAttackCard(placeAttackPacket->cardOne, placeAttackPacket->cardTwo);
         if(res != Error::NoError) {
@@ -340,6 +346,8 @@ void PacketManager::managePlaceAttackCard(Player* player, Packet::twoCardPacket*
 
 void PacketManager::manageEndTurn(Player* player, Packet::packet* packet) {
     if(player->isPlayerInGame()) {
+        WizardLogger::info("Appel de ManageEndTurn");
+
         PlayerInGame* pIG = static_cast<PlayerInGame*>(player);
         pIG->reqEndTurn();
 
@@ -349,6 +357,7 @@ void PacketManager::manageEndTurn(Player* player, Packet::packet* packet) {
 }
 
 void PacketManager::manageQuitGame(Player* player, Packet::packet* packet) {
+    WizardLogger::info("Appel de ManageQuitGame (à implémenter !)");
     //TODO tell Game about (rage) quit
 }
 

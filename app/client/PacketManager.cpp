@@ -717,6 +717,8 @@ void PacketManager::sendDrop(const int ID) {
  */
 void PacketManager::sendPlaceCard(const int idCard) {
     if(GameManager::getInstance()->isTurn()) {
+        WizardLogger::info("Appel de sendPlaceCard");
+
         Packet::intPacket *placePack = new Packet::intPacket();
 
         WizardLogger::info("Carte à placer " + std::to_string(idCard));
@@ -741,14 +743,16 @@ void PacketManager::sendPlaceCard(const int idCard) {
  */
 void PacketManager::sendAttack(const unsigned cardPosition, const int targetPosition) {
     if(GameManager::getInstance()->isTurn()) {
+        WizardLogger::info("Appel de sendAttack "
+                           + std::to_string(static_cast<int>(cardPosition)) + " attaque: "
+                           + std::to_string(static_cast<int>(targetPosition)));
+
         Packet::twoCardPacket *attackPack = new Packet::twoCardPacket();
 
         attackPack->ID = Packet::C_ATTACK_ID;
         attackPack->cardOne = static_cast<int>(cardPosition);
         attackPack->cardTwo = static_cast<int>(targetPosition);
 
-        WizardLogger::info("Carte: " + std::to_string(static_cast<int>(cardPosition))
-                           + " attaque: " + std::to_string(static_cast<int>(targetPosition)));
 
         conn->sendPacket((Packet::packet*) attackPack, sizeof(*attackPack));
         delete attackPack;
@@ -766,6 +770,7 @@ void PacketManager::sendAttack(const unsigned cardPosition, const int targetPosi
  */
 void PacketManager::sendPlaceCardAttack(const unsigned idCard, const int targetPosition) {
     if(GameManager::getInstance()->isTurn()) {
+        WizardLogger::info("Appel de sendPlaceCardAttack");
         Packet::twoCardPacket *placeAttackPack = new Packet::twoCardPacket();
 
         placeAttackPack->ID = Packet::C_PLACE_CARD_MAKE_SPELL_ID;
@@ -818,7 +823,7 @@ void PacketManager::quit() {
 }
 
 void PacketManager::manageError(Packet::intPacket* errorPacket) {
-    WizardLogger::warning("Erreur: " + std::to_string(errorPacket->data));
+    WizardLogger::info("Erreur: " + std::to_string(errorPacket->data));
 
     /* Lock, signal other thread and unlock */
     pthread_mutex_lock(&wizardDisplay->packetStackMutex);
