@@ -26,6 +26,9 @@ class GameManager {
     Card* _ennemyPosed[MAX_POSED_CARD];
     std::string _ennemy;
 
+    unsigned _nbrCardDeck;
+    unsigned _nbrAdvCardDeck;
+
     unsigned _heal;
     unsigned _adverseHeal;
 
@@ -52,6 +55,9 @@ public:
     inline unsigned getHeal() const { return _heal; }
     inline unsigned getAdverseHeal() const { return _adverseHeal; }
 
+    inline unsigned getNbrDeck() { return _nbrCardDeck; }
+    inline unsigned getNbrAdvDeck() { return _nbrAdvCardDeck; }
+
     // Utils
     Card* getCardOnPosition(unsigned);
 
@@ -63,6 +69,7 @@ public:
     void setTurn(unsigned, bool);
     //inline void placeCard(Card* card) { _hand.push_back(card); }
     void drawCard(unsigned);
+    void advDrawCard();
     Card* removeCardFromHand(Card*);
     Card* removeCardFromHand(unsigned);
     void removeAdverseCardFromHand();

@@ -19,7 +19,9 @@ enum TypeCardWidget {
     EMPLACEMENT,
     PLAYER,
     MASK_CARD,
-    CARD
+    CARD,
+    DECK,
+    ADV_DECK
 };
 
 
@@ -38,7 +40,6 @@ public:
     CardWidget(TypeCardWidget type = CARD, bool = true);
     CardWidget(Card*);
     void resizeEvent(QResizeEvent*);
-    void actualize();
     bool isSelect();
     void setSelect(bool);
     bool isEmplacement() {return _typeCard == TypeCardWidget::EMPLACEMENT;}
@@ -50,6 +51,7 @@ public:
     bool isOnPosition(unsigned pos) { return _card->getPosition() == pos; }
 
 signals:
+    void actualize();
     void selected(CardWidget*);
     void unSelected(CardWidget*);
 

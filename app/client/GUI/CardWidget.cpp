@@ -94,8 +94,29 @@ void CardWidget::actualize(){
 
     } else { // masked card
         QPixmap pic(":/Images/CardMasked.png");
-        _label->setPixmap(pic);
 
+        // View nomber Card if deck
+        if(_typeCard == TypeCardWidget::DECK ||
+                _typeCard == TypeCardWidget::ADV_DECK) {
+
+            QPainter paint(&pic);
+            QFont font;
+            font.setPixelSize(50);
+            paint.setFont(font);
+            paint.setPen(QColor(255, 255, 255));
+
+            QString nbrCard;
+            if(_typeCard == TypeCardWidget::DECK) {
+                nbrCard = QString::fromStdString(
+                        std::to_string(GameManager::getInstance()->getNbrDeck()));
+            } else {
+                nbrCard = QString::fromStdString(
+                        std::to_string(GameManager::getInstance()->getNbrAdvDeck()));
+            }
+            paint.drawText(50,500,nbrCard);
+        }
+
+        _label->setPixmap(pic);
     }
 }
 

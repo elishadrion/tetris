@@ -24,23 +24,16 @@ GameGUI::GameGUI() : QMainWindow(), _inHandSelect(nullptr),
 
     _gridlayout = new QGridLayout(_centralWidget);
 
-    QString strLabel;
-    QLabel* label;
 
     // Deck Adverse
-    QHBoxLayout* advDeckAdv = new QHBoxLayout;
-    label = new QLabel("DeckA");
-    label->setStyleSheet("background-color: gray");
-    advDeckAdv->addWidget(label);
-    _gridlayout->addLayout(advDeckAdv, 3, 1);
-
+    CardWidget advDeck = new CardWidget(TypeCardWidget::ADV_DECK, false);
+    connect(this, SIGNAL(advCardDraw()), advDeck, SLOT(actualize()));
+    _gridlayout->addLayout(advDeck, 3, 1);
 
     // Deck
-    QHBoxLayout* advDeck = new QHBoxLayout;
-    label = new QLabel("Deck");
-    label->setStyleSheet("background-color: gray");
-    advDeck->addWidget(label);
-    _gridlayout->addLayout(advDeck, 5, 1);
+    CardWidget deck = new CardWidget(TypeCardWidget::DECK, false);
+    connect(this, SIGNAL(cardDraw(Card*)), deck, SLOT(actualize()));
+    _gridlayout->addLayout(deck, 5, 1);
 
 
     // Passer

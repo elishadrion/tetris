@@ -46,6 +46,10 @@ public:
     void playerDamage() override;
     void advPlayerDamage() override;
 
+    void winGame(int) override;
+    void looseGame() override;
+    void endGame() override;
+
 
 
     // Tchat

@@ -71,7 +71,7 @@ void PacketManager::managePacket(Packet::packet* customPacket) {
                                           break;
         case Packet::DRAW_ID :            setDraw((Packet::intPacket*) customPacket);
                                           break;
-        case Packet::ADVERSE_DRAW_ID:     wizardDisplay->adverseDrawCard();
+        case Packet::ADVERSE_DRAW_ID:     manageAdvDraw();
                                           break;
         case Packet::ASK_DROP_ID :        askDrop((Packet::intPacket*) customPacket);
                                           break;
@@ -509,7 +509,7 @@ void PacketManager::setBeginDraw(const Packet::beginDrawPacket* drawPacket) {
     WizardLogger::info("Récepetion des cartes piochées");
     for(int i = 0; i < drawPacket->min_hand; ++i) {
         GameManager::getInstance()->drawCard(drawPacket->listID[i]);
-        wizardDisplay->adverseDrawCard();
+        GameManager::getInstance()->advDrawCard();
     }
     WizardLogger::info("Fin de la boucle parcourant les cartes piochées");
 }
@@ -519,6 +519,11 @@ void PacketManager::setDraw(const Packet::intPacket* drawPacket) {
     
     GameManager::getInstance()->drawCard(drawPacket->data);
 }
+
+void PacketManager::manageAdvDraw() {
+    GameManager::getInstance()->advDrawCard();
+}
+
 
 void PacketManager::askDrop(const Packet::intPacket* askDropPacket) {
     //TODO ask to trash a certain amount

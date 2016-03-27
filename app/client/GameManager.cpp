@@ -18,7 +18,7 @@ GameManager* GameManager::getInstance() {
  */
 GameManager::GameManager(std::string pseudo): _ennemy(pseudo), _heal(MAX_LIFE),
     _adverseHeal(MAX_LIFE), _energy(0), _adverseEnergy(0), _deckName(""),
-    _nbrTurn(0), _isTurn(false) {
+    _nbrTurn(0), _isTurn(false), _nbrCardDeck(DECK_SIZE), _nbrAdvCardDeck(DECK_SIZE) {
 
     for(unsigned i = 0; i < MAX_POSED_CARD; ++i) {
         _posed[i] = nullptr;
@@ -94,9 +94,17 @@ void GameManager::setTurn(unsigned nbrTurn, bool isTurn) {
 void GameManager::drawCard(unsigned idCard) {
     Card* card = new Card(*CacheManager::getCard(idCard));
     _hand.push_back(card);
+    --_nbrCardDeck;
     wizardDisplay->drawCard(card);
 }
 
+/**
+ * Call when adverse player draw a card
+ */
+void GameManager::advDrawCard() {
+    --_nbrAdvCardDeck;
+    wizardDisplay->adverseDrawCard();
+}
 
 
 /**

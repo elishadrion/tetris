@@ -109,6 +109,18 @@ void GUI::advPlayerDamage() {
 }
 
 
+void GUI::winGame(int) {
+
+}
+
+void GUI::looseGame() {
+
+}
+
+void GUI::endGame() {
+
+}
+
 
 ///////////// Tchat /////////////
 
