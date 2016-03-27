@@ -6,6 +6,8 @@
  */
 MenuPanelGUI::MenuPanelGUI(GUI* parent) : QMainWindow() {
     _gui = parent;
+    PubManager::initAllPub();
+
 
     setStyleSheet("QMainWindow { background-image: url(:/Images/bg.png) 0 0 0 0 stretch stretch; "
                   "background-repeat: no-repeat; background-position: center center; } "
@@ -52,6 +54,8 @@ MenuPanelGUI::MenuPanelGUI(GUI* parent) : QMainWindow() {
     _layoutOfLayout = new QGridLayout(centralWidget);
     _layoutOfLayout->addLayout(_layout,2,1);
     _layoutOfLayout->addWidget(new ChatManagerGUI(0), 1, 3, 2, 1); // Tchat
+    _layoutOfLayout->addWidget(PubManager::getRandomPub(), 3, 3); // PUB
+
 
 
     _layoutOfLayout->setRowStretch(0, 1);

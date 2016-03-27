@@ -21,6 +21,7 @@
 class RankingGUI;
 class MenuPanelGUI;
 #include "RankingGUI.hpp"
+#include "PubManager.hpp"
 
 #include <string>
 

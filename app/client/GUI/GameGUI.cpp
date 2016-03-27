@@ -139,12 +139,13 @@ GameGUI::GameGUI() : QMainWindow(), _inHandSelect(nullptr),
 
 
     // PUB
-    QHBoxLayout* pub = new QHBoxLayout;
-    strLabel = ("PUB");
-    label = new QLabel(strLabel);
-    label->setStyleSheet("background-color: black; color: white;");
-    pub->addWidget(label);
-    _gridlayout->addLayout(pub, 7, 13);
+//    QHBoxLayout* pub = new QHBoxLayout;
+//    strLabel = ("PUB");
+//    label = new QLabel(strLabel);
+//    label->setStyleSheet("background-color: black; color: white;");
+//    pub->addWidget(label);
+//    _gridlayout->addLayout(pub, 7, 13);
+    _gridlayout->addWidget(PubManager::getRandomPub(), 7, 13);
 
 
     // colonne de gauche

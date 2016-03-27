@@ -22,6 +22,7 @@
 #include "ChatManagerGUI.hpp"
 #include "GameManager.hpp"
 #include "CardWidget.hpp"
+#include "PubManager.hpp"
 
 #include "common/Constants.hpp"
 

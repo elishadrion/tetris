@@ -5,5 +5,8 @@
         <file>Images/CardToon.png</file>
         <file>Images/CardMasked.png</file>
         <file>Images/adverse.png</file>
+        <file>Images/Pub/chronophone.png</file>
+        <file>Images/Pub/niouzz.png</file>
+        <file>Images/Pub/tfou.png</file>
     </qresource>
 </RCC>

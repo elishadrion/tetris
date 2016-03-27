@@ -17,8 +17,8 @@ ChatManagerGUI::ChatManagerGUI(QWidget* parent): QWidget(parent) {
 
 
     for (int i = 0; i < MAX_FRIENDS; i++) {
-	QString playername = QString::fromStdString(Player::getPlayer() -> getFriends()[i]);
-	_friends -> addItem(playername);
+        QString playername = QString::fromStdString(Player::getPlayer() -> getFriends()[i]);
+        _friends -> addItem(playername);
     }
 
 
