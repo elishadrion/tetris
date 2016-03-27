@@ -81,11 +81,11 @@ void GUI::placeAdverseCardAndAttack(Card* card, Card* target) {
 }
 
 void GUI::placeAdverseSpellPlayer(Card* card) {
-    // TO DO
+    gamePanel->callPlaceAdvSpell(card, nullptr);
 }
 
 void GUI::placeAdverseCardAndAttackPlayer(Card* card) {
-    // TO DO
+    gamePanel->callAdvPlaceCard(card);
 }
 
 void GUI::adverseAttackCard(Card* card, Card* target) {

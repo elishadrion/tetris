@@ -276,6 +276,8 @@ void GameGUI::placeSpellCardOnBoard() {
 
         _spellCardWidget->hide();
         _spellCard = _inHandSelect;
+        _inHandSelect->setSelect(false);
+        _inHandSelect = nullptr;
         _gridlayout->addWidget(_spellCard, 6, 2);
 
         _timeSpell = new QTimer(this);
@@ -830,6 +832,7 @@ void GameGUI::nextTurn() {
  */
 void GameGUI::placeAdvCard(Card* card) {
     removeAdvInHandCard();
+    updatePlayerInfo();
     updateAdvPlayerInfo();
 
     int i = 0;
@@ -904,16 +907,20 @@ void GameGUI::deadCard(Card* card, bool adv) {
 void GameGUI::placeAdvSpell(Card* card, Card* target) {
     // card = adverse card who attack
     // target = card who is attack (us card !)
+    // -> if target null = attack player
 
     placeAdvSpellOnBoard(new CardWidget(card));
 
-
-    CardWidget* targetWidget = getCardWOnPos(target->getPosition());
-
-    if(targetWidget != nullptr) {
-        targetWidget->actualize();
+    if(target == nullptr) {
+        updatePlayerInfo();
     } else {
-        WizardLogger::warning("Carte visée non trouvé");
+        CardWidget* targetWidget = getCardWOnPos(target->getPosition());
+
+        if(targetWidget != nullptr) {
+            targetWidget->actualize();
+        } else {
+            WizardLogger::warning("Carte visée non trouvé");
+        }
     }
 
 }
