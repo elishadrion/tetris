@@ -43,6 +43,9 @@ public:
     void adverseAttackCard(Card*, Card*) override;
     void adverseAttackPlayer(Card*) override;
     void cardIsDead(Card*, bool) override;
+    void playerDamage() override;
+    void advPlayerDamage() override;
+
 
 
     // Tchat

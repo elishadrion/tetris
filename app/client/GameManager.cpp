@@ -278,16 +278,18 @@ void GameManager::placeAdverseCardAndAttack(bool isEffectCard, int cardID, unsig
  * @param targetPosition the card wich IS attack (-1 for advers player)
  * @param heal the heal of the target card
  */
-void GameManager::attackCard(unsigned cardPosition, int targetPosition, unsigned heal) {
+void GameManager::attackCard(unsigned cardPosition, unsigned cardHeal,
+                             int targetPosition, unsigned targetHeal) {
     // Modify the GameManager
     Card* card = _posed[cardPosition%MAX_POSED_CARD];
 
     _energy -= card->getEnergyCost();
+    card->setHP(cardHeal);
     if(targetPosition == -1) {
-        _adverseHeal = heal;
+        _adverseHeal = targetHeal;
     } else {
         Card* ennemyCard = _ennemyPosed[targetPosition%MAX_POSED_CARD];
-        ennemyCard->setHP(heal);
+        ennemyCard->setHP(targetHeal);
         if(ennemyCard->getHP() <= 0) {
             wizardDisplay->cardIsDead(ennemyCard, true);
         }
@@ -301,16 +303,18 @@ void GameManager::attackCard(unsigned cardPosition, int targetPosition, unsigned
  * @param targetPosition the card wich IS attack (-1 for advers player)
  * @param heal of the target at end
  */
-void GameManager::adverseAttackCard(unsigned cardPosition, int targetPosition, unsigned heal) {
+void GameManager::adverseAttackCard(unsigned cardPosition, unsigned cardHeal,
+                                    int targetPosition, unsigned targetHeal) {
     Card* card = _ennemyPosed[cardPosition%MAX_POSED_CARD];
 
     _adverseEnergy -= card->getEnergyCost();
+    card->setHP(cardHeal);
     if(targetPosition == -1) {
-        _heal = heal;
+        _heal = targetHeal;
         wizardDisplay->adverseAttackPlayer(card);
     } else {
         Card* ennemyCard = _posed[targetPosition%MAX_POSED_CARD];
-        ennemyCard->setHP(heal);
+        ennemyCard->setHP(targetHeal);
         wizardDisplay->adverseAttackCard(card, ennemyCard);
         if(ennemyCard->getHP() <= 0) {
             wizardDisplay->cardIsDead(ennemyCard, false);

@@ -67,8 +67,6 @@ class GameGUI : public QMainWindow {
     void placeAdvSpellOnBoard(CardWidget*);
     void removeInHandCard();
     void removeAdvInHandCard();
-    void updatePlayerInfo();
-    void updateAdvPlayerInfo();
     void displayError(int);
     void displayError(std::string);
 
@@ -92,6 +90,9 @@ public:
     void callPlaceAdvCardAttack(Card*, Card*);
     void callAdvAttack(Card*,Card*);
     void callDeadCard(Card*, bool);
+    void callPlayerDamage();
+    void callAdvPlayerDamage();
+
 
 signals:
     void nextPlayer();
@@ -104,6 +105,8 @@ signals:
     void mustPlaceAdvCardAttack(Card*, Card*);
     void mustAdvAttack(Card*, Card*);
     void mustDeadCard(Card*, bool);
+    void mustUpdatePlayer();
+    void mustUpdateAdvPlayer();
 
 private slots:
     void viewPassButton();
@@ -124,6 +127,8 @@ private slots:
     void placeAdvSpell(Card*, Card*);
     void placeAdvCardAttack(Card*, Card*);
     void advAttack(Card*, Card*);
+    void updatePlayerInfo();
+    void updateAdvPlayerInfo();
 
 
 };

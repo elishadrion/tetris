@@ -469,15 +469,16 @@ void PacketManager::sendDrop(Player* player, int ID) {
  * @param targetPosition position of the card wich have dammage (-1 for adverse player)
  * @param heal of the target card
  */
-void PacketManager::sendAttack(Player* player, std::string pseudo, int cardPosition, int targetPosition,
-                               unsigned heal) {
+void PacketManager::sendAttack(Player* player, std::string pseudo, int cardPosition, unsigned cardHeal,
+                               int targetPosition, unsigned targetHeal) {
 
     Packet::attackPacket* attackPacket = new Packet::attackPacket();
 
     for (int i = 0 ; i < pseudo.size() ; ++i) attackPacket->data.pseudo[i] = pseudo[i];
     attackPacket->data.cardPosition = cardPosition;
+    attackPacket->data.cardHeal = cardHeal;
     attackPacket->data.targetPosition = targetPosition;
-    attackPacket->data.heal = heal;
+    attackPacket->data.targetHeal = targetHeal;
 
     /* Send and free */
     player->sendPacket((Packet::packet*) attackPacket, sizeof(*attackPacket));

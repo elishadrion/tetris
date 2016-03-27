@@ -346,15 +346,17 @@ Error Game::attackWithCard(PlayerInGame* pIG, int cardPosition,
     if(res == Error::NoError) {
         if(verifyTaunt(pIG, targetCard)) {
             card->dealDamage(targetCard);
-            pIG->removeEnergyFromCard(card);
             if(targetCard->isDead()) {
                 this->getAdversePlayer()->defausseCardPlaced(targetPosition);
             }
 
             std::string pseudo = pIG->getName();
-            unsigned life = targetCard->getLife();
-            PacketManager::sendAttack(_player1, pseudo, cardPosition, targetPosition, life);
-            PacketManager::sendAttack(_player2, pseudo, cardPosition, targetPosition, life);
+            unsigned cardLife = card->getLife();
+            unsigned targetLife = targetCard->getLife();
+            PacketManager::sendAttack(_player1, pseudo, cardPosition, cardLife,
+                                      targetPosition, targetLife);
+            PacketManager::sendAttack(_player2, pseudo, cardPosition, cardLife,
+                                      targetPosition, targetLife);
 
         } else {
             res = Error::MustAttackTaunt;
@@ -381,13 +383,13 @@ Error Game::attackWithCardAffectPlayer(PlayerInGame* pIG, int cardPosition) {
     if(res == Error::NoError) {
         if(verifyTaunt(pIG)) {
             PlayerInGame* pAdverse = getAdversePlayer(pIG);
-            pIG->removeEnergyFromCard(card);
             card->dealDamage(*pAdverse);
 
-            unsigned heal = pAdverse->getHeal();
+            unsigned targetHeal = pAdverse->getHeal();
+            unsigned cardHeal = card->getLife();
             std::string pseudo = pIG->getName();
-            PacketManager::sendAttack(_player1, pseudo, cardPosition, -1, heal);
-            PacketManager::sendAttack(_player2, pseudo, cardPosition, -1, heal);
+            PacketManager::sendAttack(_player1, pseudo, cardPosition, cardHeal, -1, targetHeal);
+            PacketManager::sendAttack(_player2, pseudo, cardPosition, cardHeal, -1, targetHeal);
             isPlayerInLife(pAdverse);
         } else {
             res = Error::MustAttackTaunt;

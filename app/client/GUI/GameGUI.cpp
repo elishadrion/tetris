@@ -196,6 +196,10 @@ GameGUI::GameGUI() : QMainWindow(), _inHandSelect(nullptr),
     connect(this, SIGNAL(mustAdvAttack(Card*, Card*)), this, SLOT(advAttack(Card*,Card*)));
     connect(this, SIGNAL(mustDeadCard(Card*, bool)), this, SLOT(deadCard(Card*, bool)));
 
+    connect(this, SIGNAL(mustUpdatePlayer()), this, SLOT(updatePlayerInfo()));
+    connect(this, SIGNAL(mustUpdateAdvPlayer()), this, SLOT(updateAdvPlayerInfo()));
+
+
     // pop-up to choose deck
     new DeckChooseGUI(this);
 }
@@ -576,6 +580,14 @@ void GameGUI::callAdvAttack(Card* card, Card* target) {
 
 void GameGUI::callDeadCard(Card* card, bool adv) {
     emit mustDeadCard(card, adv);
+}
+
+void GameGUI::callPlayerDamage() {
+    emit mustUpdatePlayer();
+}
+
+void GameGUI::callAdvPlayerDamage() {
+    emit mustUpdateAdvPlayer();
 }
 
 

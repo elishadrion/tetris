@@ -96,10 +96,18 @@ void GUI::adverseAttackPlayer(Card* card) {
     gamePanel->callAdvAttack(card, nullptr);
 }
 
-
 void GUI::cardIsDead(Card* card, bool adv) {
     gamePanel->callDeadCard(card, adv);
 }
+
+void GUI::playerDamage() {
+    gamePanel->callPlayerDamage();
+}
+
+void GUI::advPlayerDamage() {
+    gamePanel->callAdvPlayerDamage();
+}
+
 
 
 ///////////// Tchat /////////////

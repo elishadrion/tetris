@@ -67,7 +67,7 @@ namespace PacketManager {
     void sendAdverseDraw(Player*); /* ADVERSE_DRAW_ID */
     void askDefausse(Player*, int); /* ASK_DROP_ID */
     void sendDrop(Player*, int); /* DROP_ID (for second player sync, amount of drop) */
-    void sendAttack(Player*, std::string, int, int, unsigned);
+    void sendAttack(Player*, std::string, int, unsigned, int, unsigned);
     void sendPlaceMonsterCard(Player*, std::string, int, int);
     void sendPlaceMonsterCard(Player*, std::string, int, int, int, unsigned);
     void sendPlaceSpellCard(Player*, std::string, int, int, unsigned);

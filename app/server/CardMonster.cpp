@@ -31,12 +31,21 @@ CardMonster::CardMonster(CardMonster& otherMonster): Card(otherMonster),
  * @return void
  */
 void CardMonster::dealDamage(CardMonster* otherMonster){
-    unsigned finalLife = 0;
-    unsigned monsterLife = otherMonster->getLife();
-    if(monsterLife > getAttack()) {
-        finalLife = monsterLife-getAttack();
+
+    // Set life adverse monster
+    unsigned advLife = 0;
+    if(otherMonster->getLife() > getAttack()) {
+        advLife = otherMonster->getLife()-getAttack();
     }
-    otherMonster->setLife(finalLife);
+    otherMonster->setLife(advLife);
+
+    // Set us life
+    unsigned life = 0;
+    if(getLife() > getAttack()) {
+        life = getLife() - getAttack();
+    }
+    setLife(life);
+
 }
 
 /**
@@ -46,7 +55,14 @@ void CardMonster::dealDamage(CardMonster* otherMonster){
  * @return void
  */
 void CardMonster::dealDamage(PlayerInGame& player){
-	player.takeDamage(this->getAttack());
+    player.takeDamage(getAttack());
+
+    // Set us life
+    unsigned life = 0;
+    if(getLife() > getAttack()) {
+        life = getLife() - getAttack();
+    }
+    setLife(life);
 }
 
 /**

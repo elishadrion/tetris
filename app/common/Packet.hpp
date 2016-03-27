@@ -165,7 +165,8 @@ public:
         char friendsList[MAX_FRIENDS*MAX_PSEUDO_SIZE]; /* Every MAX_PSEUDO_SIZE it's a pseudo */
     } friendListPacket;
 
-//=========================GAME===========================================
+
+// ============================= GAME =====================================
     
     typedef struct {
         int ID = DECK_CHOOS_ID;
@@ -212,8 +213,9 @@ public:
         typedef struct {
             char pseudo[MAX_PSEUDO_SIZE];
             int cardPosition;
+            unsigned cardHeal;
             int targetPosition;
-            unsigned heal;
+            unsigned targetHeal;
         } attackData;
         int size = sizeof(attackData);
         attackData data;

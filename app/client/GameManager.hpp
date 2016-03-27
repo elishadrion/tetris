@@ -71,8 +71,8 @@ public:
     void ennemyPlaceCard(int, unsigned);
     void placeCardAndAttack(bool, int, unsigned, int, unsigned);
     void placeAdverseCardAndAttack(bool, int, unsigned, int, unsigned);
-    void attackCard(unsigned, int, unsigned);
-    void adverseAttackCard(unsigned, int, unsigned);
+    void attackCard(unsigned, unsigned, int, unsigned);
+    void adverseAttackCard(unsigned, unsigned, int, unsigned);
     void playerDamage(unsigned, bool);
 
 

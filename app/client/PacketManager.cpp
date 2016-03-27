@@ -616,11 +616,12 @@ void PacketManager::manageAttack(Packet::attackPacket* attackPacket) {
     bool adverse = !(packetPseudoToString(attackPacket->data.pseudo) ==
                         Player::getPlayer()->getName());
     unsigned cardPosition = attackPacket->data.cardPosition;
+    unsigned cardHeal = attackPacket->data.cardHeal;
     int targetPosition = attackPacket->data.targetPosition;
-    unsigned heal = attackPacket->data.heal;
+    unsigned targetHeal = attackPacket->data.targetHeal;
 
     if(gm->isTurn()) {
-        gm->attackCard(cardPosition, targetPosition, heal);
+        gm->attackCard(cardPosition, cardHeal, targetPosition, targetHeal);
 
         /* Lock, signal other thread and unlock */
         pthread_mutex_lock(&wizardDisplay->packetStackMutex);
@@ -629,7 +630,7 @@ void PacketManager::manageAttack(Packet::attackPacket* attackPacket) {
 
     } else {
         if(adverse) {
-            gm->adverseAttackCard(cardPosition, targetPosition, heal);
+            gm->adverseAttackCard(cardPosition, cardHeal, targetPosition, targetHeal);
         } else {
             WizardLogger::warning("Cela doit se faire avec les mutex");
         }
