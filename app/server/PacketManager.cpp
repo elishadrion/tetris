@@ -29,6 +29,10 @@ void PacketManager::managePacket(Player *player, Packet::packet* customPacket) {
                                           break;
         case Packet::CARTE_IMG_ID :       WizardLogger::warning("Paquet d'image reçu");
                                           break;
+        // Deck precss
+        case Packet::ASK_DECK_LIST_ID:    sendDeck(player);
+                                          break;
+
         /* Tchat process */
         case Packet::TCHAT_SEND_MSG_ID :  playerSendMsg(player, (Packet::tchatSendMsgPacket*) customPacket);
                                           break;

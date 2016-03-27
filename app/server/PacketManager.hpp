@@ -51,6 +51,7 @@ namespace PacketManager {
     /* Card process */
     void sendCardInfo(Player*, Card*); /* CARTE_INFO_ID */
     void sendCardImg(Player*, Card*); /* CARTE_IMG_ID */
+    void sendDeck(Player*);
     
     /* Tchat process */
     void sendPlayerRecdvMsg(Player*, std::string, std::string, std::string); /* TCHAT_RECEV_MSG_ID */

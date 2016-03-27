@@ -353,7 +353,7 @@ void PacketManager::sendMessage(const std::string toPlayer, const std::string me
 void PacketManager::manageListDeck(const Packet::listDeckPacket* listDeckpacket) {
 
     Player* player = Player::getPlayer();
-    player->resetAllDeckName;
+    player->resetAllDeckName();
 
     for(unsigned nbrTotal = 0; nbrTotal < MAX_DECKS; ++nbrTotal) {
         int current = MAX_DECK_NAME*nbrTotal;
