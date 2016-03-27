@@ -26,11 +26,14 @@ CollectionWidget::CollectionWidget(): QWidget(){
     _grid->addWidget(_previous,1,0);
     _grid->addWidget(_next,1,4);
 
+    std::size_t taille = 0;
     _collection = Player::getPlayer()->getCollection();
-    std::size_t taille = sizeof(_collection)/sizeof(_collection[0]);
+    if(_collection != nullptr && sizeof(_collection[0]) != 0) {
+        taille = sizeof(_collection)/sizeof(_collection[0]);
+    }
 
     tempPage = new PageWidget();
-    for(std::size_t i=0; i<taille; i++){
+    for(std::size_t i = 0; i < taille; i++){
     	if(i%10 == 0){
     		page+=1;
             tempPage = new PageWidget();
