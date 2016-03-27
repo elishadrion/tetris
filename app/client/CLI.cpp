@@ -189,6 +189,10 @@ void CLI::displayGame() {
     _panelList[GAME]->hide();
 }
 
+void CLI::recevTchatMsg(std::string from, std::string to, std::string msg) {
+    reinterpret_cast<TchatPanelCLI*>(_panelList[TCHAT])->addMessage(from+" -> "+to+" : "+msg);
+}
+
 //TODO
 void CLI::displayClassement() {}
 
