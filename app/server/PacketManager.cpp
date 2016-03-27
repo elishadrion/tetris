@@ -181,8 +181,13 @@ void PacketManager::sendDeck(Player* player) {
             }
 
             unsigned currentCard = i*DECK_SIZE;
+            std::vector<unsigned> listCard = deck->getCardsId();
+            if(listCard.size() != DECK_SIZE) {
+                WizardLogger::error("La taille du deck: " + deck->getName()
+                                    + " n'est pas bonne !");
+            }
             for(unsigned nbrCarte = 0; nbrCarte < DECK_SIZE; ++nbrCarte) {
-                listDeckPacket->data.deckList[currentCard+nbrCarte] = deck->getCardOnIndex(nbrCarte);
+                listDeckPacket->data.deckList[currentCard+nbrCarte] = listCard[nbrCarte];
             }
 
 
