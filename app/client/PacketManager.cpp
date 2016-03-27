@@ -92,6 +92,9 @@ void PacketManager::managePacket(Packet::packet* customPacket) {
                                           break;
         case Packet::S_PLACE_CARD_AND_ATTACK_ID:
                                           managePlaceCardAttack((Packet::placeAttackPacket*) customPacket);
+                                          break;
+        case Packet::PLAYER_DAMAGE_ID:    managePlayerDamage((Packet::pseudoIntPacket) customPacket);
+                                          break;
         case Packet::END_TURN_ID :        WizardLogger::warning("Paquet de fin de tour reçu");
                                           break;
         case Packet::QUIT_ID :            WizardLogger::warning("Paquet de fin de partie (quit) reçu");
