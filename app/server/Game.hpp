@@ -57,8 +57,8 @@ public:
     static void removePlayerWaitGame(Player *player); // Remove player to the PlayerWait list
 
     // Function during the game
-    void draw(); // current player draw a card
-    void draw(PlayerInGame*); // current player draw a card
+    bool draw(); // current player draw a card
+    bool draw(PlayerInGame*); // current player draw a card
     Error placeCard(PlayerInGame*, CardMonster*);
     Error placeCardAffect(PlayerInGame*, Card*, int);
     Error placeCardAffectPlayer(PlayerInGame*, Card*);

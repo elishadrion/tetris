@@ -169,8 +169,10 @@ void Game::removePlayerWaitGame(Player *player) {
 
 /**
  * Current player draw a card
+ *
+ * @return res True if player have draw (else, false)
  */
-void Game::draw() {
+bool Game::draw() {
     draw(_currentPlayer);
 }
 
@@ -179,8 +181,11 @@ void Game::draw() {
  * Specific player draw a card
  *
  * @param pIG who must draw
+ * @return res True if player have draw (else, false)
  */
-void Game::draw(PlayerInGame* pIG) {
+bool Game::draw(PlayerInGame* pIG) {
+    bool res = true;
+
     Card* res = pIG->draw();
     if(res == nullptr) { // If no card
         pIG->takeDamage(4);
@@ -190,6 +195,7 @@ void Game::draw(PlayerInGame* pIG) {
         PacketManager::playerDamage(_player1, pIG->getName(), pIG->getHeal());
         PacketManager::playerDamage(_player2, pIG->getName(), pIG->getHeal());
         isPlayerInLife();
+        res = false;
 
     } else {
         WizardLogger::info(pIG->getName() + " a pioché la carte: " + res->getName());
@@ -197,6 +203,7 @@ void Game::draw(PlayerInGame* pIG) {
         PacketManager::sendAdverseDraw(getAdversePlayer(pIG));
     }
 
+    return res;
 }
 
 
@@ -436,8 +443,9 @@ void Game::beginTurn() {
     // Increment number of turn
     _currentPlayer->incrementAllPlaceCard();
 
-    while(_currentPlayer->nbrCardInHand() < MIN_CARD_IN_HAND) {
-        draw();
+    bool next = true;
+    while(_currentPlayer->nbrCardInHand() < MIN_CARD_IN_HAND && next) {
+        next = draw();
     }
 
 }

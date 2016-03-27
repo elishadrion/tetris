@@ -117,10 +117,17 @@ unsigned PlayerInGame::nbrCardDeck() {
  * @return the card or nullptr
  */
 Card* PlayerInGame::draw() {
-    Card* randomCard = _deck->pickup();
+    Card* randomCard = nullptr;
 
-    if(randomCard != nullptr) {
-        _cardsInHand.push_back(randomCard);
+    if(_deck == nullptr) {
+        WizardLogger::error("Deck non définit pour le joueur "
+                            + getName());
+    } else {
+        randomCard = _deck->pickup();
+
+        if(randomCard != nullptr) {
+            _cardsInHand.push_back(randomCard);
+        }
     }
 
     return randomCard;

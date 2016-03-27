@@ -668,7 +668,11 @@ void PacketManager::managePlayerDamage(Packet::pseudoIntPacket* playerDamagePack
 
 void PacketManager::manageEndGame(const Packet::endGamePacket* endPacket) {
     // delete GameManager::getInstance();
+    GameManager* gm = GameManager::getInstance();
+    if(endPacket->data.victory == 1) { // win
 
+    }
+    Player::getPlayer()->addCardCollection();
     //TODO tell if we win and display winner's new card
 }
 

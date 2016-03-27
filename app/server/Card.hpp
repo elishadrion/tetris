@@ -18,7 +18,7 @@ class PlayerInGame;
 class Card {
 public:
     // Default constructor ?
-    Card(unsigned int id, std::string name, unsigned int energy,int effect, bool);
+    Card(unsigned int id, std::string name, unsigned int energy,int effect);
     Card(Card& card) = default; // copy contructor
     Card& operator=(const Card&) = default; // copy operator
 

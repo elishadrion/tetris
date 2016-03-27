@@ -10,7 +10,7 @@ class Draw : public Effect{
     unsigned int _nDraw;
 public:
     Draw(unsigned int nDraw):_nDraw(nDraw){}
-    ~Draw(){}
+    ~Draw() = default;
     
     virtual void apply(CardMonster*, Game*) override;
 };

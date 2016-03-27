@@ -9,16 +9,11 @@
  * @param effect name of the specific effect
  * @param save True if save in cache
  */
-Card::Card(unsigned int id, std::string name, unsigned int energy,
-        int effect, bool save = true):
+Card::Card(unsigned int id, std::string name, unsigned int energy, int effect):
         _id(id), _name(name), _energyCost(energy) {
 
     if(effect != -1) {
         _effect = Effect::getEffectByID(effect);
-    }
-
-    if(save) {
-        //TODO tmp patch listCard.insert(std::pair<unsigned int,Card*>(id,this));
     }
 }
 

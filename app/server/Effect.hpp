@@ -14,16 +14,16 @@ class Effect { //Abstract class
 public:
     Effect();
     unsigned getId() { return _id; }
-    virtual ~Effect(){};
+    virtual ~Effect() = default;
 
     static void loadAllEffect();
     static Effect* getEffectByID(unsigned);
 
     virtual void apply(CardMonster*, Game*) = 0;
-    virtual void apply(PlayerInGame* player, Game* game) {}; //Do nothing by default
-    virtual bool isTaunt(){return false;};
-    virtual bool canBeApplyOnPlayer(){return false;};
-    virtual bool canBeApplyOnCard(){return true;};
+    virtual void apply(PlayerInGame* player, Game* game) {} //Do nothing by default
+    virtual bool isTaunt(){ return false; }
+    virtual bool canBeApplyOnPlayer(){ return false; }
+    virtual bool canBeApplyOnCard(){ return true; }
 };
 
 
