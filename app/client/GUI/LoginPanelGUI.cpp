@@ -37,6 +37,7 @@ LoginPanelGUI::LoginPanelGUI(GUI* parent) : QWidget() {
     _gridlayout->addWidget(_m_mdp,3,2);
 
     _login = new QPushButton("Login", this);
+    _login -> setAutoDefault(true);
     _signIn = new QPushButton("S'enregistrer", this);
 
     QFont maPolice("Comic Sans MS",20,85,false); //type,taille,epaisseur,italique
@@ -62,6 +63,8 @@ LoginPanelGUI::LoginPanelGUI(GUI* parent) : QWidget() {
     _gridlayout->setRowStretch(4, 2);
     _gridlayout->setRowStretch(5, 1);
 
+    connect(_m_pseudo, SIGNAL(returnPressed()), _login, SIGNAL(clicked()));
+    connect(_m_mdp, SIGNAL(returnPressed()), _login, SIGNAL(clicked()));
     QObject::connect(_login, SIGNAL(clicked()), this, SLOT(makeLogin()));
     QObject::connect(_signIn, SIGNAL(clicked()), this, SLOT(makeRegister()));
 
@@ -126,7 +129,7 @@ void LoginPanelGUI::login(bool newUser) {
 
         /* Wait for result */
         pthread_cond_wait(&wizardDisplay->packetStackCond, &wizardDisplay->packetStackMutex);
-        
+
         msgBox->hide();
         displayMainMenu();
     } else {
@@ -168,4 +171,3 @@ void LoginPanelGUI::displayMainMenu() {
     _gui->setMainMenu(new MenuPanelGUI(_gui));
     close();
 }
-
