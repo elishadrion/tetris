@@ -59,7 +59,9 @@ class GameGUI : public QMainWindow {
 
 
     void addEmplacement(int, bool);
+    void placeMonsterCardOnBoard();
     void placeMonsterCardOnBoard(CardWidget*);
+    void placeMonsterCardOnBoard(int);
     void placeSpellCardOnBoard();
     void placeAdvSpellOnBoard(CardWidget*);
     void removeInHandCard();
@@ -112,6 +114,7 @@ private slots:
     void selectEmplacement(CardWidget*);
     void selectAdvCard(CardWidget*);
     void selectSpellEmplacement(CardWidget*);
+    void selectAdvPlayer(CardWidget*);
     void nextTurn();
     void placeAdvCard(Card*);
     void removeSpell();

@@ -60,12 +60,12 @@ GameGUI::GameGUI() : QMainWindow(), _inHandSelect(nullptr),
     }
 
     // Emplacement Carte sort
-    _spellCardWidget = new CardWidget(true, true);
+    _spellCardWidget = new CardWidget(TypeCardWidget::EMPLACEMENT, true);
     connect(_spellCardWidget, SIGNAL(selected(CardWidget*)),
             this, SLOT(selectSpellEmplacement(CardWidget*)));
     _gridlayout->addWidget(_spellCardWidget, 6, 2);
 
-    _advSpellCardWidget = new CardWidget(true, true);
+    _advSpellCardWidget = new CardWidget(TypeCardWidget::EMPLACEMENT, false);
     _gridlayout->addWidget(_advSpellCardWidget, 2, 2);
 
 
@@ -101,6 +101,7 @@ GameGUI::GameGUI() : QMainWindow(), _inHandSelect(nullptr),
     layoutInfoEnergy->addWidget(_infoEnergy);
     _gridlayout->addLayout(layoutInfoEnergy, 8, 5);
 
+
     QHBoxLayout* layoutInfoHeal = new QHBoxLayout;
     QLabel *labelHeal = new QLabel(QString::fromStdString("Vie: "));
     layoutInfoHeal->addWidget(labelHeal);
@@ -117,6 +118,11 @@ GameGUI::GameGUI() : QMainWindow(), _inHandSelect(nullptr),
                         std::to_string(GameManager::getInstance()->getAdverseEnergy()).c_str()));
     layoutAdvInfoEnergy->addWidget(_infoAdvEnergy);
     _gridlayout->addLayout(layoutAdvInfoEnergy, 0, 5);
+
+    CardWidget* advPlayer = new CardWidget(TypeCardWidget::PLAYER, true);
+    _gridlayout->addWidget(advPlayer, 8, 6);
+    connect(advPlayer, SIGNAL(selected(CardWidget*)),
+            this, SLOT(selectAdvPlayer(CardWidget*)));
 
     QHBoxLayout* layoutAdvInfoHeal = new QHBoxLayout;
     QLabel *labelAdvHeal = new QLabel(QString::fromStdString("Vie: "));
@@ -202,7 +208,7 @@ GameGUI::GameGUI() : QMainWindow(), _inHandSelect(nullptr),
  * @param adverse True if adverse emplacement
  */
 void GameGUI::addEmplacement(int index, bool adverse) {
-    CardWidget* cardWidget = new CardWidget(true, !adverse);
+    CardWidget* cardWidget = new CardWidget(TypeCardWidget::EMPLACEMENT, !adverse);
     _gridlayout->addWidget(cardWidget, adverse ? 3 : 5, 3+index);
 
     if(adverse) {
@@ -213,6 +219,25 @@ void GameGUI::addEmplacement(int index, bool adverse) {
     }
 }
 
+
+void GameGUI::placeMonsterCardOnBoard() {
+    if(_inHandSelect != nullptr) {
+        int i = 0;
+        while(i < MAX_POSED_CARD && !_cardBoard[i]->isEmplacement()) {
+            ++i;
+        }
+        // Free emplacement found
+        if(i != MAX_POSED_CARD) {
+            placeMonsterCardOnBoard(i);
+        } else {
+            WizardLogger::warning(
+                        "Impossible de placer la carte & attaquer (plus de place)");
+        }
+    } else {
+        WizardLogger::warning("Aucune carte sélectionnée");
+    }
+}
+
 /**
  * Place the selected card on the board
  *
@@ -220,33 +245,24 @@ void GameGUI::addEmplacement(int index, bool adverse) {
  */
 void GameGUI::placeMonsterCardOnBoard(CardWidget* emplacement) {
     if(_inHandSelect != nullptr) {
-        // Remove card from hand
-        removeInHandCard();
-
-        // Get emplacement
-        int nbrEmplacement = 0;
-        while(nbrEmplacement < MAX_POSED_CARD &&
-              emplacement != _cardBoard[nbrEmplacement]) {
-            ++nbrEmplacement;
-        }
-        // Get coordonnee
-        int index = _gridlayout->indexOf(emplacement);
-        emplacement->close(); // delete emplacement
-        if(index != -1) { // get position and place card
-            int row, col, col_span, row_span;
-            _gridlayout->getItemPosition(index, &row, &col, &col_span, &row_span);
-            _gridlayout->addWidget(_inHandSelect, row, col, col_span, row_span);
-        }
-
-        _cardBoard[nbrEmplacement] = _inHandSelect;
-        _inHandSelect->setSelect(false);
-        _inHandSelect = nullptr;
-        updatePlayerInfo();
-
+        placeMonsterCardOnBoard(getIndexBoard(emplacement));
     } else {
         WizardLogger::warning("Aucune carte sélectionnée");
     }
 }
+
+void GameGUI::placeMonsterCardOnBoard(int index) {
+    // Remove card from hand
+    removeInHandCard();
+
+    _cardBoard[index]->close();
+    _cardBoard[index] = _inHandSelect;
+    _gridlayout->addWidget(_inHandSelect, 5, 3+index);
+    _inHandSelect->setSelect(false);
+    _inHandSelect = nullptr;
+}
+
+
 
 void GameGUI::placeSpellCardOnBoard() {
     if(_inHandSelect != nullptr) {
@@ -434,21 +450,7 @@ void GameGUI::placeAndAttack(CardWidget* cardWidget) {
         WizardLogger::info("Pose la carte & attack");
 
         if(_inHandSelect->isMonster()) {
-
-            int i = 0;
-            while(i < MAX_POSED_CARD && !_cardBoard[i]->isEmplacement()) {
-                ++i;
-            }
-
-            if(i != MAX_POSED_CARD) {
-                _cardBoard[i]->close();
-                _cardBoard[i] = _inHandSelect;
-                _gridlayout->addWidget(_inHandSelect, 5, 3+i);
-            } else {
-                WizardLogger::warning(
-                            "Impossible de placer la carte & attaquer (plus de place)");
-            }
-
+            placeMonsterCardOnBoard();
 
         } else {
             placeSpellCardOnBoard();
@@ -636,7 +638,7 @@ void GameGUI::drawAdvCard() {
     }
 
     if(i != MAX_HAND) {
-        CardWidget* cardWidget = new CardWidget(false, false);
+        CardWidget* cardWidget = new CardWidget(TypeCardWidget::MASK_CARD, false);
         _advCardInHand[i] = cardWidget;
         _gridlayout->addWidget(cardWidget, 1, 3+i);
 
@@ -728,6 +730,7 @@ void GameGUI::selectEmplacement(CardWidget* cardWidget) {
                 WizardLogger::info("Pose la carte");
 
                 placeMonsterCardOnBoard(cardWidget);
+                updatePlayerInfo();
 
             } else {
                 int error = reinterpret_cast<int>(wizardDisplay->packetErrorStack.back());
@@ -763,6 +766,41 @@ void GameGUI::selectSpellEmplacement(CardWidget* cardWidget) {
     if(_inHandSelect != nullptr) {
         // TO DO
         // place spell without target
+    }
+}
+
+void GameGUI::selectAdvPlayer(CardWidget* cardWidget) {
+    cardWidget->setSelect(false);
+    if(_inHandSelect != nullptr) {
+        /* Lock */
+        pthread_mutex_lock(&wizardDisplay->packetStackMutex);
+
+        // Packet manager
+        WizardLogger::info("Placement de la carte: "+ std::to_string(_inHandSelect->getId()));
+        PacketManager::sendPlaceCardAttack(_inHandSelect->getId(), -1);
+
+        /* Wait for result */
+        pthread_cond_wait(&wizardDisplay->packetStackCond, &wizardDisplay->packetStackMutex);
+
+        /* Check result */
+        if (wizardDisplay->packetErrorStack.empty()) {
+            WizardLogger::info("Pose la carte");
+
+            if(_inHandSelect->isMonster()) {
+                placeMonsterCardOnBoard();
+            } else {
+                placeSpellCardOnBoard();
+            }
+            updatePlayerInfo();
+
+        } else {
+            int error = reinterpret_cast<int>(wizardDisplay->packetErrorStack.back());
+            wizardDisplay->packetErrorStack.pop_back();
+            displayError(error);
+        }
+
+        /* Unlock */
+        pthread_mutex_unlock(&wizardDisplay->packetStackMutex);
     }
 }
 

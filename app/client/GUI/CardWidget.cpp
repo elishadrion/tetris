@@ -5,9 +5,8 @@
  * plus adapté.
 */
 
-CardWidget::CardWidget(bool emplacement, bool interact):
-    QWidget(), _emplacement(emplacement), _card(nullptr),
-    _interact(interact) {
+CardWidget::CardWidget(TypeCardWidget type, bool interact):
+    QWidget(), _card(nullptr), _interact(interact), _typeCard(type) {
 
     _label = new QLabel(this);
     _label->setScaledContents(true);
@@ -17,7 +16,7 @@ CardWidget::CardWidget(bool emplacement, bool interact):
 
 
 CardWidget::CardWidget(Card* card): QWidget(), _card(card),
-    _emplacement(false), _interact(true) {
+    _typeCard(TypeCardWidget::CARD), _interact(true) {
 
     _label = new QLabel(this);
     _label->setScaledContents(true);
@@ -46,7 +45,7 @@ void CardWidget::toggleSelect() {
  */
 void CardWidget::resizeEvent(QResizeEvent* event){
     QWidget::resizeEvent(event);
-    if(!_emplacement) {
+    if(_typeCard == TypeCardWidget::EMPLACEMENT) {
         QSize picSize = _label->pixmap()->size();
         picSize.scale(size(),Qt::KeepAspectRatio);
         _label->setFixedSize(picSize);
@@ -57,7 +56,7 @@ void CardWidget::resizeEvent(QResizeEvent* event){
 }
 
 void CardWidget::actualize(){
-    if(_card != nullptr) { // Define card
+    if(_card != nullptr && _typeCard == TypeCardWidget::CARD) { // Define card
 
         QString energy = QString::fromStdString(std::to_string(_card->getEnergyCost()));
         QString attack = "";
@@ -84,7 +83,11 @@ void CardWidget::actualize(){
 
         _label->setPixmap(pic);
 
-    } else if(_emplacement) { // emplacement
+    } else if(_typeCard == TypeCardWidget::PLAYER) {
+        QPixmap pic(":/Images/adverse.png");
+        _label->setPixmap(pic);
+
+    } else if(_typeCard == TypeCardWidget::EMPLACEMENT) { // emplacement
         _label->setStyleSheet("background-color: rgba(109, 109, 109, 0.25);"
                               "border-radius: 15px;");
 

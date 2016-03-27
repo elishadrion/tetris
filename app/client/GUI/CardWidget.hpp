@@ -15,6 +15,13 @@
 #include "Card.hpp"
 #include "GameManager.hpp"
 
+enum TypeCardWidget {
+    EMPLACEMENT,
+    PLAYER,
+    MASK_CARD,
+    CARD
+};
+
 
 class CardWidget : public QWidget{
     Q_OBJECT
@@ -22,19 +29,19 @@ class CardWidget : public QWidget{
     Card* _card;
     QLabel* _label;
     bool _selected;
-    bool _emplacement;
+    TypeCardWidget _typeCard;
     bool _interact;
 
     void toggleSelect();
 
 public:
-    CardWidget(bool = true, bool = true);
+    CardWidget(TypeCardWidget type = CARD, bool = true);
     CardWidget(Card*);
     void resizeEvent(QResizeEvent*);
     void actualize();
     bool isSelect();
     void setSelect(bool);
-    bool isEmplacement() {return _emplacement;}
+    bool isEmplacement() {return _typeCard == TypeCardWidget::EMPLACEMENT;}
     unsigned getId() { return _card->getID(); }
     unsigned getPosition() { return _card->getPosition(); }
     void setPosition(unsigned pos) { _card->setPosition(pos); }
