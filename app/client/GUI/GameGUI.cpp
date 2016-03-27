@@ -671,10 +671,9 @@ void GameGUI::drawAdvCard() {
 void GameGUI::selectCard(CardWidget* cardWidget) {
     if(getIndexBoard(cardWidget) != -1) {
         if(_inHandSelect != nullptr) {
+            _inHandSelect->setSelect(false);
             placeAndAttack(cardWidget);
 
-            _inHandSelect->setSelect(false);
-            _inHandSelect = nullptr;
             cardWidget->setSelect(false);
             return;
         }
@@ -764,9 +763,8 @@ void GameGUI::selectAdvCard(CardWidget* cardWidget) {
 
     // If card in hand select
     if(_inHandSelect != nullptr) {
-        placeAndAttack(cardWidget);
         _inHandSelect->setSelect(false);
-        _inHandSelect = nullptr;
+        placeAndAttack(cardWidget);
 
 
     } else if(_onBoardSelect != nullptr) {

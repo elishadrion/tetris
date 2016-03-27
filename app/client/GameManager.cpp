@@ -290,9 +290,12 @@ void GameManager::attackCard(unsigned cardPosition, unsigned cardHeal,
     } else {
         Card* ennemyCard = _ennemyPosed[targetPosition%MAX_POSED_CARD];
         ennemyCard->setHP(targetHeal);
-        if(ennemyCard->getHP() <= 0) {
+        if(ennemyCard->isDead()) {
             wizardDisplay->cardIsDead(ennemyCard, true);
         }
+    }
+    if(card->isDead()) {
+        wizardDisplay->cardIsDead(card, false);
     }
 }
 
@@ -316,9 +319,12 @@ void GameManager::adverseAttackCard(unsigned cardPosition, unsigned cardHeal,
         Card* ennemyCard = _posed[targetPosition%MAX_POSED_CARD];
         ennemyCard->setHP(targetHeal);
         wizardDisplay->adverseAttackCard(card, ennemyCard);
-        if(ennemyCard->getHP() <= 0) {
+        if(ennemyCard->isDead()) {
             wizardDisplay->cardIsDead(ennemyCard, false);
         }
+    }
+    if(card->isDead()) {
+        wizardDisplay->cardIsDead(card, true);
     }
 
 }
