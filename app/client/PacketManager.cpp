@@ -30,6 +30,8 @@ void PacketManager::managePacket(Packet::packet* customPacket) {
                                           break;
         case Packet::CARTE_IMG_ID :       saveCardImg((Packet::cardImgPacket*) customPacket);
                                           break;
+        case Packet::LIST_DECK_ID:        manageListDeck((Packet::listDeckPacket*) customPacket);
+                                          break;
 
         /* Tchat process */
         case Packet::TCHAT_RECEV_MSG_ID:  getMessage((Packet::tchatRecevMsgPacket*) customPacket);
