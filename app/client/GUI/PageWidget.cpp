@@ -1,4 +1,4 @@
-#include "pageWidget.hpp"
+#include "PageWidget.hpp"
 
 PageWidget::PageWidget() : QWidget(){
 
