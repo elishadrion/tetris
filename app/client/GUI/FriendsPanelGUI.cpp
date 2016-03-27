@@ -51,7 +51,7 @@ void FriendsPanelGUI::addFriend() {
     // 	}
 
 	//PacketManager::makeFriendRequest();
-    }
+    //}
 }
 
 void FriendsPanelGUI::showFriends(QGridLayout* grid) {
