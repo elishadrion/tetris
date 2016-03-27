@@ -45,7 +45,7 @@ void CardWidget::toggleSelect() {
  */
 void CardWidget::resizeEvent(QResizeEvent* event){
     QWidget::resizeEvent(event);
-    if(_typeCard == TypeCardWidget::EMPLACEMENT) {
+    if(_typeCard != TypeCardWidget::EMPLACEMENT) {
         QSize picSize = _label->pixmap()->size();
         picSize.scale(size(),Qt::KeepAspectRatio);
         _label->setFixedSize(picSize);

@@ -77,8 +77,10 @@ void GameManager::setTurn(unsigned nbrTurn, bool isTurn) {
 
     if(_isTurn) {
         _energy = valeurEnergy;
+        _adverseEnergy = 0;
     } else {
         _adverseEnergy = valeurEnergy;
+        _energy = 0;
     }
 
     wizardDisplay->changeTurn();

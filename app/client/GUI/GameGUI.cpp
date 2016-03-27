@@ -120,7 +120,7 @@ GameGUI::GameGUI() : QMainWindow(), _inHandSelect(nullptr),
     _gridlayout->addLayout(layoutAdvInfoEnergy, 0, 5);
 
     CardWidget* advPlayer = new CardWidget(TypeCardWidget::PLAYER, true);
-    _gridlayout->addWidget(advPlayer, 8, 6);
+    _gridlayout->addWidget(advPlayer, 0, 6);
     connect(advPlayer, SIGNAL(selected(CardWidget*)),
             this, SLOT(selectAdvPlayer(CardWidget*)));
 
@@ -771,27 +771,37 @@ void GameGUI::selectSpellEmplacement(CardWidget* cardWidget) {
 
 void GameGUI::selectAdvPlayer(CardWidget* cardWidget) {
     cardWidget->setSelect(false);
-    if(_inHandSelect != nullptr) {
+    if(_inHandSelect != nullptr || _onBoardSelect != nullptr) {
+        WizardLogger::info("Attaque du joueur adverse");
+
         /* Lock */
         pthread_mutex_lock(&wizardDisplay->packetStackMutex);
 
         // Packet manager
         WizardLogger::info("Placement de la carte: "+ std::to_string(_inHandSelect->getId()));
-        PacketManager::sendPlaceCardAttack(_inHandSelect->getId(), -1);
+        if(_inHandSelect != nullptr) {
+            PacketManager::sendPlaceCardAttack(_inHandSelect->getId(), -1);
+        } else {
+            PacketManager::sendAttack(_onBoardSelect->getPosition(), -1);
+        }
 
         /* Wait for result */
         pthread_cond_wait(&wizardDisplay->packetStackCond, &wizardDisplay->packetStackMutex);
 
         /* Check result */
         if (wizardDisplay->packetErrorStack.empty()) {
-            WizardLogger::info("Pose la carte");
 
-            if(_inHandSelect->isMonster()) {
-                placeMonsterCardOnBoard();
-            } else {
-                placeSpellCardOnBoard();
+            if(_inHandSelect != nullptr) {
+                WizardLogger::info("Pose la carte");
+                if(_inHandSelect->isMonster()) {
+                    placeMonsterCardOnBoard();
+                } else {
+                    placeSpellCardOnBoard();
+                }
             }
             updatePlayerInfo();
+            updateAdvPlayerInfo();
+
 
         } else {
             int error = reinterpret_cast<int>(wizardDisplay->packetErrorStack.back());
