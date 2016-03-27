@@ -11,9 +11,12 @@
 #include <QTextBrowser>
 #include <QLabel>
 #include <QCloseEvent>
+#include <vector>
+#include <QString>
 
 #include "CollectionWidget.hpp"
 #include "DeckWidget.hpp"
+#include "client/Player.hpp"
 
 class CollectionPanelGUI;
 #include "MenuPanelGUI.hpp"
@@ -29,6 +32,7 @@ class CollectionPanelGUI : public QMainWindow{
     QLabel *_nCardsAdd;
     QPushButton *_addDeck;
 
+    std::vector<std::string> _decks;
     unsigned _nCards;
     MenuPanelGUI *_menu;
 

@@ -26,18 +26,19 @@ CollectionWidget::CollectionWidget(): QWidget(){
     _grid->addWidget(_previous,1,0);
     _grid->addWidget(_next,1,4);
 
-    /*
+    _collection = Player::getPlayer()->getCollection();
+    std::size_t taille = sizeof(_collection)/sizeof(_collection[0]);
+
     tempPage = new PageWidget();
-    for(unsigned i=0;i<100;i++){
-        if (i%10 == 0){
-            page+=1;
+    for(std::size_t i=0; i<taille; i++){
+    	if(i%10 == 0){
+    		page+=1;
             tempPage = new PageWidget();
             _pages->addTab(tempPage,QString::fromStdString(std::to_string(page)));
-        }
-        CardWidget *card = new CardWidget(i,i,i);
-        tempPage->addCard(card);
-
-    }*/
+    	}
+    	CardWidget *card= new CardWidget(CacheManager::getCard(_collection[i]));
+    	tempPage->addCard(card);
+    }
 
     connect(_next,SIGNAL(clicked()),this,SLOT(nextPage()));
     connect(_previous,SIGNAL(clicked()),this,SLOT(previousPage()));

@@ -26,10 +26,10 @@ _menu(menu){
 
     _tab->addTab(_collectionWidget,tr("Collection"));
 
-    _tab->addTab(new DeckWidget(),tr("Deck Early"));
-    _tab->addTab(new DeckWidget(),tr("Deck Heal"));
-    _tab->addTab(new DeckWidget(),tr("Deck Taunt Late"));
-    _tab->addTab(new DeckWidget(),tr("Deck YOLO"));
+    _decks = Player::getPlayer()->getDecks();
+    for (std::size_t i=0;i<_decks.size();i++){
+        _tab->addTab(new DeckWidget(),QString::fromStdString(_decks[i]));
+    }
 
     _grid->addWidget(_tab,0,0,3,1);
 

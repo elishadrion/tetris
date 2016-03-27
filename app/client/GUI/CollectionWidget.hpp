@@ -12,6 +12,9 @@
 #include <QPushButton>
 #include <QLabel>
 
+#include "client/Player.hpp"
+#include "client/CacheManager.hpp"
+
 class CollectionWidget : public QWidget{
     Q_OBJECT
 
@@ -24,6 +27,7 @@ class CollectionWidget : public QWidget{
     PageWidget *tempPage;
     unsigned page;
     unsigned currentPage;
+    unsigned* _collection;
 
 
 public:
