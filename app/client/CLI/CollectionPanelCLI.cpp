@@ -16,9 +16,9 @@ CollectionPanelCLI::CollectionPanelCLI() : currentLine(0) {
     wattron(window, COLOR_PAIR(2));
     mvwprintw(window, 1, 2, "COLLECTION");
     wattroff(window, COLOR_PAIR(2));
-    wattron(window, COLOR_PAIR(3));
+    wattron(window, COLOR_PAIR(1));
     mvwprintw(window, 1, 14, "[NOT WORKING]");
-    wattroff(window, COLOR_PAIR(3));
+    wattroff(window, COLOR_PAIR(1));
     
     refresh();
 }
@@ -81,6 +81,9 @@ void CollectionPanelCLI::focus() {
                     currentLine += 1;
                     updatePanel();
                 }
+                break;
+            case KEY_F(3):
+                wizardDisplay->displayDeckWindow();
                 break;
             case KEY_F(1):
                 wizardDisplay->focusTchat();

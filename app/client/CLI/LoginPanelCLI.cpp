@@ -42,7 +42,7 @@ LoginPanelCLI::LoginPanelCLI() : success(false) {
     /* Add some label */
     set_field_buffer(field[0], 0, "Pseudo       :");
     set_field_buffer(field[2], 0, "Mot de passe :");
-    mvwprintw(window, 8, 4, "(Utilisez les flèches pour changer de champs)");
+    mvwprintw(window, 8, 4, "(Utilisez les fleches pour changer de champs)");
     mvwprintw(window, 10, 4, "F1: Annuler     F2: Se connecter     F3: S'enregistrer");
     refresh();
 }

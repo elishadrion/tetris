@@ -25,12 +25,12 @@
 #include "client/CLI/GamePanelCLI.hpp"
 
 /* Define some label for HELP */
-#define MAIN_LABEL "F1 : TCHAT    F2 : ENVOYER (TCHAT)    F3 : VALIDER    F10 : QUITTER                                                   "
-#define AMIS_LABEL "F1 : TCHAT    F2 : ENVOYER (TCHAT)    F3 : AJOUTER    F4 : RETIRER    F10 : RETOUR                                    "
-#define COLL_LABEL "F1 : TCHAT    F2 : ENVOYER (TCHAT)    F3 : AFFICHER DECK    F10 : RETOUR                                              "
-#define DECK_LABEL "F1 : TCHAT    F2 : ENVOYER (TCHAT)    F3 : CREER    F4 : SUPPRIMER    F10 : RETOUR                                    "
-#define WAIT_LABEL "F1 : TCHAT    F2 : ENVOYER (TCHAT)    F10 : ANNULER                                                                   "
-#define GAME_LABEL "F1 : TCHAT    F2 : ENVOYER (TCHAT)    F3 : PIOCHER    F4 : JOUER    F5 : JETER    F6 : FIN DE TOUR    F10 : ABANDONNER"
+#define MAIN_LABEL "[F1 : TCHAT    F2 : ENVOYER (TCHAT)    F3 : VALIDER                                                    F10 : QUITTER   ]"
+#define AMIS_LABEL "[F1 : TCHAT    F2 : ENVOYER (TCHAT)    F3 : AJOUTER    F4 : RETIRER                                    F10 : RETOUR    ]"
+#define COLL_LABEL "[F1 : TCHAT    F2 : ENVOYER (TCHAT)    F3 : DECK                                                       F10 : RETOUR    ]"
+#define DECK_LABEL "[F1 : TCHAT    F2 : ENVOYER (TCHAT)    F3 : CREER      F4 : SUPPRIMER                                  F10 : RETOUR    ]"
+#define WAIT_LABEL "[F1 : TCHAT    F2 : ENVOYER (TCHAT)                                                                    F10 : ANNULER   ]"
+#define GAME_LABEL "[F1 : TCHAT    F2 : ENVOYER (TCHAT)    F3 : PIOCHER    F4 : JOUER    F5 : JETER    F6 : FIN DE TOUR    F10 : ABANDONNER]"
 
 /* Defines maximum of the CLI */
 #define LINES 37
@@ -81,7 +81,7 @@ public:
     void displayMainWindow();
     void displayFriendsWindow();
     void displayCollectionWindow();
-    void displayDeckWindow(); //TODO get ID ?
+    void displayDeckWindow();
     void displayWait();
     void displayGame();
     void displayClassement();

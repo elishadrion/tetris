@@ -3,6 +3,7 @@
 
 #include <panel.h>
 
+#include "client/Player.hpp"
 #include "common/WizardLogger.hpp"
 
 #include "CLIPanel.hpp"
@@ -13,6 +14,8 @@ class DeckPanelCLI : public CLIPanel {
 public:
     DeckPanelCLI();
     ~DeckPanelCLI() = default;
+    
+    void updatePanel();
     
     void show() override;
     void hide() override;
