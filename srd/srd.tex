@@ -1,3 +1,4 @@
+
 \documentclass[11pt,a4paper]{article}
 
 \usepackage[T1]{fontenc}
@@ -94,8 +95,6 @@
   description={Nom qu'une personne peut prendre en jeu afin de remplacer son vrai prénom.}
 }
 
-
-%%% --- %%% --- DOCUMENT START --- %%% --- %%%
 \begin{document}
 \input{titlepage.tex}
 \pagestyle{empty}
@@ -391,10 +390,16 @@ basera donc sur un ratio victoires/défaites.\\
 \underline{Cas exceptionnels:} 
  Aucun.\\
 
+\subsubsection*{Sauvegarde}
+
+Les données des joueurs propres au jeu (decks,
+collections de cartes, nombres de victoires et défaites etc) sont
+enregistrées à chaque déconnexion des joueurs. La prochaine fois que
+l'utilisateur se connecte, il aura toutes ses données comme avant.
+
+
 \subsection{Exigences non fonctionnelles}
 \label{sec:exi-nonfonc}
-
-Les exigences non fonctionnelles, n'étant, pour la plupart, pas indispensables au fonctionnement de l'application, elles ne seront pas mises en œuvre en priorité.
 
 
 \subsubsection*{Ergonomie}
@@ -411,6 +416,10 @@ Le design est un large ``domaine'' : c'est-à-dire qu'il définit aussi bien l'a
 
 \subsubsection*{Amusement}
 Un des objectifs, même s'il est loin d'être le plus prioritaire dans ce contexte, est de créer une application attirante. Par ailleurs, plus les utilisateurs s'amuseront en jouant au Wizard Poker, plus elle sera attractive.
+
+
+\subsubsection*{Originalité du contenu}
+Un joueur va toujours être à la recherche de nouveau contenu. Notre objectif sera de le lui apporter afin que notre jeu ne ressemble à aucun autre jeu auquel il aurait joué dans le passé.
 
 
 \subsection{Exigences de domaine}
@@ -441,9 +450,8 @@ donc comment le système réalisera toutes ces tâches.
 
 \subsubsection*{Connexion}
 
-Connection avec IPv4... avec socket etc
-
-un thread est initialisé...
+Plusieurs joueurs peuvent se connecter/être connectés en même temps sur notre serveur.
+Ce dernier va donc être capable d'offrir à tous nos joueurs les mêmes fonctionnalités et doit tenir compte des possibles latences/bugs qu'ils pourraient y avoir sur le reseau.
 
 \subsubsection*{Login et enregistrement}
 
@@ -458,22 +466,6 @@ qui vérifie si celles-ci sont correctes.
 Tout joueur inscrit peut consulter le classement. Celui-ci est donné en
 vérifiant toutes les victoires et défaites de chaque joueur. La liste
 est affichée par ordre décroissant sur le ratio victoires/défaites.
-
-\subsubsection*{Sauvegarde. Sérialisation/Désérialisation}
-
-Les données des joueurs propres au jeu (decks,
-collections de cartes, nombres de victoires et défaites etc) sont
-enregistrées à chaque déconnexion des joueurs. La prochaine fois que
-l'utilisateur se connecte, il aura toutes ses données comme avant.
-
-Cela est possible grace a la sérialisation de l'information au format
-JSON\footnote{JavaScript Object Notation}. Ce n'est pas une vraie base
-de données mais bien un fichier texte qui est sauvegardé dans le
-serveur. Toutes les complexités liées aux bases de données sont donc éliminées pour
-ce simple jeu.
-
-
-
 
 
 \subsection{Exigences non fonctionnelles}
@@ -556,5 +548,6 @@ L'objectif de ces trois diagrammes d'activité, présentés aux Figure \ref{fig:
 
 \clearpage
 \printindex
+
 
 \end{document}
