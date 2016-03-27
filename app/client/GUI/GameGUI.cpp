@@ -891,19 +891,9 @@ void GameGUI::deadCard(Card* card, bool adv) {
     }
 
     int i = 0;
-    WizardLogger::info("[Debug] position search: " + std::to_string(card->getPosition()));
     while(i < MAX_POSED_CARD &&
           (listCardBoard[i]->isEmplacement() ||
           !listCardBoard[i]->isOnPosition(card->getPosition()))) {
-
-        WizardLogger::info("[Debug] i: " + std::to_string(i));
-        if(listCardBoard[i]->isEmplacement()) {
-            WizardLogger::info("[Debug] isEmplacement");
-        } else {
-            WizardLogger::info("[Debug] current position: " +
-                               std::to_string(listCardBoard[i]->getPosition()));
-        }
-
         ++i;
     }
 
