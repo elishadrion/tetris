@@ -31,6 +31,7 @@ MenuPanelGUI::MenuPanelGUI(GUI* parent) : QMainWindow() {
     _friendsList = new QPushButton(" Liste des amis ");
     _friendsList->setMaximumHeight(50);
     _friendsList->setMaximumWidth(200);
+    QObject::connect(_friendsList, SIGNAL(clicked()), this, SLOT(makeOpenFriends()));
 
     _ranking = new QPushButton(" Classement ");
     _ranking->setMaximumHeight(50);
@@ -140,6 +141,15 @@ void MenuPanelGUI::makeOpenClassement() {
 }
 
 /**
+ * Slot to open the Friends Panel
+ */
+void MenuPanelGUI::makeOpenFriends() {
+    WizardLogger::info("Ouverture du menu amis");
+    new FriendsPanelGUI(this);
+    this->hide();
+}
+
+/**
  * Slot to open the Collection
  */
 void MenuPanelGUI::makeOpenCollection() {
@@ -155,4 +165,3 @@ void MenuPanelGUI::makeOpen() {
     this->show();
     showMaximized();
 }
-

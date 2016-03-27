@@ -22,6 +22,7 @@ class RankingGUI;
 class MenuPanelGUI;
 #include "RankingGUI.hpp"
 #include "PubManager.hpp"
+#include "FriendsPanelGUI.hpp"
 class CollectionPanelGUI;
 #include "CollectionPanelGUI.hpp"
 
@@ -66,6 +67,7 @@ private slots:
     void makeOpenGame();
     void makeOpenClassement();
     void makeOpenCollection();
+    void makeOpenFriends();
 
 public slots:
     void makeOpen();
