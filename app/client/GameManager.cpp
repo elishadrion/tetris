@@ -319,3 +319,18 @@ void GameManager::adverseAttackCard(unsigned cardPosition, int targetPosition, u
 
 }
 
+/**
+ * Call when a player loose heal
+ *
+ * @param heal new amount of heal
+ * @param adverse player or not
+ */
+void GameManager::playerDamage(unsigned heal, bool adverse) {
+    if(adverse) {
+        _adverseHeal = heal;
+        wizardDisplay->advPlayerDamage();
+    } else {
+        _heal = heal;
+        wizardDisplay->playerDamage();
+    }
+}

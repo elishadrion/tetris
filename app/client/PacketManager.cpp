@@ -647,6 +647,15 @@ void PacketManager::managePlaceCardAttack(Packet::placeAttackPacket* placeAttack
 
 }
 
+/**
+ * Call when a player have a damage
+ *
+ * @param playerDamagePacket the packet
+ */
+void PacketManager::managePlayerDamage(Packet::pseudoIntPacket* playerDamagePacket) {
+
+}
+
 void PacketManager::manageEndGame(const Packet::endGamePacket* endPacket) {
     // delete GameManager::getInstance();
 

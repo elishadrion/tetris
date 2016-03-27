@@ -73,6 +73,7 @@ public:
     void placeAdverseCardAndAttack(bool, int, unsigned, int, unsigned);
     void attackCard(unsigned, int, unsigned);
     void adverseAttackCard(unsigned, int, unsigned);
+    void playerDamage(unsigned, bool);
 
 
 //    Not allready implemented

@@ -160,6 +160,16 @@ public:
      */
     virtual void cardIsDead(Card*, bool) =0;
 
+    /**
+     * Call when player have a damage and loose heal
+     */
+    virtual void playerDamage() {}
+
+    /**
+     * Call when adverse player have a damange and loose heal
+     */
+    virtual void advPlayerDamage() {}
+
 
     //////////////////////// TCHAT ////////////////////////
 

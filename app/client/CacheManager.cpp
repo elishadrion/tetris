@@ -47,7 +47,9 @@ void CacheManager::addCard(Card* newCard) {
 }
 
 void CacheManager::addPseudoRanking(std::string *pseudo) {
-    pseudoRankingCache.push_back(pseudo);
+    if(pseudo->size() > 0) {
+        pseudoRankingCache.push_back(pseudo);
+    }
 }
 
 void CacheManager::addVictoryRanking(int victory) {
