@@ -50,6 +50,18 @@ void GameManager::setDeck(std::string deckName) {
 void GameManager::setTurn(unsigned nbrTurn, bool isTurn) {
     _nbrTurn = nbrTurn;
     _isTurn = isTurn;
+
+    int valeurEnergy = nbrTurn;
+    if(valeurEnergy > MAX_ENERGY) {
+        valeurEnergy = MAX_ENERGY;
+    }
+
+    if(_isTurn) {
+        _energy = valeurEnergy;
+    } else {
+        _adverseEnergy = valeurEnergy;
+    }
+
     wizardDisplay->changeTurn();
 }
 
@@ -179,7 +191,8 @@ void GameManager::placeCardAndAttack(bool isEffectCard, int cardID, unsigned pos
                 wizardDisplay->cardIsDead(enemyCard, true);
             }
         } else {
-            WizardLogger::warning("Carte en position " + std::to_string(targetPosition) + " introuvable");
+            WizardLogger::warning("Carte en position " +
+                                  std::to_string(targetPosition) + " introuvable");
         }
     }
 
@@ -229,7 +242,8 @@ void GameManager::placeAdverseCardAndAttack(bool isEffectCard, int cardID, unsig
                 wizardDisplay->cardIsDead(enemyCard, false);
             }
         } else {
-
+            WizardLogger::warning("Carte adverse en position " +
+                                  std::to_string(targetPosition) + " introuvable");
         }
     }
 }
@@ -246,6 +260,7 @@ void GameManager::attackCard(unsigned cardPosition, int targetPosition, unsigned
     // Modify the GameManager
     Card* card = _posed[cardPosition%MAX_POSED_CARD];
 
+    _energy -= card->getEnergyCost();
     if(targetPosition == -1) {
         _adverseHeal = heal;
     } else {
@@ -266,6 +281,8 @@ void GameManager::attackCard(unsigned cardPosition, int targetPosition, unsigned
  */
 void GameManager::adverseAttackCard(unsigned cardPosition, int targetPosition, unsigned heal) {
     Card* card = _ennemyPosed[cardPosition%MAX_POSED_CARD];
+
+    _adverseEnergy -= card->getEnergyCost();
     if(targetPosition == -1) {
         _heal = heal;
         wizardDisplay->adverseAttackPlayer(card);

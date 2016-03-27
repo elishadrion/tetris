@@ -10,7 +10,7 @@ PlayerInGame::PlayerInGame(const Player& player, Game* game): Player(player),
     _deck(nullptr), _game(game) {
     _playerHeal = MAX_LIFE; //Player starts with 20 health points
      _energy = 0; //The current energy of the player
-    _maxEnergy = 1; //Every turn the maximum energy is increased up to a maximum of 10
+    _maxEnergy = 0; //Every turn the maximum energy is increased up to a maximum of 10
 
     for(unsigned i = 0; i < MAX_POSED_CARD; ++i) _cardsPlaced[i] = nullptr;
 
@@ -129,11 +129,6 @@ unsigned PlayerInGame::nbrCardDeck() {
 Card* PlayerInGame::draw() {
     Card* randomCard = _deck->pickup();
 
-    std::string debug = getName();
-    debug += ": Card: ";
-    debug += std::to_string(randomCard->getId());
-
-    WizardLogger::info(debug);
     if(randomCard != nullptr) {
         _cardsInHand.push_back(randomCard);
     }
@@ -184,7 +179,7 @@ CardMonster* PlayerInGame::getCardAtPosition(unsigned position) {
  */
 bool PlayerInGame::haveEnoughEnergy(Card* card) {
     return this->_energy > 0 &&
-        card->getEnergyCost() <= static_cast<unsigned>(this->_energy);
+        card->getEnergyCost() <= static_cast<unsigned>(_energy);
 }
 
 

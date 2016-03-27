@@ -61,7 +61,7 @@ bool Deck::isValide() {
  * @return the id of the card or -1 if empty
  */
 Card* Deck::pickup() {
-    Card* card;
+    Card* card = nullptr;
     WizardLogger::info("Pickup " + std::to_string(_listCard.size()));
     if(_listCard.size() > 0) {
         srand(time(NULL));

@@ -182,15 +182,17 @@ void Game::draw() {
  */
 void Game::draw(PlayerInGame* pIG) {
     Card* res = pIG->draw();
-    WizardLogger::info("Game: draw: " + res->getName());
     if(res == nullptr) { // If no card
         pIG->takeDamage(4);
 
+        WizardLogger::info(pIG->getName() +
+                           " n'a plus de carte il perd 3 de vie");
         PacketManager::playerDamage(_player1, pIG->getName(), pIG->getHeal());
         PacketManager::playerDamage(_player2, pIG->getName(), pIG->getHeal());
         isPlayerInLife();
 
     } else {
+        WizardLogger::info(pIG->getName() + " a pioché la carte: " + res->getName());
         PacketManager::sendCard(pIG, res);
         PacketManager::sendAdverseDraw(getAdversePlayer(pIG));
     }
@@ -345,6 +347,7 @@ Error Game::attackWithCard(PlayerInGame* pIG, int cardPosition,
     if(res == Error::NoError) {
         if(verifyTaunt(pIG, targetCard)) {
             card->dealDamage(targetCard);
+            pIG->removeEnergyFromCard(card);
             if(targetCard->isDead()) {
                 this->getAdversePlayer()->defausseCardPlaced(targetPosition);
             }
@@ -379,6 +382,7 @@ Error Game::attackWithCardAffectPlayer(PlayerInGame* pIG, int cardPosition) {
     if(res == Error::NoError) {
         if(verifyTaunt(pIG)) {
             PlayerInGame* pAdverse = getAdversePlayer(pIG);
+            pIG->removeEnergyFromCard(card);
             card->dealDamage(*pAdverse);
 
             unsigned heal = pAdverse->getHeal();

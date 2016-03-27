@@ -758,7 +758,7 @@ void GameGUI::nextTurn() {
  */
 void GameGUI::placeAdvCard(Card* card) {
     removeAdvInHandCard();
-
+    updateAdvPlayerInfo();
 
     int i = 0;
     while(i < MAX_POSED_CARD && !_advCardBoard[i]->isEmplacement()) {
