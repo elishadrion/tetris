@@ -158,6 +158,56 @@ void PacketManager::sendCardImg(Player* player, Card* card) {
     //TODO send card img to the client
 }
 
+
+//============================DECK PROCESS===========================================
+
+void PacketManager::sendDeck(Player* player) {
+    Packet::listDeckPacket* listDeckPacket = new Packet::listDeckPacket();
+
+    std::vector<Deck*> listDeck = player->getListDeck();
+    for(unsigned i = 0; i < MAX_DECKS; ++i) {
+        if(i < listDeck.size()) {
+            Deck* deck = listDeck[i];
+
+            // Nom
+            std::string nom = deck->getName();
+            unsigned current = i*MAX_DECK_NAME;
+            for(unsigned nbrNom = 0; nbrNom < MAX_DECK_NAME; ++nbrNom) {
+                if(nbrNom < nom.size()) {
+                    listDeckPacket->data.decksName[current+nbrNom] = nom[nbrNom];
+                } else {
+                    listDeckPacket->data.decksName[current+nbrNom] = ' ';
+                }
+            }
+
+            unsigned currentCard = i*DECK_SIZE;
+            for(unsigned nbrCarte = 0; nbrCarte < DECK_SIZE; ++nbrCarte) {
+                listDeckPacket->data.deckList[currentCard+nbrCarte] = deck->getCardOnIndex(nbrCarte);
+            }
+
+
+        } else {
+            // Nom
+            unsigned current = i*MAX_DECK_NAME;
+            for(unsigned nbrNom = 0; nbrNom < MAX_DECK_NAME; ++nbrNom) {
+                listDeckPacket->data.decksName[current+nbrNom] = ' ';
+            }
+
+            // List carte
+            unsigned currentCard = i*DECK_SIZE;
+            for(unsigned nbrCarte = 0; nbrCarte < DECK_SIZE; ++nbrCarte) {
+                listDeckPacket->data.deckList[currentCard+nbrCarte] = -1;
+            }
+        }
+    }
+
+
+    /* Send and free */
+    player->sendPacket((Packet::packet*) listDeckPacket, sizeof(*listDeckPacket));
+    delete listDeckPacket;
+}
+
+
 //============================TCHAT PROCESS===========================================
 
 void PacketManager::playerSendMsg(Player* player, const Packet::tchatSendMsgPacket* msgPacket) {

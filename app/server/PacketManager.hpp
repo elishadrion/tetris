@@ -51,6 +51,8 @@ namespace PacketManager {
     /* Card process */
     void sendCardInfo(Player*, Card*); /* CARTE_INFO_ID */
     void sendCardImg(Player*, Card*); /* CARTE_IMG_ID */
+
+    // Deck process
     void sendDeck(Player*);
     
     /* Tchat process */
