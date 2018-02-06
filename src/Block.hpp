@@ -1,6 +1,4 @@
-
-
-class Block{
+class Block {
 
 	private:
 		int color = 0;
