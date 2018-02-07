@@ -1,47 +1,36 @@
+/*
+Groupe 2 : 3V-CUBE
+
+Block.hpp
+*/
+#ifndef __Block__HPP__
+#define __Block__HPP__
+
 class Block {
 
+
 	private:
-		int color = 0;
-		int * coordinates;
-		bool block_empty = true;
+
+		int _color = 0;
+		int * _coordinates;
+		bool _block_Empty = true;
 
 
 	public:
-		Block(){
-			coordinates = new int[2];
 
-		}
-		~Block(){
+		Block();
+		~Block();
 
-			delete coordinates;
+		int getColor();
+		int get_Y();
+		int get_X();
 
-		}
+		void setColor(int color);		
+		void setCoordinates(int Y, int X );
+		void setState(bool etat);
 
-		int getColor(){return color;}
+		bool isEmpty();
 		
-		void setCoordinates(int Y, int X ){
-			coordinates[0]= Y;
-			coordinates[1]= X;
-		}
-		int get_Y(){
-			return coordinates[0];
-			
-		}
-
-		int get_X(){
-			return coordinates[1];
-			
-		}
-
-		bool isEmpty(){
-
-			return block_empty;
-		}
-
-		void setState(bool etat){
-			block_empty = etat;
-		}
-
 
 
 
@@ -50,3 +39,4 @@ class Block {
 
 
 };
+#endif
