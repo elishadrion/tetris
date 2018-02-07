@@ -21,18 +21,32 @@ Server::Server(int port) {
         std::cout << "\nErreur lors de la liaison du socket au port\n";
         exit(1);
     }
+    is_running = true;
     listen(sockfd, 100);
 }
 
 void Server::accept() {
     sin_size = sizeof(struct sockaddr_in);
-	while (1) {
+	while (is_running) {
 		if ((client = accept(server, (struct sockadrr *)&client_address, &sin_size)) == -1){
 			std::cout << "\nClient " << inet_ntoa(client_address.sin_addr) << " n'a pas pu se connecté\n";
 		}
         else {
-		    pthread_create(&thread, NULL, receive, (void *) create_client(client_sockfd));
+		    pthread_create(&thread, NULL, &receive, (void *) client);
         }
 		
 	}
+    stop();
+}
+
+void* Server::receive(void* arg) {
+    //Quand un thread détaché se termine, ses ressources sont automatiquement
+    //retournées au système sans avoir besoin de faire de join
+    pthread_detach(pthread_self());
+}
+
+void Server::stop() {
+    is_running = false;
+    close(server);
+    close(client);
 }

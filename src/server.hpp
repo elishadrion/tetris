@@ -20,13 +20,15 @@ class Server {
 
     private:
         int server, client, n;
+        bool is_running;
         socklen_t sin_size;
         struct sockaddr_in server_address, client_address;
         pthread_t thread;
         char msg[MAXPACKETSIZE];
 
+        void stop();
         void accept();
-        void receive();
+        void* receive(void* arg);
         void send(string msg);
 }
 
