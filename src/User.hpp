@@ -9,7 +9,7 @@ class User {
 
     private:
         string username;
-        char* message[MAX_SIZE];
+        char message[MAX_SIZE];
         bool is_online;
 
     public:

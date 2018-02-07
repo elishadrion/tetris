@@ -1,5 +1,5 @@
 #include "server.hpp"
-
+#include "../Group2/src/dependencies/CSVparser/CSVparser.hpp"
 Server::Server(int port) {
 
     //Connexion socket
@@ -43,12 +43,32 @@ void* Server::receive(void* arg) {
     //Quand un thread détaché se termine, ses ressources sont automatiquement
     //retournées au système sans avoir besoin de faire de join
     pthread_detach(pthread_self());
+
+    int socketfd = (int) arg;
+    int numbytes;
+	char message[MAXPACKETSIZE];
+    char code[2];
+	string username;
+
     users[num_users] = new User;
+    User user = users[num_users];
     num_users++;
-    if (!signup(users[num_users])) {
-        delete users[num_users];
-        num_users--;
+
+    while (user.is_online()) {
+        numbytes = recv(socketfd, message, MAXPACKETSIZE, 0);
+        strncpy(code, message, 2);
+        switch (code) {
+            case '01':
+                login();
+                break;
+            case '02':
+                signup(user);
+                break;
+        }
     }
+
+	close(socketfd);
+	pthread_exit(NULL);
      
 }
 
