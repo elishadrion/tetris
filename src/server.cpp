@@ -43,6 +43,17 @@ void* Server::receive(void* arg) {
     //Quand un thread détaché se termine, ses ressources sont automatiquement
     //retournées au système sans avoir besoin de faire de join
     pthread_detach(pthread_self());
+    users[num_users] = new User;
+    num_users++;
+    if (!signup(users[num_users])) {
+        delete users[num_users];
+        num_users--;
+    }
+     
+}
+
+bool signup(User * user) {
+
 }
 
 void Server::stop() {
