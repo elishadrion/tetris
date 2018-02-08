@@ -18,6 +18,16 @@ class Server {
 
     public:
         Server(int port);
+        void stop();
+        void accept();
+        bool signup(char*);
+        bool login(User&, char*);
+        void* receive(void* arg);
+        void send(string msg);
+
+        void extract_username(std::string&, std::string&, std::string&);
+        bool user_already_connected(const std::string&);
+        bool user_already_existing(const std::string& user);
 
     private:
         int server, client, n;
@@ -30,17 +40,6 @@ class Server {
         struct sockaddr_in server_address, client_address;
         pthread_t thread;
         char msg[MAXPACKETSIZE];
-
-        void stop();
-        void accept();
-        bool signup(char*);
-        bool login(User&, char*);
-        void* receive(void* arg);
-        void send(string msg);
-
-        void extract_username(std::string&, std::string&, std::string&);
-        bool user_already_connected(const std::string&);
-        bool user_already_existing(const std::string& user);
 }
 
 #endif

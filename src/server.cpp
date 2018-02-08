@@ -70,7 +70,11 @@ void* Server::receive(void* arg) {
                 break;
 
             case '02':
-                signup(message);
+                bool successful_signup = signup(message);
+                if (successful_signup)
+                    send(socketfd, "01:", 4, 0);
+                else
+                    send(socketfd, "02:", 4, 0);   
                 break;
         }
     }
