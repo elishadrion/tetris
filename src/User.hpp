@@ -8,14 +8,16 @@
 class User {
 
     private:
-        string username;
-        char message[MAX_SIZE];
-        bool is_online;
+        std::string username;
+        std::string message;
 
     public:
-        string get_username();
-        void set_message(char * buffer);
-        char* get_message();
+        //SETTERS
+        void set_message(std::string);
+        void set_username(std::string);
+        //GETTERS
+        std::string get_username();
+        std::string get_message();
 
 }
 

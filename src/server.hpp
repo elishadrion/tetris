@@ -34,11 +34,13 @@ class Server {
         void stop();
         void accept();
         bool signup(char*);
-        bool login(char*);
+        bool login(User&, char*);
         void* receive(void* arg);
         void send(string msg);
 
         void extract_username(std::string&, std::string&, std::string&);
+        bool user_already_connected(const std::string&);
+        bool user_already_existing(const std::string& user);
 }
 
 #endif

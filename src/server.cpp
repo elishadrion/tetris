@@ -62,7 +62,7 @@ void* Server::receive(void* arg) {
         switch (code) {
 
             case '01':
-                bool successful_login = login(message);
+                bool successful_login = login(user, message);
                 if (successful_login)
                     send(socketfd, "01:", 4, 0);
                 else
@@ -80,29 +80,45 @@ void* Server::receive(void* arg) {
      
 }
 
-bool login(char* message) {
+/*
+    Connexion de l'utilisateur.
+*/
+bool login(User& user, char* message) {
     csv::Parser file = csv::Parser("../data/database.csv");
     std::string message;
     message.copy(message, MAXPACKETSIZE, 0);
     std::string username, password;
     extract_credentials(message, username, password);
+    //Quitte si l'utilisateur est déjà connecté sur une autre machine
+    if (user_already_existing(username)) {
+        return false;
+    }
+    //Vérification que l'utilisateur est bien déjà inscrit
     for (unsigned i = 0; i < file.rowCount(); i++) {
-        if (file[i][0] == username && file[i][1] == password)
+        if (file[i][0] == username && file[i][1] == password) {
+            user.set_username(username);
             return true;
+        }
     }
     return false;
 
 }
 
+/*
+    Inscription de l'utilisateur.
+*/
 bool signup(char* message) {
     std::string message;
     message.copy(message, MAXPACKETSIZE, 0);
     std::string username, password;
     extract_credentials(message, username, password);
-    
+    if (user_already_existing(username)) {
+        return false;
+    }
     std::ofstream outfile;
     outfile.open("../data/database.csv", std::ios_base::app);
     outfile << username << "," << password << std::endl; 
+    return true;
 }
 
 void Server::stop() {
@@ -111,6 +127,9 @@ void Server::stop() {
     close(client);
 }
 
+/*
+    Recupère le pseudo ainsi que le mot de passe envoyé par le client.
+*/
 void extract_credentials(std::string& message, std::string& username, std::string& password) {
     //On commence à 3 car le message est XX:username:password
     //où XX est le code
@@ -123,4 +142,28 @@ void extract_credentials(std::string& message, std::string& username, std::strin
         username.assign(message, 3, found1-3);
     if (found2 != std::string::npos)
         password.assign(message, found1+1, found2-1-found1);
+}
+
+/*
+    Renvoie true si un utilisateur avec ce pseudo est déjà connecté.
+*/
+bool user_already_connected(const std::string& user) {
+    for (unsigned i = 0; i < num_users; i++) {
+        if (users[i].get_username() == user)
+            return true;
+    }
+    return false;
+}
+
+/*
+    Renvoie true si un utilisateur avec ce pseudo est déjà inscrit.
+*/
+bool user_already_existing(const std::string& user) {
+    csv::Parser file = csv::Parser("../data/database.csv");
+    for (unsigned i = 0; i < file.rowCount(); i++) {
+        if (file[i][0] == username) {
+            return true;
+        }
+    }
+    return false;
 }
