@@ -13,8 +13,13 @@ int main(){
 
 	
 	initscr(); // première routine à appelé avant d'initialiser un programme.
+
+
 	Game * game = new Game();
 	game->start_Game();
+
+
+	
 	
 	delete game;
 	endwin();

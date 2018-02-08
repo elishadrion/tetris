@@ -32,13 +32,17 @@ class Grid{
 		bool isReachingFloor();
 		bool isCollidingRight();
 		bool isCollidingLeft();
+		bool isCollidingRotation(int rotationMat[2][2]);
 		bool isEmpty(int i, int j);
 
-		void fix_block();
+		bool fix_block();
 		void check_lines();
+
 
 		void currentTetriminosMoveRight();
 		void currentTetriminosMoveLeft();
+		void currentTetriminosTurnRight();
+		void currentTetriminosTurnLeft();
 		
 
 

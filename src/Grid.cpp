@@ -93,55 +93,113 @@ bool Grid::isReachingFloor(){
 
 
 bool Grid::isCollidingRight() {
-
-	bool flag = false;
+	/*
+	:return cantMove: bool
+	Vérifie si un tétriminos peut faire un mouvement faire la droite.
+	*/
+	bool cantMove = false;
 
 	for(int i =0; i<4; i++){
 		
 		if(  _grid[_currentTetriminos->getCoordY_block(i)]
-			        [_currentTetriminos->getCoordX_block(i)+1].isEmpty() == false ) 
+			      [_currentTetriminos->getCoordX_block(i)+1].isEmpty() == false ) 
 
-			{flag = true;}
+			{cantMove = true;}
 
 
 	}
-	return flag;
+	return cantMove;
 
 	
 }
 
 bool Grid::isCollidingLeft() {
+	/*
+	:param cantMove: bool
+		Vérifie si un tétriminos peut faire un mouvement faire la gauche.
+	*/
 
-	bool flag = false;
+	bool cantMove = false;
 
 	for(int i =0; i<4; i++){
 		
 		if( _grid[_currentTetriminos->getCoordY_block(i)]
-			        [_currentTetriminos->getCoordX_block(i)-1].isEmpty() == false ) 
+			     [_currentTetriminos->getCoordX_block(i)-1].isEmpty() == false ) 
 
-			{flag = true;}
+			{cantMove = true;}
 
 
 	}
-	return flag;
+	return cantMove;
 
 	
 }
 
 
-void Grid::fix_block(){
+bool Grid::isCollidingRotation(int rotationMat[2][2]) {
+	/*
+	:param cantTurn: bool
+		Vérifie si un tétriminos peut faire une rotation vers la droite ou la gauche.
+	*/
+	bool cantTurn = false;
+	int matVector [2];
+
+	for(int i =0; i<4 ;i++){
+
+		// Le deuxième block de chaque tétriminos est le pivot.
+		if(i!=1){
+
+			matVector[0] = _currentTetriminos->getCoordY_block(i) -  _currentTetriminos->getCoordY_block(1);
+			matVector[1] = _currentTetriminos->getCoordX_block(i) -  _currentTetriminos->getCoordX_block(1);
+
+		
+
+			int save = matVector[0];
+
+			matVector[0] =( matVector[0] * rotationMat[0][0] )+(  matVector[1] * rotationMat[0][1]);
+			matVector[1] =( save *  rotationMat[1][0] ) + (matVector[1] * rotationMat[1][1] );
+
+			int matTemp[2];
+			matTemp[0] = _currentTetriminos->getCoordY_block(1) + matVector[0];
+			matTemp[1] = _currentTetriminos->getCoordX_block(1) + matVector[1];
+				
+			if( matTemp[0]<0 or matTemp[1]<0 or matTemp[1]>10 or 
+			    _grid[matTemp[0]][matTemp[1]].isEmpty() == false )
+			    { cantTurn = true;}
+
+		}
+
+	}
+
+	return cantTurn;
+}
+
+
+
+bool Grid::fix_block(){
 	/*
 	Le tetriminos courant va se casser et tous ses blocks vont remplacer
 	les blocks vides de la grille.
 	*/
-
+	bool flag = false;
 	for(int i =0; i<4; i++){
 		
 		_grid[_currentTetriminos->getCoordY_block(i)]
 			 [_currentTetriminos->getCoordX_block(i)].setState(false);
 		
+		if(_currentTetriminos->getCoordY_block(i) == 0 and
+		   _currentTetriminos->getCoordX_block(i) > 2 and
+		   _currentTetriminos->getCoordX_block(i) < 6   ){
+
+
+			flag = true;
+		}
+
+
 
 	}
+
+	return flag;
 }
 
 
@@ -194,7 +252,7 @@ void Grid::check_lines(){
 
 			for(int j = 0; j<10; j++){
 				
-				if(_grid[i-1][j].isEmpty() == false and _grid[i][j].isEmpty() == true ){
+				if( not(_grid[i-1][j].isEmpty() ) and _grid[i][j].isEmpty()){
 					
 
 					_grid[i][j].setState(false);
@@ -220,6 +278,20 @@ void Grid::currentTetriminosMoveRight(){
 void Grid::currentTetriminosMoveLeft(){
 
 	if(not(isCollidingLeft())){_currentTetriminos->move_left();}
+
+
+}
+
+void Grid::currentTetriminosTurnRight(){
+	int matRotation[2][2] =  {{0,1},{-1,0}};
+	if( not(isCollidingRotation(matRotation)) ){_currentTetriminos->turn(matRotation);};
+
+
+}
+
+void Grid::currentTetriminosTurnLeft(){
+	int matRotation[2][2] =  {{0,-1},{1,0}};
+	if( not(isCollidingRotation(matRotation)) ){_currentTetriminos->turn(matRotation);}
 
 
 }

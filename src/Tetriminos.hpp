@@ -31,11 +31,8 @@ class Tetriminos{
 		void drop();
 		void move_right();
 		void move_left();
-		
 
-
-		
-
+		void turn(int rotationMat[2][2]);
 		
 
 

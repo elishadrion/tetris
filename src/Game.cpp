@@ -3,7 +3,9 @@ Groupe 2 : 3V-CUBE
 
 Game.cpp
 */
+
 #include "Game.hpp"
+
 void player_choice(Grid * grid){
 	int ch;
 
@@ -13,8 +15,20 @@ void player_choice(Grid * grid){
 			grid->currentTetriminosMoveRight();
 		}
 		else if (ch == KEY_LEFT) {
+			
 			grid->currentTetriminosMoveLeft();
 		}
+		else if(ch ==  'd'){
+
+			grid->currentTetriminosTurnRight();
+
+		}
+		else if(ch ==  'q'){
+
+			grid->currentTetriminosTurnLeft();
+
+		}
+
 	}
 }
 
@@ -54,7 +68,8 @@ void Game::start_Game(){
 	std::thread thread_joueur (player_choice,grid); // Thread pour les inputs du joueur
 
 
-	 while(1){
+	bool gridOverload = false;
+	while(not(gridOverload)){
 
 		Tetriminos * newTetriminos = new Tetriminos(template_tetriminos[rand()%(7)]);
 		
@@ -73,21 +88,25 @@ void Game::start_Game(){
 			myGUI->update_grid_GUI(grid);
 
 			if(grid->isReachingFloor()){
-				grid->fix_block(); 
+				gridOverload = grid->fix_block(); 
 				tetriminosIsFix = true;
 			}
 
-			usleep(200000);
+			usleep(300000);
 
 		}
 		
 		
-	delete newTetriminos;
+		delete newTetriminos;
 	
 	
 
 	 
-}
+	}
+
+	thread_joueur.detach();
+
+
 
 		
     		

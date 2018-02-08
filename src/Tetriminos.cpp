@@ -107,7 +107,17 @@ void Tetriminos::move_right(){
 	Cette fonction permet de déplacer d'une unité
 	vers la droite, les blocks d'un tétriminos.
 	*/
-	if(_list_block[3].get_X()+1 <10){
+	int blockMostRight = 0;
+
+	for(int i=1; i<4; i++ ){
+		if(_list_block[i].get_X() > _list_block[blockMostRight].get_X()){
+
+			blockMostRight = i;
+		}
+
+	}
+
+	if(_list_block[blockMostRight].get_X()+1 <10){
 
 		for(int i=0; i<4;i++){
 
@@ -125,7 +135,17 @@ void Tetriminos::move_left(){
 	vers la gauche, les blocks d'un tétriminos.
 	*/
 
-	if(_list_block[0].get_X() -1 > -1){
+	int blockMostLeft = 0;
+
+	for(int i=1; i<4; i++ ){
+		if(_list_block[i].get_X() < _list_block[blockMostLeft].get_X()){
+
+			blockMostLeft = i;
+		}
+
+	}
+
+	if(_list_block[blockMostLeft].get_X() -1 > -1){
 		
 		for(int i=0; i<4;i++){
 
@@ -136,3 +156,41 @@ void Tetriminos::move_left(){
 
 
 }
+
+void Tetriminos::turn( int rotationMat[2][2]){
+	/*
+	:param rotationMat: int[2][2]
+	
+		Cette fonction permet faire tourner dans le sens horlogé et
+		anti-horlogé le tétrimino. 
+
+	*/
+	
+	int matVector [2];
+	for(int i =0; i<4;i++){
+
+		// Le deuxième block de chaque tétriminos est le pivot.
+		if(i!=1){
+
+			matVector[0] = _list_block[i].get_Y() - _list_block[1].get_Y();
+			matVector[1] = _list_block[i].get_X() - _list_block[1].get_X();
+
+		
+
+			int save = matVector[0];
+
+			matVector[0] =( matVector[0] * rotationMat[0][0] )+(  matVector[1] * rotationMat[0][1]);
+			matVector[1] =( save *  rotationMat[1][0] ) + (matVector[1] * rotationMat[1][1] );
+
+			int matTemp[2];
+			matTemp[0] = _list_block[1].get_Y() + matVector[0];
+			matTemp[1] = _list_block[1].get_X() + matVector[1];
+			_list_block[i].setCoordinates(matTemp[0],matTemp[1]);
+			_list_block[i].setState(false);
+
+		}
+
+	}
+
+}
+

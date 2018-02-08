@@ -6,7 +6,7 @@ GUI.hpp
 #ifndef __GUI__HPP__
 #define __GUI__HPP__
 #include <ncurses.h>
-#include<string.h>
+#include <string.h>
 #include "Grid.hpp"
 
 

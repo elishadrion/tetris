@@ -7,7 +7,7 @@ GUI.cpp
 
 
 GUI::GUI(){}
-GUI::~GUI(){delete boite;}
+GUI::~GUI(){delwin(boite);}
 
 
 void GUI::init_window_GUI(){
@@ -25,27 +25,28 @@ void GUI::window_grid_GUI(){
 	int taille = strlen(msg);
 
 		
+	
+	clear(); 
+	
+	mvprintw(2, 12, "TETRIS");
+
+	boite = subwin(stdscr, 20+2, 10+2, 4, 10);
+
+
+	box(boite, ACS_VLINE, ACS_HLINE); // ACS_VLINE et ACS_HLINE sont des constantes qui génèrent des bordures par défaut
+	
+	refresh();
 	while(1) {
-		clear(); 
-		
-		mvprintw(2, 12, "TETRIS");
-
-			boite= subwin(stdscr, 20+2, 10+2, 4, 10);
-
-
-		box(boite, ACS_VLINE, ACS_HLINE); // ACS_VLINE et ACS_HLINE sont des constantes qui génèrent des bordures par défaut
-		
-		refresh();
 		if(getch() != 410)
-    		break;
-		}
-
-
-
-
-
-
+			break;
 	}
+
+
+
+
+
+
+}
 
 
 
@@ -58,9 +59,11 @@ void GUI::update_grid_GUI(Grid * grid){
 			if(grid->getTetriminos()->hasBlock(i,k)){
 				mvprintw(5+i, 11+k, "x");
 			}
+
 			else if(grid->isEmpty(i,k) == false){
 				mvprintw(5+i, 11+k, "x");
 			}
+
 			else{
 				mvprintw(5+i, 11+k, " ");
 			}
