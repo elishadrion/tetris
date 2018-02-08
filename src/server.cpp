@@ -64,7 +64,9 @@ void* Server::receive(void* arg) {
             case '01':
                 bool successful_login = login(message);
                 if (successful_login)
-                    send(socketfd, "Failure to login!", 18, 0);
+                    send(socketfd, "01:", 4, 0);
+                else
+                    send(socketfd, "02:", 4, 0);     
                 break;
 
             case '02':
@@ -93,7 +95,14 @@ bool login(char* message) {
 }
 
 bool signup(char* message) {
-
+    std::string message;
+    message.copy(message, MAXPACKETSIZE, 0);
+    std::string username, password;
+    extract_credentials(message, username, password);
+    
+    std::ofstream outfile;
+    outfile.open("../data/database.csv", std::ios_base::app);
+    outfile << username << "," << password << std::endl; 
 }
 
 void Server::stop() {
