@@ -33,10 +33,12 @@ class Server {
 
         void stop();
         void accept();
-        bool signup(User *);
-        bool login();
+        bool signup(char*);
+        bool login(char*);
         void* receive(void* arg);
         void send(string msg);
+
+        void extract_username(std::string&, std::string&, std::string&);
 }
 
 #endif

@@ -1,5 +1,7 @@
 #include "server.hpp"
 #include "../Group2/src/dependencies/CSVparser/CSVparser.hpp"
+#include <fstream>
+
 Server::Server(int port) {
 
     //Connexion socket
@@ -58,11 +60,15 @@ void* Server::receive(void* arg) {
         numbytes = recv(socketfd, message, MAXPACKETSIZE, 0);
         strncpy(code, message, 2);
         switch (code) {
+
             case '01':
-                login();
+                bool successful_login = login(message);
+                if (successful_login)
+                    send(socketfd, "Failure to login!", 18, 0);
                 break;
+
             case '02':
-                signup(user);
+                signup(message);
                 break;
         }
     }
@@ -72,7 +78,21 @@ void* Server::receive(void* arg) {
      
 }
 
-bool signup(User * user) {
+bool login(char* message) {
+    csv::Parser file = csv::Parser("../data/database.csv");
+    std::string message;
+    message.copy(message, MAXPACKETSIZE, 0);
+    std::string username, password;
+    extract_credentials(message, username, password);
+    for (unsigned i = 0; i < file.rowCount(); i++) {
+        if (file[i][0] == username && file[i][1] == password)
+            return true;
+    }
+    return false;
+
+}
+
+bool signup(char* message) {
 
 }
 
@@ -80,4 +100,18 @@ void Server::stop() {
     is_running = false;
     close(server);
     close(client);
+}
+
+void extract_credentials(std::string& message, std::string& username, std::string& password) {
+    //On commence à 3 car le message est XX:username:password
+    //où XX est le code
+    std::size_t found1 = message.find(":", 3);
+    //cherche la position du dernier :, qui délimite le mdp
+    std::size_t found2 = message.find(":", found1+1);
+    //on copie dans username, le substring à partir de 3 jusqu'au prochain :
+    //donc tout l'username
+    if (found1 != std::string::npos)
+        username.assign(message, 3, found1-3);
+    if (found2 != std::string::npos)
+        password.assign(message, found1+1, found2-1-found1);
 }
