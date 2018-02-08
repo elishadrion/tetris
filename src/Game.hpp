@@ -12,10 +12,6 @@ Game.hpp
 #include <string.h>
 #include <sys/time.h>
 #include "GUI.hpp"
-#include "Grid.hpp"
-
-
-
 
 
 class Game{
@@ -34,6 +30,7 @@ class Game{
 										 {{-1,4},{-1,5},{0,5}, {0,6}},   // Z droit
 										 {{0,3}, {0,4}, {-1,4},{0,5}}    // T 
 										};
+		int _acceleration = 400000 ;
 
 	public:
 		
@@ -42,9 +39,12 @@ class Game{
     
     	void start();
 		
-		void start_Game();
+		void start_classic_Game();
+		void start_sprint_Game();
+		void start_marathon_Game();
+		int tetriminosDropping(Tetriminos * newTetriminos);
 		
-    		
+    	void init();
     
 
 

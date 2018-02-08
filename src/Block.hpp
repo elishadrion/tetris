@@ -31,12 +31,5 @@ class Block {
 
 		bool isEmpty();
 		
-
-
-
-
-
-
-
 };
 #endif

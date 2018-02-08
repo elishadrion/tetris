@@ -12,17 +12,17 @@ main.cpp
 int main(){
 
 	
-	initscr(); // première routine à appelé avant d'initialiser un programme.
+	
 
 
 	Game * game = new Game();
-	game->start_Game();
+	game->start_marathon_Game();
 
 
 	
 	
 	delete game;
-	endwin();
+	
 
 	
 

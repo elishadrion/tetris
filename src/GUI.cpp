@@ -6,8 +6,13 @@ GUI.cpp
 #include "GUI.hpp"
 
 
-GUI::GUI(){}
-GUI::~GUI(){delwin(boite);}
+GUI::GUI(){ initscr(); // première routine à appelé avant d'initialiser un programme.
+
+			noecho();    // On cache les inputs du terminal.
+			
+			keypad(stdscr, TRUE);
+		  }
+GUI::~GUI(){endwin();delwin(boite);}
 
 
 void GUI::init_window_GUI(){

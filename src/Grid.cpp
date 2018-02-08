@@ -174,9 +174,25 @@ bool Grid::isCollidingRotation(int rotationMat[2][2]) {
 	return cantTurn;
 }
 
+bool Grid::isOverload(){
+
+	bool flag = false;
+	for(int i =0; i<4; i++){
+		
+		if(_currentTetriminos->getCoordY_block(i) == 0 and
+		   _currentTetriminos->getCoordX_block(i) > 2 and
+		   _currentTetriminos->getCoordX_block(i) < 6   ){
 
 
-bool Grid::fix_block(){
+			flag = true;
+		}
+
+	}
+
+	return flag;
+}
+
+void Grid::fix_block(){
 	/*
 	Le tetriminos courant va se casser et tous ses blocks vont remplacer
 	les blocks vides de la grille.
@@ -199,11 +215,10 @@ bool Grid::fix_block(){
 
 	}
 
-	return flag;
 }
 
 
-void Grid::check_lines(){
+int Grid::check_lines(){
 	/*	
 	On vérifie chaque ligne de la grille et on les supprime
 	si elles sont complètes. On réarrange ainsi la grille.
@@ -262,7 +277,7 @@ void Grid::check_lines(){
 
 		}
 
-
+		return lineCounter;
 
 }
 
@@ -287,6 +302,20 @@ void Grid::currentTetriminosTurnRight(){
 	if( not(isCollidingRotation(matRotation)) ){_currentTetriminos->turn(matRotation);};
 
 
+}
+
+
+
+void Grid::currentTetriminosHardDrop(){
+
+	while( not(isReachingFloor())){
+
+		_currentTetriminos->drop();
+
+		
+	}
+
+	
 }
 
 void Grid::currentTetriminosTurnLeft(){

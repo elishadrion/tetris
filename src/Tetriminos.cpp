@@ -7,6 +7,8 @@ Tetriminos.cpp
 #include "Tetriminos.hpp"
 
 
+ 
+
 Tetriminos::Tetriminos( int template_tetriminos[4][2]){
 	/*
 	:param template_tetriminos: int[][]
@@ -19,9 +21,12 @@ Tetriminos::Tetriminos( int template_tetriminos[4][2]){
 	
 	for(int i =0; i<4;i++){
 
+		
 		_list_block[i].setCoordinates(template_tetriminos[i][0],
 									  template_tetriminos[i][1]
 									  );
+
+		
 	} 
 }
 
@@ -94,9 +99,12 @@ void Tetriminos::drop(){
 	
 	for(int i=0; i<4;i++){
 
+		//mutex.lock();
+
 		_list_block[i].setCoordinates( _list_block[i].get_Y()+1,
 									   _list_block[i].get_X()   );
-
+	
+		//mutex.unlock();
 	}
 
 
