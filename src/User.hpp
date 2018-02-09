@@ -1,7 +1,7 @@
 #ifndef USER_HPP
 #define USER_HPP
 
-#include <string.h>
+#include <string>
 
 #define MAX_SIZE 140
 

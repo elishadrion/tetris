@@ -28,12 +28,14 @@ Server::Server(int port) {
 }
 
 void Server::accept_clients() {
+	std::cout << "\nOn attend de nouveaux clients!\n";
     sin_size = sizeof(client_address);
 	while (is_running) {
 		if ((client = accept(server, (struct sockaddr*)&client_address, &sin_size)) == -1){
 			std::cout << "\nClient " << inet_ntoa(client_address.sin_addr) << " n'a pas pu se connecté\n";
 		}
         else {
+        	std::cout << "\nClient " << inet_ntoa(client_address.sin_addr) << " s'est connecté!\n";
 		    std::thread t(&Server::receive, this, client);
         }
 		
