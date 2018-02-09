@@ -19,6 +19,6 @@ class User {
         std::string get_username();
         std::string get_message();
 
-}
+};
 
 #endif

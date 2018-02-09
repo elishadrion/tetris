@@ -10,7 +10,7 @@ Client::Client() {
 	}
 	
 	server_address.sin_family = AF_INET;
-	server_address.sin_port = htons(PORT);
+	server_address.sin_port = htons(5555);
 	server_address.sin_addr = *((struct in_addr *)hostinfo->h_addr);
 	memset(&(server_address.sin_zero), '\0', 8);
 	

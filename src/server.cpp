@@ -1,5 +1,5 @@
 #include "server.hpp"
-#include "../Group2/src/dependencies/CSVparser/CSVparser.hpp"
+#include "dependencies/CSVparser/CSVparser.hpp"
 #include <fstream>
 
 Server::Server(int port) {
@@ -19,78 +19,74 @@ Server::Server(int port) {
 	//bind permet d'associer un socket à un numéro de port sur la machine locale.
 	//Le numérod de port est utilisé pour associer les paquets entrants dans la machine vers un
 	//socket descriptor particulier
-	if ((bind(sockfd, (struct sockaddr *)&server_address, sizeof(server_address)) <0) {
+	if ((bind(server, (struct sockaddr *)&server_address, sizeof(server_address)) <0)) {
         std::cout << "\nErreur lors de la liaison du socket au port\n";
         exit(1);
     }
     is_running = true;
-    listen(sockfd, 100);
+    listen(server, 100);
 }
 
-void Server::accept() {
-    sin_size = sizeof(struct sockaddr_in);
+void Server::accept_clients() {
+    sin_size = sizeof(client_address);
 	while (is_running) {
-		if ((client = accept(server, (struct sockadrr *)&client_address, &sin_size)) == -1){
+		if ((client = accept(server, (struct sockaddr*)&client_address, &sin_size)) == -1){
 			std::cout << "\nClient " << inet_ntoa(client_address.sin_addr) << " n'a pas pu se connecté\n";
 		}
         else {
-		    pthread_create(&thread, NULL, &receive, (void *) client);
+		    std::thread t(&Server::receive, this, client);
         }
 		
 	}
     stop();
 }
 
-void* Server::receive(void* arg) {
+void Server::receive(int arg) {
     //Quand un thread détaché se termine, ses ressources sont automatiquement
     //retournées au système sans avoir besoin de faire de join
-    pthread_detach(pthread_self());
 
     int socketfd = (int) arg;
     int numbytes;
 	char message[MAXPACKETSIZE];
-    char code[2];
-	string username;
+    std::string code;
+	std::string username;
 
     users[num_users] = new User;
-    User user = users[num_users];
+    User* user = users[num_users];
     num_users++;
 
-    while (user.is_online()) {
+    while (1) {
         numbytes = recv(socketfd, message, MAXPACKETSIZE, 0);
-        strncpy(code, message, 2);
-        switch (code) {
+        code.assign(message, 2);
 
-            case '01':
-                bool successful_login = login(user, message);
-                if (successful_login)
-                    send(socketfd, "01:", 4, 0);
-                else
-                    send(socketfd, "02:", 4, 0);     
-                break;
-
-            case '02':
-                bool successful_signup = signup(message);
-                if (successful_signup)
-                    send(socketfd, "01:", 4, 0);
-                else
-                    send(socketfd, "02:", 4, 0);   
-                break;
+        if (code == "01") {
+            bool successful_login = login(user, message);
+            if (successful_login)
+                send(socketfd, "01:", 4, 0);
+            else
+                send(socketfd, "02:", 4, 0);     
         }
+
+        else if (code == "02") {
+            bool successful_signup = signup(message);
+            if (successful_signup)
+                send(socketfd, "01:", 4, 0);
+            else
+                send(socketfd, "02:", 4, 0);  
+        } 
     }
 
 	close(socketfd);
-	pthread_exit(NULL);
      
 }
 
 /*
     Connexion de l'utilisateur.
 */
-bool login(User& user, char* message) {
+bool Server::login(User* user, char arg[MAXPACKETSIZE]) {
     csv::Parser file = csv::Parser("../data/database.csv");
     std::string message;
-    message.copy(message, MAXPACKETSIZE, 0);
+    message.copy(arg, MAXPACKETSIZE, 0);
     std::string username, password;
     extract_credentials(message, username, password);
     //Quitte si l'utilisateur est déjà connecté sur une autre machine
@@ -100,7 +96,7 @@ bool login(User& user, char* message) {
     //Vérification que l'utilisateur est bien déjà inscrit
     for (unsigned i = 0; i < file.rowCount(); i++) {
         if (file[i][0] == username && file[i][1] == password) {
-            user.set_username(username);
+            user->set_username(username);
             return true;
         }
     }
@@ -111,9 +107,9 @@ bool login(User& user, char* message) {
 /*
     Inscription de l'utilisateur.
 */
-bool signup(char* message) {
+bool Server::signup(char* arg) {
     std::string message;
-    message.copy(message, MAXPACKETSIZE, 0);
+    message.copy(arg, MAXPACKETSIZE, 0);
     std::string username, password;
     extract_credentials(message, username, password);
     if (user_already_existing(username)) {
@@ -134,7 +130,7 @@ void Server::stop() {
 /*
     Recupère le pseudo ainsi que le mot de passe envoyé par le client.
 */
-void extract_credentials(std::string& message, std::string& username, std::string& password) {
+void Server::extract_credentials(std::string& message, std::string& username, std::string& password) {
     //On commence à 3 car le message est XX:username:password
     //où XX est le code
     std::size_t found1 = message.find(":", 3);
@@ -151,9 +147,9 @@ void extract_credentials(std::string& message, std::string& username, std::strin
 /*
     Renvoie true si un utilisateur avec ce pseudo est déjà connecté.
 */
-bool user_already_connected(const std::string& user) {
+bool Server::user_already_connected(const std::string& user) {
     for (unsigned i = 0; i < num_users; i++) {
-        if (users[i].get_username() == user)
+        if (users[i]->get_username() == user)
             return true;
     }
     return false;
@@ -162,10 +158,10 @@ bool user_already_connected(const std::string& user) {
 /*
     Renvoie true si un utilisateur avec ce pseudo est déjà inscrit.
 */
-bool user_already_existing(const std::string& user) {
+bool Server::user_already_existing(const std::string& user) {
     csv::Parser file = csv::Parser("../data/database.csv");
     for (unsigned i = 0; i < file.rowCount(); i++) {
-        if (file[i][0] == username) {
+        if (file[i][0] == user) {
             return true;
         }
     }
