@@ -48,6 +48,7 @@ void Server::receive(int arg) {
     int socketfd = (int) arg;
     int numbytes;
 	char message[MAXPACKETSIZE];
+    std::cout << "message reçu : " << message << std::endl;
     std::string code;
 	std::string username;
 	
