@@ -24,6 +24,8 @@ Client::Client() {
 void Client::start() {
 	std::thread t1(&Client::receive, this, sockfd);
 	std::thread t2(&Client::send_message, this, sockfd);
+	t1.detach();
+	t2.detach();
 	while (1);
 }
 
@@ -34,7 +36,7 @@ void Client::receive(int arg) {
 	while (1) {
 		bzero(server_message, MAXPACKETSIZE);
 		recv(socketfd, server_message, MAXPACKETSIZE, 0);
-		printf("%s", server_message);
+		std::cout << server_message << std::endl;
 	}
 }
 

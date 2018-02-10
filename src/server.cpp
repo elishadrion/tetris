@@ -37,6 +37,7 @@ void Server::accept_clients() {
         else {
         	std::cout << "\nClient " << inet_ntoa(client_address.sin_addr) << " s'est connecté!\n";
 		    std::thread t(&Server::receive, this, client);
+		    t.detach();
         }
 		
 	}
@@ -44,19 +45,16 @@ void Server::accept_clients() {
 }
 
 void Server::receive(int arg) {
-    //Quand un thread détaché se termine, ses ressources sont automatiquement
-    //retournées au système sans avoir besoin de faire de join
-
     int socketfd = (int) arg;
     int numbytes;
 	char message[MAXPACKETSIZE];
     std::string code;
 	std::string username;
-
+	
     users[num_users] = new User;
     User* user = users[num_users];
     num_users++;
-
+    
     while (1) {
         numbytes = recv(socketfd, message, MAXPACKETSIZE, 0);
         code.assign(message, 2);
@@ -77,7 +75,10 @@ void Server::receive(int arg) {
                 send(socketfd, "02:", 4, 0);  
         } 
     }
-
+    
+	for (int i = 0; i < num_users; i++) {
+		delete users[i];
+	}
 	close(socketfd);
      
 }
