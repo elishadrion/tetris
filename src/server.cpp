@@ -119,7 +119,7 @@ bool Server::signup(char* arg) {
     }
     std::ofstream outfile;
     outfile.open("../data/database.csv", std::ios_base::app);
-    outfile << username << "," << password << std::endl; 
+    outfile << "\n" << username << "," << password << std::endl; 
     return true;
 }
 

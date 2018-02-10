@@ -30,7 +30,6 @@ void Client::start() {
 }
 
 void Client::receive(int arg) {
-	std::cout << "\ndans receive\n";
     int socketfd = (int) arg;
 	char server_message[MAXPACKETSIZE];
 	while (1) {
@@ -43,7 +42,13 @@ void Client::receive(int arg) {
 
 void Client::send_message(int arg) {
     int socketfd = (int) arg;
-    login();
+    char message[MAXPACKETSIZE];
+    bzero(message, MAXPACKETSIZE);
+    while (1) {
+    	std::cout << "\nEntrez votre message : ";
+    	fgets(message, MAXPACKETSIZE, stdin);
+    	write(socketfd, message, strlen(message));
+    }
 }
 
 void Client::login() {
