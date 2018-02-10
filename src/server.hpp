@@ -36,7 +36,7 @@ class Server {
         bool is_running;
         //
         unsigned num_users;
-        User* users[10];
+        User* user = new User;
         //
         socklen_t sin_size;
         struct sockaddr_in server_address;

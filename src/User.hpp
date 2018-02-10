@@ -12,6 +12,7 @@ class User {
         std::string message;
 
     public:
+    	User() = default;
         //SETTERS
         void set_message(std::string);
         void set_username(std::string);
