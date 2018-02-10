@@ -48,7 +48,6 @@ void Server::receive(int arg) {
     int socketfd = (int) arg;
     int numbytes;
 	char message[MAXPACKETSIZE];
-    std::cout << "message reçu : " << message << std::endl;
     std::string code;
 	std::string username;
 	
@@ -56,6 +55,7 @@ void Server::receive(int arg) {
     
     while (1) {
         numbytes = recv(socketfd, message, MAXPACKETSIZE, 0);
+        std::cout << "message reçu : " << message << std::endl;
         code.assign(message, 2);
 
         if (code == "01") {
@@ -65,8 +65,10 @@ void Server::receive(int arg) {
             	users->prepend(user);
                 send(socketfd, "01:", 4, 0);
             }
-            else
-                send(socketfd, "02:", 4, 0);     
+            else {
+            	std::cout << "login unsuccessful!\n";
+                send(socketfd, "02:", 4, 0);    
+            } 
         }
 
         else if (code == "02") {
@@ -85,14 +87,13 @@ void Server::receive(int arg) {
 /*
     Connexion de l'utilisateur.
 */
-bool Server::login(User* user, char arg[MAXPACKETSIZE]) {
+bool Server::login(User* user, char* arg) {
     csv::Parser file = csv::Parser("../data/database.csv");
-    std::string message;
-    message.copy(arg, MAXPACKETSIZE, 0);
+    std::string message = arg;
     std::string username, password;
     extract_credentials(message, username, password);
     //Quitte si l'utilisateur est déjà connecté sur une autre machine
-    if (user_already_existing(username)) {
+    if (user_already_connected(username)) {
         return false;
     }
     //Vérification que l'utilisateur est bien déjà inscrit
@@ -110,8 +111,7 @@ bool Server::login(User* user, char arg[MAXPACKETSIZE]) {
     Inscription de l'utilisateur.
 */
 bool Server::signup(char* arg) {
-    std::string message;
-    message.copy(arg, MAXPACKETSIZE, 0);
+    std::string message = arg;
     std::string username, password;
     extract_credentials(message, username, password);
     if (user_already_existing(username)) {
