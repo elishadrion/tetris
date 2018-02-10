@@ -13,6 +13,7 @@
 #include <thread>
 
 #include "User.hpp"
+#include "List.hpp"
 
 #define MAXPACKETSIZE 1024
 
@@ -36,7 +37,7 @@ class Server {
         bool is_running;
         //
         unsigned num_users;
-        User* user = new User;
+        LinkedList* users = new LinkedList();
         //
         socklen_t sin_size;
         struct sockaddr_in server_address;

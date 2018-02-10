@@ -52,6 +52,7 @@ void Server::receive(int arg) {
     std::string code;
 	std::string username;
 	
+	User* user = new User();
     
     while (1) {
         numbytes = recv(socketfd, message, MAXPACKETSIZE, 0);
@@ -59,8 +60,11 @@ void Server::receive(int arg) {
 
         if (code == "01") {
             bool successful_login = login(user, message);
-            if (successful_login)
+            if (successful_login) {
+            	std::cout << "login successful!\n";
+            	users->prepend(user);
                 send(socketfd, "01:", 4, 0);
+            }
             else
                 send(socketfd, "02:", 4, 0);     
         }
@@ -146,9 +150,12 @@ void Server::extract_credentials(std::string& message, std::string& username, st
     Renvoie true si un utilisateur avec ce pseudo est déjà connecté.
 */
 bool Server::user_already_connected(const std::string& usr) {
-    for (unsigned i = 0; i < num_users; i++) {
-        if (user->get_username() == usr)
+	Node* current = users->get_head();
+	while (current != nullptr){
+		if (current->user->get_username() == usr) {
             return true;
+        }
+        current = current->next;
     }
     return false;
 }

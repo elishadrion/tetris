@@ -19,11 +19,15 @@ void LinkedList::set_head(Node* node) {
 
 void LinkedList::prepend(User* usr) {
     Node* node = new Node;
-    Node->user = usr;
-    Node->next = head;
+    node->user = usr;
+    node->next = head;
     set_head(node);
 }
 
 unsigned LinkedList::get_length() const {
     return length;
+}
+
+Node* LinkedList::get_head() const {
+	return head;
 }

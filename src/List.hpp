@@ -5,7 +5,7 @@ class Node {
     public:
         Node* next;
         User* user;
-}
+};
 
 class LinkedList {
     private:
@@ -18,7 +18,7 @@ class LinkedList {
         void prepend(User*);
         void set_head(Node*);
         unsigned get_length() const;
-
+        Node* get_head() const;
 };
 
 
