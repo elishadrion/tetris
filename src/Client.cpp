@@ -1,12 +1,13 @@
 #include "Client.hpp"
 
 Client::Client() {
-    if ((hostinfo=gethostbyname(argv[1])) == NULL) {
-        exit();
+    if ((hostinfo=gethostbyname("127.0.0.1")) == NULL) {
+        exit(1);
     }
     
 	if ((sockfd=socket(PF_INET, SOCK_STREAM, 0)) == -1) {
-		exit();
+		std::cout << "\nImpossible de créer le socket!\n";
+		exit(1);
 	}
 	
 	server_address.sin_family = AF_INET;
@@ -15,30 +16,36 @@ Client::Client() {
 	memset(&(server_address.sin_zero), '\0', 8);
 	
 	if(connect(sockfd, (struct sockaddr *)&server_address, sizeof(server_address)) < 0){
-        exit();
+        exit(1);
 	}
-	pthread_create(&thread_receive, NULL, &receive, (void *)sockfd);
-	pthread_create(&thread_send, NULL, &send_message, (void *)sockfd);
+	std::cout << "\nClient initialisé!\n";
 }
 
-void* Client::receive(void* arg) {
+void Client::start() {
+	std::thread t1(&Client::receive, this, sockfd);
+	std::thread t2(&Client::send_message, this, sockfd);
+	while (1);
+}
+
+void Client::receive(int arg) {
+	std::cout << "\ndans receive\n";
     int socketfd = (int) arg;
 	char server_message[MAXPACKETSIZE];
 	while (1) {
-		bzero(server_message, MAX_SIZE);
-		recv(socketfd, server_message, MAX_SIZE, 0);
+		bzero(server_message, MAXPACKETSIZE);
+		recv(socketfd, server_message, MAXPACKETSIZE, 0);
 		printf("%s", server_message);
 	}
-	pthread_exit(NULL);
 }
 
 
-void* Client::send_message(void* arg) {
+void Client::send_message(int arg) {
     int socketfd = (int) arg;
     login();
 }
 
 void Client::login() {
-    std::string msg = "01:admin:admin:"
-    write(socket , msg , msg.size());
+	std::cout << "\n dans login\n";
+    std::string msg = "01:admin:admin:";
+    write(sockfd , msg.c_str() , strlen(msg.c_str()));
 }
