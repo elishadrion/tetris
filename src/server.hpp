@@ -21,6 +21,7 @@ class Server {
 
     public:
         Server(int port);
+        ~Server();
         void stop();
         void accept_clients();
         bool signup(char*);
@@ -35,7 +36,7 @@ class Server {
     private:
         int server, client, n;
         bool is_running;
-        LinkedList* users = new LinkedList();
+        LinkedList* users;
         socklen_t sin_size;
         struct sockaddr_in server_address;
         struct sockaddr_in client_address;

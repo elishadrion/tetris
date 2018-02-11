@@ -23,8 +23,13 @@ Server::Server(int port) {
         std::cout << "\nErreur lors de la liaison du socket au port\n";
         exit(1);
     }
+    users = new LinkedList();
     is_running = true;
     listen(server, 100);
+}
+
+Server::~Server() {
+	delete users;
 }
 
 void Server::accept_clients() {
