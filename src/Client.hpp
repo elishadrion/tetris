@@ -24,12 +24,17 @@ class Client {
         void start();
         void login();
         void signup();
-        void receive(int);
-        void send_message(int);
+        void receive();
+        void manage();
+        void pre_menu();
+        void post_menu();
+        void exiting();
         std::string get_hash(const std::string&);
 
     private:
     	int sockfd;
+    	bool logged_in;
+    	bool is_exiting;
 	    struct hostent *hostinfo;
 	    struct sockaddr_in server_address;
 };

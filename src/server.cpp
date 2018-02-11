@@ -50,15 +50,16 @@ void Server::accept_clients() {
 }
 
 void Server::receive(int arg) {
-    int socketfd = (int) arg;
+    int socketfd = arg;
     int numbytes;
+    bool done = false;
 	char message[MAXPACKETSIZE];
     std::string code;
 	std::string username;
 	
 	User* user = new User();
     
-    while (1) {
+    while (!done) {
         numbytes = recv(socketfd, message, MAXPACKETSIZE, 0);
         std::cout << "message reçu : " << message << std::endl;
         code.assign(message, 2);
@@ -68,21 +69,25 @@ void Server::receive(int arg) {
             if (successful_login) {
             	std::cout << "login successful!\n";
             	users->prepend(user);
-                send(socketfd, "01:", 4, 0);
+                send(socketfd, "01:login_green", 15, 0);
             }
             else {
             	std::cout << "login unsuccessful!\n";
-                send(socketfd, "02:", 4, 0);    
+                send(socketfd, "01:login_red", 13, 0);    
             } 
         }
 
         else if (code == "02") {
             bool successful_signup = signup(message);
             if (successful_signup)
-                send(socketfd, "01:", 4, 0);
+                send(socketfd, "02:register_green", 18, 0);
             else
-                send(socketfd, "02:", 4, 0);  
-        } 
+                send(socketfd, "02:register_red", 16, 0);  
+        }
+        
+        else if (code == "99") {
+        	done = true;
+        }
     }
     
 	close(socketfd);

@@ -40,7 +40,6 @@ class Server {
         socklen_t sin_size;
         struct sockaddr_in server_address;
         struct sockaddr_in client_address;
-        pthread_t thread;
         char msg[MAXPACKETSIZE];
 };
 
