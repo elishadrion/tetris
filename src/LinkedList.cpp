@@ -1,4 +1,4 @@
-#include "List.hpp"
+#include "LinkedList.hpp"
 
 LinkedList::LinkedList() {
     set_head(nullptr);

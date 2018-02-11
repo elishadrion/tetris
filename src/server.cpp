@@ -5,26 +5,26 @@
 Server::Server(int port) {
 
     //Connexion socket
-    if ((server = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
+    if ((_server = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
         std::cout << "\nErreur lors de la création du socket serveur\n";
         exit(1);
     }
     std::cout << "\nSocket serveur créé!\n";
 
- 	memset(&server_address, 0, sizeof(server_address));
-	server_address.sin_family=AF_INET;
-	server_address.sin_addr.s_addr=htonl(INADDR_ANY);
-	server_address.sin_port=htons(port);
+ 	memset(&_server_address, 0, sizeof(_server_address));
+	_server_address.sin_family=AF_INET;
+	_server_address.sin_addr.s_addr=htonl(INADDR_ANY);
+	_server_address.sin_port=htons(port);
 
 	//bind permet d'associer un socket à un numéro de port sur la machine locale.
 	//Le numérod de port est utilisé pour associer les paquets entrants dans la machine vers un
 	//socket descriptor particulier
-	if ((bind(server, (struct sockaddr *)&server_address, sizeof(server_address)) <0)) {
+	if ((bind(_server, (struct sockaddr *)&_server_address, sizeof(_server_address)) <0)) {
         std::cout << "\nErreur lors de la liaison du socket au port\n";
         exit(1);
     }
-    users = new LinkedList();
-    is_running = true;
+    _users = new LinkedList();
+    _is_running = true;
     listen(server, 100);
 }
 
@@ -37,13 +37,13 @@ Server::~Server() {
 */
 void Server::accept_clients() {
 	std::cout << "\nOn attend de nouveaux clients!\n";
-    sin_size = sizeof(client_address);
-	while (is_running) {
-		if ((client = accept(server, (struct sockaddr*)&client_address, &sin_size)) == -1){
-			std::cout << "\nClient " << inet_ntoa(client_address.sin_addr) << " n'a pas pu se connecté\n";
+    _sin_size = sizeof(_client_address);
+	while (_is_running) {
+		if ((_client = accept(server, (struct sockaddr*)&_client_address, &_sin_size)) == -1){
+			std::cout << "\nClient " << inet_ntoa(_client_address.sin_addr) << " n'a pas pu se connecté\n";
 		}
         else {
-        	std::cout << "\nClient " << inet_ntoa(client_address.sin_addr) << " s'est connecté!\n";
+        	std::cout << "\nClient " << inet_ntoa(_client_address.sin_addr) << " s'est connecté!\n";
 		    std::thread t(&Server::receive, this, client);
 		    t.detach();
         }
@@ -75,12 +75,12 @@ void Server::receive(int arg) {
             bool successful_login = login(user, message);
             if (successful_login) {
             	std::cout << "login successful!\n";
-            	users->prepend(user);
-                answer = "02:login_green";
+            	_users->prepend(user);
+                answer = "01:login_green";
             }
             else {
             	std::cout << "login unsuccessful!\n";
-                answer = "02:login_red";
+                answer = "01:login_red";
             } 
         }
 
@@ -142,9 +142,9 @@ bool Server::signup(char* arg) {
 }
 
 void Server::stop() {
-    is_running = false;
-    close(server);
-    close(client);
+    _is_running = false;
+    close(_server);
+    close(_client);
 }
 
 /*
@@ -158,17 +158,15 @@ void Server::extract_credentials(std::string& message, std::string& username, st
     std::size_t found2 = message.find(":", found1+1);
     //on copie dans username, le substring à partir de 3 jusqu'au prochain :
     //donc tout l'username
-    if (found1 != std::string::npos)
-        username.assign(message, 3, found1-3);
-    if (found2 != std::string::npos)
-        password.assign(message, found1+1, found2-1-found1);
+    username.assign(message, 3, found1-3);
+    password.assign(message, found1+1, found2-1-found1);
 }
 
 /*
     Renvoie true si un utilisateur avec ce pseudo est déjà connecté.
 */
 bool Server::user_already_connected(const std::string& usr) {
-	Node* current = users->get_head();
+	Node* current = _users->get_head();
 	while (current != nullptr){
 		if (current->user->get_username() == usr) {
             return true;

@@ -13,7 +13,7 @@
 #include <thread>
 
 #include "User.hpp"
-#include "List.hpp"
+#include "LinkedList.hpp"
 
 #define MAXPACKETSIZE 1024
 
@@ -34,13 +34,12 @@ class Server {
         bool user_already_existing(const std::string&);
 
     private:
-        int server, client, n;
-        bool is_running;
-        LinkedList* users;
-        socklen_t sin_size;
-        struct sockaddr_in server_address;
-        struct sockaddr_in client_address;
-        char msg[MAXPACKETSIZE];
+        int _server, _client;
+        bool _is_running;
+        LinkedList* _users;
+        socklen_t _sin_size;
+        struct sockaddr_in _server_address;
+        struct sockaddr_in _client_address;
 };
 
 #endif
