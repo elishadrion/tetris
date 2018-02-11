@@ -21,15 +21,17 @@ class Block {
 		Block();
 		~Block();
 
-		int getColor();
-		int get_Y();
-		int get_X();
+		//Getter
+		int get_color() ;
+		int get_Y() ;
+		int get_X() ;
 
-		void setColor(int color);		
-		void setCoordinates(int Y, int X );
-		void setState(bool etat);
+		//Setter
+		void set_color(int color);		
+		void set_coordinates(int Y, int X );
+		void set_state(bool etat);
 
-		bool isEmpty();
+		bool is_empty();
 		
 };
 #endif

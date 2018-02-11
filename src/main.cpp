@@ -16,19 +16,11 @@ int main(){
 
 
 	Game * game = new Game();
-	game->start_marathon_Game();
-
-
+	game->start_marathon_game();
 	
 	
 	delete game;
 	
-
-	
-
-	
-
-
 
 	return 0;
 

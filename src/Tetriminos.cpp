@@ -6,10 +6,7 @@ Tetriminos.cpp
 
 #include "Tetriminos.hpp"
 
-
- 
-
-Tetriminos::Tetriminos( int template_tetriminos[4][2]){
+Tetriminos::Tetriminos(int color){
 	/*
 	:param template_tetriminos: int[][]
 
@@ -17,15 +14,16 @@ Tetriminos::Tetriminos( int template_tetriminos[4][2]){
 		On crée une liste de block selon un des sept modèle
 		de tetriminos généré aléatoirement.
 	*/
+
 	_list_block = new Block[4];
 	
 	for(int i =0; i<4;i++){
 
-		
-		_list_block[i].setCoordinates(template_tetriminos[i][0],
-									  template_tetriminos[i][1]
+		_list_block[i].set_coordinates(TEMPLATE_TETRIMINOS[color][i][0],
+									  TEMPLATE_TETRIMINOS[color][i][1]
 									  );
 
+		_list_block[i].set_color(color+1);
 		
 	} 
 }
@@ -38,76 +36,82 @@ Tetriminos::~Tetriminos(){
 }
 
 
+Block * Tetriminos::get_list_block(){return _list_block;}
 
-Block * Tetriminos::getListBlock(){return _list_block;}
 
-
-int Tetriminos::getCoordY_block(int k){
+int Tetriminos::get_coord_Y_of_block(int block){
 	/*
-	:param k: int
+	:param block: int
 
 		Cette fonction donne la coordonnée en Y du "Kième" block 
 		de la liste de block du tetriminos.
 		*/
-	return _list_block[k].get_Y();
+	return _list_block[block].get_Y();
 }
 
-int Tetriminos::getCoordX_block(int k){
+int Tetriminos::get_coord_X_of_block(int block){
 	/*
-	:param k: int
+	:param block: int
 
 		Cette fonction donne la coordonnée en X du "Kième" block 
 		de la liste de block du tetriminos.
 		*/
 
-	return _list_block[k].get_X();
+	return _list_block[block].get_X();
 }
 
 
-bool Tetriminos::hasBlock(int Y, int X){
+void Tetriminos::set_coord_of_block(int block, int y, int x){ 
 	/*
-	:param Y: int
-	:param X: int
-	:return flag: bool
+	Cette fonction donne permet de changer les coordonnées
+	d'un block d'un tétriminos.
+		:param block: int
+		:param y: int
+		:param x: int
+	*/
+	_list_block[block].set_coordinates(y,x);
+}
 
-		On vérifie si le tétriminos a un block de coordonnée 
-		fournie en paramètre.
+
+int Tetriminos::get_color_of_block(int block){
+
+	return _list_block[block].get_color();
+}
+
+
+bool Tetriminos::has_block(int Y, int X){
+	/*
+	On vérifie si le tétriminos a un block de coordonnée 
+	fournie en paramètre.
+		:param Y: int
+		:param X: int
+		:return hasBlock: bool
 	*/
 
-	bool flag = false;
+	bool hasBlock = false;
 
 	for(int i=0; i<4; i++){
 
 		if(_list_block[i].get_Y() == Y and _list_block[i].get_X()==X){
-			flag =true;
+			hasBlock =true;
 		}
 	}
-	return flag;
+	return hasBlock;
 }
 
 
-
-
-
-
-void Tetriminos::drop(){
+void  Tetriminos::drop(){
 
 	/*
 	Cette fonction fait descendre d'une unité les blocks d'un tétriminos. 
-
 	*/
 	
-	for(int i=0; i<4;i++){
+	for(int i=0; i<4;i++){		
 
-		//mutex.lock();
-
-		_list_block[i].setCoordinates( _list_block[i].get_Y()+1,
-									   _list_block[i].get_X()   );
-	
-		//mutex.unlock();
+		_list_block[i].set_coordinates( _list_block[i].get_Y()+1,
+									    _list_block[i].get_X()   );
+			
 	}
-
-
 }
 
 void Tetriminos::move_right(){
@@ -117,6 +121,8 @@ void Tetriminos::move_right(){
 	*/
 	int blockMostRight = 0;
 
+	// On regarde quel est le block du tétriminos qui est le plus à droite.
+
 	for(int i=1; i<4; i++ ){
 		if(_list_block[i].get_X() > _list_block[blockMostRight].get_X()){
 
@@ -125,11 +131,12 @@ void Tetriminos::move_right(){
 
 	}
 
+	// Et on déplace tout vers la droite.
 	if(_list_block[blockMostRight].get_X()+1 <10){
 
 		for(int i=0; i<4;i++){
 
-			_list_block[i].setCoordinates(_list_block[i].get_Y(),
+			_list_block[i].set_coordinates(_list_block[i].get_Y(),
 			    						  _list_block[i].get_X()+1);
 	}
 }
@@ -145,6 +152,8 @@ void Tetriminos::move_left(){
 
 	int blockMostLeft = 0;
 
+	// On regarde quel est le block du tétriminos qui est le plus à gauche.
+
 	for(int i=1; i<4; i++ ){
 		if(_list_block[i].get_X() < _list_block[blockMostLeft].get_X()){
 
@@ -153,11 +162,13 @@ void Tetriminos::move_left(){
 
 	}
 
+	// Et on déplace tout vers la gauche.
+
 	if(_list_block[blockMostLeft].get_X() -1 > -1){
 		
 		for(int i=0; i<4;i++){
 
-			_list_block[i].setCoordinates(_list_block[i].get_Y(),
+			_list_block[i].set_coordinates(_list_block[i].get_Y(),
 										  _list_block[i].get_X()-1);
 		}
 	}
@@ -175,6 +186,9 @@ void Tetriminos::turn( int rotationMat[2][2]){
 	*/
 	
 	int matVector [2];
+	int matTemp[2];
+	int save;
+
 	for(int i =0; i<4;i++){
 
 		// Le deuxième block de chaque tétriminos est le pivot.
@@ -183,18 +197,16 @@ void Tetriminos::turn( int rotationMat[2][2]){
 			matVector[0] = _list_block[i].get_Y() - _list_block[1].get_Y();
 			matVector[1] = _list_block[i].get_X() - _list_block[1].get_X();
 
-		
-
-			int save = matVector[0];
+			save = matVector[0];
 
 			matVector[0] =( matVector[0] * rotationMat[0][0] )+(  matVector[1] * rotationMat[0][1]);
 			matVector[1] =( save *  rotationMat[1][0] ) + (matVector[1] * rotationMat[1][1] );
 
-			int matTemp[2];
+			
 			matTemp[0] = _list_block[1].get_Y() + matVector[0];
 			matTemp[1] = _list_block[1].get_X() + matVector[1];
-			_list_block[i].setCoordinates(matTemp[0],matTemp[1]);
-			_list_block[i].setState(false);
+			_list_block[i].set_coordinates(matTemp[0],matTemp[1]);
+			_list_block[i].set_state(false);
 
 		}
 

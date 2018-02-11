@@ -18,7 +18,7 @@ Block::~Block(){
 
 }
 
-int Block::getColor(){return _color;}
+int Block::get_color(){return _color;}
 
 int Block::get_Y(){
 	return _coordinates[0];
@@ -30,22 +30,22 @@ int Block::get_X(){
 	
 }
 
-void Block::setColor(int color){_color = color;}
+void Block::set_color(int color){_color = color;}
 
 
-void Block::setCoordinates(int Y, int X ){
+void Block::set_coordinates(int Y, int X ){
 
 	_coordinates[0]= Y;
 	_coordinates[1]= X;
 }
 
 
-void Block::setState(bool etat){
+void Block::set_state(bool etat){
 	_block_Empty = etat;
 }
 
 
-bool Block::isEmpty(){
+bool Block::is_empty() {
 
 	return _block_Empty;
 }

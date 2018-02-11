@@ -14,6 +14,9 @@ Game.hpp
 #include "GUI.hpp"
 
 
+
+
+
 class Game{
 
 	private:
@@ -21,30 +24,26 @@ class Game{
 		Grid * grid;
 		GUI * myGUI; 
 		
-		int  template_tetriminos[7][4][2] ={
-										 {{0,4}, {0,5}, {-1,4},{-1,5}},  // carré
-										 {{0,3}, {0,4}, {0,5}, {0,6}},	 // barre
-										 {{0,3},{-1,3}, {0,4}, {0,5}},   // L gauche
-										 {{0,4}, {0,5}, {0,6}, {-1,6}},  // L droit
-										 {{0,3}, {0,4}, {-1,4},{-1,5}},  // Z gauche
-										 {{-1,4},{-1,5},{0,5}, {0,6}},   // Z droit
-										 {{0,3}, {0,4}, {-1,4},{0,5}}    // T 
-										};
-		int _acceleration = 400000 ;
+
+		int _acceleration = 350000 ;
 
 	public:
 		
 		Game();
 		~Game();	
-    
+    	void init();
     	void start();
 		
-		void start_classic_Game();
-		void start_sprint_Game();
-		void start_marathon_Game();
-		int tetriminosDropping(Tetriminos * newTetriminos);
+		// Mode de jeu
+		void start_classic_game();
+		void start_sprint_game();
+		void start_marathon_game();
+
+
+		Tetriminos * tetriminos_generator();
+		int tetriminos_dropping(Tetriminos * newTetriminos);
 		
-    	void init();
+    	
     
 
 
