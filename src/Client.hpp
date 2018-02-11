@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include <thread>
 #include <netdb.h>
-#include "dependencies/PicoSHA2/picosha2.hpp"
+#include "dependencies/picosha2.h"
 
 #define MAXPACKETSIZE 1024
 
