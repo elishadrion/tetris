@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <thread>
 #include <netdb.h>
+#include "Game.hpp"
 #include "dependencies/picosha2.h"
 
 #define MAXPACKETSIZE 1024

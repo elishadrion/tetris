@@ -48,8 +48,12 @@ void Client::send_message(int arg) {
     	std::cout << "\n01 pour login, 02 pour signup : ";
     	std::string choice;
     	std::getline(std::cin, choice);
-    	if (choice == "01")
+    	if (choice == "01") {
     		login();
+    		Game* game = new Game();
+    		game->start_marathon_game();
+    		delete game;
+    	}
     	else if (choice == "02")
     		signup();
     }
