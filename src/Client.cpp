@@ -45,14 +45,46 @@ void Client::send_message(int arg) {
     char message[MAXPACKETSIZE];
     bzero(message, MAXPACKETSIZE);
     while (1) {
-    	std::cout << "\nEntrez votre message : ";
-    	fgets(message, MAXPACKETSIZE, stdin);
-    	write(socketfd, message, strlen(message));
+    	std::cout << "\n01 pour login, 02 pour signup : ";
+    	std::string choice;
+    	std::getline(std::cin, choice);
+    	if (choice == "01")
+    		login();
+    	else if (choice == "02")
+    		signup();
     }
 }
 
 void Client::login() {
-	std::cout << "\n dans login\n";
-    std::string msg = "01:admin:admin:";
+	std::string msg = "01:";
+	std::string buffer;
+	std::cout << "\nEntrez votre pseudo : ";
+	std::getline(std::cin, buffer);
+	msg.append(buffer);
+	msg.append(":");
+	std::cout << "\nEntrez votre mot de passe : ";
+	std::getline(std::cin, buffer);
+	msg.append(get_hash(buffer));
+	msg.append(":");
     write(sockfd , msg.c_str() , strlen(msg.c_str()));
+}
+
+void Client::signup() {
+	std::string msg = "02:";
+	std::string buffer;
+	std::cout << "\nEntrez votre pseudo : ";
+	std::getline(std::cin, buffer);
+	msg.append(buffer);
+	msg.append(":");
+	std::cout << "\nEntrez votre mot de passe : ";
+	std::getline(std::cin, buffer);
+	msg.append(get_hash(buffer));
+	msg.append(":");
+    write(sockfd , msg.c_str() , strlen(msg.c_str()));
+}
+
+std::string Client::get_hash(const std::string& str) {
+    std::vector<unsigned char> hash(32);
+    picosha2::hash256(str.begin(), str.end(), hash.begin(), hash.end());
+    return picosha2::bytes_to_hex_string(hash.begin(), hash.end());
 }

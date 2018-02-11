@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <thread>
 #include <netdb.h>
+#include "dependencies/PicoSHA2/picosha2.h"
 
 #define MAXPACKETSIZE 1024
 
@@ -21,8 +22,10 @@ class Client {
         Client();
         void start();
         void login();
+        void signup();
         void receive(int);
         void send_message(int);
+        std::string get_hash(const std::string&);
 
     private:
     	int sockfd;

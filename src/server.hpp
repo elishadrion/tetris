@@ -35,10 +35,7 @@ class Server {
     private:
         int server, client, n;
         bool is_running;
-        //
-        unsigned num_users;
         LinkedList* users = new LinkedList();
-        //
         socklen_t sin_size;
         struct sockaddr_in server_address;
         struct sockaddr_in client_address;
