@@ -55,6 +55,7 @@ void Client::send_message(int arg) {
     }
 }
 
+
 void Client::login() {
 	std::string msg = "01:";
 	std::string buffer;
