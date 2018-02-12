@@ -62,6 +62,7 @@ void Server::receive(int arg) {
 	char message[MAXPACKETSIZE];
     std::string code;
 	std::string username;
+    std::string answer;
 	
 	User* user = new User();
     
@@ -75,25 +76,26 @@ void Server::receive(int arg) {
             if (successful_login) {
             	std::cout << "login successful!\n";
             	users->prepend(user);
-                send(socketfd, "01:login_green", 15, 0);
+                answer = "02:login_green";
             }
             else {
             	std::cout << "login unsuccessful!\n";
-                send(socketfd, "01:login_red", 13, 0);    
+                answer = "02:login_red";
             } 
         }
 
         else if (code == "02") {
             bool successful_signup = signup(message);
             if (successful_signup)
-                send(socketfd, "02:register_green", 18, 0);
+                answer = "02:register_green";
             else
-                send(socketfd, "02:register_red", 16, 0);  
+                answer = "02:register_red"; 
         }
         
         else if (code == "99") {
         	done = true;
         }
+        send(socketfd, answer.c_str(), strlen(msg.c_str()));
     }
     
 	close(socketfd);
