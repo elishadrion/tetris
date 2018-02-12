@@ -56,6 +56,9 @@ void Client::manage() {
     }
 }
 
+/*
+    Menu affiché tant que l'user n'est pas connecté.
+*/
 void Client::pre_menu() {
 	std::cout << "\n01 pour login, 02 pour signup, 99 pour quitter : ";
 	std::string choice;
@@ -71,12 +74,18 @@ void Client::pre_menu() {
 	}
 }
 
+/*
+    Menu affiché si l'user est connecté.
+*/
 void Client::post_menu() {
 	Game* game = new Game();
 	game->start_marathon_game();
 	delete game;
 }
 
+/*
+    Gère la connexion de l'user.
+*/
 void Client::login() {
 	std::string msg = "01:";
 	std::string buffer;
@@ -91,6 +100,10 @@ void Client::login() {
     write(sockfd , msg.c_str() , strlen(msg.c_str()));
 }
 
+
+/*
+    Gère l'inscription de l'user.
+*/
 void Client::signup() {
 	std::string msg = "02:";
 	std::string buffer;
@@ -111,6 +124,9 @@ void Client::exiting() {
 	
 }
 
+/*
+    Renvoie le hash du mot de passe.
+*/
 std::string Client::get_hash(const std::string& str) {
     std::vector<unsigned char> hash(32);
     picosha2::hash256(str.begin(), str.end(), hash.begin(), hash.end());

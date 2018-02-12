@@ -32,6 +32,9 @@ Server::~Server() {
 	delete users;
 }
 
+/*
+    Ecoute s'il y a une connexion d'un client, et si elle est acceptée, un thread est lancé.
+*/
 void Server::accept_clients() {
 	std::cout << "\nOn attend de nouveaux clients!\n";
     sin_size = sizeof(client_address);
@@ -49,6 +52,9 @@ void Server::accept_clients() {
     stop();
 }
 
+/*
+    Fonction appelée par le thread. Gère les messages venant du client et en renvoient, si nécessaire.
+*/
 void Server::receive(int arg) {
     int socketfd = arg;
     int numbytes;
