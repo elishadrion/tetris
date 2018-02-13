@@ -52,7 +52,7 @@ void Client::manage() {
     		pre_menu();
     	else
     		post_menu();
-    		break;
+    		//break;
     }
 }
 
