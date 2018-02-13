@@ -1,24 +1,24 @@
 #include "Client.hpp"
 
 Client::Client() {
-    if ((hostinfo=gethostbyname("127.0.0.1")) == NULL) {
+    if ((_hostinfo=gethostbyname("127.0.0.1")) == NULL) {
         exit(1);
     }
     
-	if ((sockfd=socket(PF_INET, SOCK_STREAM, 0)) == -1) {
+	if ((_sockfd=socket(PF_INET, SOCK_STREAM, 0)) == -1) {
 		std::cout << "\nImpossible de créer le socket!\n";
 		exit(1);
 	}
 	
-	server_address.sin_family = AF_INET;
-	server_address.sin_port = htons(5555);
-	server_address.sin_addr = *((struct in_addr *)hostinfo->h_addr);
-	memset(&(server_address.sin_zero), '\0', 8);
+	_server_address.sin_family = AF_INET;
+	_server_address.sin_port = htons(5555);
+	_server_address.sin_addr = *((struct in_addr *)_hostinfo->h_addr);
+	memset(&(_server_address.sin_zero), '\0', 8);
 	
-	if(connect(sockfd, (struct sockaddr *)&server_address, sizeof(server_address)) < 0){
+	if(connect(_sockfd, (struct sockaddr *)&_server_address, sizeof(_server_address)) < 0){
         exit(1);
 	}
-	is_exiting = false;
+	_is_exiting = false;
 	std::cout << "\nClient initialisé!\n";
 }
 
@@ -27,7 +27,7 @@ void Client::start() {
 	std::thread t2(&Client::manage, this);
 	t1.detach();
 	t2.detach();
-	while (!is_exiting);
+	//while (!_is_exiting);
 }
 
 void Client::receive() {
@@ -35,11 +35,11 @@ void Client::receive() {
 	std::string message;
 	while (1) {
 		bzero(server_message, MAXPACKETSIZE);
-		recv(sockfd, server_message, MAXPACKETSIZE, 0);
+		recv(_sockfd, server_message, MAXPACKETSIZE, 0);
 		message = server_message;
 		std::cout << message << std::endl;
 		if (message == "01:login_green") {
-			logged_in = true;
+			_logged_in = true;
 		}
 		//std::cout << server_message << std::endl;
 	}
@@ -47,8 +47,8 @@ void Client::receive() {
 
 
 void Client::manage() {
-    while (1) {
-    	if (!logged_in)
+    while (!_is_exiting) {
+    	if (!_logged_in)
     		pre_menu();
     	else
     		post_menu();
@@ -78,9 +78,17 @@ void Client::pre_menu() {
     Menu affiché si l'user est connecté.
 */
 void Client::post_menu() {
-	Game* game = new Game();
-	game->start_marathon_game();
-	delete game;
+	std::cout << "\n01 pour jouer, 99 pour quitter : ";
+	std::string choice;
+	std::getline(std::cin, choice);
+	if (choice == "01") {
+		Game* game = new Game();
+		game->start_marathon_game();
+		delete game;
+	}
+	else if (choice == "99") {
+		exiting();
+	}
 }
 
 /*
@@ -97,7 +105,7 @@ void Client::login() {
 	std::getline(std::cin, buffer);
 	msg.append(get_hash(buffer));
 	msg.append(":");
-    write(sockfd , msg.c_str() , strlen(msg.c_str()));
+    write(_sockfd , msg.c_str() , strlen(msg.c_str()));
 }
 
 
@@ -115,12 +123,12 @@ void Client::signup() {
 	std::getline(std::cin, buffer);
 	msg.append(get_hash(buffer));
 	msg.append(":");
-    write(sockfd , msg.c_str() , strlen(msg.c_str()));
+    write(_sockfd , msg.c_str() , strlen(msg.c_str()));
 }
 
 void Client::exiting() {
-	is_exiting = true;
-	write(sockfd , "99" , 3);
+	_is_exiting = true;
+	write(_sockfd , "99" , 3);
 	
 }
 

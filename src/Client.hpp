@@ -32,11 +32,11 @@ class Client {
         std::string get_hash(const std::string&);
 
     private:
-    	int sockfd;
-    	bool logged_in;
-    	bool is_exiting;
-	    struct hostent *hostinfo;
-	    struct sockaddr_in server_address;
+    	int _sockfd;
+    	bool _logged_in;
+    	bool _is_exiting;
+	    struct hostent *_hostinfo;
+	    struct sockaddr_in _server_address;
 };
 
 #endif
