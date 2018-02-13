@@ -22,6 +22,7 @@ void LinkedList::prepend(User* usr) {
     node->user = usr;
     node->next = head;
     set_head(node);
+    length++;
 }
 
 void LinkedList::delete_user(User* usr) {
@@ -34,6 +35,7 @@ void LinkedList::delete_user(User* usr) {
 		current->next = to_delete->next;
 		delete to_delete->user;
 		delete to_delete;
+        length--;
 	}
 	
 }
