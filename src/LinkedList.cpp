@@ -24,6 +24,20 @@ void LinkedList::prepend(User* usr) {
     set_head(node);
 }
 
+void LinkedList::delete_user(User* usr) {
+	Node* current = head;
+	while (current->next->user != usr) {
+		current = current->next;
+	}
+	if (current != nullptr) {
+		Node* to_delete = current->next;
+		current->next = to_delete->next;
+		delete to_delete->usr;
+		delete to_delete;
+	}
+	
+}
+
 unsigned LinkedList::get_length() const {
     return length;
 }

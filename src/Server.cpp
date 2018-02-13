@@ -82,7 +82,7 @@ void Server::receive(int arg) {
         	
         send(socketfd, answer.c_str(), strlen(answer.c_str()), 0);
     }
-    
+    _users->delete_user(user);
 	close(socketfd);
      
 }
