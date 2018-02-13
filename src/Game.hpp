@@ -22,10 +22,9 @@ class Game{
 	private:
 		
 		Grid * grid;
-		GUI * myGUI; 
+		GUI * myGUI;
 		
-
-		int _acceleration = 350000 ;
+	
 
 	public:
 		
@@ -39,9 +38,7 @@ class Game{
 		void start_sprint_game();
 		void start_marathon_game();
 
-
-		Tetriminos * tetriminos_generator();
-		int tetriminos_dropping(Tetriminos * newTetriminos);
+		int tetriminos_dropping();
 		
     	
     
