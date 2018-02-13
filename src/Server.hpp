@@ -24,8 +24,8 @@ class Server {
         ~Server();
         void stop();
         void accept_clients();
-        bool signup(char*);
-        bool login(User*, char*);
+        std::string signup(char*);
+        std::string login(User*, char*);
         void receive(int);
         void send_message(std::string msg);
 

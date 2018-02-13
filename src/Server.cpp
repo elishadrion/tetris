@@ -71,30 +71,15 @@ void Server::receive(int arg) {
         std::cout << "message reçu : " << message << std::endl;
         code.assign(message, 2);
 
-        if (code == "01") {
-            bool successful_login = login(user, message);
-            if (successful_login) {
-            	std::cout << "login successful!\n";
-            	_users->prepend(user);
-                answer = "01:login_green";
-            }
-            else {
-            	std::cout << "login unsuccessful!\n";
-                answer = "01:login_red";
-            } 
-        }
+        if (code == "01")
+        	answer = login(user, message);
 
-        else if (code == "02") {
-            bool successful_signup = signup(message);
-            if (successful_signup)
-                answer = "02:register_green";
-            else
-                answer = "02:register_red"; 
-        }
+        else if (code == "02")
+            answer = signup(message);
         
-        else if (code == "99") {
+        else if (code == "99")
         	done = true;
-        }
+        	
         send(socketfd, answer.c_str(), strlen(answer.c_str()), 0);
     }
     
@@ -105,40 +90,54 @@ void Server::receive(int arg) {
 /*
     Connexion de l'utilisateur.
 */
-bool Server::login(User* user, char* arg) {
+std::string Server::login(User* user, char* arg) {
     csv::Parser file = csv::Parser("../data/database.csv");
+    bool successful_login = true;
     std::string message = arg;
     std::string username, password;
     extract_credentials(message, username, password);
     //Quitte si l'utilisateur est déjà connecté sur une autre machine
     if (user_already_connected(username)) {
-        return false;
+        successful_login = false;
     }
     //Vérification que l'utilisateur est bien déjà inscrit
     for (unsigned i = 0; i < file.rowCount(); i++) {
         if (file[i][0] == username && file[i][1] == password) {
             user->set_username(username);
-            return true;
         }
     }
-    return false;
+    
+    if (successful_login) {
+    	std::cout << "login successful!\n";
+        _users->prepend(user);
+        return std::string("01:login_green");
+    }
+    else {
+    	std::cout << "login unsuccessful!\n";
+        return std::string("01:login_red");
+    } 
 
 }
 
 /*
     Inscription de l'utilisateur.
 */
-bool Server::signup(char* arg) {
+std::string Server::signup(char* arg) {
+	bool successful_signup = true;
     std::string message = arg;
     std::string username, password;
     extract_credentials(message, username, password);
     if (user_already_existing(username)) {
-        return false;
+        successful_signup = false;
     }
     std::ofstream outfile;
     outfile.open("../data/database.csv", std::ios_base::app);
-    outfile << "\n" << username << "," << password << std::endl; 
-    return true;
+    outfile << "\n" << username << "," << password << std::endl;
+    
+    if (successful_signup)
+    	return std::string("02:register_green");
+    else
+    	return std::string("02:register_red"); 
 }
 
 void Server::stop() {
