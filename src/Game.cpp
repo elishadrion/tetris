@@ -9,7 +9,7 @@ Game.cpp
 
 
 
-void player_choice(Grid * grid){
+void player_choice_in_game(Grid * grid){
 
 	int ch;
 
@@ -21,8 +21,10 @@ void player_choice(Grid * grid){
 		else if (ch == KEY_LEFT)  {grid->current_tetriminos_move_left();}
 		else if (ch ==  'd')      {grid->current_tetriminos_turn_right();}
 		else if (ch ==  'q')      {grid->current_tetriminos_turn_left();}
-		else if (ch ==  KEY_DOWN) {grid->current_tetriminos_hard_drop();}
+		else if (ch ==  'z')      {grid->current_tetriminos_hard_drop();}
 		else if (ch ==  'h')      {grid->set_current_tetriminos_hold();}
+		else if (ch ==  KEY_DOWN) {grid->set_acceleration_quick(); }
+			
 
 	}
 }
@@ -45,11 +47,11 @@ void Game::init(){
 
 void Game::start(){
 
-	myGUI->init_window_GUI();
+	myGUI->init_menu_GUI();
 
 }
 
-int Game::tetriminos_dropping(Tetriminos * newTetriminos){
+int Game::tetriminos_dropping(){
 	/*
 	Cette fonction permet la chute du tétriminos
 	et vérifie la grille du jeu.
@@ -59,10 +61,14 @@ int Game::tetriminos_dropping(Tetriminos * newTetriminos){
 
 	bool tetriminosIsFix = false;
 	int line_complete = 0;	// Compteur de ligne complète
-
-	myGUI->update_next_tetriminos_GUI(grid);
+	
+	
+	
 	myGUI->update_grid_GUI(grid);  // On update l'affichage de la grille
-	usleep(_acceleration);  
+	myGUI->update_next_tetriminos_GUI(grid);
+
+	if(grid->get_acceleration()==87654){grid->set_acceleration(300000);}
+	usleep(grid->get_acceleration());  
 
 	while(not(tetriminosIsFix)){ 
 		
@@ -76,45 +82,23 @@ int Game::tetriminos_dropping(Tetriminos * newTetriminos){
 			line_complete =  grid->check_lines();
 			tetriminosIsFix = true;
 		}
-		
+		if(not(grid->has_tetriminos_hold())){ 
+
+			myGUI->erase_hold_tetriminos_GUI();
+		}else{
+
+			myGUI->update_hold_tetriminos_GUI(grid);
+		}
+		grid->grid_to_char();
 		myGUI->update_grid_GUI(grid);
-		usleep(_acceleration);
+		usleep(grid->get_acceleration());
 
 	}
 
+	
 	return line_complete;
 }
 
-Tetriminos * Game::tetriminos_generator(){
-	/*	
-	Cette fonction permet la chute du tétriminos
-	et vérifie la grille du jeu.
-		:return newTetriminos: Tetriminos*
-	*/
-
-	int color = rand()%7;
-	Tetriminos * newTetriminos;
-
-	if(grid->get_hold_tetriminos() == nullptr){
-		newTetriminos = new Tetriminos(color);
-	}
-	else{
-
-		newTetriminos = grid->get_hold_tetriminos();
-	}
-
-	if(grid->has_tetriminos_hold()){
-		grid->set_state_tetriminos_hold(false);
-	}
-
-	grid->set_tetriminos(newTetriminos);
-
-	color = rand()%7;
-	Tetriminos * nextNewTetriminos = new Tetriminos(color);
-	grid->set_hold_tetriminos(nextNewTetriminos);
-
-	return newTetriminos;
-}
 
 void Game::start_classic_game(){
 	/*	
@@ -127,12 +111,12 @@ void Game::start_classic_game(){
 	bool gridOverload = false;	
 
 	myGUI->window_grid_GUI(); // On affiche la première fenêtre.	
-	std::thread thread_joueur (player_choice,grid); // Thread pour les inputs du joueur
+	std::thread thread_joueur (player_choice_in_game,grid); // Thread pour les inputs du joueur
 
 	while(not(gridOverload)){
 
-		Tetriminos * newTetriminos = tetriminos_generator();						
-		line_complete += tetriminos_dropping(newTetriminos);		
+		grid->tetriminos_generator();						
+		line_complete += tetriminos_dropping();		
 		gridOverload = grid->is_overload();
 		
 		delete grid->get_tetriminos();
@@ -157,12 +141,12 @@ void Game::start_sprint_game(){
 	int line_complete =0;
 	 
 	myGUI->window_grid_GUI(); // On affiche la première fenêtre.	
-	std::thread thread_joueur (player_choice,grid); // Thread pour les inputs du joueur
+	std::thread thread_joueur (player_choice_in_game,grid); // Thread pour les inputs du joueur
 	
 	while(not(gridOverload) and not(line_complete == 40)){
-
-		Tetriminos * newTetriminos = tetriminos_generator();						
-		line_complete += tetriminos_dropping(newTetriminos);		
+		
+		grid->tetriminos_generator();						
+		line_complete += tetriminos_dropping();	
 		gridOverload = grid->is_overload();
 				
 		delete grid->get_tetriminos();
@@ -183,19 +167,27 @@ void Game::start_marathon_game(){
 	int line_complete =0;
 
 	myGUI->window_grid_GUI(); // On affiche la première fenêtre.	
-	std::thread thread_joueur (player_choice,grid); // Thread pour les inputs du joueur
+	std::thread thread_joueur (player_choice_in_game,grid); // Thread pour les inputs du joueur
 
-	
+			
 	while(not(gridOverload) and not(line_complete == 200)){
 
-		Tetriminos * newTetriminos = tetriminos_generator();						
-		line_complete += tetriminos_dropping(newTetriminos);		
+		grid->tetriminos_generator();						
+		line_complete += tetriminos_dropping();	
 		gridOverload = grid->is_overload();
 
+		
 		// Chaque 10 lignes complètes, l'accélération augmente. 
-		if (line_complete!=0 and  line_complete%10 == 0){_acceleration-= 10000 ;}
+		if (line_complete!=0 and  line_complete%10 == 0){
+
+			grid->set_acceleration(grid->get_acceleration() - 10000);
+		}
 				
 		delete grid->get_tetriminos();	 
 	}
-	thread_joueur.detach();			
+	thread_joueur.detach();	
+
+
 }
+
+
