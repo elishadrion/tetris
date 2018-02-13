@@ -1,4 +1,4 @@
-#include "server.hpp"
+#include "Server.hpp"
 #include "dependencies/CSVparser/CSVparser.hpp"
 #include <fstream>
 
@@ -25,11 +25,11 @@ Server::Server(int port) {
     }
     _users = new LinkedList();
     _is_running = true;
-    listen(server, 100);
+    listen(_server, 100);
 }
 
 Server::~Server() {
-	delete users;
+	delete _users;
 }
 
 /*
@@ -39,12 +39,12 @@ void Server::accept_clients() {
 	std::cout << "\nOn attend de nouveaux clients!\n";
     _sin_size = sizeof(_client_address);
 	while (_is_running) {
-		if ((_client = accept(server, (struct sockaddr*)&_client_address, &_sin_size)) == -1){
+		if ((_client = accept(_server, (struct sockaddr*)&_client_address, &_sin_size)) == -1){
 			std::cout << "\nClient " << inet_ntoa(_client_address.sin_addr) << " n'a pas pu se connecté\n";
 		}
         else {
         	std::cout << "\nClient " << inet_ntoa(_client_address.sin_addr) << " s'est connecté!\n";
-		    std::thread t(&Server::receive, this, client);
+		    std::thread t(&Server::receive, this, _client);
 		    t.detach();
         }
 		
@@ -95,7 +95,7 @@ void Server::receive(int arg) {
         else if (code == "99") {
         	done = true;
         }
-        send(socketfd, answer.c_str(), strlen(msg.c_str()));
+        send(socketfd, answer.c_str(), strlen(answer.c_str()), 0);
     }
     
 	close(socketfd);

@@ -27,7 +27,7 @@ void Client::start() {
 	std::thread t2(&Client::manage, this);
 	t1.detach();
 	t2.detach();
-	//while (!_is_exiting);
+	while (!_is_exiting);
 }
 
 void Client::receive() {
@@ -105,7 +105,7 @@ void Client::login() {
 	std::getline(std::cin, buffer);
 	msg.append(get_hash(buffer));
 	msg.append(":");
-    write(_sockfd , msg.c_str() , strlen(msg.c_str()));
+    send(_sockfd , msg.c_str() , strlen(msg.c_str()), 0);
 }
 
 
@@ -123,12 +123,12 @@ void Client::signup() {
 	std::getline(std::cin, buffer);
 	msg.append(get_hash(buffer));
 	msg.append(":");
-    write(_sockfd , msg.c_str() , strlen(msg.c_str()));
+    send(_sockfd , msg.c_str() , strlen(msg.c_str()), 0);
 }
 
 void Client::exiting() {
 	_is_exiting = true;
-	write(_sockfd , "99" , 3);
+	send(_sockfd , "99" , 3, 0);
 	
 }
 
