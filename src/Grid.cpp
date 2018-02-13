@@ -15,7 +15,7 @@ std::mutex mtx;
 
 Grid::Grid() : _grid(nullptr),_current_tetriminos(nullptr), _next_tetriminos(nullptr),
 				_hold_tetriminos(nullptr),_acceleration(300000),quick_mode(false),
-				,score(0), _level(0) {
+				_score(0), _level(0) {
 	/*
 	On construit une grille de 20 x 10.
 	Une grille d'objet de type "Block" vide.
@@ -318,6 +318,8 @@ int Grid::check_lines(){
 	// On va faire la même opération pour le nombre de ligne complète.
 	for(int k =0; k < line_counter; k++){
 
+		
+
 		// On vérifie par le bas de la grille
 		for(int i = 19; i> 0; i--){
 
@@ -544,10 +546,3 @@ char * Grid::grid_to_char(){
 }
 
 
-void Grid::update_score_level(){
-
-
-
-
-
-}
