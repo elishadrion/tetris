@@ -82,7 +82,9 @@ void Server::receive(int arg) {
         	
         send(socketfd, answer.c_str(), strlen(answer.c_str()), 0);
     }
+    _mutex.lock();
     _users->delete_user(user);
+    _mutex.unlock();
 	close(socketfd);
      
 }
@@ -109,7 +111,9 @@ std::string Server::login(User* user, char* arg) {
     
     if (successful_login) {
     	std::cout << "login successful!\n";
+    	_mutex.lock();
         _users->prepend(user);
+        _mutex.unlock();
         return std::string("01:login_green");
     }
     else {

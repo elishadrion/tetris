@@ -32,7 +32,7 @@ void LinkedList::delete_user(User* usr) {
 	if (current != nullptr) {
 		Node* to_delete = current->next;
 		current->next = to_delete->next;
-		delete to_delete->usr;
+		delete to_delete->user;
 		delete to_delete;
 	}
 	

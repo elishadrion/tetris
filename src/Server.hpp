@@ -11,6 +11,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <thread>
+#include <mutex>
 
 #include "User.hpp"
 #include "LinkedList.hpp"
@@ -35,6 +36,7 @@ class Server {
 
     private:
         int _server, _client;
+        std::mutex _mutex;
         bool _is_running;
         LinkedList* _users;
         socklen_t _sin_size;
