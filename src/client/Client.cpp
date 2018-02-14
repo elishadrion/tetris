@@ -1,5 +1,7 @@
 #include "Client.hpp"
-int flag = 1;
+
+int attente = 0;
+
 Client::Client() {
     if ((_hostinfo=gethostbyname("127.0.0.1")) == NULL) {
         exit(1);
@@ -46,7 +48,14 @@ void Client::receive() {
 		//pending_messages.pop();
 		if (message == "01:") {
 			_logged_in = true;
+			attente = 0;
 			std::cout << "Vous êtes connectés!\n";
+		}
+		else if (message == "02:") {
+			
+			attente = 0;
+			_logged_in = false;
+			std::cout << "Identifiants invalides!\n";
 		}
 	}
 }
@@ -54,11 +63,12 @@ void Client::receive() {
 
 void Client::manage() {
     while (!_is_exiting) {
-    	if (!_logged_in and flag)
+    	if (attente)
+    		;
+    		
+    	else if (!_logged_in)
     		pre_menu();
-    	else if (!flag && !_logged_in)
-    		continue;
-    		//break;
+
     	else
     		post_menu();
     }
@@ -113,8 +123,9 @@ void Client::login() {
 	std::getline(std::cin, buffer);
 	msg.append(get_hash(buffer));
 	msg.append(":");
+	attente = 1;
     send(_sockfd , msg.c_str() , strlen(msg.c_str()), 0);
-    flag = 0;
+
 }
 
 
