@@ -12,9 +12,10 @@
 #include <stdio.h>
 #include <thread>
 #include <mutex>
-
+#include <fstream>
 #include "User.hpp"
 #include "LinkedList.hpp"
+#include "../dependencies/CSVparser/CSVparser.hpp"
 
 #define MAXPACKETSIZE 1024
 

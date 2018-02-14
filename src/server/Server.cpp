@@ -1,6 +1,4 @@
 #include "Server.hpp"
-#include "../dependencies/CSVparser/CSVparser.hpp"
-#include <fstream>
 
 Server::Server(int port) {
 
@@ -93,7 +91,7 @@ void Server::receive(int arg) {
     Connexion de l'utilisateur.
 */
 std::string Server::login(User* user, char* arg) {
-    csv::Parser file = csv::Parser("../data/database.csv");
+    csv::Parser file = csv::Parser("../../data/database.csv");
     bool successful_login = true;
     std::string message = arg;
     std::string username, password;
@@ -114,11 +112,11 @@ std::string Server::login(User* user, char* arg) {
     	_mutex.lock();
         _users->prepend(user);
         _mutex.unlock();
-        return std::string("01:login_green");
+        return std::string("01:");
     }
     else {
     	std::cout << "login unsuccessful!\n";
-        return std::string("01:login_red");
+        return std::string("02:");
     } 
 
 }
@@ -135,13 +133,13 @@ std::string Server::signup(char* arg) {
         successful_signup = false;
     }
     std::ofstream outfile;
-    outfile.open("../data/database.csv", std::ios_base::app);
+    outfile.open("../../data/database.csv", std::ios_base::app);
     outfile << "\n" << username << "," << password << std::endl;
     
     if (successful_signup)
-    	return std::string("02:register_green");
+    	return std::string("03:");
     else
-    	return std::string("02:register_red"); 
+    	return std::string("04:"); 
 }
 
 void Server::stop() {

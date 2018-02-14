@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <thread>
 #include <netdb.h>
+#include <queue>
 #include "../game/Game.hpp"
 #include "../dependencies/picosha2.h"
 

@@ -33,13 +33,20 @@ void Client::start() {
 void Client::receive() {
 	char server_message[MAXPACKETSIZE];
 	std::string message;
+	std::queue <std::string>pending_messages;
 	while (1) {
 		bzero(server_message, MAXPACKETSIZE);
 		recv(_sockfd, server_message, MAXPACKETSIZE, 0);
 		message = server_message;
-		std::cout << message << std::endl;
-		if (message == "01:login_green") {
+		//while (recv(_sockfd, server_message, MAXPACKETSIZE, 0) > 0) {
+			//message = server_message;
+			//pending_messages.push(message);
+		//}
+		//message = pending_messages.back();
+		//pending_messages.pop();
+		if (message == "01:") {
 			_logged_in = true;
+			std::cout << "Vous êtes connectés!\n";
 		}
 	}
 }
