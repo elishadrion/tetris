@@ -1,5 +1,5 @@
 #include "Client.hpp"
-
+int flag = 1;
 Client::Client() {
     if ((_hostinfo=gethostbyname("127.0.0.1")) == NULL) {
         exit(1);
@@ -54,11 +54,13 @@ void Client::receive() {
 
 void Client::manage() {
     while (!_is_exiting) {
-    	if (!_logged_in)
+    	if (!_logged_in and flag)
     		pre_menu();
+    	else if (!flag && !_logged_in)
+    		continue;
+    		//break;
     	else
     		post_menu();
-    		//break;
     }
 }
 
@@ -112,6 +114,7 @@ void Client::login() {
 	msg.append(get_hash(buffer));
 	msg.append(":");
     send(_sockfd , msg.c_str() , strlen(msg.c_str()), 0);
+    flag = 0;
 }
 
 
