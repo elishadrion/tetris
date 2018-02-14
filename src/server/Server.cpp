@@ -92,7 +92,7 @@ void Server::receive(int arg) {
 */
 std::string Server::login(User* user, char* arg) {
     csv::Parser file = csv::Parser("../../data/database.csv");
-    bool successful_login = true;
+    bool successful_login = false;
     std::string message = arg;
     std::string username, password;
     extract_credentials(message, username, password);
@@ -104,6 +104,7 @@ std::string Server::login(User* user, char* arg) {
     for (unsigned i = 0; i < file.rowCount(); i++) {
         if (file[i][0] == username && file[i][1] == password) {
             user->set_username(username);
+            successful_login = true;
         }
     }
     
