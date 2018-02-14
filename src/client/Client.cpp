@@ -41,7 +41,6 @@ void Client::receive() {
 		if (message == "01:login_green") {
 			_logged_in = true;
 		}
-		//std::cout << server_message << std::endl;
 	}
 }
 

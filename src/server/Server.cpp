@@ -1,5 +1,5 @@
 #include "Server.hpp"
-#include "dependencies/CSVparser/CSVparser.hpp"
+#include "../dependencies/CSVparser/CSVparser.hpp"
 #include <fstream>
 
 Server::Server(int port) {
