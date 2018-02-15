@@ -21,13 +21,14 @@ Server::Server(int port) {
         std::cout << "\nErreur lors de la liaison du socket au port\n";
         exit(1);
     }
-    _users = new LinkedList();
     _is_running = true;
     listen(_server, 100);
 }
 
 Server::~Server() {
-	delete _users;
+	for (auto it = _users.begin(); it != _users.end(); it++) {
+		delete *it;
+	}
 }
 
 /*
@@ -81,7 +82,7 @@ void Server::receive(int arg) {
         send(socketfd, answer.c_str(), strlen(answer.c_str()), 0);
     }
     _mutex.lock();
-    _users->delete_user(user);
+    delete_user(user);
     _mutex.unlock();
 	close(socketfd);
      
@@ -111,7 +112,7 @@ std::string Server::login(User* user, char* arg) {
     if (successful_login) {
     	std::cout << "login successful!\n";
     	_mutex.lock();
-        _users->prepend(user);
+        _users.push_front(user);
         _mutex.unlock();
         return std::string("01:");
     }
@@ -168,13 +169,10 @@ void Server::extract_credentials(std::string& message, std::string& username, st
     Renvoie true si un utilisateur avec ce pseudo est déjà connecté.
 */
 bool Server::user_already_connected(const std::string& usr) {
-	Node* current = _users->get_head();
-	while (current != nullptr){
-		if (current->user->get_username() == usr) {
-            return true;
-        }
-        current = current->next;
-    }
+	for (auto it = _users.cbegin(); it != _users.cend(); it++) {
+		if ((*it)->get_username() == usr)
+			return true;
+	}
     return false;
 }
 
@@ -189,4 +187,9 @@ bool Server::user_already_existing(const std::string& user) {
         }
     }
     return false;
+}
+
+void Server::delete_user(User* usr) {
+	auto it = std::find(_users.begin(), _users.end(), usr);
+	_users.erase(it);
 }

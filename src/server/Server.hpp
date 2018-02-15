@@ -13,8 +13,10 @@
 #include <thread>
 #include <mutex>
 #include <fstream>
+#include <list>
+#include <algorithm>
 #include "User.hpp"
-#include "LinkedList.hpp"
+#include "Room.hpp"
 #include "../dependencies/CSVparser/CSVparser.hpp"
 
 #define MAXPACKETSIZE 1024
@@ -34,12 +36,15 @@ class Server {
         void extract_credentials(std::string&, std::string&, std::string&);
         bool user_already_connected(const std::string&);
         bool user_already_existing(const std::string&);
+        
+        void delete_user(User*);
 
     private:
         int _server, _client;
         std::mutex _mutex;
         bool _is_running;
-        LinkedList* _users;
+        std::list<User*> _users;
+        std::list<Room*> _rooms;
         socklen_t _sin_size;
         struct sockaddr_in _server_address;
         struct sockaddr_in _client_address;

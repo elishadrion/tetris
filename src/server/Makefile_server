@@ -1,0 +1,26 @@
+
+# Groupe 2 : 3V-CUBE
+
+# Makefile
+
+
+
+CXX= g++
+MAIN= servert.cpp
+OUT= servert
+CXXFLAGS= -std=c++17 -pthread -ggdb3 -Wpedantic -Wall -Wextra -Wconversion -Weffc++ -Wstrict-null-sentinel -Wold-style-cast -Wnoexcept -Wctor-dtor-privacy -Woverloaded-virtual -Wsign-promo -Wzero-as-null-pointer-constant -Wsuggest-final-types -Wsuggest-final-methods -Wsuggest-override /home/prout/Desktop/Group2/src/dependencies/CSVparser/CSVparser.cpp
+
+all: $(OUT)
+
+$(OUT): ../game/Grid.o ../game/Tetriminos.o ../game/Block.o ../game/Game.o ../game/GUI.o User.o Room.o Server.o  $(MAIN)
+	$(CXX) $(CXXFLAGS) $(MAIN) ../game/Block.o ../game/Grid.o ../game/Game.o ../game/GUI.o ../game/Tetriminos.o User.o Room.o Server.o -o $(OUT) -lncurses
+	
+Room.o: Room.cpp Room.hpp
+	$(CXX) $(CXXFLAGS) -c Room.cpp
+	
+User.o: User.cpp User.hpp
+	$(CXX) $(CXXFLAGS) -c User.cpp
+	
+Server.o: Server.cpp Server.hpp
+	$(CXX) $(CXXFLAGS) -c Server.cpp
+

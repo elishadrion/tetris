@@ -37,8 +37,3 @@ GUI.o: ../game/GUI.cpp ../game/GUI.hpp
 Client.o: Client.cpp Client.hpp
 	$(CXX) $(CXXFLAGS) -c Client.cpp
 
-
-clean:
-	cd ../game/
-	rm *.o *.out;
-	cd ../
