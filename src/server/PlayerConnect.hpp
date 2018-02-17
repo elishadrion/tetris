@@ -21,7 +21,7 @@ class PlayerConnect {
         void send_packet(Packet::packet*, size_t);
         void receive();
         void logout();
-        Player* get_player_ptr() const {return _player};
+        Player* get_player_ptr() const {return _player;};
         virtual ~PlayerConnect() { close(_sockfd); }
 };
 

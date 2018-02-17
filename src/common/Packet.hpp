@@ -3,7 +3,7 @@
 
 #include <string>
 
-#include "common/Constants.hpp"
+#include "Constants.hpp"
 
 class Packet {
 public:
@@ -42,7 +42,7 @@ public:
     } pseudoPacket;
 
     typedef struct {
-        int ID = S_PLACE_CARD_ID;
+        int ID = 0;
         int size = (sizeof(char)*MAX_PSEUDO_SIZE)+sizeof(int);
         char pseudo[MAX_PSEUDO_SIZE];
         int data;

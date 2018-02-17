@@ -8,8 +8,9 @@
 #include "../dependencies/json.hpp"
 #include "unistd.h"
 #include "../common/Packet.hpp"
-#include "PacketManager.hpp"
+//#include "PacketManager.hpp"
 #include "../common/Constants.hpp"
+#include "PlayerConnect.hpp"
 
 
 class Player {
@@ -19,7 +20,6 @@ class Player {
 
 protected:
     PlayerConnect *_playerConnect;
-    std::vector<Deck*> _decks;
     unsigned _victories;
     unsigned _defeats;
 

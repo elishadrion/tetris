@@ -14,9 +14,9 @@
 #include <unistd.h>
 #include <vector>
 
-#include "common/Constants.hpp"
-#include "Packet.hpp"
-#include "PacketManager.hpp"
+#include "../common/Constants.hpp"
+#include "../common/Packet.hpp"
+//#include "PacketManager.hpp"
 #include "Player.hpp"
 #include "PlayerManager.hpp"
 
@@ -27,6 +27,7 @@ class Connection {
     struct sockaddr_in _server_addr;
     struct sockaddr_in _client_addr; 
     int _server_socket;
+    int _reuse = 1;
     unsigned int _sin_size;
 
     static void manage_player(int);

@@ -5,7 +5,7 @@
 #include <iostream>
 #include <algorithm>
 #include <random>
-
+class Player;
 #include "Player.hpp"
 #include "../dependencies/json.hpp"
 #include "../common/Packet.hpp"
