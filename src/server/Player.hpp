@@ -10,6 +10,7 @@
 #include "../common/Packet.hpp"
 //#include "PacketManager.hpp"
 #include "../common/Constants.hpp"
+class PlayerConnect;
 #include "PlayerConnect.hpp"
 
 

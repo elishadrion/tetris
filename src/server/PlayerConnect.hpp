@@ -3,6 +3,7 @@
 
 #include "Player.hpp"
 #include "PlayerManager.hpp"
+#include "../common/Packet.hpp"
 
 class PlayerConnect {
     int _sockfd;

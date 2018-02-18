@@ -66,18 +66,17 @@ void Connection::start() {
         } else {
             std::cout << "Client " << inet_ntoa(_client_addr.sin_addr) << " s'est connecté!" << std::endl;
             //On essaie de lancer le thread, si pas possible, on ferme la connexion
-            try {
-                std::thread t(&Connection::manage_player, this, client_socket);
-                t.detach();
-            } catch (std::system_error& e) {
-                std::cout << "Impossible de créer un nouveau thread pour le client" << std::endl;
+            
+            if ((pthread_create(&_mythread, NULL, &Connection::manage_player, (void*)&client_socket) == -1)) {
+            	std::cout << "Impossible de créer un nouveau thread pour le client" << std::endl;
                 close(client_socket);
             }
         }
     }
 }
 
-void Connection::manage_player(int client_socket) {
+void* Connection::manage_player(void* data) {
+	int client_socket = *static_cast<int*>(data);
     size_t read_size;
     size_t size;
     Player *new_player;

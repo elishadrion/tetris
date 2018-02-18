@@ -70,6 +70,8 @@ public:
         int size = sizeof(playerData);
         playerData data; /* We define it but we must include it */
     } playerInfoPacket;
+    
+    static const int packetMaxSize = sizeof(playerInfoPacket);
 
 };
 

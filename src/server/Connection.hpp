@@ -28,9 +28,10 @@ class Connection {
     struct sockaddr_in _client_addr; 
     int _server_socket;
     int _reuse = 1;
+    pthread_t _mythread;
     unsigned int _sin_size;
 
-    static void manage_player(int);
+    static void* manage_player(void*);
 
     /* Temp send methode only used for login */
     static void send_response(int, int);

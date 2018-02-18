@@ -38,5 +38,5 @@ void PlayerConnect::receive() {
 }
 
 void PlayerConnect::logout() {
-    PlayerManager::logOut(_player);
+    PlayerManager::logout(_player);
 }
