@@ -12,10 +12,7 @@ unsigned Player::get_ratio() const {
     return res;
 }
 
-
-void Player::set_sockfd(int sockfd) {
-	_playerConnect->set_sockfd(sockfd);
-}
+void Player::set_sockfd(int sockfd) {_playerConnect->set_sockfd(sockfd);}
 
 bool Player::operator<(const Player &other) const {
     return this->get_ratio() < other.get_ratio();

@@ -30,7 +30,7 @@ public:
     Player(std::string, int);
     inline void increment_victories() {_victories++;}
     inline void increment_defeats() {_defeats++;}
-    inline void set_sockfd(int);
+    void set_sockfd(int);
     inline std::string get_name() const {return _username;}
     inline unsigned get_victories() const {return _victories;}
     inline unsigned get_defeats() const {return _defeats;}
