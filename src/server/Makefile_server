@@ -10,8 +10,8 @@ CXXFLAGS= -std=c++17 -pthread -ggdb3 -Wpedantic -Wall -Wextra -Wconversion -Weff
 
 all: $(OUT)
 
-$(OUT): Connection.o Player.o PlayerConnect.o PlayerManager.o main.cpp $(MAIN)
-	$(CXX) $(CXXFLAGS) $(MAIN) Connection.o Player.o PlayerConnect.o PlayerManager.o main.cpp -o $(OUT)
+$(OUT): Connection.o Player.o PlayerConnect.o PlayerManager.o PacketManager.o main.cpp $(MAIN)
+	$(CXX) $(CXXFLAGS) $(MAIN) Connection.o Player.o PlayerConnect.o PacketManager.o PlayerManager.o main.cpp -o $(OUT)
 	
 PacketManager.o: PacketManager.cpp PacketManager.hpp
 	$(CXX) $(CXXFLAGS) -c PacketManager.cpp

@@ -26,6 +26,6 @@ void PacketManager::sendError(Player* player) {
     errorPacket->data = 0;
 
     /* Send and free */
-    player->sendPacket((Packet::packet*) errorPacket, sizeof(*errorPacket));
+    player->send_packet((Packet::packet*) errorPacket, sizeof(*errorPacket));
     delete errorPacket;
 }

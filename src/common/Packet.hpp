@@ -9,6 +9,7 @@ class Packet {
 public:
     /* All packet ID */
     enum IDList {
+    	ERROR_ID = 100,
         /* LOGIN PROCESS (all but the last in a mini-feature) */
         LOGIN_REQ_ID = 1, /* DEFAULT PACKET */
         REGIST_REQ_ID = 2, /* DEFAULT PACKET */
