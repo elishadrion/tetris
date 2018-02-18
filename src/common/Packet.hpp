@@ -5,9 +5,8 @@
 
 #include "Constants.hpp"
 
-//class Packet {
-namespace Packet {
-//public:
+class Packet {
+public:
     /* All packet ID */
     enum IDList {
         /* LOGIN PROCESS (all but the last in a mini-feature) */
@@ -73,7 +72,7 @@ namespace Packet {
     } playerInfoPacket;
     
     //static const int packetMaxSize = sizeof(playerInfoPacket);
-    int packetMaxSize = sizeof(playerInfoPacket);
+    static const int packetMaxSize = sizeof(playerInfoPacket);
 
 };
 

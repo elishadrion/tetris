@@ -15,10 +15,10 @@ void PlayerConnect::send_packet(Packet::packet *packet, size_t size) {
 
 void PlayerConnect::receive() {
     ssize_t readSize;
-
+	int packetMaxSize = sizeof(Packet::playerInfoPacket);
     while(1) {
 
-        void* packet = &Packet::packetMaxSize;
+        void* packet = &packetMaxSize;
 
         readSize = recv(_sockfd, packet, Packet::packetMaxSize, 0);
         if (readSize <= 0) {

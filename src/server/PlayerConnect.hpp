@@ -1,6 +1,7 @@
 #ifndef PLAYERCONNECT_HPP
 #define	PLAYERCONNECT_HPP
 
+class Player;
 class PlayerConnect;
 #include "Player.hpp"
 #include "PlayerManager.hpp"

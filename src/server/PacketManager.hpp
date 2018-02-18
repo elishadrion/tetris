@@ -1,3 +1,5 @@
+#ifndef PACKETMANAGER_HPP
+#define PACKETMANAGER_HPP
 #include <string>
 
 #include "../common/Packet.hpp"
@@ -20,3 +22,5 @@ namespace PacketManager {
     void sendError(Player*);
 
 }
+
+#endif
