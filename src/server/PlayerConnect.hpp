@@ -1,9 +1,11 @@
 #ifndef PLAYERCONNECT_HPP
 #define	PLAYERCONNECT_HPP
 
+class PlayerConnect;
 #include "Player.hpp"
 #include "PlayerManager.hpp"
 #include "../common/Packet.hpp"
+#include "PacketManager.hpp"
 
 class PlayerConnect {
     int _sockfd;

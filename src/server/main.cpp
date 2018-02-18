@@ -9,7 +9,7 @@
 Connection *conn;
 
 void interrupt_handler(int signum) {
-    WizardLogger::info("Interrupt Signal");
+    std::cout << "Interrupt Signal" << std::endl;
     delete conn;
     exit(signum);
 }

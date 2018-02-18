@@ -8,6 +8,7 @@
 class Player;
 #include "Player.hpp"
 #include "../dependencies/json.hpp"
+#include "../dependencies/CSVparser/CSVparser.hpp"
 #include "../common/Packet.hpp"
 
 #define PLAYERS_DB "server/assets/players.json"

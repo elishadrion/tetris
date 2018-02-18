@@ -5,8 +5,9 @@
 
 #include "Constants.hpp"
 
-class Packet {
-public:
+//class Packet {
+namespace Packet {
+//public:
     /* All packet ID */
     enum IDList {
         /* LOGIN PROCESS (all but the last in a mini-feature) */
@@ -54,9 +55,9 @@ public:
     /* Login or register packet */
     typedef struct {
         int ID = LOGIN_REQ_ID;
-        int size = sizeof(char)*MAX_PSEUDO_SIZE*2;
+        int size = sizeof(char)*MAX_PSEUDO_SIZE + sizeof(char)*HASH_SIZE;
         char username[MAX_PSEUDO_SIZE];
-        char password[MAX_PSEUDO_SIZE];
+        char password[HASH_SIZE];
     } loginRequestPacket;
 
     /* Player info (sucess login) */
@@ -71,7 +72,8 @@ public:
         playerData data; /* We define it but we must include it */
     } playerInfoPacket;
     
-    static const int packetMaxSize = sizeof(playerInfoPacket);
+    //static const int packetMaxSize = sizeof(playerInfoPacket);
+    int packetMaxSize = sizeof(playerInfoPacket);
 
 };
 

@@ -18,7 +18,7 @@ void PlayerConnect::receive() {
 
     while(1) {
 
-        void *packet = new Packet::packetMaxSize();
+        void* packet = &Packet::packetMaxSize;
 
         readSize = recv(_sockfd, packet, Packet::packetMaxSize, 0);
         if (readSize <= 0) {
@@ -28,7 +28,7 @@ void PlayerConnect::receive() {
         } else {
             packet = realloc(packet, readSize);
 
-            PacketManager::managePacket(getPlayerPtr(),reinterpret_cast<Packet::packet*>(packet));
+            PacketManager::manage_packet(get_player_ptr(),reinterpret_cast<Packet::packet*>(packet));
         }
 
         free(packet);
