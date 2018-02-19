@@ -5,7 +5,6 @@
 #include <vector>
 #include <pthread.h>
 
-#include "Card.hpp"
 
 
 class WizardDisplay {

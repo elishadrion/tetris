@@ -5,11 +5,10 @@
 #include <vector>
 #include <algorithm>
 
-#include "common/Constants.hpp"
-#include "common/Error.hpp"
+#include "../common/Constants.hpp"
 
-class CacheManager;
-#include "CacheManager.hpp"
+//class CacheManager;
+//#include "CacheManager.hpp"
 
 
 class Player {
@@ -17,48 +16,27 @@ class Player {
     static Player* instance;
 
     std::string _username;
-    unsigned _collection[MAX_CARDS];
-    std::vector<std::string> _decks;
-    std::vector<unsigned> _listCardDeck;
-    std::string _friendsList[MAX_FRIENDS];
     unsigned _victories;
     unsigned _defeats;
-    CacheManager *_cm;
+    //CacheManager *_cm;
 
 
 public:
-    Player(std::string username, unsigned collection[MAX_CARDS], std::vector<std::string> decks,
-           std::string friends[MAX_FRIENDS],unsigned victories, unsigned defeats);
+    Player(std::string, unsigned, unsigned);
     
     /* Setter */
-    inline void addCardCollection(unsigned ID) { _collection[ID]++; }
-    inline void adjudicateVictory() { _victories++; }
-    inline void adjudicateDefeat() { _defeats++; }
-    Error addDeck(std::string);
-    Error removeDeck(std::string);
-    void addFriend(std::string pseudo);
-    void removeFriend(std::string pseudo);
-    void addDeckCard(std::string, std::vector<unsigned>);
+    inline void increment_victories() { _victories++; }
+    inline void increment_defeats() { _defeats++; }
     
     /* Getter */
-    inline std::string getName() const { return _username; }
-    inline unsigned *getCollection() { return _collection; }
-    inline std::vector<std::string> getDecks() { return _decks; }
-    inline std::string *getFriends() { return _friendsList; }
-    inline unsigned getVictories() const { return _victories; }
-    inline unsigned getDefeats() const { return _defeats; }
-    inline bool isDeckCardDefine() const { return _listCardDeck.size() > 0; }
+    inline std::string get_name() const { return _username; }
+    inline unsigned get_victories() const { return _victories; }
+    inline unsigned get_defeats() const { return _defeats; }
 
-    // Deck
-    void resetAllDeckName();
-    std::vector<unsigned> getCardDeck(std::string);
-    void loadDeckCard();
-
-    
     ~Player() = default;
 
 
-    static Player* getPlayer() { return instance; }
+    static Player* get_player() { return instance; }
 };
 
 #endif  /* PLAYER_HPP */

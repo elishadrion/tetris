@@ -6,7 +6,6 @@
 #include "../common/WizardLogger.hpp"
 #include "Connection.hpp"
 #include "WizardDisplay.hpp"
-#include "CacheManager.hpp"
 #include "Player.hpp"
 #include "GameManager.hpp"
 
