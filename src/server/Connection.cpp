@@ -42,22 +42,22 @@ Connection::Connection() {
 
         _sin_size = sizeof(struct sockaddr_in);
     } catch (const std::runtime_error &error) {
-        std::cout << "Impossible de lancer le socket serveur" << std::endl;
+        WizardLogger::fatal("Impossible de lancer le socket serveur", error.what());
         throw;
     } catch (const std::exception &error) {
-        std::cout << "Erreur inconnue durant la préparation du socket serveur" << std::endl;
+        WizardLogger::fatal("Erreur inconnue durant la préparation du socket serveur", error.what());
         throw;
     }
 }
 
 Connection::~Connection() {
-    std::cout << "Fermeture du serveur" << std::endl;
+    WizardLogger::warning("Closing server connection");
     close(_server_socket);
 }
 
 //On attend une connexion client et on lance un thread pour le gérer
 void Connection::start() {
-    std::cout << "Serveur en attente de connexion client" << std::endl;
+    WizardLogger::info("Serveur en attente de connexion client");
     int client_socket;
     while(1) {
         client_socket = accept(_server_socket, (struct sockaddr *)&_client_addr, &_sin_size);
@@ -82,22 +82,23 @@ void* Connection::manage_player(void* data) {
     Player *new_player;
     size = sizeof(Packet::loginRequestPacket);
     Packet::loginRequestPacket *packet = new Packet::loginRequestPacket();
+    packet->sockfd = client_socket;
 
     //Tant qu'on est pas connecté, on loop
     bool logged_in = false;
     while(!logged_in) {
         read_size = recv(client_socket, packet, size, 0);
         if (read_size <= 0) {
-            std::cout << "Login interrompu, connexion avec le client perdu" << std::endl;
+            WizardLogger::error("Login interrompu, connexion avec le client perdu");
             break;
         } else if (read_size < size) {
-            std::cout << "Le packet reçu est incomplet" << std::endl;
+            WizardLogger::warning("Le packet reçu est incomplet");
         } else {
             //Vérification si le paquet est valide
             if (packet->ID != Packet::LOGIN_REQ_ID && packet->ID != Packet::REGIST_REQ_ID) {
-                std::cout << "Le packet reçu n'est pas un packet de login" << std::endl;
+                WizardLogger::warning("Le packet reçu n'est pas un packet de login");
             } else if (packet->size != sizeof(packet->username)+sizeof(packet->password)) {
-                std::cout << "Paquet de login corrompu reçu" << std::endl;
+                WizardLogger::error("Paquet de login corrompu reçu");
             } else {
                 std::string username = packet->username;
                 std::string password = packet->password;
@@ -106,7 +107,7 @@ void* Connection::manage_player(void* data) {
                 if (packet->ID == Packet::REGIST_REQ_ID) {
                     new_player = PlayerManager::signup(username, password, client_socket);
                 } else {
-                    new_player = PlayerManager::login(username, password, client_socket);
+                    new_player = PacketManager::manage_packet(nullptr, packet);
                 }
 
                 /* If no player object created we fail and restart */
@@ -123,14 +124,15 @@ void* Connection::manage_player(void* data) {
     delete packet;
 
     if (logged_in) {
-        send_success(new_player, client_socket);
+        std::cout << "on est logged in!!!!!" << std::endl;
+/*         send_success(new_player, client_socket);
         usleep(100);
         Packet::packet *endLogin = new Packet::packet();
         endLogin->ID = Packet::LOGIN_COMPLETE_ID;
         send(client_socket, endLogin, sizeof(Packet::packet), 0);
         delete endLogin;
         new_player->receive();
-        PlayerManager::logout(new_player);
+        PlayerManager::logout(new_player); */
     }
 }
 

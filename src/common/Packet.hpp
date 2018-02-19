@@ -7,10 +7,8 @@
 
 class Packet {
 public:
-    /* All packet ID */
     enum IDList {
     	ERROR_ID = 100,
-        /* LOGIN PROCESS (all but the last in a mini-feature) */
         LOGIN_REQ_ID = 1, /* DEFAULT PACKET */
         REGIST_REQ_ID = 2, /* DEFAULT PACKET */
         LOGIN_RES_ID = 3, /* Error code to convert in message (intPacket) */
@@ -20,7 +18,7 @@ public:
     };
     
     /* Default size of all packets (without data) */
-    static const int packetSize = sizeof(int)*2;
+    static const int packetSize = sizeof(int);
     
     /* Default packet struct (without data member) */
     typedef struct {
@@ -55,9 +53,10 @@ public:
     /* Login or register packet */
     typedef struct {
         int ID = LOGIN_REQ_ID;
-        int size = sizeof(char)*MAX_PSEUDO_SIZE + sizeof(char)*HASH_SIZE;
+        int size = sizeof(char)*MAX_PSEUDO_SIZE + sizeof(char)*HASH_SIZE + sizeof(int);
         char username[MAX_PSEUDO_SIZE];
         char password[HASH_SIZE];
+        int sockfd;
     } loginRequestPacket;
 
     /* Player info (sucess login) */
@@ -72,7 +71,6 @@ public:
         playerData data; /* We define it but we must include it */
     } playerInfoPacket;
     
-    //static const int packetMaxSize = sizeof(playerInfoPacket);
     static const int packetMaxSize = sizeof(playerInfoPacket);
 
 };
