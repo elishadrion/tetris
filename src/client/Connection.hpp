@@ -23,7 +23,7 @@ class Connection {
     pthread_t _thread;
     static void* receive(void*);
 public:
-    Connection(char*);
+    Connection();
     ~Connection();
     void send_packet(Packet::packet*, size_t);
 };

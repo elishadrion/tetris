@@ -5,7 +5,7 @@
 #include <stdexcept>
 #include <string>
 
-#include "include/spdlog/spdlog.h"
+#include "../dependencies/spdlog/spdlog.h"
 
 #define SERVER_LOGFILE "WizardPokerServer"
 #define CLIENT_LOGFILE "WizardPoker"

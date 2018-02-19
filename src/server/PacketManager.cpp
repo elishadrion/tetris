@@ -2,10 +2,10 @@
 
 void PacketManager::manage_packet(Player *player, void* packet) {
     /* We get ID of the packet after cast void* to packet* */
-    switch(packet->ID) {
-        case Packet::LOGIN_REQ_ID :     manage_login_request(reinterpret_cast<Packet::loginRequestPacket*>(packet);)
-        case Packet::DISCONNECT_ID :    manage_disconnect_request(player, packet);
-                                        break;
+    Packet::packet* temp_packet = reinterpret_cast<Packet::packet*>(packet);
+    switch(temp_packet->ID) {
+        case Packet::LOGIN_REQ_ID :     manage_login_request(reinterpret_cast<Packet::loginRequestPacket*>(packet));
+        								break;
 
         default :                       WizardLogger::warning("Paquet inconnue reçu");
                                         break;
@@ -18,14 +18,8 @@ Player* PacketManager::manage_login_request(Packet::loginRequestPacket* packet) 
     return PlayerManager::login(std::string(packet->username), std::string(packet->password), packet->sockfd);
 }
 
-void PacketManager::manage_signup_request(Packet::loginRequestPacket* packet) {
 
-}
 
-void PacketManager::manage_disconnect_request(Player* player, Packet::packet* disconnectPacket) {
-    std::cout << player->get_name() + " se déconnecte" << std::endl;
-    player->logout();
-}
 
 void PacketManager::sendError(Player* player) {
     Packet::intPacket* errorPacket = new Packet::intPacket();

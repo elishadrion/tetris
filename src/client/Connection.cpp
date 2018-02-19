@@ -5,34 +5,33 @@
  * @throw : Cannot connect to the server, we must stop the client
  */
 Connection::Connection() {
-    try {
-        if ((host=gethostbyname("127.0.0.1")) == NULL) {
-            exit(1);
-        }
+    if ((_host=gethostbyname("127.0.0.1")) == NULL) {
+        exit(1);
+    }
 
-        _socketfd = socket(AF_INET, SOCK_STREAM, 0);
-        if (_socketfd == -1) {
-            std::cout << "\nImpossible de créer le socket!" << std::endl;
-            exit(1);
-        }
+    _socketfd = socket(AF_INET, SOCK_STREAM, 0);
+    if (_socketfd == -1) {
+        std::cout << "\nImpossible de créer le socket!" << std::endl;
+        exit(1);
+    }
 
-        _server_addr.sin_family = AF_INET;
-        _server_addr.sin_port = htons(PORT);
-        _server_addr.sin_addr = *((struct in_addr*)_host->h_addr);
+    _server_addr.sin_family = AF_INET;
+    _server_addr.sin_port = htons(PORT);
+    _server_addr.sin_addr = *((struct in_addr*)_host->h_addr);
 
-        memset(&(_server_addr.sin_zero), '\0', 8);
+    memset(&(_server_addr.sin_zero), '\0', 8);
 
-        if (connect(_socketfd, (struct sockaddr *)&_server_addr, sizeof(struct sockaddr)) == -1) {
-            std::cout << "Impossible de se connecter au serveur" << std::endl;
-            exit(1);
-        }
+    if (connect(_socketfd, (struct sockaddr *)&_server_addr, sizeof(struct sockaddr)) == -1) {
+        std::cout << "Impossible de se connecter au serveur" << std::endl;
+        exit(1);
+    }
 
-        /* We create a new Thread for listen the server informations */
-        if (pthread_create(&_thread, NULL, receive, (void*)&_socketfd) == -1) {
-            std::cout << "Impossible de créer un nouveau thread pour écouter le serveur" << std::endl;
-            exit(1);
-        }
-        std::cout << "Client initialisé!" << std::endl;
+    /* We create a new Thread for listen the server informations */
+    if (pthread_create(&_thread, NULL, receive, (void*)&_socketfd) == -1) {
+        std::cout << "Impossible de créer un nouveau thread pour écouter le serveur" << std::endl;
+        exit(1);
+    }
+    std::cout << "Client initialisé!" << std::endl;
 }
 
 Connection::~Connection() {
@@ -61,7 +60,7 @@ void* Connection::receive(void* data) {
         void *packet = malloc(Packet::packetMaxSize);
 
         /* Try to get packet from server */
-        readSize = recv(clientSocket, packet, Packet::packetMaxSize, 0);
+        readSize = recv(socket, packet, Packet::packetMaxSize, 0);
         if (readSize <= 0) {
             break;
         } else if (readSize < Packet::packetSize) {

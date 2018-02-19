@@ -25,12 +25,6 @@ namespace PacketManager {
     void send_signup_request(const char*, const char*); /* REGIST_REQ_ID */
     void send_disconnect_request(); /* DISCONNECT_ID */
 
-    ///// Tchat process /////
-    // Recev
-    void get_message(const Packet::tchatRecevMsgPacket*); /* TCHAT_RECEV_MSG_ID */
-    // Send
-    void send_message(const std::string, const std::string); /* TCHAT_SEND_MSG_ID (out) */
-
     void quit(); /* QUIT_ID */
 
 

@@ -16,7 +16,8 @@
 
 #include "../common/Constants.hpp"
 #include "../common/Packet.hpp"
-//#include "PacketManager.hpp"
+#include "../common/WizardLogger.hpp"
+#include "PacketManager.hpp"
 #include "Player.hpp"
 #include "PlayerManager.hpp"
 

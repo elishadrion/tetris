@@ -107,7 +107,7 @@ void* Connection::manage_player(void* data) {
                 if (packet->ID == Packet::REGIST_REQ_ID) {
                     new_player = PlayerManager::signup(username, password, client_socket);
                 } else {
-                    new_player = PacketManager::manage_packet(nullptr, packet);
+                    new_player = PacketManager::manage_login_request(packet);
                 }
 
                 /* If no player object created we fail and restart */
