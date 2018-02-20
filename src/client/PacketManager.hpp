@@ -6,8 +6,9 @@
 #include "../common/WizardLogger.hpp"
 #include "Connection.hpp"
 #include "WizardDisplay.hpp"
-//#include "Player.hpp"
-//#include "GameManager.hpp"
+#include "Player.hpp"
+#include "GameManager.hpp"
+#include "CacheManager.hpp"
 
 extern WizardDisplay *display;
 
@@ -24,12 +25,6 @@ namespace PacketManager {
     void send_signup_request(const char*, const char*); /* REGIST_REQ_ID */
     void send_disconnect_request(); /* DISCONNECT_ID */
 
-    void quit(); /* QUIT_ID */
-
-
-    ///// Error /////
-    // Recev
-    void manage_error(Packet::intPacket*);
 
 
 

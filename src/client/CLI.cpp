@@ -33,10 +33,9 @@ CLI::CLI() {
         _panelList[MAIN] = new MainPanelCLI(this);
         _panelList[TCHAT] = new TchatPanelCLI(this);
         _panelList[FRIEND] = new FriendPanelCLI(this);
-        _panelList[COLL] = new CollectionPanelCLI(this);
-        _panelList[DECK] = new DeckPanelCLI(this);
+
         _panelList[WAIT] = new WaitPanelCLI(this);
-        _panelList[GAME] = new GamePanelCLI(this);
+ 
     } catch (const std::runtime_error &error) {
         WizardLogger::fatal("Impossible de créer les panels de la CLI : ", error.what());
         endwin(); /* Ensure ncurses is desactivate */
@@ -114,46 +113,6 @@ void CLI::displayFriendsWindow() {
     attron(COLOR_PAIR(6));
 }
 
-void CLI::displayCollectionWindow() {
-    /* Display HELP for collection */
-    attron(COLOR_PAIR(6));
-    mvprintw(LINES-2, 2, COLL_LABEL);
-    attron(COLOR_PAIR(6));
-
-    /* We display CollectionPanel */
-    _panelList[COLL]->show();
-    _panelList[COLL]->focus();
-
-    /* After that, we hide and show the mainPanel */
-    _panelList[COLL]->hide();
-    _panelList[MAIN]->show();
-
-    /* Display general HELP */
-    attron(COLOR_PAIR(6));
-    mvprintw(LINES-2, 2, MAIN_LABEL);
-    attron(COLOR_PAIR(6));
-}
-
-void CLI::displayDeckWindow() {
-    /* Display HELP */
-    attron(COLOR_PAIR(6));
-    mvprintw(LINES-2, 2, DECK_LABEL);
-    attron(COLOR_PAIR(6));
-
-    /* We display CollectionPanel */
-    _panelList[DECK]->show();
-    _panelList[DECK]->focus();
-
-    /* After that, we hide and show the collectionPanel */
-    _panelList[DECK]->hide();
-    _panelList[COLL]->show();
-
-
-    /* Display general HELP */
-    attron(COLOR_PAIR(6));
-    mvprintw(LINES-2, 2, MAIN_LABEL);
-    attron(COLOR_PAIR(6));
-}
 
 void CLI::displayWait() {
     /* Display HELP */
@@ -175,19 +134,6 @@ void CLI::displayWait() {
     attron(COLOR_PAIR(6));
 }
 
-void CLI::displayGame() {
-    /* Display HELP */
-    attron(COLOR_PAIR(6));
-    mvprintw(LINES-2, 2, GAME_LABEL);
-    attron(COLOR_PAIR(6));
-
-    /* We display CollectionPanel */
-    _panelList[GAME]->show();
-    _panelList[GAME]->focus();
-
-    /* After that, we hide and return to wait (returning to main) */
-    _panelList[GAME]->hide();
-}
 
 void CLI::askDeck() {
     reinterpret_cast<WaitPanelCLI*>(_panelList[WAIT])->startGame();

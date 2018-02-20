@@ -5,12 +5,13 @@
 #include "Connection.hpp"
 #include "CacheManager.hpp"
 #include "Player.hpp"
-#include "common/WizardLogger.hpp"
+#include "../common/WizardLogger.hpp"
+#include "WizardDisplay.hpp"
 
 #include <stdlib.h>     /* srand, rand */
 
 Connection *conn;
-Display *display;
+WizardDisplay *display;
 Player *player;
 
 
@@ -19,7 +20,7 @@ int main() {
     std::string address = "127.0.0.1";
 
     try {
-        WizardLogger::initLogger(activeGUI, "WizardLogger");
+        WizardLogger::initLogger(false, "WizardLogger");
     } catch (std::exception ex) {
         std::cerr << "Impossible d'initialiser le logger : " << ex.what() << std::endl;
         return EXIT_FAILURE;
@@ -27,7 +28,7 @@ int main() {
     WizardLogger::info("Starting client");
 
     try {
-        conn = new Connection((char*) address.c_str());
+        conn = new Connection();
     } catch (...) {
         std::cerr << "Communication impossible avec le serveur (voir log)" << std::endl;
         return EXIT_FAILURE;

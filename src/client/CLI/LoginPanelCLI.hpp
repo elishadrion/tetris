@@ -19,15 +19,15 @@
 #include <string>
 
 /* Logger */
-#include "common/WizardLogger.hpp"
+#include "../../common/WizardLogger.hpp"
 
 /* To call the login process */
-#include "client/PacketManager.hpp"
+#include "../PacketManager.hpp"
 
-#include "client/WizardDisplay.hpp"
+#include "../WizardDisplay.hpp"
 
 class CLI;
-#include "client/CLI.hpp"
+#include "../CLI.hpp"
 
 class CLIPanel;
 #include "CLIPanel.hpp"

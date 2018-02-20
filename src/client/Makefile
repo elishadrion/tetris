@@ -9,8 +9,8 @@ OUT= main
 CXXFLAGS= -std=c++17 -pthread -ggdb3 -Wpedantic -Wall -Wextra -Wconversion -Weffc++ -Wstrict-null-sentinel -Wold-style-cast -Wnoexcept -Wctor-dtor-privacy -Woverloaded-virtual -Wsign-promo -Wzero-as-null-pointer-constant -Wsuggest-final-types -Wsuggest-final-methods -Wsuggest-override
 all: $(OUT)
 
-$(OUT): Connection.o Player.o CLI.o PlayerManager.o GameManager.o $(MAIN)
-	$(CXX) $(CXXFLAGS) $(MAIN) Connection.o Player.o CLI.o PacketManager.o GameManager.o -o $(OUT)
+$(OUT): Connection.o Player.o CLI.o GameManager.o PacketManager.o WizardLogger.o $(MAIN)
+	$(CXX) $(CXXFLAGS) $(MAIN) Connection.o Player.o CLI.o PacketManager.o GameManager.o WizardLogger.o -o $(OUT) -lncurses
 	
 PacketManager.o: PacketManager.cpp PacketManager.hpp
 	$(CXX) $(CXXFLAGS) -c PacketManager.cpp
@@ -26,4 +26,7 @@ Player.o: Player.cpp Player.hpp
 	
 Connection.o: Connection.cpp Connection.hpp
 	$(CXX) $(CXXFLAGS) -c Connection.cpp
+	
+WizardLogger.o: ../common/WizardLogger.cpp ../common/WizardLogger.hpp
+	$(CXX) $(CXXFLAGS) -c ../common/WizardLogger.cpp
 

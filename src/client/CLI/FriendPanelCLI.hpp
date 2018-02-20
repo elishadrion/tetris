@@ -28,19 +28,19 @@
 #include <panel.h>
 #include <form.h>
 
-#include "common/Constants.hpp"
+#include "../../common/Constants.hpp"
 
 /* For logging */
-#include "common/WizardLogger.hpp"
+#include "../../common/WizardLogger.hpp"
 
 /* To send disconnection signal */
-#include "client/PacketManager.hpp"
+#include "../PacketManager.hpp"
 
 /* To get friends info */
-#include "client/Player.hpp"
+#include "../Player.hpp"
 
 class CLI;
-#include "client/CLI.hpp"
+#include "../CLI.hpp"
 
 class CLIPanel;
 #include "CLIPanel.hpp"

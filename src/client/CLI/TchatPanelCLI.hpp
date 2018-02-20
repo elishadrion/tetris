@@ -16,7 +16,7 @@
 #include <vector>
 
 class CLI;
-#include "client/CLI.hpp"
+#include "../CLI.hpp"
 
 class CLIPanel;
 #include "CLIPanel.hpp"

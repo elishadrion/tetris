@@ -8,21 +8,18 @@
 #include <iostream>
 
 /* Logger */
-#include "common/WizardLogger.hpp"
+#include "../common/WizardLogger.hpp"
 
 /* Main type */
 #include "WizardDisplay.hpp"
 
 /* All used panel */
-#include "client/CLI/CLIPanel.hpp"
-#include "client/CLI/LoginPanelCLI.hpp"
-#include "client/CLI/MainPanelCLI.hpp"
-#include "client/CLI/TchatPanelCLI.hpp"
-#include "client/CLI/FriendPanelCLI.hpp"
-#include "client/CLI/CollectionPanelCLI.hpp"
-#include "client/CLI/DeckPanelCLI.hpp"
-#include "client/CLI/WaitPanelCLI.hpp"
-#include "client/CLI/GamePanelCLI.hpp"
+#include "CLI/CLIPanel.hpp"
+#include "CLI/LoginPanelCLI.hpp"
+#include "CLI/MainPanelCLI.hpp"
+#include "CLI/TchatPanelCLI.hpp"
+#include "CLI/FriendPanelCLI.hpp"
+#include "CLI/WaitPanelCLI.hpp"
 
 /* Define some label for HELP */
 #define MAIN_LABEL "[F1 : TCHAT    F2 : ENVOYER (TCHAT)    F3 : VALIDER                                                    F10 : QUITTER   ]"
@@ -54,7 +51,7 @@
 #define CARD_INFO_HEIGTH 5
 #define CARD_INFO_WIDTH TCHAT_INPUT_WIDTH
 
-#define PANEL_TOTAL_NUMBER 8
+#define PANEL_TOTAL_NUMBER 5
 
 
 class CLI : public WizardDisplay {
@@ -66,10 +63,7 @@ class CLI : public WizardDisplay {
         MAIN = 1,
         TCHAT = 2,
         FRIEND = 3,
-        COLL = 4,
-        DECK = 5,
         WAIT = 6,
-        GAME = 7,
     };
 public:
     CLI();
@@ -82,46 +76,15 @@ public:
     void displayMainWindow();
     void displayFriendsWindow();
     void displayCollectionWindow();
-    void displayDeckWindow();
+
     void displayWait();
-    void displayGame();
+
     void displayClassement();
     void focusTchat();
     void askDeck();
 
     void recevTchatMsg(std::string, std::string, std::string);
-    
-    //////TODO///////////
 
-    void drawCard(Card*) {}
-
-    void adverseDrawCard() {}
-
-    void changeTurn() {}
-
-    void placeAdverseCard(Card*) {}
-
-    void placeAdverseSpellCard(Card*, Card*) {}
-
-    void placeAdverseSpellPlayer(Card*) {}
-
-    void placeCardAndAttack(Card*, Card*) {}
-
-    void placeCardAndAttackPlayer(Card*) {}
-
-    void placeAdverseCardAndAttack(Card*, Card*) {}
-
-    void placeAdverseCardAndAttackPlayer(Card*) {}
-
-    void attackCard(Card*, Card*) {}
-
-    void adverseAttackCard(Card*, Card*) {}
-
-    void attackPlayer(Card*) {}
-
-    void adverseAttackPlayer(Card*) {}
-
-    void cardIsDead(Card*, bool) {}
 };
 
 #endif /* CLI_HPP */

@@ -3,7 +3,7 @@
 extern Connection *conn;
 extern CacheManager *cacheManager;
 
-void PacketManager::managePacket(void* packet) {
+void PacketManager::manage_packet(void* packet) {
     /* We get ID of the packet after cast void* to packet* */
 	Packet::packet* temp_packet = reinterpret_cast<Packet::packet*>(packet);
     switch(temp_packet->ID) {
@@ -13,12 +13,10 @@ void PacketManager::managePacket(void* packet) {
                                           break;
         case Packet::REGIST_REQ_ID :      WizardLogger::warning("Paquet de requête d'inscription reçu");
                                           break;
-        case Packet::LOGIN_COMPLETE_ID :  login_complete(customPacket);
+        case Packet::LOGIN_COMPLETE_ID :  login_complete(temp_packet);
                                           break;
 
         case Packet::DISCONNECT_ID :      WizardLogger::warning("Paquet de déconnection reçu");
-                                          break;
-        case Packet::ERROR_ID:            manageError((Packet::intPacket*) packet);
                                           break;
         default :                         WizardLogger::warning("Paquet inconnue reçu: " +
                                                             std::to_string(temp_packet->ID));
@@ -40,7 +38,7 @@ void PacketManager::send_login_request(const char *pseudo, const char *password)
     /* Create and complete a new loginPacket */
     Packet::loginRequestPacket *loginPacket = new Packet::loginRequestPacket();
     for (int i = 0 ; i < MAX_PSEUDO_SIZE ; ++i) {
-        loginPacket->pseudo[i] = pseudo[i];
+        loginPacket->username[i] = pseudo[i];
     }
     for (int i = 0 ; i < HASH_SIZE ; ++i) {
         loginPacket->password[i] = password[i];
@@ -64,7 +62,7 @@ void PacketManager::send_signup_request(const char *pseudo, const char *password
     Packet::loginRequestPacket *registrationPacket = new Packet::loginRequestPacket();
     registrationPacket->ID = Packet::REGIST_REQ_ID;
     for (int i = 0 ; i < MAX_PSEUDO_SIZE ; ++i) {
-        registrationPacket->pseudo[i] = pseudo[i];
+        registrationPacket->username[i] = pseudo[i];
     }
     for (int i = 0 ; i < HASH_SIZE ; ++i) {
         registrationPacket->password[i] = password[i];
@@ -92,29 +90,3 @@ void PacketManager::send_disconnect_request() {
     delete logoutPacket;
 }
 
-/**
- * Inform server that we (rage) quit party and we loose
- */
-void PacketManager::quit() {
-    //     delete GameManager::getInstance();
-
-    /* Create and specify a new logoutPacket */
-    Packet::packet *quit = new Packet::packet();
-    quit->ID = Packet::QUIT_ID;
-    
-    /* Send it to the server */
-    conn->send_packet((Packet::packet*) quit, sizeof(*quit));
-    
-    /* Clean memory */
-    delete quit;
-}
-
-void PacketManager::manageError(Packet::intPacket* errorPacket) {
-    WizardLogger::info("Erreur: " + std::to_string(errorPacket->data));
-
-    /* Lock, signal other thread and unlock */
-    pthread_mutex_lock(&display->packetStackMutex);
-    display->packetErrorStack.push_back(errorPacket->data);
-    pthread_cond_broadcast(&display->packetStackCond);
-    pthread_mutex_unlock(&display->packetStackMutex);
-}

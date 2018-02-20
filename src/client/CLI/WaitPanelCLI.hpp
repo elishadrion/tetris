@@ -5,12 +5,12 @@
 
 #include <vector>
 
-#include "client/PacketManager.hpp"
+#include "../PacketManager.hpp"
 
-#include "client/Player.hpp"
+#include "../Player.hpp"
 
 class CLI;
-#include "client/CLI.hpp"
+#include "../CLI.hpp"
 
 class CLIPanel;
 #include "CLIPanel.hpp"

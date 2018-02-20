@@ -29,12 +29,12 @@
 #include <form.h>
 
 /* To send disconnection signal */
-#include "client/PacketManager.hpp"
+#include "../PacketManager.hpp"
 
-#include "client/WizardDisplay.hpp"
+#include "../WizardDisplay.hpp"
 
 class CLI;
-#include "client/CLI.hpp"
+#include "../CLI.hpp"
 
 class CLIPanel;
 #include "CLIPanel.hpp"

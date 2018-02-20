@@ -1,10 +1,10 @@
 #ifndef CLIPANEL_HPP
 #define	CLIPANEL_HPP
 
-#include "common/Constants.hpp"
+#include "../../common/Constants.hpp"
 
 class CLI;
-#include "client/CLI.hpp"
+#include "../CLI.hpp"
 
 class CLIPanel {
 protected:
