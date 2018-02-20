@@ -2,28 +2,29 @@
 #include <iostream>
 #include <system_error>
 
-#include <QApplication>
-
-
 #include "Connection.hpp"
 #include "CacheManager.hpp"
 #include "Player.hpp"
 #include "common/WizardLogger.hpp"
-#include "WizardDisplay.hpp"
-#include "CLI.hpp"
-#include "GUI.hpp"
 
 #include <stdlib.h>     /* srand, rand */
 
 Connection *conn;
-WizardDisplay *display;
-CacheManager *cacheManager;
+Display *display;
 Player *player;
 
 
 int main() {
     /* Check if we launch as CLI or GUI and get adress */
-    std::string address = "localhost";
+    std::string address = "127.0.0.1";
+
+    try {
+        WizardLogger::initLogger(activeGUI, "WizardLogger");
+    } catch (std::exception ex) {
+        std::cerr << "Impossible d'initialiser le logger : " << ex.what() << std::endl;
+        return EXIT_FAILURE;
+    }
+    WizardLogger::info("Starting client");
 
     try {
         conn = new Connection((char*) address.c_str());
@@ -32,14 +33,11 @@ int main() {
         return EXIT_FAILURE;
     }
 
-    cacheManager = new CacheManager();
-    display = new CLI();
 
     display->displayLoginPrompt();
     
     delete display;
     delete conn;
-    delete cacheManager;
 
 
     return EXIT_SUCCESS;

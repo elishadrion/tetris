@@ -42,7 +42,7 @@ Connection::~Connection() {
 
 void Connection::send_packet(Packet::packet *packet, size_t size) {
     if (send(_socketfd, packet, size, 0) != size) {
-        std::cout << "Tout le paquet n'a pas été envoyé" << std::endl;
+        WizardLogger::error("Tout le paquet n'a pas été envoyé");
     }
 }
 
@@ -64,8 +64,8 @@ void* Connection::receive(void* data) {
         if (readSize <= 0) {
             break;
         } else if (readSize < Packet::packetSize) {
-            std::cout << "Impossible de récupérer un packet du serveur " +
-                                std::to_string(reinterpret_cast<Packet::packet*>(packet)->ID) << std::endl;
+            WizardLogger::error("Impossible de récupérer un packet du serveur " +
+                                std::to_string(reinterpret_cast<Packet::packet*>(packet)->ID));
         } else {
             /* We terminate resize memory alloc */
             packet = realloc(packet, readSize);

@@ -124,9 +124,9 @@ void* Connection::manage_player(void* data) {
     delete packet;
 
     if (logged_in) {
-        std::cout << "on est logged in!!!!!" << std::endl;
-/*         send_success(new_player, client_socket);
-        usleep(100);
+        std::cout << "client s'est logged in!!!!!" << std::endl;
+        send_success(new_player, client_socket);
+/*         usleep(100);
         Packet::packet *endLogin = new Packet::packet();
         endLogin->ID = Packet::LOGIN_COMPLETE_ID;
         send(client_socket, endLogin, sizeof(Packet::packet), 0);
@@ -145,14 +145,8 @@ void Connection::send_response(int errorCode, int socket) {
 }
 
 void Connection::send_success(Player* player, int socket) {
-    Packet::playerInfoPacket *player_packet = new Packet::playerInfoPacket();
-
-    std::string pseudo = player->get_name();
-
-    player_packet->data.victories = player->get_victories();
-    player_packet->data.defeats = player->get_defeats();
-    std::strncpy(player_packet->data.pseudo, pseudo.c_str(), sizeof(pseudo.c_str()));
-
-    send(socket, player_packet, sizeof(Packet::playerInfoPacket), 0);
+    Packet::packet *packet = new Packet::packet();
+    packet->ID = Packet::LOGIN_COMPLETE_ID;
+    send(socket, packet, sizeof(Packet::packet), 0);
     delete player_packet;
 }
