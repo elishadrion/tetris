@@ -33,7 +33,8 @@ int main() {
         std::cerr << "Communication impossible avec le serveur (voir log)" << std::endl;
         return EXIT_FAILURE;
     }
-
+	
+	display = new WizardDisplay();
 
     display->start();
     

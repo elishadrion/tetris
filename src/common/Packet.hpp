@@ -53,7 +53,7 @@ public:
     /* Login or register packet */
     typedef struct {
         int ID = LOGIN_REQ_ID;
-        int size = sizeof(char)*MAX_PSEUDO_SIZE + sizeof(char)*HASH_SIZE + sizeof(int);
+        int size = sizeof(char)*MAX_PSEUDO_SIZE + (sizeof(char)*HASH_SIZE);
         char username[MAX_PSEUDO_SIZE];
         char password[HASH_SIZE];
         int sockfd;
