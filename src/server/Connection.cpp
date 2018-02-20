@@ -148,5 +148,5 @@ void Connection::send_success(Player* player, int socket) {
     Packet::packet *packet = new Packet::packet();
     packet->ID = Packet::LOGIN_COMPLETE_ID;
     send(socket, packet, sizeof(Packet::packet), 0);
-    delete player_packet;
+    delete packet;
 }
