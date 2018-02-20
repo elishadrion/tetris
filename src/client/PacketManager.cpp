@@ -3,26 +3,25 @@
 extern Connection *conn;
 extern CacheManager *cacheManager;
 
-void PacketManager::managePacket(Packet::packet* customPacket) {
+void PacketManager::managePacket(void* packet) {
     /* We get ID of the packet after cast void* to packet* */
-    switch(customPacket->ID) {
+	Packet::packet* temp_packet = reinterpret_cast<Packet::packet*>(packet);
+    switch(temp_packet->ID) {
 
         /* Login process */
         case Packet::LOGIN_REQ_ID :       WizardLogger::warning("Paquet de requête de login reçu");
                                           break;
         case Packet::REGIST_REQ_ID :      WizardLogger::warning("Paquet de requête d'inscription reçu");
                                           break;
-        case Packet::LOGIN_RES_ID :       login_result((Packet::intPacket*) customPacket);
-                                          break;
         case Packet::LOGIN_COMPLETE_ID :  login_complete(customPacket);
                                           break;
 
         case Packet::DISCONNECT_ID :      WizardLogger::warning("Paquet de déconnection reçu");
                                           break;
-        case Packet::ERROR_ID:            manageError((Packet::intPacket*) customPacket);
+        case Packet::ERROR_ID:            manageError((Packet::intPacket*) packet);
                                           break;
         default :                         WizardLogger::warning("Paquet inconnue reçu: " +
-                                                            std::to_string(customPacket->ID));
+                                                            std::to_string(temp_packet->ID));
                                           break;
     }
 }
@@ -30,19 +29,6 @@ void PacketManager::managePacket(Packet::packet* customPacket) {
 
 //===========================LOGIN PROCESS===========================================
 
-void PacketManager::login_result(const Packet::intPacket* resultPacket) {
-    if (resultPacket->size != sizeof(int)) {
-        WizardLogger::error("Paquet de résultat de login corrompu reçu (" +
-                            std::to_string(resultPacket->size) + "/" +
-                            std::to_string(sizeof(int))+")");
-    }
-    
-    /* Lock, signal other thread and unlock */
-    pthread_mutex_lock(&display->packetStackMutex);
-    display->packetStack.push_back(reinterpret_cast<void*>(new std::string("Erreur durant le login")));
-    pthread_cond_broadcast(&display->packetStackCond);
-    pthread_mutex_unlock(&display->packetStackMutex);
-}
 
 void PacketManager::login_complete(const Packet::packet* packet) {
     pthread_mutex_lock(&display->packetStackMutex);
@@ -61,7 +47,7 @@ void PacketManager::send_login_request(const char *pseudo, const char *password)
     }
     
     /* Send it to the server */
-    conn->send_packet((Packet::packet*) loginPacket, sizeof(*loginPacket));
+    conn->send_packet(loginPacket, sizeof(*loginPacket));
     
     /* Clean memory */
     delete loginPacket;
@@ -85,7 +71,7 @@ void PacketManager::send_signup_request(const char *pseudo, const char *password
     }
     
     /* Send it to the server */
-    conn->send_packet((Packet::packet*) registrationPacket, sizeof(*registrationPacket));
+    conn->send_packet(registrationPacket, sizeof(*registrationPacket));
     
     /* Clean memory */
     delete registrationPacket;

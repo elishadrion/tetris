@@ -40,7 +40,7 @@ Connection::~Connection() {
     close(_socketfd);
 }
 
-void Connection::send_packet(Packet::packet *packet, size_t size) {
+void Connection::send_packet(void* packet, size_t size) {
     if (send(_socketfd, packet, size, 0) != size) {
         WizardLogger::error("Tout le paquet n'a pas été envoyé");
     }
@@ -69,7 +69,7 @@ void* Connection::receive(void* data) {
         } else {
             /* We terminate resize memory alloc */
             packet = realloc(packet, readSize);
-            PacketManager::manage_packet(reinterpret_cast<Packet::packet*>(packet));
+            PacketManager::manage_packet(packet);
         }
 
         /* Free packet from memory */
