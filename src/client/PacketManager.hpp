@@ -10,7 +10,7 @@
 #include "GameManager.hpp"
 #include "CacheManager.hpp"
 
-extern WizardDisplay *display;
+extern class WizardDisplay *display;
 
 namespace PacketManager {
     void manage_packet(void*);
