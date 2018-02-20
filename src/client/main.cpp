@@ -35,7 +35,7 @@ int main() {
     }
 
 
-    display->displayLoginPrompt();
+    display->start();
     
     delete display;
     delete conn;
