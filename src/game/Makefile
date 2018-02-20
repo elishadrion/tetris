@@ -12,30 +12,41 @@ OUT= tetris
 
 all: $(OUT)
 
-$(OUT): Grid.o Tetriminos.o Block.o Game.o GUI.o  $(MAIN)
-	$(CXX) $(FLAGS) $(MAIN) Block.o Grid.o Game.o GUI.o Tetriminos.o  -o $(OUT)
+$(OUT): Grid.o Tetriminos.o Block.o Mode.o GUI.o Classic.o Sprint.o Marathon.o  vsGUI.o $(MAIN)
+	$(CXX) $(FLAGS) $(MAIN) Block.o Grid.o Mode.o GUI.o Tetriminos.o Classic.o Sprint.o Marathon.o  vsGUI.o -o $(OUT)
 
-Grid.o: Grid.cpp Grid.hpp
-	$(CXX) $(FLAGS) -c Grid.cpp
+Grid.o:  ./Game_system/Grid.cpp  ./Game_system/Grid.hpp
+	$(CXX) $(FLAGS) -c  ./Game_system/Grid.cpp
 
-
-Tetriminos.o: Tetriminos.cpp Tetriminos.hpp
-	$(CXX) $(FLAGS) -c Tetriminos.cpp
-
-
-Block.o: Block.cpp Block.hpp
-	$(CXX) $(FLAGS) -c Block.cpp
+Tetriminos.o:  ./Game_system/Tetriminos.cpp  ./Game_system/Tetriminos.hpp
+	$(CXX) $(FLAGS) -c  ./Game_system/Tetriminos.cpp
 
 
-Game.o: Game.cpp Game.hpp
-	$(CXX) $(FLAGS) -c Game.cpp
+Block.o: ./Game_system/Block.cpp  ./Game_system/Block.hpp
+	$(CXX) $(FLAGS) -c  ./Game_system/Block.cpp
+
+Mode.o: ./Mode/Mode.cpp ./Mode/Mode.hpp
+	$(CXX) $(FLAGS) -c ./Mode/Mode.cpp
+
+GUI.o: ./GUI/GUI.cpp ./GUI/GUI.hpp
+	$(CXX) $(FLAGS) -c ./GUI/GUI.cpp
+
+vsGUI.o: ./GUI/vsGUI.cpp ./GUI/vsGUI.hpp
+	$(CXX) $(FLAGS) -c ./GUI/vsGUI.cpp
+
+Classic.o: ./Mode/Classic.cpp ./Mode/Classic.hpp
+	$(CXX) $(FLAGS) -c ./Mode/Classic.cpp
 
 
-GUI.o: GUI.cpp GUI.hpp
-	$(CXX) $(FLAGS) -c GUI.cpp
+Sprint.o: ./Mode/Sprint.cpp ./Mode/Sprint.hpp
+	$(CXX) $(FLAGS) -c ./Mode/Sprint.cpp
+
+Marathon.o: ./Mode/Marathon.cpp ./Mode/Marathon.hpp
+	$(CXX) $(FLAGS) -c ./Mode/Marathon.cpp
+
 
 
 
 .PHONY : clean
 clean:
-	rm *.o *.out;
+	rm *.o;

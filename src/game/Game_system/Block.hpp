@@ -11,9 +11,9 @@ class Block {
 
 	private:
 
-		int _color = 0;
+		int _color;
 		int * _coordinates;
-		bool _block_Empty = true;
+		bool _empty_block;
 
 
 	public:
@@ -22,16 +22,19 @@ class Block {
 		~Block();
 
 		//Getter
-		int get_color() ;
-		int get_Y() ;
-		int get_X() ;
+		int get_color()const;
+		bool get_state()const;
+		int get_Y() const ;
+		int get_X() const;
+		
 
 		//Setter
 		void set_color(int color);		
 		void set_coordinates(int Y, int X );
-		void set_state(bool etat);
+		void set_empty_state(bool etat);
 
-		bool is_empty();
+
+		bool is_empty() const;
 		
 };
 #endif

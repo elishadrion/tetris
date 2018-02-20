@@ -6,18 +6,22 @@ GUI.cpp
 #include "GUI.hpp"
 
 
+
 GUI::GUI(){ 
 
 	initscr();   // première routine à appelé avant d'initialiser un programme.
 	noecho();    // On cache les inputs du terminal.
 	curs_set(0); // On cache le curseur
 	keypad(stdscr, TRUE); // On permet d'utiliser le keypad
-
 	init_colors();
 }
 
 
 GUI::~GUI(){ 
+
+	delwin(BOX_GRID);
+	delwin(BOX_NEXT_TETRIMINOS);
+	delwin(BOX_HOLD_TETRIMINOS);
 
 	endwin();
 
@@ -36,9 +40,8 @@ void GUI::init_colors() {
 	init_pair(5, -1, COLOR_MAGENTA);
 	init_pair(6, -1, COLOR_CYAN);
 	init_pair(7, -1, COLOR_WHITE);
-	init_pair(8, -1, -1);
-
-
+	init_pair(8, -1, -1);	
+	init_pair(9, -1, COLOR_BLACK);
 	
 }
 
@@ -183,14 +186,11 @@ void GUI::init_window_GUI(){
 }
 
 
-
-void GUI::window_grid_GUI(){
+void GUI::init_main_game_GUI(){
 	/*
-	Cette focntion affiche toute l'interface du jeu de tetris.
-	*/
-		
+	Cette fonction affiche toute l'interface du jeu fonctionel de tetris.
+	*/		
 
-	mvprintw(1, 12, "TETRIS");
 
 	BOX_GRID = subwin(stdscr,23,24,1,9+10);
     box(BOX_GRID, ACS_VLINE, ACS_HLINE);
@@ -218,20 +218,33 @@ void GUI::window_grid_GUI(){
     box(BOX_HOLD_TETRIMINOS, ACS_VLINE, ACS_HLINE);
     mvprintw(11, 54, "Hold");
 
-    refresh();
+    
 
 	// while(1) {
 	// 	if(getch() != 410)
 	// 		break;
 	// }
 
+    attron(A_BOLD | COLOR_PAIR(8));	
+	mvprintw(3, 3, "LEVEL :");
+	mvprintw(5, 3, "SCORE :");
+	mvprintw(12, 3, "LINES :");
 
+	refresh();
 }
 
 
 
-void GUI::update_grid_GUI(Grid * grid){
-	
+void GUI::update_main_game_GUI(Grid * grid){
+	/*
+	On met à jour l'affichage de la grille du jeu.
+		:param grid: Grid*
+	*/
+
+	attron(A_BOLD | COLOR_PAIR(8));	
+	mvprintw(5, 11,"%d", grid->get_score());
+	mvprintw(3, 11,"%d", grid->get_level());
+	mvprintw(12, 11,"%d", grid->get_line_complete());
 
 	for(int i =0; i < 20; i++){
 		
@@ -244,7 +257,7 @@ void GUI::update_grid_GUI(Grid * grid){
 				mvprintw(3+i, 21+j*2, "  ");
 			}
 			// Si on affiche un ancien block de tétriminos.
-			else if(grid->is_empty(i,j) == false){
+			else if(grid->is_empty(i,j) == 0){
 				
 				attron(A_BOLD | COLOR_PAIR(grid->get_color_of_block(i,j)));	
 				mvprintw(3+i, 21+j*2, "  ");
@@ -255,32 +268,22 @@ void GUI::update_grid_GUI(Grid * grid){
 				attron(A_BOLD | COLOR_PAIR(8));	
 				mvprintw(3+i, 21+j*2, "  ");
 			}
-
-			refresh();		
+				
 		}
 					
 	}
+	refresh();	
 }
 
-void GUI::update_next_tetriminos_GUI(Grid * grid){
-	erase_next_tetriminos_GUI();
 
-	for(int i=0; i<4; i++){
-
-		int y = grid->get_next_tetriminos()->get_coord_Y_of_block(i);
-		int x = grid->get_next_tetriminos()->get_coord_X_of_block(i);
-
-		attron(A_BOLD | COLOR_PAIR(grid->get_next_tetriminos()->get_color_of_block(0)));
-		mvprintw( 3+y,46+x*2 , "  ");
-	}
-
-
-}
 
 
 void GUI::erase_next_tetriminos_GUI(){
+	/*
+	Effacemment du prochain tetréminos sur la GUI.
+	*/
 
-	wclear(BOX_NEXT_TETRIMINOS);	
+	werase(BOX_NEXT_TETRIMINOS);	
 	box(BOX_NEXT_TETRIMINOS, ACS_VLINE, ACS_HLINE);
 	attron(A_BOLD | COLOR_PAIR(8));	
 	mvprintw(5, 54, "Next");
@@ -289,8 +292,11 @@ void GUI::erase_next_tetriminos_GUI(){
 }
 
 void GUI::erase_hold_tetriminos_GUI(){
+	/*
+	Effacemment du hold tetréminos sur la GUI.
+	*/
 
-	wclear(BOX_HOLD_TETRIMINOS);	
+	werase(BOX_HOLD_TETRIMINOS);	
 	box(BOX_HOLD_TETRIMINOS, ACS_VLINE, ACS_HLINE);
 	attron(A_BOLD | COLOR_PAIR(8));	
 	mvprintw(11, 54, "Hold");
@@ -298,19 +304,47 @@ void GUI::erase_hold_tetriminos_GUI(){
 
 }
 
+void GUI::update_next_tetriminos_GUI(Tetriminos * next_tetriminos){
 
-void GUI::update_hold_tetriminos_GUI(Grid * grid){
+	/*
+	On affiche le hold tétriminos sur la GUI.
+		:param grid: Grid *
+	*/
 
-	if(grid->get_hold_tetriminos() !=nullptr){
+	erase_next_tetriminos_GUI();
+
+	for(int i=0; i<4; i++){
+
+		int y = next_tetriminos->get_coord_Y_of_block(i);
+		int x = next_tetriminos->get_coord_X_of_block(i);
+
+		attron(A_BOLD | COLOR_PAIR(next_tetriminos->get_color_of_block(0)));
+		mvprintw( 3+y,46+x*2 , "  ");
+	}
+
+
+}
+
+void GUI::update_hold_tetriminos_GUI(Tetriminos * hold_tetriminos){
+	/*
+	On affiche le hold tétriminos sur la GUI.
+		:param grid: Grid *
+	*/
+
+	if(hold_tetriminos !=nullptr){
+		
 		for(int i=0; i<4; i++){
 
 			
-			int y = grid->get_hold_tetriminos()->get_coord_Y_of_block(i);
-			int x = grid->get_hold_tetriminos()->get_coord_X_of_block(i);
+			int y = hold_tetriminos->get_coord_Y_of_block(i);
+			int x = hold_tetriminos->get_coord_X_of_block(i);
 
-			attron(A_BOLD | COLOR_PAIR(grid->get_hold_tetriminos()->get_color_of_block(0)));
+			attron(A_BOLD | COLOR_PAIR(hold_tetriminos->get_color_of_block(0)));
 			mvprintw( 9+y,46+x*2 , "  ");
 		}
+
 	}
 
 }
+
+

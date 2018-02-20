@@ -8,11 +8,10 @@ Tetriminos.cpp
 
 Tetriminos::Tetriminos(int color){
 	/*
-	:param template_tetriminos: int[][]
-
-		Un tetriminos est un ensemble de 4 blocks.
-		On crée une liste de block selon un des sept modèle
-		de tetriminos généré aléatoirement.
+	Un tetriminos est un ensemble de 4 blocks.
+	On crée une liste de block selon un des sept modèle
+	de tetriminos généré aléatoirement.
+		:param template_tetriminos: int[][]
 	*/
 
 	_list_block = new Block[4];
@@ -20,10 +19,11 @@ Tetriminos::Tetriminos(int color){
 	for(int i =0; i<4;i++){
 
 		_list_block[i].set_coordinates(TEMPLATE_TETRIMINOS[color][i][0],
-									  TEMPLATE_TETRIMINOS[color][i][1]
+									   TEMPLATE_TETRIMINOS[color][i][1]
 									  );
 
 		_list_block[i].set_color(color+1);
+		_list_block[i].set_empty_state(false);
 		
 	} 
 }
@@ -35,29 +35,28 @@ Tetriminos::~Tetriminos(){
 
 }
 
-
-Block * Tetriminos::get_list_block(){return _list_block;}
-
-
-int Tetriminos::get_coord_Y_of_block(int block){
+int Tetriminos::get_coord_Y_of_block(int block)const{
 	/*
-	:param block: int
-
-		Cette fonction donne la coordonnée en Y du "Kième" block 
-		de la liste de block du tetriminos.
-		*/
+	Cette fonction donne la coordonnée en Y du "Kième" block 
+	de la liste de block du tetriminos.
+		:param block: int
+	*/
 	return _list_block[block].get_Y();
 }
 
-int Tetriminos::get_coord_X_of_block(int block){
+int Tetriminos::get_coord_X_of_block(int block)const{
 	/*
-	:param block: int
-
-		Cette fonction donne la coordonnée en X du "Kième" block 
-		de la liste de block du tetriminos.
-		*/
+	Cette fonction donne la coordonnée en X du "Kième" block 
+	de la liste de block du tetriminos.
+		:param block: int
+	*/
 
 	return _list_block[block].get_X();
+}
+
+int Tetriminos::get_color_of_block(int block)const{
+
+	return _list_block[block].get_color();
 }
 
 
@@ -73,13 +72,7 @@ void Tetriminos::set_coord_of_block(int block, int y, int x){
 }
 
 
-int Tetriminos::get_color_of_block(int block){
-
-	return _list_block[block].get_color();
-}
-
-
-bool Tetriminos::has_block(int Y, int X){
+bool Tetriminos::has_block(int Y, int X)const{
 	/*
 	On vérifie si le tétriminos a un block de coordonnée 
 	fournie en paramètre.
@@ -100,7 +93,7 @@ bool Tetriminos::has_block(int Y, int X){
 }
 
 
-void  Tetriminos::drop(){
+void Tetriminos::drop(){
 
 	/*
 	Cette fonction fait descendre d'une unité les blocks d'un tétriminos. 
@@ -178,11 +171,9 @@ void Tetriminos::move_left(){
 
 void Tetriminos::turn( int rotationMat[2][2]){
 	/*
-	:param rotationMat: int[2][2]
-	
-		Cette fonction permet faire tourner dans le sens horlogé et
-		anti-horlogé le tétrimino. 
-
+	Cette fonction permet faire tourner dans le sens horlogé et
+	anti-horlogé le tétrimino. 
+		:param rotationMat: int[2][2]
 	*/
 	
 	int matVector [2];
@@ -206,11 +197,10 @@ void Tetriminos::turn( int rotationMat[2][2]){
 			matTemp[0] = _list_block[1].get_Y() + matVector[0];
 			matTemp[1] = _list_block[1].get_X() + matVector[1];
 			_list_block[i].set_coordinates(matTemp[0],matTemp[1]);
-			_list_block[i].set_state(false);
+			
 
 		}
 
 	}
 
 }
-

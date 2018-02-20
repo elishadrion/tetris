@@ -5,17 +5,22 @@ Grid.cpp
 */
 
 #include "Grid.hpp"
-#include <mutex>
-#include <fstream>
-#include<iostream>
 
 
 std::mutex mtx; 
 
 
-Grid::Grid() : _grid(nullptr),_current_tetriminos(nullptr), _next_tetriminos(nullptr),
-				_hold_tetriminos(nullptr),_acceleration(300000),quick_mode(false),
-				_score(0), _level(0) {
+void time_console(){
+	
+
+	sleep(1);
+	//grid->up_time_party();
+
+}
+
+Grid::Grid() :  _grid(nullptr),_current_tetriminos(nullptr), _next_tetriminos(nullptr),
+				_hold_tetriminos(nullptr),_acceleration(300000),
+				_score(0), _level(0),_line_complete(0),_line_stack(0) {
 	/*
 	On construit une grille de 20 x 10.
 	Une grille d'objet de type "Block" vide.
@@ -32,8 +37,8 @@ Grid::Grid() : _grid(nullptr),_current_tetriminos(nullptr), _next_tetriminos(nul
 			_grid[i][j].set_coordinates(i,j);
 
 		}
-	}
-	
+	}	
+
 }
 
 Grid::~Grid(){ 
@@ -45,43 +50,35 @@ Grid::~Grid(){
 	delete[] _grid;
 }
 
-
-Block Grid::get_block(int i, int j){
-
-	return _grid[i][j];
-}
-
-Tetriminos * Grid::get_tetriminos(){
+Tetriminos * Grid::get_tetriminos()const{
 
 	return _current_tetriminos;
 }
 
-bool Grid::has_tetriminos_hold(){
+bool Grid::has_tetriminos_hold()const{
 
 	return _hold_tetriminos;
 }
 
 
-
-
-Tetriminos * Grid::get_next_tetriminos(){	
+Tetriminos * Grid::get_next_tetriminos()const{	
 	
 	return _next_tetriminos;
 }
 
-Tetriminos * Grid::get_hold_tetriminos(){	
+Tetriminos * Grid::get_hold_tetriminos()const{	
 	
 	return _hold_tetriminos;
 }
 
-int Grid::get_color_of_tetriminos(){
+int Grid::get_color_of_tetriminos()const{
 
 	return _current_tetriminos->get_color_of_block(0);
 }
 
-int Grid::get_color_of_block(int i , int k){
+int Grid::get_color_of_block(int i , int j)const{
 
-	return _grid[i][k].get_color();
+	return _grid[i][j].get_color();
 }
 
 void Grid::set_tetriminos(Tetriminos * tetriminos){    
@@ -99,8 +96,11 @@ void Grid::set_hold_tetriminos(Tetriminos * tetriminos){
 	_hold_tetriminos = tetriminos;
 }
 
+int Grid::get_score()const{return _score;}
+int Grid::get_level()const{return _level;}
+int Grid::get_line_complete()const {return _line_complete;}
 
-bool Grid::is_empty(int i, int j){
+bool Grid::is_empty(int i, int j)const{
 
 	/*
 	On vérifie si un block de la grille est vide ou 
@@ -114,9 +114,9 @@ bool Grid::is_empty(int i, int j){
 
 }
 
-bool Grid::is_reaching_floor(){
+bool Grid::is_reaching_floor()const{
 	/*
-	On vérifie si le Tétriminos peut encore faire un mouvement 
+	On vérifie si le tétrimino peut encore faire un mouvement 
 	vers le bas.
 		:return can_drop: bool
 	*/
@@ -139,7 +139,7 @@ bool Grid::is_reaching_floor(){
 }
 
 
-bool Grid::is_colliding_right() {
+bool Grid::is_colliding_right()const {
 	/*
 	Vérifie si un tétriminos peut faire un mouvement faire la droite.
 		:return cantMove: bool
@@ -150,7 +150,7 @@ bool Grid::is_colliding_right() {
 		
 		if(  _current_tetriminos->get_coord_Y_of_block(i)<0 or
 			_grid[_current_tetriminos->get_coord_Y_of_block(i)]
-			      [_current_tetriminos->get_coord_X_of_block(i)+1].is_empty() == false ) 
+			     [_current_tetriminos->get_coord_X_of_block(i)+1].is_empty() == false ) 
 
 			{cantMove = true;}
 
@@ -159,7 +159,7 @@ bool Grid::is_colliding_right() {
 	
 }
 
-bool Grid::is_colliding_left() {
+bool Grid::is_colliding_left() const{
 	/*
 	Vérifie si un tétriminos peut faire un mouvement faire la gauche.
 		:param cantMove: bool
@@ -180,7 +180,7 @@ bool Grid::is_colliding_left() {
 	
 }
 
-bool Grid::is_colliding_rotation(int rotationMat[2][2]) {
+bool Grid::is_colliding_rotation(int rotationMat[2][2]) const{
 	/*
 	Vérifie si un tétriminos peut faire une rotation vers la droite ou la gauche.
 		:param cantTurn: bool
@@ -225,7 +225,7 @@ bool Grid::is_colliding_rotation(int rotationMat[2][2]) {
 	return cantTurn;
 }
 
-bool Grid::is_overload(){
+bool Grid::is_overload()const{
 	/*
 	Cette fonction vérifie si la grille n'est pas surcharger.
 		return isOverload: bool
@@ -261,7 +261,7 @@ void Grid::fix_block(){
 		if( y>=0){
 
 			// On met l'état des blocks de la grille à non vide.
-			_grid[y][x].set_state(false);
+			_grid[y][x].set_empty_state(0);
 
 			// On met la couleur de ces blocks aux couleurs du tétriminos.
 			_grid[y][x].set_color(_current_tetriminos->get_color_of_block(i));
@@ -303,10 +303,13 @@ int Grid::check_lines(){
 
 			for(int j = 0; j<10; j++){
 
-				_grid[i][j].set_state(true);
+				_grid[i][j].set_empty_state(true);
 				_grid[i][j].set_color(0);
 				
 			}
+
+			if(_line_stack-1 == i){ _line_stack-=1;}
+
 
 		}
 
@@ -316,7 +319,11 @@ int Grid::check_lines(){
 	}
 	// On va faire descendre chaque block après qu'une ligne soit supprimé.
 	// On va faire la même opération pour le nombre de ligne complète.
-	for(int k =0; k < line_counter; k++){
+
+	int color;
+	for(int k =0 ; k < line_counter; k++){
+
+		_score += 50 * pow(2,line_counter) * (_level+1);
 
 		
 
@@ -325,23 +332,20 @@ int Grid::check_lines(){
 
 			for(int j = 0; j<10; j++){
 				
-				if( not(_grid[i-1][j].is_empty() ) and _grid[i][j].is_empty()){
+				if( (20-i) >= _line_stack and not(_grid[i-1][j].is_empty() ) and _grid[i][j].is_empty()){
 					
-					_grid[i-1][j].set_state(true);
-					_grid[i][j].set_state(false);
-					int color = _grid[i-1][j].get_color();
+					_grid[i-1][j].set_empty_state(true);
+					_grid[i][j].set_empty_state(false);
+					color = _grid[i-1][j].get_color();
 					_grid[i][j].set_color(color);
 					_grid[i-1][j].set_color(0);
-				}
+				}					
 					
-					
-			}
-			
+			}			
 		}
 
-
-	}
-
+	}	
+		_line_complete += line_counter;
 		return line_counter;
 
 }
@@ -370,7 +374,7 @@ bool Grid::tetriminos_try_drop(){
 
 void Grid::current_tetriminos_move_right(){
 	/*
-	Cette focntion permet déplacer à droite le tétriminos.
+	Cette fonction permet déplacer à droite le tétriminos.
 	*/
 	if(not(is_colliding_right())){ _current_tetriminos->move_right(); }
 
@@ -425,7 +429,7 @@ void Grid::set_current_tetriminos_hold(){
 	Cette fonction permet de conserver le tétriminos courant.
 	*/
 
-	if(_hold_tetriminos == nullptr){
+	if( not(_hold_tetriminos )){
 
 		_hold_tetriminos = _current_tetriminos;
 		_current_tetriminos = _next_tetriminos;
@@ -446,7 +450,7 @@ void Grid::set_current_tetriminos_hold(){
 
 
 
-	else if(_hold_tetriminos){
+	else{
 
 		delete _next_tetriminos;
 		_next_tetriminos = _current_tetriminos;
@@ -456,24 +460,21 @@ void Grid::set_current_tetriminos_hold(){
 
 		int color ;
 
-		for(int i=0; i<4; i++){
-		 	
-		 	color = _current_tetriminos->get_color_of_block(0)-1;
+		color = _current_tetriminos->get_color_of_block(0)-1;
+		delete(_current_tetriminos);
+		_current_tetriminos = new Tetriminos(color);
+		color = _next_tetriminos->get_color_of_block(0) -1;
+		delete(_next_tetriminos);
+		_next_tetriminos = new Tetriminos(color);
 
-		 	_current_tetriminos->set_coord_of_block(i, TEMPLATE_TETRIMINOS[color][i][0],
-		 										       TEMPLATE_TETRIMINOS[color][i][1]);
-		 	color = _next_tetriminos->get_color_of_block(0) -1;
-
-		 	_next_tetriminos->set_coord_of_block(i, TEMPLATE_TETRIMINOS[color][i][0], 											
-		 	                                        TEMPLATE_TETRIMINOS[color][i][1]);
-		}
+		
 
 	}
 
 }
 
 
-int Grid::get_acceleration(){ return _acceleration;}
+int Grid::get_acceleration()const{ return _acceleration;}
 void Grid::set_acceleration(int acceleration) { _acceleration =acceleration;}
 void Grid::set_acceleration_quick(){set_acceleration(87654);}
 
@@ -486,7 +487,7 @@ void Grid::tetriminos_generator(){
 
 	int color = rand()%7;
 	
-	if(_next_tetriminos == nullptr){
+	if(not(_next_tetriminos)){
 		_current_tetriminos = new Tetriminos(color);
 	}
 	else{
@@ -502,47 +503,67 @@ void Grid::tetriminos_generator(){
 }
 
 
+void Grid::update_score_level(){
+	/*
+	Monte le level du joueur si il a dépassé un score donnée.
+	*/
 
-char * Grid::grid_to_char(){
+	if(_score >= 2 * (_level+1) * 200 + _level*1000 ){_level +=1; }
 
-
-	char info[202]="a";
-
-	for(int i =0; i<20;i++){
-
-		for(int j = 0; j<10;j++){
-
-			info[10*i+j]= _grid[i][j].get_color() + 48;
-
-		}
-
-		for(int i =0; i<4;i++){
-
-			int y = _current_tetriminos->get_coord_Y_of_block(i);
-			int x = _current_tetriminos->get_coord_X_of_block(i); 
-			info[10*y+x] = _current_tetriminos->get_color_of_block(i) + 48;
-		}
-
-		info[200]= _next_tetriminos->get_color_of_block(0) +48;
-		if(_hold_tetriminos!=nullptr){ info[201]= _hold_tetriminos->get_color_of_block(0) +48;}
-		else{info[201]= 48; }
-		info[202]= '\0';
-
-
-	}
-		std::ofstream fichier ("test.txt");  // ouverture en écriture avec effacement du fichier ouvert
- 
-       
-                
-                fichier <<info;
- 
-                fichier.close();
-       
- 
- 
-
-
-	return info;
 }
 
 
+void Grid::add_line(int line){
+
+	/*
+	On va ajouter des lignes à la grille du joueur, chaque ligne
+	n'a que 9 cases pour que le joueur puisse les cassées.
+	*/
+
+
+	// On va d'abord monter tous les blocks de la grille.
+	for(int i =0;i<20;i++){
+
+		for(int j =0; j<10; j++ ){
+
+			if( i-line >=0  ){
+
+				_grid[i-line][j].set_empty_state(_grid[i][j].get_state());
+				_grid[i-line][j].set_color(_grid[i][j].get_color());
+				_grid[i][j].set_color(0);
+
+
+			}
+
+		}
+
+	}	
+
+
+	// On ajoute ainsi des blocks de couleurs aléatoire, 
+	// pour chaque ligne, il y aura un block vide.
+	for(int i =line;i>0;i--){
+
+		int random_block = rand()%10;
+
+		for(int j =0; j<10; j++ ){			
+
+				if(j!= random_block ){
+
+					_grid[20-i][j].set_empty_state(false);
+					_grid[20-i][j].set_color(rand()%7 +1);
+				}
+
+				else{
+					_grid[20-i][j].set_empty_state(true);
+					_grid[20-i][j].set_color(0);
+				}
+
+  		}
+
+	}
+
+
+	_line_stack +=line;
+
+}
