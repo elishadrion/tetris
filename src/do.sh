@@ -1,9 +1,6 @@
 cd client/
-make -f Makefile_client
+make
+rm *.o
 cd ../server
-make -f Makefile_server
-rm *.o
-cd ../client
-rm *.o
-cd ../game
+make
 rm *.o

@@ -27,9 +27,11 @@ bool PlayerManager::player_existing(const std::string& usr) {
 Player* PlayerManager::login(std::string username, std::string password, int sockfd) {
     Player* player = nullptr;
     if (!player_connected(username)) {
+
         csv::Parser file = csv::Parser("../../data/database.csv");
         for (unsigned i = 0; i < file.rowCount(); i++) {
             if (file[i][0] == username && file[i][1] == password) {
+
                 player = new Player(username, sockfd);
                 _connected.push_back(player);
                 player->set_sockfd(sockfd);

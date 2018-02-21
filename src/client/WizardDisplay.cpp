@@ -8,6 +8,7 @@ void WizardDisplay::start() {
     pthread_mutex_lock(&packetStackMutex);
 	std::cout << "Entrez votre pseudo : ";
 	std::getline(std::cin, username);
+	std::cout << "\nEntrez votre mot de passe :";
 	std::getline(std::cin, password);
     PacketManager::send_login_request(username.c_str(), password.c_str());
     
