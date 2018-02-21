@@ -43,9 +43,6 @@ void PacketManager::send_login_request(const char *pseudo, const char *password)
     for (int i = 0 ; i < HASH_SIZE ; ++i) {
         loginPacket->password[i] = password[i];
     }
-    std::cout << sizeof(loginPacket->username) << std::endl;
-    std::cout << sizeof(loginPacket->password) << std::endl;
-    std::cout << sizeof(loginPacket->size) << std::endl;
     
     /* Send it to the server */
     conn->send_packet(loginPacket, sizeof(*loginPacket));
