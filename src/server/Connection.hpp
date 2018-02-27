@@ -29,6 +29,7 @@ class Connection {
     struct sockaddr_in _client_addr; 
     int _server_socket;
     int _reuse = 1;
+    bool _running;
     pthread_t _mythread;
     unsigned int _sin_size;
 
@@ -42,6 +43,7 @@ class Connection {
         Connection();
         ~Connection();
         void start();
+        void stop() {_running = false;}
 };
 
 #endif /* CONNECTION_HPP */

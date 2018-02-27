@@ -1,26 +1,1323 @@
-[2018-02-20 21:26:57.665] [info]	Démarrage serveur
-[2018-02-20 21:26:57.665] [info]	Ecoute des tentatives de connexions
-[2018-02-20 21:26:57.665] [info]	Serveur en attente de connexion client
-[2018-02-20 21:27:01.013] [error]	Login interrompu, connexion avec le client perdu
-[2018-02-20 21:32:13.051] [error]	Login interrompu, connexion avec le client perdu
-[2018-02-20 21:35:21.566] [error]	Paquet de login corrompu reçu
-[2018-02-20 21:35:27.049] [error]	Login interrompu, connexion avec le client perdu
-[2018-02-20 21:41:23.736] [error]	Paquet de login corrompu reçu
-[2018-02-20 21:41:27.939] [error]	Login interrompu, connexion avec le client perdu
-[2018-02-20 21:43:39.382] [error]	Paquet de login corrompu reçu
-[2018-02-20 21:43:41.713] [error]	Login interrompu, connexion avec le client perdu
-[2018-02-20 21:46:43.468] [error]	Paquet de login corrompu reçu
-[2018-02-20 21:46:47.685] [error]	Login interrompu, connexion avec le client perdu
-[2018-02-20 21:48:33.766] [error]	Paquet de login corrompu reçu
-[2018-02-20 21:48:44.459] [error]	Login interrompu, connexion avec le client perdu
-[2018-02-20 23:07:23.863] [info]	Démarrage serveur
-[2018-02-20 23:07:23.863] [info]	Ecoute des tentatives de connexions
-[2018-02-20 23:07:23.863] [info]	Serveur en attente de connexion client
-[2018-02-21 11:09:58.416] [info]	Démarrage serveur
-[2018-02-21 11:09:58.416] [info]	Ecoute des tentatives de connexions
-[2018-02-21 11:09:58.416] [info]	Serveur en attente de connexion client
-[2018-02-21 11:11:00.154] [warning]	plauer_connected true
-[2018-02-21 11:11:00.154] [warning]	new player ok
-[2018-02-21 11:13:18.575] [info]	Démarrage serveur
-[2018-02-21 11:13:18.575] [info]	Ecoute des tentatives de connexions
-[2018-02-21 11:13:18.576] [info]	Serveur en attente de connexion client
+[2018-02-26 14:14:33.078] [info]	Démarrage serveur
+[2018-02-26 14:14:33.079] [info]	Ecoute des tentatives de connexions
+[2018-02-26 14:14:33.079] [info]	Serveur en attente de connexion client
+[2018-02-26 14:14:50.600] [warning]	Paquet de login reçu
+[2018-02-26 14:14:50.600] [info]	Client "elishac" s'est logged-in
+[2018-02-26 14:14:50.601] [info]	Reçu une demande de jeu
+[2018-02-26 14:14:50.601] [info]	dans manage new player
+[2018-02-26 14:14:50.601] [info]	Envoi d'un game waiting
+[2018-02-26 14:16:28.283] [warning]	Paquet de login reçu
+[2018-02-26 14:16:28.284] [info]	Client "adminc" s'est logged-in
+[2018-02-26 14:16:28.285] [info]	Reçu une demande de jeu
+[2018-02-26 14:16:28.285] [info]	dans manage new player
+[2018-02-26 14:16:28.285] [info]	Envoi d'un game waiting
+[2018-02-26 14:16:28.285] [info]	Envoi d'un game ready
+[2018-02-26 14:16:28.285] [info]	Envoi d'un game ready
+[2018-02-26 14:17:04.914] [warning]	La connexion avec le client "elishac" semble avoir été interrompue !
+[2018-02-26 14:21:16.174] [info]	Démarrage serveur
+[2018-02-26 14:21:16.175] [info]	Ecoute des tentatives de connexions
+[2018-02-26 14:21:16.176] [info]	Serveur en attente de connexion client
+[2018-02-26 14:21:28.260] [warning]	Paquet de login reçu
+[2018-02-26 14:21:28.260] [info]	Client "adminc" s'est logged-in
+[2018-02-26 14:21:28.261] [info]	Reçu une demande de jeu
+[2018-02-26 14:21:28.261] [info]	dans manage new player
+[2018-02-26 14:21:28.262] [info]	Envoi d'un game waiting
+[2018-02-26 14:21:50.705] [warning]	Paquet de login reçu
+[2018-02-26 14:21:50.706] [info]	Client "elishac" s'est logged-in
+[2018-02-26 14:21:50.707] [info]	Reçu une demande de jeu
+[2018-02-26 14:21:50.707] [info]	dans manage new player
+[2018-02-26 14:21:50.707] [info]	Envoi d'un game waiting
+[2018-02-26 14:21:50.708] [info]	Envoi d'un game ready
+[2018-02-26 14:21:50.708] [info]	Envoi d'un game ready
+[2018-02-26 14:21:57.628] [info]	adminc a fait le move : 10
+[2018-02-26 14:36:58.151] [info]	Démarrage serveur
+[2018-02-26 14:36:58.151] [info]	Ecoute des tentatives de connexions
+[2018-02-26 14:36:58.151] [info]	Serveur en attente de connexion client
+[2018-02-26 14:37:06.210] [warning]	Paquet de login reçu
+[2018-02-26 14:37:06.211] [info]	Client "elishac" s'est logged-in
+[2018-02-26 14:37:06.211] [info]	Reçu une demande de jeu
+[2018-02-26 14:37:06.211] [info]	dans manage new player
+[2018-02-26 14:37:06.211] [info]	Envoi d'un game waiting
+[2018-02-26 14:37:11.612] [warning]	Paquet de login reçu
+[2018-02-26 14:37:11.613] [info]	Client "adminc" s'est logged-in
+[2018-02-26 14:37:11.614] [info]	Reçu une demande de jeu
+[2018-02-26 14:37:11.614] [info]	dans manage new player
+[2018-02-26 14:37:11.614] [info]	Envoi d'un game waiting
+[2018-02-26 14:37:11.614] [info]	Envoi d'un game ready
+[2018-02-26 14:37:11.614] [info]	Envoi d'un game ready
+[2018-02-26 14:37:14.374] [info]	elishac a fait le move : 10
+[2018-02-26 14:37:55.419] [info]	Démarrage serveur
+[2018-02-26 14:37:55.420] [info]	Ecoute des tentatives de connexions
+[2018-02-26 14:37:55.420] [info]	Serveur en attente de connexion client
+[2018-02-26 14:38:08.828] [error]	Login interrompu, connexion avec le client perdu
+[2018-02-26 14:40:37.292] [warning]	Paquet de login reçu
+[2018-02-26 14:40:37.293] [info]	Client "elishac" s'est logged-in
+[2018-02-26 14:40:37.293] [info]	Reçu une demande de jeu
+[2018-02-26 14:40:37.294] [info]	dans manage new player
+[2018-02-26 14:40:37.294] [info]	Envoi d'un game waiting
+[2018-02-26 14:40:45.522] [warning]	Paquet de login reçu
+[2018-02-26 14:40:45.522] [info]	Client "adminc" s'est logged-in
+[2018-02-26 14:40:45.523] [info]	Reçu une demande de jeu
+[2018-02-26 14:40:45.523] [info]	dans manage new player
+[2018-02-26 14:40:45.523] [info]	Envoi d'un game waiting
+[2018-02-26 14:40:45.523] [info]	Envoi d'un game ready
+[2018-02-26 14:40:45.524] [info]	Envoi d'un game ready
+[2018-02-26 14:40:56.888] [warning]	La connexion avec le client "elishac" semble avoir été interrompue !
+[2018-02-26 14:40:58.976] [warning]	La connexion avec le client "adminc" semble avoir été interrompue !
+[2018-02-26 15:26:26.907] [info]	Démarrage serveur
+[2018-02-26 15:26:26.907] [info]	Ecoute des tentatives de connexions
+[2018-02-26 15:26:26.908] [info]	Serveur en attente de connexion client
+[2018-02-26 15:26:31.926] [error]	Login interrompu, connexion avec le client perdu
+[2018-02-26 15:27:06.775] [warning]	Paquet de login reçu
+[2018-02-26 15:27:06.776] [info]	Client "elishac" s'est logged-in
+[2018-02-26 15:27:06.776] [info]	Reçu une demande de jeu
+[2018-02-26 15:27:06.776] [info]	dans manage new player
+[2018-02-26 15:27:06.777] [info]	Envoi d'un game waiting
+[2018-02-26 15:27:22.785] [warning]	Paquet de login reçu
+[2018-02-26 15:27:22.785] [info]	Client "adminc" s'est logged-in
+[2018-02-26 15:27:22.786] [info]	Reçu une demande de jeu
+[2018-02-26 15:27:22.786] [info]	dans manage new player
+[2018-02-26 15:27:22.786] [info]	Envoi d'un game waiting
+[2018-02-26 15:27:22.787] [info]	Envoi d'un game ready
+[2018-02-26 15:27:22.787] [info]	Envoi d'un game ready
+[2018-02-26 15:27:22.830] [warning]	La connexion avec le client "adminc" semble avoir été interrompue !
+[2018-02-26 15:27:29.838] [warning]	La connexion avec le client "elishac" semble avoir été interrompue !
+[2018-02-26 15:28:23.280] [info]	Démarrage serveur
+[2018-02-26 15:28:23.281] [info]	Ecoute des tentatives de connexions
+[2018-02-26 15:28:23.281] [info]	Serveur en attente de connexion client
+[2018-02-26 15:28:47.733] [warning]	Paquet de login reçu
+[2018-02-26 15:28:47.734] [info]	Client "elishac" s'est logged-in
+[2018-02-26 15:28:47.734] [info]	Reçu une demande de jeu
+[2018-02-26 15:28:47.734] [info]	dans manage new player
+[2018-02-26 15:28:47.734] [info]	Envoi d'un game waiting
+[2018-02-26 15:29:01.182] [warning]	Paquet de login reçu
+[2018-02-26 15:29:01.182] [info]	Client "adminc" s'est logged-in
+[2018-02-26 15:29:01.183] [info]	Reçu une demande de jeu
+[2018-02-26 15:29:01.183] [info]	dans manage new player
+[2018-02-26 15:29:01.183] [info]	Envoi d'un game waiting
+[2018-02-26 15:29:01.183] [info]	Envoi d'un game ready
+[2018-02-26 15:29:01.184] [info]	Envoi d'un game ready
+[2018-02-26 15:29:38.109] [warning]	La connexion avec le client "elishac" semble avoir été interrompue !
+[2018-02-26 15:29:38.139] [warning]	La connexion avec le client "adminc" semble avoir été interrompue !
+[2018-02-26 15:38:10.996] [info]	Démarrage serveur
+[2018-02-26 15:38:10.996] [info]	Ecoute des tentatives de connexions
+[2018-02-26 15:38:10.996] [info]	Serveur en attente de connexion client
+[2018-02-26 15:38:37.421] [warning]	Paquet de login reçu
+[2018-02-26 15:38:37.422] [info]	Client "elishac" s'est logged-in
+[2018-02-26 15:38:37.422] [info]	Reçu une demande de jeu
+[2018-02-26 15:38:37.423] [info]	dans manage new player
+[2018-02-26 15:38:37.423] [info]	Envoi d'un game waiting
+[2018-02-26 15:38:46.273] [warning]	Paquet de login reçu
+[2018-02-26 15:38:46.274] [info]	Client "adminc" s'est logged-in
+[2018-02-26 15:38:46.275] [info]	Reçu une demande de jeu
+[2018-02-26 15:38:46.275] [info]	dans manage new player
+[2018-02-26 15:38:46.275] [info]	Envoi d'un game waiting
+[2018-02-26 15:38:46.275] [info]	Envoi d'un game ready
+[2018-02-26 15:38:46.276] [info]	Envoi d'un game ready
+[2018-02-26 15:39:25.072] [warning]	La connexion avec le client "adminc" semble avoir été interrompue !
+[2018-02-26 15:39:26.231] [warning]	La connexion avec le client "elishac" semble avoir été interrompue !
+[2018-02-26 15:43:08.490] [info]	Démarrage serveur
+[2018-02-26 15:43:08.490] [info]	Ecoute des tentatives de connexions
+[2018-02-26 15:43:08.491] [info]	Serveur en attente de connexion client
+[2018-02-26 15:43:27.649] [warning]	Paquet de login reçu
+[2018-02-26 15:43:27.650] [info]	Client "elishac" s'est logged-in
+[2018-02-26 15:43:27.651] [info]	Reçu une demande de jeu
+[2018-02-26 15:43:27.651] [info]	dans manage new player
+[2018-02-26 15:43:27.651] [info]	Envoi d'un game waiting
+[2018-02-26 15:43:47.996] [warning]	Paquet de login reçu
+[2018-02-26 15:43:47.996] [info]	Client "adminc" s'est logged-in
+[2018-02-26 15:43:47.997] [info]	Reçu une demande de jeu
+[2018-02-26 15:43:47.997] [info]	dans manage new player
+[2018-02-26 15:43:47.998] [info]	Envoi d'un game waiting
+[2018-02-26 15:43:47.998] [info]	Envoi d'un game ready
+[2018-02-26 15:43:47.998] [info]	Envoi d'un game ready
+[2018-02-26 15:43:48.005] [warning]	La connexion avec le client "elishac" semble avoir été interrompue !
+[2018-02-26 15:43:56.450] [warning]	La connexion avec le client "adminc" semble avoir été interrompue !
+[2018-02-26 15:53:51.443] [info]	Démarrage serveur
+[2018-02-26 15:53:51.443] [info]	Ecoute des tentatives de connexions
+[2018-02-26 15:53:51.443] [info]	Serveur en attente de connexion client
+[2018-02-26 15:54:24.947] [warning]	Paquet de login reçu
+[2018-02-26 15:54:24.948] [info]	Client "elishac" s'est logged-in
+[2018-02-26 15:54:24.948] [info]	Reçu une demande de jeu
+[2018-02-26 15:54:24.949] [info]	dans manage new player
+[2018-02-26 15:54:24.949] [info]	Envoi d'un game waiting
+[2018-02-26 15:54:33.404] [warning]	Paquet de login reçu
+[2018-02-26 15:54:33.405] [info]	Client "adminc" s'est logged-in
+[2018-02-26 15:54:33.405] [info]	Reçu une demande de jeu
+[2018-02-26 15:54:33.405] [info]	dans manage new player
+[2018-02-26 15:54:33.405] [info]	Envoi d'un game waiting
+[2018-02-26 15:54:33.406] [info]	Envoi d'un game ready
+[2018-02-26 15:54:33.406] [info]	Envoi d'un game ready
+[2018-02-26 15:54:33.412] [warning]	La connexion avec le client "elishac" semble avoir été interrompue !
+[2018-02-26 15:54:33.454] [warning]	La connexion avec le client "adminc" semble avoir été interrompue !
+[2018-02-26 15:55:02.713] [info]	Démarrage serveur
+[2018-02-26 15:55:02.713] [info]	Ecoute des tentatives de connexions
+[2018-02-26 15:55:02.713] [info]	Serveur en attente de connexion client
+[2018-02-26 15:55:10.644] [warning]	Paquet de login reçu
+[2018-02-26 15:55:10.644] [info]	Client "elishac" s'est logged-in
+[2018-02-26 15:55:10.645] [info]	Reçu une demande de jeu
+[2018-02-26 15:55:10.645] [info]	dans manage new player
+[2018-02-26 15:55:10.645] [info]	Envoi d'un game waiting
+[2018-02-26 15:55:20.371] [warning]	Paquet de login reçu
+[2018-02-26 15:55:20.372] [info]	Client "adminc" s'est logged-in
+[2018-02-26 15:55:20.373] [info]	Reçu une demande de jeu
+[2018-02-26 15:55:20.373] [info]	dans manage new player
+[2018-02-26 15:55:20.373] [info]	Envoi d'un game waiting
+[2018-02-26 15:55:20.373] [info]	Envoi d'un game ready
+[2018-02-26 15:55:20.373] [info]	Envoi d'un game ready
+[2018-02-26 15:55:20.380] [warning]	La connexion avec le client "elishac" semble avoir été interrompue !
+[2018-02-26 15:55:20.423] [warning]	La connexion avec le client "adminc" semble avoir été interrompue !
+[2018-02-26 15:56:06.651] [warning]	Paquet de login reçu
+[2018-02-26 15:56:06.652] [info]	Client "elishac" s'est logged-in
+[2018-02-26 15:56:06.652] [info]	Reçu une demande de jeu
+[2018-02-26 15:56:06.653] [info]	dans manage new player
+[2018-02-26 15:56:06.653] [info]	Envoi d'un game waiting
+[2018-02-26 15:56:18.542] [warning]	Paquet de login reçu
+[2018-02-26 15:56:18.543] [info]	Client "adminc" s'est logged-in
+[2018-02-26 15:56:18.543] [info]	Reçu une demande de jeu
+[2018-02-26 15:56:18.544] [info]	dans manage new player
+[2018-02-26 15:56:18.544] [info]	Envoi d'un game waiting
+[2018-02-26 15:56:18.544] [info]	Envoi d'un game ready
+[2018-02-26 15:56:18.544] [info]	Envoi d'un game ready
+[2018-02-26 15:56:20.295] [warning]	La connexion avec le client "adminc" semble avoir été interrompue !
+[2018-02-26 15:56:25.448] [warning]	La connexion avec le client "elishac" semble avoir été interrompue !
+[2018-02-26 15:57:35.700] [info]	Démarrage serveur
+[2018-02-26 15:57:35.701] [info]	Ecoute des tentatives de connexions
+[2018-02-26 15:57:35.701] [info]	Serveur en attente de connexion client
+[2018-02-26 15:57:56.235] [warning]	Paquet de login reçu
+[2018-02-26 15:57:56.236] [info]	Client "elishac" s'est logged-in
+[2018-02-26 15:57:56.236] [info]	Reçu une demande de jeu
+[2018-02-26 15:57:56.237] [info]	dans manage new player
+[2018-02-26 15:57:56.237] [info]	Envoi d'un game waiting
+[2018-02-26 15:58:05.291] [warning]	Paquet de login reçu
+[2018-02-26 15:58:05.291] [info]	Client "adminc" s'est logged-in
+[2018-02-26 15:58:05.298] [info]	Reçu une demande de jeu
+[2018-02-26 15:58:05.298] [info]	dans manage new player
+[2018-02-26 15:58:05.298] [info]	Envoi d'un game waiting
+[2018-02-26 15:58:05.298] [info]	Envoi d'un game ready
+[2018-02-26 15:58:05.299] [info]	Envoi d'un game ready
+[2018-02-26 15:58:06.555] [warning]	La connexion avec le client "adminc" semble avoir été interrompue !
+[2018-02-26 15:58:10.014] [warning]	La connexion avec le client "elishac" semble avoir été interrompue !
+[2018-02-26 15:58:24.003] [info]	Démarrage serveur
+[2018-02-26 15:58:24.003] [info]	Ecoute des tentatives de connexions
+[2018-02-26 15:58:24.003] [info]	Serveur en attente de connexion client
+[2018-02-26 15:58:52.045] [warning]	Paquet de login reçu
+[2018-02-26 15:58:52.045] [info]	Client "elishac" s'est logged-in
+[2018-02-26 15:58:52.046] [info]	Reçu une demande de jeu
+[2018-02-26 15:58:52.046] [info]	dans manage new player
+[2018-02-26 15:58:52.046] [info]	Envoi d'un game waiting
+[2018-02-26 15:59:02.026] [warning]	Paquet de login reçu
+[2018-02-26 15:59:02.026] [info]	Client "adminc" s'est logged-in
+[2018-02-26 15:59:02.027] [info]	Reçu une demande de jeu
+[2018-02-26 15:59:02.027] [info]	dans manage new player
+[2018-02-26 15:59:02.027] [info]	Envoi d'un game waiting
+[2018-02-26 15:59:02.027] [info]	Envoi d'un game ready
+[2018-02-26 15:59:02.027] [info]	Envoi d'un game ready
+[2018-02-26 15:59:38.077] [warning]	La connexion avec le client "adminc" semble avoir été interrompue !
+[2018-02-26 15:59:38.942] [warning]	La connexion avec le client "elishac" semble avoir été interrompue !
+[2018-02-26 16:06:49.851] [info]	Démarrage serveur
+[2018-02-26 16:06:49.852] [info]	Ecoute des tentatives de connexions
+[2018-02-26 16:06:49.852] [info]	Serveur en attente de connexion client
+[2018-02-26 16:07:05.446] [warning]	Paquet de login reçu
+[2018-02-26 16:07:05.446] [info]	Client "elishac" s'est logged-in
+[2018-02-26 16:07:05.446] [info]	Reçu une demande de jeu
+[2018-02-26 16:07:05.446] [info]	dans manage new player
+[2018-02-26 16:07:05.446] [info]	Envoi d'un game waiting
+[2018-02-26 16:09:07.949] [info]	Démarrage serveur
+[2018-02-26 16:09:07.949] [info]	Ecoute des tentatives de connexions
+[2018-02-26 16:09:07.949] [info]	Serveur en attente de connexion client
+[2018-02-26 16:09:14.139] [warning]	Paquet de login reçu
+[2018-02-26 16:09:14.140] [info]	Client "elishac" s'est logged-in
+[2018-02-26 16:09:14.140] [info]	Reçu une demande de jeu
+[2018-02-26 16:09:14.140] [info]	dans manage new player
+[2018-02-26 16:09:14.141] [info]	Envoi d'un game waiting
+[2018-02-26 16:09:23.771] [warning]	Paquet de login reçu
+[2018-02-26 16:09:23.772] [info]	Client "adminc" s'est logged-in
+[2018-02-26 16:09:23.772] [info]	Reçu une demande de jeu
+[2018-02-26 16:09:23.772] [info]	dans manage new player
+[2018-02-26 16:09:23.773] [info]	Envoi d'un game waiting
+[2018-02-26 16:09:23.773] [info]	Envoi d'un game ready
+[2018-02-26 16:09:23.773] [info]	Envoi d'un game ready
+[2018-02-26 16:09:32.205] [warning]	La connexion avec le client "adminc" semble avoir été interrompue !
+[2018-02-26 16:09:33.279] [warning]	La connexion avec le client "elishac" semble avoir été interrompue !
+[2018-02-26 16:09:50.873] [info]	Démarrage serveur
+[2018-02-26 16:09:50.873] [info]	Ecoute des tentatives de connexions
+[2018-02-26 16:09:50.873] [info]	Serveur en attente de connexion client
+[2018-02-26 16:10:01.095] [warning]	Paquet de login reçu
+[2018-02-26 16:10:06.467] [warning]	Paquet de login reçu
+[2018-02-26 16:10:06.468] [info]	Client "elishac" s'est logged-in
+[2018-02-26 16:10:06.469] [info]	Reçu une demande de jeu
+[2018-02-26 16:10:06.469] [info]	dans manage new player
+[2018-02-26 16:10:06.469] [info]	Envoi d'un game waiting
+[2018-02-26 16:10:30.691] [warning]	Paquet de login reçu
+[2018-02-26 16:10:30.691] [info]	Client "adminc" s'est logged-in
+[2018-02-26 16:10:30.692] [info]	Reçu une demande de jeu
+[2018-02-26 16:10:30.692] [info]	dans manage new player
+[2018-02-26 16:10:30.692] [info]	Envoi d'un game waiting
+[2018-02-26 16:10:30.693] [info]	Envoi d'un game ready
+[2018-02-26 16:10:30.693] [info]	Envoi d'un game ready
+[2018-02-26 16:10:39.734] [info]	elishac a fait le move : 11
+[2018-02-26 16:13:16.948] [info]	Démarrage serveur
+[2018-02-26 16:13:16.948] [info]	Ecoute des tentatives de connexions
+[2018-02-26 16:13:16.948] [info]	Serveur en attente de connexion client
+[2018-02-26 16:13:29.739] [warning]	Paquet de login reçu
+[2018-02-26 16:13:34.228] [warning]	Paquet de login reçu
+[2018-02-26 16:13:34.229] [info]	Client "elishac" s'est logged-in
+[2018-02-26 16:13:34.229] [info]	Reçu une demande de jeu
+[2018-02-26 16:13:34.229] [info]	dans manage new player
+[2018-02-26 16:13:34.229] [info]	Envoi d'un game waiting
+[2018-02-26 16:13:47.654] [warning]	Paquet de login reçu
+[2018-02-26 16:13:47.654] [info]	Client "adminc" s'est logged-in
+[2018-02-26 16:13:47.655] [info]	Reçu une demande de jeu
+[2018-02-26 16:13:47.655] [info]	dans manage new player
+[2018-02-26 16:13:47.655] [info]	Envoi d'un game waiting
+[2018-02-26 16:13:47.655] [info]	Envoi d'un game ready
+[2018-02-26 16:13:47.655] [info]	Envoi d'un game ready
+[2018-02-26 16:13:55.003] [info]	elishac a fait le move : 10
+[2018-02-26 16:13:55.270] [info]	elishac a fait le move : 10
+[2018-02-26 16:13:55.422] [info]	elishac a fait le move : 10
+[2018-02-26 16:13:55.564] [info]	elishac a fait le move : 10
+[2018-02-26 16:14:18.367] [warning]	La connexion avec le client "elishac" semble avoir été interrompue !
+[2018-02-26 16:17:49.971] [info]	Démarrage serveur
+[2018-02-26 16:17:49.972] [info]	Ecoute des tentatives de connexions
+[2018-02-26 16:17:49.972] [info]	Serveur en attente de connexion client
+[2018-02-26 16:18:35.363] [warning]	Paquet de login reçu
+[2018-02-26 16:18:35.363] [info]	Client "elishac" s'est logged-in
+[2018-02-26 16:18:35.364] [info]	Reçu une demande de jeu
+[2018-02-26 16:18:35.364] [info]	dans manage new player
+[2018-02-26 16:18:35.364] [info]	Envoi d'un game waiting
+[2018-02-26 16:18:48.539] [warning]	Paquet de login reçu
+[2018-02-26 16:18:48.540] [info]	Client "adminc" s'est logged-in
+[2018-02-26 16:18:48.540] [info]	Reçu une demande de jeu
+[2018-02-26 16:18:48.541] [info]	dans manage new player
+[2018-02-26 16:18:48.541] [info]	Envoi d'un game waiting
+[2018-02-26 16:18:48.541] [info]	Envoi d'un game ready
+[2018-02-26 16:18:48.542] [info]	Envoi d'un game ready
+[2018-02-26 16:20:00.648] [info]	Démarrage serveur
+[2018-02-26 16:20:00.648] [info]	Ecoute des tentatives de connexions
+[2018-02-26 16:20:00.648] [info]	Serveur en attente de connexion client
+[2018-02-26 16:20:14.496] [warning]	Paquet de login reçu
+[2018-02-26 16:20:14.497] [info]	Client "elishac" s'est logged-in
+[2018-02-26 16:20:14.497] [info]	Reçu une demande de jeu
+[2018-02-26 16:20:14.497] [info]	dans manage new player
+[2018-02-26 16:20:14.498] [info]	Envoi d'un game waiting
+[2018-02-26 16:20:25.007] [warning]	Paquet de login reçu
+[2018-02-26 16:20:25.008] [info]	Client "adminc" s'est logged-in
+[2018-02-26 16:20:25.008] [info]	Reçu une demande de jeu
+[2018-02-26 16:20:25.009] [info]	dans manage new player
+[2018-02-26 16:20:25.009] [info]	Envoi d'un game waiting
+[2018-02-26 16:20:25.009] [info]	Envoi d'un game ready
+[2018-02-26 16:20:25.009] [info]	Envoi d'un game ready
+[2018-02-26 16:20:40.925] [info]	elishac a fait le move : 11
+[2018-02-26 16:20:41.102] [info]	elishac a fait le move : 11
+[2018-02-26 16:20:41.430] [info]	elishac a fait le move : 11
+[2018-02-26 16:20:48.589] [info]	elishac a fait le move : 11
+[2018-02-26 16:20:49.130] [info]	elishac a fait le move : 11
+[2018-02-26 16:20:49.701] [info]	elishac a fait le move : 11
+[2018-02-26 16:20:50.345] [info]	elishac a fait le move : 11
+[2018-02-26 16:20:53.251] [info]	elishac a fait le move : 11
+[2018-02-26 16:20:53.413] [info]	elishac a fait le move : 11
+[2018-02-26 16:20:53.579] [info]	elishac a fait le move : 11
+[2018-02-26 16:20:53.742] [info]	elishac a fait le move : 11
+[2018-02-26 16:21:04.936] [warning]	La connexion avec le client "elishac" semble avoir été interrompue !
+[2018-02-26 16:21:52.551] [info]	Démarrage serveur
+[2018-02-26 16:21:52.551] [info]	Ecoute des tentatives de connexions
+[2018-02-26 16:21:52.551] [info]	Serveur en attente de connexion client
+[2018-02-26 16:22:26.486] [warning]	Paquet de login reçu
+[2018-02-26 16:22:26.487] [info]	Client "elishac" s'est logged-in
+[2018-02-26 16:22:26.487] [info]	Reçu une demande de jeu
+[2018-02-26 16:22:26.487] [info]	dans manage new player
+[2018-02-26 16:22:26.487] [info]	Envoi d'un game waiting
+[2018-02-26 16:22:35.398] [warning]	Paquet de login reçu
+[2018-02-26 16:22:35.399] [info]	Client "adminc" s'est logged-in
+[2018-02-26 16:22:35.399] [info]	Reçu une demande de jeu
+[2018-02-26 16:22:35.399] [info]	dans manage new player
+[2018-02-26 16:22:35.399] [info]	Envoi d'un game waiting
+[2018-02-26 16:22:35.400] [info]	Envoi d'un game ready
+[2018-02-26 16:22:35.400] [info]	Envoi d'un game ready
+[2018-02-26 16:23:01.638] [info]	Démarrage serveur
+[2018-02-26 16:23:01.638] [info]	Ecoute des tentatives de connexions
+[2018-02-26 16:23:01.638] [info]	Serveur en attente de connexion client
+[2018-02-26 16:27:58.941] [warning]	Paquet de login reçu
+[2018-02-26 16:27:58.941] [info]	Client "elishac" s'est logged-in
+[2018-02-26 16:27:58.942] [info]	Reçu une demande de jeu
+[2018-02-26 16:27:58.942] [info]	dans manage new player
+[2018-02-26 16:27:58.942] [info]	Envoi d'un game waiting
+[2018-02-26 16:28:07.618] [warning]	Paquet de login reçu
+[2018-02-26 16:28:07.619] [info]	Client "adminc" s'est logged-in
+[2018-02-26 16:28:07.620] [info]	Reçu une demande de jeu
+[2018-02-26 16:28:07.620] [info]	dans manage new player
+[2018-02-26 16:28:07.620] [info]	Envoi d'un game waiting
+[2018-02-26 16:28:07.621] [info]	Envoi d'un game ready
+[2018-02-26 16:28:07.621] [info]	Envoi d'un game ready
+[2018-02-26 16:28:11.777] [info]	elishac a fait le move : 10
+[2018-02-26 16:28:11.969] [info]	elishac a fait le move : 10
+[2018-02-26 16:28:12.186] [info]	elishac a fait le move : 10
+[2018-02-26 16:28:12.348] [info]	elishac a fait le move : 10
+[2018-02-26 16:28:12.520] [info]	elishac a fait le move : 10
+[2018-02-26 16:28:16.546] [info]	elishac a fait le move : 11
+[2018-02-26 16:28:16.792] [info]	elishac a fait le move : 11
+[2018-02-26 16:28:16.955] [info]	elishac a fait le move : 11
+[2018-02-26 16:28:17.128] [info]	elishac a fait le move : 11
+[2018-02-26 16:28:27.544] [info]	elishac a fait le move : 10
+[2018-02-26 16:28:27.956] [info]	elishac a fait le move : 10
+[2018-02-26 16:28:28.138] [info]	elishac a fait le move : 10
+[2018-02-26 16:28:28.301] [info]	elishac a fait le move : 10
+[2018-02-26 16:31:07.182] [info]	Démarrage serveur
+[2018-02-26 16:31:07.183] [info]	Ecoute des tentatives de connexions
+[2018-02-26 16:31:07.183] [info]	Serveur en attente de connexion client
+[2018-02-26 16:31:27.804] [warning]	Paquet de login reçu
+[2018-02-26 16:31:27.805] [info]	Client "elishac" s'est logged-in
+[2018-02-26 16:31:27.812] [info]	Reçu une demande de jeu
+[2018-02-26 16:31:27.812] [info]	dans manage new player
+[2018-02-26 16:31:27.812] [info]	Envoi d'un game waiting
+[2018-02-26 16:31:37.477] [warning]	Paquet de login reçu
+[2018-02-26 16:31:37.477] [info]	Client "adminc" s'est logged-in
+[2018-02-26 16:31:37.478] [info]	Reçu une demande de jeu
+[2018-02-26 16:31:37.478] [info]	dans manage new player
+[2018-02-26 16:31:37.478] [info]	Envoi d'un game waiting
+[2018-02-26 16:31:37.478] [info]	Envoi d'un game ready
+[2018-02-26 16:31:37.479] [info]	Envoi d'un game ready
+[2018-02-26 16:31:40.138] [info]	elishac a fait le move : 10
+[2018-02-26 16:31:40.332] [info]	elishac a fait le move : 10
+[2018-02-26 16:31:40.545] [info]	elishac a fait le move : 10
+[2018-02-26 16:31:41.141] [info]	elishac a fait le move : 11
+[2018-02-26 16:31:41.652] [info]	elishac a fait le move : 11
+[2018-02-26 16:31:41.765] [info]	elishac a fait le move : 11
+[2018-02-26 16:31:50.939] [info]	elishac a fait le move : 11
+[2018-02-26 16:31:51.153] [info]	elishac a fait le move : 11
+[2018-02-26 16:31:51.378] [info]	elishac a fait le move : 11
+[2018-02-26 16:31:51.592] [info]	elishac a fait le move : 11
+[2018-02-26 16:31:52.788] [info]	elishac a fait le move : 14
+[2018-02-26 16:31:55.857] [info]	elishac a fait le move : 10
+[2018-02-26 16:31:56.060] [info]	elishac a fait le move : 10
+[2018-02-26 16:31:56.243] [info]	elishac a fait le move : 10
+[2018-02-26 16:31:56.470] [info]	elishac a fait le move : 10
+[2018-02-26 16:31:56.723] [info]	elishac a fait le move : 10
+[2018-02-26 16:31:58.611] [info]	elishac a fait le move : 14
+[2018-02-26 17:09:00.330] [info]	Démarrage serveur
+[2018-02-26 17:09:00.338] [info]	Ecoute des tentatives de connexions
+[2018-02-26 17:09:00.338] [info]	Serveur en attente de connexion client
+[2018-02-26 17:09:10.333] [warning]	Paquet de login reçu
+[2018-02-26 17:09:10.334] [info]	Client "elishac" s'est logged-in
+[2018-02-26 17:09:10.335] [info]	Reçu une demande de jeu
+[2018-02-26 17:09:10.335] [info]	dans manage new player
+[2018-02-26 17:09:10.335] [info]	Envoi d'un game waiting
+[2018-02-26 17:09:25.115] [warning]	Paquet de login reçu
+[2018-02-26 17:09:25.116] [info]	Client "adminc" s'est logged-in
+[2018-02-26 17:09:25.117] [info]	Reçu une demande de jeu
+[2018-02-26 17:09:25.117] [info]	dans manage new player
+[2018-02-26 17:09:25.117] [info]	Envoi d'un game waiting
+[2018-02-26 17:09:25.117] [info]	Envoi d'un game ready
+[2018-02-26 17:09:25.117] [info]	Envoi d'un game ready
+[2018-02-26 17:09:36.789] [info]	elishac a fait le move : 10
+[2018-02-26 17:09:36.943] [info]	elishac a fait le move : 10
+[2018-02-26 17:09:37.128] [info]	elishac a fait le move : 10
+[2018-02-26 17:09:40.141] [info]	elishac a fait le move : 11
+[2018-02-26 17:09:40.304] [info]	elishac a fait le move : 11
+[2018-02-26 17:09:40.469] [info]	elishac a fait le move : 11
+[2018-02-26 17:09:40.642] [info]	elishac a fait le move : 11
+[2018-02-26 17:09:44.859] [info]	elishac a fait le move : 10
+[2018-02-26 17:09:45.055] [info]	elishac a fait le move : 10
+[2018-02-26 17:09:45.309] [info]	elishac a fait le move : 10
+[2018-02-26 17:09:45.471] [info]	elishac a fait le move : 10
+[2018-02-26 17:09:45.688] [info]	elishac a fait le move : 10
+[2018-02-26 17:09:45.974] [info]	elishac a fait le move : 14
+[2018-02-26 17:09:48.258] [warning]	La connexion avec le client "elishac" semble avoir été interrompue !
+[2018-02-26 17:19:16.202] [info]	Démarrage serveur
+[2018-02-26 17:19:16.202] [info]	Ecoute des tentatives de connexions
+[2018-02-26 17:19:16.202] [info]	Serveur en attente de connexion client
+[2018-02-26 17:19:24.432] [warning]	Paquet de login reçu
+[2018-02-26 17:19:24.433] [info]	Client "elishac" s'est logged-in
+[2018-02-26 17:19:24.433] [info]	Reçu une demande de jeu
+[2018-02-26 17:19:24.433] [info]	dans manage new player
+[2018-02-26 17:19:24.434] [info]	Envoi d'un game waiting
+[2018-02-26 17:19:31.329] [warning]	Paquet de login reçu
+[2018-02-26 17:19:31.330] [info]	Client "adminc" s'est logged-in
+[2018-02-26 17:19:31.330] [info]	Reçu une demande de jeu
+[2018-02-26 17:19:31.330] [info]	dans manage new player
+[2018-02-26 17:19:31.331] [info]	Envoi d'un game waiting
+[2018-02-26 17:19:31.331] [info]	Envoi d'un game ready
+[2018-02-26 17:19:31.332] [info]	Envoi d'un game ready
+[2018-02-26 17:19:34.521] [info]	elishac a fait le move : 10
+[2018-02-26 17:19:34.735] [info]	elishac a fait le move : 10
+[2018-02-26 17:19:34.907] [info]	elishac a fait le move : 10
+[2018-02-26 17:19:35.664] [info]	elishac a fait le move : 11
+[2018-02-26 17:19:35.837] [info]	elishac a fait le move : 11
+[2018-02-26 17:19:35.989] [info]	elishac a fait le move : 11
+[2018-02-26 17:19:36.156] [info]	elishac a fait le move : 11
+[2018-02-26 17:19:36.308] [info]	elishac a fait le move : 11
+[2018-02-26 17:19:40.595] [info]	elishac a fait le move : 10
+[2018-02-26 17:19:40.850] [info]	elishac a fait le move : 10
+[2018-02-26 17:19:41.055] [info]	elishac a fait le move : 10
+[2018-02-26 17:19:41.238] [info]	elishac a fait le move : 10
+[2018-02-26 17:19:41.576] [info]	elishac a fait le move : 14
+[2018-02-26 17:19:46.534] [info]	elishac a fait le move : 10
+[2018-02-26 17:19:47.003] [info]	elishac a fait le move : 10
+[2018-02-26 17:19:47.342] [info]	elishac a fait le move : 10
+[2018-02-26 17:19:47.505] [info]	elishac a fait le move : 10
+[2018-02-26 17:19:53.323] [info]	elishac a fait le move : 10
+[2018-02-26 17:19:53.754] [info]	elishac a fait le move : 14
+[2018-02-26 17:19:56.541] [info]	elishac a fait le move : 15
+[2018-02-26 17:19:57.004] [info]	elishac a fait le move : 11
+[2018-02-26 17:19:57.218] [info]	elishac a fait le move : 11
+[2018-02-26 17:19:57.635] [info]	elishac a fait le move : 13
+[2018-02-26 17:19:58.749] [warning]	La connexion avec le client "elishac" semble avoir été interrompue !
+[2018-02-26 17:21:53.113] [info]	Démarrage serveur
+[2018-02-26 17:21:53.113] [info]	Ecoute des tentatives de connexions
+[2018-02-26 17:21:53.113] [info]	Serveur en attente de connexion client
+[2018-02-26 17:22:02.764] [warning]	Paquet de login reçu
+[2018-02-26 17:22:02.764] [info]	Client "elishac" s'est logged-in
+[2018-02-26 17:22:02.765] [info]	Reçu une demande de jeu
+[2018-02-26 17:22:02.765] [info]	dans manage new player
+[2018-02-26 17:22:02.765] [info]	Envoi d'un game waiting
+[2018-02-26 17:22:09.862] [warning]	Paquet de login reçu
+[2018-02-26 17:22:09.862] [info]	Client "adminc" s'est logged-in
+[2018-02-26 17:22:09.863] [info]	Reçu une demande de jeu
+[2018-02-26 17:22:09.863] [info]	dans manage new player
+[2018-02-26 17:22:09.863] [info]	Envoi d'un game waiting
+[2018-02-26 17:22:09.863] [info]	Envoi d'un game ready
+[2018-02-26 17:22:09.863] [info]	Envoi d'un game ready
+[2018-02-26 17:22:14.318] [info]	elishac a fait le move : 10
+[2018-02-26 17:22:14.502] [info]	elishac a fait le move : 10
+[2018-02-26 17:22:14.695] [info]	elishac a fait le move : 10
+[2018-02-26 17:22:14.890] [info]	elishac a fait le move : 14
+[2018-02-26 17:22:28.653] [warning]	La connexion avec le client "elishac" semble avoir été interrompue !
+[2018-02-26 17:25:24.832] [info]	Démarrage serveur
+[2018-02-26 17:25:24.833] [info]	Ecoute des tentatives de connexions
+[2018-02-26 17:25:24.834] [info]	Serveur en attente de connexion client
+[2018-02-26 17:25:48.091] [warning]	Paquet de login reçu
+[2018-02-26 17:25:48.092] [info]	Client "elishac" s'est logged-in
+[2018-02-26 17:25:48.092] [info]	Reçu une demande de jeu
+[2018-02-26 17:25:48.093] [info]	dans manage new player
+[2018-02-26 17:25:48.093] [info]	Envoi d'un game waiting
+[2018-02-26 17:26:07.810] [warning]	Paquet de login reçu
+[2018-02-26 17:26:07.810] [info]	Client "adminc" s'est logged-in
+[2018-02-26 17:26:07.811] [info]	Reçu une demande de jeu
+[2018-02-26 17:26:07.811] [info]	dans manage new player
+[2018-02-26 17:26:07.811] [info]	Envoi d'un game waiting
+[2018-02-26 17:26:07.812] [info]	Envoi d'un game ready
+[2018-02-26 17:26:07.812] [info]	Envoi d'un game ready
+[2018-02-26 17:26:07.821] [warning]	La connexion avec le client "elishac" semble avoir été interrompue !
+[2018-02-26 17:28:34.315] [info]	Démarrage serveur
+[2018-02-26 17:28:34.316] [info]	Ecoute des tentatives de connexions
+[2018-02-26 17:28:34.316] [info]	Serveur en attente de connexion client
+[2018-02-26 17:28:51.372] [warning]	Paquet de login reçu
+[2018-02-26 17:28:51.372] [info]	Client "elishac" s'est logged-in
+[2018-02-26 17:28:51.373] [info]	Reçu une demande de jeu
+[2018-02-26 17:28:51.373] [info]	dans manage new player
+[2018-02-26 17:28:51.373] [info]	Envoi d'un game waiting
+[2018-02-26 17:28:58.293] [warning]	Paquet de login reçu
+[2018-02-26 17:28:58.293] [info]	Client "adminc" s'est logged-in
+[2018-02-26 17:28:58.294] [info]	Reçu une demande de jeu
+[2018-02-26 17:28:58.294] [info]	dans manage new player
+[2018-02-26 17:28:58.294] [info]	Envoi d'un game waiting
+[2018-02-26 17:28:58.295] [info]	Envoi d'un game ready
+[2018-02-26 17:28:58.297] [info]	Envoi d'un game ready
+[2018-02-26 17:29:05.549] [info]	elishac a fait le move : 10
+[2018-02-26 17:29:05.713] [info]	elishac a fait le move : 10
+[2018-02-26 17:29:05.875] [info]	elishac a fait le move : 10
+[2018-02-26 17:29:06.234] [info]	elishac a fait le move : 14
+[2018-02-26 17:38:17.600] [info]	Démarrage serveur
+[2018-02-26 17:38:17.600] [info]	Ecoute des tentatives de connexions
+[2018-02-26 17:38:17.600] [info]	Serveur en attente de connexion client
+[2018-02-26 17:38:26.103] [warning]	Paquet de login reçu
+[2018-02-26 17:38:26.104] [info]	Client "elishac" s'est logged-in
+[2018-02-26 17:38:26.105] [info]	Reçu une demande de jeu
+[2018-02-26 17:38:26.105] [info]	dans manage new player
+[2018-02-26 17:38:26.105] [info]	Envoi d'un game waiting
+[2018-02-26 17:38:35.789] [warning]	Paquet de login reçu
+[2018-02-26 17:38:35.790] [info]	Client "adminc" s'est logged-in
+[2018-02-26 17:38:35.790] [info]	Reçu une demande de jeu
+[2018-02-26 17:38:35.791] [info]	dans manage new player
+[2018-02-26 17:38:35.791] [info]	Envoi d'un game waiting
+[2018-02-26 17:38:35.791] [info]	Envoi d'un game ready
+[2018-02-26 17:38:35.791] [info]	Envoi d'un game ready
+[2018-02-26 17:38:46.224] [info]	elishac a fait le move : 10
+[2018-02-26 17:38:46.478] [info]	elishac a fait le move : 10
+[2018-02-26 17:38:46.683] [info]	elishac a fait le move : 10
+[2018-02-26 17:38:46.866] [info]	elishac a fait le move : 10
+[2018-02-26 17:39:04.831] [warning]	La connexion avec le client "elishac" semble avoir été interrompue !
+[2018-02-26 17:40:22.595] [info]	Démarrage serveur
+[2018-02-26 17:40:22.595] [info]	Ecoute des tentatives de connexions
+[2018-02-26 17:40:22.596] [info]	Serveur en attente de connexion client
+[2018-02-26 17:40:30.177] [warning]	Paquet de login reçu
+[2018-02-26 17:40:30.178] [info]	Client "adminc" s'est logged-in
+[2018-02-26 17:40:30.178] [info]	Reçu une demande de jeu
+[2018-02-26 17:40:30.179] [info]	dans manage new player
+[2018-02-26 17:40:30.179] [info]	Envoi d'un game waiting
+[2018-02-26 17:40:45.479] [warning]	Paquet de login reçu
+[2018-02-26 17:40:45.479] [info]	Client "elishac" s'est logged-in
+[2018-02-26 17:40:45.480] [info]	Reçu une demande de jeu
+[2018-02-26 17:40:45.480] [info]	dans manage new player
+[2018-02-26 17:40:45.480] [info]	Envoi d'un game waiting
+[2018-02-26 17:40:45.480] [info]	Envoi d'un game ready
+[2018-02-26 17:40:45.480] [info]	Envoi d'un game ready
+[2018-02-26 17:40:48.511] [info]	adminc a fait le move : 10
+[2018-02-26 17:40:48.677] [info]	adminc a fait le move : 10
+[2018-02-26 17:40:48.840] [info]	adminc a fait le move : 10
+[2018-02-26 17:40:49.002] [info]	adminc a fait le move : 10
+[2018-02-26 17:41:01.911] [info]	adminc a fait le move : 10
+[2018-02-26 17:41:02.073] [info]	adminc a fait le move : 10
+[2018-02-26 20:26:58.366] [info]	Démarrage serveur
+[2018-02-26 20:26:58.367] [info]	Ecoute des tentatives de connexions
+[2018-02-26 20:26:58.367] [info]	Serveur en attente de connexion client
+[2018-02-26 20:27:17.209] [warning]	Paquet de login reçu
+[2018-02-26 20:27:17.216] [info]	Client "elishac" s'est logged-in
+[2018-02-26 20:27:17.216] [info]	Reçu une demande de jeu
+[2018-02-26 20:27:17.216] [info]	dans manage new player
+[2018-02-26 20:27:17.217] [info]	Envoi d'un game waiting
+[2018-02-26 20:27:40.815] [warning]	Paquet de login reçu
+[2018-02-26 20:27:40.815] [info]	Client "adminc" s'est logged-in
+[2018-02-26 20:27:40.815] [info]	Reçu une demande de jeu
+[2018-02-26 20:27:40.815] [info]	dans manage new player
+[2018-02-26 20:27:40.815] [info]	Envoi d'un game waiting
+[2018-02-26 20:27:40.816] [info]	Envoi d'un game ready
+[2018-02-26 20:27:40.816] [info]	Envoi d'un game ready
+[2018-02-26 20:27:43.809] [info]	elishac a fait le move : 10
+[2018-02-26 20:27:44.117] [info]	elishac a fait le move : 10
+[2018-02-26 20:27:44.299] [info]	elishac a fait le move : 10
+[2018-02-26 20:27:44.472] [info]	elishac a fait le move : 10
+[2018-02-26 20:27:44.717] [info]	elishac a fait le move : 10
+[2018-02-26 20:27:47.783] [info]	adminc a fait le move : 10
+[2018-02-26 20:27:48.066] [info]	adminc a fait le move : 10
+[2018-02-26 20:27:48.241] [info]	adminc a fait le move : 10
+[2018-02-26 20:27:48.424] [info]	adminc a fait le move : 10
+[2018-02-26 20:27:48.567] [info]	adminc a fait le move : 10
+[2018-02-26 20:30:11.823] [info]	Démarrage serveur
+[2018-02-26 20:30:11.823] [info]	Ecoute des tentatives de connexions
+[2018-02-26 20:30:11.823] [info]	Serveur en attente de connexion client
+[2018-02-26 20:30:33.764] [warning]	Paquet de login reçu
+[2018-02-26 20:30:33.765] [info]	Client "adminc" s'est logged-in
+[2018-02-26 20:30:33.765] [info]	Reçu une demande de jeu
+[2018-02-26 20:30:33.765] [info]	dans manage new player
+[2018-02-26 20:30:33.765] [info]	Envoi d'un game waiting
+[2018-02-26 20:30:40.903] [warning]	Paquet de login reçu
+[2018-02-26 20:30:40.903] [info]	Client "elishac" s'est logged-in
+[2018-02-26 20:30:40.904] [info]	Reçu une demande de jeu
+[2018-02-26 20:30:40.904] [info]	dans manage new player
+[2018-02-26 20:30:40.904] [info]	Envoi d'un game waiting
+[2018-02-26 20:30:40.904] [info]	Envoi d'un game ready
+[2018-02-26 20:30:40.904] [info]	Envoi d'un game ready
+[2018-02-26 20:30:40.949] [warning]	La connexion avec le client "elishac" semble avoir été interrompue !
+[2018-02-26 20:32:33.123] [info]	Démarrage serveur
+[2018-02-26 20:32:33.123] [info]	Ecoute des tentatives de connexions
+[2018-02-26 20:32:33.123] [info]	Serveur en attente de connexion client
+[2018-02-26 20:32:41.354] [warning]	Paquet de login reçu
+[2018-02-26 20:32:41.355] [info]	Client "adminc" s'est logged-in
+[2018-02-26 20:32:41.355] [info]	Reçu une demande de jeu
+[2018-02-26 20:32:41.355] [info]	dans manage new player
+[2018-02-26 20:32:41.355] [info]	Envoi d'un game waiting
+[2018-02-26 20:32:55.122] [warning]	Paquet de login reçu
+[2018-02-26 20:32:55.123] [info]	Client "elishac" s'est logged-in
+[2018-02-26 20:32:55.123] [info]	Reçu une demande de jeu
+[2018-02-26 20:32:55.123] [info]	dans manage new player
+[2018-02-26 20:32:55.123] [info]	Envoi d'un game waiting
+[2018-02-26 20:32:55.123] [info]	Envoi d'un game ready
+[2018-02-26 20:32:55.124] [info]	Envoi d'un game ready
+[2018-02-26 20:34:36.939] [info]	Démarrage serveur
+[2018-02-26 20:34:36.939] [info]	Ecoute des tentatives de connexions
+[2018-02-26 20:34:36.939] [info]	Serveur en attente de connexion client
+[2018-02-26 20:34:45.755] [warning]	Paquet de login reçu
+[2018-02-26 20:34:45.756] [info]	Client "elishac" s'est logged-in
+[2018-02-26 20:34:45.756] [info]	Reçu une demande de jeu
+[2018-02-26 20:34:45.756] [info]	dans manage new player
+[2018-02-26 20:34:45.756] [info]	Envoi d'un game waiting
+[2018-02-26 20:34:53.381] [warning]	Paquet de login reçu
+[2018-02-26 20:34:53.382] [info]	Client "adminc" s'est logged-in
+[2018-02-26 20:34:53.382] [info]	Reçu une demande de jeu
+[2018-02-26 20:34:53.382] [info]	dans manage new player
+[2018-02-26 20:34:53.382] [info]	Envoi d'un game waiting
+[2018-02-26 20:34:53.383] [info]	Envoi d'un game ready
+[2018-02-26 20:34:53.383] [info]	Envoi d'un game ready
+[2018-02-26 20:43:56.916] [info]	Démarrage serveur
+[2018-02-26 20:43:56.916] [info]	Ecoute des tentatives de connexions
+[2018-02-26 20:43:56.916] [info]	Serveur en attente de connexion client
+[2018-02-26 20:44:09.191] [warning]	Paquet de login reçu
+[2018-02-26 20:44:09.192] [info]	Client "elishac" s'est logged-in
+[2018-02-26 20:44:09.193] [info]	Reçu une demande de jeu
+[2018-02-26 20:44:09.193] [info]	dans manage new player
+[2018-02-26 20:44:09.193] [info]	Envoi d'un game waiting
+[2018-02-26 20:44:21.589] [warning]	Paquet de login reçu
+[2018-02-26 20:44:21.590] [info]	Client "adminc" s'est logged-in
+[2018-02-26 20:44:21.590] [info]	Reçu une demande de jeu
+[2018-02-26 20:44:21.590] [info]	dans manage new player
+[2018-02-26 20:44:21.590] [info]	Envoi d'un game waiting
+[2018-02-26 20:44:21.590] [info]	Envoi d'un game ready
+[2018-02-26 20:44:21.600] [info]	Envoi d'un game ready
+[2018-02-26 20:50:36.520] [info]	Démarrage serveur
+[2018-02-26 20:50:36.520] [info]	Ecoute des tentatives de connexions
+[2018-02-26 20:50:36.520] [info]	Serveur en attente de connexion client
+[2018-02-26 20:51:26.923] [warning]	Paquet de login reçu
+[2018-02-26 20:51:26.923] [info]	Client "elishac" s'est logged-in
+[2018-02-26 20:51:26.924] [info]	Reçu une demande de jeu
+[2018-02-26 20:51:26.924] [info]	dans manage new player
+[2018-02-26 20:51:26.924] [info]	Envoi d'un game waiting
+[2018-02-26 20:51:33.312] [warning]	Paquet de login reçu
+[2018-02-26 20:51:33.313] [info]	Client "adminc" s'est logged-in
+[2018-02-26 20:51:33.313] [info]	Reçu une demande de jeu
+[2018-02-26 20:51:33.313] [info]	dans manage new player
+[2018-02-26 20:51:33.313] [info]	Envoi d'un game waiting
+[2018-02-26 20:51:33.313] [info]	Envoi d'un game ready
+[2018-02-26 20:51:33.313] [info]	Envoi d'un game ready
+[2018-02-26 20:56:28.276] [info]	Démarrage serveur
+[2018-02-26 20:56:28.276] [info]	Ecoute des tentatives de connexions
+[2018-02-26 20:56:28.277] [info]	Serveur en attente de connexion client
+[2018-02-26 20:56:41.489] [warning]	Paquet de login reçu
+[2018-02-26 20:56:41.490] [info]	Client "elishac" s'est logged-in
+[2018-02-26 20:56:41.490] [info]	Reçu une demande de jeu
+[2018-02-26 20:56:41.490] [info]	dans manage new player
+[2018-02-26 20:56:41.490] [info]	Envoi d'un game waiting
+[2018-02-26 20:56:55.800] [warning]	Paquet de login reçu
+[2018-02-26 20:56:55.800] [info]	Client "adminc" s'est logged-in
+[2018-02-26 20:56:55.801] [info]	Reçu une demande de jeu
+[2018-02-26 20:56:55.801] [info]	dans manage new player
+[2018-02-26 20:56:55.801] [info]	Envoi d'un game waiting
+[2018-02-26 20:56:55.801] [info]	Envoi d'un game ready
+[2018-02-26 20:56:55.801] [info]	Envoi d'un game ready
+[2018-02-26 20:57:10.112] [warning]	La connexion avec le client "elishac" semble avoir été interrompue !
+[2018-02-26 20:57:57.679] [info]	Démarrage serveur
+[2018-02-26 20:57:57.679] [info]	Ecoute des tentatives de connexions
+[2018-02-26 20:57:57.679] [info]	Serveur en attente de connexion client
+[2018-02-26 20:58:06.490] [warning]	Paquet de login reçu
+[2018-02-26 20:58:06.491] [info]	Client "adminc" s'est logged-in
+[2018-02-26 20:58:06.497] [info]	Reçu une demande de jeu
+[2018-02-26 20:58:06.497] [info]	dans manage new player
+[2018-02-26 20:58:06.497] [info]	Envoi d'un game waiting
+[2018-02-26 20:58:13.610] [warning]	Paquet de login reçu
+[2018-02-26 20:58:13.610] [info]	Client "elishac" s'est logged-in
+[2018-02-26 20:58:13.611] [info]	Reçu une demande de jeu
+[2018-02-26 20:58:13.611] [info]	dans manage new player
+[2018-02-26 20:58:13.611] [info]	Envoi d'un game waiting
+[2018-02-26 20:58:13.611] [info]	Envoi d'un game ready
+[2018-02-26 20:58:13.611] [info]	Envoi d'un game ready
+[2018-02-26 20:58:30.825] [warning]	La connexion avec le client "adminc" semble avoir été interrompue !
+[2018-02-26 21:21:06.085] [info]	Démarrage serveur
+[2018-02-26 21:21:06.085] [info]	Ecoute des tentatives de connexions
+[2018-02-26 21:21:06.085] [info]	Serveur en attente de connexion client
+[2018-02-26 21:21:13.443] [warning]	Paquet de login reçu
+[2018-02-26 21:21:13.444] [info]	Client "adminc" s'est logged-in
+[2018-02-26 21:21:13.444] [info]	Reçu une demande de jeu
+[2018-02-26 21:21:13.444] [info]	dans manage new player
+[2018-02-26 21:21:13.444] [info]	Envoi d'un game waiting
+[2018-02-26 21:21:22.916] [warning]	Paquet de login reçu
+[2018-02-26 21:21:22.917] [info]	Client "elishac" s'est logged-in
+[2018-02-26 21:21:22.917] [info]	Reçu une demande de jeu
+[2018-02-26 21:21:22.917] [info]	dans manage new player
+[2018-02-26 21:21:22.917] [info]	Envoi d'un game waiting
+[2018-02-26 21:21:22.917] [info]	Envoi d'un game ready
+[2018-02-26 21:21:22.917] [info]	Envoi d'un game ready
+[2018-02-26 21:21:59.922] [warning]	La connexion avec le client "adminc" semble avoir été interrompue !
+[2018-02-26 21:23:10.893] [info]	Démarrage serveur
+[2018-02-26 21:23:10.894] [info]	Ecoute des tentatives de connexions
+[2018-02-26 21:23:10.894] [info]	Serveur en attente de connexion client
+[2018-02-26 21:23:41.911] [warning]	Paquet de login reçu
+[2018-02-26 21:23:41.912] [info]	Client "adminc" s'est logged-in
+[2018-02-26 21:23:41.912] [info]	Reçu une demande de jeu
+[2018-02-26 21:23:41.913] [info]	dans manage new player
+[2018-02-26 21:23:41.913] [info]	Envoi d'un game waiting
+[2018-02-26 21:23:46.850] [warning]	Paquet de login reçu
+[2018-02-26 21:23:46.850] [info]	Client "elishac" s'est logged-in
+[2018-02-26 21:23:46.851] [info]	Reçu une demande de jeu
+[2018-02-26 21:23:46.851] [info]	dans manage new player
+[2018-02-26 21:23:46.851] [info]	Envoi d'un game waiting
+[2018-02-26 21:23:46.851] [info]	Envoi d'un game ready
+[2018-02-26 21:23:46.851] [info]	Envoi d'un game ready
+[2018-02-26 21:25:10.904] [info]	Démarrage serveur
+[2018-02-26 21:25:10.905] [info]	Ecoute des tentatives de connexions
+[2018-02-26 21:25:10.905] [info]	Serveur en attente de connexion client
+[2018-02-26 21:25:35.903] [warning]	Paquet de login reçu
+[2018-02-26 21:25:35.904] [info]	Client "adminc" s'est logged-in
+[2018-02-26 21:25:35.905] [info]	Reçu une demande de jeu
+[2018-02-26 21:25:35.905] [info]	dans manage new player
+[2018-02-26 21:25:35.905] [info]	Envoi d'un game waiting
+[2018-02-26 21:25:47.005] [warning]	Paquet de login reçu
+[2018-02-26 21:25:47.006] [info]	Client "elishac" s'est logged-in
+[2018-02-26 21:25:47.006] [info]	Reçu une demande de jeu
+[2018-02-26 21:25:47.006] [info]	dans manage new player
+[2018-02-26 21:25:47.006] [info]	Envoi d'un game waiting
+[2018-02-26 21:25:47.006] [info]	Envoi d'un game ready
+[2018-02-26 21:25:47.006] [info]	Envoi d'un game ready
+[2018-02-26 21:26:23.126] [warning]	La connexion avec le client "adminc" semble avoir été interrompue !
+[2018-02-26 21:29:29.456] [info]	Démarrage serveur
+[2018-02-26 21:29:29.456] [info]	Ecoute des tentatives de connexions
+[2018-02-26 21:29:29.456] [info]	Serveur en attente de connexion client
+[2018-02-26 21:29:35.554] [warning]	Paquet de login reçu
+[2018-02-26 21:29:35.555] [info]	Client "adminc" s'est logged-in
+[2018-02-26 21:29:35.556] [info]	Reçu une demande de jeu
+[2018-02-26 21:29:35.556] [info]	dans manage new player
+[2018-02-26 21:29:35.556] [info]	Envoi d'un game waiting
+[2018-02-26 21:29:46.004] [warning]	Paquet de login reçu
+[2018-02-26 21:29:46.004] [info]	Client "elishac" s'est logged-in
+[2018-02-26 21:29:46.004] [info]	Reçu une demande de jeu
+[2018-02-26 21:29:46.004] [info]	dans manage new player
+[2018-02-26 21:29:46.004] [info]	Envoi d'un game waiting
+[2018-02-26 21:29:46.004] [info]	Envoi d'un game ready
+[2018-02-26 21:29:46.005] [info]	Envoi d'un game ready
+[2018-02-26 21:35:07.487] [info]	Démarrage serveur
+[2018-02-26 21:35:07.487] [info]	Ecoute des tentatives de connexions
+[2018-02-26 21:35:07.487] [info]	Serveur en attente de connexion client
+[2018-02-26 21:35:16.396] [warning]	Paquet de login reçu
+[2018-02-26 21:35:16.397] [info]	Client "elishac" s'est logged-in
+[2018-02-26 21:35:16.398] [info]	Reçu une demande de jeu
+[2018-02-26 21:35:16.398] [info]	dans manage new player
+[2018-02-26 21:35:16.398] [info]	Envoi d'un game waiting
+[2018-02-26 21:35:25.233] [warning]	Paquet de login reçu
+[2018-02-26 21:35:25.234] [info]	Client "adminc" s'est logged-in
+[2018-02-26 21:35:25.235] [info]	Reçu une demande de jeu
+[2018-02-26 21:35:25.236] [info]	dans manage new player
+[2018-02-26 21:35:25.236] [info]	Envoi d'un game waiting
+[2018-02-26 21:35:25.236] [info]	Envoi d'un game ready
+[2018-02-26 21:35:25.236] [info]	Envoi d'un game ready
+[2018-02-26 21:56:20.497] [info]	Démarrage serveur
+[2018-02-26 21:56:20.497] [info]	Ecoute des tentatives de connexions
+[2018-02-26 21:56:20.497] [info]	Serveur en attente de connexion client
+[2018-02-26 21:56:41.628] [warning]	Paquet de login reçu
+[2018-02-26 21:56:41.629] [info]	Client "adminc" s'est logged-in
+[2018-02-26 21:56:41.629] [info]	Reçu une demande de jeu
+[2018-02-26 21:56:41.629] [info]	dans manage new player
+[2018-02-26 21:56:41.629] [info]	Envoi d'un game waiting
+[2018-02-26 21:56:50.417] [warning]	Paquet de login reçu
+[2018-02-26 21:56:50.418] [info]	Client "elishac" s'est logged-in
+[2018-02-26 21:56:50.418] [info]	Reçu une demande de jeu
+[2018-02-26 21:56:50.418] [info]	dans manage new player
+[2018-02-26 21:56:50.418] [info]	Envoi d'un game waiting
+[2018-02-26 21:56:50.418] [info]	Envoi d'un game ready
+[2018-02-26 21:56:50.418] [info]	Envoi d'un game ready
+[2018-02-26 21:56:50.424] [warning]	La connexion avec le client "adminc" semble avoir été interrompue !
+[2018-02-26 22:06:21.155] [info]	Démarrage serveur
+[2018-02-26 22:06:21.155] [info]	Ecoute des tentatives de connexions
+[2018-02-26 22:06:21.155] [info]	Serveur en attente de connexion client
+[2018-02-26 22:06:53.179] [warning]	Paquet de login reçu
+[2018-02-26 22:06:53.180] [info]	Client "elishac" s'est logged-in
+[2018-02-26 22:06:53.181] [info]	Reçu une demande de jeu
+[2018-02-26 22:06:53.181] [info]	dans manage new player
+[2018-02-26 22:06:53.181] [info]	Envoi d'un game waiting
+[2018-02-26 22:07:06.985] [warning]	Paquet de login reçu
+[2018-02-26 22:07:06.985] [info]	Client "adminc" s'est logged-in
+[2018-02-26 22:07:06.986] [info]	Reçu une demande de jeu
+[2018-02-26 22:07:06.986] [info]	dans manage new player
+[2018-02-26 22:07:06.986] [info]	Envoi d'un game waiting
+[2018-02-26 22:07:06.986] [info]	Envoi d'un game ready
+[2018-02-26 22:07:06.986] [info]	Envoi d'un game ready
+[2018-02-26 22:07:10.081] [info]	elishac a fait le move : 10
+[2018-02-26 22:07:10.409] [info]	elishac a fait le move : 10
+[2018-02-26 22:07:10.581] [info]	elishac a fait le move : 10
+[2018-02-26 22:07:10.768] [info]	elishac a fait le move : 10
+[2018-02-26 22:07:11.002] [info]	elishac a fait le move : 14
+[2018-02-26 22:14:17.178] [info]	Démarrage serveur
+[2018-02-26 22:14:17.178] [info]	Ecoute des tentatives de connexions
+[2018-02-26 22:14:17.178] [info]	Serveur en attente de connexion client
+[2018-02-26 22:14:33.244] [warning]	Paquet de login reçu
+[2018-02-26 22:14:40.492] [warning]	Paquet de login reçu
+[2018-02-26 22:14:47.209] [warning]	Paquet de login reçu
+[2018-02-26 22:14:47.210] [info]	Client "elishac" s'est logged-in
+[2018-02-26 22:14:47.211] [info]	Reçu une demande de jeu
+[2018-02-26 22:14:47.211] [info]	dans manage new player
+[2018-02-26 22:14:47.211] [info]	Envoi d'un game waiting
+[2018-02-26 22:14:53.830] [warning]	Paquet de login reçu
+[2018-02-26 22:14:53.831] [info]	Client "adminc" s'est logged-in
+[2018-02-26 22:14:53.831] [info]	Reçu une demande de jeu
+[2018-02-26 22:14:53.831] [info]	dans manage new player
+[2018-02-26 22:14:53.831] [info]	Envoi d'un game waiting
+[2018-02-26 22:14:53.831] [info]	Envoi d'un game ready
+[2018-02-26 22:14:53.831] [info]	Envoi d'un game ready
+[2018-02-26 22:29:38.433] [info]	Démarrage serveur
+[2018-02-26 22:29:38.433] [info]	Ecoute des tentatives de connexions
+[2018-02-26 22:29:38.433] [info]	Serveur en attente de connexion client
+[2018-02-26 22:29:46.035] [warning]	Paquet de login reçu
+[2018-02-26 22:29:46.036] [info]	Client "adminc" s'est logged-in
+[2018-02-26 22:29:46.036] [info]	Reçu une demande de jeu
+[2018-02-26 22:29:46.036] [info]	dans manage new player
+[2018-02-26 22:29:46.036] [info]	Envoi d'un game waiting
+[2018-02-26 22:29:54.161] [warning]	Paquet de login reçu
+[2018-02-26 22:29:54.161] [info]	Client "elishac" s'est logged-in
+[2018-02-26 22:29:54.161] [info]	Reçu une demande de jeu
+[2018-02-26 22:29:54.162] [info]	dans manage new player
+[2018-02-26 22:29:54.162] [info]	Envoi d'un game waiting
+[2018-02-26 22:29:54.162] [info]	Envoi d'un game ready
+[2018-02-26 22:29:54.162] [info]	Envoi d'un game ready
+[2018-02-26 22:31:03.670] [info]	Démarrage serveur
+[2018-02-26 22:31:03.670] [info]	Ecoute des tentatives de connexions
+[2018-02-26 22:31:03.670] [info]	Serveur en attente de connexion client
+[2018-02-26 22:31:13.771] [warning]	Paquet de login reçu
+[2018-02-26 22:31:13.771] [info]	Client "adminc" s'est logged-in
+[2018-02-26 22:31:13.772] [info]	Reçu une demande de jeu
+[2018-02-26 22:31:13.772] [info]	dans manage new player
+[2018-02-26 22:31:13.772] [info]	Envoi d'un game waiting
+[2018-02-26 22:31:48.030] [warning]	Paquet de login reçu
+[2018-02-26 22:31:48.030] [info]	Client "elishac" s'est logged-in
+[2018-02-26 22:31:48.031] [info]	Reçu une demande de jeu
+[2018-02-26 22:31:48.031] [info]	dans manage new player
+[2018-02-26 22:31:48.031] [info]	Envoi d'un game waiting
+[2018-02-26 22:31:48.031] [info]	Envoi d'un game ready
+[2018-02-26 22:31:48.032] [info]	Envoi d'un game ready
+[2018-02-26 22:31:48.041] [warning]	La connexion avec le client "adminc" semble avoir été interrompue !
+[2018-02-26 22:34:22.250] [info]	Démarrage serveur
+[2018-02-26 22:34:22.250] [info]	Ecoute des tentatives de connexions
+[2018-02-26 22:34:22.250] [info]	Serveur en attente de connexion client
+[2018-02-26 22:34:41.407] [warning]	Paquet de login reçu
+[2018-02-26 22:34:41.407] [info]	Client "adminc" s'est logged-in
+[2018-02-26 22:34:41.408] [info]	Reçu une demande de jeu
+[2018-02-26 22:34:41.408] [info]	dans manage new player
+[2018-02-26 22:34:41.408] [info]	Envoi d'un game waiting
+[2018-02-26 22:34:59.906] [warning]	Paquet de login reçu
+[2018-02-26 22:34:59.907] [info]	Client "elishac" s'est logged-in
+[2018-02-26 22:34:59.907] [info]	Reçu une demande de jeu
+[2018-02-26 22:34:59.907] [info]	dans manage new player
+[2018-02-26 22:34:59.907] [info]	Envoi d'un game waiting
+[2018-02-26 22:34:59.907] [info]	Envoi d'un game ready
+[2018-02-26 22:34:59.907] [info]	Envoi d'un game ready
+[2018-02-26 22:34:59.912] [warning]	La connexion avec le client "adminc" semble avoir été interrompue !
+[2018-02-26 22:37:28.423] [info]	Démarrage serveur
+[2018-02-26 22:37:28.423] [info]	Ecoute des tentatives de connexions
+[2018-02-26 22:37:28.423] [info]	Serveur en attente de connexion client
+[2018-02-26 22:37:34.748] [warning]	Paquet de login reçu
+[2018-02-26 22:37:34.748] [info]	Client "adminc" s'est logged-in
+[2018-02-26 22:37:34.749] [info]	Reçu une demande de jeu
+[2018-02-26 22:37:34.749] [info]	dans manage new player
+[2018-02-26 22:37:34.749] [info]	Envoi d'un game waiting
+[2018-02-26 22:37:47.994] [warning]	Paquet de login reçu
+[2018-02-26 22:37:47.994] [info]	Client "elishac" s'est logged-in
+[2018-02-26 22:37:47.995] [info]	Reçu une demande de jeu
+[2018-02-26 22:37:47.995] [info]	dans manage new player
+[2018-02-26 22:37:47.995] [info]	Envoi d'un game waiting
+[2018-02-26 22:37:47.995] [info]	Envoi d'un game ready
+[2018-02-26 22:37:47.995] [info]	Envoi d'un game ready
+[2018-02-26 22:37:48.000] [warning]	La connexion avec le client "adminc" semble avoir été interrompue !
+[2018-02-26 22:39:22.352] [info]	Démarrage serveur
+[2018-02-26 22:39:22.352] [info]	Ecoute des tentatives de connexions
+[2018-02-26 22:39:22.352] [info]	Serveur en attente de connexion client
+[2018-02-26 22:40:04.014] [warning]	Paquet de login reçu
+[2018-02-26 22:40:04.015] [info]	Client "adminc" s'est logged-in
+[2018-02-26 22:40:04.016] [info]	Reçu une demande de jeu
+[2018-02-26 22:40:04.016] [info]	dans manage new player
+[2018-02-26 22:40:04.016] [info]	Envoi d'un game waiting
+[2018-02-26 22:40:24.383] [warning]	Paquet de login reçu
+[2018-02-26 22:40:24.383] [info]	Client "elishac" s'est logged-in
+[2018-02-26 22:40:24.384] [info]	Reçu une demande de jeu
+[2018-02-26 22:40:24.384] [info]	dans manage new player
+[2018-02-26 22:40:24.384] [info]	Envoi d'un game waiting
+[2018-02-26 22:40:24.384] [info]	Envoi d'un game ready
+[2018-02-26 22:40:24.384] [info]	Envoi d'un game ready
+[2018-02-26 22:40:27.573] [info]	adminc a fait le move : 10
+[2018-02-26 22:40:27.787] [info]	adminc a fait le move : 10
+[2018-02-27 08:05:11.927] [info]	Démarrage serveur
+[2018-02-27 08:05:11.927] [info]	Ecoute des tentatives de connexions
+[2018-02-27 08:05:11.928] [info]	Serveur en attente de connexion client
+[2018-02-27 08:05:52.110] [warning]	Paquet de login reçu
+[2018-02-27 08:05:52.118] [info]	Client "adminc" s'est logged-in
+[2018-02-27 08:05:52.119] [info]	Reçu une demande de jeu
+[2018-02-27 08:05:52.119] [info]	dans manage new player
+[2018-02-27 08:05:52.119] [info]	Envoi d'un game waiting
+[2018-02-27 08:06:03.543] [warning]	Paquet de login reçu
+[2018-02-27 08:06:03.543] [info]	Client "elishac" s'est logged-in
+[2018-02-27 08:06:03.544] [info]	Reçu une demande de jeu
+[2018-02-27 08:06:03.544] [info]	dans manage new player
+[2018-02-27 08:06:03.544] [info]	Envoi d'un game waiting
+[2018-02-27 08:06:03.544] [info]	Envoi d'un game ready
+[2018-02-27 08:06:03.544] [info]	Envoi d'un game ready
+[2018-02-27 08:06:07.106] [warning]	La connexion avec le client "adminc" semble avoir été interrompue !
+[2018-02-27 08:06:59.946] [info]	Démarrage serveur
+[2018-02-27 08:06:59.946] [info]	Ecoute des tentatives de connexions
+[2018-02-27 08:06:59.946] [info]	Serveur en attente de connexion client
+[2018-02-27 08:07:23.775] [warning]	Paquet de login reçu
+[2018-02-27 08:07:23.776] [info]	Client "adminc" s'est logged-in
+[2018-02-27 08:07:23.776] [info]	Reçu une demande de jeu
+[2018-02-27 08:07:23.776] [info]	dans manage new player
+[2018-02-27 08:07:23.777] [info]	Envoi d'un game waiting
+[2018-02-27 08:07:30.319] [warning]	Paquet de login reçu
+[2018-02-27 08:07:30.319] [info]	Client "elishac" s'est logged-in
+[2018-02-27 08:07:30.320] [info]	Reçu une demande de jeu
+[2018-02-27 08:07:30.320] [info]	dans manage new player
+[2018-02-27 08:07:30.320] [info]	Envoi d'un game waiting
+[2018-02-27 08:07:30.320] [info]	Envoi d'un game ready
+[2018-02-27 08:07:30.320] [info]	Envoi d'un game ready
+[2018-02-27 08:07:34.337] [warning]	La connexion avec le client "adminc" semble avoir été interrompue !
+[2018-02-27 08:08:35.756] [info]	Démarrage serveur
+[2018-02-27 08:08:35.757] [info]	Ecoute des tentatives de connexions
+[2018-02-27 08:08:35.757] [info]	Serveur en attente de connexion client
+[2018-02-27 08:08:42.590] [warning]	Paquet de login reçu
+[2018-02-27 08:08:42.590] [info]	Client "adminc" s'est logged-in
+[2018-02-27 08:08:42.591] [info]	Reçu une demande de jeu
+[2018-02-27 08:08:42.591] [info]	dans manage new player
+[2018-02-27 08:08:42.592] [info]	Envoi d'un game waiting
+[2018-02-27 08:08:50.481] [warning]	Paquet de login reçu
+[2018-02-27 08:08:50.482] [info]	Client "elishac" s'est logged-in
+[2018-02-27 08:08:50.483] [info]	Reçu une demande de jeu
+[2018-02-27 08:08:50.483] [info]	dans manage new player
+[2018-02-27 08:08:50.483] [info]	Envoi d'un game waiting
+[2018-02-27 08:08:50.483] [info]	Envoi d'un game ready
+[2018-02-27 08:08:50.483] [info]	Envoi d'un game ready
+[2018-02-27 08:22:03.237] [info]	Démarrage serveur
+[2018-02-27 08:22:03.237] [info]	Ecoute des tentatives de connexions
+[2018-02-27 08:22:03.237] [info]	Serveur en attente de connexion client
+[2018-02-27 08:22:22.052] [warning]	Paquet de login reçu
+[2018-02-27 08:22:22.052] [info]	Client "elishac" s'est logged-in
+[2018-02-27 08:22:22.053] [info]	Reçu une demande de jeu
+[2018-02-27 08:22:22.053] [info]	dans manage new player
+[2018-02-27 08:22:22.054] [info]	Envoi d'un game waiting
+[2018-02-27 08:22:44.982] [warning]	Paquet de login reçu
+[2018-02-27 08:22:44.983] [info]	Client "adminc" s'est logged-in
+[2018-02-27 08:22:44.984] [info]	Reçu une demande de jeu
+[2018-02-27 08:22:44.984] [info]	dans manage new player
+[2018-02-27 08:22:44.984] [info]	Envoi d'un game waiting
+[2018-02-27 08:22:44.984] [info]	Envoi d'un game ready
+[2018-02-27 08:22:44.986] [info]	Envoi d'un game ready
+[2018-02-27 08:30:02.648] [info]	Démarrage serveur
+[2018-02-27 08:30:02.648] [info]	Ecoute des tentatives de connexions
+[2018-02-27 08:30:02.648] [info]	Serveur en attente de connexion client
+[2018-02-27 08:30:10.800] [warning]	Paquet de login reçu
+[2018-02-27 08:30:10.800] [info]	Client "elishac" s'est logged-in
+[2018-02-27 08:30:10.801] [info]	Reçu une demande de jeu
+[2018-02-27 08:30:10.801] [info]	dans manage new player
+[2018-02-27 08:30:10.801] [info]	Envoi d'un game waiting
+[2018-02-27 08:30:25.134] [warning]	Paquet de login reçu
+[2018-02-27 08:30:25.135] [info]	Client "adminc" s'est logged-in
+[2018-02-27 08:30:25.136] [info]	Reçu une demande de jeu
+[2018-02-27 08:30:25.136] [info]	dans manage new player
+[2018-02-27 08:30:25.136] [info]	Envoi d'un game waiting
+[2018-02-27 08:30:25.137] [info]	Envoi d'un game ready
+[2018-02-27 08:30:25.138] [info]	Envoi d'un game ready
+[2018-02-27 08:30:25.150] [warning]	La connexion avec le client "elishac" semble avoir été interrompue !
+[2018-02-27 08:31:05.764] [info]	Démarrage serveur
+[2018-02-27 08:31:05.764] [info]	Ecoute des tentatives de connexions
+[2018-02-27 08:31:05.765] [info]	Serveur en attente de connexion client
+[2018-02-27 08:31:23.315] [warning]	Paquet de login reçu
+[2018-02-27 08:31:23.316] [info]	Client "elishac" s'est logged-in
+[2018-02-27 08:31:23.316] [info]	Reçu une demande de jeu
+[2018-02-27 08:31:23.316] [info]	dans manage new player
+[2018-02-27 08:31:23.317] [info]	Envoi d'un game waiting
+[2018-02-27 08:31:35.183] [warning]	Paquet de login reçu
+[2018-02-27 08:31:35.183] [info]	Client "adminc" s'est logged-in
+[2018-02-27 08:31:35.185] [info]	Reçu une demande de jeu
+[2018-02-27 08:31:35.185] [info]	dans manage new player
+[2018-02-27 08:31:35.185] [info]	Envoi d'un game waiting
+[2018-02-27 08:31:35.185] [info]	Envoi d'un game ready
+[2018-02-27 08:31:35.185] [info]	Envoi d'un game ready
+[2018-02-27 08:31:37.682] [info]	elishac a fait le move : 10
+[2018-02-27 08:32:12.048] [info]	Démarrage serveur
+[2018-02-27 08:32:12.049] [info]	Ecoute des tentatives de connexions
+[2018-02-27 08:32:12.049] [info]	Serveur en attente de connexion client
+[2018-02-27 08:32:27.810] [warning]	Paquet de login reçu
+[2018-02-27 08:32:27.810] [info]	Client "elishac" s'est logged-in
+[2018-02-27 08:32:27.810] [info]	Reçu une demande de jeu
+[2018-02-27 08:32:27.810] [info]	dans manage new player
+[2018-02-27 08:32:27.810] [info]	Envoi d'un game waiting
+[2018-02-27 08:32:38.284] [warning]	Paquet de login reçu
+[2018-02-27 08:32:38.285] [info]	Client "adminc" s'est logged-in
+[2018-02-27 08:32:38.286] [info]	Reçu une demande de jeu
+[2018-02-27 08:32:38.286] [info]	dans manage new player
+[2018-02-27 08:32:38.286] [info]	Envoi d'un game waiting
+[2018-02-27 08:32:38.286] [info]	Envoi d'un game ready
+[2018-02-27 08:32:38.287] [info]	Envoi d'un game ready
+[2018-02-27 08:32:42.919] [warning]	La connexion avec le client "elishac" semble avoir été interrompue !
+[2018-02-27 08:34:23.263] [info]	Démarrage serveur
+[2018-02-27 08:34:23.263] [info]	Ecoute des tentatives de connexions
+[2018-02-27 08:34:23.263] [info]	Serveur en attente de connexion client
+[2018-02-27 08:34:30.581] [warning]	Paquet de login reçu
+[2018-02-27 08:34:30.581] [info]	Client "adminc" s'est logged-in
+[2018-02-27 08:34:30.582] [info]	Reçu une demande de jeu
+[2018-02-27 08:34:30.582] [info]	dans manage new player
+[2018-02-27 08:34:30.582] [info]	Envoi d'un game waiting
+[2018-02-27 08:34:40.227] [warning]	Paquet de login reçu
+[2018-02-27 08:34:40.227] [info]	Client "elishac" s'est logged-in
+[2018-02-27 08:34:40.227] [info]	Reçu une demande de jeu
+[2018-02-27 08:34:40.227] [info]	dans manage new player
+[2018-02-27 08:34:40.228] [info]	Envoi d'un game waiting
+[2018-02-27 08:34:40.228] [info]	Envoi d'un game ready
+[2018-02-27 08:34:40.228] [info]	Envoi d'un game ready
+[2018-02-27 08:35:19.940] [info]	Démarrage serveur
+[2018-02-27 08:35:19.940] [info]	Ecoute des tentatives de connexions
+[2018-02-27 08:35:19.940] [info]	Serveur en attente de connexion client
+[2018-02-27 08:35:26.493] [warning]	Paquet de login reçu
+[2018-02-27 08:35:26.493] [info]	Client "adminc" s'est logged-in
+[2018-02-27 08:35:26.494] [info]	Reçu une demande de jeu
+[2018-02-27 08:35:26.494] [info]	dans manage new player
+[2018-02-27 08:35:26.494] [info]	Envoi d'un game waiting
+[2018-02-27 08:35:36.749] [warning]	Paquet de login reçu
+[2018-02-27 08:35:36.749] [info]	Client "elishac" s'est logged-in
+[2018-02-27 08:35:36.750] [info]	Reçu une demande de jeu
+[2018-02-27 08:35:36.750] [info]	dans manage new player
+[2018-02-27 08:35:36.750] [info]	Envoi d'un game waiting
+[2018-02-27 08:35:36.750] [info]	Envoi d'un game ready
+[2018-02-27 08:35:36.751] [info]	Envoi d'un game ready
+[2018-02-27 08:36:03.338] [info]	Démarrage serveur
+[2018-02-27 08:36:03.338] [info]	Ecoute des tentatives de connexions
+[2018-02-27 08:36:03.338] [info]	Serveur en attente de connexion client
+[2018-02-27 08:36:21.630] [warning]	Paquet de login reçu
+[2018-02-27 08:36:21.630] [info]	Client "elishac" s'est logged-in
+[2018-02-27 08:36:21.631] [info]	Reçu une demande de jeu
+[2018-02-27 08:36:21.631] [info]	dans manage new player
+[2018-02-27 08:36:21.631] [info]	Envoi d'un game waiting
+[2018-02-27 08:36:30.351] [warning]	Paquet de login reçu
+[2018-02-27 08:36:35.662] [warning]	Paquet de login reçu
+[2018-02-27 08:36:35.662] [info]	Client "adminc" s'est logged-in
+[2018-02-27 08:36:35.663] [info]	Reçu une demande de jeu
+[2018-02-27 08:36:35.663] [info]	dans manage new player
+[2018-02-27 08:36:35.663] [info]	Envoi d'un game waiting
+[2018-02-27 08:36:35.663] [info]	Envoi d'un game ready
+[2018-02-27 08:36:35.663] [info]	Envoi d'un game ready
+[2018-02-27 08:41:49.849] [info]	Démarrage serveur
+[2018-02-27 08:41:49.849] [info]	Ecoute des tentatives de connexions
+[2018-02-27 08:41:49.849] [info]	Serveur en attente de connexion client
+[2018-02-27 08:41:55.851] [warning]	Paquet de login reçu
+[2018-02-27 08:41:55.852] [info]	Client "adminc" s'est logged-in
+[2018-02-27 08:41:55.853] [info]	Reçu une demande de jeu
+[2018-02-27 08:41:55.853] [info]	dans manage new player
+[2018-02-27 08:41:55.853] [info]	Envoi d'un game waiting
+[2018-02-27 08:42:03.524] [warning]	Paquet de login reçu
+[2018-02-27 08:42:03.524] [info]	Client "elishac" s'est logged-in
+[2018-02-27 08:42:03.525] [info]	Reçu une demande de jeu
+[2018-02-27 08:42:03.525] [info]	dans manage new player
+[2018-02-27 08:42:03.525] [info]	Envoi d'un game waiting
+[2018-02-27 08:42:03.526] [info]	Envoi d'un game ready
+[2018-02-27 08:42:03.526] [info]	Envoi d'un game ready
+[2018-02-27 08:42:44.038] [info]	Démarrage serveur
+[2018-02-27 08:42:44.039] [info]	Ecoute des tentatives de connexions
+[2018-02-27 08:42:44.039] [info]	Serveur en attente de connexion client
+[2018-02-27 08:43:11.796] [warning]	Paquet de login reçu
+[2018-02-27 08:43:11.797] [info]	Client "elishac" s'est logged-in
+[2018-02-27 08:43:11.798] [info]	Reçu une demande de jeu
+[2018-02-27 08:43:11.798] [info]	dans manage new player
+[2018-02-27 08:43:11.798] [info]	Envoi d'un game waiting
+[2018-02-27 08:43:21.690] [warning]	Paquet de login reçu
+[2018-02-27 08:43:21.690] [info]	Client "adminc" s'est logged-in
+[2018-02-27 08:43:21.691] [info]	Reçu une demande de jeu
+[2018-02-27 08:43:21.691] [info]	dans manage new player
+[2018-02-27 08:43:21.691] [info]	Envoi d'un game waiting
+[2018-02-27 08:43:21.691] [info]	Envoi d'un game ready
+[2018-02-27 08:43:21.691] [info]	Envoi d'un game ready
+[2018-02-27 08:43:38.894] [info]	Démarrage serveur
+[2018-02-27 08:43:38.894] [info]	Ecoute des tentatives de connexions
+[2018-02-27 08:43:38.894] [info]	Serveur en attente de connexion client
+[2018-02-27 08:43:49.776] [warning]	Paquet de login reçu
+[2018-02-27 08:43:52.250] [warning]	Paquet de login reçu
+[2018-02-27 08:43:52.251] [info]	Client "elishac" s'est logged-in
+[2018-02-27 08:43:52.251] [info]	Reçu une demande de jeu
+[2018-02-27 08:43:52.251] [info]	dans manage new player
+[2018-02-27 08:43:52.252] [info]	Envoi d'un game waiting
+[2018-02-27 08:44:00.240] [warning]	Paquet de login reçu
+[2018-02-27 08:44:00.240] [info]	Client "adminc" s'est logged-in
+[2018-02-27 08:44:00.241] [info]	Reçu une demande de jeu
+[2018-02-27 08:44:00.241] [info]	dans manage new player
+[2018-02-27 08:44:00.242] [info]	Envoi d'un game waiting
+[2018-02-27 08:44:00.242] [info]	Envoi d'un game ready
+[2018-02-27 08:44:00.242] [info]	Envoi d'un game ready
+[2018-02-27 08:44:22.329] [info]	Démarrage serveur
+[2018-02-27 08:44:22.329] [info]	Ecoute des tentatives de connexions
+[2018-02-27 08:44:22.330] [info]	Serveur en attente de connexion client
+[2018-02-27 08:44:28.805] [warning]	Paquet de login reçu
+[2018-02-27 08:44:28.806] [info]	Client "adminc" s'est logged-in
+[2018-02-27 08:44:28.807] [info]	Reçu une demande de jeu
+[2018-02-27 08:44:28.807] [info]	dans manage new player
+[2018-02-27 08:44:28.807] [info]	Envoi d'un game waiting
+[2018-02-27 08:44:38.783] [warning]	Paquet de login reçu
+[2018-02-27 08:44:38.783] [info]	Client "elishac" s'est logged-in
+[2018-02-27 08:44:38.784] [info]	Reçu une demande de jeu
+[2018-02-27 08:44:38.784] [info]	dans manage new player
+[2018-02-27 08:44:38.784] [info]	Envoi d'un game waiting
+[2018-02-27 08:44:38.784] [info]	Envoi d'un game ready
+[2018-02-27 08:44:38.784] [info]	Envoi d'un game ready
+[2018-02-27 08:50:06.696] [info]	Démarrage serveur
+[2018-02-27 08:50:06.696] [info]	Ecoute des tentatives de connexions
+[2018-02-27 08:50:06.696] [info]	Serveur en attente de connexion client
+[2018-02-27 08:50:22.682] [warning]	Paquet de login reçu
+[2018-02-27 08:50:22.683] [info]	Client "adminc" s'est logged-in
+[2018-02-27 08:50:22.683] [info]	Reçu une demande de jeu
+[2018-02-27 08:50:22.683] [info]	dans manage new player
+[2018-02-27 08:50:22.683] [info]	Envoi d'un game waiting
+[2018-02-27 08:50:31.751] [warning]	Paquet de login reçu
+[2018-02-27 08:50:31.752] [info]	Client "elishac" s'est logged-in
+[2018-02-27 08:50:31.752] [info]	Reçu une demande de jeu
+[2018-02-27 08:50:31.752] [info]	dans manage new player
+[2018-02-27 08:50:31.752] [info]	Envoi d'un game waiting
+[2018-02-27 08:50:31.752] [info]	Envoi d'un game ready
+[2018-02-27 08:50:31.753] [info]	Envoi d'un game ready
+[2018-02-27 08:50:53.667] [info]	Démarrage serveur
+[2018-02-27 08:50:53.668] [info]	Ecoute des tentatives de connexions
+[2018-02-27 08:50:53.668] [info]	Serveur en attente de connexion client
+[2018-02-27 08:51:14.345] [warning]	Paquet de login reçu
+[2018-02-27 08:51:14.346] [info]	Client "elishac" s'est logged-in
+[2018-02-27 08:51:14.346] [info]	Reçu une demande de jeu
+[2018-02-27 08:51:14.346] [info]	dans manage new player
+[2018-02-27 08:51:14.346] [info]	Envoi d'un game waiting
+[2018-02-27 08:52:36.549] [warning]	Paquet de login reçu
+[2018-02-27 08:52:36.550] [info]	Client "adminc" s'est logged-in
+[2018-02-27 08:52:36.550] [info]	Reçu une demande de jeu
+[2018-02-27 08:52:36.550] [info]	dans manage new player
+[2018-02-27 08:52:36.551] [info]	Envoi d'un game waiting
+[2018-02-27 08:52:36.551] [info]	Envoi d'un game ready
+[2018-02-27 08:52:36.551] [info]	Envoi d'un game ready
+[2018-02-27 08:53:55.220] [info]	Démarrage serveur
+[2018-02-27 08:53:55.221] [info]	Ecoute des tentatives de connexions
+[2018-02-27 08:53:55.221] [info]	Serveur en attente de connexion client
+[2018-02-27 08:54:01.119] [warning]	Paquet de login reçu
+[2018-02-27 08:54:01.119] [info]	Client "adminc" s'est logged-in
+[2018-02-27 08:54:01.120] [info]	Reçu une demande de jeu
+[2018-02-27 08:54:01.120] [info]	dans manage new player
+[2018-02-27 08:54:01.120] [info]	Envoi d'un game waiting
+[2018-02-27 08:54:09.840] [warning]	Paquet de login reçu
+[2018-02-27 08:54:09.840] [info]	Client "elishac" s'est logged-in
+[2018-02-27 08:54:09.841] [info]	Reçu une demande de jeu
+[2018-02-27 08:54:09.841] [info]	dans manage new player
+[2018-02-27 08:54:09.841] [info]	Envoi d'un game waiting
+[2018-02-27 08:54:09.841] [info]	Envoi d'un game ready
+[2018-02-27 08:54:09.842] [info]	Envoi d'un game ready
+[2018-02-27 08:54:41.773] [info]	Démarrage serveur
+[2018-02-27 08:54:41.773] [info]	Ecoute des tentatives de connexions
+[2018-02-27 08:54:41.780] [info]	Serveur en attente de connexion client
+[2018-02-27 08:54:53.307] [warning]	Paquet de login reçu
+[2018-02-27 08:54:53.308] [info]	Client "elishac" s'est logged-in
+[2018-02-27 08:54:53.308] [info]	Reçu une demande de jeu
+[2018-02-27 08:54:53.308] [info]	dans manage new player
+[2018-02-27 08:54:53.308] [info]	Envoi d'un game waiting
+[2018-02-27 08:55:00.617] [warning]	Paquet de login reçu
+[2018-02-27 08:55:00.617] [info]	Client "adminc" s'est logged-in
+[2018-02-27 08:55:00.618] [info]	Reçu une demande de jeu
+[2018-02-27 08:55:00.618] [info]	dans manage new player
+[2018-02-27 08:55:00.618] [info]	Envoi d'un game waiting
+[2018-02-27 08:55:00.618] [info]	Envoi d'un game ready
+[2018-02-27 08:55:00.619] [info]	Envoi d'un game ready
+[2018-02-27 08:55:18.095] [info]	Démarrage serveur
+[2018-02-27 08:55:18.095] [info]	Ecoute des tentatives de connexions
+[2018-02-27 08:55:18.095] [info]	Serveur en attente de connexion client
+[2018-02-27 08:55:29.096] [warning]	Paquet de login reçu
+[2018-02-27 08:55:29.097] [info]	Client "adminc" s'est logged-in
+[2018-02-27 08:55:29.098] [info]	Reçu une demande de jeu
+[2018-02-27 08:55:29.098] [info]	dans manage new player
+[2018-02-27 08:55:29.098] [info]	Envoi d'un game waiting
+[2018-02-27 08:55:36.148] [warning]	Paquet de login reçu
+[2018-02-27 08:55:36.148] [info]	Client "elishac" s'est logged-in
+[2018-02-27 08:55:36.149] [info]	Reçu une demande de jeu
+[2018-02-27 08:55:36.149] [info]	dans manage new player
+[2018-02-27 08:55:36.149] [info]	Envoi d'un game waiting
+[2018-02-27 08:55:36.149] [info]	Envoi d'un game ready
+[2018-02-27 08:55:36.150] [info]	Envoi d'un game ready
+[2018-02-27 08:59:29.758] [info]	Démarrage serveur
+[2018-02-27 08:59:29.759] [info]	Ecoute des tentatives de connexions
+[2018-02-27 08:59:29.759] [info]	Serveur en attente de connexion client
+[2018-02-27 08:59:33.306] [info]	Démarrage serveur
+[2018-02-27 08:59:33.307] [info]	Ecoute des tentatives de connexions
+[2018-02-27 08:59:33.307] [info]	Serveur en attente de connexion client
+[2018-02-27 08:59:48.678] [warning]	Paquet de login reçu
+[2018-02-27 08:59:48.678] [info]	Client "elishac" s'est logged-in
+[2018-02-27 08:59:48.679] [info]	Reçu une demande de jeu
+[2018-02-27 08:59:48.679] [info]	dans manage new player
+[2018-02-27 08:59:48.679] [info]	Envoi d'un game waiting
+[2018-02-27 08:59:56.156] [warning]	Paquet de login reçu
+[2018-02-27 08:59:56.157] [info]	Client "adminc" s'est logged-in
+[2018-02-27 08:59:56.158] [info]	Reçu une demande de jeu
+[2018-02-27 08:59:56.158] [info]	dans manage new player
+[2018-02-27 08:59:56.158] [info]	Envoi d'un game waiting
+[2018-02-27 08:59:56.158] [info]	Envoi d'un game ready
+[2018-02-27 08:59:56.158] [info]	Envoi d'un game ready
+[2018-02-27 09:33:32.457] [info]	Démarrage serveur
+[2018-02-27 09:33:32.457] [info]	Ecoute des tentatives de connexions
+[2018-02-27 09:33:32.457] [info]	Serveur en attente de connexion client
+[2018-02-27 09:33:40.796] [info]	Démarrage serveur
+[2018-02-27 09:33:40.796] [info]	Ecoute des tentatives de connexions
+[2018-02-27 09:33:40.796] [info]	Serveur en attente de connexion client
+[2018-02-27 09:34:00.348] [warning]	Paquet de login reçu
+[2018-02-27 09:34:00.348] [info]	Client "elishac" s'est logged-in
+[2018-02-27 09:34:00.349] [info]	Reçu une demande de jeu
+[2018-02-27 09:34:00.349] [info]	dans manage new player
+[2018-02-27 09:34:00.350] [info]	Envoi d'un game waiting
+[2018-02-27 09:34:09.712] [warning]	Paquet de login reçu
+[2018-02-27 09:34:09.712] [info]	Client "adminc" s'est logged-in
+[2018-02-27 09:34:09.713] [info]	Reçu une demande de jeu
+[2018-02-27 09:34:09.713] [info]	dans manage new player
+[2018-02-27 09:34:09.713] [info]	Envoi d'un game waiting
+[2018-02-27 09:34:09.713] [info]	Envoi d'un game ready
+[2018-02-27 09:34:09.714] [info]	Envoi d'un game ready
+[2018-02-27 09:34:23.639] [info]	Démarrage serveur
+[2018-02-27 09:34:23.640] [info]	Ecoute des tentatives de connexions
+[2018-02-27 09:34:23.640] [info]	Serveur en attente de connexion client
+[2018-02-27 09:34:35.088] [warning]	Paquet de login reçu
+[2018-02-27 09:34:35.089] [info]	Client "adminc" s'est logged-in
+[2018-02-27 09:34:35.090] [info]	Reçu une demande de jeu
+[2018-02-27 09:34:35.090] [info]	dans manage new player
+[2018-02-27 09:34:35.090] [info]	Envoi d'un game waiting
+[2018-02-27 09:34:42.673] [warning]	Paquet de login reçu
+[2018-02-27 09:34:46.014] [warning]	Paquet de login reçu
+[2018-02-27 09:34:46.015] [info]	Client "elishac" s'est logged-in
+[2018-02-27 09:34:46.015] [info]	Reçu une demande de jeu
+[2018-02-27 09:34:46.015] [info]	dans manage new player
+[2018-02-27 09:34:46.015] [info]	Envoi d'un game waiting
+[2018-02-27 09:34:46.015] [info]	Envoi d'un game ready
+[2018-02-27 09:34:46.016] [info]	Envoi d'un game ready
+[2018-02-27 09:35:18.060] [info]	Démarrage serveur
+[2018-02-27 09:35:18.060] [info]	Ecoute des tentatives de connexions
+[2018-02-27 09:35:18.060] [info]	Serveur en attente de connexion client
+[2018-02-27 09:35:24.967] [warning]	Paquet de login reçu
+[2018-02-27 09:35:24.968] [info]	Client "elishac" s'est logged-in
+[2018-02-27 09:35:24.968] [info]	Reçu une demande de jeu
+[2018-02-27 09:35:24.968] [info]	dans manage new player
+[2018-02-27 09:35:24.968] [info]	Envoi d'un game waiting
+[2018-02-27 09:35:31.156] [warning]	Paquet de login reçu
+[2018-02-27 09:35:31.157] [info]	Client "adminc" s'est logged-in
+[2018-02-27 09:35:31.157] [info]	Reçu une demande de jeu
+[2018-02-27 09:35:31.158] [info]	dans manage new player
+[2018-02-27 09:35:31.158] [info]	Envoi d'un game waiting
+[2018-02-27 09:35:31.158] [info]	Envoi d'un game ready
+[2018-02-27 09:35:31.158] [info]	Envoi d'un game ready
+[2018-02-27 09:36:43.318] [info]	Démarrage serveur
+[2018-02-27 09:36:43.318] [info]	Ecoute des tentatives de connexions
+[2018-02-27 09:36:43.318] [info]	Serveur en attente de connexion client
+[2018-02-27 09:36:58.458] [warning]	Paquet de login reçu
+[2018-02-27 09:36:58.459] [info]	Client "elishac" s'est logged-in
+[2018-02-27 09:36:58.459] [info]	Reçu une demande de jeu
+[2018-02-27 09:36:58.459] [info]	dans manage new player
+[2018-02-27 09:36:58.459] [info]	Envoi d'un game waiting
+[2018-02-27 09:37:03.345] [warning]	Paquet de login reçu
+[2018-02-27 09:37:03.345] [info]	Client "adminc" s'est logged-in
+[2018-02-27 09:37:03.346] [info]	Reçu une demande de jeu
+[2018-02-27 09:37:03.346] [info]	dans manage new player
+[2018-02-27 09:37:03.346] [info]	Envoi d'un game waiting
+[2018-02-27 09:37:03.346] [info]	Envoi d'un game ready
+[2018-02-27 09:37:03.346] [info]	Envoi d'un game ready
+[2018-02-27 09:47:57.990] [info]	Démarrage serveur
+[2018-02-27 09:47:57.990] [info]	Ecoute des tentatives de connexions
+[2018-02-27 09:47:57.990] [info]	Serveur en attente de connexion client
+[2018-02-27 09:48:10.001] [warning]	Paquet de login reçu
+[2018-02-27 09:48:10.002] [info]	Client "elishac" s'est logged-in
+[2018-02-27 09:48:10.003] [info]	Reçu une demande de jeu
+[2018-02-27 09:48:10.003] [info]	dans manage new player
+[2018-02-27 09:48:10.003] [info]	Envoi d'un game waiting
+[2018-02-27 09:48:21.700] [warning]	Paquet de login reçu
+[2018-02-27 09:48:21.700] [info]	Client "adminc" s'est logged-in
+[2018-02-27 09:48:21.707] [info]	Reçu une demande de jeu
+[2018-02-27 09:48:21.707] [info]	dans manage new player
+[2018-02-27 09:48:21.708] [info]	Envoi d'un game waiting
+[2018-02-27 09:48:21.708] [info]	Envoi d'un game ready
+[2018-02-27 09:48:21.708] [info]	Envoi d'un game ready
+[2018-02-27 09:49:16.805] [info]	Démarrage serveur
+[2018-02-27 09:49:16.805] [info]	Ecoute des tentatives de connexions
+[2018-02-27 09:49:16.805] [info]	Serveur en attente de connexion client
+[2018-02-27 09:49:36.643] [warning]	Paquet de login reçu
+[2018-02-27 09:49:36.644] [info]	Client "elishac" s'est logged-in
+[2018-02-27 09:49:36.645] [info]	Reçu une demande de jeu
+[2018-02-27 09:49:36.645] [info]	dans manage new player
+[2018-02-27 09:49:36.645] [info]	Envoi d'un game waiting
+[2018-02-27 09:49:45.296] [warning]	Paquet de login reçu
+[2018-02-27 09:49:45.296] [info]	Client "adminc" s'est logged-in
+[2018-02-27 09:49:45.297] [info]	Reçu une demande de jeu
+[2018-02-27 09:49:45.297] [info]	dans manage new player
+[2018-02-27 09:49:45.297] [info]	Envoi d'un game waiting
+[2018-02-27 09:49:45.297] [info]	Envoi d'un game ready
+[2018-02-27 09:49:45.297] [info]	Envoi d'un game ready
+[2018-02-27 09:52:54.158] [info]	Démarrage serveur
+[2018-02-27 09:52:54.159] [info]	Ecoute des tentatives de connexions
+[2018-02-27 09:52:54.159] [info]	Serveur en attente de connexion client
+[2018-02-27 09:53:01.460] [warning]	Paquet de login reçu
+[2018-02-27 09:53:01.461] [info]	Client "elishac" s'est logged-in
+[2018-02-27 09:53:01.461] [info]	Reçu une demande de jeu
+[2018-02-27 09:53:01.461] [info]	dans manage new player
+[2018-02-27 09:53:01.462] [info]	Envoi d'un game waiting
+[2018-02-27 09:53:11.427] [warning]	Paquet de login reçu
+[2018-02-27 09:53:11.428] [info]	Client "adminc" s'est logged-in
+[2018-02-27 09:53:11.429] [info]	Reçu une demande de jeu
+[2018-02-27 09:53:11.429] [info]	dans manage new player
+[2018-02-27 09:53:11.429] [info]	Envoi d'un game waiting
+[2018-02-27 09:53:11.429] [info]	Envoi d'un game ready
+[2018-02-27 09:53:11.429] [info]	Envoi d'un game ready

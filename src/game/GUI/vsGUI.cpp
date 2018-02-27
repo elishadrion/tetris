@@ -64,24 +64,7 @@ void vsGUI::init_main_game_GUI(){
     box(BOX_GRID_OTHER, ACS_VLINE, ACS_HLINE);
 	attron(A_BOLD | COLOR_PAIR(8));	
 
-	// Création de la grille de jeu
-	
-	int i,j;
-    for(i=0; i < 20 ; i++){
-        for(j=0; j < 22 ; j+=2){
-        	
-            mvprintw(i+3,j+16,"  ");
-        }
-    }
 
-
-    for(i=0; i < 20 ; i++){
-        for(j=0; j < 22 ; j+=2){
-        	
-            mvprintw(i+3,j+42,"  ");
-        }
-    }
-   	
    	// Création box du prochain tétriminos
 
    	
@@ -105,12 +88,6 @@ void vsGUI::init_main_game_GUI(){
 
     mvprintw(10, 39, "VS");
 
-    
-
-	// while(1) {
-	// 	if(getch() != 410)
-	// 		break;
-	// }
 
     attron(A_BOLD | COLOR_PAIR(8));	
 	mvprintw(3, 1, "LEVEL :");
@@ -122,16 +99,16 @@ void vsGUI::init_main_game_GUI(){
 
 
 
-void vsGUI::update_main_game_GUI(Grid * grid){
+void vsGUI::update_main_game_GUI(Grid * grid, Grid * other_grid){
 	/*
 	On met à jour l'affichage de la grille du jeu.
 		:param grid: Grid*
 	*/
 
 	attron(A_BOLD | COLOR_PAIR(8));	
-	mvprintw(5, 8,"%d", grid->get_score());
-	mvprintw(3, 8,"%d", grid->get_level());
-	mvprintw(7, 8,"%d", grid->get_line_complete());
+	// mvprintw(5, 8,"%d", grid->get_score());
+	// mvprintw(3, 8,"%d", grid->get_level());
+	// mvprintw(7, 8,"%d", grid->get_line_complete());
 
 	for(int i =0; i < 20; i++){
 		
@@ -156,7 +133,28 @@ void vsGUI::update_main_game_GUI(Grid * grid){
 				
 				attron(A_BOLD | COLOR_PAIR(8));	
 				mvprintw(3+i, 17+j*2, "  ");
-			}		
+			}	
+
+
+
+			if(other_grid->is_empty(i,j) == false){
+				
+				attron(A_BOLD | COLOR_PAIR(other_grid->get_color_of_block(i,j)));	
+				mvprintw(3+i, 43+j*2, "  ");
+			}
+
+			// Si on affiche un bloc du tétriminos.
+			else if(other_grid->get_tetriminos()->has_block(0,0)){
+				
+				attron(A_BOLD | COLOR_PAIR(other_grid->get_color_of_tetriminos()));	
+				mvprintw(3+i, 43+j*2, "  ");
+			}
+			// Si on affiche tout autre block.
+			else{
+				
+				attron(A_BOLD | COLOR_PAIR(8));	
+				mvprintw(3+i, 43+j*2, "  ");
+			}			
 			
 				
 		}

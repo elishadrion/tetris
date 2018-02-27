@@ -10,7 +10,6 @@ Tetriminos.hpp
 
 #include <time.h>
 #include <unistd.h>
-#include <mutex>
 #include "Block.hpp"
 
 const int TEMPLATE_TETRIMINOS[7][4][2] = {

@@ -10,28 +10,38 @@ Mode.hpp
 #include <unistd.h>
 #include <string.h>
 #include <thread>
+#include<stdlib.h>
+#include<time.h>
 //#include "../GUI/GUI.hpp"
 #include "../GUI/vsGUI.hpp"
+#include "../Game_system/Grid.hpp"
+#include "../../common/Packet.hpp"
 
 
-void player_choice_in_game(Grid * grid);
-void update_gui(Grid * grid);
+void update_gui(Grid * grid, Grid * other_grid);
+extern vsGUI *gui;
 
-extern vsGUI *display;
 class Mode{
 
 	protected:
 		
 		Grid * grid;
-		
+		Grid * _other_grid;
 		
 	public:
 		
-		Mode();
+		Mode(bool);
 		virtual ~Mode(){};	
-    	virtual void init_game();
-		virtual int tetriminos_dropping();
-		virtual void start() =0;
+    	virtual void init_game(int num)=0;
+    	virtual Grid* get_grid(){return grid;}
+    	virtual Grid* get_other_grid() {return _other_grid;}
+		virtual int tetriminos_dropping(Grid *);
+		void move_tetriminos_first_grid(unsigned);
+		void move_tetriminos_second_grid(unsigned);
+		virtual void start(Grid*)=0;
+		//virtual void start2(Grid *)=0;
+		
+		
 
 };
 

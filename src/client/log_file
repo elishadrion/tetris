@@ -1,0 +1,1450 @@
+==9574== Memcheck, a memory error detector
+==9574== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==9574== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==9574== Command: ./main
+==9574== Parent PID: 9418
+==9574== 
+--9574-- 
+--9574-- Valgrind options:
+--9574--    --leak-check=yes
+--9574--    --show-leak-kinds=all
+--9574--    --track-origins=yes
+--9574--    -v
+--9574--    --log-file=log_file
+--9574-- Contents of /proc/version:
+--9574--   Linux version 4.12.0-kali1-amd64 (devel@kali.org) (gcc version 6.4.0 20170820 (Debian 6.4.0-4) ) #1 SMP Debian 4.12.6-1kali6 (2017-08-30)
+--9574-- 
+--9574-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-avx-avx2-bmi
+--9574-- Page sizes: currently 4096, max supported 4096
+--9574-- Valgrind library directory: /usr/lib/valgrind
+--9574-- Reading syms from /root/Desktop/Group2 v/src/client/main
+--9574-- Reading syms from /lib/x86_64-linux-gnu/ld-2.26.so
+--9574--   Considering /usr/lib/debug/.build-id/74/92b516d1cd5ae399d1f2f5463c3c5b1c511e92.debug ..
+--9574--   .. build-id is valid
+--9574-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
+--9574--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
+--9574--   .. CRC mismatch (computed a84b1904 wanted aa815c07)
+--9574--   Considering /usr/lib/debug/usr/lib/valgrind/memcheck-amd64-linux ..
+--9574--   .. CRC is valid
+--9574--    object doesn't have a dynamic symbol table
+--9574-- Scheduler: using generic scheduler lock implementation.
+--9574-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==9574== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-9574-by-root-on-???
+==9574== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-9574-by-root-on-???
+==9574== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-9574-by-root-on-???
+==9574== 
+==9574== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==9574== don't want to do, unless you know exactly what you're doing,
+==9574== or are doing some strange experiment):
+==9574==   /usr/lib/valgrind/../../bin/vgdb --pid=9574 ...command...
+==9574== 
+==9574== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==9574==   /path/to/gdb ./main
+==9574== and then give GDB the following command
+==9574==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=9574
+==9574== --pid is optional if only one valgrind process is running
+==9574== 
+--9574-- REDIR: 0x401cbd0 (ld-linux-x86-64.so.2:strlen) redirected to 0x58060901 (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--9574-- REDIR: 0x401c9b0 (ld-linux-x86-64.so.2:index) redirected to 0x5806091b (vgPlain_amd64_linux_REDIR_FOR_index)
+--9574-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
+--9574--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
+--9574--   .. CRC mismatch (computed e711b875 wanted b0d90401)
+--9574--   Considering /usr/lib/debug/usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
+--9574--   .. CRC is valid
+--9574-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
+--9574--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
+--9574--   .. CRC mismatch (computed eb84f04c wanted 93455f46)
+--9574--   Considering /usr/lib/debug/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
+--9574--   .. CRC is valid
+==9574== WARNING: new redirection conflicts with existing -- ignoring it
+--9574--     old: 0x0401cbd0 (strlen              ) R-> (0000.0) 0x58060901 vgPlain_amd64_linux_REDIR_FOR_strlen
+--9574--     new: 0x0401cbd0 (strlen              ) R-> (2007.0) 0x04c2fe30 strlen
+--9574-- REDIR: 0x401ac40 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4c30f60 (strcmp)
+--9574-- REDIR: 0x401d110 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4c34570 (mempcpy)
+--9574-- Reading syms from /lib/x86_64-linux-gnu/libncurses.so.5.9
+--9574--    object doesn't have a symbol table
+--9574-- Reading syms from /lib/x86_64-linux-gnu/libtinfo.so.5.9
+--9574--    object doesn't have a symbol table
+--9574-- Reading syms from /usr/lib/x86_64-linux-gnu/libform.so.5.9
+--9574--    object doesn't have a symbol table
+--9574-- Reading syms from /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.24
+--9574--    object doesn't have a symbol table
+--9574-- Reading syms from /lib/x86_64-linux-gnu/libm-2.26.so
+--9574--   Considering /usr/lib/debug/.build-id/80/a23ebd22f2811d69aa20387393eba3d144f520.debug ..
+--9574--   .. build-id is valid
+--9574-- Reading syms from /lib/x86_64-linux-gnu/libgcc_s.so.1
+--9574--    object doesn't have a symbol table
+--9574-- Reading syms from /lib/x86_64-linux-gnu/libpthread-2.26.so
+--9574--   Considering /usr/lib/debug/.build-id/99/f4d6fcbd88035cc3730f57da8c21298bb6b612.debug ..
+--9574--   .. build-id is valid
+--9574-- Reading syms from /lib/x86_64-linux-gnu/libc-2.26.so
+--9574--   Considering /usr/lib/debug/.build-id/c7/21ed739491cf5f356f84cc9aeace26da007dd2.debug ..
+--9574--   .. build-id is valid
+--9574-- Reading syms from /lib/x86_64-linux-gnu/libdl-2.26.so
+--9574--   Considering /usr/lib/debug/.build-id/04/3beca22c653b1c6961961845df303332e53afe.debug ..
+--9574--   .. build-id is valid
+--9574-- REDIR: 0x601b780 (libc.so.6:memmove) redirected to 0x4a276e0 (_vgnU_ifunc_wrapper)
+--9574-- REDIR: 0x601a9b0 (libc.so.6:strncpy) redirected to 0x4a276e0 (_vgnU_ifunc_wrapper)
+--9574-- REDIR: 0x601ba60 (libc.so.6:strcasecmp) redirected to 0x4a276e0 (_vgnU_ifunc_wrapper)
+--9574-- REDIR: 0x601a400 (libc.so.6:strcat) redirected to 0x4a276e0 (_vgnU_ifunc_wrapper)
+--9574-- REDIR: 0x601a9e0 (libc.so.6:rindex) redirected to 0x4a276e0 (_vgnU_ifunc_wrapper)
+--9574-- REDIR: 0x601d030 (libc.so.6:rawmemchr) redirected to 0x4a276e0 (_vgnU_ifunc_wrapper)
+--9574-- REDIR: 0x601b8f0 (libc.so.6:mempcpy) redirected to 0x4a276e0 (_vgnU_ifunc_wrapper)
+--9574-- REDIR: 0x601b720 (libc.so.6:bcmp) redirected to 0x4a276e0 (_vgnU_ifunc_wrapper)
+--9574-- REDIR: 0x601a970 (libc.so.6:strncmp) redirected to 0x4a276e0 (_vgnU_ifunc_wrapper)
+--9574-- REDIR: 0x601a470 (libc.so.6:strcmp) redirected to 0x4a276e0 (_vgnU_ifunc_wrapper)
+--9574-- REDIR: 0x601b850 (libc.so.6:memset) redirected to 0x4a276e0 (_vgnU_ifunc_wrapper)
+--9574-- REDIR: 0x6035290 (libc.so.6:wcschr) redirected to 0x4a276e0 (_vgnU_ifunc_wrapper)
+--9574-- REDIR: 0x601a910 (libc.so.6:strnlen) redirected to 0x4a276e0 (_vgnU_ifunc_wrapper)
+--9574-- REDIR: 0x601a4e0 (libc.so.6:strcspn) redirected to 0x4a276e0 (_vgnU_ifunc_wrapper)
+--9574-- REDIR: 0x601bab0 (libc.so.6:strncasecmp) redirected to 0x4a276e0 (_vgnU_ifunc_wrapper)
+--9574-- REDIR: 0x601a4b0 (libc.so.6:strcpy) redirected to 0x4a276e0 (_vgnU_ifunc_wrapper)
+--9574-- REDIR: 0x601bbf0 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x4a276e0 (_vgnU_ifunc_wrapper)
+--9574-- REDIR: 0x601aa10 (libc.so.6:strpbrk) redirected to 0x4a276e0 (_vgnU_ifunc_wrapper)
+--9574-- REDIR: 0x601a430 (libc.so.6:index) redirected to 0x4a276e0 (_vgnU_ifunc_wrapper)
+--9574-- REDIR: 0x601a8e0 (libc.so.6:strlen) redirected to 0x4a276e0 (_vgnU_ifunc_wrapper)
+--9574-- REDIR: 0x60218e0 (libc.so.6:memrchr) redirected to 0x4a276e0 (_vgnU_ifunc_wrapper)
+--9574-- REDIR: 0x601bb00 (libc.so.6:strcasecmp_l) redirected to 0x4a276e0 (_vgnU_ifunc_wrapper)
+--9574-- REDIR: 0x601b6f0 (libc.so.6:memchr) redirected to 0x4a276e0 (_vgnU_ifunc_wrapper)
+--9574-- REDIR: 0x6036050 (libc.so.6:wcslen) redirected to 0x4a276e0 (_vgnU_ifunc_wrapper)
+--9574-- REDIR: 0x601acc0 (libc.so.6:strspn) redirected to 0x4a276e0 (_vgnU_ifunc_wrapper)
+--9574-- REDIR: 0x601ba30 (libc.so.6:stpncpy) redirected to 0x4a276e0 (_vgnU_ifunc_wrapper)
+--9574-- REDIR: 0x601ba00 (libc.so.6:stpcpy) redirected to 0x4a276e0 (_vgnU_ifunc_wrapper)
+--9574-- REDIR: 0x601d060 (libc.so.6:strchrnul) redirected to 0x4a276e0 (_vgnU_ifunc_wrapper)
+--9574-- REDIR: 0x601bb50 (libc.so.6:strncasecmp_l) redirected to 0x4a276e0 (_vgnU_ifunc_wrapper)
+--9574-- REDIR: 0x601a940 (libc.so.6:strncat) redirected to 0x4a276e0 (_vgnU_ifunc_wrapper)
+--9574-- REDIR: 0x6098560 (libc.so.6:__memcpy_chk) redirected to 0x4a276e0 (_vgnU_ifunc_wrapper)
+--9574-- REDIR: 0x601b630 (libc.so.6:strstr) redirected to 0x4a276e0 (_vgnU_ifunc_wrapper)
+--9574-- REDIR: 0x60eafd0 (libc.so.6:__strrchr_avx2) redirected to 0x4c2f7b0 (rindex)
+--9574-- REDIR: 0x6016d50 (libc.so.6:malloc) redirected to 0x4c2cb20 (malloc)
+--9574-- REDIR: 0x60eb1a0 (libc.so.6:__strlen_avx2) redirected to 0x4c2fd70 (strlen)
+--9574-- REDIR: 0x60e77b0 (libc.so.6:__memcmp_avx2_movbe) redirected to 0x4c32e80 (bcmp)
+--9574-- REDIR: 0x60c6970 (libc.so.6:__strcmp_ssse3) redirected to 0x4c30e20 (strcmp)
+--9574-- REDIR: 0x60eb6e0 (libc.so.6:__memcpy_avx_unaligned_erms) redirected to 0x4c33760 (memmove)
+--9574-- REDIR: 0x60179c0 (libc.so.6:calloc) redirected to 0x4c2eaf0 (calloc)
+--9574-- REDIR: 0x5526080 (libstdc++.so.6:operator new(unsigned long)) redirected to 0x4c2d190 (operator new(unsigned long))
+--9574-- REDIR: 0x601b1a0 (libc.so.6:__GI_strstr) redirected to 0x4c347e0 (__strstr_sse2)
+--9574-- REDIR: 0x5524130 (libstdc++.so.6:operator delete(void*)) redirected to 0x4c2e250 (operator delete(void*))
+--9574-- REDIR: 0x60ebb60 (libc.so.6:__memset_avx2_unaligned_erms) redirected to 0x4c33650 (memset)
+--9574-- REDIR: 0x60173b0 (libc.so.6:free) redirected to 0x4c2dd50 (free)
+--9574-- REDIR: 0x60eb6c0 (libc.so.6:__mempcpy_avx_unaligned_erms) redirected to 0x4c341b0 (mempcpy)
+--9574-- REDIR: 0x60e7030 (libc.so.6:__memchr_avx2) redirected to 0x4c31000 (memchr)
+--9574-- REDIR: 0x60eade0 (libc.so.6:__strchrnul_avx2) redirected to 0x4c340a0 (strchrnul)
+--9574-- REDIR: 0x60e9200 (libc.so.6:__strncasecmp_avx) redirected to 0x4c30750 (strncasecmp)
+--9574-- REDIR: 0x60e2120 (libc.so.6:__strncmp_sse42) redirected to 0x4c305f0 (__strncmp_sse42)
+--9574-- REDIR: 0x60eabb0 (libc.so.6:__strchr_avx2) redirected to 0x4c2f9d0 (index)
+--9574-- REDIR: 0x60e6dc0 (libc.so.6:__strpbrk_sse42) redirected to 0x4c348e0 (strpbrk)
+--9574-- REDIR: 0x60d8560 (libc.so.6:__strcpy_ssse3) redirected to 0x4c2fe50 (strcpy)
+--9574-- REDIR: 0x60d9d10 (libc.so.6:__strncpy_ssse3) redirected to 0x4c30030 (strncpy)
+==9574== Syscall param socketcall.sendto(msg) points to uninitialised byte(s)
+==9574==    at 0x5D8831A: send (send.c:28)
+==9574==    by 0x127255: Connection::send_packet(void*, unsigned long) (Connection.cpp:44)
+==9574==    by 0x12AC37: PacketManager::send_login_request(char const*, char const*) (PacketManager.cpp:55)
+==9574==    by 0x13CDA7: WizardDisplay::login() (WizardDisplay.cpp:16)
+==9574==    by 0x13CF2F: WizardDisplay::start() (WizardDisplay.cpp:39)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574==  Address 0x6568b50 is 16 bytes inside a block of size 96 alloc'd
+==9574==    at 0x4C2D1FF: operator new(unsigned long) (vg_replace_malloc.c:334)
+==9574==    by 0x12AB70: PacketManager::send_login_request(char const*, char const*) (PacketManager.cpp:48)
+==9574==    by 0x13CDA7: WizardDisplay::login() (WizardDisplay.cpp:16)
+==9574==    by 0x13CF2F: WizardDisplay::start() (WizardDisplay.cpp:39)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574==  Uninitialised value was created by a stack allocation
+==9574==    at 0x13CC96: WizardDisplay::login() (WizardDisplay.cpp:3)
+==9574== 
+--9574-- REDIR: 0x60174c0 (libc.so.6:realloc) redirected to 0x4c2ed30 (realloc)
+--9574-- REDIR: 0x60eb330 (libc.so.6:__strnlen_avx2) redirected to 0x4c2fd10 (strnlen)
+--9574-- REDIR: 0x60eb6d0 (libc.so.6:__memcpy_chk_avx_unaligned_erms) redirected to 0x4c34660 (__memcpy_chk)
+--9574-- REDIR: 0x5526140 (libstdc++.so.6:operator new[](unsigned long)) redirected to 0x4c2d8b0 (operator new[](unsigned long))
+==9574== Thread 3:
+==9574== Invalid read of size 8
+==9574==    at 0x14326B: Tetriminos::has_block(int, int) const (Tetriminos.cpp:88)
+==9574==    by 0x14143E: vsGUI::update_main_game_GUI(Grid*, Grid*) (vsGUI.cpp:170)
+==9574==    by 0x13FA14: update_gui(Grid*, Grid*) (Mode.cpp:32)
+==9574==    by 0x14410F: void std::__invoke_impl<void, void (*)(Grid*, Grid*), Grid*, Grid*>(std::__invoke_other, void (*&&)(Grid*, Grid*), Grid*&&, Grid*&&) (invoke.h:60)
+==9574==    by 0x143D81: std::__invoke_result<void (*)(Grid*, Grid*), Grid*, Grid*>::type std::__invoke<void (*)(Grid*, Grid*), Grid*, Grid*>(void (*&&)(Grid*, Grid*), Grid*&&, Grid*&&) (invoke.h:95)
+==9574==    by 0x14455E: decltype (__invoke((_S_declval<0ul>)(), (_S_declval<1ul>)(), (_S_declval<2ul>)())) std::thread::_Invoker<std::tuple<void (*)(Grid*, Grid*), Grid*, Grid*> >::_M_invoke<0ul, 1ul, 2ul>(std::_Index_tuple<0ul, 1ul, 2ul>) (thread:234)
+==9574==    by 0x1444F8: std::thread::_Invoker<std::tuple<void (*)(Grid*, Grid*), Grid*, Grid*> >::operator()() (thread:243)
+==9574==    by 0x1444D7: std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)(Grid*, Grid*), Grid*, Grid*> > >::_M_run() (thread:186)
+==9574==    by 0x555080E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.24)
+==9574==    by 0x5D7E519: start_thread (pthread_create.c:465)
+==9574==    by 0x608A3EE: clone (clone.S:95)
+==9574==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==9574== 
+==9574== 
+==9574== Process terminating with default action of signal 11 (SIGSEGV)
+==9574==  Access not within mapped region at address 0x0
+==9574==    at 0x14326B: Tetriminos::has_block(int, int) const (Tetriminos.cpp:88)
+==9574==    by 0x14143E: vsGUI::update_main_game_GUI(Grid*, Grid*) (vsGUI.cpp:170)
+==9574==    by 0x13FA14: update_gui(Grid*, Grid*) (Mode.cpp:32)
+==9574==    by 0x14410F: void std::__invoke_impl<void, void (*)(Grid*, Grid*), Grid*, Grid*>(std::__invoke_other, void (*&&)(Grid*, Grid*), Grid*&&, Grid*&&) (invoke.h:60)
+==9574==    by 0x143D81: std::__invoke_result<void (*)(Grid*, Grid*), Grid*, Grid*>::type std::__invoke<void (*)(Grid*, Grid*), Grid*, Grid*>(void (*&&)(Grid*, Grid*), Grid*&&, Grid*&&) (invoke.h:95)
+==9574==    by 0x14455E: decltype (__invoke((_S_declval<0ul>)(), (_S_declval<1ul>)(), (_S_declval<2ul>)())) std::thread::_Invoker<std::tuple<void (*)(Grid*, Grid*), Grid*, Grid*> >::_M_invoke<0ul, 1ul, 2ul>(std::_Index_tuple<0ul, 1ul, 2ul>) (thread:234)
+==9574==    by 0x1444F8: std::thread::_Invoker<std::tuple<void (*)(Grid*, Grid*), Grid*, Grid*> >::operator()() (thread:243)
+==9574==    by 0x1444D7: std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)(Grid*, Grid*), Grid*, Grid*> > >::_M_run() (thread:186)
+==9574==    by 0x555080E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.24)
+==9574==    by 0x5D7E519: start_thread (pthread_create.c:465)
+==9574==    by 0x608A3EE: clone (clone.S:95)
+==9574==  If you believe this happened as a result of a stack
+==9574==  overflow in your program's main thread (unlikely but
+==9574==  possible), you can try to increase the size of the
+==9574==  main thread stack using the --main-stacksize= flag.
+==9574==  The main thread stack size used in this run was 8388608.
+==9574== 
+==9574== HEAP SUMMARY:
+==9574==     in use at exit: 197,806 bytes in 879 blocks
+==9574==   total heap usage: 937 allocs, 58 frees, 303,829 bytes allocated
+==9574== 
+==9574== Searching for pointers to 879 not-freed blocks
+==9574== Checked 25,622,504 bytes
+==9574== 
+==9574== Thread 1:
+==9574== 6 bytes in 1 blocks are still reachable in loss record 1 of 97
+==9574==    at 0x4C2CB8F: malloc (vg_replace_malloc.c:299)
+==9574==    by 0x601A629: strdup (strdup.c:42)
+==9574==    by 0x506C359: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x506C64C: _nc_first_db (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x5074E30: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x506EB48: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x506EE91: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x4E4A367: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E46C82: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x140C76: vsGUI::vsGUI() (vsGUI.cpp:14)
+==9574==    by 0x12D160: GameManager::create_game(unsigned int) (GameManager.cpp:8)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574== 
+==9574== 8 bytes in 1 blocks are still reachable in loss record 2 of 97
+==9574==    at 0x4C2D1FF: operator new(unsigned long) (vg_replace_malloc.c:334)
+==9574==    by 0x115926: spdlog::pattern_formatter::handle_flag(char) (pattern_formatter_impl.h:532)
+==9574==    by 0x114F2A: spdlog::pattern_formatter::compile_pattern(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (pattern_formatter_impl.h:465)
+==9574==    by 0x114D4F: spdlog::pattern_formatter::pattern_formatter(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (pattern_formatter_impl.h:450)
+==9574==    by 0x125480: void __gnu_cxx::new_allocator<spdlog::pattern_formatter>::construct<spdlog::pattern_formatter, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(spdlog::pattern_formatter*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (new_allocator.h:136)
+==9574==    by 0x124D4D: void std::allocator_traits<std::allocator<spdlog::pattern_formatter> >::construct<spdlog::pattern_formatter, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<spdlog::pattern_formatter>&, spdlog::pattern_formatter*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (alloc_traits.h:475)
+==9574==    by 0x1241DC: std::_Sp_counted_ptr_inplace<spdlog::pattern_formatter, std::allocator<spdlog::pattern_formatter>, (__gnu_cxx::_Lock_policy)2>::_Sp_counted_ptr_inplace<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr_base.h:526)
+==9574==    by 0x12229E: std::__shared_count<(__gnu_cxx::_Lock_policy)2>::__shared_count<spdlog::pattern_formatter, std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::_Sp_make_shared_tag, spdlog::pattern_formatter*, std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr_base.h:637)
+==9574==    by 0x120E4D: std::__shared_ptr<spdlog::pattern_formatter, (__gnu_cxx::_Lock_policy)2>::__shared_ptr<std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::_Sp_make_shared_tag, std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr_base.h:1295)
+==9574==    by 0x11F286: std::shared_ptr<spdlog::pattern_formatter>::shared_ptr<std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::_Sp_make_shared_tag, std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr.h:344)
+==9574==    by 0x11BB70: std::shared_ptr<spdlog::pattern_formatter> std::allocate_shared<spdlog::pattern_formatter, std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr.h:691)
+==9574==    by 0x11890D: std::shared_ptr<spdlog::pattern_formatter> std::make_shared<spdlog::pattern_formatter, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr.h:707)
+==9574== 
+==9574== 8 bytes in 1 blocks are still reachable in loss record 3 of 97
+==9574==    at 0x4C2D1FF: operator new(unsigned long) (vg_replace_malloc.c:334)
+==9574==    by 0x1159E4: spdlog::pattern_formatter::handle_flag(char) (pattern_formatter_impl.h:542)
+==9574==    by 0x114F2A: spdlog::pattern_formatter::compile_pattern(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (pattern_formatter_impl.h:465)
+==9574==    by 0x114D4F: spdlog::pattern_formatter::pattern_formatter(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (pattern_formatter_impl.h:450)
+==9574==    by 0x125480: void __gnu_cxx::new_allocator<spdlog::pattern_formatter>::construct<spdlog::pattern_formatter, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(spdlog::pattern_formatter*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (new_allocator.h:136)
+==9574==    by 0x124D4D: void std::allocator_traits<std::allocator<spdlog::pattern_formatter> >::construct<spdlog::pattern_formatter, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<spdlog::pattern_formatter>&, spdlog::pattern_formatter*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (alloc_traits.h:475)
+==9574==    by 0x1241DC: std::_Sp_counted_ptr_inplace<spdlog::pattern_formatter, std::allocator<spdlog::pattern_formatter>, (__gnu_cxx::_Lock_policy)2>::_Sp_counted_ptr_inplace<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr_base.h:526)
+==9574==    by 0x12229E: std::__shared_count<(__gnu_cxx::_Lock_policy)2>::__shared_count<spdlog::pattern_formatter, std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::_Sp_make_shared_tag, spdlog::pattern_formatter*, std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr_base.h:637)
+==9574==    by 0x120E4D: std::__shared_ptr<spdlog::pattern_formatter, (__gnu_cxx::_Lock_policy)2>::__shared_ptr<std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::_Sp_make_shared_tag, std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr_base.h:1295)
+==9574==    by 0x11F286: std::shared_ptr<spdlog::pattern_formatter>::shared_ptr<std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::_Sp_make_shared_tag, std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr.h:344)
+==9574==    by 0x11BB70: std::shared_ptr<spdlog::pattern_formatter> std::allocate_shared<spdlog::pattern_formatter, std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr.h:691)
+==9574==    by 0x11890D: std::shared_ptr<spdlog::pattern_formatter> std::make_shared<spdlog::pattern_formatter, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr.h:707)
+==9574== 
+==9574== 8 bytes in 1 blocks are still reachable in loss record 4 of 97
+==9574==    at 0x4C2D1FF: operator new(unsigned long) (vg_replace_malloc.c:334)
+==9574==    by 0x115A43: spdlog::pattern_formatter::handle_flag(char) (pattern_formatter_impl.h:546)
+==9574==    by 0x114F2A: spdlog::pattern_formatter::compile_pattern(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (pattern_formatter_impl.h:465)
+==9574==    by 0x114D4F: spdlog::pattern_formatter::pattern_formatter(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (pattern_formatter_impl.h:450)
+==9574==    by 0x125480: void __gnu_cxx::new_allocator<spdlog::pattern_formatter>::construct<spdlog::pattern_formatter, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(spdlog::pattern_formatter*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (new_allocator.h:136)
+==9574==    by 0x124D4D: void std::allocator_traits<std::allocator<spdlog::pattern_formatter> >::construct<spdlog::pattern_formatter, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<spdlog::pattern_formatter>&, spdlog::pattern_formatter*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (alloc_traits.h:475)
+==9574==    by 0x1241DC: std::_Sp_counted_ptr_inplace<spdlog::pattern_formatter, std::allocator<spdlog::pattern_formatter>, (__gnu_cxx::_Lock_policy)2>::_Sp_counted_ptr_inplace<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr_base.h:526)
+==9574==    by 0x12229E: std::__shared_count<(__gnu_cxx::_Lock_policy)2>::__shared_count<spdlog::pattern_formatter, std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::_Sp_make_shared_tag, spdlog::pattern_formatter*, std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr_base.h:637)
+==9574==    by 0x120E4D: std::__shared_ptr<spdlog::pattern_formatter, (__gnu_cxx::_Lock_policy)2>::__shared_ptr<std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::_Sp_make_shared_tag, std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr_base.h:1295)
+==9574==    by 0x11F286: std::shared_ptr<spdlog::pattern_formatter>::shared_ptr<std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::_Sp_make_shared_tag, std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr.h:344)
+==9574==    by 0x11BB70: std::shared_ptr<spdlog::pattern_formatter> std::allocate_shared<spdlog::pattern_formatter, std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr.h:691)
+==9574==    by 0x11890D: std::shared_ptr<spdlog::pattern_formatter> std::make_shared<spdlog::pattern_formatter, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr.h:707)
+==9574== 
+==9574== 8 bytes in 1 blocks are still reachable in loss record 5 of 97
+==9574==    at 0x4C2D1FF: operator new(unsigned long) (vg_replace_malloc.c:334)
+==9574==    by 0x115AA2: spdlog::pattern_formatter::handle_flag(char) (pattern_formatter_impl.h:550)
+==9574==    by 0x114F2A: spdlog::pattern_formatter::compile_pattern(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (pattern_formatter_impl.h:465)
+==9574==    by 0x114D4F: spdlog::pattern_formatter::pattern_formatter(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (pattern_formatter_impl.h:450)
+==9574==    by 0x125480: void __gnu_cxx::new_allocator<spdlog::pattern_formatter>::construct<spdlog::pattern_formatter, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(spdlog::pattern_formatter*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (new_allocator.h:136)
+==9574==    by 0x124D4D: void std::allocator_traits<std::allocator<spdlog::pattern_formatter> >::construct<spdlog::pattern_formatter, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<spdlog::pattern_formatter>&, spdlog::pattern_formatter*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (alloc_traits.h:475)
+==9574==    by 0x1241DC: std::_Sp_counted_ptr_inplace<spdlog::pattern_formatter, std::allocator<spdlog::pattern_formatter>, (__gnu_cxx::_Lock_policy)2>::_Sp_counted_ptr_inplace<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr_base.h:526)
+==9574==    by 0x12229E: std::__shared_count<(__gnu_cxx::_Lock_policy)2>::__shared_count<spdlog::pattern_formatter, std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::_Sp_make_shared_tag, spdlog::pattern_formatter*, std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr_base.h:637)
+==9574==    by 0x120E4D: std::__shared_ptr<spdlog::pattern_formatter, (__gnu_cxx::_Lock_policy)2>::__shared_ptr<std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::_Sp_make_shared_tag, std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr_base.h:1295)
+==9574==    by 0x11F286: std::shared_ptr<spdlog::pattern_formatter>::shared_ptr<std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::_Sp_make_shared_tag, std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr.h:344)
+==9574==    by 0x11BB70: std::shared_ptr<spdlog::pattern_formatter> std::allocate_shared<spdlog::pattern_formatter, std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr.h:691)
+==9574==    by 0x11890D: std::shared_ptr<spdlog::pattern_formatter> std::make_shared<spdlog::pattern_formatter, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr.h:707)
+==9574== 
+==9574== 8 bytes in 1 blocks are still reachable in loss record 6 of 97
+==9574==    at 0x4C2D1FF: operator new(unsigned long) (vg_replace_malloc.c:334)
+==9574==    by 0x115B57: spdlog::pattern_formatter::handle_flag(char) (pattern_formatter_impl.h:558)
+==9574==    by 0x114F2A: spdlog::pattern_formatter::compile_pattern(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (pattern_formatter_impl.h:465)
+==9574==    by 0x114D4F: spdlog::pattern_formatter::pattern_formatter(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (pattern_formatter_impl.h:450)
+==9574==    by 0x125480: void __gnu_cxx::new_allocator<spdlog::pattern_formatter>::construct<spdlog::pattern_formatter, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(spdlog::pattern_formatter*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (new_allocator.h:136)
+==9574==    by 0x124D4D: void std::allocator_traits<std::allocator<spdlog::pattern_formatter> >::construct<spdlog::pattern_formatter, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<spdlog::pattern_formatter>&, spdlog::pattern_formatter*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (alloc_traits.h:475)
+==9574==    by 0x1241DC: std::_Sp_counted_ptr_inplace<spdlog::pattern_formatter, std::allocator<spdlog::pattern_formatter>, (__gnu_cxx::_Lock_policy)2>::_Sp_counted_ptr_inplace<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr_base.h:526)
+==9574==    by 0x12229E: std::__shared_count<(__gnu_cxx::_Lock_policy)2>::__shared_count<spdlog::pattern_formatter, std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::_Sp_make_shared_tag, spdlog::pattern_formatter*, std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr_base.h:637)
+==9574==    by 0x120E4D: std::__shared_ptr<spdlog::pattern_formatter, (__gnu_cxx::_Lock_policy)2>::__shared_ptr<std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::_Sp_make_shared_tag, std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr_base.h:1295)
+==9574==    by 0x11F286: std::shared_ptr<spdlog::pattern_formatter>::shared_ptr<std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::_Sp_make_shared_tag, std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr.h:344)
+==9574==    by 0x11BB70: std::shared_ptr<spdlog::pattern_formatter> std::allocate_shared<spdlog::pattern_formatter, std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr.h:691)
+==9574==    by 0x11890D: std::shared_ptr<spdlog::pattern_formatter> std::make_shared<spdlog::pattern_formatter, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr.h:707)
+==9574== 
+==9574== 8 bytes in 1 blocks are still reachable in loss record 7 of 97
+==9574==    at 0x4C2D1FF: operator new(unsigned long) (vg_replace_malloc.c:334)
+==9574==    by 0x115BAD: spdlog::pattern_formatter::handle_flag(char) (pattern_formatter_impl.h:562)
+==9574==    by 0x114F2A: spdlog::pattern_formatter::compile_pattern(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (pattern_formatter_impl.h:465)
+==9574==    by 0x114D4F: spdlog::pattern_formatter::pattern_formatter(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (pattern_formatter_impl.h:450)
+==9574==    by 0x125480: void __gnu_cxx::new_allocator<spdlog::pattern_formatter>::construct<spdlog::pattern_formatter, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(spdlog::pattern_formatter*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (new_allocator.h:136)
+==9574==    by 0x124D4D: void std::allocator_traits<std::allocator<spdlog::pattern_formatter> >::construct<spdlog::pattern_formatter, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<spdlog::pattern_formatter>&, spdlog::pattern_formatter*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (alloc_traits.h:475)
+==9574==    by 0x1241DC: std::_Sp_counted_ptr_inplace<spdlog::pattern_formatter, std::allocator<spdlog::pattern_formatter>, (__gnu_cxx::_Lock_policy)2>::_Sp_counted_ptr_inplace<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr_base.h:526)
+==9574==    by 0x12229E: std::__shared_count<(__gnu_cxx::_Lock_policy)2>::__shared_count<spdlog::pattern_formatter, std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::_Sp_make_shared_tag, spdlog::pattern_formatter*, std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr_base.h:637)
+==9574==    by 0x120E4D: std::__shared_ptr<spdlog::pattern_formatter, (__gnu_cxx::_Lock_policy)2>::__shared_ptr<std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::_Sp_make_shared_tag, std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr_base.h:1295)
+==9574==    by 0x11F286: std::shared_ptr<spdlog::pattern_formatter>::shared_ptr<std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::_Sp_make_shared_tag, std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr.h:344)
+==9574==    by 0x11BB70: std::shared_ptr<spdlog::pattern_formatter> std::allocate_shared<spdlog::pattern_formatter, std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr.h:691)
+==9574==    by 0x11890D: std::shared_ptr<spdlog::pattern_formatter> std::make_shared<spdlog::pattern_formatter, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr.h:707)
+==9574== 
+==9574== 8 bytes in 1 blocks are still reachable in loss record 8 of 97
+==9574==    at 0x4C2D1FF: operator new(unsigned long) (vg_replace_malloc.c:334)
+==9574==    by 0x115C03: spdlog::pattern_formatter::handle_flag(char) (pattern_formatter_impl.h:566)
+==9574==    by 0x114F2A: spdlog::pattern_formatter::compile_pattern(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (pattern_formatter_impl.h:465)
+==9574==    by 0x114D4F: spdlog::pattern_formatter::pattern_formatter(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (pattern_formatter_impl.h:450)
+==9574==    by 0x125480: void __gnu_cxx::new_allocator<spdlog::pattern_formatter>::construct<spdlog::pattern_formatter, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(spdlog::pattern_formatter*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (new_allocator.h:136)
+==9574==    by 0x124D4D: void std::allocator_traits<std::allocator<spdlog::pattern_formatter> >::construct<spdlog::pattern_formatter, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<spdlog::pattern_formatter>&, spdlog::pattern_formatter*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (alloc_traits.h:475)
+==9574==    by 0x1241DC: std::_Sp_counted_ptr_inplace<spdlog::pattern_formatter, std::allocator<spdlog::pattern_formatter>, (__gnu_cxx::_Lock_policy)2>::_Sp_counted_ptr_inplace<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr_base.h:526)
+==9574==    by 0x12229E: std::__shared_count<(__gnu_cxx::_Lock_policy)2>::__shared_count<spdlog::pattern_formatter, std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::_Sp_make_shared_tag, spdlog::pattern_formatter*, std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr_base.h:637)
+==9574==    by 0x120E4D: std::__shared_ptr<spdlog::pattern_formatter, (__gnu_cxx::_Lock_policy)2>::__shared_ptr<std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::_Sp_make_shared_tag, std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr_base.h:1295)
+==9574==    by 0x11F286: std::shared_ptr<spdlog::pattern_formatter>::shared_ptr<std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::_Sp_make_shared_tag, std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr.h:344)
+==9574==    by 0x11BB70: std::shared_ptr<spdlog::pattern_formatter> std::allocate_shared<spdlog::pattern_formatter, std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr.h:691)
+==9574==    by 0x11890D: std::shared_ptr<spdlog::pattern_formatter> std::make_shared<spdlog::pattern_formatter, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr.h:707)
+==9574== 
+==9574== 8 bytes in 1 blocks are still reachable in loss record 9 of 97
+==9574==    at 0x4C2D1FF: operator new(unsigned long) (vg_replace_malloc.c:334)
+==9574==    by 0x115570: spdlog::pattern_formatter::handle_flag(char) (pattern_formatter_impl.h:492)
+==9574==    by 0x114F2A: spdlog::pattern_formatter::compile_pattern(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (pattern_formatter_impl.h:465)
+==9574==    by 0x114D4F: spdlog::pattern_formatter::pattern_formatter(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (pattern_formatter_impl.h:450)
+==9574==    by 0x125480: void __gnu_cxx::new_allocator<spdlog::pattern_formatter>::construct<spdlog::pattern_formatter, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(spdlog::pattern_formatter*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (new_allocator.h:136)
+==9574==    by 0x124D4D: void std::allocator_traits<std::allocator<spdlog::pattern_formatter> >::construct<spdlog::pattern_formatter, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<spdlog::pattern_formatter>&, spdlog::pattern_formatter*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (alloc_traits.h:475)
+==9574==    by 0x1241DC: std::_Sp_counted_ptr_inplace<spdlog::pattern_formatter, std::allocator<spdlog::pattern_formatter>, (__gnu_cxx::_Lock_policy)2>::_Sp_counted_ptr_inplace<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr_base.h:526)
+==9574==    by 0x12229E: std::__shared_count<(__gnu_cxx::_Lock_policy)2>::__shared_count<spdlog::pattern_formatter, std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::_Sp_make_shared_tag, spdlog::pattern_formatter*, std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr_base.h:637)
+==9574==    by 0x120E4D: std::__shared_ptr<spdlog::pattern_formatter, (__gnu_cxx::_Lock_policy)2>::__shared_ptr<std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::_Sp_make_shared_tag, std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr_base.h:1295)
+==9574==    by 0x11F286: std::shared_ptr<spdlog::pattern_formatter>::shared_ptr<std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::_Sp_make_shared_tag, std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr.h:344)
+==9574==    by 0x11BB70: std::shared_ptr<spdlog::pattern_formatter> std::allocate_shared<spdlog::pattern_formatter, std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr.h:691)
+==9574==    by 0x11890D: std::shared_ptr<spdlog::pattern_formatter> std::make_shared<spdlog::pattern_formatter, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr.h:707)
+==9574== 
+==9574== 8 bytes in 1 blocks are still reachable in loss record 10 of 97
+==9574==    at 0x4C2D1FF: operator new(unsigned long) (vg_replace_malloc.c:334)
+==9574==    by 0x11568D: spdlog::pattern_formatter::handle_flag(char) (pattern_formatter_impl.h:504)
+==9574==    by 0x114F2A: spdlog::pattern_formatter::compile_pattern(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (pattern_formatter_impl.h:465)
+==9574==    by 0x114D4F: spdlog::pattern_formatter::pattern_formatter(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (pattern_formatter_impl.h:450)
+==9574==    by 0x125480: void __gnu_cxx::new_allocator<spdlog::pattern_formatter>::construct<spdlog::pattern_formatter, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(spdlog::pattern_formatter*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (new_allocator.h:136)
+==9574==    by 0x124D4D: void std::allocator_traits<std::allocator<spdlog::pattern_formatter> >::construct<spdlog::pattern_formatter, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<spdlog::pattern_formatter>&, spdlog::pattern_formatter*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (alloc_traits.h:475)
+==9574==    by 0x1241DC: std::_Sp_counted_ptr_inplace<spdlog::pattern_formatter, std::allocator<spdlog::pattern_formatter>, (__gnu_cxx::_Lock_policy)2>::_Sp_counted_ptr_inplace<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr_base.h:526)
+==9574==    by 0x12229E: std::__shared_count<(__gnu_cxx::_Lock_policy)2>::__shared_count<spdlog::pattern_formatter, std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::_Sp_make_shared_tag, spdlog::pattern_formatter*, std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr_base.h:637)
+==9574==    by 0x120E4D: std::__shared_ptr<spdlog::pattern_formatter, (__gnu_cxx::_Lock_policy)2>::__shared_ptr<std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::_Sp_make_shared_tag, std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr_base.h:1295)
+==9574==    by 0x11F286: std::shared_ptr<spdlog::pattern_formatter>::shared_ptr<std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::_Sp_make_shared_tag, std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr.h:344)
+==9574==    by 0x11BB70: std::shared_ptr<spdlog::pattern_formatter> std::allocate_shared<spdlog::pattern_formatter, std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr.h:691)
+==9574==    by 0x11890D: std::shared_ptr<spdlog::pattern_formatter> std::make_shared<spdlog::pattern_formatter, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr.h:707)
+==9574== 
+==9574== 8 bytes in 1 blocks are still reachable in loss record 11 of 97
+==9574==    at 0x4C2D1FF: operator new(unsigned long) (vg_replace_malloc.c:334)
+==9574==    by 0x12C78B: __gnu_cxx::new_allocator<void*>::allocate(unsigned long, void const*) (new_allocator.h:111)
+==9574==    by 0x12C671: std::allocator_traits<std::allocator<void*> >::allocate(std::allocator<void*>&, unsigned long) (alloc_traits.h:436)
+==9574==    by 0x12C487: std::_Vector_base<void*, std::allocator<void*> >::_M_allocate(unsigned long) (stl_vector.h:172)
+==9574==    by 0x12C0A6: void std::vector<void*, std::allocator<void*> >::_M_realloc_insert<void*>(__gnu_cxx::__normal_iterator<void**, std::vector<void*, std::allocator<void*> > >, void*&&) (vector.tcc:406)
+==9574==    by 0x12BFC3: void*& std::vector<void*, std::allocator<void*> >::emplace_back<void*>(void*&&) (vector.tcc:105)
+==9574==    by 0x12BF1F: std::vector<void*, std::allocator<void*> >::push_back(void*&&) (stl_vector.h:954)
+==9574==    by 0x12AF19: PacketManager::game_ready(Packet::intPacket*) (PacketManager.cpp:97)
+==9574==    by 0x12A8D9: PacketManager::manage_packet(void*) (PacketManager.cpp:19)
+==9574==    by 0x1273B2: Connection::receive(void*) (Connection.cpp:72)
+==9574==    by 0x5D7E519: start_thread (pthread_create.c:465)
+==9574==    by 0x608A3EE: clone (clone.S:95)
+==9574== 
+==9574== 8 bytes in 1 blocks are still reachable in loss record 12 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x4E4CF55: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4A3AA: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E46C82: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x140C76: vsGUI::vsGUI() (vsGUI.cpp:14)
+==9574==    by 0x12D160: GameManager::create_game(unsigned int) (GameManager.cpp:8)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 8 bytes in 1 blocks are still reachable in loss record 13 of 97
+==9574==    at 0x4C2D1FF: operator new(unsigned long) (vg_replace_malloc.c:334)
+==9574==    by 0x142A70: Grid::tetriminos_generator() (Grid.cpp:491)
+==9574==    by 0x143B6E: Vs::start() (Vs.cpp:40)
+==9574==    by 0x12D288: GameManager::create_game(unsigned int) (GameManager.cpp:18)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 8 bytes in 1 blocks are still reachable in loss record 14 of 97
+==9574==    at 0x4C2D1FF: operator new(unsigned long) (vg_replace_malloc.c:334)
+==9574==    by 0x142AD9: Grid::tetriminos_generator() (Grid.cpp:500)
+==9574==    by 0x143B6E: Vs::start() (Vs.cpp:40)
+==9574==    by 0x12D288: GameManager::create_game(unsigned int) (GameManager.cpp:18)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 15 bytes in 1 blocks are still reachable in loss record 15 of 97
+==9574==    at 0x4C2CB8F: malloc (vg_replace_malloc.c:299)
+==9574==    by 0x601A629: strdup (strdup.c:42)
+==9574==    by 0x506EECD: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x4E4A367: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E46C82: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x140C76: vsGUI::vsGUI() (vsGUI.cpp:14)
+==9574==    by 0x12D160: GameManager::create_game(unsigned int) (GameManager.cpp:8)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 16 bytes in 1 blocks are still reachable in loss record 16 of 97
+==9574==    at 0x4C2D1FF: operator new(unsigned long) (vg_replace_malloc.c:334)
+==9574==    by 0x13E6CF: Client::Client(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (Client.cpp:10)
+==9574==    by 0x11179D: main (main.cpp:5)
+==9574== 
+==9574== 16 bytes in 1 blocks are still reachable in loss record 17 of 97
+==9574==    at 0x4C2D1FF: operator new(unsigned long) (vg_replace_malloc.c:334)
+==9574==    by 0x135BD9: __gnu_cxx::new_allocator<std::shared_ptr<spdlog::sinks::sink> >::allocate(unsigned long, void const*) (new_allocator.h:111)
+==9574==    by 0x134EF4: std::allocator_traits<std::allocator<std::shared_ptr<spdlog::sinks::sink> > >::allocate(std::allocator<std::shared_ptr<spdlog::sinks::sink> >&, unsigned long) (alloc_traits.h:436)
+==9574==    by 0x134525: std::_Vector_base<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > >::_M_allocate(unsigned long) (stl_vector.h:172)
+==9574==    by 0x13859F: void std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > >::_M_range_initialize<__gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > > >(__gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > >, __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > >, std::forward_iterator_tag) (stl_vector.h:1323)
+==9574==    by 0x1383EC: void std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > >::_M_initialize_dispatch<__gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > > >(__gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > >, __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > >, std::__false_type) (stl_vector.h:1299)
+==9574==    by 0x138299: std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > >::vector<__gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > >, void>(__gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > >, __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > >, std::allocator<std::shared_ptr<spdlog::sinks::sink> > const&) (stl_vector.h:414)
+==9574==    by 0x137F8F: spdlog::logger::logger<__gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > > const&, __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > > const&) (logger_impl.h:16)
+==9574==    by 0x1378D5: void __gnu_cxx::new_allocator<spdlog::logger>::construct<spdlog::logger, char const (&) [11], __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > >, __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > > >(spdlog::logger*, char const (&) [11], __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > >&&, __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > >&&) (new_allocator.h:136)
+==9574==    by 0x137293: void std::allocator_traits<std::allocator<spdlog::logger> >::construct<spdlog::logger, char const (&) [11], __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > >, __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > > >(std::allocator<spdlog::logger>&, spdlog::logger*, char const (&) [11], __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > >&&, __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > >&&) (alloc_traits.h:475)
+==9574==    by 0x13674B: std::_Sp_counted_ptr_inplace<spdlog::logger, std::allocator<spdlog::logger>, (__gnu_cxx::_Lock_policy)2>::_Sp_counted_ptr_inplace<char const (&) [11], __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > >, __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > > >(std::allocator<spdlog::logger>, char const (&) [11], __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > >&&, __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > >&&) (shared_ptr_base.h:526)
+==9574==    by 0x1359A2: std::__shared_count<(__gnu_cxx::_Lock_policy)2>::__shared_count<spdlog::logger, std::allocator<spdlog::logger>, char const (&) [11], __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > >, __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > > >(std::_Sp_make_shared_tag, spdlog::logger*, std::allocator<spdlog::logger> const&, char const (&) [11], __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > >&&, __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > >&&) (shared_ptr_base.h:637)
+==9574== 
+==9574== 18 bytes in 1 blocks are still reachable in loss record 18 of 97
+==9574==    at 0x4C2CB8F: malloc (vg_replace_malloc.c:299)
+==9574==    by 0x506CE64: _nc_home_terminfo (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x506C636: _nc_first_db (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x5074E30: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x506EB48: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x506EE91: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x4E4A367: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E46C82: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x140C76: vsGUI::vsGUI() (vsGUI.cpp:14)
+==9574==    by 0x12D160: GameManager::create_game(unsigned int) (GameManager.cpp:8)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574== 
+==9574== 24 bytes in 1 blocks are still reachable in loss record 19 of 97
+==9574==    at 0x4C2D1FF: operator new(unsigned long) (vg_replace_malloc.c:334)
+==9574==    by 0x1382FF: __gnu_cxx::new_allocator<std::__detail::_Hash_node_base*>::allocate(unsigned long, void const*) (new_allocator.h:111)
+==9574==    by 0x138056: std::allocator_traits<std::allocator<std::__detail::_Hash_node_base*> >::allocate(std::allocator<std::__detail::_Hash_node_base*>&, unsigned long) (alloc_traits.h:436)
+==9574==    by 0x137AC5: std::__detail::_Hashtable_alloc<std::allocator<std::__detail::_Hash_node<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<spdlog::logger> >, true> > >::_M_allocate_buckets(unsigned long) (hashtable_policy.h:2107)
+==9574==    by 0x137374: std::_Hashtable<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<spdlog::logger> >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<spdlog::logger> > >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true> >::_M_allocate_buckets(unsigned long) (hashtable.h:354)
+==9574==    by 0x136B20: std::_Hashtable<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<spdlog::logger> >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<spdlog::logger> > >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true> >::_M_rehash_aux(unsigned long, std::integral_constant<bool, true>) (hashtable.h:2089)
+==9574==    by 0x135DF4: std::_Hashtable<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<spdlog::logger> >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<spdlog::logger> > >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true> >::_M_rehash(unsigned long, unsigned long const&) (hashtable.h:2068)
+==9574==    by 0x135296: std::_Hashtable<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<spdlog::logger> >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<spdlog::logger> > >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true> >::_M_insert_unique_node(unsigned long, unsigned long, std::__detail::_Hash_node<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<spdlog::logger> >, true>*) (hashtable.h:1715)
+==9574==    by 0x134730: std::__detail::_Map_base<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<spdlog::logger> >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<spdlog::logger> > >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>, true>::operator[](std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (hashtable_policy.h:728)
+==9574==    by 0x133E7C: std::unordered_map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::shared_ptr<spdlog::logger>, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<spdlog::logger> > > >::operator[](std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (unordered_map.h:976)
+==9574==    by 0x1335D7: spdlog::details::registry_t<std::mutex>::register_logger_impl(std::shared_ptr<spdlog::logger>) (registry.h:141)
+==9574==    by 0x132837: spdlog::details::registry_t<std::mutex>::register_logger(std::shared_ptr<spdlog::logger>) (registry.h:34)
+==9574== 
+==9574== 24 bytes in 1 blocks are still reachable in loss record 20 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x506A754: _nc_add_to_try (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x506CF25: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x506E073: _nc_keypad (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x140C99: vsGUI::vsGUI() (vsGUI.cpp:17)
+==9574==    by 0x12D160: GameManager::create_game(unsigned int) (GameManager.cpp:8)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 24 bytes in 1 blocks are still reachable in loss record 21 of 97
+==9574==    at 0x4C2D1FF: operator new(unsigned long) (vg_replace_malloc.c:334)
+==9574==    by 0x12E604: std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> > std::thread::_S_make_state<std::thread::_Invoker<std::tuple<void (*)(Grid*), Grid*> > >(std::thread::_Invoker<std::tuple<void (*)(Grid*), Grid*> >&&) (thread:197)
+==9574==    by 0x12E344: std::thread::thread<void (&)(Grid*), Grid*>(void (&)(Grid*), Grid*&&) (thread:126)
+==9574==    by 0x12D1FD: GameManager::create_game(unsigned int) (GameManager.cpp:12)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 28 bytes in 1 blocks are still reachable in loss record 22 of 97
+==9574==    at 0x4C2CB8F: malloc (vg_replace_malloc.c:299)
+==9574==    by 0x60AC131: update_from_conf (resolv_conf.c:521)
+==9574==    by 0x60AC131: __resolv_conf_attach (resolv_conf.c:640)
+==9574==    by 0x60AA3AC: __res_vinit (res_init.c:613)
+==9574==    by 0x60AB290: maybe_init (resolv_context.c:122)
+==9574==    by 0x60AB290: context_get.part.1 (resolv_context.c:184)
+==9574==    by 0x609C4DB: gethostbyname (getXXbyYY.c:104)
+==9574==    by 0x127041: Connection::Connection(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (Connection.cpp:8)
+==9574==    by 0x13E7B4: Client::Client(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (Client.cpp:20)
+==9574==    by 0x11179D: main (main.cpp:5)
+==9574== 
+==9574== 31 bytes in 1 blocks are still reachable in loss record 23 of 97
+==9574==    at 0x4C2D1FF: operator new(unsigned long) (vg_replace_malloc.c:334)
+==9574==    by 0x11EB37: __gnu_cxx::new_allocator<char>::allocate(unsigned long, void const*) (new_allocator.h:111)
+==9574==    by 0x11ABB9: std::allocator_traits<std::allocator<char> >::allocate(std::allocator<char>&, unsigned long) (alloc_traits.h:436)
+==9574==    by 0x11F469: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_create(unsigned long&, unsigned long) (basic_string.tcc:153)
+==9574==    by 0x11D395: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.tcc:265)
+==9574==    by 0x119C68: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:1347)
+==9574==    by 0x132550: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator=(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:685)
+==9574==    by 0x131A24: spdlog::details::file_helper::open(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, bool) (file_helper.h:51)
+==9574==    by 0x137D17: spdlog::sinks::rotating_file_sink<std::mutex>::rotating_file_sink(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned long, unsigned long, bool) (file_sinks.h:65)
+==9574==    by 0x137571: void __gnu_cxx::new_allocator<spdlog::sinks::rotating_file_sink<std::mutex> >::construct<spdlog::sinks::rotating_file_sink<std::mutex>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char const (&) [4], int, int, bool>(spdlog::sinks::rotating_file_sink<std::mutex>*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char const (&) [4], int&&, int&&, bool&&) (new_allocator.h:136)
+==9574==    by 0x136F22: void std::allocator_traits<std::allocator<spdlog::sinks::rotating_file_sink<std::mutex> > >::construct<spdlog::sinks::rotating_file_sink<std::mutex>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char const (&) [4], int, int, bool>(std::allocator<spdlog::sinks::rotating_file_sink<std::mutex> >&, spdlog::sinks::rotating_file_sink<std::mutex>*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char const (&) [4], int&&, int&&, bool&&) (alloc_traits.h:475)
+==9574==    by 0x13625A: std::_Sp_counted_ptr_inplace<spdlog::sinks::rotating_file_sink<std::mutex>, std::allocator<spdlog::sinks::rotating_file_sink<std::mutex> >, (__gnu_cxx::_Lock_policy)2>::_Sp_counted_ptr_inplace<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char const (&) [4], int, int, bool>(std::allocator<spdlog::sinks::rotating_file_sink<std::mutex> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char const (&) [4], int&&, int&&, bool&&) (shared_ptr_base.h:526)
+==9574== 
+==9574== 32 bytes in 1 blocks are still reachable in loss record 24 of 97
+==9574==    at 0x4C2D1FF: operator new(unsigned long) (vg_replace_malloc.c:334)
+==9574==    by 0x144153: std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> > std::thread::_S_make_state<std::thread::_Invoker<std::tuple<void (*)(Grid*, Grid*), Grid*, Grid*> > >(std::thread::_Invoker<std::tuple<void (*)(Grid*, Grid*), Grid*, Grid*> >&&) (thread:197)
+==9574==    by 0x143E15: std::thread::thread<void (&)(Grid*, Grid*), Grid*&, Grid*&>(void (&)(Grid*, Grid*), Grid*&, Grid*&) (thread:126)
+==9574==    by 0x143B32: Vs::start() (Vs.cpp:36)
+==9574==    by 0x12D288: GameManager::create_game(unsigned int) (GameManager.cpp:18)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 32 bytes in 4 blocks are still reachable in loss record 25 of 97
+==9574==    at 0x4C2D91F: operator new[](unsigned long) (vg_replace_malloc.c:423)
+==9574==    by 0x1437C7: Block::Block() (Block.cpp:9)
+==9574==    by 0x142F6F: Tetriminos::Tetriminos(int) (Tetriminos.cpp:17)
+==9574==    by 0x142A80: Grid::tetriminos_generator() (Grid.cpp:491)
+==9574==    by 0x143B6E: Vs::start() (Vs.cpp:40)
+==9574==    by 0x12D288: GameManager::create_game(unsigned int) (GameManager.cpp:18)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 32 bytes in 4 blocks are still reachable in loss record 26 of 97
+==9574==    at 0x4C2D91F: operator new[](unsigned long) (vg_replace_malloc.c:423)
+==9574==    by 0x1437C7: Block::Block() (Block.cpp:9)
+==9574==    by 0x142F6F: Tetriminos::Tetriminos(int) (Tetriminos.cpp:17)
+==9574==    by 0x142AE9: Grid::tetriminos_generator() (Grid.cpp:500)
+==9574==    by 0x143B6E: Vs::start() (Vs.cpp:40)
+==9574==    by 0x12D288: GameManager::create_game(unsigned int) (GameManager.cpp:18)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 36 bytes in 1 blocks are definitely lost in loss record 27 of 97
+==9574==    at 0x4C2CB8F: malloc (vg_replace_malloc.c:299)
+==9574==    by 0x12730C: Connection::receive(void*) (Connection.cpp:60)
+==9574==    by 0x5D7E519: start_thread (pthread_create.c:465)
+==9574==    by 0x608A3EE: clone (clone.S:95)
+==9574== 
+==9574== 40 bytes in 1 blocks are still reachable in loss record 28 of 97
+==9574==    at 0x4C2D1FF: operator new(unsigned long) (vg_replace_malloc.c:334)
+==9574==    by 0x13E7A6: Client::Client(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (Client.cpp:20)
+==9574==    by 0x11179D: main (main.cpp:5)
+==9574== 
+==9574== 40 bytes in 1 blocks are still reachable in loss record 29 of 97
+==9574==    at 0x4C2D1FF: operator new(unsigned long) (vg_replace_malloc.c:334)
+==9574==    by 0x12D171: GameManager::create_game(unsigned int) (GameManager.cpp:9)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 46 bytes in 1 blocks are still reachable in loss record 30 of 97
+==9574==    at 0x4C2EDAF: realloc (vg_replace_malloc.c:785)
+==9574==    by 0x506CB42: _nc_doalloc (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x5074586: _nc_read_termtype (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x507498C: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x5074B76: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x5074E58: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x506EB48: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x506EE91: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x4E4A367: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E46C82: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x140C76: vsGUI::vsGUI() (vsGUI.cpp:14)
+==9574==    by 0x12D160: GameManager::create_game(unsigned int) (GameManager.cpp:8)
+==9574== 
+==9574== 48 bytes in 1 blocks are still reachable in loss record 31 of 97
+==9574==    at 0x4C2D1FF: operator new(unsigned long) (vg_replace_malloc.c:334)
+==9574==    by 0x12D155: GameManager::create_game(unsigned int) (GameManager.cpp:8)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 48 bytes in 1 blocks are still reachable in loss record 32 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x506C74B: _nc_first_db (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x5074E30: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x506EB48: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x506EE91: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x4E4A367: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E46C82: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x140C76: vsGUI::vsGUI() (vsGUI.cpp:14)
+==9574==    by 0x12D160: GameManager::create_game(unsigned int) (GameManager.cpp:8)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574== 
+==9574== 56 bytes in 1 blocks are still reachable in loss record 33 of 97
+==9574==    at 0x4C2D1FF: operator new(unsigned long) (vg_replace_malloc.c:334)
+==9574==    by 0x13FAC9: Mode::Mode(bool) (Mode.cpp:51)
+==9574==    by 0x143924: Vs::Vs() (Vs.cpp:10)
+==9574==    by 0x12D17C: GameManager::create_game(unsigned int) (GameManager.cpp:9)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 56 bytes in 1 blocks are still reachable in loss record 34 of 97
+==9574==    at 0x4C2D1FF: operator new(unsigned long) (vg_replace_malloc.c:334)
+==9574==    by 0x13FAEC: Mode::Mode(bool) (Mode.cpp:53)
+==9574==    by 0x143924: Vs::Vs() (Vs.cpp:10)
+==9574==    by 0x12D17C: GameManager::create_game(unsigned int) (GameManager.cpp:9)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 64 bytes in 1 blocks are still reachable in loss record 35 of 97
+==9574==    at 0x4C2D1FF: operator new(unsigned long) (vg_replace_malloc.c:334)
+==9574==    by 0x1369BF: __gnu_cxx::new_allocator<std::__detail::_Hash_node<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<spdlog::logger> >, true> >::allocate(unsigned long, void const*) (new_allocator.h:111)
+==9574==    by 0x135D4A: std::allocator_traits<std::allocator<std::__detail::_Hash_node<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<spdlog::logger> >, true> > >::allocate(std::allocator<std::__detail::_Hash_node<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<spdlog::logger> >, true> >&, unsigned long) (alloc_traits.h:436)
+==9574==    by 0x1350EF: std::__detail::_Hash_node<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<spdlog::logger> >, true>* std::__detail::_Hashtable_alloc<std::allocator<std::__detail::_Hash_node<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<spdlog::logger> >, true> > >::_M_allocate_node<std::piecewise_construct_t const&, std::tuple<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>, std::tuple<> >(std::piecewise_construct_t const&, std::tuple<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>&&, std::tuple<>&&) (hashtable_policy.h:2060)
+==9574==    by 0x134714: std::__detail::_Map_base<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<spdlog::logger> >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<spdlog::logger> > >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>, true>::operator[](std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (hashtable_policy.h:725)
+==9574==    by 0x133E7C: std::unordered_map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::shared_ptr<spdlog::logger>, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<spdlog::logger> > > >::operator[](std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (unordered_map.h:976)
+==9574==    by 0x1335D7: spdlog::details::registry_t<std::mutex>::register_logger_impl(std::shared_ptr<spdlog::logger>) (registry.h:141)
+==9574==    by 0x132837: spdlog::details::registry_t<std::mutex>::register_logger(std::shared_ptr<spdlog::logger>) (registry.h:34)
+==9574==    by 0x132179: spdlog::register_logger(std::shared_ptr<spdlog::logger>) (spdlog_impl.h:18)
+==9574==    by 0x12F5C1: WizardLogger::initLogger(bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (WizardLogger.cpp:37)
+==9574==    by 0x13E720: Client::Client(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (Client.cpp:13)
+==9574==    by 0x11179D: main (main.cpp:5)
+==9574== 
+==9574== 66 bytes in 1 blocks are still reachable in loss record 36 of 97
+==9574==    at 0x4C2EDAF: realloc (vg_replace_malloc.c:785)
+==9574==    by 0x506CB42: _nc_doalloc (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x50716F3: tparm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x4E49C62: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4A544: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E46C82: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x140C76: vsGUI::vsGUI() (vsGUI.cpp:14)
+==9574==    by 0x12D160: GameManager::create_game(unsigned int) (GameManager.cpp:8)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 78 bytes in 1 blocks are still reachable in loss record 37 of 97
+==9574==    at 0x4C2EDAF: realloc (vg_replace_malloc.c:785)
+==9574==    by 0x506CB42: _nc_doalloc (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x50745A3: _nc_read_termtype (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x507498C: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x5074B76: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x5074E58: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x506EB48: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x506EE91: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x4E4A367: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E46C82: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x140C76: vsGUI::vsGUI() (vsGUI.cpp:14)
+==9574==    by 0x12D160: GameManager::create_game(unsigned int) (GameManager.cpp:8)
+==9574== 
+==9574== 80 bytes in 1 blocks are still reachable in loss record 38 of 97
+==9574==    at 0x4C2D1FF: operator new(unsigned long) (vg_replace_malloc.c:334)
+==9574==    by 0x1253C7: __gnu_cxx::new_allocator<std::_Sp_counted_ptr_inplace<spdlog::pattern_formatter, std::allocator<spdlog::pattern_formatter>, (__gnu_cxx::_Lock_policy)2> >::allocate(unsigned long, void const*) (new_allocator.h:111)
+==9574==    by 0x124C1A: std::allocator_traits<std::allocator<std::_Sp_counted_ptr_inplace<spdlog::pattern_formatter, std::allocator<spdlog::pattern_formatter>, (__gnu_cxx::_Lock_policy)2> > >::allocate(std::allocator<std::_Sp_counted_ptr_inplace<spdlog::pattern_formatter, std::allocator<spdlog::pattern_formatter>, (__gnu_cxx::_Lock_policy)2> >&, unsigned long) (alloc_traits.h:436)
+==9574==    by 0x124073: std::__allocated_ptr<std::allocator<std::_Sp_counted_ptr_inplace<spdlog::pattern_formatter, std::allocator<spdlog::pattern_formatter>, (__gnu_cxx::_Lock_policy)2> > > std::__allocate_guarded<std::allocator<std::_Sp_counted_ptr_inplace<spdlog::pattern_formatter, std::allocator<spdlog::pattern_formatter>, (__gnu_cxx::_Lock_policy)2> > >(std::allocator<std::_Sp_counted_ptr_inplace<spdlog::pattern_formatter, std::allocator<spdlog::pattern_formatter>, (__gnu_cxx::_Lock_policy)2> >&) (allocated_ptr.h:104)
+==9574==    by 0x12223B: std::__shared_count<(__gnu_cxx::_Lock_policy)2>::__shared_count<spdlog::pattern_formatter, std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::_Sp_make_shared_tag, spdlog::pattern_formatter*, std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr_base.h:635)
+==9574==    by 0x120E4D: std::__shared_ptr<spdlog::pattern_formatter, (__gnu_cxx::_Lock_policy)2>::__shared_ptr<std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::_Sp_make_shared_tag, std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr_base.h:1295)
+==9574==    by 0x11F286: std::shared_ptr<spdlog::pattern_formatter>::shared_ptr<std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::_Sp_make_shared_tag, std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr.h:344)
+==9574==    by 0x11BB70: std::shared_ptr<spdlog::pattern_formatter> std::allocate_shared<spdlog::pattern_formatter, std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr.h:691)
+==9574==    by 0x11890D: std::shared_ptr<spdlog::pattern_formatter> std::make_shared<spdlog::pattern_formatter, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr.h:707)
+==9574==    by 0x116764: spdlog::logger::_set_pattern(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (logger_impl.h:288)
+==9574==    by 0x13180B: spdlog::logger::set_pattern(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (logger_impl.h:46)
+==9574==    by 0x12F647: WizardLogger::initLogger(bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (WizardLogger.cpp:42)
+==9574== 
+==9574== 80 bytes in 1 blocks are still reachable in loss record 39 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x4E4AA26: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4AD71: derwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x140F83: vsGUI::init_main_game_GUI() (vsGUI.cpp:88)
+==9574==    by 0x13FB66: Mode::init_game() (Mode.cpp:60)
+==9574==    by 0x12D1BD: GameManager::create_game(unsigned int) (GameManager.cpp:10)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 80 bytes in 1 blocks are still reachable in loss record 40 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x4E4AA26: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4AD71: derwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x140FEE: vsGUI::init_main_game_GUI() (vsGUI.cpp:93)
+==9574==    by 0x13FB66: Mode::init_game() (Mode.cpp:60)
+==9574==    by 0x12D1BD: GameManager::create_game(unsigned int) (GameManager.cpp:10)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 80 bytes in 1 blocks are still reachable in loss record 41 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x4E4AA26: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4AD71: derwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x141059: vsGUI::init_main_game_GUI() (vsGUI.cpp:97)
+==9574==    by 0x13FB66: Mode::init_game() (Mode.cpp:60)
+==9574==    by 0x12D1BD: GameManager::create_game(unsigned int) (GameManager.cpp:10)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 80 bytes in 1 blocks are still reachable in loss record 42 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x4E4AA26: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4AD71: derwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x1410C4: vsGUI::init_main_game_GUI() (vsGUI.cpp:102)
+==9574==    by 0x13FB66: Mode::init_game() (Mode.cpp:60)
+==9574==    by 0x12D1BD: GameManager::create_game(unsigned int) (GameManager.cpp:10)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 87 bytes in 1 blocks are still reachable in loss record 43 of 97
+==9574==    at 0x4C2CB8F: malloc (vg_replace_malloc.c:299)
+==9574==    by 0x506C6B3: _nc_first_db (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x5074E30: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x506EB48: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x506EE91: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x4E4A367: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E46C82: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x140C76: vsGUI::vsGUI() (vsGUI.cpp:14)
+==9574==    by 0x12D160: GameManager::create_game(unsigned int) (GameManager.cpp:8)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574== 
+==9574== 104 bytes in 1 blocks are still reachable in loss record 44 of 97
+==9574==    at 0x4C2D1FF: operator new(unsigned long) (vg_replace_malloc.c:334)
+==9574==    by 0x1377C3: __gnu_cxx::new_allocator<std::_Sp_counted_ptr_inplace<spdlog::logger, std::allocator<spdlog::logger>, (__gnu_cxx::_Lock_policy)2> >::allocate(unsigned long, void const*) (new_allocator.h:111)
+==9574==    by 0x137164: std::allocator_traits<std::allocator<std::_Sp_counted_ptr_inplace<spdlog::logger, std::allocator<spdlog::logger>, (__gnu_cxx::_Lock_policy)2> > >::allocate(std::allocator<std::_Sp_counted_ptr_inplace<spdlog::logger, std::allocator<spdlog::logger>, (__gnu_cxx::_Lock_policy)2> >&, unsigned long) (alloc_traits.h:436)
+==9574==    by 0x1365B5: std::__allocated_ptr<std::allocator<std::_Sp_counted_ptr_inplace<spdlog::logger, std::allocator<spdlog::logger>, (__gnu_cxx::_Lock_policy)2> > > std::__allocate_guarded<std::allocator<std::_Sp_counted_ptr_inplace<spdlog::logger, std::allocator<spdlog::logger>, (__gnu_cxx::_Lock_policy)2> > >(std::allocator<std::_Sp_counted_ptr_inplace<spdlog::logger, std::allocator<spdlog::logger>, (__gnu_cxx::_Lock_policy)2> >&) (allocated_ptr.h:104)
+==9574==    by 0x135913: std::__shared_count<(__gnu_cxx::_Lock_policy)2>::__shared_count<spdlog::logger, std::allocator<spdlog::logger>, char const (&) [11], __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > >, __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > > >(std::_Sp_make_shared_tag, spdlog::logger*, std::allocator<spdlog::logger> const&, char const (&) [11], __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > >&&, __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > >&&) (shared_ptr_base.h:635)
+==9574==    by 0x134DCF: std::__shared_ptr<spdlog::logger, (__gnu_cxx::_Lock_policy)2>::__shared_ptr<std::allocator<spdlog::logger>, char const (&) [11], __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > >, __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > > >(std::_Sp_make_shared_tag, std::allocator<spdlog::logger> const&, char const (&) [11], __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > >&&, __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > >&&) (shared_ptr_base.h:1295)
+==9574==    by 0x134462: std::shared_ptr<spdlog::logger>::shared_ptr<std::allocator<spdlog::logger>, char const (&) [11], __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > >, __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > > >(std::_Sp_make_shared_tag, std::allocator<spdlog::logger> const&, char const (&) [11], __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > >&&, __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > >&&) (shared_ptr.h:344)
+==9574==    by 0x133B06: std::shared_ptr<spdlog::logger> std::allocate_shared<spdlog::logger, std::allocator<spdlog::logger>, char const (&) [11], __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > >, __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > > >(std::allocator<spdlog::logger> const&, char const (&) [11], __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > >&&, __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > >&&) (shared_ptr.h:691)
+==9574==    by 0x132CE4: std::shared_ptr<spdlog::logger> std::make_shared<spdlog::logger, char const (&) [11], __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > >, __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > > >(char const (&) [11], __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > >&&, __gnu_cxx::__normal_iterator<std::shared_ptr<spdlog::sinks::sink>*, std::vector<std::shared_ptr<spdlog::sinks::sink>, std::allocator<std::shared_ptr<spdlog::sinks::sink> > > >&&) (shared_ptr.h:707)
+==9574==    by 0x12F5B2: WizardLogger::initLogger(bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (WizardLogger.cpp:37)
+==9574==    by 0x13E720: Client::Client(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (Client.cpp:13)
+==9574==    by 0x11179D: main (main.cpp:5)
+==9574== 
+==9574== 104 bytes in 1 blocks are still reachable in loss record 45 of 97
+==9574==    at 0x4C2D91F: operator new[](unsigned long) (vg_replace_malloc.c:423)
+==9574==    by 0x142F49: Tetriminos::Tetriminos(int) (Tetriminos.cpp:17)
+==9574==    by 0x142A80: Grid::tetriminos_generator() (Grid.cpp:491)
+==9574==    by 0x143B6E: Vs::start() (Vs.cpp:40)
+==9574==    by 0x12D288: GameManager::create_game(unsigned int) (GameManager.cpp:18)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 104 bytes in 1 blocks are still reachable in loss record 46 of 97
+==9574==    at 0x4C2D91F: operator new[](unsigned long) (vg_replace_malloc.c:423)
+==9574==    by 0x142F49: Tetriminos::Tetriminos(int) (Tetriminos.cpp:17)
+==9574==    by 0x142AE9: Grid::tetriminos_generator() (Grid.cpp:500)
+==9574==    by 0x143B6E: Vs::start() (Vs.cpp:40)
+==9574==    by 0x12D288: GameManager::create_game(unsigned int) (GameManager.cpp:18)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 112 bytes in 1 blocks are still reachable in loss record 47 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x4E4AA08: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4AC20: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4D352: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4A3AA: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E46C82: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x140C76: vsGUI::vsGUI() (vsGUI.cpp:14)
+==9574==    by 0x12D160: GameManager::create_game(unsigned int) (GameManager.cpp:8)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 112 bytes in 1 blocks are still reachable in loss record 48 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x4E4AA08: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4AC20: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4D373: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4A3AA: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E46C82: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x140C76: vsGUI::vsGUI() (vsGUI.cpp:14)
+==9574==    by 0x12D160: GameManager::create_game(unsigned int) (GameManager.cpp:8)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 112 bytes in 1 blocks are still reachable in loss record 49 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x4E4AA08: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4AC20: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4D41D: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4A3AA: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E46C82: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x140C76: vsGUI::vsGUI() (vsGUI.cpp:14)
+==9574==    by 0x12D160: GameManager::create_game(unsigned int) (GameManager.cpp:8)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 112 bytes in 1 blocks are still reachable in loss record 50 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x4E4AA08: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4AD71: derwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x140E25: vsGUI::init_main_game_GUI() (vsGUI.cpp:59)
+==9574==    by 0x13FB66: Mode::init_game() (Mode.cpp:60)
+==9574==    by 0x12D1BD: GameManager::create_game(unsigned int) (GameManager.cpp:10)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 112 bytes in 1 blocks are still reachable in loss record 51 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x4E4AA08: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4AD71: derwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x140E8C: vsGUI::init_main_game_GUI() (vsGUI.cpp:63)
+==9574==    by 0x13FB66: Mode::init_game() (Mode.cpp:60)
+==9574==    by 0x12D1BD: GameManager::create_game(unsigned int) (GameManager.cpp:10)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 112 bytes in 1 blocks are still reachable in loss record 52 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x4E4AA08: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4AD71: derwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x140F83: vsGUI::init_main_game_GUI() (vsGUI.cpp:88)
+==9574==    by 0x13FB66: Mode::init_game() (Mode.cpp:60)
+==9574==    by 0x12D1BD: GameManager::create_game(unsigned int) (GameManager.cpp:10)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 112 bytes in 1 blocks are still reachable in loss record 53 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x4E4AA08: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4AD71: derwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x140FEE: vsGUI::init_main_game_GUI() (vsGUI.cpp:93)
+==9574==    by 0x13FB66: Mode::init_game() (Mode.cpp:60)
+==9574==    by 0x12D1BD: GameManager::create_game(unsigned int) (GameManager.cpp:10)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 112 bytes in 1 blocks are still reachable in loss record 54 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x4E4AA08: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4AD71: derwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x141059: vsGUI::init_main_game_GUI() (vsGUI.cpp:97)
+==9574==    by 0x13FB66: Mode::init_game() (Mode.cpp:60)
+==9574==    by 0x12D1BD: GameManager::create_game(unsigned int) (GameManager.cpp:10)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 112 bytes in 1 blocks are still reachable in loss record 55 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x4E4AA08: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4AD71: derwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x1410C4: vsGUI::init_main_game_GUI() (vsGUI.cpp:102)
+==9574==    by 0x13FB66: Mode::init_game() (Mode.cpp:60)
+==9574==    by 0x12D1BD: GameManager::create_game(unsigned int) (GameManager.cpp:10)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 128 bytes in 1 blocks are still reachable in loss record 56 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x4E4CF22: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4A3AA: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E46C82: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x140C76: vsGUI::vsGUI() (vsGUI.cpp:14)
+==9574==    by 0x12D160: GameManager::create_game(unsigned int) (GameManager.cpp:8)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 136 bytes in 1 blocks are still reachable in loss record 57 of 97
+==9574==    at 0x4C2D1FF: operator new(unsigned long) (vg_replace_malloc.c:334)
+==9574==    by 0x13E7D1: Client::Client(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (Client.cpp:25)
+==9574==    by 0x11179D: main (main.cpp:5)
+==9574== 
+==9574== 144 bytes in 1 blocks are definitely lost in loss record 58 of 97
+==9574==    at 0x4C2CB8F: malloc (vg_replace_malloc.c:299)
+==9574==    by 0x601A300: __libc_alloc_buffer_allocate (alloc_buffer_allocate.c:26)
+==9574==    by 0x60ABCC8: alloc_buffer_allocate (alloc_buffer.h:143)
+==9574==    by 0x60ABCC8: __resolv_conf_allocate (resolv_conf.c:410)
+==9574==    by 0x60A98DB: __resolv_conf_load (res_init.c:587)
+==9574==    by 0x60AB99A: __resolv_conf_get_current (resolv_conf.c:162)
+==9574==    by 0x60AA40C: __res_vinit (res_init.c:609)
+==9574==    by 0x60AB290: maybe_init (resolv_context.c:122)
+==9574==    by 0x60AB290: context_get.part.1 (resolv_context.c:184)
+==9574==    by 0x609C4DB: gethostbyname (getXXbyYY.c:104)
+==9574==    by 0x127041: Connection::Connection(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (Connection.cpp:8)
+==9574==    by 0x13E7B4: Client::Client(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (Client.cpp:20)
+==9574==    by 0x11179D: main (main.cpp:5)
+==9574== 
+==9574== 160 bytes in 1 blocks are still reachable in loss record 59 of 97
+==9574==    at 0x4C2D91F: operator new[](unsigned long) (vg_replace_malloc.c:423)
+==9574==    by 0x1418A6: Grid::Grid() (Grid.cpp:29)
+==9574==    by 0x13FAD4: Mode::Mode(bool) (Mode.cpp:51)
+==9574==    by 0x143924: Vs::Vs() (Vs.cpp:10)
+==9574==    by 0x12D17C: GameManager::create_game(unsigned int) (GameManager.cpp:9)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 160 bytes in 1 blocks are still reachable in loss record 60 of 97
+==9574==    at 0x4C2D91F: operator new[](unsigned long) (vg_replace_malloc.c:423)
+==9574==    by 0x1418A6: Grid::Grid() (Grid.cpp:29)
+==9574==    by 0x13FAF7: Mode::Mode(bool) (Mode.cpp:53)
+==9574==    by 0x143924: Vs::Vs() (Vs.cpp:10)
+==9574==    by 0x12D17C: GameManager::create_game(unsigned int) (GameManager.cpp:9)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 176 bytes in 1 blocks are still reachable in loss record 61 of 97
+==9574==    at 0x4C2EDAF: realloc (vg_replace_malloc.c:785)
+==9574==    by 0x506CB42: _nc_doalloc (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x5070083: _nc_tparm_analyze (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x50703DD: tparm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x4E4F1B0: vidputs (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E521BA: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E52ACC: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E5355A: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E545A9: doupdate (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4BD87: wrefresh (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x141195: vsGUI::init_main_game_GUI() (vsGUI.cpp:120)
+==9574==    by 0x13FB66: Mode::init_game() (Mode.cpp:60)
+==9574== 
+==9574== 208 bytes in 1 blocks are still reachable in loss record 62 of 97
+==9574==    at 0x4C2D1FF: operator new(unsigned long) (vg_replace_malloc.c:334)
+==9574==    by 0x13741B: __gnu_cxx::new_allocator<std::_Sp_counted_ptr_inplace<spdlog::sinks::rotating_file_sink<std::mutex>, std::allocator<spdlog::sinks::rotating_file_sink<std::mutex> >, (__gnu_cxx::_Lock_policy)2> >::allocate(unsigned long, void const*) (new_allocator.h:111)
+==9574==    by 0x136DC8: std::allocator_traits<std::allocator<std::_Sp_counted_ptr_inplace<spdlog::sinks::rotating_file_sink<std::mutex>, std::allocator<spdlog::sinks::rotating_file_sink<std::mutex> >, (__gnu_cxx::_Lock_policy)2> > >::allocate(std::allocator<std::_Sp_counted_ptr_inplace<spdlog::sinks::rotating_file_sink<std::mutex>, std::allocator<spdlog::sinks::rotating_file_sink<std::mutex> >, (__gnu_cxx::_Lock_policy)2> >&, unsigned long) (alloc_traits.h:436)
+==9574==    by 0x136099: std::__allocated_ptr<std::allocator<std::_Sp_counted_ptr_inplace<spdlog::sinks::rotating_file_sink<std::mutex>, std::allocator<spdlog::sinks::rotating_file_sink<std::mutex> >, (__gnu_cxx::_Lock_policy)2> > > std::__allocate_guarded<std::allocator<std::_Sp_counted_ptr_inplace<spdlog::sinks::rotating_file_sink<std::mutex>, std::allocator<spdlog::sinks::rotating_file_sink<std::mutex> >, (__gnu_cxx::_Lock_policy)2> > >(std::allocator<std::_Sp_counted_ptr_inplace<spdlog::sinks::rotating_file_sink<std::mutex>, std::allocator<spdlog::sinks::rotating_file_sink<std::mutex> >, (__gnu_cxx::_Lock_policy)2> >&) (allocated_ptr.h:104)
+==9574==    by 0x135523: std::__shared_count<(__gnu_cxx::_Lock_policy)2>::__shared_count<spdlog::sinks::rotating_file_sink<std::mutex>, std::allocator<spdlog::sinks::rotating_file_sink<std::mutex> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char const (&) [4], int, int, bool>(std::_Sp_make_shared_tag, spdlog::sinks::rotating_file_sink<std::mutex>*, std::allocator<spdlog::sinks::rotating_file_sink<std::mutex> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char const (&) [4], int&&, int&&, bool&&) (shared_ptr_base.h:635)
+==9574==    by 0x134A42: std::__shared_ptr<spdlog::sinks::rotating_file_sink<std::mutex>, (__gnu_cxx::_Lock_policy)2>::__shared_ptr<std::allocator<spdlog::sinks::rotating_file_sink<std::mutex> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char const (&) [4], int, int, bool>(std::_Sp_make_shared_tag, std::allocator<spdlog::sinks::rotating_file_sink<std::mutex> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char const (&) [4], int&&, int&&, bool&&) (shared_ptr_base.h:1295)
+==9574==    by 0x1340B4: std::shared_ptr<spdlog::sinks::rotating_file_sink<std::mutex> >::shared_ptr<std::allocator<spdlog::sinks::rotating_file_sink<std::mutex> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char const (&) [4], int, int, bool>(std::_Sp_make_shared_tag, std::allocator<spdlog::sinks::rotating_file_sink<std::mutex> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char const (&) [4], int&&, int&&, bool&&) (shared_ptr.h:344)
+==9574==    by 0x1338D7: std::shared_ptr<spdlog::sinks::rotating_file_sink<std::mutex> > std::allocate_shared<spdlog::sinks::rotating_file_sink<std::mutex>, std::allocator<spdlog::sinks::rotating_file_sink<std::mutex> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char const (&) [4], int, int, bool>(std::allocator<spdlog::sinks::rotating_file_sink<std::mutex> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char const (&) [4], int&&, int&&, bool&&) (shared_ptr.h:691)
+==9574==    by 0x132B39: std::shared_ptr<spdlog::sinks::rotating_file_sink<std::mutex> > std::make_shared<spdlog::sinks::rotating_file_sink<std::mutex>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char const (&) [4], int, int, bool>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char const (&) [4], int&&, int&&, bool&&) (shared_ptr.h:707)
+==9574==    by 0x12F4AA: WizardLogger::initLogger(bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (WizardLogger.cpp:29)
+==9574==    by 0x13E720: Client::Client(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (Client.cpp:13)
+==9574==    by 0x11179D: main (main.cpp:5)
+==9574== 
+==9574== 208 bytes in 1 blocks are still reachable in loss record 63 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x506EE7A: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x4E4A367: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E46C82: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x140C76: vsGUI::vsGUI() (vsGUI.cpp:14)
+==9574==    by 0x12D160: GameManager::create_game(unsigned int) (GameManager.cpp:8)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 256 bytes in 1 blocks are still reachable in loss record 64 of 97
+==9574==    at 0x4C2D1FF: operator new(unsigned long) (vg_replace_malloc.c:334)
+==9574==    by 0x123F85: __gnu_cxx::new_allocator<std::unique_ptr<spdlog::details::flag_formatter, std::default_delete<spdlog::details::flag_formatter> > >::allocate(unsigned long, void const*) (new_allocator.h:111)
+==9574==    by 0x1220A9: std::allocator_traits<std::allocator<std::unique_ptr<spdlog::details::flag_formatter, std::default_delete<spdlog::details::flag_formatter> > > >::allocate(std::allocator<std::unique_ptr<spdlog::details::flag_formatter, std::default_delete<spdlog::details::flag_formatter> > >&, unsigned long) (alloc_traits.h:436)
+==9574==    by 0x120B79: std::_Vector_base<std::unique_ptr<spdlog::details::flag_formatter, std::default_delete<spdlog::details::flag_formatter> >, std::allocator<std::unique_ptr<spdlog::details::flag_formatter, std::default_delete<spdlog::details::flag_formatter> > > >::_M_allocate(unsigned long) (stl_vector.h:172)
+==9574==    by 0x11E7BA: void std::vector<std::unique_ptr<spdlog::details::flag_formatter, std::default_delete<spdlog::details::flag_formatter> >, std::allocator<std::unique_ptr<spdlog::details::flag_formatter, std::default_delete<spdlog::details::flag_formatter> > > >::_M_realloc_insert<std::unique_ptr<spdlog::details::flag_formatter, std::default_delete<spdlog::details::flag_formatter> > >(__gnu_cxx::__normal_iterator<std::unique_ptr<spdlog::details::flag_formatter, std::default_delete<spdlog::details::flag_formatter> >*, std::vector<std::unique_ptr<spdlog::details::flag_formatter, std::default_delete<spdlog::details::flag_formatter> >, std::allocator<std::unique_ptr<spdlog::details::flag_formatter, std::default_delete<spdlog::details::flag_formatter> > > > >, std::unique_ptr<spdlog::details::flag_formatter, std::default_delete<spdlog::details::flag_formatter> >&&) (vector.tcc:406)
+==9574==    by 0x11A9FF: std::unique_ptr<spdlog::details::flag_formatter, std::default_delete<spdlog::details::flag_formatter> >& std::vector<std::unique_ptr<spdlog::details::flag_formatter, std::default_delete<spdlog::details::flag_formatter> >, std::allocator<std::unique_ptr<spdlog::details::flag_formatter, std::default_delete<spdlog::details::flag_formatter> > > >::emplace_back<std::unique_ptr<spdlog::details::flag_formatter, std::default_delete<spdlog::details::flag_formatter> > >(std::unique_ptr<spdlog::details::flag_formatter, std::default_delete<spdlog::details::flag_formatter> >&&) (vector.tcc:105)
+==9574==    by 0x11854B: std::vector<std::unique_ptr<spdlog::details::flag_formatter, std::default_delete<spdlog::details::flag_formatter> >, std::allocator<std::unique_ptr<spdlog::details::flag_formatter, std::default_delete<spdlog::details::flag_formatter> > > >::push_back(std::unique_ptr<spdlog::details::flag_formatter, std::default_delete<spdlog::details::flag_formatter> >&&) (stl_vector.h:954)
+==9574==    by 0x114ED8: spdlog::pattern_formatter::compile_pattern(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (pattern_formatter_impl.h:462)
+==9574==    by 0x114D4F: spdlog::pattern_formatter::pattern_formatter(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (pattern_formatter_impl.h:450)
+==9574==    by 0x125480: void __gnu_cxx::new_allocator<spdlog::pattern_formatter>::construct<spdlog::pattern_formatter, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(spdlog::pattern_formatter*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (new_allocator.h:136)
+==9574==    by 0x124D4D: void std::allocator_traits<std::allocator<spdlog::pattern_formatter> >::construct<spdlog::pattern_formatter, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<spdlog::pattern_formatter>&, spdlog::pattern_formatter*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (alloc_traits.h:475)
+==9574==    by 0x1241DC: std::_Sp_counted_ptr_inplace<spdlog::pattern_formatter, std::allocator<spdlog::pattern_formatter>, (__gnu_cxx::_Lock_policy)2>::_Sp_counted_ptr_inplace<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr_base.h:526)
+==9574== 
+==9574== 256 bytes in 1 blocks are still reachable in loss record 65 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x4E42F6B: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4306C: start_color (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x140D2E: vsGUI::init_colors() (vsGUI.cpp:37)
+==9574==    by 0x140CA5: vsGUI::vsGUI() (vsGUI.cpp:18)
+==9574==    by 0x12D160: GameManager::create_game(unsigned int) (GameManager.cpp:8)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 288 bytes in 1 blocks are possibly lost in loss record 66 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x4011B01: allocate_dtv (dl-tls.c:290)
+==9574==    by 0x401248D: _dl_allocate_tls (dl-tls.c:538)
+==9574==    by 0x5D7F0DC: allocate_stack (allocatestack.c:624)
+==9574==    by 0x5D7F0DC: pthread_create@@GLIBC_2.2.5 (pthread_create.c:646)
+==9574==    by 0x12718F: Connection::Connection(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (Connection.cpp:30)
+==9574==    by 0x13E7B4: Client::Client(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (Client.cpp:20)
+==9574==    by 0x11179D: main (main.cpp:5)
+==9574== 
+==9574== 288 bytes in 1 blocks are possibly lost in loss record 67 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x4011B01: allocate_dtv (dl-tls.c:290)
+==9574==    by 0x401248D: _dl_allocate_tls (dl-tls.c:538)
+==9574==    by 0x5D7F0DC: allocate_stack (allocatestack.c:624)
+==9574==    by 0x5D7F0DC: pthread_create@@GLIBC_2.2.5 (pthread_create.c:646)
+==9574==    by 0x5550AC4: std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.24)
+==9574==    by 0x12E35B: std::thread::thread<void (&)(Grid*), Grid*>(void (&)(Grid*), Grid*&&) (thread:126)
+==9574==    by 0x12D1FD: GameManager::create_game(unsigned int) (GameManager.cpp:12)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 288 bytes in 1 blocks are possibly lost in loss record 68 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x4011B01: allocate_dtv (dl-tls.c:290)
+==9574==    by 0x401248D: _dl_allocate_tls (dl-tls.c:538)
+==9574==    by 0x5D7F0DC: allocate_stack (allocatestack.c:624)
+==9574==    by 0x5D7F0DC: pthread_create@@GLIBC_2.2.5 (pthread_create.c:646)
+==9574==    by 0x5550AC4: std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.24)
+==9574==    by 0x143E2C: std::thread::thread<void (&)(Grid*, Grid*), Grid*&, Grid*&>(void (&)(Grid*, Grid*), Grid*&, Grid*&) (thread:126)
+==9574==    by 0x143B32: Vs::start() (Vs.cpp:36)
+==9574==    by 0x12D288: GameManager::create_game(unsigned int) (GameManager.cpp:18)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 360 bytes in 9 blocks are still reachable in loss record 69 of 97
+==9574==    at 0x4C2D1FF: operator new(unsigned long) (vg_replace_malloc.c:334)
+==9574==    by 0x114F4C: spdlog::pattern_formatter::compile_pattern(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (pattern_formatter_impl.h:472)
+==9574==    by 0x114D4F: spdlog::pattern_formatter::pattern_formatter(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (pattern_formatter_impl.h:450)
+==9574==    by 0x125480: void __gnu_cxx::new_allocator<spdlog::pattern_formatter>::construct<spdlog::pattern_formatter, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(spdlog::pattern_formatter*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (new_allocator.h:136)
+==9574==    by 0x124D4D: void std::allocator_traits<std::allocator<spdlog::pattern_formatter> >::construct<spdlog::pattern_formatter, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<spdlog::pattern_formatter>&, spdlog::pattern_formatter*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (alloc_traits.h:475)
+==9574==    by 0x1241DC: std::_Sp_counted_ptr_inplace<spdlog::pattern_formatter, std::allocator<spdlog::pattern_formatter>, (__gnu_cxx::_Lock_policy)2>::_Sp_counted_ptr_inplace<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr_base.h:526)
+==9574==    by 0x12229E: std::__shared_count<(__gnu_cxx::_Lock_policy)2>::__shared_count<spdlog::pattern_formatter, std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::_Sp_make_shared_tag, spdlog::pattern_formatter*, std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr_base.h:637)
+==9574==    by 0x120E4D: std::__shared_ptr<spdlog::pattern_formatter, (__gnu_cxx::_Lock_policy)2>::__shared_ptr<std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::_Sp_make_shared_tag, std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr_base.h:1295)
+==9574==    by 0x11F286: std::shared_ptr<spdlog::pattern_formatter>::shared_ptr<std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::_Sp_make_shared_tag, std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr.h:344)
+==9574==    by 0x11BB70: std::shared_ptr<spdlog::pattern_formatter> std::allocate_shared<spdlog::pattern_formatter, std::allocator<spdlog::pattern_formatter>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<spdlog::pattern_formatter> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr.h:691)
+==9574==    by 0x11890D: std::shared_ptr<spdlog::pattern_formatter> std::make_shared<spdlog::pattern_formatter, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (shared_ptr.h:707)
+==9574==    by 0x116764: spdlog::logger::_set_pattern(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (logger_impl.h:288)
+==9574== 
+==9574== 368 bytes in 1 blocks are still reachable in loss record 70 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x4E4AA26: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4AD71: derwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x140E25: vsGUI::init_main_game_GUI() (vsGUI.cpp:59)
+==9574==    by 0x13FB66: Mode::init_game() (Mode.cpp:60)
+==9574==    by 0x12D1BD: GameManager::create_game(unsigned int) (GameManager.cpp:10)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 368 bytes in 1 blocks are still reachable in loss record 71 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x4E4AA26: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4AD71: derwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x140E8C: vsGUI::init_main_game_GUI() (vsGUI.cpp:63)
+==9574==    by 0x13FB66: Mode::init_game() (Mode.cpp:60)
+==9574==    by 0x12D1BD: GameManager::create_game(unsigned int) (GameManager.cpp:10)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 504 bytes in 21 blocks are still reachable in loss record 72 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x506A68B: _nc_add_to_try (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x506CFD7: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x506E073: _nc_keypad (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x140C99: vsGUI::vsGUI() (vsGUI.cpp:17)
+==9574==    by 0x12D160: GameManager::create_game(unsigned int) (GameManager.cpp:8)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 512 bytes in 1 blocks are still reachable in loss record 73 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x5074730: _nc_read_termtype (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x507498C: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x5074B76: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x5074E58: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x506EB48: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x506EE91: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x4E4A367: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E46C82: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x140C76: vsGUI::vsGUI() (vsGUI.cpp:14)
+==9574==    by 0x12D160: GameManager::create_game(unsigned int) (GameManager.cpp:8)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574== 
+==9574== 552 bytes in 1 blocks are still reachable in loss record 74 of 97
+==9574==    at 0x4C2CB8F: malloc (vg_replace_malloc.c:299)
+==9574==    by 0x600229C: __fopen_internal (iofopen.c:69)
+==9574==    by 0x13158A: spdlog::details::os::fopen_s(_IO_FILE**, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char const*) (os.h:139)
+==9574==    by 0x131A51: spdlog::details::file_helper::open(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, bool) (file_helper.h:54)
+==9574==    by 0x137D17: spdlog::sinks::rotating_file_sink<std::mutex>::rotating_file_sink(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned long, unsigned long, bool) (file_sinks.h:65)
+==9574==    by 0x137571: void __gnu_cxx::new_allocator<spdlog::sinks::rotating_file_sink<std::mutex> >::construct<spdlog::sinks::rotating_file_sink<std::mutex>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char const (&) [4], int, int, bool>(spdlog::sinks::rotating_file_sink<std::mutex>*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char const (&) [4], int&&, int&&, bool&&) (new_allocator.h:136)
+==9574==    by 0x136F22: void std::allocator_traits<std::allocator<spdlog::sinks::rotating_file_sink<std::mutex> > >::construct<spdlog::sinks::rotating_file_sink<std::mutex>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char const (&) [4], int, int, bool>(std::allocator<spdlog::sinks::rotating_file_sink<std::mutex> >&, spdlog::sinks::rotating_file_sink<std::mutex>*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char const (&) [4], int&&, int&&, bool&&) (alloc_traits.h:475)
+==9574==    by 0x13625A: std::_Sp_counted_ptr_inplace<spdlog::sinks::rotating_file_sink<std::mutex>, std::allocator<spdlog::sinks::rotating_file_sink<std::mutex> >, (__gnu_cxx::_Lock_policy)2>::_Sp_counted_ptr_inplace<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char const (&) [4], int, int, bool>(std::allocator<spdlog::sinks::rotating_file_sink<std::mutex> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char const (&) [4], int&&, int&&, bool&&) (shared_ptr_base.h:526)
+==9574==    by 0x1355E9: std::__shared_count<(__gnu_cxx::_Lock_policy)2>::__shared_count<spdlog::sinks::rotating_file_sink<std::mutex>, std::allocator<spdlog::sinks::rotating_file_sink<std::mutex> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char const (&) [4], int, int, bool>(std::_Sp_make_shared_tag, spdlog::sinks::rotating_file_sink<std::mutex>*, std::allocator<spdlog::sinks::rotating_file_sink<std::mutex> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char const (&) [4], int&&, int&&, bool&&) (shared_ptr_base.h:637)
+==9574==    by 0x134A42: std::__shared_ptr<spdlog::sinks::rotating_file_sink<std::mutex>, (__gnu_cxx::_Lock_policy)2>::__shared_ptr<std::allocator<spdlog::sinks::rotating_file_sink<std::mutex> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char const (&) [4], int, int, bool>(std::_Sp_make_shared_tag, std::allocator<spdlog::sinks::rotating_file_sink<std::mutex> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char const (&) [4], int&&, int&&, bool&&) (shared_ptr_base.h:1295)
+==9574==    by 0x1340B4: std::shared_ptr<spdlog::sinks::rotating_file_sink<std::mutex> >::shared_ptr<std::allocator<spdlog::sinks::rotating_file_sink<std::mutex> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char const (&) [4], int, int, bool>(std::_Sp_make_shared_tag, std::allocator<spdlog::sinks::rotating_file_sink<std::mutex> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char const (&) [4], int&&, int&&, bool&&) (shared_ptr.h:344)
+==9574==    by 0x1338D7: std::shared_ptr<spdlog::sinks::rotating_file_sink<std::mutex> > std::allocate_shared<spdlog::sinks::rotating_file_sink<std::mutex>, std::allocator<spdlog::sinks::rotating_file_sink<std::mutex> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char const (&) [4], int, int, bool>(std::allocator<spdlog::sinks::rotating_file_sink<std::mutex> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char const (&) [4], int&&, int&&, bool&&) (shared_ptr.h:691)
+==9574== 
+==9574== 592 bytes in 1 blocks are still reachable in loss record 75 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x4E4AA26: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4AC20: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4D352: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4A3AA: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E46C82: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x140C76: vsGUI::vsGUI() (vsGUI.cpp:14)
+==9574==    by 0x12D160: GameManager::create_game(unsigned int) (GameManager.cpp:8)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 592 bytes in 1 blocks are still reachable in loss record 76 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x4E4AA26: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4AC20: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4D373: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4A3AA: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E46C82: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x140C76: vsGUI::vsGUI() (vsGUI.cpp:14)
+==9574==    by 0x12D160: GameManager::create_game(unsigned int) (GameManager.cpp:8)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 592 bytes in 1 blocks are still reachable in loss record 77 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x4E4AA26: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4AC20: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4D41D: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4A3AA: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E46C82: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x140C76: vsGUI::vsGUI() (vsGUI.cpp:14)
+==9574==    by 0x12D160: GameManager::create_game(unsigned int) (GameManager.cpp:8)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 750 bytes in 1 blocks are still reachable in loss record 78 of 97
+==9574==    at 0x4C2CB8F: malloc (vg_replace_malloc.c:299)
+==9574==    by 0x507480E: _nc_read_termtype (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x507498C: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x5074B76: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x5074E58: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x506EB48: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x506EE91: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x4E4A367: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E46C82: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x140C76: vsGUI::vsGUI() (vsGUI.cpp:14)
+==9574==    by 0x12D160: GameManager::create_game(unsigned int) (GameManager.cpp:8)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574== 
+==9574== 1,024 bytes in 1 blocks are still reachable in loss record 79 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x4E4CF03: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4A3AA: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E46C82: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x140C76: vsGUI::vsGUI() (vsGUI.cpp:14)
+==9574==    by 0x12D160: GameManager::create_game(unsigned int) (GameManager.cpp:8)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 1,040 bytes in 1 blocks are still reachable in loss record 80 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x5FCC43F: __new_exitfn (cxa_atexit.c:101)
+==9574==    by 0x5FCC4E8: __internal_atexit (cxa_atexit.c:35)
+==9574==    by 0x5FCC4E8: __cxa_atexit (cxa_atexit.c:58)
+==9574==    by 0x130904: __static_initialization_and_destruction_0(int, int) (pattern_formatter_impl.h:77)
+==9574==    by 0x13136A: _GLOBAL__sub_I__ZN12WizardLogger10initLoggerEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE (WizardLogger.cpp:124)
+==9574==    by 0x1446DC: __libc_csu_init (in /root/Desktop/Group2 v/src/client/main)
+==9574==    by 0x5FB5EBA: (below main) (libc-start.c:266)
+==9574== 
+==9574== 1,200 bytes in 50 blocks are still reachable in loss record 81 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x506A6E5: _nc_add_to_try (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x506CFD7: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x506E073: _nc_keypad (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x140C99: vsGUI::vsGUI() (vsGUI.cpp:17)
+==9574==    by 0x12D160: GameManager::create_game(unsigned int) (GameManager.cpp:8)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 1,509 bytes in 1 blocks are still reachable in loss record 82 of 97
+==9574==    at 0x4C2CB8F: malloc (vg_replace_malloc.c:299)
+==9574==    by 0x5073EBC: _nc_read_termtype (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x507498C: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x5074B76: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x5074E58: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x506EB48: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x506EE91: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x4E4A367: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E46C82: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x140C76: vsGUI::vsGUI() (vsGUI.cpp:14)
+==9574==    by 0x12D160: GameManager::create_game(unsigned int) (GameManager.cpp:8)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574== 
+==9574== 1,600 bytes in 200 blocks are still reachable in loss record 83 of 97
+==9574==    at 0x4C2D91F: operator new[](unsigned long) (vg_replace_malloc.c:423)
+==9574==    by 0x1437C7: Block::Block() (Block.cpp:9)
+==9574==    by 0x1418F1: Grid::Grid() (Grid.cpp:33)
+==9574==    by 0x13FAD4: Mode::Mode(bool) (Mode.cpp:51)
+==9574==    by 0x143924: Vs::Vs() (Vs.cpp:10)
+==9574==    by 0x12D17C: GameManager::create_game(unsigned int) (GameManager.cpp:9)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 1,600 bytes in 200 blocks are still reachable in loss record 84 of 97
+==9574==    at 0x4C2D91F: operator new[](unsigned long) (vg_replace_malloc.c:423)
+==9574==    by 0x1437C7: Block::Block() (Block.cpp:9)
+==9574==    by 0x1418F1: Grid::Grid() (Grid.cpp:33)
+==9574==    by 0x13FAF7: Mode::Mode(bool) (Mode.cpp:53)
+==9574==    by 0x143924: Vs::Vs() (Vs.cpp:10)
+==9574==    by 0x12D17C: GameManager::create_game(unsigned int) (GameManager.cpp:9)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 1,672 bytes in 1 blocks are still reachable in loss record 85 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x4E4CEDE: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4A3AA: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E46C82: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x140C76: vsGUI::vsGUI() (vsGUI.cpp:14)
+==9574==    by 0x12D160: GameManager::create_game(unsigned int) (GameManager.cpp:8)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 1,680 bytes in 70 blocks are still reachable in loss record 86 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x506A68B: _nc_add_to_try (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x506CF25: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x506E073: _nc_keypad (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x140C99: vsGUI::vsGUI() (vsGUI.cpp:17)
+==9574==    by 0x12D160: GameManager::create_game(unsigned int) (GameManager.cpp:8)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 2,088 bytes in 87 blocks are still reachable in loss record 87 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x506A6E5: _nc_add_to_try (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x506CF25: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x506E073: _nc_keypad (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x140C99: vsGUI::vsGUI() (vsGUI.cpp:17)
+==9574==    by 0x12D160: GameManager::create_game(unsigned int) (GameManager.cpp:8)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 3,808 bytes in 1 blocks are still reachable in loss record 88 of 97
+==9574==    at 0x4C2EDAF: realloc (vg_replace_malloc.c:785)
+==9574==    by 0x506CB42: _nc_doalloc (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x50745C1: _nc_read_termtype (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x507498C: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x5074B76: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x5074E58: _nc_read_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x506EB48: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x506EE91: _nc_setupterm (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x4E4A367: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E46C82: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x140C76: vsGUI::vsGUI() (vsGUI.cpp:14)
+==9574==    by 0x12D160: GameManager::create_game(unsigned int) (GameManager.cpp:8)
+==9574== 
+==9574== 4,960 bytes in 20 blocks are still reachable in loss record 89 of 97
+==9574==    at 0x4C2D91F: operator new[](unsigned long) (vg_replace_malloc.c:423)
+==9574==    by 0x1418CB: Grid::Grid() (Grid.cpp:33)
+==9574==    by 0x13FAD4: Mode::Mode(bool) (Mode.cpp:51)
+==9574==    by 0x143924: Vs::Vs() (Vs.cpp:10)
+==9574==    by 0x12D17C: GameManager::create_game(unsigned int) (GameManager.cpp:9)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 4,960 bytes in 20 blocks are still reachable in loss record 90 of 97
+==9574==    at 0x4C2D91F: operator new[](unsigned long) (vg_replace_malloc.c:423)
+==9574==    by 0x1418CB: Grid::Grid() (Grid.cpp:33)
+==9574==    by 0x13FAF7: Mode::Mode(bool) (Mode.cpp:53)
+==9574==    by 0x143924: Vs::Vs() (Vs.cpp:10)
+==9574==    by 0x12D17C: GameManager::create_game(unsigned int) (GameManager.cpp:9)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 5,588 bytes in 1 blocks are still reachable in loss record 91 of 97
+==9574==    at 0x4C2CB8F: malloc (vg_replace_malloc.c:299)
+==9574==    by 0x4E5007F: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4B67E: vwprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4B8E1: mvprintw (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x140F0C: vsGUI::init_main_game_GUI() (vsGUI.cpp:73)
+==9574==    by 0x13FB66: Mode::init_game() (Mode.cpp:60)
+==9574==    by 0x12D1BD: GameManager::create_game(unsigned int) (GameManager.cpp:10)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 6,084 bytes in 1 blocks are still reachable in loss record 92 of 97
+==9574==    at 0x4C2CB8F: malloc (vg_replace_malloc.c:299)
+==9574==    by 0x4E4D080: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4A3AA: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E46C82: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x140C76: vsGUI::vsGUI() (vsGUI.cpp:14)
+==9574==    by 0x12D160: GameManager::create_game(unsigned int) (GameManager.cpp:8)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 7,168 bytes in 1 blocks are still reachable in loss record 93 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x4E43281: start_color (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x140D2E: vsGUI::init_colors() (vsGUI.cpp:37)
+==9574==    by 0x140CA5: vsGUI::vsGUI() (vsGUI.cpp:18)
+==9574==    by 0x12D160: GameManager::create_game(unsigned int) (GameManager.cpp:8)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 7,952 bytes in 1 blocks are still reachable in loss record 94 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x506BAE7: ??? (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x506C278: _nc_find_type_entry (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x506FBF8: tigetflag (in /lib/x86_64-linux-gnu/libtinfo.so.5.9)
+==9574==    by 0x4E54C6E: assume_default_colors (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x140D3D: vsGUI::init_colors() (vsGUI.cpp:38)
+==9574==    by 0x140CA5: vsGUI::vsGUI() (vsGUI.cpp:18)
+==9574==    by 0x12D160: GameManager::create_game(unsigned int) (GameManager.cpp:8)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 44,400 bytes in 37 blocks are still reachable in loss record 95 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x4E4AC5C: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4D352: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4A3AA: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E46C82: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x140C76: vsGUI::vsGUI() (vsGUI.cpp:14)
+==9574==    by 0x12D160: GameManager::create_game(unsigned int) (GameManager.cpp:8)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 44,400 bytes in 37 blocks are still reachable in loss record 96 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x4E4AC5C: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4D373: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4A3AA: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E46C82: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x140C76: vsGUI::vsGUI() (vsGUI.cpp:14)
+==9574==    by 0x12D160: GameManager::create_game(unsigned int) (GameManager.cpp:8)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== 44,400 bytes in 37 blocks are still reachable in loss record 97 of 97
+==9574==    at 0x4C2EBA5: calloc (vg_replace_malloc.c:711)
+==9574==    by 0x4E4AC5C: newwin (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4D41D: ??? (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E4A3AA: newterm (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x4E46C82: initscr (in /lib/x86_64-linux-gnu/libncurses.so.5.9)
+==9574==    by 0x140C76: vsGUI::vsGUI() (vsGUI.cpp:14)
+==9574==    by 0x12D160: GameManager::create_game(unsigned int) (GameManager.cpp:8)
+==9574==    by 0x13D000: WizardDisplay::play() (WizardDisplay.cpp:52)
+==9574==    by 0x13CF3B: WizardDisplay::start() (WizardDisplay.cpp:40)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574== 
+==9574== LEAK SUMMARY:
+==9574==    definitely lost: 180 bytes in 2 blocks
+==9574==    indirectly lost: 0 bytes in 0 blocks
+==9574==      possibly lost: 864 bytes in 3 blocks
+==9574==    still reachable: 196,762 bytes in 874 blocks
+==9574==                       of which reachable via heuristic:
+==9574==                         newarray           : 10,128 bytes in 42 blocks
+==9574==         suppressed: 0 bytes in 0 blocks
+==9574== 
+==9574== ERROR SUMMARY: 7 errors from 7 contexts (suppressed: 0 from 0)
+==9574== 
+==9574== 1 errors in context 1 of 7:
+==9574== Thread 3:
+==9574== Invalid read of size 8
+==9574==    at 0x14326B: Tetriminos::has_block(int, int) const (Tetriminos.cpp:88)
+==9574==    by 0x14143E: vsGUI::update_main_game_GUI(Grid*, Grid*) (vsGUI.cpp:170)
+==9574==    by 0x13FA14: update_gui(Grid*, Grid*) (Mode.cpp:32)
+==9574==    by 0x14410F: void std::__invoke_impl<void, void (*)(Grid*, Grid*), Grid*, Grid*>(std::__invoke_other, void (*&&)(Grid*, Grid*), Grid*&&, Grid*&&) (invoke.h:60)
+==9574==    by 0x143D81: std::__invoke_result<void (*)(Grid*, Grid*), Grid*, Grid*>::type std::__invoke<void (*)(Grid*, Grid*), Grid*, Grid*>(void (*&&)(Grid*, Grid*), Grid*&&, Grid*&&) (invoke.h:95)
+==9574==    by 0x14455E: decltype (__invoke((_S_declval<0ul>)(), (_S_declval<1ul>)(), (_S_declval<2ul>)())) std::thread::_Invoker<std::tuple<void (*)(Grid*, Grid*), Grid*, Grid*> >::_M_invoke<0ul, 1ul, 2ul>(std::_Index_tuple<0ul, 1ul, 2ul>) (thread:234)
+==9574==    by 0x1444F8: std::thread::_Invoker<std::tuple<void (*)(Grid*, Grid*), Grid*, Grid*> >::operator()() (thread:243)
+==9574==    by 0x1444D7: std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)(Grid*, Grid*), Grid*, Grid*> > >::_M_run() (thread:186)
+==9574==    by 0x555080E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.24)
+==9574==    by 0x5D7E519: start_thread (pthread_create.c:465)
+==9574==    by 0x608A3EE: clone (clone.S:95)
+==9574==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==9574== 
+==9574== 
+==9574== 1 errors in context 2 of 7:
+==9574== Thread 1:
+==9574== Syscall param socketcall.sendto(msg) points to uninitialised byte(s)
+==9574==    at 0x5D8831A: send (send.c:28)
+==9574==    by 0x127255: Connection::send_packet(void*, unsigned long) (Connection.cpp:44)
+==9574==    by 0x12AC37: PacketManager::send_login_request(char const*, char const*) (PacketManager.cpp:55)
+==9574==    by 0x13CDA7: WizardDisplay::login() (WizardDisplay.cpp:16)
+==9574==    by 0x13CF2F: WizardDisplay::start() (WizardDisplay.cpp:39)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574==  Address 0x6568b50 is 16 bytes inside a block of size 96 alloc'd
+==9574==    at 0x4C2D1FF: operator new(unsigned long) (vg_replace_malloc.c:334)
+==9574==    by 0x12AB70: PacketManager::send_login_request(char const*, char const*) (PacketManager.cpp:48)
+==9574==    by 0x13CDA7: WizardDisplay::login() (WizardDisplay.cpp:16)
+==9574==    by 0x13CF2F: WizardDisplay::start() (WizardDisplay.cpp:39)
+==9574==    by 0x13EA36: Client::start() (Client.cpp:35)
+==9574==    by 0x1117C1: main (main.cpp:6)
+==9574==  Uninitialised value was created by a stack allocation
+==9574==    at 0x13CC96: WizardDisplay::login() (WizardDisplay.cpp:3)
+==9574== 
+==9574== ERROR SUMMARY: 7 errors from 7 contexts (suppressed: 0 from 0)

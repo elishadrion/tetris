@@ -1,18 +1,19 @@
 #ifndef CONNECTION_HPP
 #define CONNECTION_HPP
 
+class Connection;
+
 #include <netdb.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <netinet/tcp.h>
 #include <pthread.h>
 #include <unistd.h>
+#include <string>
 
 #include "../common/Packet.hpp"
-#include "PacketManager.hpp"
 #include "WizardDisplay.hpp"
-
-extern WizardDisplay *wizardDisplay;
+#include "PacketManager.hpp"
 
 class Connection {
     /* Structure and fd for TCP connection */
@@ -22,10 +23,11 @@ class Connection {
 
     pthread_t _thread;
     static void* receive(void*);
-public:
-    Connection();
-    ~Connection();
-    void send_packet(void*, size_t);
+    public:
+        Connection(std::string);
+        ~Connection();
+        void send_packet(void*, size_t);
+        inline int get_socket() {return _socketfd;}
 };
 
 #endif /* CONNECTION_HPP */

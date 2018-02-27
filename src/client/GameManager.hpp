@@ -1,6 +1,8 @@
 #ifndef GAMEMANAGER_HPP
 #define GAMEMANAGER_HPP
 
+class GameManager;
+
 #include <vector>
 #include <string>
 
@@ -8,23 +10,28 @@
 #include "../common/WizardLogger.hpp"
 #include "PacketManager.hpp"
 
+#include "../game/Mode/Mode.hpp"
+#include "../game/Game_system/Grid.hpp"
+#include "../game/Mode/Vs.hpp"
+#include "../game/GUI/vsGUI.hpp"
+
+void player_get_choice_in_game(Grid *);
 
 class GameManager {
+	unsigned _seed;
+	Mode * _game;
+	public:
+	    GameManager(unsigned);
+	    void create_game(unsigned);
+	    void move_right();
+	    void move_left();
+	    void move_turn_right();
+	    void move_turn_left();
+	    void move_hold();
+	    void move_harddrop();
+	    void move_drop();
+	    Mode * get_game(){return _game;}
 
-    static GameManager* _instance;
-
-    bool _inGame;
-    std::string _ennemy;
-
-
-public:
-    static GameManager* get_instance();
-
-    GameManager(std::string);
-
-    // Getters
-    inline bool is_game() const { return _instance != nullptr; }
-    inline std::string get_ennemy() const { return _ennemy; }
 };
 
 

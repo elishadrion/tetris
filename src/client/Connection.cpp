@@ -4,8 +4,8 @@
  * @param hostName: hostName where server run
  * @throw : Cannot connect to the server, we must stop the client
  */
-Connection::Connection() {
-    if ((_host=gethostbyname("127.0.0.1")) == NULL) {
+Connection::Connection(std::string address) {
+    if ((_host=gethostbyname(address.c_str())) == NULL) {
         exit(1);
     }
 

@@ -1,39 +1,40 @@
 #include "Player.hpp"
 
-Player::Player(std::string username, int sockfd): _username(username), _playerConnect(new PlayerConnect(sockfd, this)) {}
-
-unsigned Player::get_ratio() const {
-    unsigned res = 0;
-    unsigned total = get_victories()+get_defeats();
-    if(total > 0) {
-        res = get_victories()/total;
+void Player::send_packet(void* packet, size_t size) {
+    try {
+        std::cout << _sockfd << std::endl;
+        if (send(_sockfd, packet, size, 0) != size) {
+            throw std::string("Tout le packet n'a pas été envoyé à "+ get_username());
+        }
+    } catch (const std::string &message) {
+        std::cout << message << std::endl;
+        throw;
     }
-
-    return res;
-}
-
-void Player::set_sockfd(int sockfd) {_playerConnect->set_sockfd(sockfd);}
-
-bool Player::operator<(const Player &other) const {
-    return this->get_ratio() < other.get_ratio();
-}
-
-bool Player::operator>(const Player &other) const {
-    return !((*this) < other);
-}
-
-bool Player::operator==(const std::string &other_name) const {
-    return ((*this).get_name() == other_name);
-}
-
-void Player::send_packet(Packet::packet *packet, size_t size) {
-    _playerConnect->send_packet(packet, size);
 }
 
 void Player::receive() {
-    _playerConnect->receive();
+    ssize_t readSize;
+    while(1) {
+        std::cout << _sockfd << std::endl;
+        void* packet = malloc(Packet::packetMaxSize);
+
+        readSize = recv(_sockfd, packet, Packet::packetMaxSize, 0);
+        if (readSize <= 0) {
+            break;
+        } else if (readSize < Packet::packetSize) {
+            WizardLogger::warning("Impossible de récupérer un packet du client : " + get_username());
+        } else {
+            packet = realloc(packet, readSize);
+
+            PacketManager::manage_packet(this, packet);
+        }
+
+        free(packet);
+    }
+
+    WizardLogger::warning("La connexion avec le client \""+get_username()+"\" semble avoir été interrompue !");
 }
 
 void Player::logout() {
-    _playerConnect->logout();
+    PlayerManager::logout(this);
 }

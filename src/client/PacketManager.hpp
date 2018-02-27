@@ -10,20 +10,37 @@
 #include "GameManager.hpp"
 #include "CacheManager.hpp"
 
-extern class WizardDisplay *display;
+extern WizardDisplay *display;
+extern GameManager* game_manager;
+extern Connection *conn;
+extern CacheManager *cacheManager;
 
 namespace PacketManager {
     void manage_packet(void*);
 
 
-    ///// Login process /////
-    // Recev
+    //=============================RECEPTION=====================================
     void player_info(const Packet::playerInfoPacket*); /* PLAYER_INFO_ID */
-    void login_complete(const Packet::packet*); /* LOGIN_COMPLETE_ID */
-    // Send
+    //login accepté par le serveur
+    void login_complete(); /* LOGIN_COMPLETE_ID */
+    //Serveur signale qu'il ya eu une erreur durant le lgoin
+    void login_error();
+    //Partie en préparation pour le joueur
+    void game_waiting();
+    //Partie prête
+    void game_ready(Packet::intPacket*);
+
+    //=============================ENVOI=====================================
+    //===================LOGIN & SIGNUP===========================
+    //Demande à se connecter
     void send_login_request(const char*, const char*); /* LOGIN_REQ_ID */
+    //Demande à s'inscrire
     void send_signup_request(const char*, const char*); /* REGIST_REQ_ID */
+    //Demande à jouer
+    void send_play_request();
     void send_disconnect_request(); /* DISCONNECT_ID */
+    //===================JEU===========================
+    void send_move_tetriminos(int);
 
 
 

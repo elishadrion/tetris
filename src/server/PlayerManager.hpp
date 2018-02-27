@@ -5,22 +5,35 @@
 #include <iostream>
 #include <algorithm>
 #include <random>
-class Player;
-#include "Player.hpp"
+#include <fstream>
+
 #include "../dependencies/json.hpp"
 #include "../dependencies/CSVparser/CSVparser.hpp"
 #include "../common/Packet.hpp"
 
-#define PLAYERS_DB "server/assets/players.json"
+#include "../game/Mode/Vs.hpp"
+#include "../game/GUI/vsGUI.hpp"
+
+class Room;
+#include "Room.hpp"
+class Player;
+#include "Player.hpp"
+#include "Global.hpp"
 
 namespace PlayerManager {
-    extern std::vector<Player*> _connected;
-
+    //Gestion du joueur
     bool player_connected(const std::string&);
     bool player_existing(const std::string&);
+    Player* find_player(int);
     Player* signup(std::string, std::string, int);
     Player* login(std::string, std::string, int);
+    void manage_new_player(Player*);
     void logout(Player*);
+    //Gestion des parties
+    Room* create_new_room();
+    Room* find_available_room();
+    void broadcast_game_ready(Room*);
+    void start_game(Room*); 
 }
 
 #endif /* PLAYERMANAGER_HPP */

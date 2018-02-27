@@ -1,13 +1,16 @@
 #ifndef WIZARDDISPLAY_HPP
 #define WIZARDDISPLAY_HPP
 
+class WizardDisplay;
+
 #include <string>
 #include <iostream>
 #include <vector>
-#include "PacketManager.hpp"
 #include <pthread.h>
 
-
+#include "GameManager.hpp"
+#include "PacketManager.hpp"
+extern GameManager* game_manager;
 
 class WizardDisplay {
 public:
@@ -25,6 +28,8 @@ public:
     ~WizardDisplay() = default;
 
     void start();
+    void login();
+    void play();
 
 };
 

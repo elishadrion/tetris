@@ -1,13 +1,12 @@
 #include "PlayerManager.hpp"
-#include <fstream>
 
-std::vector<Player*> PlayerManager::_connected = std::vector<Player*>();
+vsGUI *gui;
 
 bool PlayerManager::player_connected(const std::string& usr) {
-    for (size_t i = 0; i < _connected.size(); i++) {
-        Player* current = _connected.at(i);
+    for (size_t i = 0; i < g_connected.size(); i++) {
+        Player* current = g_connected.at(i);
         
-        if (current->get_name() == usr) {
+        if (current->get_username() == usr) {
             return true;
         }
     }
@@ -24,16 +23,31 @@ bool PlayerManager::player_existing(const std::string& usr) {
     return false;
 }
 
+Player* PlayerManager::find_player(int socket) {
+
+    std::cout << "socket : " << socket << std::endl;
+    for (auto it = g_connected.begin(); it != g_connected.end(); it++) {
+    	std::cout << (*it)->get_sockfd() << std::endl;
+        if (!((*it)->get_sockfd()) == socket) {
+            return *it;
+        }
+    }
+    return nullptr;
+
+
+}
+
 Player* PlayerManager::login(std::string username, std::string password, int sockfd) {
+    WizardLogger::warning("Paquet de login reçu");
+
     Player* player = nullptr;
     if (!player_connected(username)) {
 
         csv::Parser file = csv::Parser("../../data/database.csv");
         for (unsigned i = 0; i < file.rowCount(); i++) {
             if (file[i][0] == username && file[i][1] == password) {
-
                 player = new Player(username, sockfd);
-                _connected.push_back(player);
+                g_connected.push_back(player);
                 player->set_sockfd(sockfd);
                 break;
             }
@@ -55,7 +69,7 @@ Player* PlayerManager::signup(std::string username, std::string password, int so
         outfile.open("../../data/database.csv", std::ios_base::app);
         outfile << "\n" << username << "," << password << std::endl;
         player = new Player(username, sockfd);
-        _connected.push_back(player);
+        g_connected.push_back(player);
         player->set_sockfd(sockfd);
     }
 
@@ -64,12 +78,56 @@ Player* PlayerManager::signup(std::string username, std::string password, int so
 
 
 void PlayerManager::logout(Player* player) {
-    for (size_t i = 0; i < _connected.size(); i++) {
-        Player* current = _connected.at(i);
+    for (size_t i = 0; i < g_connected.size(); i++) {
+        Player* current = g_connected.at(i);
 
 	    if (current == player) {
-	        _connected.erase(_connected.begin()+i);
+	        g_connected.erase(g_connected.begin()+i);
 	        return;
 	    }
     }
+}
+
+Room* PlayerManager::create_new_room() {
+    Room* new_room = new Room(2);
+    g_rooms.push_back(new_room);
+    return new_room;
+}
+
+void PlayerManager::broadcast_game_ready(Room* room) {
+    PacketManager::send_game_waiting(room->get_player(room->get_size()-1));
+    for (unsigned i = 0; i < room->get_size(); i++) {
+        PacketManager::send_game_ready(room->get_player(i));
+    }
+
+}
+
+void PlayerManager::manage_new_player(Player* player) {
+    WizardLogger::info("dans manage new player");
+    Room* room = find_available_room();
+    if (room == nullptr) room = create_new_room();
+    room->add_player(player);
+
+    if(room->is_full()) {
+    	broadcast_game_ready(room);
+    	start_game(room);
+    }
+    else PacketManager::send_game_waiting(player);
+}
+
+Room* PlayerManager::find_available_room() {
+    for (auto it = g_rooms.begin(); it != g_rooms.end(); it++) {
+        if (!(*it)->is_full()) {
+            return *it;
+        }
+    }
+    return nullptr;
+}
+
+void PlayerManager::start_game(Room* room) {
+    //gui = new vsGUI();
+    room->set_mode(new Vs());
+    room->get_mode()->init_game(3);
+    while(1){};
+    
 }

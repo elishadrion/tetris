@@ -9,8 +9,8 @@ OUT= main
 CXXFLAGS= -std=c++17 -pthread -ggdb3 -Wpedantic -Wall -Wextra -Wconversion -Weffc++ -Wstrict-null-sentinel -Wold-style-cast -Wnoexcept -Wctor-dtor-privacy -Woverloaded-virtual -Wsign-promo -Wzero-as-null-pointer-constant -Wsuggest-final-types -Wsuggest-final-methods -Wsuggest-override
 all: $(OUT)
 
-$(OUT): Connection.o Player.o GameManager.o PacketManager.o WizardLogger.o CacheManager.o WizardDisplay.o $(MAIN)
-	$(CXX) $(CXXFLAGS) $(MAIN) Connection.o Player.o PacketManager.o GameManager.o CacheManager.o WizardDisplay.o WizardLogger.o -o $(OUT)
+$(OUT):		 					Connection.o Player.o PacketManager.o GameManager.o WizardLogger.o CacheManager.o WizardDisplay.o Client.o Mode.o GUI.o vsGUI.o Grid.o Tetriminos.o Block.o Vs.o $(MAIN)
+	$(CXX) $(CXXFLAGS) $(MAIN) 	Connection.o Player.o PacketManager.o GameManager.o WizardLogger.o CacheManager.o WizardDisplay.o Client.o Mode.o GUI.o vsGUI.o Grid.o Tetriminos.o Block.o Vs.o -lncurses -lform -o $(OUT)
 	
 PacketManager.o: PacketManager.cpp PacketManager.hpp
 	$(CXX) $(CXXFLAGS) -c PacketManager.cpp
@@ -33,3 +33,26 @@ WizardDisplay.o: WizardDisplay.cpp WizardDisplay.hpp
 WizardLogger.o: ../common/WizardLogger.cpp ../common/WizardLogger.hpp
 	$(CXX) $(CXXFLAGS) -c ../common/WizardLogger.cpp
 
+Client.o: Client.cpp Client.hpp
+	$(CXX) $(CXXFLAGS) -c Client.cpp
+
+Mode.o: ../game/Mode/Mode.cpp ../game/Mode/Mode.hpp
+	$(CXX) $(CXXFLAGS) -c ../game/Mode/Mode.cpp
+
+Vs.o: ../game/Mode/Vs.cpp ../game/Mode/Vs.hpp
+	$(CXX) $(CXXFLAGS) -c ../game/Mode/Vs.cpp
+
+GUI.o: ../game/GUI/GUI.cpp ../game/GUI/GUI.hpp
+	$(CXX) $(CXXFLAGS) -c ../game/GUI/GUI.cpp
+
+vsGUI.o: ../game/GUI/vsGUI.cpp ../game/GUI/vsGUI.hpp
+	$(CXX) $(CXXFLAGS) -c ../game/GUI/vsGUI.cpp
+
+Grid.o:  ../game/Game_system/Grid.cpp  ../game/Game_system/Grid.hpp
+	$(CXX) $(CXXFLAGS) -c  ../game/Game_system/Grid.cpp
+
+Tetriminos.o:  ../game/Game_system/Tetriminos.cpp  ../game/Game_system/Tetriminos.hpp
+	$(CXX) $(CXXFLAGS) -c  ../game/Game_system/Tetriminos.cpp
+
+Block.o: ../game/Game_system/Block.cpp  ../game/Game_system/Block.hpp
+	$(CXX) $(CXXFLAGS) -c ../game/Game_system/Block.cpp

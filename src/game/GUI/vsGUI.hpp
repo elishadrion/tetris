@@ -33,7 +33,7 @@ class vsGUI{
 		void init_colors();
 		void init_main_game_GUI();
 		
-   		void update_main_game_GUI(Grid * grid);
+   		void update_main_game_GUI(Grid * grid, Grid * other_grid);
    		void update_hold_tetriminos_GUI(Tetriminos * hold_tetriminos);
    		void update_next_tetriminos_GUI(Tetriminos * next_tetriminos);
    		void erase_hold_tetriminos_GUI();

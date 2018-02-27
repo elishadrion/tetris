@@ -1,15 +1,15 @@
 #ifndef CACHE_MANAGER_HPP
 #define CACHE_MANAGER_HPP
 
+class CacheManager;
+
 #include <string>
 #include <vector>
 
-
 #include "PacketManager.hpp"
-
 #include "../common/WizardLogger.hpp"
 
-extern WizardDisplay *wizardDisplay;
+extern WizardDisplay *display;
 
 class CacheManager {
     static std::vector<std::string*> pseudoRankingCache;
