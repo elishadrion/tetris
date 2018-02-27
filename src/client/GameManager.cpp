@@ -12,16 +12,12 @@ void GameManager::create_game(unsigned _num){
     _game->init_game(true);
 
 
-	if (_num == 0) {
+	
 
 		std::thread thread_joueur(player_get_choice_in_game, _game->get_grid());
 		thread_joueur.detach();	
 
-	} else {
-		
-		std::thread thread_joueur(player_get_choice_in_game, _game->get_other_grid());
-		thread_joueur.detach();	
-	}
+
 
 	while(1){};
 	
