@@ -144,7 +144,7 @@ void vsGUI::update_main_game_GUI(Grid * grid, Grid * other_grid){
 			}
 
 			// Si on affiche un bloc du tétriminos.
-			else if(other_grid->get_tetriminos()->has_block(0,0)){
+			else if(other_grid->get_tetriminos()->has_block(i,j)){
 				
 				attron(A_BOLD | COLOR_PAIR(other_grid->get_color_of_tetriminos()));	
 				mvprintw(3+i, 43+j*2, "  ");

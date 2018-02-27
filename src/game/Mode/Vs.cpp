@@ -22,25 +22,16 @@ Vs::~Vs(){
 	
 }
 
-void Vs::init_game(int num){
-	srand(12); // Graine du randomizer
+void Vs::init_game(bool is_player){
+	 // Graine du randomizer
 	std::thread t(&Vs::start,this,grid);
 	std::thread t2(&Vs::start,this, _other_grid);
 	t.detach();
 	t2.detach();
-	gui->init_main_game_GUI();
-	usleep(1000);
-	if(num==0){
-
-		std::thread v (update_gui,grid,_other_grid); // Thread pour les inputs du joueur
-		v.detach();
-
-	}else {
-		
-		std::thread v (update_gui,_other_grid,grid); // Thread pour les inputs du joueur
-		v.detach();
-	}
-
+	if(is_player){gui->init_main_game_GUI();
+	usleep(2000);
+	std::thread v (update_gui,grid,_other_grid); // Thread pour les inputs du joueur
+	v.detach();}
 }
 
 void Vs::start(Grid * grid){
@@ -49,7 +40,7 @@ void Vs::start(Grid * grid){
 	Sans objectif, on perd quand un tétriminos est hors de la grille.		
 	*/
 	 
-	
+	srand(12);
 	int line_complete = 0;
 	bool gridOverload = false;
 	

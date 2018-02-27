@@ -29,7 +29,7 @@ Mode.cpp
 
 void update_gui(Grid * grid, Grid * other_grid){
 
-	
+	gui->init_main_game_GUI();
 	gui->update_main_game_GUI(grid, other_grid);  // On update l'affichage de la grille
 	while(1){
 		// gui->update_next_tetriminos_GUI( grid->get_next_tetriminos());

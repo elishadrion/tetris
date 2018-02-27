@@ -46,7 +46,7 @@ void PacketManager::manage_play_request(Player* player) {
 }
 
 void PacketManager::manage_move_tetriminos_request(Player* player, Packet::intPacket* packet) {
-    exit(0);
+    
     WizardLogger::info(player->get_username()+" a fait le move : "+ std::to_string(packet->data));
     player->get_room()->move_tetriminos(player, packet->data);
 }

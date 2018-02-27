@@ -32,7 +32,7 @@ class Mode{
 		
 		Mode(bool);
 		virtual ~Mode(){};	
-    	virtual void init_game(int num)=0;
+    	virtual void init_game(bool is_player)=0;
     	virtual Grid* get_grid(){return grid;}
     	virtual Grid* get_other_grid() {return _other_grid;}
 		virtual int tetriminos_dropping(Grid *);

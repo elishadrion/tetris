@@ -9,7 +9,7 @@ void GameManager::create_game(unsigned _num){
 	gui = new vsGUI();    
 	_game = new Vs();
 
-    _game->init_game(_num);
+    _game->init_game(true);
 
 
 	if (_num == 0) {
