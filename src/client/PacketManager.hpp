@@ -29,7 +29,7 @@ namespace PacketManager {
     void game_waiting();
     //Partie prête
     void game_ready(Packet::intPacket*);
-
+    void manage_move_tetriminos_request(Player*, Packet::intPacket*);
     //=============================ENVOI=====================================
     //===================LOGIN & SIGNUP===========================
     //Demande à se connecter

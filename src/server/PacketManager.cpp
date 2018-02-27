@@ -46,9 +46,15 @@ void PacketManager::manage_play_request(Player* player) {
 }
 
 void PacketManager::manage_move_tetriminos_request(Player* player, Packet::intPacket* packet) {
-    
-    WizardLogger::info(player->get_username()+" a fait le move : "+ std::to_string(packet->data));
+	//On bouge le tetriminos du côté serveur
     player->get_room()->move_tetriminos(player, packet->data);
+    //On envoie le move à l'autre joueur
+    if (player->get_room()->get_player(0) == player) {
+    	player->get_room()->get_player(1)->send_packet(packet, sizeof(*packet));
+    } else {
+    	player->get_room()->get_player(0)->send_packet(packet, sizeof(*packet));
+    }
+
 }
 
 //===========================ENVOI===========================================

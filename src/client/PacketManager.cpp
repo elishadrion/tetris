@@ -18,6 +18,8 @@ void PacketManager::manage_packet(void* packet) {
                                             break;
         case Packet::GAME_READY_ID:         game_ready(reinterpret_cast<Packet::intPacket*>(packet));
                                             break;
+        case Packet::MOVE_TETRIMINOS:       manage_move_tetriminos_request(player, reinterpret_cast<Packet::intPacket*>(packet));
+                                            break;
         case Packet::DISCONNECT_ID :        WizardLogger::warning("Paquet de déconnection reçu");
                                             break;
         default :                           WizardLogger::warning("Paquet inconnue reçu: " +
@@ -70,9 +72,6 @@ void PacketManager::send_signup_request(const char *pseudo, const char *password
     delete registrationPacket;
 }
 
-
-
-
 //=============================ENVOI=====================================
 //===========================GAME PROCESS===========================================
 
@@ -100,6 +99,11 @@ void PacketManager::game_ready(Packet::intPacket* packet) {
     pthread_mutex_unlock(&display->packetStackMutex);
 }
 
+void PacketManager::manage_move_tetriminos_request(Player* player, Packet::intPacket* packet) {
+    game_manager->get_game()->move_tetriminos_second_grid(packet->data);
+}
+
+
 /**
  * Send a disconnection signal to the server (help detect crash)
  */
@@ -115,7 +119,6 @@ void PacketManager::send_move_tetriminos(int _data) {
     Packet::intPacket* packet = new Packet::intPacket();
     packet->ID = Packet::MOVE_TETRIMINOS;
     packet->data = _data;
-    WizardLogger::info("move tetriminos data : "+ std::to_string(packet->data));
     conn->send_packet(packet, sizeof(*packet));
     delete packet;
 }
