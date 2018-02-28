@@ -9,13 +9,13 @@ void GameManager::create_game(unsigned _num, unsigned seed){
     _game->init_game(true);
 	std::thread thread_joueur(player_get_choice_in_game, _game->get_grid());
 	thread_joueur.join();	
-
-exit(0);
+	delete gui;
+	delete _game;
 }
 
 void player_get_choice_in_game(Grid* grid) {
 	int ch;
-	while(1){
+	while(!game_manager->get_game()->get_is_finished()){
 		
 		ch = getch();
 
@@ -49,6 +49,8 @@ void player_get_choice_in_game(Grid* grid) {
 			grid->set_acceleration_quick();
 		}
 	}
+	WizardLogger::info("player_get_choice_in_game arrêté!");
+
 }
 
 void GameManager::move_right() {

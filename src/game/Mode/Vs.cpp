@@ -27,9 +27,10 @@ void Vs::init_game(bool is_player){
 	t.detach();
 	t2.detach();
 
-	if(is_player){gui->init_main_game_GUI();
+	if(is_player){
+		gui->init_main_game_GUI();
 		usleep(2000);
-		std::thread v (update_gui,grid,_other_grid); // Thread pour les inputs du joueur
+		std::thread v(&Vs::update_gui, this, grid,_other_grid); // Thread pour les inputs du joueur
 		v.detach();
 	}
 }
@@ -40,11 +41,10 @@ void Vs::start(Grid * grid){
 	Sans objectif, on perd quand un tétriminos est hors de la grille.		
 	*/
 	 
-	srand(4);
 	int line_complete = 0;
 	bool gridOverload = false;	
 	
-	while(not(gridOverload) ){
+	while(!_is_finished and !gridOverload ){
 
 		grid->tetriminos_generator();
 		line_complete += tetriminos_dropping(grid);		
@@ -53,6 +53,7 @@ void Vs::start(Grid * grid){
 		delete grid->get_tetriminos();
 		
 	}
+	_is_finished = true;
 }
 
 

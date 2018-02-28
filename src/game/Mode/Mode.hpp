@@ -27,6 +27,7 @@ class Mode{
 		
 		Grid * grid;
 		Grid * _other_grid;
+		bool _is_finished;
 		
 	public:
 		
@@ -35,6 +36,8 @@ class Mode{
     	virtual void init_game(bool is_player)=0;
     	virtual Grid* get_grid(){return grid;}
     	virtual Grid* get_other_grid() {return _other_grid;}
+    	bool get_is_finished() {return _is_finished;}
+    	void update_gui(Grid *, Grid*);
 		virtual int tetriminos_dropping(Grid *);
 		void move_tetriminos_first_grid(unsigned);
 		void move_tetriminos_second_grid(unsigned);
