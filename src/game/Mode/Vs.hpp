@@ -8,7 +8,7 @@ Vs.hpp
 #define __Vs__HPP__
 
 #include "Mode.hpp"
-
+extern bool g_is_finished;
 
 class Vs: public virtual Mode {
 	bool _is_player;			

@@ -6,6 +6,7 @@ Player *player;
 GameManager *game_manager;
 vsGUI *gui;
 
+
 Client::Client(std::string address) {
     game_manager = new GameManager();
 

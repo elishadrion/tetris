@@ -14,12 +14,13 @@ void GameManager::create_game(unsigned _num, unsigned seed){
 }
 
 void player_get_choice_in_game(Grid* grid) {
+
 	int ch;
-	while(!game_manager->get_game()->get_is_finished()){
+	while(1){
 		
 		ch = getch();
 
-		if      (ch == KEY_RIGHT) {
+		if  (ch == KEY_RIGHT) {
 			game_manager->move_right();
 			grid->current_tetriminos_move_right();
 

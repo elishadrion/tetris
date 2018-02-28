@@ -120,6 +120,7 @@ void PacketManager::send_move_tetriminos(int _data) {
     Packet::intPacket* packet = new Packet::intPacket();
     packet->ID = Packet::MOVE_TETRIMINOS;
     packet->data = _data;
+    //On vérifie bien que le jeu n'est pas fini
     conn->send_packet(packet, sizeof(*packet));
     delete packet;
 }

@@ -16,7 +16,7 @@ Mode.hpp
 #include "../GUI/vsGUI.hpp"
 #include "../Game_system/Grid.hpp"
 #include "../../common/Packet.hpp"
-
+extern bool g_is_finished;
 
 void update_gui(Grid * grid, Grid * other_grid);
 extern vsGUI *gui;
@@ -27,7 +27,6 @@ class Mode{
 		
 		Grid * grid;
 		Grid * _other_grid;
-		bool _is_finished;
 		
 	public:
 		
@@ -36,13 +35,12 @@ class Mode{
     	virtual void init_game(bool is_player)=0;
     	virtual Grid* get_grid(){return grid;}
     	virtual Grid* get_other_grid() {return _other_grid;}
-    	bool get_is_finished() {return _is_finished;}
     	void update_gui(Grid *, Grid*);
 		virtual int tetriminos_dropping(Grid *);
 		void move_tetriminos_first_grid(unsigned);
 		void move_tetriminos_second_grid(unsigned);
 		virtual void start(Grid*)=0;
-		//virtual void start2(Grid *)=0;
+		
 		
 		
 

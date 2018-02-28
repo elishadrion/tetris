@@ -348,7 +348,6 @@ bool Grid::tetriminos_try_drop(){
 	qu'il ne frole pas le sol.
 		:return flag: bool
 	*/
-
 	bool can_drop = true;
 	mtx.lock();
 
