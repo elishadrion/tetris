@@ -44,7 +44,7 @@ void Vs::start(Grid * grid){
 	int line_complete = 0;
 	bool gridOverload = false;	
 	
-	while(!_is_finished and !gridOverload ){
+	while(!gridOverload ){
 
 		grid->tetriminos_generator();
 		line_complete += tetriminos_dropping(grid);		

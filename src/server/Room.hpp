@@ -5,6 +5,7 @@
 
 class Player;
 #include "Player.hpp"
+#include<sys/time.h>
 #include "../game/Mode/Mode.hpp"
 
 class Room {

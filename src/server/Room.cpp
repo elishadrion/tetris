@@ -1,7 +1,7 @@
 #include "Room.hpp"
 
 Room::Room(unsigned max): _size(0) {
-	//game = new Vs();
+	srand(time(NULL));
 	_seed = rand();
 	_players = new Player*[max];
 	_max_size = max;
