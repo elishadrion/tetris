@@ -42,24 +42,15 @@ void Vs::start(Grid * grid){
 	 
 	srand(4);
 	int line_complete = 0;
-	bool gridOverload = false;
-	
+	bool gridOverload = false;	
 	
 	while(not(gridOverload) ){
 
 		grid->tetriminos_generator();
-		
-
-		line_complete += tetriminos_dropping(grid);	
-		
+		line_complete += tetriminos_dropping(grid);		
 		gridOverload = grid->is_overload();		
 		
 		delete grid->get_tetriminos();
-		
-
-		// std::string s =  std::to_string(line_complete);
-		// char const *message = s.c_str();
-		// mvprintw(0, 0, "%d",line_complete);
 		
 	}
 }

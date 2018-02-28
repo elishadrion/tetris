@@ -35,9 +35,12 @@ class vsGUI{
 		
    		void update_main_game_GUI(Grid * grid, Grid * other_grid);
    		void update_hold_tetriminos_GUI(Tetriminos * hold_tetriminos);
-   		void update_next_tetriminos_GUI(Tetriminos * next_tetriminos);
+   		void update_next_tetriminos_GUI(Tetriminos * next_tetriminos, Tetriminos * next_tetriminos_other);
+   		
    		void erase_hold_tetriminos_GUI();
    		void erase_next_tetriminos_GUI();
+   		void erase_hold_tetriminos_other_GUI();
+   		void update_hold_tetriminos_other_GUI(Tetriminos* hold_tetriminos_other);
    		
 
    		

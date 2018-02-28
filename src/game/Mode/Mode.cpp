@@ -29,19 +29,31 @@ Mode.cpp
 
 void update_gui(Grid * grid, Grid * other_grid){
 
-	gui->init_main_game_GUI();
+	
 	gui->update_main_game_GUI(grid, other_grid);  // On update l'affichage de la grille
+
 	while(1){
-		// gui->update_next_tetriminos_GUI( grid->get_next_tetriminos());
+		gui->update_next_tetriminos_GUI( grid->get_next_tetriminos(), other_grid->get_next_tetriminos());
 
-		// if(not(grid->has_tetriminos_hold())){ 
+		if(not(grid->has_tetriminos_hold())){ 
 
-		// 	gui->erase_hold_tetriminos_GUI();
-		// }
-		// else{
+			gui->erase_hold_tetriminos_GUI();
+		}
+		else{
 
-		// 	gui->update_hold_tetriminos_GUI(grid->get_hold_tetriminos());
-		// }
+			gui->update_hold_tetriminos_GUI(grid->get_hold_tetriminos());
+		}
+
+		if(not(other_grid->has_tetriminos_hold())){ 
+
+			gui->erase_hold_tetriminos_other_GUI();
+		}
+		else{
+
+			gui->update_hold_tetriminos_other_GUI(other_grid->get_hold_tetriminos());
+		}
+
+
 		gui->update_main_game_GUI(grid,other_grid);
 		usleep(100000);
 	}

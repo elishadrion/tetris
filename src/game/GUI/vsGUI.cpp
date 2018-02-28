@@ -94,6 +94,10 @@ void vsGUI::init_main_game_GUI(){
 	mvprintw(5, 1, "SCORE :");
 	mvprintw(7, 1, "LINES :");
 
+	mvprintw(16, 66, "LEVEL :");
+	mvprintw(18, 66, "SCORE :");
+	mvprintw(20, 66, "LINES :");
+
 	refresh();
 }
 
@@ -106,9 +110,13 @@ void vsGUI::update_main_game_GUI(Grid * grid, Grid * other_grid){
 	*/
 
 	attron(A_BOLD | COLOR_PAIR(8));	
-	// mvprintw(5, 8,"%d", grid->get_score());
-	// mvprintw(3, 8,"%d", grid->get_level());
-	// mvprintw(7, 8,"%d", grid->get_line_complete());
+	mvprintw(5, 8,"%d", grid->get_score());
+	mvprintw(3, 8,"%d", grid->get_level());
+	mvprintw(7, 8,"%d", grid->get_line_complete());
+
+	mvprintw(16, 73,"%d", other_grid->get_score());
+	mvprintw(18, 73,"%d", other_grid->get_level());
+	mvprintw(20, 73,"%d", other_grid->get_line_complete());
 
 	for(int i =0; i < 20; i++){
 		
@@ -178,6 +186,25 @@ void vsGUI::erase_next_tetriminos_GUI(){
 	mvprintw(16, 6, "Next");
 	wrefresh(BOX_NEXT_TETRIMINOS);
 
+	werase(BOX_NEXT_TETRIMINOS_OTHER);	
+	box(BOX_NEXT_TETRIMINOS_OTHER, ACS_VLINE, ACS_HLINE);	 
+	attron(A_BOLD | COLOR_PAIR(8));	
+	mvprintw(7, 71, "Next");
+	wrefresh(BOX_NEXT_TETRIMINOS_OTHER);
+
+}
+
+void vsGUI::erase_hold_tetriminos_other_GUI(){
+	/*
+	Effacemment du hold tetréminos sur la vsGUI.
+	*/
+
+	werase(BOX_HOLD_TETRIMINOS_OTHER);		
+	box(BOX_HOLD_TETRIMINOS_OTHER, ACS_VLINE, ACS_HLINE);	
+	attron(A_BOLD | COLOR_PAIR(8));	
+	mvprintw(13, 71, "Hold");
+	wrefresh(BOX_HOLD_TETRIMINOS_OTHER);
+
 }
 
 void vsGUI::erase_hold_tetriminos_GUI(){
@@ -192,23 +219,29 @@ void vsGUI::erase_hold_tetriminos_GUI(){
 	wrefresh(BOX_HOLD_TETRIMINOS);
 
 }
-
-void vsGUI::update_next_tetriminos_GUI(Tetriminos * next_tetriminos){
+void vsGUI::update_next_tetriminos_GUI(Tetriminos * next_tetriminos, Tetriminos * next_tetriminos_other){
 
 	/*
 	On affiche le hold tétriminos sur la vsGUI.
 		:param grid: Grid *
 	*/
 
-	 erase_next_tetriminos_GUI();
+	erase_next_tetriminos_GUI();
 
+	int x,y;
 	for(int i=0; i<4; i++){
 	
-		int y = next_tetriminos->get_coord_Y_of_block(i);
-		int x = next_tetriminos->get_coord_X_of_block(i);
+		y = next_tetriminos->get_coord_Y_of_block(i);
+		x = next_tetriminos->get_coord_X_of_block(i);
 
 		attron(A_BOLD | COLOR_PAIR(next_tetriminos->get_color_of_block(0)));
 		mvprintw( 14+y,-2+x*2 , "  ");
+
+		y = next_tetriminos_other->get_coord_Y_of_block(i);
+        x = next_tetriminos_other->get_coord_X_of_block(i);
+
+		attron(A_BOLD | COLOR_PAIR(next_tetriminos_other->get_color_of_block(0)));
+		mvprintw( 5+y,63+x*2 , "  ");
 	}
 
 
@@ -219,11 +252,11 @@ void vsGUI::update_hold_tetriminos_GUI(Tetriminos * hold_tetriminos){
 	On affiche le hold tétriminos sur la vsGUI.
 		:param grid: Grid *
 	*/
-		
+		int x,y;
 		for(int i=0; i<4; i++){			
 			
-			int y = hold_tetriminos->get_coord_Y_of_block(i);
-			int x = hold_tetriminos->get_coord_X_of_block(i);
+			y = hold_tetriminos->get_coord_Y_of_block(i);
+			x = hold_tetriminos->get_coord_X_of_block(i);
 
 			attron(A_BOLD | COLOR_PAIR(hold_tetriminos->get_color_of_block(0)));
 			mvprintw( 19+y,-2+x*2 , "  ");
@@ -233,4 +266,26 @@ void vsGUI::update_hold_tetriminos_GUI(Tetriminos * hold_tetriminos){
 
 }
 
+void vsGUI::update_hold_tetriminos_other_GUI(Tetriminos* hold_tetriminos_other){
+	/*
+	On affiche le hold tétriminos sur la vsGUI.
+		:param grid: Grid *
+	*/
+		
+		int x, y;
+		for(int i=0; i<4; i++){			
 
+
+			y = hold_tetriminos_other->get_coord_Y_of_block(i);
+			x = hold_tetriminos_other->get_coord_X_of_block(i);
+
+			attron(A_BOLD | COLOR_PAIR(hold_tetriminos_other->get_color_of_block(0)));
+			mvprintw( 11+y,63+x*2 , "  ");
+
+
+
+		}
+
+	
+
+}
