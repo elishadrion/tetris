@@ -30,7 +30,7 @@ class Mode{
 		
 	public:
 		
-		Mode(bool);
+		Mode(bool,unsigned);
 		virtual ~Mode(){};	
     	virtual void init_game(bool is_player)=0;
     	virtual Grid* get_grid(){return grid;}

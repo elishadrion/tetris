@@ -7,7 +7,7 @@ GameManager::GameManager(unsigned seed): _seed(seed) {}
 void GameManager::create_game(unsigned _num){
 
 	gui = new vsGUI();    
-	_game = new Vs();
+	_game = new Vs(12);
 
     _game->init_game(true);
 

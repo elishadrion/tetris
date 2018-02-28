@@ -14,7 +14,7 @@ class Vs: public virtual Mode {
 	bool _is_player;			
 	public:
 		
-		Vs();
+		Vs(unsigned);
 		virtual ~Vs();
 		virtual void start(Grid *)override;
 		

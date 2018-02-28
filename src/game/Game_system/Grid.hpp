@@ -13,6 +13,8 @@ Grid.hpp
 #include<iostream>
 #include <sys/time.h>
 #include<math.h>
+#include "../../common/Random.hpp"
+
 
 
 class Grid{
@@ -25,15 +27,17 @@ class Grid{
 		Tetriminos * _next_tetriminos;
 		Tetriminos * _hold_tetriminos;
 
+		Random *_number_generator;
+
 		int _acceleration;
 		int _score;
 		int _level;
 		int _line_complete;
 		int _line_stack;
-		
+
 	public:
 
-		Grid();
+		Grid(unsigned);
 		~Grid();
 
 		//Getter

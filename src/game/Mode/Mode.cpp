@@ -61,9 +61,9 @@ void update_gui(Grid * grid, Grid * other_grid){
 
 
 
-Mode::Mode(bool is_vs): grid(new Grid())  {
+Mode::Mode(bool is_vs, unsigned seed): grid(new Grid(seed))  {
 	if (is_vs) {
-		_other_grid = new Grid();
+		_other_grid = new Grid(seed);
 
 	}
 }

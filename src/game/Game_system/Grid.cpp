@@ -10,16 +10,8 @@ Grid.cpp
 std::mutex mtx; 
 
 
-void time_console(){
-	
-
-	sleep(1);
-	//grid->up_time_party();
-
-}
-
-Grid::Grid() :  _grid(nullptr),_current_tetriminos(nullptr), _next_tetriminos(nullptr),
-				_hold_tetriminos(nullptr),_acceleration(300000),
+Grid::Grid(unsigned seed) :  _grid(nullptr),_current_tetriminos(nullptr), _next_tetriminos(nullptr),
+				_hold_tetriminos(nullptr),_number_generator( new Random(seed)),_acceleration(300000),
 				_score(0), _level(0),_line_complete(0),_line_stack(0) {
 	/*
 	On construit une grille de 20 x 10.
@@ -433,7 +425,7 @@ void Grid::set_current_tetriminos_hold(){
 
 		_hold_tetriminos = _current_tetriminos;
 		_current_tetriminos = _next_tetriminos;
-		_next_tetriminos = new Tetriminos(rand()%7);
+		_next_tetriminos = new Tetriminos(_number_generator->nextInt());
 
 		int color ;
 
@@ -485,7 +477,7 @@ void Grid::tetriminos_generator(){
 	et le prochain tétriminos.
 	*/
 
-	int color = rand()%7;
+	int color = _number_generator->nextInt();
 	
 	if(not(_next_tetriminos)){
 		_current_tetriminos = new Tetriminos(color);
@@ -495,7 +487,7 @@ void Grid::tetriminos_generator(){
 		_current_tetriminos = _next_tetriminos;
 	}
 
-	color = rand()%7;
+	color = _number_generator->nextInt();
 
 	_next_tetriminos = new Tetriminos(color);
 	
@@ -551,7 +543,7 @@ void Grid::add_line(int line){
 				if(j!= random_block ){
 
 					_grid[20-i][j].set_empty_state(false);
-					_grid[20-i][j].set_color(rand()%7 +1);
+					_grid[20-i][j].set_color(_number_generator->nextInt() +1);
 				}
 
 				else{

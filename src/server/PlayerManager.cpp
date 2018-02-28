@@ -126,7 +126,7 @@ Room* PlayerManager::find_available_room() {
 
 void PlayerManager::start_game(Room* room) {
     //gui = new vsGUI();
-    room->set_mode(new Vs());
+    room->set_mode(new Vs(12));
     room->get_mode()->init_game(false);
     
     
