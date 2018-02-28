@@ -7,7 +7,7 @@ GameManager *game_manager;
 vsGUI *gui;
 
 Client::Client(std::string address) {
-    game_manager = new GameManager(0);
+    game_manager = new GameManager();
 
     try {
         WizardLogger::initLogger(false, "WizardLogger");

@@ -41,7 +41,7 @@ void PacketManager::manage_disconnect_request(Player* player) {
 
 
 void PacketManager::manage_play_request(Player* player) {
-    WizardLogger::info("Reçu une demande de jeu");
+    WizardLogger::info("Reçu une demande de jeu de : "+player->get_username());
     PlayerManager::manage_new_player(player);
 }
 
@@ -60,7 +60,7 @@ void PacketManager::manage_move_tetriminos_request(Player* player, Packet::intPa
 //===========================ENVOI===========================================
 
 void PacketManager::send_game_waiting(Player* player) {
-    WizardLogger::info("Envoi d'un game waiting");
+    WizardLogger::info("Envoi d'un game waiting à : "+player->get_username());
 
     Packet::packet* packet = new Packet::packet();
     packet->ID = Packet::GAME_WAITING_ID;
@@ -68,11 +68,11 @@ void PacketManager::send_game_waiting(Player* player) {
     delete packet;
 }
 
-void PacketManager::send_game_ready(Player* player) {
-    WizardLogger::info("Envoi d'un game ready");
-    Packet::intPacket* packet = new Packet::intPacket();
-    packet->ID = Packet::GAME_READY_ID;
+void PacketManager::send_game_ready(Player* player, unsigned seed) {
+    WizardLogger::info("Envoi d'un game ready à : "+player->get_username());
+    Packet::playApprovalPacket* packet = new Packet::playApprovalPacket();
     packet->data = 1;
+    packet->seed = seed;
     //On doit savoir si le joueur contrôle la grille 1 ou 2
     if ((player->get_room()->get_player(0) == player)) {packet->data = 0;}
     player->send_packet(packet, sizeof(*packet));

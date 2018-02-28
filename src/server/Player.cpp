@@ -2,12 +2,11 @@
 
 void Player::send_packet(void* packet, size_t size) {
     try {
-        std::cout << _sockfd << std::endl;
         if (send(_sockfd, packet, size, 0) != size) {
             throw std::string("Tout le packet n'a pas été envoyé à "+ get_username());
         }
     } catch (const std::string &message) {
-        std::cout << message << std::endl;
+        WizardLogger::error(message);
         throw;
     }
 }
@@ -15,7 +14,6 @@ void Player::send_packet(void* packet, size_t size) {
 void Player::receive() {
     ssize_t readSize;
     while(1) {
-        std::cout << _sockfd << std::endl;
         void* packet = malloc(Packet::packetMaxSize);
 
         readSize = recv(_sockfd, packet, Packet::packetMaxSize, 0);

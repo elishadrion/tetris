@@ -24,10 +24,7 @@ bool PlayerManager::player_existing(const std::string& usr) {
 }
 
 Player* PlayerManager::find_player(int socket) {
-
-    std::cout << "socket : " << socket << std::endl;
     for (auto it = g_connected.begin(); it != g_connected.end(); it++) {
-    	std::cout << (*it)->get_sockfd() << std::endl;
         if (!((*it)->get_sockfd()) == socket) {
             return *it;
         }
@@ -97,13 +94,12 @@ Room* PlayerManager::create_new_room() {
 void PlayerManager::broadcast_game_ready(Room* room) {
     PacketManager::send_game_waiting(room->get_player(room->get_size()-1));
     for (unsigned i = 0; i < room->get_size(); i++) {
-        PacketManager::send_game_ready(room->get_player(i));
+        PacketManager::send_game_ready(room->get_player(i), room->get_seed());
     }
 
 }
 
 void PlayerManager::manage_new_player(Player* player) {
-    WizardLogger::info("dans manage new player");
     Room* room = find_available_room();
     if (room == nullptr) room = create_new_room();
     room->add_player(player);
@@ -126,7 +122,7 @@ Room* PlayerManager::find_available_room() {
 
 void PlayerManager::start_game(Room* room) {
     //gui = new vsGUI();
-    room->set_mode(new Vs(12));
+    room->set_mode(new Vs(room->get_seed()));
     room->get_mode()->init_game(false);
     
     

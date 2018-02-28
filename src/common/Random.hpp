@@ -1,3 +1,5 @@
+#ifndef RANDOM_HPP
+#define RANDOM_HPP
 #include <stdio.h>
 
 
@@ -12,3 +14,5 @@ public:
         return ((m_z << 16) + m_w)%7;
     }
 };
+
+#endif

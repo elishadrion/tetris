@@ -1,5 +1,8 @@
 #ifndef ROOM_HPP
 #define ROOM_HPP
+
+#include <stdlib.h>
+
 class Player;
 #include "Player.hpp"
 #include "../game/Mode/Mode.hpp"
@@ -10,6 +13,7 @@ class Room {
 		
 		unsigned _max_size;
 		unsigned _size;
+		unsigned _seed;
 		Player** _players;
 		Mode* game;
 		
@@ -20,6 +24,7 @@ class Room {
 		inline bool is_full() { return _size == _max_size;}
 		inline unsigned get_max_size()const{return _max_size;}
 		inline unsigned get_size()const{return _size;}
+		inline unsigned get_seed() const {return _seed;}
 		void set_mode(Mode* mode){game = mode;}
 		Mode* get_mode(){return game;}
 		Player* get_player(unsigned i) {return _players[i];}

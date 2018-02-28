@@ -16,10 +16,10 @@ void PacketManager::manage_packet(void* packet) {
                                             break;
         case Packet::GAME_WAITING_ID:       game_waiting();
                                             break;
-        case Packet::GAME_READY_ID:         game_ready(reinterpret_cast<Packet::intPacket*>(packet));
+        case Packet::GAME_READY_ID:         game_ready(reinterpret_cast<Packet::playApprovalPacket*>(packet));
                                             break;
         case Packet::MOVE_TETRIMINOS:       manage_move_tetriminos_request(reinterpret_cast<Packet::intPacket*>(packet));
-                                            break;
+                                            break;         
         case Packet::DISCONNECT_ID :        WizardLogger::warning("Paquet de déconnection reçu");
                                             break;
         default :                           WizardLogger::warning("Paquet inconnue reçu: " +
@@ -91,9 +91,10 @@ void PacketManager::game_waiting() {
     pthread_mutex_unlock(&display->packetStackMutex);
 }
 
-void PacketManager::game_ready(Packet::intPacket* packet) {
+void PacketManager::game_ready(Packet::playApprovalPacket* packet) {
     WizardLogger::info("Reçu un game ready du serveur");
     display->packetStack.push_back(reinterpret_cast<void*>(packet->data));
+    display->packetStack.push_back(reinterpret_cast<void*>(packet->seed));
     pthread_mutex_lock(&display->packetStackMutex);
     pthread_cond_broadcast(&display->packetStackCond);
     pthread_mutex_unlock(&display->packetStackMutex);

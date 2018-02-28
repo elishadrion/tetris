@@ -13,7 +13,6 @@ Connection::Connection() {
 
         /* SYS_CALL to create a new socket */
         _server_socket = socket(AF_INET, SOCK_STREAM, 0);
-        std::cout << _server_socket << std::endl;
         if (_server_socket == -1) {
             std::string error = "Impossible de s'attribuer un socket pour le serveur : ";
             error += hstrerror(h_errno);

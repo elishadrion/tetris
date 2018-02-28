@@ -47,8 +47,10 @@ void WizardDisplay::play() {
     pthread_cond_wait(&packetStackCond, &packetStackMutex);
     pthread_cond_wait(&packetStackCond, &packetStackMutex);
     WizardLogger::info("On joue!");
+    unsigned seed = reinterpret_cast<long>(packetStack.back());
+    packetStack.pop_back();
     int num = reinterpret_cast<long>(packetStack.back());
     packetStack.pop_back();
-    game_manager->create_game(num);
+    game_manager->create_game(num, seed);
 
 }

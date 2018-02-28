@@ -2,6 +2,7 @@
 
 Room::Room(unsigned max): _size(0) {
 	//game = new Vs();
+	_seed = rand();
 	_players = new Player*[max];
 	_max_size = max;
 }

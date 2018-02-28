@@ -10,6 +10,7 @@
 #include "../dependencies/json.hpp"
 #include "../dependencies/CSVparser/CSVparser.hpp"
 #include "../common/Packet.hpp"
+#include "../common/Random.hpp"
 
 #include "../game/Mode/Vs.hpp"
 #include "../game/GUI/vsGUI.hpp"

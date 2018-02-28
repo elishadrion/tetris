@@ -18,11 +18,10 @@ class GameManager;
 void player_get_choice_in_game(Grid *);
 
 class GameManager {
-	unsigned _seed;
 	Mode * _game;
 	public:
-	    GameManager(unsigned);
-	    void create_game(unsigned);
+	    GameManager() = default;
+	    void create_game(unsigned, unsigned);
 	    void move_right();
 	    void move_left();
 	    void move_turn_right();

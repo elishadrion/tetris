@@ -18,7 +18,6 @@ public:
         PLAY_REQUEST_ID = 7,
         GAME_WAITING_ID = 8,
         GAME_READY_ID = 9,
-        MOVE_TETRIMINOS = 17,
         MOVE_TETRIMINOS_RIGHT = 10,
         MOVE_TETRIMINOS_LEFT = 11,
         MOVE_TETRIMINOS_HOLD = 12,
@@ -26,6 +25,8 @@ public:
         MOVE_TETRIMINOS_DROP = 14,
         MOVE_TETRIMINOS_TURN_RIGHT = 15,
         MOVE_TETRIMINOS_TURN_LEFT = 16,
+        MOVE_TETRIMINOS = 17,
+
     };
     
     /* Default size of all packets (without data) */
@@ -82,6 +83,8 @@ public:
         playerData data; /* We define it but we must include it */
     } playerInfoPacket;
     
+//=========================JEU==================================
+
     typedef struct {
         int ID = PLAY_REQUEST_ID;
         int size = sizeof(int)*2;
@@ -89,6 +92,13 @@ public:
         int socket;
 
     } playRequestPacket;
+
+    typedef struct {
+        int ID = GAME_READY_ID;
+        int size = sizeof(int) + sizeof(unsigned);
+        int data;
+        unsigned seed;
+    } playApprovalPacket;
 
     static const int packetMaxSize = sizeof(playerInfoPacket);
 

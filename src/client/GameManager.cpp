@@ -2,25 +2,15 @@
 extern vsGUI *gui;
 extern GameManager* game_manager;
 
-GameManager::GameManager(unsigned seed): _seed(seed) {}
 
-void GameManager::create_game(unsigned _num){
-
+void GameManager::create_game(unsigned _num, unsigned seed){
 	gui = new vsGUI();    
-	_game = new Vs(12);
-
+	_game = new Vs(seed);
     _game->init_game(true);
+	std::thread thread_joueur(player_get_choice_in_game, _game->get_grid());
+	thread_joueur.join();	
 
-
-	
-
-		std::thread thread_joueur(player_get_choice_in_game, _game->get_grid());
-		thread_joueur.detach();	
-
-
-
-	while(1){};
-	
+exit(0);
 }
 
 void player_get_choice_in_game(Grid* grid) {
