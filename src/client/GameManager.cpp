@@ -16,36 +16,36 @@ void GameManager::create_game(unsigned _num, unsigned seed){
 void player_get_choice_in_game(Grid* grid) {
 
 	int ch;
-	while(1){
+	while(!g_is_finished){
 		
 		ch = getch();
 
-		if  (ch == KEY_RIGHT) {
+		if  (!g_is_finished and ch == KEY_RIGHT) {
 			game_manager->move_right();
 			grid->current_tetriminos_move_right();
 
 		}
-		else if (ch == KEY_LEFT)  {
+		else if (!g_is_finished and ch == KEY_LEFT)  {
 			game_manager->move_left();
 			grid->current_tetriminos_move_left();
 		}
-		else if (ch == 'd')       {
+		else if (!g_is_finished and ch == 'd')       {
 			game_manager->move_turn_right();
 			grid->current_tetriminos_turn_right();
 		}
-		else if (ch == 'q')       {
+		else if (!g_is_finished and ch == 'q')       {
 			game_manager->move_turn_left();
 			grid->current_tetriminos_turn_left();
 		}
-		else if (ch == 'z')       {
+		else if (!g_is_finished and ch == 'z')       {
 			game_manager->move_harddrop();
 			grid->current_tetriminos_hard_drop();
 		}
-		else if (ch == 'h')       {
+		else if (!g_is_finished and ch == 'h')       {
 			game_manager->move_hold();
 			grid->set_current_tetriminos_hold();
 		}
-		else if (ch ==  KEY_DOWN) {
+		else if (!g_is_finished and ch ==  KEY_DOWN) {
 			game_manager->move_drop();
 			grid->set_acceleration_quick();
 		}

@@ -19,7 +19,9 @@ void PacketManager::manage_packet(void* packet) {
         case Packet::GAME_READY_ID:         game_ready(reinterpret_cast<Packet::playApprovalPacket*>(packet));
                                             break;
         case Packet::MOVE_TETRIMINOS:       manage_move_tetriminos_request(reinterpret_cast<Packet::intPacket*>(packet));
-                                            break;         
+                                            break; 
+        case Packet::CHAT_MESSAGE_ID:       receive_chat_message(reinterpret_cast<Packet::chatMessagePacket*>(packet));    
+                                            break;    
         case Packet::DISCONNECT_ID :        WizardLogger::warning("Paquet de déconnection reçu");
                                             break;
         default :                           WizardLogger::warning("Paquet inconnue reçu: " +
@@ -98,12 +100,21 @@ void PacketManager::game_ready(Packet::playApprovalPacket* packet) {
     pthread_mutex_lock(&display->packetStackMutex);
     pthread_cond_broadcast(&display->packetStackCond);
     pthread_mutex_unlock(&display->packetStackMutex);
+
 }
 
 void PacketManager::manage_move_tetriminos_request(Packet::intPacket* packet) {
     game_manager->get_game()->move_tetriminos_second_grid(packet->data);
 }
 
+
+void receive_chat_message(Packet::chatMessagePacket* packet) {
+    pthread_mutex_lock(&display->packetStackMutex);
+    display->packetStack.push_back(reinterpret_cast<void*>(packet->message));
+    display->packetStack.push_back(reinterpret_cast<void*>(packet->sender));
+    pthread_cond_broadcast(&display->packetStackCond);
+    pthread_mutex_unlock(&display->packetStackMutex);
+}
 
 /**
  * Send a disconnection signal to the server (help detect crash)

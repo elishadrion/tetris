@@ -26,6 +26,7 @@ public:
         MOVE_TETRIMINOS_TURN_RIGHT = 15,
         MOVE_TETRIMINOS_TURN_LEFT = 16,
         MOVE_TETRIMINOS = 17,
+        CHAT_MESSAGE_ID = 18,
 
     };
     
@@ -90,7 +91,6 @@ public:
         int size = sizeof(int)*2;
         int mode;
         int socket;
-
     } playRequestPacket;
 
     typedef struct {
@@ -99,6 +99,15 @@ public:
         int data;
         unsigned seed;
     } playApprovalPacket;
+
+//=========================CHAT==================================
+    typedef struct {
+        int ID = CHAT_MESSAGE_ID;
+        int size = sizeof(char)*(MAX_MESSAGE_SIZE+(MAX_PSEUDO_SIZE*2));
+        char message[MAX_MESSAGE_SIZE];
+        char sender[MAX_PSEUDO_SIZE];
+        char receiver[MAX_PSEUDO_SIZE];
+    } chatMessagePacket;
 
     static const int packetMaxSize = sizeof(playerInfoPacket);
 

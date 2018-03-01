@@ -65,7 +65,10 @@ Mode::Mode(bool is_vs, unsigned seed): grid(new Grid(seed))  {
 	if (is_vs) {
 		_other_grid = new Grid(seed);
 
+
 	}
+	g_is_finished= false;
+
 }
 
 

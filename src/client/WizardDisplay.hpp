@@ -30,6 +30,7 @@ public:
     void start();
     void login();
     void play();
+    void menu();
 
 };
 

@@ -16,6 +16,8 @@ void PacketManager::manage_packet(Player *player, void* packet) {
                                         break;
         case Packet::MOVE_TETRIMINOS:   manage_move_tetriminos_request(player, reinterpret_cast<Packet::intPacket*>(packet));
                                         break;
+        case Packet::CHAT_MESSAGE_ID:	transmit_chat_message(reinterpret_cast<Packet::chatMessagePacket*>(packet));
+        								break;
         default :                       WizardLogger::warning("Paquet inconnue reçu: " +
                                                         std::to_string(temp_packet->ID));
                                         break;
@@ -77,6 +79,13 @@ void PacketManager::send_game_ready(Player* player, unsigned seed) {
     if ((player->get_room()->get_player(0) == player)) {packet->data = 0;}
     player->send_packet(packet, sizeof(*packet));
     delete packet;
+}
+
+void transmit_chat_message(Packet::chatMessagePacket* packet) {
+	Player* receiver = PlayerManager::find_player(packet->receiver);
+	if (receiver != nullptr) {
+		receiver->send_packet(packet);
+	}
 }
 
 void PacketManager::send_error(Player* player) {

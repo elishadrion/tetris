@@ -25,7 +25,7 @@ namespace PlayerManager {
     //Gestion du joueur
     bool player_connected(const std::string&);
     bool player_existing(const std::string&);
-    Player* find_player(int);
+    Player* find_player(char*);
     Player* signup(std::string, std::string, int);
     Player* login(std::string, std::string, int);
     void manage_new_player(Player*);

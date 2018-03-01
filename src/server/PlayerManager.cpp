@@ -23,16 +23,16 @@ bool PlayerManager::player_existing(const std::string& usr) {
     return false;
 }
 
-Player* PlayerManager::find_player(int socket) {
+Player* PlayerManager::find_player(char* char_username) {
+    std::string str_username = std::string(char_username);
     for (auto it = g_connected.begin(); it != g_connected.end(); it++) {
-        if (!((*it)->get_sockfd()) == socket) {
+        if (!((*it)->get_username()) == str_username) {
             return *it;
         }
     }
     return nullptr;
-
-
 }
+
 
 Player* PlayerManager::login(std::string username, std::string password, int sockfd) {
     WizardLogger::warning("Paquet de login reçu");
