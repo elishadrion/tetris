@@ -25,6 +25,7 @@ namespace PacketManager {
     //Signale au joueur que sa partie est en préparation
 	void send_game_waiting(Player*);
     //Signale au joueur que sa partie et prête, et lance
+    void transmit_chat_message(Packet::chatMessagePacket*);
 	void send_game_ready(Player*, unsigned);
     void send_error(Player*);
 

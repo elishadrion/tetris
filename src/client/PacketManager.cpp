@@ -108,7 +108,7 @@ void PacketManager::manage_move_tetriminos_request(Packet::intPacket* packet) {
 }
 
 
-void receive_chat_message(Packet::chatMessagePacket* packet) {
+void PacketManager::receive_chat_message(Packet::chatMessagePacket* packet) {
     pthread_mutex_lock(&display->packetStackMutex);
     display->packetStack.push_back(reinterpret_cast<void*>(packet->message));
     display->packetStack.push_back(reinterpret_cast<void*>(packet->sender));

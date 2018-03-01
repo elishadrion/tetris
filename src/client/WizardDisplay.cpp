@@ -60,9 +60,9 @@ void WizardDisplay::play() {
 void WizardDisplay::menu() {
 	bool is_on_button = true;
  
-char *choices[] = { "GAME",
-                    "RIEN",
-                    "RIEN",
+char *choices[] = { "PLAY GAME",
+                    "CHAT",
+                    "SETTINGS",
                 		"EXIT"};
 int n_choices = sizeof(choices) / sizeof(char *);
 
@@ -72,6 +72,8 @@ int n_choices = sizeof(choices) / sizeof(char *);
  
     WINDOW *menu_win;
     menu_win = newwin(24, 80, 0, 0);
+    noecho();    // On cache les inputs du terminal.
+	curs_set(0); // On cac
     box(menu_win, 0, 0);
     keypad(stdscr, TRUE);
     wrefresh(menu_win);
@@ -145,8 +147,7 @@ int n_choices = sizeof(choices) / sizeof(char *);
     }
     wrefresh(menu_win);
         if (choice == 1){
-        	clear();
-
+        	werase(menu_win);
             play();}
             //return 1;
  
@@ -162,15 +163,6 @@ int n_choices = sizeof(choices) / sizeof(char *);
             break;}
     } 
 
-	// std::cout << "1. Game modes" << std::endl;
-	// std::cout << "2. Chat" << std::endl;
-	// std::cout << "3. Friends" << std::endl;
-	// std::cout << "4. Stats" << std::endl;
-	// std::cout << "5. Exit" << std::endl;
-
-	// std::string prout;
-	
-	// if (ch == 'a') {
 	// 	play();
     delwin(menu_win);
 	endwin();

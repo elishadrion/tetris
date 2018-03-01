@@ -26,7 +26,7 @@ bool PlayerManager::player_existing(const std::string& usr) {
 Player* PlayerManager::find_player(char* char_username) {
     std::string str_username = std::string(char_username);
     for (auto it = g_connected.begin(); it != g_connected.end(); it++) {
-        if (!((*it)->get_username()) == str_username) {
+        if (((*it)->get_username()) == str_username) {
             return *it;
         }
     }

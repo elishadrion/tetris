@@ -31,6 +31,7 @@ namespace PacketManager {
     void game_ready(Packet::playApprovalPacket*);
     void manage_move_tetriminos_request(Packet::intPacket*);
     void receive_chat_message(Packet::chatMessagePacket*);
+
     //=============================ENVOI=====================================
     //===================LOGIN & SIGNUP===========================
     //Demande à se connecter

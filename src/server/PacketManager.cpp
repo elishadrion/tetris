@@ -81,10 +81,10 @@ void PacketManager::send_game_ready(Player* player, unsigned seed) {
     delete packet;
 }
 
-void transmit_chat_message(Packet::chatMessagePacket* packet) {
+void PacketManager::transmit_chat_message(Packet::chatMessagePacket* packet) {
 	Player* receiver = PlayerManager::find_player(packet->receiver);
 	if (receiver != nullptr) {
-		receiver->send_packet(packet);
+		receiver->send_packet(reinterpret_cast<void*>(packet), sizeof(*packet));
 	}
 }
 
