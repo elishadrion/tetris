@@ -61,8 +61,8 @@ void WizardDisplay::menu() {
 	bool is_on_button = true;
  
 char *choices[] = { "GAME",
-                    "NTM",
-                    "PUTE",
+                    "RIEN",
+                    "RIEN",
                 		"EXIT"};
 int n_choices = sizeof(choices) / sizeof(char *);
 
