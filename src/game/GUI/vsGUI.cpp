@@ -16,6 +16,8 @@ vsGUI::vsGUI(){
 	curs_set(0); // On cache le curseur
 	keypad(stdscr, TRUE); // On permet d'utiliser le keypad
 	init_colors();
+	clear();
+	refresh();
 }
 
 

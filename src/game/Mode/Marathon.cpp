@@ -6,10 +6,7 @@ Marathon.cpp
 
 #include "Marathon.hpp"
 
-Marathon::Marathon(): Mode(){
-
-	init_game();
-	start();
+Marathon::Marathon(unsigned seed): Mode(true,seed){
 
 }
 
@@ -18,9 +15,22 @@ Marathon::~Marathon(){
 
 
 	delete grid;
-	delete display;
+	
 }
 
+void Vs::init_game(bool is_player){
+	 // Graine du randomizer
+	std::thread t(&Vs::start,this,grid);
+	t.detach();
+	
+
+	if(is_player){
+		gui->init_main_game_GUI();
+		usleep(2000);
+		std::thread v(&Vs::update_gui, this, grid); // Thread pour les inputs du joueur
+		v.detach();
+	}
+}
 
 
 void Marathon::start(){
@@ -33,11 +43,8 @@ void Marathon::start(){
 	
 	bool gridOverload = false;	
 	int line_complete = 0;
-	
-	std::thread thread_joueur (player_choice_in_game,grid); // Thread pour les inputs du joueur
-	std::thread test (update_gui,grid); // Thread pour les inputs du joueur
-			
-	while(not(gridOverload) and not(line_complete == 200)){
+
+	while(!g_is_finished and not(gridOverload) and not(line_complete == 200)){
 
 		grid->tetriminos_generator();						
 		line_complete += tetriminos_dropping();	
@@ -52,8 +59,6 @@ void Marathon::start(){
 		delete grid->get_tetriminos();	 
 	}
 
-	test.detach();
-	thread_joueur.detach();
-
+	g_is_finished = true;
 
 }

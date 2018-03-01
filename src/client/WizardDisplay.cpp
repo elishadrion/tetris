@@ -67,7 +67,7 @@ char *choices[] = { "PLAY GAME",
 int n_choices = sizeof(choices) / sizeof(char *);
 
 	initscr();
-    clear();
+    
     //cbreak(); /* Line buffering disabled. pass on everything */
  
     WINDOW *menu_win;
@@ -88,14 +88,13 @@ int n_choices = sizeof(choices) / sizeof(char *);
     int choice = 0;
     int c;
  
-    noecho();
-    keypad(menu_win, TRUE);
+   
  
     int x, y, i;   
     x = 2;
     y = 3;
  
-    werase(menu_win);
+    
     box(menu_win, 0, 0);
     for(i = 0; i < n_choices; ++i){
         if(highlight == i + 1){ /* High light the present choice */
@@ -133,7 +132,7 @@ int n_choices = sizeof(choices) / sizeof(char *);
     x = 2;
     y = 3;
  
-    werase(menu_win);
+   
     box(menu_win, 0, 0);
     for(i = 0; i < n_choices; ++i){
         if(highlight == i + 1){ /* High light the present choice */
@@ -147,8 +146,13 @@ int n_choices = sizeof(choices) / sizeof(char *);
     }
     wrefresh(menu_win);
         if (choice == 1){
-        	werase(menu_win);
-            play();}
+        	wclear(menu_win);
+        	clear();
+        	wrefresh(menu_win);
+        	delwin(menu_win); 
+        	endwin();
+        	refresh();     	
+			play();}
             //return 1;
  
         else if (choice == 2){
@@ -164,7 +168,6 @@ int n_choices = sizeof(choices) / sizeof(char *);
     } 
 
 	// 	play();
-    delwin(menu_win);
-	endwin();
+    
 
 	}
