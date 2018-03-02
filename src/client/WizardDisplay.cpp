@@ -167,7 +167,7 @@ int n_choices = sizeof(choices) / sizeof(char *);
             break;}
     } 
 
-	// 	play();
+	 	play();
     
 
 	}

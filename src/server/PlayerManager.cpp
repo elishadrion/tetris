@@ -1,6 +1,6 @@
 #include "PlayerManager.hpp"
 
-vsGUI *gui;
+Game_CLI * display_game;
 
 bool PlayerManager::player_connected(const std::string& usr) {
     for (size_t i = 0; i < g_connected.size(); i++) {

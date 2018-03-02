@@ -17,7 +17,7 @@ class Marathon: public virtual Mode{
 		
 		Marathon(unsigned);
 		virtual ~Marathon();	
-		virtual void start(Grid *)override;
+		virtual void start(Grid *, Stopper*)override;
 		
 		virtual void init_game(bool is_player)override;
 };

@@ -7,10 +7,7 @@ Vs.cpp
 #include "Vs.hpp"
 
 
-Vs::Vs(unsigned seed): Mode(true,seed) {
-	
-
-}
+Vs::Vs(unsigned seed): Mode(true,seed) {}
 
 
 Vs::~Vs(){
@@ -22,20 +19,21 @@ Vs::~Vs(){
 
 void Vs::init_game(bool is_player){
 	 // Graine du randomizer
-	std::thread t(&Vs::start,this,grid);
-	std::thread t2(&Vs::start,this, _other_grid);
+	std::thread t(&Vs::start,this,grid, stopper);
+	std::thread t2(&Vs::start,this, _other_grid, stopper);
 	t.detach();
 	t2.detach();
 
 	if(is_player){
-		gui->init_main_game_GUI();
+
+		display_game->init_main_game_GUI(1);
 		usleep(2000);
-		std::thread v(&Vs::update_gui, this, grid,_other_grid); // Thread pour les inputs du joueur
+		std::thread v(&Vs::update_gui_multi, this, grid,_other_grid, stopper); // Thread pour les inputs du joueur
 		v.detach();
 	}
 }
 
-void Vs::start(Grid * grid){
+void Vs::start(Grid * grid,Stopper_Thread* stopper){
 	/*	
 	Cette fonction lance une partie classique de tetris.
 	Sans objectif, on perd quand un tétriminos est hors de la grille.		
@@ -44,7 +42,7 @@ void Vs::start(Grid * grid){
 	int line_complete = 0;
 	bool gridOverload = false;	
 	
-	while(!g_is_finished and !gridOverload ){
+	while(!stopper->game_is_finish() and !gridOverload ){
 
 		grid->tetriminos_generator();
 		line_complete += tetriminos_dropping(grid);		
@@ -54,7 +52,7 @@ void Vs::start(Grid * grid){
 		
 	}
 
-	g_is_finished = true;
+	stopper->game_finish();
 }
 
 

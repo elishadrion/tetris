@@ -13,9 +13,9 @@ class GameManager;
 #include "../game/Mode/Mode.hpp"
 #include "../game/Game_system/Grid.hpp"
 #include "../game/Mode/Vs.hpp"
-#include "../game/GUI/vsGUI.hpp"
+#include "../game/CLI/Game_CLI.hpp"
 
-void player_get_choice_in_game(Grid *);
+void player_get_choice_in_game(Grid *, Stopper_Thread*);
 
 class GameManager {
 	Mode * _game;

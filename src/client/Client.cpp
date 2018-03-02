@@ -4,7 +4,7 @@ Connection *conn;
 WizardDisplay *display;
 Player *player;
 GameManager *game_manager;
-vsGUI *gui;
+Game_CLI * display_game;
 
 
 Client::Client(std::string address) {

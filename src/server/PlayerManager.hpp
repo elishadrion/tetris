@@ -13,7 +13,8 @@
 #include "../common/Random.hpp"
 
 #include "../game/Mode/Vs.hpp"
-#include "../game/GUI/vsGUI.hpp"
+#include "../game/CLI/Game_CLI.hpp"
+
 
 class Room;
 #include "Room.hpp"

@@ -4,71 +4,69 @@ Groupe 2 : 3V-CUBE
 Mode.cpp
 */
 #include "Mode.hpp"
-bool g_is_finished = false;
-
-// void update_gui(Grid * grid){
-
-// 	gui->update_main_game_GUI(grid);  // On update l'affichage de la grille
-// 	while(1){
-// 		gui->update_next_tetriminos_GUI( grid->get_next_tetriminos());
-
-// 		if(not(grid->has_tetriminos_hold())){ 
-
-// 			gui->erase_hold_tetriminos_GUI();
-// 		}
-// 		else{
-
-// 			gui->update_hold_tetriminos_GUI(grid->get_hold_tetriminos());
-// 		}
-// 		gui->update_main_game_GUI(grid);
-// 		usleep(100000);
-// 	}
-// }
 
 
+void Mode::update_gui_solo(Grid * grid,  Stopper_Thread* stopper){
 
-void Mode::update_gui(Grid * grid, Grid * other_grid){
-
+	display_game->update_main_game_GUI(grid);  // On update l'affichage de la grille
 	
-	gui->update_main_game_GUI(grid, other_grid);  // On update l'affichage de la grille
-
-	while(!g_is_finished){
-		gui->update_next_tetriminos_GUI( grid->get_next_tetriminos(), other_grid->get_next_tetriminos());
+	while(!stopper->game_is_finish()){
+		display_game->update_next_tetriminos_GUI( grid->get_next_tetriminos());
 
 		if(not(grid->has_tetriminos_hold())){ 
 
-			gui->erase_hold_tetriminos_GUI();
+			display_game->erase_hold_tetriminos_GUI();
 		}
 		else{
 
-			gui->update_hold_tetriminos_GUI(grid->get_hold_tetriminos());
+			display_game->update_hold_tetriminos_GUI(grid->get_hold_tetriminos(),0);
+		}
+		display_game->update_main_game_GUI(grid);
+		usleep(100000);
+	}
+ }
+
+
+
+void Mode::update_gui_multi(Grid * grid, Grid * other_grid, Stopper_Thread* stopper){
+
+	
+	display_game->update_main_game_GUI(grid, other_grid);  // On update l'affichage de la grille
+
+	while(!stopper->game_is_finish()){
+		display_game->update_next_tetriminos_GUI( grid->get_next_tetriminos(), other_grid->get_next_tetriminos());
+
+		if(not(grid->has_tetriminos_hold())){ 
+
+			display_game->erase_hold_tetriminos_GUI();
+		}
+		else{
+
+			display_game->update_hold_tetriminos_GUI(grid->get_hold_tetriminos(),1);
 		}
 
 		if(not(other_grid->has_tetriminos_hold())){ 
 
-			gui->erase_hold_tetriminos_other_GUI();
+			display_game->erase_hold_tetriminos_other_GUI();
 		}
 		else{
 
-			gui->update_hold_tetriminos_other_GUI(other_grid->get_hold_tetriminos());
+			display_game->update_hold_tetriminos_other_GUI(other_grid->get_hold_tetriminos());
 		}
 
 
-		gui->update_main_game_GUI(grid,other_grid);
+		display_game->update_main_game_GUI(grid,other_grid);
 		usleep(100000);
 	}
 }
 
 
 
-Mode::Mode(bool is_vs, unsigned seed): grid(new Grid(seed))  {
+Mode::Mode(bool is_vs, unsigned seed): grid(new Grid(seed)), stopper(new Stopper_Thread())  {
 	if (is_vs) {
 		_other_grid = new Grid(seed);
 
-
 	}
-	g_is_finished= false;
-
 }
 
 

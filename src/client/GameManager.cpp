@@ -1,51 +1,56 @@
 #include "GameManager.hpp"
-extern vsGUI *gui;
+extern Game_CLI * display_game;
 extern GameManager* game_manager;
 
 
 void GameManager::create_game(unsigned _num, unsigned seed){
-	gui = new vsGUI();    
+	display_game = new Game_CLI();
 	_game = new Vs(seed);
     _game->init_game(true);
-	std::thread thread_joueur(player_get_choice_in_game, _game->get_grid());
+	std::thread thread_joueur(player_get_choice_in_game, _game->get_grid(), _game->get_stopper());
 	thread_joueur.join();	
-	delete gui;
+	delete display_game;
 	delete _game;
 }
 
-void player_get_choice_in_game(Grid* grid) {
+
+
+
+void player_get_choice_in_game(Grid* grid,Stopper_Thread* stopper) {
 
 	int ch;
-	while(!g_is_finished){
+	bool flag;
+	
+	while(flag = !stopper->game_is_finish()){
 		
 		ch = getch();
 
-		if  (!g_is_finished and ch == KEY_RIGHT) {
+		if  (flag and ch == KEY_RIGHT) {
 			game_manager->move_right();
 			grid->current_tetriminos_move_right();
 
 		}
-		else if (!g_is_finished and ch == KEY_LEFT)  {
+		else if (flag and ch == KEY_LEFT)  {
 			game_manager->move_left();
 			grid->current_tetriminos_move_left();
 		}
-		else if (!g_is_finished and ch == 'd')       {
+		else if (flag and ch == 'd')       {
 			game_manager->move_turn_right();
 			grid->current_tetriminos_turn_right();
 		}
-		else if (!g_is_finished and ch == 'q')       {
+		else if (flag and ch == 'q')       {
 			game_manager->move_turn_left();
 			grid->current_tetriminos_turn_left();
 		}
-		else if (!g_is_finished and ch == 'z')       {
+		else if (flag and ch == 'z')       {
 			game_manager->move_harddrop();
 			grid->current_tetriminos_hard_drop();
 		}
-		else if (!g_is_finished and ch == 'h')       {
+		else if (flag and ch == 'h')       {
 			game_manager->move_hold();
 			grid->set_current_tetriminos_hold();
 		}
-		else if (!g_is_finished and ch ==  KEY_DOWN) {
+		else if (flag and ch ==  KEY_DOWN) {
 			game_manager->move_drop();
 			grid->set_acceleration_quick();
 		}

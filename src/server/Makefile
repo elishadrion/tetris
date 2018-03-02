@@ -10,8 +10,8 @@ CXXFLAGS= -std=c++17 -pthread -ggdb3 -Wpedantic -Wall -Wextra -Wconversion -Weff
 CXXFLAGSS= -std=c++11 -pthread -ggdb3 -Wpedantic -Wall -Wextra -Wconversion -Weffc++ -Wstrict-null-sentinel -Wold-style-cast -Wnoexcept -Wctor-dtor-privacy -Woverloaded-virtual -Wsign-promo -Wzero-as-null-pointer-constant -Wsuggest-final-types -Wsuggest-final-methods -Wsuggest-override ../dependencies/CSVparser/CSVparser.cpp
 all: $(OUT)
 
-$(OUT): 						Connection.o Player.o PacketManager.o WizardLogger.o PlayerManager.o Room.o Global.o Server.o Mode.o GUI.o vsGUI.o Grid.o Tetriminos.o Block.o Vs.o $(MAIN)
-	$(CXX) $(CXXFLAGS) $(MAIN) 	Connection.o Player.o PacketManager.o WizardLogger.o PlayerManager.o Room.o Global.o Server.o Mode.o GUI.o vsGUI.o Grid.o Tetriminos.o Block.o Vs.o -o $(OUT) -lncurses
+$(OUT): 						Game_CLI.o Connection.o Player.o PacketManager.o WizardLogger.o PlayerManager.o Room.o Global.o Server.o Mode.o Grid.o Tetriminos.o Block.o Vs.o $(MAIN)
+	$(CXX) $(CXXFLAGS) $(MAIN) Game_CLI.o 	Connection.o Player.o PacketManager.o WizardLogger.o PlayerManager.o Room.o Global.o Server.o Mode.o Grid.o Tetriminos.o Block.o Vs.o -o $(OUT) -lncurses
 	
 PacketManager.o: PacketManager.cpp PacketManager.hpp
 	$(CXX) $(CXXFLAGS) -c PacketManager.cpp
@@ -43,11 +43,10 @@ Mode.o: ../game/Mode/Mode.cpp ../game/Mode/Mode.hpp
 Vs.o: ../game/Mode/Vs.cpp ../game/Mode/Vs.hpp
 	$(CXX) $(CXXFLAGS) -c ../game/Mode/Vs.cpp
 
-GUI.o: ../game/GUI/GUI.cpp ../game/GUI/GUI.hpp
-	$(CXX) $(CXXFLAGS) -c ../game/GUI/GUI.cpp
 
-vsGUI.o: ../game/GUI/vsGUI.cpp ../game/GUI/vsGUI.hpp
-	$(CXX) $(CXXFLAGS) -c ../game/GUI/vsGUI.cpp
+Game_CLI.o: ../game/CLI/Game_CLI.cpp ../game/CLI/Game_CLI.hpp
+	$(CXX) $(CXXFLAGS) -c ../game/CLI/Game_CLI.cpp
+
 
 Grid.o:  ../game/Game_system/Grid.cpp  ../game/Game_system/Grid.hpp
 	$(CXX) $(CXXFLAGS) -c  ../game/Game_system/Grid.cpp

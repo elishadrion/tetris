@@ -10,16 +10,16 @@ Mode.hpp
 #include <unistd.h>
 #include <string.h>
 #include <thread>
-#include<stdlib.h>
-#include<time.h>
-//#include "../GUI/GUI.hpp"
-#include "../GUI/vsGUI.hpp"
+#include <stdlib.h>
+#include <time.h>
+#include "../CLI/Game_CLI.hpp"
 #include "../Game_system/Grid.hpp"
 #include "../../common/Packet.hpp"
-extern bool g_is_finished;
+#include "../../common/Stopper_Thread.hpp"
 
-void update_gui(Grid * grid, Grid * other_grid);
-extern vsGUI *gui;
+
+
+extern Game_CLI *display_game;
 
 class Mode{
 
@@ -27,6 +27,7 @@ class Mode{
 		
 		Grid * grid;
 		Grid * _other_grid;
+		Stopper_Thread * stopper;
 		
 	public:
 		
@@ -35,13 +36,14 @@ class Mode{
     	virtual void init_game(bool is_player)=0;
     	virtual Grid* get_grid(){return grid;}
     	virtual Grid* get_other_grid() {return _other_grid;}
-    	void update_gui(Grid *, Grid*);
+    	void update_gui_multi(Grid *, Grid*,Stopper_Thread*);
+    	void update_gui_solo(Grid *,  Stopper_Thread* );
 		virtual int tetriminos_dropping(Grid *);
 		void move_tetriminos_first_grid(unsigned);
 		void move_tetriminos_second_grid(unsigned);
-		virtual void start(Grid*)=0;
-		
-		
+		virtual void start(Grid*, Stopper_Thread*)=0;
+		Stopper_Thread * get_stopper(){return stopper;}
+	
 		
 
 };
