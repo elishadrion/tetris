@@ -41,7 +41,7 @@ class Mode{
 		virtual int tetriminos_dropping(Grid *);
 		void move_tetriminos_first_grid(unsigned);
 		void move_tetriminos_second_grid(unsigned);
-		virtual void start(Grid*, Stopper_Thread*)=0;
+		virtual void start(Grid*, Grid*, Stopper_Thread*)=0;
 		Stopper_Thread * get_stopper(){return stopper;}
 	
 		
