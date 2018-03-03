@@ -3,12 +3,23 @@ extern Game_CLI * display_game;
 extern GameManager* game_manager;
 
 
-void GameManager::create_game(unsigned _num, unsigned seed){
+void GameManager::start_game(unsigned _num,int type_game, unsigned seed){
+
 	display_game = new Game_CLI();
-	_game = new Vs(seed);
-    _game->init_game(true);
+
+	if(type_game==4){ 		
+		_game = new Vs(seed);
+		_game->init_game(true);
+	}
+
+	else if(type_game ==2){
+
+		_game = new Marathon(seed);
+		_game->init_game(true);
+	}
+
 	std::thread thread_joueur(player_get_choice_in_game, _game->get_grid(), _game->get_stopper());
-	thread_joueur.join();	
+	thread_joueur.join();  
 	delete display_game;
 	delete _game;
 }

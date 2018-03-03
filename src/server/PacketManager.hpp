@@ -18,7 +18,7 @@ namespace PacketManager {
 	Player* manage_login_request(Packet::loginRequestPacket*);
     //Gère la demande d'un joueur à jouer
     Player* manage_signup_request(Packet::loginRequestPacket*);
-	void manage_play_request(Player*);
+	void manage_play_request(Player*, Packet::playRequestPacket*);
     //Gère le déplacement d'un tetriminos du joueur
     void manage_move_tetriminos_request(Player*, Packet::intPacket*);
     //===========================ENVOI==========================================

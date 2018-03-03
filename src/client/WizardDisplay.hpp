@@ -29,8 +29,9 @@ public:
 
     void start();
     void login();
-    void play();
+    void play(int);
     void menu();
+    void choice_game();
 
 };
 

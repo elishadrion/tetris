@@ -78,9 +78,9 @@ void PacketManager::send_signup_request(const char *pseudo, const char *password
 //===========================GAME PROCESS===========================================
 
 
-void PacketManager::send_play_request() {
+void PacketManager::send_play_request(int mode) {
     Packet::playRequestPacket* play_request_packet = new Packet::playRequestPacket();
-    play_request_packet->mode = 0;
+    play_request_packet->mode = mode;
     play_request_packet->socket = conn->get_socket();
     conn->send_packet(play_request_packet, sizeof(*play_request_packet));
     delete play_request_packet;

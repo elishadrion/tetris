@@ -8,7 +8,7 @@ Marathon.hpp
 #define __MARATHON__HPP__
 
 #include "Mode.hpp"
-extern bool g_is_finished;
+
 
 class Marathon: public virtual Mode{
 
@@ -17,7 +17,7 @@ class Marathon: public virtual Mode{
 		
 		Marathon(unsigned);
 		virtual ~Marathon();	
-		virtual void start(Grid *, Stopper*)override;
+		virtual void start(Grid *,Grid*, Stopper_Thread*)override;
 		
 		virtual void init_game(bool is_player)override;
 };

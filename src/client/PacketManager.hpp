@@ -39,7 +39,7 @@ namespace PacketManager {
     //Demande à s'inscrire
     void send_signup_request(const char*, const char*); /* REGIST_REQ_ID */
     //Demande à jouer
-    void send_play_request();
+    void send_play_request(int);
     void send_disconnect_request(); /* DISCONNECT_ID */
     //===================JEU===========================
     void send_move_tetriminos(int);

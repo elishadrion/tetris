@@ -37,13 +37,12 @@ void WizardDisplay::login() {
 
 void WizardDisplay::start() {
 	login();
-	//play();
 	menu();
 }
 
-void WizardDisplay::play() {
+void WizardDisplay::play(int type_game) {
     
-	PacketManager::send_play_request();
+	PacketManager::send_play_request(type_game);
     //Attend que la room soit complète pour lancer une partie VS
     pthread_cond_wait(&packetStackCond, &packetStackMutex);
     pthread_cond_wait(&packetStackCond, &packetStackMutex);
@@ -52,24 +51,22 @@ void WizardDisplay::play() {
     packetStack.pop_back();
     int num = reinterpret_cast<long>(packetStack.back());
     packetStack.pop_back();
-    game_manager->create_game(num, seed);
+    game_manager->start_game(num,type_game, seed);
     menu();
 
 }
 
 void WizardDisplay::menu() {
-	bool is_on_button = true;
- 
-char *choices[] = { "PLAY GAME",
+    bool is_on_button = true;
+     
+    char *choices[] = { "PLAY GAME",
                     "CHAT",
                     "SETTINGS",
-                		"EXIT"};
-int n_choices = sizeof(choices) / sizeof(char *);
+                	"EXIT"
+                  };
+    int n_choices = sizeof(choices) / sizeof(char *);
 
 	initscr();
-    
-    //cbreak(); /* Line buffering disabled. pass on everything */
- 
     WINDOW *menu_win;
     menu_win = newwin(24, 80, 0, 0);
     noecho();    // On cache les inputs du terminal.
@@ -87,14 +84,11 @@ int n_choices = sizeof(choices) / sizeof(char *);
 	int highlight = 1;
     int choice = 0;
     int c;
- 
-   
- 
+  
     int x, y, i;   
     x = 2;
     y = 3;
- 
-    
+     
     box(menu_win, 0, 0);
     for(i = 0; i < n_choices; ++i){
         if(highlight == i + 1){ /* High light the present choice */
@@ -108,9 +102,10 @@ int n_choices = sizeof(choices) / sizeof(char *);
     }
     wrefresh(menu_win);
     while(1){
-        c = wgetch(menu_win);
+        c = getch();
         switch(c){
             case KEY_UP:
+            
                 if(highlight == 1)
                     highlight = n_choices;
                 else
@@ -127,8 +122,11 @@ int n_choices = sizeof(choices) / sizeof(char *);
                 break;
             default:
                 break;
+
+
         }
         int x, y, i;   
+
     x = 2;
     y = 3;
  
@@ -152,22 +150,137 @@ int n_choices = sizeof(choices) / sizeof(char *);
         	delwin(menu_win); 
         	endwin();
         	refresh();     	
-			play();}
-            //return 1;
+			choice_game();
+            break;}
  
         else if (choice == 2){
         	clear();
-        	play();}
+            }
             ///register routine
             //return 2;
  
         else if (choice == 3){
         	clear();
-        	play();
+        	
             break;}
     } 
 
-	 	play();
+	 	
     
 
 	}
+
+
+
+void WizardDisplay::choice_game() {
+    bool is_on_button = true;
+     
+    char *choices[] = { "Classic",
+                        "Marathon",
+                        "Sprint",
+                        "VS"
+                  };
+    int n_choices = sizeof(choices) / sizeof(char *);
+
+    initscr();
+    WINDOW *menu_choice_game;
+    menu_choice_game = newwin(24, 80, 0, 0);
+    noecho();    // On cache les inputs du terminal.
+    curs_set(0); // On cac
+    box(menu_choice_game, 0, 0);
+    keypad(stdscr, TRUE);
+    wrefresh(menu_choice_game);
+ 
+    attron(A_REVERSE);
+    mvprintw(23, 0, "Use arrow keys to move, Press enter to select a choice");
+    attroff(A_REVERSE);
+    refresh();
+
+
+    int highlight = 1;
+    int choice = 0;
+    int c;
+  
+    int x, y, i;   
+    x = 2;
+    y = 3;
+     
+    box(menu_choice_game, 0, 0);
+    for(i = 0; i < n_choices; ++i){
+        if(highlight == i + 1){ /* High light the present choice */
+            wattron(menu_choice_game, A_REVERSE);
+            mvwprintw(menu_choice_game, y, x, "%s", choices[i]);
+            wattroff(menu_choice_game, A_REVERSE);
+        }
+        else
+            mvwprintw(menu_choice_game, y, x, "%s", choices[i]);
+        ++y;
+    }
+    wrefresh(menu_choice_game);
+    while(1){
+        c = getch();
+        switch(c){
+            case KEY_UP:
+                if(highlight == 1)
+                    highlight = n_choices;
+                else
+                    --highlight;
+                break;
+            case KEY_DOWN:
+
+                if(highlight == n_choices)
+                    highlight = 1;
+                else
+                    ++highlight;
+                break;
+            case 10:
+                choice = highlight;
+                break;
+            default:
+                break;
+        }
+        int x, y, i;   
+
+    x = 2;
+    y = 3;
+ 
+   
+    box(menu_choice_game, 0, 0);
+    for(i = 0; i < n_choices; ++i){
+        if(highlight == i + 1){ /* High light the present choice */
+            wattron(menu_choice_game, A_REVERSE);
+            mvwprintw(menu_choice_game, y, x, "%s", choices[i]);
+            wattroff(menu_choice_game, A_REVERSE);
+        }
+        else
+            mvwprintw(menu_choice_game, y, x, "%s", choices[i]);
+        ++y;
+    }
+    wrefresh(menu_choice_game);
+        if (choice == 4){
+            wclear(menu_choice_game);
+            clear();
+            wrefresh(menu_choice_game);
+            delwin(menu_choice_game); 
+            endwin();
+            refresh();  
+            play(choice);              
+           break;
+        }
+ 
+        else if (choice == 2){
+            clear();
+            play(choice);}
+           
+ 
+        else if (choice == 3){
+            clear();
+            play(choice);
+            break;}
+    } 
+
+        
+    
+
+    }
+

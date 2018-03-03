@@ -12,7 +12,7 @@ void PacketManager::manage_packet(Player *player, void* packet) {
         case Packet::DISCONNECT_ID:     manage_disconnect_request;
                                         break;
         //JEU
-        case Packet::PLAY_REQUEST_ID:   manage_play_request(player);
+        case Packet::PLAY_REQUEST_ID:   manage_play_request(player, reinterpret_cast<Packet::playRequestPacket*>(packet));
                                         break;
         case Packet::MOVE_TETRIMINOS:   manage_move_tetriminos_request(player, reinterpret_cast<Packet::intPacket*>(packet));
                                         break;
@@ -42,19 +42,23 @@ void PacketManager::manage_disconnect_request(Player* player) {
 //===========================JEU===========================================
 
 
-void PacketManager::manage_play_request(Player* player) {
+void PacketManager::manage_play_request(Player* player,Packet::playRequestPacket* myData) {
     WizardLogger::info("Reçu une demande de jeu de : "+player->get_username());
-    PlayerManager::manage_new_player(player);
+    PlayerManager::manage_new_player(player,myData->mode);
 }
 
 void PacketManager::manage_move_tetriminos_request(Player* player, Packet::intPacket* packet) {
 	//On bouge le tetriminos du côté serveur
     player->get_room()->move_tetriminos(player, packet->data);
     //On envoie le move à l'autre joueur
-    if (player->get_room()->get_player(0) == player) {
-    	player->get_room()->get_player(1)->send_packet(packet, sizeof(*packet));
-    } else {
-    	player->get_room()->get_player(0)->send_packet(packet, sizeof(*packet));
+    if(player->get_room()->get_max_size()==2){
+        
+        if (player->get_room()->get_player(0) == player) {
+        	player->get_room()->get_player(1)->send_packet(packet, sizeof(*packet));
+        } else {
+        	player->get_room()->get_player(0)->send_packet(packet, sizeof(*packet));
+        }
+
     }
 
 }

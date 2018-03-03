@@ -85,8 +85,15 @@ void PlayerManager::logout(Player* player) {
     }
 }
 
-Room* PlayerManager::create_new_room() {
-    Room* new_room = new Room(2);
+Room* PlayerManager::create_new_room(int mode) {
+    Room* new_room;
+    if(mode ==4){
+        new_room = new Room(2);
+    }
+    else{
+
+        new_room = new Room(1);
+    }
     g_rooms.push_back(new_room);
     return new_room;
 }
@@ -99,30 +106,35 @@ void PlayerManager::broadcast_game_ready(Room* room) {
 
 }
 
-void PlayerManager::manage_new_player(Player* player) {
-    Room* room = find_available_room();
-    if (room == nullptr) room = create_new_room();
+void PlayerManager::manage_new_player(Player* player, int mode) {
+    Room* room = find_available_room(mode);
+    if (room == nullptr) room = create_new_room(mode);
     room->add_player(player);
 
     if(room->is_full()) {
     	broadcast_game_ready(room);
-    	start_game(room);
+    	start_game(room,mode);
     }
     else PacketManager::send_game_waiting(player);
 }
 
-Room* PlayerManager::find_available_room() {
+Room* PlayerManager::find_available_room(int mode) {
     for (auto it = g_rooms.begin(); it != g_rooms.end(); it++) {
-        if (!(*it)->is_full()) {
+        if (mode == 4 and (*it)->get_max_size() ==2 and !(*it)->is_full()) {
+            return *it;
+        }
+        else if ((*it)->get_max_size() == 1 and !(*it)->is_full()) {
             return *it;
         }
     }
     return nullptr;
 }
 
-void PlayerManager::start_game(Room* room) {
-    //gui = new vsGUI();
-    room->set_mode(new Vs(room->get_seed()));
+void PlayerManager::start_game(Room* room, int mode) {
+    if(mode==4){
+        room->set_mode(new Vs(room->get_seed()));        
+    }
+    
     room->get_mode()->init_game(false);
     
     

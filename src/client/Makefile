@@ -9,8 +9,8 @@ OUT= main
 CXXFLAGS= -std=c++17 -pthread -ggdb3 -Wpedantic -Wall -Wextra -Wconversion -Weffc++ -Wstrict-null-sentinel -Wold-style-cast -Wnoexcept -Wctor-dtor-privacy -Woverloaded-virtual -Wsign-promo -Wzero-as-null-pointer-constant -Wsuggest-final-types -Wsuggest-final-methods -Wsuggest-override
 all: $(OUT)
 
-$(OUT):		 					Connection.o Player.o PacketManager.o GameManager.o WizardLogger.o CacheManager.o WizardDisplay.o Client.o Mode.o Game_CLI.o Grid.o Tetriminos.o Block.o Vs.o $(MAIN)
-	$(CXX) $(CXXFLAGS) $(MAIN) 	Connection.o Player.o PacketManager.o GameManager.o WizardLogger.o CacheManager.o WizardDisplay.o Client.o Mode.o Game_CLI.o Grid.o Tetriminos.o Block.o Vs.o -lncurses -lform -o $(OUT)
+$(OUT):		 					Connection.o Player.o PacketManager.o GameManager.o WizardLogger.o CacheManager.o WizardDisplay.o Client.o Mode.o Game_CLI.o Grid.o Marathon.o Tetriminos.o Block.o Vs.o $(MAIN)
+	$(CXX) $(CXXFLAGS) $(MAIN) 	Connection.o Player.o PacketManager.o GameManager.o WizardLogger.o CacheManager.o WizardDisplay.o Client.o Mode.o Game_CLI.o Grid.o Marathon.o Tetriminos.o Block.o Vs.o -lncurses -lform -o $(OUT)
 	
 PacketManager.o: PacketManager.cpp PacketManager.hpp
 	$(CXX) $(CXXFLAGS) -c PacketManager.cpp
@@ -41,6 +41,9 @@ Mode.o: ../game/Mode/Mode.cpp ../game/Mode/Mode.hpp
 
 Vs.o: ../game/Mode/Vs.cpp ../game/Mode/Vs.hpp
 	$(CXX) $(CXXFLAGS) -c ../game/Mode/Vs.cpp
+
+Marathon.o: ../game/Mode/Marathon.cpp ../game/Mode/Marathon.hpp
+	$(CXX) $(CXXFLAGS) -c ../game/Mode/Marathon.cpp
 
 Game_CLI.o: ../game/CLI/Game_CLI.cpp ../game/CLI/Game_CLI.hpp
 	$(CXX) $(CXXFLAGS) -c ../game/CLI/Game_CLI.cpp

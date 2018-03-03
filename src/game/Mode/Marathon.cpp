@@ -18,22 +18,22 @@ Marathon::~Marathon(){
 	
 }
 
-void Vs::init_game(bool is_player){
+void Marathon::init_game(bool is_player){
 	 // Graine du randomizer
-	std::thread t(&Vs::start,this,grid);
+	std::thread t(&Marathon::start,this,grid, grid, stopper);
 	t.detach();
 	
 
 	if(is_player){
-		gui->init_main_game_GUI();
+		display_game->init_main_game_GUI(0);
 		usleep(2000);
-		std::thread v(&Vs::update_gui, this, grid); // Thread pour les inputs du joueur
+		std::thread v(&Marathon::update_gui_solo, this, grid, stopper); // Thread pour les inputs du joueur
 		v.detach();
 	}
 }
 
 
-void Marathon::start(){
+void Marathon::start(Grid * grid,Grid * grid_other ,Stopper_Thread* stopper){
 	/*	
 	Cette fonction lance une partie de type marathon.
 	On gagne quand on fait 200 lignes complètes. On augmente la 
@@ -44,10 +44,10 @@ void Marathon::start(){
 	bool gridOverload = false;	
 	int line_complete = 0;
 
-	while(!g_is_finished and not(gridOverload) and not(line_complete == 200)){
+	while(!stopper->game_is_finish() and  not(gridOverload) and not(line_complete == 200)){
 
 		grid->tetriminos_generator();						
-		line_complete += tetriminos_dropping();	
+		line_complete += tetriminos_dropping(grid);	
 		gridOverload = grid->is_overload();
 				
 		// Chaque 10 lignes complètes, l'accélération augmente. 
@@ -59,6 +59,5 @@ void Marathon::start(){
 		delete grid->get_tetriminos();	 
 	}
 
-	g_is_finished = true;
-
+	stopper->game_finish();
 }
