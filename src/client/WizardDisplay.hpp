@@ -8,9 +8,14 @@ class WizardDisplay;
 #include <vector>
 #include <pthread.h>
 
+
 #include "GameManager.hpp"
 #include "PacketManager.hpp"
+#include "SalonChat.hpp"
+
+
 extern GameManager* game_manager;
+extern SalonChat* salon_chat;
 
 class WizardDisplay {
 public:
@@ -22,6 +27,7 @@ public:
     std::vector<int> packetErrorStack;
     #endif
     
+    std::string usernameAttribut;
     
     /* Create or remove interface (CLI/GUI) */
     WizardDisplay() = default;
@@ -32,6 +38,10 @@ public:
     void play(int);
     void menu();
     void choice_game();
+    
+    /* Methode pour le chat */
+    void chat();
+    void addMsgInChat(char*, char*);
 
 };
 

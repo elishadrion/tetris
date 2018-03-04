@@ -10,6 +10,8 @@ void WizardDisplay::login() {
     	std::getline(std::cin, username);
     	std::cout << "Votre mot de passe : ";
     	std::getline(std::cin, password);
+        
+       
 
 	    pthread_mutex_lock(&packetStackMutex);
 	    std::cout<<username<<"|"<<password<<"|"<<std::endl;
@@ -30,7 +32,8 @@ void WizardDisplay::login() {
 	    if (success) {std::cout << "Connecté!" << std::endl;}
 	    else{ std::cout << "pas connecté!" << std::endl;}
     }
-    	
+        usernameAttribut = username;
+        
 }
 
 
@@ -38,6 +41,18 @@ void WizardDisplay::login() {
 void WizardDisplay::start() {
 	login();
 	menu();
+}
+
+void WizardDisplay::chat() {
+    PacketManager::send_chat_conn(usernameAttribut.c_str());
+    for (int i = 0 ; i < MAX_PSEUDO_SIZE ; ++i) {
+        salon_chat->username[i] = usernameAttribut[i];
+    }
+    salon_chat->startChat();
+}
+
+void WizardDisplay::addMsgInChat(char* message, char* sender) {
+    salon_chat->chatReceiver(message, sender);
 }
 
 void WizardDisplay::play(int type_game) {
@@ -154,7 +169,10 @@ void WizardDisplay::menu() {
             break;}
  
         else if (choice == 2){
+            
         	clear();
+            chat();
+            
             }
             ///register routine
             //return 2;

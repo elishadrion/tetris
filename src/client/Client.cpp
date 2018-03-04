@@ -4,6 +4,7 @@ Connection *conn;
 WizardDisplay *display;
 Player *player;
 GameManager *game_manager;
+SalonChat *salon_chat = new SalonChat();
 Game_CLI * display_game;
 
 

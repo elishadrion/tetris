@@ -19,9 +19,9 @@ void PacketManager::manage_packet(void* packet) {
         case Packet::GAME_READY_ID:         game_ready(reinterpret_cast<Packet::playApprovalPacket*>(packet));
                                             break;
         case Packet::MOVE_TETRIMINOS:       manage_move_tetriminos_request(reinterpret_cast<Packet::intPacket*>(packet));
+                                            break;   
+        case Packet::CHAT_MESSAGE_ID:       receive_chat_message(reinterpret_cast<Packet::chatMessagePacket*>(packet)); 
                                             break; 
-        case Packet::CHAT_MESSAGE_ID:       receive_chat_message(reinterpret_cast<Packet::chatMessagePacket*>(packet));    
-                                            break;    
         case Packet::DISCONNECT_ID :        WizardLogger::warning("Paquet de déconnection reçu");
                                             break;
         default :                           WizardLogger::warning("Paquet inconnue reçu: " +
@@ -107,15 +107,39 @@ void PacketManager::manage_move_tetriminos_request(Packet::intPacket* packet) {
     game_manager->get_game()->move_tetriminos_second_grid(packet->data);
 }
 
+/** =================================CHAT============================================
+ */
 
-void PacketManager::receive_chat_message(Packet::chatMessagePacket* packet) {
-    pthread_mutex_lock(&display->packetStackMutex);
-    display->packetStack.push_back(reinterpret_cast<void*>(packet->message));
-    display->packetStack.push_back(reinterpret_cast<void*>(packet->sender));
-    pthread_cond_broadcast(&display->packetStackCond);
-    pthread_mutex_unlock(&display->packetStackMutex);
+void PacketManager::send_chat_conn(const char *user) {
+    Packet::pseudoPacket* chat_request_conn = new Packet::pseudoPacket();
+    for (int i = 0 ; i < MAX_PSEUDO_SIZE ; ++i) {
+        chat_request_conn->pseudo[i] = user[i];
+    }
+    chat_request_conn->ID = Packet::CHAT_MESSAGE_CONN;
+    conn->send_packet(chat_request_conn, sizeof(*chat_request_conn));
+    delete chat_request_conn;
 }
 
+
+void PacketManager::receive_chat_message(Packet::chatMessagePacket* packet) {
+    
+    WizardLogger::info("Paquet de chat reçu");
+    salon_chat->chatReceiver(packet->message,packet->sender);
+   
+}
+
+void PacketManager::send_chat_message(const char *user, const char *msg){
+    Packet::chatMessagePacket* chat_send_msg_to_server = new Packet::chatMessagePacket();
+    for (int i = 0 ; i < MAX_PSEUDO_SIZE ; ++i) {
+        chat_send_msg_to_server->sender[i] = user[i];
+    }
+    for (int i = 0 ; i < MAX_MESSAGE_SIZE ; ++i) {
+        chat_send_msg_to_server->message[i] = msg[i];
+    }
+    chat_send_msg_to_server->ID = Packet::CHAT_MESSAGE_ID;
+    conn->send_packet(chat_send_msg_to_server, sizeof(*chat_send_msg_to_server));
+    delete chat_send_msg_to_server;
+}
 /**
  * Send a disconnection signal to the server (help detect crash)
  */

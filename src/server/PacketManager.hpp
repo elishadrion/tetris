@@ -21,6 +21,9 @@ namespace PacketManager {
 	void manage_play_request(Player*, Packet::playRequestPacket*);
     //Gère le déplacement d'un tetriminos du joueur
     void manage_move_tetriminos_request(Player*, Packet::intPacket*);
+    //Chat 
+    void receive_chat_connection(Player*, Packet::pseudoPacket*);
+    void receive_chat_message(Player*, Packet::chatMessagePacket*);
     //===========================ENVOI==========================================
     //Signale au joueur que sa partie est en préparation
 	void send_game_waiting(Player*);

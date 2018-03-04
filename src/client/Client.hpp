@@ -12,6 +12,8 @@ class Client;
 #include "WizardDisplay.hpp"
 #include "GameManager.hpp"
 
+#include "SalonChat.hpp"
+
 class Client {
 	public:
 		Client(std::string);

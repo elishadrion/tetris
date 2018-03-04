@@ -10,10 +10,15 @@
 #include "GameManager.hpp"
 #include "CacheManager.hpp"
 
+#include "SalonChat.hpp"
+
 extern WizardDisplay *display;
 extern GameManager* game_manager;
 extern Connection *conn;
 extern CacheManager *cacheManager;
+
+extern SalonChat* salon_chat;
+
 
 namespace PacketManager {
     void manage_packet(void*);
@@ -30,8 +35,12 @@ namespace PacketManager {
     //Partie prête
     void game_ready(Packet::playApprovalPacket*);
     void manage_move_tetriminos_request(Packet::intPacket*);
+    
+    //=============================CHAT=====================================
+    
     void receive_chat_message(Packet::chatMessagePacket*);
-
+    void send_chat_conn(const char*);
+    void send_chat_message(const char*, const char*);
     //=============================ENVOI=====================================
     //===================LOGIN & SIGNUP===========================
     //Demande à se connecter

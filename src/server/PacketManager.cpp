@@ -16,7 +16,9 @@ void PacketManager::manage_packet(Player *player, void* packet) {
                                         break;
         case Packet::MOVE_TETRIMINOS:   manage_move_tetriminos_request(player, reinterpret_cast<Packet::intPacket*>(packet));
                                         break;
-        case Packet::CHAT_MESSAGE_ID:	transmit_chat_message(reinterpret_cast<Packet::chatMessagePacket*>(packet));
+        case Packet::CHAT_MESSAGE_ID:	receive_chat_message(player, reinterpret_cast<Packet::chatMessagePacket*>(packet));
+        								break;
+        case Packet::CHAT_MESSAGE_CONN:	receive_chat_connection(player, reinterpret_cast<Packet::pseudoPacket*>(packet));
         								break;
         default :                       WizardLogger::warning("Paquet inconnue reçu: " +
                                                         std::to_string(temp_packet->ID));
@@ -38,6 +40,46 @@ void PacketManager::manage_disconnect_request(Player* player) {
     PlayerManager::logout(player);
 }
 
+//===========================CHAT==========================================
+
+void PacketManager::receive_chat_connection(Player* player, Packet::pseudoPacket* packet){
+    for (auto &i : g_connected){
+        if (i->get_username() == player->get_username()){
+            //Met l'utilisateur dans le chat (in chat)
+            i->set_in_chat_on();
+        }
+        if (i->is_in_chat()){
+            //ENVOIE MSG DE A TT LE MONDE VALIDATION
+            WizardLogger::info(i->get_username() +" est dans le chat");
+            Packet::chatMessagePacket* packetAllUser = new Packet::chatMessagePacket();
+            
+            /*std::string user = "server";
+            for (int i = 0 ; i < MAX_PSEUDO_SIZE ; ++i) {
+                packetAllUser->sender[i] = user[i];
+            }*/
+            
+            strncpy(packetAllUser->sender,"Server",MAX_PSEUDO_SIZE);
+            
+            strncpy(packetAllUser->message, "",MAX_MESSAGE_SIZE);
+            strcat(packetAllUser->message, i->get_username().c_str());
+            strcat(packetAllUser->message, " s'est connecté dans le chat");
+            i->send_packet(packetAllUser, sizeof(*packetAllUser));
+            delete packetAllUser;
+        }
+    }
+    
+}
+
+
+void PacketManager::receive_chat_message(Player* player, Packet::chatMessagePacket* packet){
+    WizardLogger::info(player->get_username() +" envoie un chat");
+    WizardLogger::info(packet->message);
+    for (auto &i : g_connected){
+        if (i->is_in_chat()){
+            i->send_packet(packet, sizeof(*packet));
+        }
+    }
+}
 
 //===========================JEU===========================================
 
@@ -83,13 +125,6 @@ void PacketManager::send_game_ready(Player* player, unsigned seed) {
     if ((player->get_room()->get_player(0) == player)) {packet->data = 0;}
     player->send_packet(packet, sizeof(*packet));
     delete packet;
-}
-
-void PacketManager::transmit_chat_message(Packet::chatMessagePacket* packet) {
-	Player* receiver = PlayerManager::find_player(packet->receiver);
-	if (receiver != nullptr) {
-		receiver->send_packet(reinterpret_cast<void*>(packet), sizeof(*packet));
-	}
 }
 
 void PacketManager::send_error(Player* player) {
