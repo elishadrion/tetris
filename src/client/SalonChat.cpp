@@ -43,13 +43,13 @@ void SalonChat::print_online_users_chat(char* users){
     wclear(user_win);
     box(user_win, 0, 0);
 	int size_of_user = strlen(users);
-	char tmp[7];
-	strcpy(tmp,"");
+	char tmp[8];
+	memset(tmp,0,sizeof(tmp));
 	int j = 0;
 	int line = 1;
 
 
-	for (int b=0; b < size_of_user; ++b){
+	for (int b=0; b < size_of_user;b++){
 		if(users[b] != ','){
 			if (j<8){
 				tmp[j] = users[b];
@@ -57,9 +57,10 @@ void SalonChat::print_online_users_chat(char* users){
 			}
 		}
 		else{
+            tmp[j]= '\0';
 			mvwprintw(user_win,line,1,"%s",tmp);
             wrefresh(user_win);
-			strcpy(tmp,"");
+			memset(tmp,0,sizeof(tmp));
 			j=0;
 			line++;
 		}

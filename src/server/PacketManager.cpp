@@ -71,7 +71,7 @@ void PacketManager::receive_chat_connection(Player* player, Packet::pseudoPacket
             i->send_packet(packetAllUser, sizeof(*packetAllUser));
             delete packetAllUser;
             
-            usleep(50); // TRES SALE COMME FONCTION CAR SINON LES DEUX SEND NE SONT PAS EXECUTER
+            usleep(500); // TRES SALE COMME FONCTION CAR SINON LES DEUX SEND NE SONT PAS EXECUTER
             
             
             //REFRESH LES UTILISATEUR CONNECTE
@@ -125,7 +125,7 @@ void PacketManager::receive_logout_chat(Player* player){
     for (auto &i : g_connected){
         if (i->is_in_chat()){
             i->send_packet(packetRefreshUsers, sizeof(*packetRefreshUsers));
-            usleep(50000); // TRES SALE COMME FONCTION CAR SINON LES DEUX SEND NE SONT PAS EXECUTER
+            usleep(500); // TRES SALE COMME FONCTION CAR SINON LES DEUX SEND NE SONT PAS EXECUTER
             i->send_packet(packetAllUser, sizeof(*packetAllUser));
         }
     }
