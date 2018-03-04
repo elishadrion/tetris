@@ -6,12 +6,18 @@
 CXX= g++
 MAIN= main.cpp
 OUT= main
-CXXFLAGS= -std=c++17 -w -pthread -ggdb3 -Wpedantic -Wall -Wextra -Wconversion -Weffc++ -Wstrict-null-sentinel -Wold-style-cast -Wnoexcept -Wctor-dtor-privacy -Woverloaded-virtual -Wsign-promo -Wzero-as-null-pointer-constant -Wsuggest-final-types -Wsuggest-final-methods -Wsuggest-override ../dependencies/CSVparser/CSVparser.cpp
-CXXFLAGSS= -std=c++11 -w -pthread -ggdb3 -Wpedantic -Wall -Wextra -Wconversion -Weffc++ -Wstrict-null-sentinel -Wold-style-cast -Wnoexcept -Wctor-dtor-privacy -Woverloaded-virtual -Wsign-promo -Wzero-as-null-pointer-constant -Wsuggest-final-types -Wsuggest-final-methods -Wsuggest-override ../dependencies/CSVparser/CSVparser.cpp
+CXXFLAGS= -std=c++17 -w -pthread -ggdb3 -Wpedantic -Wall -Wextra -Wconversion -Weffc++ -Wstrict-null-sentinel -Wold-style-cast -Wnoexcept -Wctor-dtor-privacy -Woverloaded-virtual -Wsign-promo -Wzero-as-null-pointer-constant -Wsuggest-final-types -Wsuggest-final-methods -Wsuggest-override -ldl -lm
+CXXFLAGSS= -std=c++11 -w -pthread -ggdb3 -Wpedantic -Wall -Wextra -Wconversion -Weffc++ -Wstrict-null-sentinel -Wold-style-cast -Wnoexcept -Wctor-dtor-privacy -Woverloaded-virtual -Wsign-promo -Wzero-as-null-pointer-constant -Wsuggest-final-types -Wsuggest-final-methods -Wsuggest-override 
 all: $(OUT)
 
-$(OUT): 						Game_CLI.o Connection.o Player.o PacketManager.o WizardLogger.o PlayerManager.o Room.o Global.o Server.o Mode.o Grid.o Tetriminos.o Block.o Vs.o $(MAIN)
-	$(CXX) $(CXXFLAGS) $(MAIN) Game_CLI.o 	Connection.o Player.o PacketManager.o WizardLogger.o PlayerManager.o Room.o Global.o Server.o Mode.o Grid.o Tetriminos.o Block.o Vs.o -o $(OUT) -lncurses
+$(OUT): 						Game_CLI.o Connection.o Player.o sqlite3.o Database.o PacketManager.o WizardLogger.o PlayerManager.o Room.o Global.o Server.o Mode.o Grid.o Tetriminos.o Block.o Vs.o $(MAIN)
+	$(CXX) $(CXXFLAGS) $(MAIN) Game_CLI.o 	Connection.o Player.o sqlite3.o Database.o PacketManager.o WizardLogger.o PlayerManager.o Room.o Global.o Server.o Mode.o Grid.o Tetriminos.o Block.o Vs.o -o $(OUT) -lncurses
+	
+sqlite3.o: ./database/sqlite3.c ./database/sqlite3.h
+	gcc -c ./database/sqlite3.c -lpthread 
+	
+Database.o: Database.cpp Database.hpp
+	$(CXX) $(CXXFLAGS) -c Database.cpp
 	
 PacketManager.o: PacketManager.cpp PacketManager.hpp
 	$(CXX) $(CXXFLAGS) -c PacketManager.cpp

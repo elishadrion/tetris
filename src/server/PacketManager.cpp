@@ -71,7 +71,7 @@ void PacketManager::receive_chat_connection(Player* player, Packet::pseudoPacket
             i->send_packet(packetAllUser, sizeof(*packetAllUser));
             delete packetAllUser;
             
-            usleep(100000); // TRES SALE COMME FONCTION CAR SINON LES DEUX SEND NE SONT PAS EXECUTER
+            usleep(50); // TRES SALE COMME FONCTION CAR SINON LES DEUX SEND NE SONT PAS EXECUTER
             
             
             //REFRESH LES UTILISATEUR CONNECTE
@@ -88,8 +88,6 @@ void PacketManager::receive_chat_connection(Player* player, Packet::pseudoPacket
 }
 
 void PacketManager::receive_chat_message(Player* player, Packet::chatMessagePacket* packet){
-    WizardLogger::info(player->get_username() +" envoie un chat");
-    WizardLogger::info(packet->message);
     for (auto &i : g_connected){
         if (i->is_in_chat()){
             i->send_packet(packet, sizeof(*packet));

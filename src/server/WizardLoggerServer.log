@@ -3599,3 +3599,92 @@
 [2018-03-04 21:37:57.113] [info]	abderr est dans le chat
 [2018-03-04 21:38:00.287] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
 [2018-03-04 21:38:00.287] [info]	abderr a quitter le chat
+[2018-03-04 23:05:24.917] [info]	Démarrage serveur
+[2018-03-04 23:05:24.917] [info]	Ecoute des tentatives de connexions
+[2018-03-04 23:05:24.917] [info]	Serveur en attente de connexion client
+[2018-03-04 23:05:56.066] [info]	Démarrage serveur
+[2018-03-04 23:05:56.070] [info]	Ecoute des tentatives de connexions
+[2018-03-04 23:05:56.070] [info]	Serveur en attente de connexion client
+[2018-03-04 23:19:26.247] [info]	Démarrage serveur
+[2018-03-04 23:19:26.253] [info]	Ecoute des tentatives de connexions
+[2018-03-04 23:19:26.253] [info]	Serveur en attente de connexion client
+[2018-03-04 23:19:31.571] [warning]	Paquet de login reçu
+[2018-03-04 23:19:46.341] [warning]	Paquet de login reçu
+[2018-03-04 23:19:46.341] [info]	Client "name1" s'est logged-in
+[2018-03-04 23:19:52.571] [warning]	La connexion avec le client "name1" semble avoir été interrompue !
+[2018-03-04 23:23:16.690] [info]	Démarrage serveur
+[2018-03-04 23:23:16.690] [info]	Ecoute des tentatives de connexions
+[2018-03-04 23:23:16.690] [info]	Serveur en attente de connexion client
+[2018-03-04 23:23:48.848] [info]	Démarrage serveur
+[2018-03-04 23:23:48.849] [info]	Ecoute des tentatives de connexions
+[2018-03-04 23:23:48.849] [info]	Serveur en attente de connexion client
+[2018-03-04 23:23:56.502] [warning]	Paquet de login reçu
+[2018-03-04 23:23:56.502] [info]	Client "abderr" s'est logged-in
+[2018-03-04 23:23:57.462] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 23:24:07.287] [warning]	Paquet de login reçu
+[2018-03-04 23:24:07.287] [info]	Client "all" s'est logged-in
+[2018-03-04 23:24:08.055] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-04 23:49:20.264] [info]	Démarrage serveur
+[2018-03-04 23:49:20.265] [info]	Ecoute des tentatives de connexions
+[2018-03-04 23:49:20.265] [info]	Serveur en attente de connexion client
+[2018-03-04 23:49:28.750] [warning]	Paquet de login reçu
+[2018-03-04 23:49:28.750] [info]	Client "abderr" s'est logged-in
+[2018-03-04 23:49:35.892] [info]	abderr est dans le chat
+[2018-03-04 23:49:37.893] [info]	abderr envoie un chat
+[2018-03-04 23:49:37.893] [info]	gfsdfsdf
+[2018-03-04 23:49:37.893] [warning]	Paquet inconnue reçu: 1862300516
+[2018-03-04 23:49:37.893] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 23:49:37.893] [warning]	Paquet inconnue reçu: 1869569888
+[2018-03-04 23:49:37.893] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 23:49:38.486] [info]	abderr envoie un chat
+[2018-03-04 23:49:38.486] [info]	fsdf
+[2018-03-04 23:49:38.487] [warning]	Paquet inconnue reçu: 1862300516
+[2018-03-04 23:49:38.487] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 23:49:38.487] [warning]	Paquet inconnue reçu: 1869569888
+[2018-03-04 23:49:38.487] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 23:49:38.714] [info]	abderr envoie un chat
+[2018-03-04 23:49:38.714] [info]	sd
+[2018-03-04 23:49:38.714] [warning]	Paquet inconnue reçu: 1862300516
+[2018-03-04 23:49:38.714] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 23:49:38.714] [warning]	Paquet inconnue reçu: 1869569888
+[2018-03-04 23:49:38.714] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 23:49:42.586] [info]	abderr envoie un chat
+[2018-03-04 23:49:42.586] [info]	fazertyu
+[2018-03-04 23:49:42.586] [warning]	Paquet inconnue reçu: 1936748393
+[2018-03-04 23:49:42.586] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 23:49:42.586] [warning]	Paquet inconnue reçu: 1869569888
+[2018-03-04 23:49:42.586] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 23:55:16.579] [info]	Démarrage serveur
+[2018-03-04 23:55:16.579] [info]	Ecoute des tentatives de connexions
+[2018-03-04 23:55:16.579] [info]	Serveur en attente de connexion client
+[2018-03-04 23:55:48.630] [warning]	Paquet de login reçu
+[2018-03-04 23:55:48.631] [info]	Client "abderr" s'est logged-in
+[2018-03-04 23:55:50.560] [info]	abderr est dans le chat
+[2018-03-04 23:56:03.803] [info]	abderr envoie un chat
+[2018-03-04 23:56:03.803] [info]	fdsfffffffffffffffff
+[2018-03-04 23:56:06.227] [info]	abderr envoie un chat
+[2018-03-04 23:56:06.227] [info]	llllllllllllllllllllllllllllllllllllllllll
+[2018-03-04 23:56:49.828] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 23:56:49.828] [info]	abderr a quitter le chat
+[2018-03-04 23:58:07.877] [info]	Démarrage serveur
+[2018-03-04 23:58:07.893] [info]	Ecoute des tentatives de connexions
+[2018-03-04 23:58:07.894] [info]	Serveur en attente de connexion client
+[2018-03-04 23:58:17.862] [warning]	Paquet de login reçu
+[2018-03-04 23:58:17.863] [info]	Client "abderr" s'est logged-in
+[2018-03-04 23:58:19.594] [info]	abderr est dans le chat
+[2018-03-04 23:58:21.497] [info]	abderr envoie un chat
+[2018-03-04 23:58:21.497] [info]	dfsssssss
+[2018-03-04 23:58:23.136] [info]	abderr envoie un chat
+[2018-03-04 23:58:23.136] [info]	fdsffffffff
+[2018-03-05 00:06:12.623] [info]	Démarrage serveur
+[2018-03-05 00:06:12.643] [info]	Ecoute des tentatives de connexions
+[2018-03-05 00:06:12.643] [info]	Serveur en attente de connexion client
+[2018-03-05 00:06:18.604] [warning]	Paquet de login reçu
+[2018-03-05 00:06:18.617] [info]	Client "abderr" s'est logged-in
+[2018-03-05 00:06:27.799] [info]	abderr est dans le chat
+[2018-03-05 00:07:01.327] [info]	Démarrage serveur
+[2018-03-05 00:07:01.327] [info]	Ecoute des tentatives de connexions
+[2018-03-05 00:07:01.327] [info]	Serveur en attente de connexion client
+[2018-03-05 00:07:08.392] [warning]	Paquet de login reçu
+[2018-03-05 00:07:08.393] [info]	Client "abderr" s'est logged-in
+[2018-03-05 00:07:09.386] [info]	abderr est dans le chat

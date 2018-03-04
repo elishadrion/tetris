@@ -13,16 +13,6 @@ bool PlayerManager::player_connected(const std::string& usr) {
     return false;
 }
 
-bool PlayerManager::player_existing(const std::string& usr) {
-    csv::Parser file = csv::Parser("../../data/database.csv");
-    for (unsigned i = 0; i < file.rowCount(); i++) {
-        if (file[i][0] == usr) {
-            return true;
-        }
-    }
-    return false;
-}
-
 Player* PlayerManager::find_player(char* char_username) {
     std::string str_username = std::string(char_username);
     for (auto it = g_connected.begin(); it != g_connected.end(); it++) {
@@ -39,15 +29,12 @@ Player* PlayerManager::login(std::string username, std::string password, int soc
 
     Player* player = nullptr;
     if (!player_connected(username)) {
+        
+        if (db->checkNamePassword(username, password)) {
+            player = new Player(username, sockfd);
+            g_connected.push_back(player);
+            player->set_sockfd(sockfd);
 
-        csv::Parser file = csv::Parser("../../data/database.csv");
-        for (unsigned i = 0; i < file.rowCount(); i++) {
-            if (file[i][0] == username && file[i][1] == password) {
-                player = new Player(username, sockfd);
-                g_connected.push_back(player);
-                player->set_sockfd(sockfd);
-                break;
-            }
         }
     }
     return player;
@@ -61,10 +48,8 @@ Player* PlayerManager::signup(std::string username, std::string password, int so
         username = username.substr(0, MAX_PSEUDO_SIZE);
     }
 
-    if (!player_existing(username)) {
-        std::ofstream outfile;
-        outfile.open("../../data/database.csv", std::ios_base::app);
-        outfile << "\n" << username << "," << password << std::endl;
+    if (!db->checkNameExist(username)) {
+        db->registerUser(username, password);
         player = new Player(username, sockfd);
         g_connected.push_back(player);
         player->set_sockfd(sockfd);
@@ -136,7 +121,6 @@ void PlayerManager::start_game(Room* room, int mode) {
     if(mode==4){
         room->set_mode(new Vs(room->get_seed()));        
     }
-    
     room->get_mode()->init_game(false);
     
     

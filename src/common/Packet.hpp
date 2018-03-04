@@ -118,7 +118,7 @@ public:
         char users_char[USERS_IN_CHAT];
     } usersInChatPacket;
 
-    static const int packetMaxSize = sizeof(playerInfoPacket);
+    static const int packetMaxSize = sizeof(usersInChatPacket);
 
 };
 
