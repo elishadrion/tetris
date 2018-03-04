@@ -42,7 +42,7 @@ public:
 
     void chatReceiver(char* , char* );
 
-    void print_online_users_chat(char* users,WINDOW *win);
+    void print_online_users_chat(char* users);
 
     void startChat();
 

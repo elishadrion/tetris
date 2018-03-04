@@ -2350,3 +2350,1108 @@
 [2018-03-04 16:27:14.356] [warning]	Paquet inconnue reçu: -730783616
 [2018-03-04 16:27:14.356] [warning]	Paquet inconnue reçu: 0
 [2018-03-04 16:31:19.557] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 16:37:56.499] [info]	Démarrage serveur
+[2018-03-04 16:37:56.499] [info]	Ecoute des tentatives de connexions
+[2018-03-04 16:37:56.500] [info]	Serveur en attente de connexion client
+[2018-03-04 16:38:02.924] [warning]	Paquet de login reçu
+[2018-03-04 16:38:02.924] [info]	Client "abderr" s'est logged-in
+[2018-03-04 16:38:07.244] [info]	abderr est dans le chat
+[2018-03-04 16:38:09.425] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 16:38:18.739] [warning]	Paquet de login reçu
+[2018-03-04 16:38:18.740] [info]	Client "abderr" s'est logged-in
+[2018-03-04 16:38:23.914] [warning]	Paquet de login reçu
+[2018-03-04 16:38:23.914] [info]	Client "adminc" s'est logged-in
+[2018-03-04 16:38:26.642] [info]	Reçu une demande de jeu de : adminc
+[2018-03-04 16:38:26.642] [info]	Envoi d'un game waiting à : adminc
+[2018-03-04 16:38:29.339] [info]	Reçu une demande de jeu de : abderr
+[2018-03-04 16:38:29.339] [info]	Envoi d'un game waiting à : abderr
+[2018-03-04 16:38:29.339] [info]	Envoi d'un game ready à : adminc
+[2018-03-04 16:38:29.340] [info]	Envoi d'un game ready à : abderr
+[2018-03-04 16:38:30.822] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 16:38:58.814] [info]	Démarrage serveur
+[2018-03-04 16:38:58.814] [info]	Ecoute des tentatives de connexions
+[2018-03-04 16:38:58.819] [info]	Serveur en attente de connexion client
+[2018-03-04 16:39:04.227] [warning]	Paquet de login reçu
+[2018-03-04 16:39:04.227] [info]	Client "abderr" s'est logged-in
+[2018-03-04 16:39:06.300] [info]	abderr est dans le chat
+[2018-03-04 16:39:07.009] [info]	abderr envoie un chat
+[2018-03-04 16:39:07.009] [info]	fdsfq
+[2018-03-04 16:39:07.009] [warning]	Paquet inconnue reçu: 822289736
+[2018-03-04 16:39:07.009] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 16:39:07.009] [warning]	Paquet inconnue reçu: 819814528
+[2018-03-04 16:39:07.009] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 16:39:07.558] [info]	abderr envoie un chat
+[2018-03-04 16:39:07.558] [info]	dfq
+[2018-03-04 16:39:07.558] [warning]	Paquet inconnue reçu: 822289736
+[2018-03-04 16:39:07.558] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 16:39:07.558] [warning]	Paquet inconnue reçu: 819814528
+[2018-03-04 16:39:07.558] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 16:39:07.971] [info]	abderr envoie un chat
+[2018-03-04 16:39:07.971] [info]	fdsq
+[2018-03-04 16:39:07.971] [warning]	Paquet inconnue reçu: 822289736
+[2018-03-04 16:39:07.971] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 16:39:07.971] [warning]	Paquet inconnue reçu: 819814528
+[2018-03-04 16:39:07.971] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 16:39:08.513] [info]	abderr envoie un chat
+[2018-03-04 16:39:08.513] [info]	s
+[2018-03-04 16:39:08.513] [warning]	Paquet inconnue reçu: 822289736
+[2018-03-04 16:39:08.513] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 16:39:08.513] [warning]	Paquet inconnue reçu: 819814528
+[2018-03-04 16:39:08.513] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 16:39:08.788] [info]	abderr envoie un chat
+[2018-03-04 16:39:08.788] [info]	s
+[2018-03-04 16:39:08.788] [warning]	Paquet inconnue reçu: 822289736
+[2018-03-04 16:39:08.788] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 16:39:08.788] [warning]	Paquet inconnue reçu: 819814528
+[2018-03-04 16:39:08.788] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 16:39:08.989] [info]	abderr envoie un chat
+[2018-03-04 16:39:08.989] [info]	s
+[2018-03-04 16:39:08.989] [warning]	Paquet inconnue reçu: 822289736
+[2018-03-04 16:39:08.989] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 16:39:08.990] [warning]	Paquet inconnue reçu: 819814528
+[2018-03-04 16:39:08.990] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 16:39:09.187] [info]	abderr envoie un chat
+[2018-03-04 16:39:09.187] [info]	s
+[2018-03-04 16:39:09.187] [warning]	Paquet inconnue reçu: 822289736
+[2018-03-04 16:39:09.187] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 16:39:09.187] [warning]	Paquet inconnue reçu: 819814528
+[2018-03-04 16:39:09.187] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 16:39:09.420] [info]	abderr envoie un chat
+[2018-03-04 16:39:09.420] [info]	fd
+[2018-03-04 16:39:09.420] [warning]	Paquet inconnue reçu: 822289736
+[2018-03-04 16:39:09.420] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 16:39:09.420] [warning]	Paquet inconnue reçu: 819814528
+[2018-03-04 16:39:09.420] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 16:39:09.620] [info]	abderr envoie un chat
+[2018-03-04 16:39:09.620] [info]	d
+[2018-03-04 16:39:09.620] [warning]	Paquet inconnue reçu: 822289736
+[2018-03-04 16:39:09.620] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 16:39:09.620] [warning]	Paquet inconnue reçu: 819814528
+[2018-03-04 16:39:09.620] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 16:39:09.894] [info]	abderr envoie un chat
+[2018-03-04 16:39:09.894] [info]	d
+[2018-03-04 16:39:09.894] [warning]	Paquet inconnue reçu: 822289736
+[2018-03-04 16:39:09.894] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 16:39:09.894] [warning]	Paquet inconnue reçu: 819814528
+[2018-03-04 16:39:09.894] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 17:04:02.952] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:09:08.145] [error]	Login interrompu, connexion avec le client perdu
+[2018-03-04 17:09:46.745] [warning]	Paquet de login reçu
+[2018-03-04 17:09:46.746] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:09:47.952] [info]	abderr est dans le chat
+[2018-03-04 17:10:48.816] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:12:15.362] [warning]	Paquet de login reçu
+[2018-03-04 17:12:15.363] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:12:16.422] [info]	abderr est dans le chat
+[2018-03-04 17:12:34.963] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:12:38.724] [warning]	Paquet de login reçu
+[2018-03-04 17:12:38.724] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:12:39.659] [info]	abderr est dans le chat
+[2018-03-04 17:13:51.583] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:14:11.312] [warning]	Paquet de login reçu
+[2018-03-04 17:14:11.312] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:14:12.439] [info]	abderr est dans le chat
+[2018-03-04 17:14:34.364] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:14:52.606] [warning]	Paquet de login reçu
+[2018-03-04 17:14:52.607] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:14:54.043] [info]	abderr est dans le chat
+[2018-03-04 17:15:34.651] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:15:47.361] [warning]	Paquet de login reçu
+[2018-03-04 17:15:47.361] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:15:48.180] [info]	abderr est dans le chat
+[2018-03-04 17:16:01.469] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:16:18.193] [warning]	Paquet de login reçu
+[2018-03-04 17:16:18.193] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:16:19.399] [info]	abderr est dans le chat
+[2018-03-04 17:16:43.079] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:16:59.744] [warning]	Paquet de login reçu
+[2018-03-04 17:16:59.744] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:17:00.872] [info]	abderr est dans le chat
+[2018-03-04 17:18:02.047] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:19:01.607] [warning]	Paquet de login reçu
+[2018-03-04 17:19:01.607] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:19:02.794] [info]	abderr est dans le chat
+[2018-03-04 17:19:27.319] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:19:40.168] [warning]	Paquet de login reçu
+[2018-03-04 17:19:40.168] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:19:41.064] [info]	abderr est dans le chat
+[2018-03-04 17:20:05.811] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:20:32.518] [warning]	Paquet de login reçu
+[2018-03-04 17:20:32.518] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:20:33.492] [info]	abderr est dans le chat
+[2018-03-04 17:20:34.803] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:21:02.749] [warning]	Paquet de login reçu
+[2018-03-04 17:21:02.751] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:21:03.645] [info]	abderr est dans le chat
+[2018-03-04 17:21:20.928] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:21:29.560] [warning]	Paquet de login reçu
+[2018-03-04 17:21:29.560] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:21:30.375] [info]	abderr est dans le chat
+[2018-03-04 17:21:34.561] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:21:53.578] [warning]	Paquet de login reçu
+[2018-03-04 17:21:53.578] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:21:55.252] [info]	abderr est dans le chat
+[2018-03-04 17:22:03.569] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:22:35.381] [warning]	Paquet de login reçu
+[2018-03-04 17:22:35.381] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:22:36.338] [info]	abderr est dans le chat
+[2018-03-04 17:22:38.720] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:23:24.452] [warning]	Paquet de login reçu
+[2018-03-04 17:23:24.452] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:23:25.465] [info]	abderr est dans le chat
+[2018-03-04 17:23:28.011] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:24:03.855] [warning]	Paquet de login reçu
+[2018-03-04 17:24:03.855] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:24:04.758] [info]	abderr est dans le chat
+[2018-03-04 17:27:36.411] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:27:52.599] [warning]	Paquet de login reçu
+[2018-03-04 17:27:52.599] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:27:54.252] [info]	abderr est dans le chat
+[2018-03-04 17:27:59.051] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:29:14.010] [warning]	Paquet de login reçu
+[2018-03-04 17:29:14.010] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:29:15.486] [info]	abderr est dans le chat
+[2018-03-04 17:30:16.640] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:30:28.987] [warning]	Paquet de login reçu
+[2018-03-04 17:30:28.988] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:30:30.404] [info]	abderr est dans le chat
+[2018-03-04 17:30:45.248] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:30:58.238] [warning]	Paquet de login reçu
+[2018-03-04 17:30:58.238] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:30:59.053] [info]	abderr est dans le chat
+[2018-03-04 17:31:37.592] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:31:50.921] [warning]	Paquet de login reçu
+[2018-03-04 17:31:50.921] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:31:51.969] [info]	abderr est dans le chat
+[2018-03-04 17:32:26.233] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:32:30.467] [warning]	Paquet de login reçu
+[2018-03-04 17:32:30.467] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:32:31.749] [info]	abderr est dans le chat
+[2018-03-04 17:32:38.503] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:33:12.314] [warning]	Paquet de login reçu
+[2018-03-04 17:33:12.314] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:33:13.369] [info]	abderr est dans le chat
+[2018-03-04 17:34:20.390] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:34:34.382] [warning]	Paquet de login reçu
+[2018-03-04 17:34:34.382] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:34:35.897] [info]	abderr est dans le chat
+[2018-03-04 17:35:02.597] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:35:16.451] [warning]	Paquet de login reçu
+[2018-03-04 17:35:16.451] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:35:17.729] [info]	abderr est dans le chat
+[2018-03-04 17:35:37.455] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:35:49.974] [warning]	Paquet de login reçu
+[2018-03-04 17:35:49.974] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:35:51.059] [info]	abderr est dans le chat
+[2018-03-04 17:36:26.906] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:36:31.747] [warning]	Paquet de login reçu
+[2018-03-04 17:36:31.747] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:36:32.966] [info]	abderr est dans le chat
+[2018-03-04 17:36:35.846] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:36:56.455] [warning]	Paquet de login reçu
+[2018-03-04 17:36:56.455] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:36:57.351] [info]	abderr est dans le chat
+[2018-03-04 17:37:49.843] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:38:14.895] [warning]	Paquet de login reçu
+[2018-03-04 17:38:14.895] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:38:15.866] [info]	abderr est dans le chat
+[2018-03-04 17:39:09.396] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:39:44.921] [warning]	Paquet de login reçu
+[2018-03-04 17:39:44.921] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:39:46.015] [info]	abderr est dans le chat
+[2018-03-04 17:40:17.917] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:40:32.734] [warning]	Paquet de login reçu
+[2018-03-04 17:40:32.735] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:40:34.866] [info]	abderr est dans le chat
+[2018-03-04 17:42:29.480] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:42:43.890] [warning]	Paquet de login reçu
+[2018-03-04 17:42:43.890] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:42:45.365] [info]	abderr est dans le chat
+[2018-03-04 17:44:41.626] [info]	Démarrage serveur
+[2018-03-04 17:44:41.640] [info]	Ecoute des tentatives de connexions
+[2018-03-04 17:44:41.641] [info]	Serveur en attente de connexion client
+[2018-03-04 17:44:48.961] [warning]	Paquet de login reçu
+[2018-03-04 17:44:48.961] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:44:50.553] [info]	abderr est dans le chat
+[2018-03-04 17:44:57.173] [info]	abderr envoie un chat
+[2018-03-04 17:44:57.173] [info]	fdsfsd
+[2018-03-04 17:44:57.173] [warning]	Paquet inconnue reçu: 861271360
+[2018-03-04 17:44:57.173] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 17:44:57.173] [warning]	Paquet inconnue reçu: 858796096
+[2018-03-04 17:44:57.173] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 17:44:59.746] [info]	abderr envoie un chat
+[2018-03-04 17:44:59.746] [info]	fdsfdsfs
+[2018-03-04 17:44:59.746] [warning]	Paquet inconnue reçu: 1685284452
+[2018-03-04 17:44:59.746] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 17:44:59.746] [warning]	Paquet inconnue reçu: 858796096
+[2018-03-04 17:44:59.746] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 17:46:06.399] [info]	Démarrage serveur
+[2018-03-04 17:46:06.400] [info]	Ecoute des tentatives de connexions
+[2018-03-04 17:46:06.400] [info]	Serveur en attente de connexion client
+[2018-03-04 17:46:11.810] [warning]	Paquet de login reçu
+[2018-03-04 17:46:11.810] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:46:12.781] [info]	abderr est dans le chat
+[2018-03-04 17:48:02.752] [info]	Démarrage serveur
+[2018-03-04 17:48:02.753] [info]	Ecoute des tentatives de connexions
+[2018-03-04 17:48:02.753] [info]	Serveur en attente de connexion client
+[2018-03-04 17:48:07.262] [warning]	Paquet de login reçu
+[2018-03-04 17:48:07.262] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:48:12.061] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:52:44.029] [warning]	Paquet de login reçu
+[2018-03-04 17:52:44.029] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:52:45.159] [info]	abderr est dans le chat
+[2018-03-04 17:52:49.902] [info]	abderr envoie un chat
+[2018-03-04 17:52:49.902] [info]	ds
+[2018-03-04 17:52:49.902] [warning]	Paquet inconnue reçu: -1735891648
+[2018-03-04 17:52:49.902] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 17:52:49.902] [warning]	Paquet inconnue reçu: -1738366912
+[2018-03-04 17:52:49.902] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 17:52:52.184] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:55:20.008] [info]	Démarrage serveur
+[2018-03-04 17:55:20.010] [info]	Ecoute des tentatives de connexions
+[2018-03-04 17:55:20.010] [info]	Serveur en attente de connexion client
+[2018-03-04 17:55:25.984] [warning]	Paquet de login reçu
+[2018-03-04 17:55:25.984] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:55:27.288] [info]	abderr est dans le chat
+[2018-03-04 17:55:29.028] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:55:56.125] [warning]	Paquet de login reçu
+[2018-03-04 17:55:58.742] [warning]	Paquet de login reçu
+[2018-03-04 17:55:58.742] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:55:59.793] [info]	abderr est dans le chat
+[2018-03-04 17:56:01.726] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:56:29.155] [warning]	Paquet de login reçu
+[2018-03-04 17:56:29.155] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:56:35.315] [info]	abderr est dans le chat
+[2018-03-04 17:56:43.646] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:57:19.101] [warning]	Paquet de login reçu
+[2018-03-04 17:57:19.101] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:57:20.266] [info]	abderr est dans le chat
+[2018-03-04 17:57:41.495] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:57:46.456] [warning]	Paquet de login reçu
+[2018-03-04 17:57:46.456] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:57:48.549] [info]	abderr est dans le chat
+[2018-03-04 17:57:54.491] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:58:11.522] [warning]	Paquet de login reçu
+[2018-03-04 17:58:11.522] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:58:12.399] [info]	abderr est dans le chat
+[2018-03-04 17:58:21.592] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:58:37.244] [warning]	Paquet de login reçu
+[2018-03-04 17:58:37.244] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:58:38.780] [info]	abderr est dans le chat
+[2018-03-04 17:58:40.520] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 17:59:25.687] [warning]	Paquet de login reçu
+[2018-03-04 17:59:25.688] [info]	Client "abderr" s'est logged-in
+[2018-03-04 17:59:26.584] [info]	abderr est dans le chat
+[2018-03-04 17:59:27.900] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 18:02:18.798] [warning]	Paquet de login reçu
+[2018-03-04 18:02:18.798] [info]	Client "abderr" s'est logged-in
+[2018-03-04 18:02:20.261] [info]	abderr est dans le chat
+[2018-03-04 18:02:22.390] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 18:04:38.242] [warning]	Paquet de login reçu
+[2018-03-04 18:04:38.242] [info]	Client "abderr" s'est logged-in
+[2018-03-04 18:04:39.332] [info]	abderr est dans le chat
+[2018-03-04 18:04:40.998] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 18:05:16.278] [warning]	Paquet de login reçu
+[2018-03-04 18:05:16.278] [info]	Client "abderr" s'est logged-in
+[2018-03-04 18:05:17.444] [info]	abderr est dans le chat
+[2018-03-04 18:05:19.028] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 18:05:50.303] [warning]	Paquet de login reçu
+[2018-03-04 18:05:50.304] [info]	Client "abderr" s'est logged-in
+[2018-03-04 18:05:51.740] [info]	abderr est dans le chat
+[2018-03-04 18:05:52.705] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 18:06:31.309] [warning]	Paquet de login reçu
+[2018-03-04 18:06:31.309] [info]	Client "abderr" s'est logged-in
+[2018-03-04 18:06:34.377] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 18:06:37.126] [warning]	Paquet de login reçu
+[2018-03-04 18:06:37.126] [info]	Client "abderr" s'est logged-in
+[2018-03-04 18:06:39.088] [info]	abderr est dans le chat
+[2018-03-04 18:06:41.221] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 18:07:42.476] [warning]	Paquet de login reçu
+[2018-03-04 18:07:42.476] [info]	Client "abderr" s'est logged-in
+[2018-03-04 18:07:43.681] [info]	abderr est dans le chat
+[2018-03-04 18:07:44.569] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 18:08:05.836] [warning]	Paquet de login reçu
+[2018-03-04 18:08:05.836] [info]	Client "abderr" s'est logged-in
+[2018-03-04 18:08:06.733] [info]	abderr est dans le chat
+[2018-03-04 18:08:08.008] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 18:08:29.106] [warning]	Paquet de login reçu
+[2018-03-04 18:08:29.106] [info]	Client "abderr" s'est logged-in
+[2018-03-04 18:08:30.228] [info]	abderr est dans le chat
+[2018-03-04 18:08:46.905] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 18:09:00.108] [warning]	Paquet de login reçu
+[2018-03-04 18:09:00.108] [info]	Client "abderr" s'est logged-in
+[2018-03-04 18:09:01.313] [info]	abderr est dans le chat
+[2018-03-04 18:09:06.767] [info]	abderr est dans le chat
+[2018-03-04 18:09:08.898] [info]	abderr est dans le chat
+[2018-03-04 18:09:09.999] [info]	abderr envoie un chat
+[2018-03-04 18:09:09.999] [info]	fdsfsd
+[2018-03-04 18:09:09.999] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 18:09:09.999] [warning]	Paquet inconnue reçu: 32767
+[2018-03-04 18:09:09.999] [warning]	Paquet inconnue reçu: -992319120
+[2018-03-04 18:09:09.999] [warning]	Paquet inconnue reçu: 21930
+[2018-03-04 18:09:12.034] [info]	abderr est dans le chat
+[2018-03-04 18:09:13.484] [info]	abderr envoie un chat
+[2018-03-04 18:09:13.484] [info]	dfkss$
+[2018-03-04 18:09:13.484] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 18:09:13.484] [warning]	Paquet inconnue reçu: 32767
+[2018-03-04 18:09:13.484] [warning]	Paquet inconnue reçu: -992319120
+[2018-03-04 18:09:13.484] [warning]	Paquet inconnue reçu: 21930
+[2018-03-04 18:09:16.214] [info]	abderr est dans le chat
+[2018-03-04 18:09:17.591] [info]	abderr envoie un chat
+[2018-03-04 18:09:17.591] [info]	jipgrjio
+[2018-03-04 18:09:17.591] [warning]	Paquet inconnue reçu: 1886545776
+[2018-03-04 18:09:17.591] [warning]	Paquet inconnue reçu: 32767
+[2018-03-04 18:09:17.591] [warning]	Paquet inconnue reçu: -992319120
+[2018-03-04 18:09:17.591] [warning]	Paquet inconnue reçu: 21930
+[2018-03-04 18:34:45.420] [info]	Démarrage serveur
+[2018-03-04 18:34:45.442] [info]	Ecoute des tentatives de connexions
+[2018-03-04 18:34:45.442] [info]	Serveur en attente de connexion client
+[2018-03-04 18:35:17.575] [warning]	Paquet de login reçu
+[2018-03-04 18:35:17.585] [info]	Client "abderr" s'est logged-in
+[2018-03-04 18:35:18.472] [info]	abderr est dans le chat
+[2018-03-04 18:36:15.641] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 18:36:27.892] [warning]	Paquet de login reçu
+[2018-03-04 18:36:27.892] [info]	Client "abderr" s'est logged-in
+[2018-03-04 18:36:28.827] [info]	abderr est dans le chat
+[2018-03-04 18:36:42.840] [info]	abderr envoie un chat
+[2018-03-04 18:36:42.840] [info]	l
+[2018-03-04 18:36:42.840] [warning]	Paquet inconnue reçu: 16680232
+[2018-03-04 18:36:42.840] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 18:36:42.840] [warning]	Paquet inconnue reçu: 14204768
+[2018-03-04 18:36:42.840] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 18:37:30.434] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 18:37:43.749] [warning]	Paquet de login reçu
+[2018-03-04 18:37:43.749] [info]	Client "abderr" s'est logged-in
+[2018-03-04 18:37:45.195] [info]	abderr est dans le chat
+[2018-03-04 18:37:54.977] [info]	abderr envoie un chat
+[2018-03-04 18:37:54.977] [info]	fdsdfs
+[2018-03-04 18:37:54.977] [warning]	Paquet inconnue reçu: 2132948264
+[2018-03-04 18:37:54.977] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 18:37:54.977] [warning]	Paquet inconnue reçu: 2130472800
+[2018-03-04 18:37:54.977] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 18:38:07.599] [warning]	Paquet de login reçu
+[2018-03-04 18:38:07.599] [info]	Client "adminc" s'est logged-in
+[2018-03-04 18:38:08.920] [info]	adminc est dans le chat
+[2018-03-04 18:38:29.170] [info]	adminc envoie un chat
+[2018-03-04 18:38:29.170] [info]	dsqdsdsq
+[2018-03-04 18:38:29.170] [warning]	Paquet inconnue reçu: 1784968049
+[2018-03-04 18:38:29.170] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 18:38:29.170] [warning]	Paquet inconnue reçu: 1689984864
+[2018-03-04 18:38:29.170] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 18:38:45.686] [warning]	La connexion avec le client "adminc" semble avoir été interrompue !
+[2018-03-04 18:42:08.787] [info]	Démarrage serveur
+[2018-03-04 18:42:08.791] [info]	Ecoute des tentatives de connexions
+[2018-03-04 18:42:08.791] [info]	Serveur en attente de connexion client
+[2018-03-04 18:42:15.652] [warning]	Paquet de login reçu
+[2018-03-04 18:42:18.396] [warning]	Paquet de login reçu
+[2018-03-04 18:42:18.396] [info]	Client "abderr" s'est logged-in
+[2018-03-04 18:42:19.450] [info]	abderr est dans le chat
+[2018-03-04 18:43:43.306] [info]	Démarrage serveur
+[2018-03-04 18:43:43.311] [info]	Ecoute des tentatives de connexions
+[2018-03-04 18:43:43.311] [info]	Serveur en attente de connexion client
+[2018-03-04 18:43:50.808] [warning]	Paquet de login reçu
+[2018-03-04 18:43:50.809] [info]	Client "abderr" s'est logged-in
+[2018-03-04 18:43:52.248] [info]	abderr est dans le chat
+[2018-03-04 18:44:50.291] [info]	Démarrage serveur
+[2018-03-04 18:44:50.292] [info]	Ecoute des tentatives de connexions
+[2018-03-04 18:44:50.292] [info]	Serveur en attente de connexion client
+[2018-03-04 18:44:57.893] [warning]	Paquet de login reçu
+[2018-03-04 18:45:01.006] [warning]	Paquet de login reçu
+[2018-03-04 18:45:01.006] [info]	Client "abderr" s'est logged-in
+[2018-03-04 18:45:03.211] [info]	abderr est dans le chat
+[2018-03-04 18:45:03.211] [info]	TESTE REUSSI
+[2018-03-04 18:45:39.465] [info]	Démarrage serveur
+[2018-03-04 18:45:39.465] [info]	Ecoute des tentatives de connexions
+[2018-03-04 18:45:39.465] [info]	Serveur en attente de connexion client
+[2018-03-04 18:45:44.987] [warning]	Paquet de login reçu
+[2018-03-04 18:45:44.987] [info]	Client "abderr" s'est logged-in
+[2018-03-04 18:45:45.962] [info]	abderr est dans le chat
+[2018-03-04 18:45:45.962] [info]	TESTE REUSSI
+[2018-03-04 18:48:38.136] [info]	Démarrage serveur
+[2018-03-04 18:48:38.364] [info]	Ecoute des tentatives de connexions
+[2018-03-04 18:48:38.364] [info]	Serveur en attente de connexion client
+[2018-03-04 18:48:42.880] [warning]	Paquet de login reçu
+[2018-03-04 18:48:42.880] [info]	Client "abderr" s'est logged-in
+[2018-03-04 18:48:45.214] [info]	abderr est dans le chat
+[2018-03-04 18:49:03.534] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 18:49:13.928] [warning]	Paquet de login reçu
+[2018-03-04 18:49:13.928] [info]	Client "abderr" s'est logged-in
+[2018-03-04 18:49:15.058] [info]	abderr est dans le chat
+[2018-03-04 18:49:31.913] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 18:49:51.594] [info]	Démarrage serveur
+[2018-03-04 18:49:51.602] [info]	Ecoute des tentatives de connexions
+[2018-03-04 18:49:51.603] [info]	Serveur en attente de connexion client
+[2018-03-04 18:50:00.218] [warning]	Paquet de login reçu
+[2018-03-04 18:50:00.218] [info]	Client "abderr" s'est logged-in
+[2018-03-04 18:50:01.307] [info]	abderr est dans le chat
+[2018-03-04 18:50:23.809] [info]	abderr envoie un chat
+[2018-03-04 18:50:23.810] [info]	fdqofkop!
+[2018-03-04 18:50:23.810] [warning]	Paquet inconnue reçu: 1785816179
+[2018-03-04 18:50:29.269] [info]	abderr envoie un chat
+[2018-03-04 18:50:29.269] [info]	dfqdfsqf�
+[2018-03-04 18:50:29.269] [warning]	Paquet inconnue reçu: 1902405220
+[2018-03-04 18:50:33.864] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 18:55:56.512] [info]	Démarrage serveur
+[2018-03-04 18:55:56.517] [info]	Ecoute des tentatives de connexions
+[2018-03-04 18:55:56.517] [info]	Serveur en attente de connexion client
+[2018-03-04 18:56:02.108] [warning]	Paquet de login reçu
+[2018-03-04 18:56:02.108] [info]	Client "abderr" s'est logged-in
+[2018-03-04 18:56:03.086] [info]	abderr est dans le chat
+[2018-03-04 19:43:22.280] [info]	Démarrage serveur
+[2018-03-04 19:43:22.280] [info]	Ecoute des tentatives de connexions
+[2018-03-04 19:43:22.280] [info]	Serveur en attente de connexion client
+[2018-03-04 19:43:28.360] [warning]	Paquet de login reçu
+[2018-03-04 19:43:28.360] [info]	Client "abderr" s'est logged-in
+[2018-03-04 19:43:29.359] [info]	abderr est dans le chat
+[2018-03-04 19:43:29.359] [info]	abderr s est connecté dans le chat
+[2018-03-04 19:52:41.841] [info]	Démarrage serveur
+[2018-03-04 19:52:41.842] [info]	Ecoute des tentatives de connexions
+[2018-03-04 19:52:41.842] [info]	Serveur en attente de connexion client
+[2018-03-04 19:52:47.149] [warning]	Paquet de login reçu
+[2018-03-04 19:52:47.149] [info]	Client "abderr" s'est logged-in
+[2018-03-04 19:52:48.698] [info]	abderr est dans le chat
+[2018-03-04 19:53:21.211] [warning]	Paquet de login reçu
+[2018-03-04 19:53:21.211] [info]	Client "adminc" s'est logged-in
+[2018-03-04 19:53:23.917] [info]	adminc est dans le chat
+[2018-03-04 19:54:26.566] [info]	Démarrage serveur
+[2018-03-04 19:54:26.568] [info]	Ecoute des tentatives de connexions
+[2018-03-04 19:54:26.568] [info]	Serveur en attente de connexion client
+[2018-03-04 19:54:36.492] [warning]	Paquet de login reçu
+[2018-03-04 19:54:36.493] [info]	Client "abderr" s'est logged-in
+[2018-03-04 19:54:38.208] [info]	abderr est dans le chat
+[2018-03-04 19:54:52.216] [warning]	Paquet de login reçu
+[2018-03-04 19:54:52.216] [info]	Client "adminc" s'est logged-in
+[2018-03-04 19:54:53.444] [info]	adminc est dans le chat
+[2018-03-04 19:57:44.634] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 19:57:59.566] [warning]	Paquet de login reçu
+[2018-03-04 19:57:59.566] [info]	Client "abderr" s'est logged-in
+[2018-03-04 19:58:04.655] [info]	abderr est dans le chat
+[2018-03-04 19:58:14.858] [info]	abderr est dans le chat
+[2018-03-04 19:58:18.570] [info]	abderr est dans le chat
+[2018-03-04 19:58:44.606] [warning]	La connexion avec le client "adminc" semble avoir été interrompue !
+[2018-03-04 19:58:52.655] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 19:58:59.515] [warning]	Paquet de login reçu
+[2018-03-04 19:58:59.519] [info]	Client "abderr" s'est logged-in
+[2018-03-04 19:59:13.067] [info]	abderr est dans le chat
+[2018-03-04 19:59:14.546] [info]	abderr envoie un chat
+[2018-03-04 19:59:14.546] [info]	bcfgfd
+[2018-03-04 19:59:14.546] [warning]	Paquet inconnue reçu: -1789106904
+[2018-03-04 19:59:14.546] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:14.546] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:14.546] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:14.870] [info]	abderr envoie un chat
+[2018-03-04 19:59:14.870] [info]	gf
+[2018-03-04 19:59:14.870] [warning]	Paquet inconnue reçu: -1789106904
+[2018-03-04 19:59:14.870] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:14.870] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:14.870] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:15.106] [info]	abderr envoie un chat
+[2018-03-04 19:59:15.107] [info]	dgf
+[2018-03-04 19:59:15.107] [warning]	Paquet inconnue reçu: -1789106904
+[2018-03-04 19:59:15.107] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:15.107] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:15.107] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:15.467] [info]	abderr envoie un chat
+[2018-03-04 19:59:15.468] [info]	gf
+[2018-03-04 19:59:15.468] [warning]	Paquet inconnue reçu: -1789106904
+[2018-03-04 19:59:15.468] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:15.468] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:15.468] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:15.676] [info]	abderr envoie un chat
+[2018-03-04 19:59:15.676] [info]	gfd
+[2018-03-04 19:59:15.676] [warning]	Paquet inconnue reçu: -1789106904
+[2018-03-04 19:59:15.676] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:15.676] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:15.676] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:15.846] [info]	abderr envoie un chat
+[2018-03-04 19:59:15.846] [info]	gf
+[2018-03-04 19:59:15.846] [warning]	Paquet inconnue reçu: -1789106904
+[2018-03-04 19:59:15.846] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:15.846] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:15.846] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:16.046] [info]	abderr envoie un chat
+[2018-03-04 19:59:16.046] [info]	fd
+[2018-03-04 19:59:16.046] [warning]	Paquet inconnue reçu: -1789106904
+[2018-03-04 19:59:16.047] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:16.047] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:16.047] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:16.242] [info]	abderr envoie un chat
+[2018-03-04 19:59:16.243] [info]	gf
+[2018-03-04 19:59:16.243] [warning]	Paquet inconnue reçu: -1789106904
+[2018-03-04 19:59:16.243] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:16.243] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:16.243] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:16.572] [info]	abderr envoie un chat
+[2018-03-04 19:59:16.572] [info]	ffg
+[2018-03-04 19:59:16.572] [warning]	Paquet inconnue reçu: -1789106904
+[2018-03-04 19:59:16.572] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:16.572] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:16.572] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:16.742] [info]	abderr envoie un chat
+[2018-03-04 19:59:16.742] [info]	gf
+[2018-03-04 19:59:16.742] [warning]	Paquet inconnue reçu: -1789106904
+[2018-03-04 19:59:16.742] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:16.742] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:16.742] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:16.943] [info]	abderr envoie un chat
+[2018-03-04 19:59:16.943] [info]	gf
+[2018-03-04 19:59:16.943] [warning]	Paquet inconnue reçu: -1789106904
+[2018-03-04 19:59:16.943] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:16.943] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:16.943] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:17.294] [info]	abderr envoie un chat
+[2018-03-04 19:59:17.294] [info]	gf
+[2018-03-04 19:59:17.294] [warning]	Paquet inconnue reçu: -1789106904
+[2018-03-04 19:59:17.294] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:17.294] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:17.294] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:17.463] [info]	abderr envoie un chat
+[2018-03-04 19:59:17.463] [info]	df
+[2018-03-04 19:59:17.463] [warning]	Paquet inconnue reçu: -1789106904
+[2018-03-04 19:59:17.463] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:17.463] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:17.463] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:17.666] [info]	abderr envoie un chat
+[2018-03-04 19:59:17.666] [info]	gf
+[2018-03-04 19:59:17.666] [warning]	Paquet inconnue reçu: -1789106904
+[2018-03-04 19:59:17.666] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:17.666] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:17.666] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:17.834] [info]	abderr envoie un chat
+[2018-03-04 19:59:17.834] [info]	gf
+[2018-03-04 19:59:17.834] [warning]	Paquet inconnue reçu: -1789106904
+[2018-03-04 19:59:17.834] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:17.834] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:17.834] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:18.264] [info]	abderr envoie un chat
+[2018-03-04 19:59:18.264] [info]	d
+[2018-03-04 19:59:18.264] [warning]	Paquet inconnue reçu: -1789106904
+[2018-03-04 19:59:18.264] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:18.264] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:18.264] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:18.385] [info]	abderr envoie un chat
+[2018-03-04 19:59:18.385] [info]	f
+[2018-03-04 19:59:18.385] [warning]	Paquet inconnue reçu: -1789106904
+[2018-03-04 19:59:18.385] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:18.385] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:18.385] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:18.594] [info]	abderr envoie un chat
+[2018-03-04 19:59:18.595] [info]	dgf
+[2018-03-04 19:59:18.595] [warning]	Paquet inconnue reçu: -1789106904
+[2018-03-04 19:59:18.595] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:18.595] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:18.595] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:18.984] [info]	abderr envoie un chat
+[2018-03-04 19:59:18.984] [info]	gfgf
+[2018-03-04 19:59:18.984] [warning]	Paquet inconnue reçu: -1789106904
+[2018-03-04 19:59:18.984] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:18.984] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:18.984] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:19.142] [info]	abderr envoie un chat
+[2018-03-04 19:59:19.142] [info]	d
+[2018-03-04 19:59:19.142] [warning]	Paquet inconnue reçu: -1789106904
+[2018-03-04 19:59:19.142] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:19.142] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:19.143] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:19.342] [info]	abderr envoie un chat
+[2018-03-04 19:59:19.342] [info]	df
+[2018-03-04 19:59:19.342] [warning]	Paquet inconnue reçu: -1789106904
+[2018-03-04 19:59:19.342] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:19.342] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:19.342] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:19.555] [info]	abderr envoie un chat
+[2018-03-04 19:59:19.555] [info]	fd
+[2018-03-04 19:59:19.555] [warning]	Paquet inconnue reçu: -1789106904
+[2018-03-04 19:59:19.555] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:19.555] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:19.555] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:19.740] [info]	abderr envoie un chat
+[2018-03-04 19:59:19.740] [info]	df
+[2018-03-04 19:59:19.740] [warning]	Paquet inconnue reçu: -1789106904
+[2018-03-04 19:59:19.740] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:19.740] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:19.741] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:20.933] [info]	abderr envoie un chat
+[2018-03-04 19:59:20.934] [info]	fg
+[2018-03-04 19:59:20.934] [warning]	Paquet inconnue reçu: -1789106904
+[2018-03-04 19:59:20.934] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:20.934] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:20.934] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:21.169] [info]	abderr envoie un chat
+[2018-03-04 19:59:21.169] [info]	d
+[2018-03-04 19:59:21.169] [warning]	Paquet inconnue reçu: -1789106904
+[2018-03-04 19:59:21.169] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:21.169] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:21.169] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:21.364] [info]	abderr envoie un chat
+[2018-03-04 19:59:21.364] [info]	gf
+[2018-03-04 19:59:21.364] [warning]	Paquet inconnue reçu: -1789106904
+[2018-03-04 19:59:21.365] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:21.365] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:21.365] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:21.569] [info]	abderr envoie un chat
+[2018-03-04 19:59:21.569] [info]	dg
+[2018-03-04 19:59:21.569] [warning]	Paquet inconnue reçu: -1789106904
+[2018-03-04 19:59:21.569] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:21.569] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:21.569] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:21.841] [info]	abderr envoie un chat
+[2018-03-04 19:59:21.841] [info]	df
+[2018-03-04 19:59:21.842] [warning]	Paquet inconnue reçu: -1789106904
+[2018-03-04 19:59:21.842] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:21.842] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:21.842] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:22.208] [info]	abderr envoie un chat
+[2018-03-04 19:59:22.209] [info]	g
+[2018-03-04 19:59:22.209] [warning]	Paquet inconnue reçu: -1789106904
+[2018-03-04 19:59:22.209] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:22.209] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:22.209] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:23.456] [info]	abderr envoie un chat
+[2018-03-04 19:59:23.456] [info]	gggggggg?�O�a
+[2018-03-04 19:59:23.456] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:23.456] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:23.456] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:23.456] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:25.190] [info]	abderr envoie un chat
+[2018-03-04 19:59:25.190] [info]	fdgdgf
+[2018-03-04 19:59:25.190] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:25.190] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:25.190] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:25.190] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:25.884] [info]	abderr envoie un chat
+[2018-03-04 19:59:25.884] [info]	fd
+[2018-03-04 19:59:25.884] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:25.884] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:25.884] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:25.884] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:26.083] [info]	abderr envoie un chat
+[2018-03-04 19:59:26.083] [info]	gf
+[2018-03-04 19:59:26.083] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:26.083] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:26.083] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:26.083] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:26.330] [info]	abderr envoie un chat
+[2018-03-04 19:59:26.330] [info]	f
+[2018-03-04 19:59:26.330] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:26.330] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:26.330] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:26.330] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:26.545] [info]	abderr envoie un chat
+[2018-03-04 19:59:26.545] [info]	d
+[2018-03-04 19:59:26.545] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:26.545] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:26.545] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:26.545] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:26.735] [info]	abderr envoie un chat
+[2018-03-04 19:59:26.735] [info]	f
+[2018-03-04 19:59:26.735] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:26.735] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:26.735] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:26.735] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:26.969] [info]	abderr envoie un chat
+[2018-03-04 19:59:26.969] [info]	d
+[2018-03-04 19:59:26.969] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:26.969] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:26.969] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:26.969] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:27.133] [info]	abderr envoie un chat
+[2018-03-04 19:59:27.133] [info]	f
+[2018-03-04 19:59:27.133] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:27.133] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:27.133] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:27.133] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:27.576] [info]	abderr envoie un chat
+[2018-03-04 19:59:27.577] [info]	fd
+[2018-03-04 19:59:27.577] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:27.577] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:27.577] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:27.577] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:28.066] [info]	abderr envoie un chat
+[2018-03-04 19:59:28.066] [info]	dfg
+[2018-03-04 19:59:28.066] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:28.066] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:28.066] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:28.066] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:28.266] [info]	abderr envoie un chat
+[2018-03-04 19:59:28.267] [info]	gf
+[2018-03-04 19:59:28.267] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:28.267] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:28.267] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:28.267] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:28.505] [info]	abderr envoie un chat
+[2018-03-04 19:59:28.505] [info]	d
+[2018-03-04 19:59:28.505] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:28.505] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:28.505] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:28.505] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:28.742] [info]	abderr envoie un chat
+[2018-03-04 19:59:28.742] [info]	gf
+[2018-03-04 19:59:28.742] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:28.742] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:28.742] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:28.742] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:28.962] [info]	abderr envoie un chat
+[2018-03-04 19:59:28.962] [info]	dg
+[2018-03-04 19:59:28.962] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:28.962] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:28.962] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:28.962] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:29.166] [info]	abderr envoie un chat
+[2018-03-04 19:59:29.166] [info]	fd
+[2018-03-04 19:59:29.166] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:29.166] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:29.166] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:29.166] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:29.360] [info]	abderr envoie un chat
+[2018-03-04 19:59:29.360] [info]	g
+[2018-03-04 19:59:29.360] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:29.360] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:29.360] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:29.360] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:29.847] [info]	abderr envoie un chat
+[2018-03-04 19:59:29.847] [info]	dfgdf
+[2018-03-04 19:59:29.847] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:29.847] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:29.847] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:29.847] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:30.003] [info]	abderr envoie un chat
+[2018-03-04 19:59:30.003] [info]	g
+[2018-03-04 19:59:30.003] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:30.003] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:30.003] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:30.003] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:30.204] [info]	abderr envoie un chat
+[2018-03-04 19:59:30.204] [info]	df
+[2018-03-04 19:59:30.204] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:30.204] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:30.204] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:30.204] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:30.407] [info]	abderr envoie un chat
+[2018-03-04 19:59:30.407] [info]	g
+[2018-03-04 19:59:30.407] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:30.407] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:30.407] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:30.407] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:30.649] [info]	abderr envoie un chat
+[2018-03-04 19:59:30.649] [info]	df
+[2018-03-04 19:59:30.649] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:30.649] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:30.649] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:30.649] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:30.832] [info]	abderr envoie un chat
+[2018-03-04 19:59:30.833] [info]	gf
+[2018-03-04 19:59:30.833] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:30.833] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:30.833] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:30.833] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:31.029] [info]	abderr envoie un chat
+[2018-03-04 19:59:31.029] [info]	dg
+[2018-03-04 19:59:31.029] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:31.029] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:31.029] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:31.029] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:31.242] [info]	abderr envoie un chat
+[2018-03-04 19:59:31.242] [info]	df
+[2018-03-04 19:59:31.242] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:31.242] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:31.242] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:31.242] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:31.436] [info]	abderr envoie un chat
+[2018-03-04 19:59:31.436] [info]	g
+[2018-03-04 19:59:31.436] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:31.436] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:31.436] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:31.436] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:31.635] [info]	abderr envoie un chat
+[2018-03-04 19:59:31.635] [info]	f
+[2018-03-04 19:59:31.635] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:31.635] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:31.635] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:31.635] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:32.030] [info]	abderr envoie un chat
+[2018-03-04 19:59:32.030] [info]	gf
+[2018-03-04 19:59:32.030] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:32.030] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:32.030] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:32.030] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:32.269] [info]	abderr envoie un chat
+[2018-03-04 19:59:32.269] [info]	dg
+[2018-03-04 19:59:32.269] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:32.269] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:32.269] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:32.269] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:32.465] [info]	abderr envoie un chat
+[2018-03-04 19:59:32.465] [info]	fd
+[2018-03-04 19:59:32.465] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:32.465] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:32.465] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:32.465] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:33.093] [info]	abderr envoie un chat
+[2018-03-04 19:59:33.093] [info]	g
+[2018-03-04 19:59:33.093] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:33.094] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:33.094] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:33.094] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:33.335] [info]	abderr envoie un chat
+[2018-03-04 19:59:33.335] [info]	fd
+[2018-03-04 19:59:33.335] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:33.335] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:33.335] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:33.335] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:33.595] [info]	abderr envoie un chat
+[2018-03-04 19:59:33.595] [info]	gdf
+[2018-03-04 19:59:33.595] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:33.595] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:33.595] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:33.595] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:33.748] [info]	abderr envoie un chat
+[2018-03-04 19:59:33.748] [info]	g
+[2018-03-04 19:59:33.748] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:33.748] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:33.748] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:33.748] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:33.994] [info]	abderr envoie un chat
+[2018-03-04 19:59:33.994] [info]	dfg
+[2018-03-04 19:59:33.994] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:33.994] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:33.994] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:33.994] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:34.230] [info]	abderr envoie un chat
+[2018-03-04 19:59:34.230] [info]	df
+[2018-03-04 19:59:34.230] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:34.230] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:34.230] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:34.230] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:34.425] [info]	abderr envoie un chat
+[2018-03-04 19:59:34.425] [info]	g
+[2018-03-04 19:59:34.425] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:34.425] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:34.425] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:34.425] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:34.664] [info]	abderr envoie un chat
+[2018-03-04 19:59:34.664] [info]	fd
+[2018-03-04 19:59:34.664] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:34.664] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:34.664] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:34.664] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:34.859] [info]	abderr envoie un chat
+[2018-03-04 19:59:34.859] [info]	g
+[2018-03-04 19:59:34.859] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:34.859] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:34.859] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:34.859] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:35.140] [info]	abderr envoie un chat
+[2018-03-04 19:59:35.140] [info]	df
+[2018-03-04 19:59:35.140] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:35.140] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:35.140] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:35.140] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:35.337] [info]	abderr envoie un chat
+[2018-03-04 19:59:35.337] [info]	gf
+[2018-03-04 19:59:35.337] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:35.337] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:35.337] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:35.337] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:36.073] [info]	abderr envoie un chat
+[2018-03-04 19:59:36.073] [info]	d
+[2018-03-04 19:59:36.073] [warning]	Paquet inconnue reçu: -1795135641
+[2018-03-04 19:59:36.073] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:36.073] [warning]	Paquet inconnue reçu: -1791582368
+[2018-03-04 19:59:36.073] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 19:59:57.544] [warning]	Paquet de login reçu
+[2018-03-04 19:59:57.544] [info]	Client "adminc" s'est logged-in
+[2018-03-04 19:59:58.859] [info]	adminc est dans le chat
+[2018-03-04 20:00:36.813] [warning]	La connexion avec le client "adminc" semble avoir été interrompue !
+[2018-03-04 20:00:51.300] [warning]	Paquet de login reçu
+[2018-03-04 20:00:51.300] [info]	Client "adminc" s'est logged-in
+[2018-03-04 20:00:52.722] [info]	adminc est dans le chat
+[2018-03-04 20:00:58.425] [warning]	La connexion avec le client "adminc" semble avoir été interrompue !
+[2018-03-04 20:01:11.514] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 20:03:50.038] [warning]	Paquet de login reçu
+[2018-03-04 20:03:50.038] [info]	Client "abderr" s'est logged-in
+[2018-03-04 20:03:51.045] [info]	abderr est dans le chat
+[2018-03-04 20:03:57.158] [info]	abderr envoie un chat
+[2018-03-04 20:03:57.158] [info]	fdsfds
+[2018-03-04 20:03:57.158] [warning]	Paquet inconnue reçu: -715480
+[2018-03-04 20:03:57.158] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 20:03:57.158] [warning]	Paquet inconnue reçu: -3190944
+[2018-03-04 20:03:57.158] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 20:04:08.166] [info]	abderr est dans le chat
+[2018-03-04 20:04:22.279] [info]	abderr est dans le chat
+[2018-03-04 20:04:27.730] [info]	abderr est dans le chat
+[2018-03-04 20:04:30.135] [info]	abderr envoie un chat
+[2018-03-04 20:04:30.135] [info]	fsdfds
+[2018-03-04 20:04:30.135] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 20:04:30.135] [warning]	Paquet inconnue reçu: 32767
+[2018-03-04 20:04:30.135] [warning]	Paquet inconnue reçu: -1590928
+[2018-03-04 20:04:30.135] [warning]	Paquet inconnue reçu: 21958
+[2018-03-04 20:04:33.076] [info]	abderr est dans le chat
+[2018-03-04 20:06:11.088] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 20:08:56.456] [info]	Démarrage serveur
+[2018-03-04 20:08:56.457] [info]	Ecoute des tentatives de connexions
+[2018-03-04 20:08:56.461] [info]	Serveur en attente de connexion client
+[2018-03-04 20:09:01.904] [warning]	Paquet de login reçu
+[2018-03-04 20:09:01.904] [info]	Client "abderr" s'est logged-in
+[2018-03-04 20:09:02.796] [info]	abderr est dans le chat
+[2018-03-04 20:09:07.382] [info]	abderr est dans le chat
+[2018-03-04 20:09:11.576] [info]	abderr est dans le chat
+[2018-03-04 20:09:15.632] [info]	abderr est dans le chat
+[2018-03-04 20:30:02.492] [info]	Démarrage serveur
+[2018-03-04 20:30:02.493] [info]	Ecoute des tentatives de connexions
+[2018-03-04 20:30:02.493] [info]	Serveur en attente de connexion client
+[2018-03-04 20:30:27.349] [warning]	Paquet de login reçu
+[2018-03-04 20:30:27.350] [info]	Client "abderr" s'est logged-in
+[2018-03-04 20:30:28.203] [info]	abderr est dans le chat
+[2018-03-04 20:30:35.886] [warning]	Paquet de login reçu
+[2018-03-04 20:30:35.886] [info]	Client "adminc" s'est logged-in
+[2018-03-04 20:30:42.199] [info]	adminc est dans le chat
+[2018-03-04 20:31:07.278] [info]	adminc est dans le chat
+[2018-03-04 20:31:17.028] [info]	abderr est dans le chat
+[2018-03-04 20:31:27.665] [info]	adminc est dans le chat
+[2018-03-04 20:33:14.928] [info]	Démarrage serveur
+[2018-03-04 20:33:14.928] [info]	Ecoute des tentatives de connexions
+[2018-03-04 20:33:14.929] [info]	Serveur en attente de connexion client
+[2018-03-04 20:33:22.074] [warning]	Paquet de login reçu
+[2018-03-04 20:33:22.074] [info]	Client "abderr" s'est logged-in
+[2018-03-04 20:33:24.401] [info]	abderr est dans le chat
+[2018-03-04 20:37:46.240] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 20:38:08.168] [warning]	Paquet de login reçu
+[2018-03-04 20:38:08.168] [info]	Client "abderr" s'est logged-in
+[2018-03-04 20:38:09.109] [info]	abderr est dans le chat
+[2018-03-04 20:38:12.128] [info]	abderr s'est déconnecter
+[2018-03-04 20:38:28.336] [warning]	Paquet de login reçu
+[2018-03-04 20:38:28.336] [info]	Client "adminc" s'est logged-in
+[2018-03-04 20:38:29.246] [info]	adminc est dans le chat
+[2018-03-04 20:38:32.033] [info]	abderr est dans le chat
+[2018-03-04 20:38:35.159] [info]	abderr s'est déconnecter
+[2018-03-04 20:41:17.046] [info]	Démarrage serveur
+[2018-03-04 20:41:17.051] [info]	Ecoute des tentatives de connexions
+[2018-03-04 20:41:17.051] [info]	Serveur en attente de connexion client
+[2018-03-04 20:41:22.594] [warning]	Paquet de login reçu
+[2018-03-04 20:41:22.595] [info]	Client "abderr" s'est logged-in
+[2018-03-04 20:41:24.425] [info]	abderr est dans le chat
+[2018-03-04 20:41:29.686] [info]	abderr s'est déconnecter
+[2018-03-04 20:41:29.686] [warning]	abderr ENVOIE
+[2018-03-04 20:41:46.422] [info]	abderr est dans le chat
+[2018-03-04 20:41:52.519] [info]	abderr s'est déconnecter
+[2018-03-04 20:41:52.519] [warning]	abderr ENVOIE
+[2018-03-04 20:41:58.080] [warning]	Paquet de login reçu
+[2018-03-04 20:41:58.081] [info]	Client "adminc" s'est logged-in
+[2018-03-04 20:41:59.810] [info]	adminc est dans le chat
+[2018-03-04 20:42:30.596] [info]	adminc envoie un chat
+[2018-03-04 20:42:30.596] [info]	fdsfsd
+[2018-03-04 20:42:30.596] [warning]	Paquet inconnue reçu: -1692093144
+[2018-03-04 20:42:30.596] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 20:42:30.596] [warning]	Paquet inconnue reçu: -1694568608
+[2018-03-04 20:42:30.596] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 20:42:59.388] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 20:43:00.174] [warning]	La connexion avec le client "adminc" semble avoir été interrompue !
+[2018-03-04 20:43:13.464] [info]	Démarrage serveur
+[2018-03-04 20:43:13.465] [info]	Ecoute des tentatives de connexions
+[2018-03-04 20:43:13.465] [info]	Serveur en attente de connexion client
+[2018-03-04 20:43:35.704] [warning]	Paquet de login reçu
+[2018-03-04 20:43:35.706] [info]	Client "abderr" s'est logged-in
+[2018-03-04 20:43:39.256] [info]	abderr est dans le chat
+[2018-03-04 20:43:43.621] [info]	abderr s'est déconnecter
+[2018-03-04 20:43:43.621] [warning]	abderr ENVOIE
+[2018-03-04 20:44:02.876] [warning]	Paquet de login reçu
+[2018-03-04 20:44:02.876] [info]	Client "adminc" s'est logged-in
+[2018-03-04 20:44:12.184] [info]	adminc est dans le chat
+[2018-03-04 20:44:17.988] [info]	abderr est dans le chat
+[2018-03-04 20:44:21.230] [info]	abderr s'est déconnecter
+[2018-03-04 20:44:21.230] [warning]	abderr ENVOIE
+[2018-03-04 20:44:21.230] [warning]	adminc ENVOIE
+[2018-03-04 20:46:59.445] [info]	Démarrage serveur
+[2018-03-04 20:46:59.446] [info]	Ecoute des tentatives de connexions
+[2018-03-04 20:46:59.446] [info]	Serveur en attente de connexion client
+[2018-03-04 20:47:06.396] [warning]	Paquet de login reçu
+[2018-03-04 20:47:06.396] [info]	Client "abderr" s'est logged-in
+[2018-03-04 20:47:14.330] [warning]	Paquet de login reçu
+[2018-03-04 20:47:20.049] [warning]	Paquet de login reçu
+[2018-03-04 20:47:20.049] [info]	Client "adminc" s'est logged-in
+[2018-03-04 20:47:28.799] [info]	abderr est dans le chat
+[2018-03-04 20:47:30.454] [info]	adminc est dans le chat
+[2018-03-04 20:47:33.012] [info]	adminc envoie un chat
+[2018-03-04 20:47:33.012] [info]	dsqdsq
+[2018-03-04 20:47:33.012] [warning]	Paquet inconnue reçu: -1133005528
+[2018-03-04 20:47:33.012] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 20:47:33.012] [warning]	Paquet inconnue reçu: -1135480992
+[2018-03-04 20:47:33.013] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 20:47:36.469] [info]	abderr envoie un chat
+[2018-03-04 20:47:36.470] [info]	123
+[2018-03-04 20:47:36.470] [warning]	Paquet inconnue reçu: -671111896
+[2018-03-04 20:47:36.470] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 20:47:36.470] [warning]	Paquet inconnue reçu: -673587360
+[2018-03-04 20:47:36.470] [warning]	Paquet inconnue reçu: 0
+[2018-03-04 20:47:39.863] [info]	adminc s'est déconnecter
+[2018-03-04 20:47:39.863] [warning]	abderr ENVOIE
+[2018-03-04 20:47:44.471] [info]	adminc est dans le chat
+[2018-03-04 20:47:53.361] [info]	abderr s'est déconnecter
+[2018-03-04 20:47:53.361] [warning]	adminc ENVOIE
+[2018-03-04 20:48:00.981] [info]	adminc s'est déconnecter
+[2018-03-04 20:48:04.258] [info]	adminc est dans le chat
+[2018-03-04 20:48:07.703] [info]	abderr est dans le chat
+[2018-03-04 20:48:11.909] [info]	abderr s'est déconnecter
+[2018-03-04 20:48:11.909] [warning]	adminc ENVOIE
+[2018-03-04 20:48:14.147] [info]	adminc s'est déconnecter
+[2018-03-04 20:49:04.438] [info]	Démarrage serveur
+[2018-03-04 20:49:04.438] [info]	Ecoute des tentatives de connexions
+[2018-03-04 20:49:04.438] [info]	Serveur en attente de connexion client
+[2018-03-04 20:49:13.994] [warning]	Paquet de login reçu
+[2018-03-04 20:49:16.549] [warning]	Paquet de login reçu
+[2018-03-04 20:49:16.549] [info]	Client "adminc" s'est logged-in
+[2018-03-04 20:49:22.079] [warning]	Paquet de login reçu
+[2018-03-04 20:49:22.079] [info]	Client "abderr" s'est logged-in
+[2018-03-04 20:49:24.120] [info]	abderr est dans le chat
+[2018-03-04 20:49:25.843] [info]	adminc est dans le chat
+[2018-03-04 20:49:27.927] [warning]	La connexion avec le client "adminc" semble avoir été interrompue !
+[2018-03-04 20:49:30.690] [info]	abderr a quitter le chat
+[2018-03-04 20:49:31.957] [info]	abderr est dans le chat
+[2018-03-04 20:51:23.875] [warning]	Paquet de login reçu
+[2018-03-04 20:51:26.373] [warning]	Paquet de login reçu
+[2018-03-04 20:51:26.373] [info]	Client "adminc" s'est logged-in
+[2018-03-04 20:51:27.410] [info]	adminc est dans le chat
+[2018-03-04 20:53:47.909] [info]	Démarrage serveur
+[2018-03-04 20:53:47.909] [info]	Ecoute des tentatives de connexions
+[2018-03-04 20:53:47.910] [info]	Serveur en attente de connexion client
+[2018-03-04 20:53:55.011] [warning]	Paquet de login reçu
+[2018-03-04 20:53:55.011] [info]	Client "abderr" s'est logged-in
+[2018-03-04 20:54:04.182] [warning]	Paquet de login reçu
+[2018-03-04 20:54:04.182] [info]	Client "adminc" s'est logged-in
+[2018-03-04 20:54:07.918] [info]	adminc est dans le chat
+[2018-03-04 20:54:09.549] [info]	abderr est dans le chat
+[2018-03-04 20:54:20.976] [info]	adminc a quitter le chat
+[2018-03-04 20:55:11.699] [info]	Démarrage serveur
+[2018-03-04 20:55:11.699] [info]	Ecoute des tentatives de connexions
+[2018-03-04 20:55:11.699] [info]	Serveur en attente de connexion client
+[2018-03-04 20:55:22.892] [warning]	Paquet de login reçu
+[2018-03-04 20:55:22.892] [info]	Client "abderr" s'est logged-in
+[2018-03-04 20:55:28.674] [warning]	Paquet de login reçu
+[2018-03-04 20:55:28.674] [info]	Client "adminc" s'est logged-in
+[2018-03-04 20:55:32.850] [info]	adminc est dans le chat
+[2018-03-04 20:55:34.672] [info]	abderr est dans le chat
+[2018-03-04 20:55:55.637] [info]	abderr a quitter le chat
+[2018-03-04 20:56:39.394] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 20:56:39.938] [warning]	La connexion avec le client "adminc" semble avoir été interrompue !
+[2018-03-04 21:03:46.278] [info]	Démarrage serveur
+[2018-03-04 21:03:46.278] [info]	Ecoute des tentatives de connexions
+[2018-03-04 21:03:46.278] [info]	Serveur en attente de connexion client
+[2018-03-04 21:03:55.571] [warning]	Paquet de login reçu
+[2018-03-04 21:03:55.571] [info]	Client "abderr" s'est logged-in
+[2018-03-04 21:03:56.356] [info]	abderr est dans le chat
+[2018-03-04 21:04:03.372] [warning]	Paquet de login reçu
+[2018-03-04 21:04:03.372] [info]	Client "adminc" s'est logged-in
+[2018-03-04 21:04:04.371] [info]	adminc est dans le chat
+[2018-03-04 21:04:07.132] [warning]	La connexion avec le client "adminc" semble avoir été interrompue !
+[2018-03-04 21:06:02.734] [info]	Démarrage serveur
+[2018-03-04 21:06:02.734] [info]	Ecoute des tentatives de connexions
+[2018-03-04 21:06:02.734] [info]	Serveur en attente de connexion client
+[2018-03-04 21:06:10.107] [warning]	Paquet de login reçu
+[2018-03-04 21:06:10.107] [info]	Client "abderr" s'est logged-in
+[2018-03-04 21:06:17.825] [warning]	Paquet de login reçu
+[2018-03-04 21:06:17.825] [info]	Client "adminc" s'est logged-in
+[2018-03-04 21:06:19.383] [info]	adminc est dans le chat
+[2018-03-04 21:06:20.344] [info]	abderr est dans le chat
+[2018-03-04 21:06:22.356] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-04 21:06:22.356] [info]	abderr a quitter le chat

@@ -49,11 +49,10 @@ void WizardDisplay::chat() {
         salon_chat->username[i] = usernameAttribut[i];
     }
     salon_chat->startChat();
+    //APRES AVOIR FINI IL LANCE LE MENU
+    menu();
 }
 
-void WizardDisplay::addMsgInChat(char* message, char* sender) {
-    salon_chat->chatReceiver(message, sender);
-}
 
 void WizardDisplay::play(int type_game) {
     

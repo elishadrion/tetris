@@ -75,6 +75,7 @@ Player* PlayerManager::signup(std::string username, std::string password, int so
 
 
 void PlayerManager::logout(Player* player) {
+    PacketManager::receive_logout_chat(player);
     for (size_t i = 0; i < g_connected.size(); i++) {
         Player* current = g_connected.at(i);
 

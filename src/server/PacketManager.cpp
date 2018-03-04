@@ -20,6 +20,8 @@ void PacketManager::manage_packet(Player *player, void* packet) {
         								break;
         case Packet::CHAT_MESSAGE_CONN:	receive_chat_connection(player, reinterpret_cast<Packet::pseudoPacket*>(packet));
         								break;
+        case Packet::CHAT_LOGOUT: receive_logout_chat(player);
+        								break;
         default :                       WizardLogger::warning("Paquet inconnue reçu: " +
                                                         std::to_string(temp_packet->ID));
                                         break;
@@ -43,33 +45,47 @@ void PacketManager::manage_disconnect_request(Player* player) {
 //===========================CHAT==========================================
 
 void PacketManager::receive_chat_connection(Player* player, Packet::pseudoPacket* packet){
+    char user[USERS_IN_CHAT];
+    strcpy(user, "");
+    strcat(user, player->get_username().c_str());
+    for (auto &i : g_connected){
+        if (i->is_in_chat() && i->get_username() != player->get_username()){
+            strcat(user, ",");
+            strcat(user, i->get_username().c_str());
+        }
+    }
+    
     for (auto &i : g_connected){
         if (i->get_username() == player->get_username()){
             //Met l'utilisateur dans le chat (in chat)
             i->set_in_chat_on();
+            WizardLogger::info(i->get_username() +" est dans le chat");
         }
         if (i->is_in_chat()){
             //ENVOIE MSG DE A TT LE MONDE VALIDATION
-            WizardLogger::info(i->get_username() +" est dans le chat");
             Packet::chatMessagePacket* packetAllUser = new Packet::chatMessagePacket();
-            
-            /*std::string user = "server";
-            for (int i = 0 ; i < MAX_PSEUDO_SIZE ; ++i) {
-                packetAllUser->sender[i] = user[i];
-            }*/
-            
-            strncpy(packetAllUser->sender,"Server",MAX_PSEUDO_SIZE);
-            
-            strncpy(packetAllUser->message, "",MAX_MESSAGE_SIZE);
-            strcat(packetAllUser->message, i->get_username().c_str());
-            strcat(packetAllUser->message, " s'est connecté dans le chat");
+            strcpy(packetAllUser->sender,"Server");
+            strcpy(packetAllUser->message, "");
+            strcat(packetAllUser->message, player->get_username().c_str());
+            strcat(packetAllUser->message, " s est connecté dans le chat");
             i->send_packet(packetAllUser, sizeof(*packetAllUser));
             delete packetAllUser;
+            
+            usleep(100000); // TRES SALE COMME FONCTION CAR SINON LES DEUX SEND NE SONT PAS EXECUTER
+            
+            
+            //REFRESH LES UTILISATEUR CONNECTE
+            Packet::usersInChatPacket* packetRefreshUsers= new Packet::usersInChatPacket();
+
+            for (int m = 0 ; m < USERS_IN_CHAT ; ++m) {
+                packetRefreshUsers->users_char[m] = user[m];
+            }
+            
+            i->send_packet(packetRefreshUsers, sizeof(*packetRefreshUsers));
+            delete packetRefreshUsers;
         }
     }
-    
 }
-
 
 void PacketManager::receive_chat_message(Player* player, Packet::chatMessagePacket* packet){
     WizardLogger::info(player->get_username() +" envoie un chat");
@@ -80,6 +96,45 @@ void PacketManager::receive_chat_message(Player* player, Packet::chatMessagePack
         }
     }
 }
+
+void PacketManager::receive_logout_chat(Player* player){
+    //
+    WizardLogger::info(player->get_username() +" a quitter le chat");
+    player->set_in_chat_off();
+    //MET DANS USER TT LES PERSONNES CONNECTE
+    char user[USERS_IN_CHAT];
+    strcpy(user, "");
+    for (auto &i : g_connected){
+        if (i->is_in_chat() && i->get_username() != player->get_username()){
+            strcat(user, ",");
+            strcat(user, i->get_username().c_str());
+        }
+    }
+    
+    //ENVOI A TT LES USERS LA NOUVELLE LISTE DES USER ONLINE
+    //-------PREPARATION DU PACKET MESSAGE DE DECONNECTION
+    Packet::chatMessagePacket* packetAllUser = new Packet::chatMessagePacket();
+    strcpy(packetAllUser->sender,"Server");
+    strcpy(packetAllUser->message, "");
+    strcat(packetAllUser->message, player->get_username().c_str());
+    strcat(packetAllUser->message, " a quitter le chat");
+    //-------PREPARATION DU PACKET REFRESH LA TABLE DES UTILISATEURS
+    Packet::usersInChatPacket* packetRefreshUsers= new Packet::usersInChatPacket();
+    for (int m = 0 ; m < USERS_IN_CHAT ; ++m) {
+        packetRefreshUsers->users_char[m] = user[m];
+    }
+    //-------ENVOI DU PACKET
+    for (auto &i : g_connected){
+        if (i->is_in_chat()){
+            i->send_packet(packetRefreshUsers, sizeof(*packetRefreshUsers));
+            usleep(50000); // TRES SALE COMME FONCTION CAR SINON LES DEUX SEND NE SONT PAS EXECUTER
+            i->send_packet(packetAllUser, sizeof(*packetAllUser));
+        }
+    }
+    delete packetRefreshUsers;
+    delete packetAllUser;  
+}
+
 
 //===========================JEU===========================================
 

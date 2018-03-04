@@ -38,29 +38,36 @@ void SalonChat::chatReceiver(char* message, char* sender){
     
 }
 
-void SalonChat::print_online_users_chat(char* users,WINDOW *win){
-	size_t taille = strlen(users);
+void SalonChat::print_online_users_chat(char* users){
+    //EX DE LA VARIAbLE USERS => "Abderr,Thomas,Elish"
+    wclear(user_win);
+    box(user_win, 0, 0);
+	int size_of_user = strlen(users);
 	char tmp[7];
-	strncpy(tmp,"",8);
+	strcpy(tmp,"");
 	int j = 0;
 	int line = 1;
 
-	for (int i=0; i < taille; i++){
-		if(users[i] != ','){
+
+	for (int b=0; b < size_of_user; ++b){
+		if(users[b] != ','){
 			if (j<8){
-				tmp[j] = users[i];
+				tmp[j] = users[b];
 				j++;
 			}
 		}
 		else{
-			mvwprintw(win,line,1,"%s",tmp);
-			strncpy(tmp,"",8);
+			mvwprintw(user_win,line,1,"%s",tmp);
+            wrefresh(user_win);
+			strcpy(tmp,"");
 			j=0;
 			line++;
 		}
 	}
-	mvwprintw(win,line,1,"%s",tmp);
-	wrefresh(win);
+	mvwprintw(user_win,line,1,"%s",tmp);
+	wrefresh(user_win);
+    
+    
 }
 
 void SalonChat::startChat(){
@@ -73,8 +80,13 @@ void SalonChat::startChat(){
 	
 	initscr();
 	keypad(stdscr, TRUE);
+    
+    attron(A_REVERSE);
+    mvprintw(0, 0, "Utiliser ESC pour quitter le chat");
+    attroff(A_REVERSE);
+    refresh();
 
-	msg_win_chat = newwin(20, 70, 0, 0);
+	msg_win_chat = newwin(19, 70, 1, 0);
 	user_win = newwin(20, 10, 0, 70);
 	input_win = newwin(4, 80, 20, 0);
 	box(user_win, 0, 0);
@@ -104,9 +116,9 @@ void SalonChat::startChat(){
 	/*char* bidon pour tester un buffer vide */
 	snprintf(tester, MAX_FIELD, "%s", trim_whitespaces(field_buffer(field[0], 0)));
 
-	//pthread_create(&rec, NULL, chatReceiver, NULL);
-	SalonChat::print_online_users_chat("Abderr,TomyLeBg,EimanRat,ElishETH,AlexKGB",user_win);
-	while((ch = wgetch(input_win)) != KEY_F(1))
+   
+
+	while((ch = wgetch(input_win)) != 27)
 	{	switch(ch)
 		{
 			case 10:
@@ -135,23 +147,17 @@ void SalonChat::startChat(){
 			case KEY_DC:
 				form_driver(form, REQ_DEL_CHAR);
 				break;
-
-			case 27: //ESC
-				//send exit
-				break;
-
 			default:
 				form_driver(form, ch);
 				form_driver(form, REQ_DEL_CHAR);
 				break;
 		}
 	}
+	if (ch == 27){
+        PacketManager::send_logout_chat();
+    }
 
 	/* Unpost form and free the memory */
-	unpost_form(form);
-	free_form(form);
-	free_field(field[0]);
-	free_field(field[1]); 
-	endwin();
+	
 }
 

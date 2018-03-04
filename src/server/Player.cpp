@@ -31,6 +31,7 @@ void Player::receive() {
     }
 
     WizardLogger::warning("La connexion avec le client \""+get_username()+"\" semble avoir été interrompue !");
+    
 }
 
 void Player::logout() {

@@ -41,6 +41,8 @@ namespace PacketManager {
     void receive_chat_message(Packet::chatMessagePacket*);
     void send_chat_conn(const char*);
     void send_chat_message(const char*, const char*);
+    void receive_users_name(Packet::usersInChatPacket*);
+    void send_logout_chat();
     //=============================ENVOI=====================================
     //===================LOGIN & SIGNUP===========================
     //Demande à se connecter

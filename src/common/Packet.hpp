@@ -28,6 +28,8 @@ public:
         MOVE_TETRIMINOS = 17,
         CHAT_MESSAGE_ID = 18,
         CHAT_MESSAGE_CONN = 19,
+        CHAT_USERS_ID = 20,
+        CHAT_LOGOUT = 21,
 
     };
     
@@ -104,11 +106,17 @@ public:
 //=========================CHAT==================================
     typedef struct {
         int ID = CHAT_MESSAGE_ID;
-        int size = (sizeof(char)*MAX_MESSAGE_SIZE)+(sizeof(char)*MAX_PSEUDO_SIZE*10);
+        int size = (sizeof(char)*MAX_MESSAGE_SIZE)+(sizeof(char)*MAX_PSEUDO_SIZE);
         char sender[MAX_PSEUDO_SIZE];
         char message[MAX_MESSAGE_SIZE];
         
     } chatMessagePacket;
+    
+    typedef struct {
+        int ID = CHAT_USERS_ID;
+        int size = (sizeof(char)*USERS_IN_CHAT);
+        char users_char[USERS_IN_CHAT];
+    } usersInChatPacket;
 
     static const int packetMaxSize = sizeof(playerInfoPacket);
 

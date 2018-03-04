@@ -7,6 +7,7 @@
 #define MAX_PSEUDO_SIZE 20
 #define HASH_SIZE 64
 #define MAX_MESSAGE_SIZE 140
+#define USERS_IN_CHAT 500
 
 //============CONNECTION=================
 

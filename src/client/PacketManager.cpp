@@ -22,6 +22,8 @@ void PacketManager::manage_packet(void* packet) {
                                             break;   
         case Packet::CHAT_MESSAGE_ID:       receive_chat_message(reinterpret_cast<Packet::chatMessagePacket*>(packet)); 
                                             break; 
+        case Packet::CHAT_USERS_ID:       receive_users_name(reinterpret_cast<Packet::usersInChatPacket*>(packet)); 
+                                            break;
         case Packet::DISCONNECT_ID :        WizardLogger::warning("Paquet de déconnection reçu");
                                             break;
         default :                           WizardLogger::warning("Paquet inconnue reçu: " +
@@ -122,7 +124,6 @@ void PacketManager::send_chat_conn(const char *user) {
 
 
 void PacketManager::receive_chat_message(Packet::chatMessagePacket* packet) {
-    
     WizardLogger::info("Paquet de chat reçu");
     salon_chat->chatReceiver(packet->message,packet->sender);
    
@@ -140,6 +141,17 @@ void PacketManager::send_chat_message(const char *user, const char *msg){
     conn->send_packet(chat_send_msg_to_server, sizeof(*chat_send_msg_to_server));
     delete chat_send_msg_to_server;
 }
+
+void PacketManager::receive_users_name(Packet::usersInChatPacket* packet){
+    salon_chat->print_online_users_chat(packet->users_char);
+}
+
+void PacketManager::send_logout_chat(){
+    Packet::packet* send_logout_packet = new Packet::packet();
+    send_logout_packet->ID = Packet::CHAT_LOGOUT;
+    conn->send_packet(send_logout_packet, sizeof(*send_logout_packet));
+}
+
 /**
  * Send a disconnection signal to the server (help detect crash)
  */
