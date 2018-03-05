@@ -666,11 +666,4 @@ void WizardDisplay::choice_game() {
            
     } 
 
-    
-   
-
-        
-    
-
     }
-
