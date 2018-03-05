@@ -1,0 +1,8 @@
+key,key_id
+rotateRigth,101
+rotateLeft,97
+accelerate,115
+moveRigth,100
+moveLeft,113
+hardDrop,32
+hold,104

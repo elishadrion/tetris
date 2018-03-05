@@ -37,9 +37,46 @@ void GameManager::start_game(unsigned _num,int type_game, unsigned seed){
 
 
 
-
 void player_get_choice_in_game(Grid* grid,Stopper_Thread* stopper) {
+    
+    char C_rotateRigth;
+    char C_rotateLeft;
+    char C_accelerate;
+    char C_moveRigth;
+    char C_moveLeft;
+    char C_hardDrop;
+    char C_hold;
+    
+    const csv::Parser file = csv::Parser("./settings/keys_settings.csv");
+    int lineNumber = file.rowCount();
 
+    for (int i = 0; i < lineNumber; i++) {
+        std::string keyValue = file[i]["key"];
+        int keyNumber = static_cast<char>(std::stoi(file[i]["key_id"]));
+
+        if (keyValue == "rotateRigth"){
+        C_rotateRigth = keyNumber;
+        }
+        else if (keyValue == "rotateLeft"){
+        C_rotateLeft = keyNumber;
+        }
+        else if (keyValue == "accelerate"){
+        C_accelerate = keyNumber;
+        }
+        else if (keyValue == "moveRigth"){
+        C_moveRigth = keyNumber;
+        }
+        else if (keyValue == "moveLeft"){
+        C_moveLeft = keyNumber;
+        }
+        else if (keyValue == "hardDrop"){
+        C_hardDrop = keyNumber;
+        }
+        else if (keyValue == "hold"){
+        C_hold = keyNumber;
+        }
+    }
+    
 	int ch;
 	bool flag;
 	
@@ -47,32 +84,32 @@ void player_get_choice_in_game(Grid* grid,Stopper_Thread* stopper) {
 		
 		ch = getch();
 		flag = !stopper->game_is_finish();
-		if  (flag and ch == KEY_RIGHT) {
+		if  (flag and ch == C_moveRigth) {
 			game_manager->move_right();
 			grid->current_tetriminos_move_right();
 
 		}
-		else if (flag and ch == KEY_LEFT)  {
+		else if (flag and ch == C_moveLeft)  {
 			game_manager->move_left();
 			grid->current_tetriminos_move_left();
 		}
-		else if (flag and ch == 'd')       {
+		else if (flag and ch == C_rotateRigth) {
 			game_manager->move_turn_right();
 			grid->current_tetriminos_turn_right();
 		}
-		else if (flag and ch == 'q')       {
+		else if (flag and ch == C_rotateLeft) {
 			game_manager->move_turn_left();
 			grid->current_tetriminos_turn_left();
 		}
-		else if (flag and ch == 'z')       {
+		else if (flag and ch == C_hardDrop)       {
 			game_manager->move_harddrop();
 			grid->current_tetriminos_hard_drop();
 		}
-		else if (flag and ch == 'h')       {
+		else if (flag and ch == C_hold)       {
 			game_manager->move_hold();
 			grid->set_current_tetriminos_hold();
 		}
-		else if (flag and ch ==  KEY_DOWN) {
+		else if (flag and ch ==  C_accelerate) {
 			game_manager->move_drop();
 			grid->set_acceleration_quick();
 		}

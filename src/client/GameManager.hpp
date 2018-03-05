@@ -18,6 +18,10 @@ class GameManager;
 #include "../game/Mode/Classic.hpp"
 #include "../game/CLI/Game_CLI.hpp"
 
+
+#include "../dependencies/CSVparser/CSVparser.hpp"
+
+
 void player_get_choice_in_game(Grid *, Stopper_Thread*);
 
 class GameManager {

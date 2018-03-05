@@ -1,4 +1,3 @@
-
 # Groupe 2 : 3V-CUBE
 
 # Makefile
@@ -9,8 +8,17 @@ OUT= main
 CXXFLAGS= -std=c++17 -w -lform -pthread -ggdb3 -Wpedantic -Wall -Wextra -Wconversion -Weffc++ -Wstrict-null-sentinel -Wold-style-cast -Wnoexcept -Wctor-dtor-privacy -Woverloaded-virtual -Wsign-promo -Wzero-as-null-pointer-constant -Wsuggest-final-types -Wsuggest-final-methods -Wsuggest-override
 all: $(OUT)
 
-$(OUT):		 					Connection.o Player.o PacketManager.o GameManager.o WizardLogger.o CacheManager.o WizardDisplay.o Client.o Mode.o Game_CLI.o Grid.o Marathon.o Sprint.o Classic.o Tetriminos.o Block.o Vs.o SalonChat.o $(MAIN)
-	$(CXX) $(CXXFLAGS) $(MAIN) 	Connection.o Player.o PacketManager.o GameManager.o WizardLogger.o CacheManager.o WizardDisplay.o Client.o Mode.o Game_CLI.o Grid.o Marathon.o Sprint.o Classic.o Tetriminos.o Block.o Vs.o SalonChat.o -lncurses -lform -o $(OUT)
+$(OUT):		 					CSVparser.o SettingMenu.o SettingKeys.o Connection.o Player.o PacketManager.o GameManager.o WizardLogger.o CacheManager.o WizardDisplay.o Client.o Mode.o Game_CLI.o Grid.o Marathon.o Sprint.o Classic.o Tetriminos.o Block.o Vs.o SalonChat.o $(MAIN)
+	$(CXX) $(CXXFLAGS) $(MAIN) 	CSVparser.o SettingsMenu.o SettingKeys.o Connection.o Player.o PacketManager.o GameManager.o WizardLogger.o CacheManager.o WizardDisplay.o Client.o Mode.o Game_CLI.o Grid.o Marathon.o Sprint.o Classic.o Tetriminos.o Block.o Vs.o SalonChat.o -lncurses -lform -o $(OUT)
+
+CSVparser.o: ../dependencies/CSVparser/CSVparser.cpp ../dependencies/CSVparser/CSVparser.hpp
+	$(CXX) $(CXXFLAGS) -c ../dependencies/CSVparser/CSVparser.cpp	
+	
+SettingMenu.o: SettingsMenu.cpp SettingsMenu.hpp
+	$(CXX) $(CXXFLAGS) -c SettingsMenu.cpp
+
+SettingsKeys.o: SettingKeys.cpp SettingKeys.hpp
+	$(CXX) $(CXXFLAGS) -c SettingKeys.cpp
 	
 PacketManager.o: PacketManager.cpp PacketManager.hpp
 	$(CXX) $(CXXFLAGS) -c PacketManager.cpp

@@ -4284,3 +4284,587 @@
 [2018-03-05 16:29:00.156] [info]	sony est dans le chat
 [2018-03-05 16:29:14.180] [warning]	La connexion avec le client "sony" semble avoir été interrompue !
 [2018-03-05 16:29:14.185] [info]	sony a quitter le chat
+[2018-03-05 19:38:51.504] [info]	Démarrage serveur
+[2018-03-05 19:38:51.505] [info]	Ecoute des tentatives de connexions
+[2018-03-05 19:38:51.505] [info]	Serveur en attente de connexion client
+[2018-03-05 19:38:56.057] [error]	Login interrompu, connexion avec le client perdu
+[2018-03-05 19:39:03.246] [info]	Démarrage serveur
+[2018-03-05 19:39:03.247] [info]	Ecoute des tentatives de connexions
+[2018-03-05 19:39:03.247] [info]	Serveur en attente de connexion client
+[2018-03-05 19:39:09.685] [warning]	Paquet de login reçu
+[2018-03-05 19:39:09.686] [info]	Client "a" s'est logged-in
+[2018-03-05 19:39:15.718] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 19:39:44.882] [error]	Login interrompu, connexion avec le client perdu
+[2018-03-05 19:40:14.598] [warning]	Paquet de login reçu
+[2018-03-05 19:40:14.598] [info]	Client "a" s'est logged-in
+[2018-03-05 19:50:47.423] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 20:15:18.190] [error]	Login interrompu, connexion avec le client perdu
+[2018-03-05 20:15:26.005] [error]	Login interrompu, connexion avec le client perdu
+[2018-03-05 20:16:20.919] [warning]	Paquet de login reçu
+[2018-03-05 20:16:20.919] [info]	Client "a" s'est logged-in
+[2018-03-05 20:16:34.584] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 20:16:47.589] [warning]	Paquet de login reçu
+[2018-03-05 20:16:47.589] [info]	Client "a" s'est logged-in
+[2018-03-05 20:16:59.296] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 20:34:34.528] [error]	Login interrompu, connexion avec le client perdu
+[2018-03-05 20:37:02.993] [warning]	Paquet de login reçu
+[2018-03-05 20:37:02.993] [info]	Client "a" s'est logged-in
+[2018-03-05 20:37:05.187] [info]	Reçu une demande de jeu de : a
+[2018-03-05 20:37:05.187] [info]	Envoi d'un game waiting à : a
+[2018-03-05 20:37:05.187] [info]	Envoi d'un game ready à : a
+[2018-03-05 20:37:05.204] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 20:45:40.582] [warning]	Paquet de login reçu
+[2018-03-05 20:45:40.582] [info]	Client "a" s'est logged-in
+[2018-03-05 20:45:42.839] [info]	Reçu une demande de jeu de : a
+[2018-03-05 20:45:42.839] [info]	Envoi d'un game waiting à : a
+[2018-03-05 20:45:42.839] [info]	Envoi d'un game ready à : a
+[2018-03-05 20:45:42.840] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 20:48:43.815] [warning]	Paquet de login reçu
+[2018-03-05 20:48:43.816] [info]	Client "a" s'est logged-in
+[2018-03-05 20:48:45.284] [info]	Reçu une demande de jeu de : a
+[2018-03-05 20:48:45.284] [info]	Envoi d'un game waiting à : a
+[2018-03-05 20:48:45.284] [info]	Envoi d'un game ready à : a
+[2018-03-05 20:48:45.285] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 20:51:35.320] [warning]	Paquet de login reçu
+[2018-03-05 20:51:35.320] [info]	Client "abderr" s'est logged-in
+[2018-03-05 20:53:56.646] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-05 20:54:04.216] [warning]	Paquet de login reçu
+[2018-03-05 20:54:04.216] [info]	Client "a" s'est logged-in
+[2018-03-05 20:54:34.819] [info]	Reçu une demande de jeu de : a
+[2018-03-05 20:54:34.819] [info]	Envoi d'un game waiting à : a
+[2018-03-05 20:54:34.819] [info]	Envoi d'un game ready à : a
+[2018-03-05 20:54:34.820] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 20:55:25.402] [warning]	Paquet de login reçu
+[2018-03-05 20:55:25.402] [info]	Client "a" s'est logged-in
+[2018-03-05 20:55:27.395] [info]	Reçu une demande de jeu de : a
+[2018-03-05 20:55:27.395] [info]	Envoi d'un game waiting à : a
+[2018-03-05 20:55:27.395] [info]	Envoi d'un game ready à : a
+[2018-03-05 20:55:41.170] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 20:56:36.504] [info]	Démarrage serveur
+[2018-03-05 20:56:36.504] [info]	Ecoute des tentatives de connexions
+[2018-03-05 20:56:36.504] [info]	Serveur en attente de connexion client
+[2018-03-05 20:56:42.324] [warning]	Paquet de login reçu
+[2018-03-05 20:56:42.324] [info]	Client "a" s'est logged-in
+[2018-03-05 20:56:44.716] [info]	Reçu une demande de jeu de : a
+[2018-03-05 20:56:44.716] [info]	Envoi d'un game waiting à : a
+[2018-03-05 20:56:44.716] [info]	Envoi d'un game ready à : a
+[2018-03-05 20:56:44.717] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 20:56:55.351] [error]	Login interrompu, connexion avec le client perdu
+[2018-03-05 20:57:40.617] [warning]	Paquet de login reçu
+[2018-03-05 20:57:40.621] [info]	Client "a" s'est logged-in
+[2018-03-05 20:57:42.966] [info]	Reçu une demande de jeu de : a
+[2018-03-05 20:57:42.966] [info]	Envoi d'un game waiting à : a
+[2018-03-05 20:57:42.967] [info]	Envoi d'un game ready à : a
+[2018-03-05 20:57:42.967] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 20:57:55.879] [error]	Login interrompu, connexion avec le client perdu
+[2018-03-05 20:58:16.708] [warning]	Paquet de login reçu
+[2018-03-05 20:58:16.709] [info]	Client "a" s'est logged-in
+[2018-03-05 20:58:22.757] [info]	Reçu une demande de jeu de : a
+[2018-03-05 20:58:22.757] [info]	Envoi d'un game waiting à : a
+[2018-03-05 20:58:22.757] [info]	Envoi d'un game ready à : a
+[2018-03-05 20:58:22.758] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 20:58:48.006] [warning]	Paquet de login reçu
+[2018-03-05 20:58:48.006] [info]	Client "a" s'est logged-in
+[2018-03-05 20:58:49.405] [info]	a est dans le chat
+[2018-03-05 20:58:51.181] [info]	a a quitter le chat
+[2018-03-05 20:58:53.562] [info]	Reçu une demande de jeu de : a
+[2018-03-05 20:58:53.563] [info]	Envoi d'un game waiting à : a
+[2018-03-05 20:58:53.563] [info]	Envoi d'un game ready à : a
+[2018-03-05 20:58:53.564] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 20:58:59.011] [warning]	Paquet de login reçu
+[2018-03-05 20:58:59.011] [info]	Client "a" s'est logged-in
+[2018-03-05 20:58:59.985] [info]	a est dans le chat
+[2018-03-05 20:59:02.669] [info]	a a quitter le chat
+[2018-03-05 20:59:06.222] [info]	Reçu une demande de jeu de : a
+[2018-03-05 20:59:06.222] [info]	Envoi d'un game waiting à : a
+[2018-03-05 20:59:07.766] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 20:59:13.373] [warning]	Paquet de login reçu
+[2018-03-05 20:59:13.374] [info]	Client "a" s'est logged-in
+[2018-03-05 20:59:17.497] [info]	Reçu une demande de jeu de : a
+[2018-03-05 20:59:17.497] [info]	Envoi d'un game waiting à : a
+[2018-03-05 20:59:17.497] [info]	Envoi d'un game ready à : a
+[2018-03-05 20:59:17.497] [info]	Envoi d'un game ready à : a
+[2018-03-05 20:59:19.619] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 20:59:26.252] [warning]	Paquet de login reçu
+[2018-03-05 20:59:26.252] [info]	Client "a" s'est logged-in
+[2018-03-05 20:59:28.739] [info]	Reçu une demande de jeu de : a
+[2018-03-05 20:59:28.739] [info]	Envoi d'un game waiting à : a
+[2018-03-05 20:59:28.739] [info]	Envoi d'un game ready à : a
+[2018-03-05 20:59:28.740] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 20:59:33.950] [warning]	Paquet de login reçu
+[2018-03-05 20:59:33.951] [info]	Client "a" s'est logged-in
+[2018-03-05 20:59:36.074] [info]	Reçu une demande de jeu de : a
+[2018-03-05 20:59:36.074] [info]	Envoi d'un game waiting à : a
+[2018-03-05 20:59:36.074] [info]	Envoi d'un game ready à : a
+[2018-03-05 20:59:36.075] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 21:00:08.184] [warning]	Paquet de login reçu
+[2018-03-05 21:00:08.185] [info]	Client "a" s'est logged-in
+[2018-03-05 21:00:09.843] [info]	Reçu une demande de jeu de : a
+[2018-03-05 21:00:09.843] [info]	Envoi d'un game waiting à : a
+[2018-03-05 21:00:09.843] [info]	Envoi d'un game ready à : a
+[2018-03-05 21:00:09.844] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 21:00:15.836] [warning]	Paquet de login reçu
+[2018-03-05 21:00:15.836] [info]	Client "a" s'est logged-in
+[2018-03-05 21:00:19.318] [info]	Reçu une demande de jeu de : a
+[2018-03-05 21:00:19.318] [info]	Envoi d'un game waiting à : a
+[2018-03-05 21:00:19.318] [info]	Envoi d'un game ready à : a
+[2018-03-05 21:01:01.348] [info]	Reçu une demande de jeu de : a
+[2018-03-05 21:01:01.348] [info]	Envoi d'un game waiting à : a
+[2018-03-05 21:01:01.348] [info]	Envoi d'un game ready à : a
+[2018-03-05 21:01:21.814] [info]	Démarrage serveur
+[2018-03-05 21:01:21.815] [info]	Ecoute des tentatives de connexions
+[2018-03-05 21:01:21.818] [info]	Serveur en attente de connexion client
+[2018-03-05 21:01:28.842] [warning]	Paquet de login reçu
+[2018-03-05 21:01:28.843] [info]	Client "a" s'est logged-in
+[2018-03-05 21:01:31.847] [info]	Reçu une demande de jeu de : a
+[2018-03-05 21:01:31.847] [info]	Envoi d'un game waiting à : a
+[2018-03-05 21:01:31.847] [info]	Envoi d'un game ready à : a
+[2018-03-05 21:01:31.848] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 21:02:29.304] [warning]	Paquet de login reçu
+[2018-03-05 21:02:29.305] [info]	Client "a" s'est logged-in
+[2018-03-05 21:02:32.581] [info]	Reçu une demande de jeu de : a
+[2018-03-05 21:02:32.581] [info]	Envoi d'un game waiting à : a
+[2018-03-05 21:02:32.581] [info]	Envoi d'un game ready à : a
+[2018-03-05 21:02:32.582] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 21:02:35.821] [info]	Démarrage serveur
+[2018-03-05 21:02:35.821] [info]	Ecoute des tentatives de connexions
+[2018-03-05 21:02:35.821] [info]	Serveur en attente de connexion client
+[2018-03-05 21:02:40.829] [warning]	Paquet de login reçu
+[2018-03-05 21:02:40.829] [info]	Client "a" s'est logged-in
+[2018-03-05 21:02:42.297] [info]	Reçu une demande de jeu de : a
+[2018-03-05 21:02:42.297] [info]	Envoi d'un game waiting à : a
+[2018-03-05 21:02:42.297] [info]	Envoi d'un game ready à : a
+[2018-03-05 21:02:42.298] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 21:02:47.177] [info]	Démarrage serveur
+[2018-03-05 21:02:47.179] [info]	Ecoute des tentatives de connexions
+[2018-03-05 21:02:47.179] [info]	Serveur en attente de connexion client
+[2018-03-05 21:02:54.459] [warning]	Paquet de login reçu
+[2018-03-05 21:02:54.460] [info]	Client "a" s'est logged-in
+[2018-03-05 21:02:55.201] [info]	a est dans le chat
+[2018-03-05 21:02:57.168] [info]	a a quitter le chat
+[2018-03-05 21:03:02.002] [info]	Reçu une demande de jeu de : a
+[2018-03-05 21:03:02.002] [info]	Envoi d'un game waiting à : a
+[2018-03-05 21:03:02.002] [info]	Envoi d'un game ready à : a
+[2018-03-05 21:03:02.003] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 21:04:27.876] [warning]	Paquet de login reçu
+[2018-03-05 21:04:27.877] [info]	Client "a" s'est logged-in
+[2018-03-05 21:04:45.305] [info]	Reçu une demande de jeu de : a
+[2018-03-05 21:04:45.305] [info]	Envoi d'un game waiting à : a
+[2018-03-05 21:04:45.305] [info]	Envoi d'un game ready à : a
+[2018-03-05 21:04:45.307] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 21:04:58.902] [info]	Démarrage serveur
+[2018-03-05 21:04:58.905] [info]	Ecoute des tentatives de connexions
+[2018-03-05 21:04:58.905] [info]	Serveur en attente de connexion client
+[2018-03-05 21:05:57.341] [error]	Login interrompu, connexion avec le client perdu
+[2018-03-05 21:06:10.518] [error]	Login interrompu, connexion avec le client perdu
+[2018-03-05 21:06:11.300] [warning]	Paquet de login reçu
+[2018-03-05 21:06:11.301] [info]	Client "adminc" s'est logged-in
+[2018-03-05 21:06:18.617] [warning]	Paquet de login reçu
+[2018-03-05 21:06:18.618] [info]	Client "a" s'est logged-in
+[2018-03-05 21:06:18.876] [info]	Reçu une demande de jeu de : adminc
+[2018-03-05 21:06:18.876] [info]	Envoi d'un game waiting à : adminc
+[2018-03-05 21:06:18.876] [info]	Envoi d'un game ready à : adminc
+[2018-03-05 21:06:18.928] [warning]	La connexion avec le client "adminc" semble avoir été interrompue !
+[2018-03-05 21:06:20.231] [info]	a est dans le chat
+[2018-03-05 21:06:44.897] [warning]	Paquet de login reçu
+[2018-03-05 21:06:44.897] [info]	Client "thomas" s'est logged-in
+[2018-03-05 21:06:46.201] [info]	thomas est dans le chat
+[2018-03-05 21:06:56.588] [info]	thomas a quitter le chat
+[2018-03-05 21:07:02.838] [info]	a a quitter le chat
+[2018-03-05 21:07:05.165] [info]	Reçu une demande de jeu de : thomas
+[2018-03-05 21:07:05.165] [info]	Envoi d'un game waiting à : thomas
+[2018-03-05 21:07:05.165] [info]	Envoi d'un game ready à : thomas
+[2018-03-05 21:07:05.183] [warning]	La connexion avec le client "thomas" semble avoir été interrompue !
+[2018-03-05 21:08:09.784] [warning]	Paquet de login reçu
+[2018-03-05 21:08:09.784] [info]	Client "adminc" s'est logged-in
+[2018-03-05 21:08:11.516] [info]	Reçu une demande de jeu de : adminc
+[2018-03-05 21:08:11.516] [info]	Envoi d'un game waiting à : adminc
+[2018-03-05 21:08:11.516] [info]	Envoi d'un game ready à : adminc
+[2018-03-05 21:08:11.534] [warning]	La connexion avec le client "adminc" semble avoir été interrompue !
+[2018-03-05 21:08:15.774] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 21:08:23.775] [warning]	Paquet de login reçu
+[2018-03-05 21:08:23.776] [info]	Client "adminc" s'est logged-in
+[2018-03-05 21:08:25.835] [info]	Reçu une demande de jeu de : adminc
+[2018-03-05 21:08:25.835] [info]	Envoi d'un game waiting à : adminc
+[2018-03-05 21:08:25.835] [info]	Envoi d'un game ready à : adminc
+[2018-03-05 21:08:25.853] [warning]	La connexion avec le client "adminc" semble avoir été interrompue !
+[2018-03-05 21:08:35.769] [info]	Démarrage serveur
+[2018-03-05 21:08:35.769] [info]	Ecoute des tentatives de connexions
+[2018-03-05 21:08:35.769] [info]	Serveur en attente de connexion client
+[2018-03-05 21:08:43.707] [warning]	Paquet de login reçu
+[2018-03-05 21:08:43.707] [info]	Client "abderr" s'est logged-in
+[2018-03-05 21:08:43.759] [warning]	Paquet de login reçu
+[2018-03-05 21:08:43.759] [info]	Client "adminc" s'est logged-in
+[2018-03-05 21:08:44.643] [info]	Reçu une demande de jeu de : adminc
+[2018-03-05 21:08:44.643] [info]	Envoi d'un game waiting à : adminc
+[2018-03-05 21:08:44.643] [info]	Envoi d'un game ready à : adminc
+[2018-03-05 21:08:44.661] [warning]	La connexion avec le client "adminc" semble avoir été interrompue !
+[2018-03-05 21:08:45.809] [info]	Reçu une demande de jeu de : abderr
+[2018-03-05 21:08:45.809] [info]	Envoi d'un game waiting à : abderr
+[2018-03-05 21:08:45.809] [info]	Envoi d'un game ready à : abderr
+[2018-03-05 21:08:45.813] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-05 21:09:54.731] [error]	Login interrompu, connexion avec le client perdu
+[2018-03-05 21:11:04.750] [warning]	Paquet de login reçu
+[2018-03-05 21:11:04.750] [info]	Client "abderr" s'est logged-in
+[2018-03-05 21:11:06.738] [info]	Reçu une demande de jeu de : abderr
+[2018-03-05 21:11:06.738] [info]	Envoi d'un game waiting à : abderr
+[2018-03-05 21:11:06.738] [info]	Envoi d'un game ready à : abderr
+[2018-03-05 21:11:06.740] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-05 21:11:16.085] [warning]	Paquet de login reçu
+[2018-03-05 21:11:16.086] [info]	Client "thomas" s'est logged-in
+[2018-03-05 21:11:17.829] [info]	Reçu une demande de jeu de : thomas
+[2018-03-05 21:11:17.829] [info]	Envoi d'un game waiting à : thomas
+[2018-03-05 21:11:17.829] [info]	Envoi d'un game ready à : thomas
+[2018-03-05 21:11:17.831] [warning]	La connexion avec le client "thomas" semble avoir été interrompue !
+[2018-03-05 21:11:21.462] [info]	Démarrage serveur
+[2018-03-05 21:11:21.462] [info]	Ecoute des tentatives de connexions
+[2018-03-05 21:11:21.463] [info]	Serveur en attente de connexion client
+[2018-03-05 21:11:30.892] [warning]	Paquet de login reçu
+[2018-03-05 21:11:30.893] [info]	Client "thomas" s'est logged-in
+[2018-03-05 21:11:33.332] [info]	Reçu une demande de jeu de : thomas
+[2018-03-05 21:11:33.332] [info]	Envoi d'un game waiting à : thomas
+[2018-03-05 21:11:33.332] [info]	Envoi d'un game ready à : thomas
+[2018-03-05 21:11:33.621] [warning]	La connexion avec le client "thomas" semble avoir été interrompue !
+[2018-03-05 21:11:42.217] [warning]	Paquet de login reçu
+[2018-03-05 21:11:42.218] [info]	Client "alexane" s'est logged-in
+[2018-03-05 21:11:44.078] [info]	Reçu une demande de jeu de : alexane
+[2018-03-05 21:11:44.078] [info]	Envoi d'un game waiting à : alexane
+[2018-03-05 21:11:44.078] [info]	Envoi d'un game ready à : alexane
+[2018-03-05 21:11:44.080] [warning]	La connexion avec le client "alexane" semble avoir été interrompue !
+[2018-03-05 21:11:53.795] [warning]	Paquet de login reçu
+[2018-03-05 21:11:53.795] [info]	Client "eiman" s'est logged-in
+[2018-03-05 21:11:57.163] [info]	Reçu une demande de jeu de : eiman
+[2018-03-05 21:11:57.163] [info]	Envoi d'un game waiting à : eiman
+[2018-03-05 21:11:57.163] [info]	Envoi d'un game ready à : eiman
+[2018-03-05 21:11:57.165] [warning]	La connexion avec le client "eiman" semble avoir été interrompue !
+[2018-03-05 21:13:21.781] [info]	Démarrage serveur
+[2018-03-05 21:13:21.781] [info]	Ecoute des tentatives de connexions
+[2018-03-05 21:13:21.781] [info]	Serveur en attente de connexion client
+[2018-03-05 21:13:30.911] [warning]	Paquet de login reçu
+[2018-03-05 21:13:30.911] [info]	Client "abderr" s'est logged-in
+[2018-03-05 21:13:32.655] [info]	abderr est dans le chat
+[2018-03-05 21:13:34.895] [info]	abderr a quitter le chat
+[2018-03-05 21:13:39.017] [info]	Reçu une demande de jeu de : abderr
+[2018-03-05 21:13:39.017] [info]	Envoi d'un game waiting à : abderr
+[2018-03-05 21:13:39.017] [info]	Envoi d'un game ready à : abderr
+[2018-03-05 21:13:39.019] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-05 21:13:48.960] [warning]	Paquet de login reçu
+[2018-03-05 21:13:48.961] [info]	Client "adminc" s'est logged-in
+[2018-03-05 21:13:50.669] [info]	Reçu une demande de jeu de : adminc
+[2018-03-05 21:13:50.669] [info]	Envoi d'un game waiting à : adminc
+[2018-03-05 21:13:50.669] [info]	Envoi d'un game ready à : adminc
+[2018-03-05 21:13:50.671] [warning]	La connexion avec le client "adminc" semble avoir été interrompue !
+[2018-03-05 21:14:15.631] [warning]	Paquet d'enregistrement reçu
+[2018-03-05 21:14:15.659] [info]	Client "123456789" s'est logged-in
+[2018-03-05 21:14:18.896] [info]	123456789 est dans le chat
+[2018-03-05 21:14:23.296] [info]	123456789 a quitter le chat
+[2018-03-05 21:14:27.830] [info]	Reçu une demande de jeu de : 123456789
+[2018-03-05 21:14:27.830] [info]	Envoi d'un game waiting à : 123456789
+[2018-03-05 21:14:27.830] [info]	Envoi d'un game ready à : 123456789
+[2018-03-05 21:14:27.833] [warning]	La connexion avec le client "123456789" semble avoir été interrompue !
+[2018-03-05 21:17:02.787] [warning]	Paquet de login reçu
+[2018-03-05 21:17:02.787] [info]	Client "a" s'est logged-in
+[2018-03-05 21:17:07.298] [info]	Reçu une demande de jeu de : a
+[2018-03-05 21:17:07.298] [info]	Envoi d'un game waiting à : a
+[2018-03-05 21:17:07.298] [info]	Envoi d'un game ready à : a
+[2018-03-05 21:19:57.850] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 21:20:59.170] [warning]	Paquet de login reçu
+[2018-03-05 21:20:59.171] [info]	Client "a" s'est logged-in
+[2018-03-05 21:21:00.755] [info]	Reçu une demande de jeu de : a
+[2018-03-05 21:21:00.755] [info]	Envoi d'un game waiting à : a
+[2018-03-05 21:21:00.755] [info]	Envoi d'un game ready à : a
+[2018-03-05 21:21:00.759] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 21:21:14.675] [warning]	Paquet de login reçu
+[2018-03-05 21:21:14.676] [info]	Client "a" s'est logged-in
+[2018-03-05 21:21:17.286] [info]	Reçu une demande de jeu de : a
+[2018-03-05 21:21:17.286] [info]	Envoi d'un game waiting à : a
+[2018-03-05 21:21:17.286] [info]	Envoi d'un game ready à : a
+[2018-03-05 21:21:17.293] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 21:21:33.246] [warning]	Paquet de login reçu
+[2018-03-05 21:21:33.246] [info]	Client "a" s'est logged-in
+[2018-03-05 21:21:42.897] [info]	Reçu une demande de jeu de : a
+[2018-03-05 21:21:42.897] [info]	Envoi d'un game waiting à : a
+[2018-03-05 21:21:42.897] [info]	Envoi d'un game ready à : a
+[2018-03-05 21:23:22.880] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 21:23:28.998] [error]	Login interrompu, connexion avec le client perdu
+[2018-03-05 21:23:44.065] [warning]	Paquet de login reçu
+[2018-03-05 21:23:44.066] [info]	Client "a" s'est logged-in
+[2018-03-05 21:23:47.051] [info]	Reçu une demande de jeu de : a
+[2018-03-05 21:23:47.051] [info]	Envoi d'un game waiting à : a
+[2018-03-05 21:23:47.051] [info]	Envoi d'un game ready à : a
+[2018-03-05 21:23:47.053] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 21:24:21.720] [warning]	Paquet de login reçu
+[2018-03-05 21:24:21.721] [info]	Client "a" s'est logged-in
+[2018-03-05 21:24:23.272] [info]	Reçu une demande de jeu de : a
+[2018-03-05 21:24:23.272] [info]	Envoi d'un game waiting à : a
+[2018-03-05 21:24:23.272] [info]	Envoi d'un game ready à : a
+[2018-03-05 21:24:23.273] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 21:26:40.934] [warning]	Paquet de login reçu
+[2018-03-05 21:26:40.934] [info]	Client "a" s'est logged-in
+[2018-03-05 21:26:42.852] [info]	Reçu une demande de jeu de : a
+[2018-03-05 21:26:42.852] [info]	Envoi d'un game waiting à : a
+[2018-03-05 21:26:42.852] [info]	Envoi d'un game ready à : a
+[2018-03-05 21:26:42.854] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 21:27:02.640] [warning]	Paquet de login reçu
+[2018-03-05 21:27:02.641] [info]	Client "a" s'est logged-in
+[2018-03-05 21:27:04.328] [info]	Reçu une demande de jeu de : a
+[2018-03-05 21:27:04.328] [info]	Envoi d'un game waiting à : a
+[2018-03-05 21:27:04.328] [info]	Envoi d'un game ready à : a
+[2018-03-05 21:27:04.329] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 21:27:36.278] [info]	Démarrage serveur
+[2018-03-05 21:27:36.278] [info]	Ecoute des tentatives de connexions
+[2018-03-05 21:27:36.278] [info]	Serveur en attente de connexion client
+[2018-03-05 21:27:44.357] [warning]	Paquet de login reçu
+[2018-03-05 21:27:44.358] [info]	Client "a" s'est logged-in
+[2018-03-05 21:27:46.663] [info]	Reçu une demande de jeu de : a
+[2018-03-05 21:27:46.663] [info]	Envoi d'un game waiting à : a
+[2018-03-05 21:27:46.663] [info]	Envoi d'un game ready à : a
+[2018-03-05 21:27:46.666] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 21:28:07.059] [warning]	Paquet de login reçu
+[2018-03-05 21:28:09.959] [warning]	Paquet de login reçu
+[2018-03-05 21:28:09.959] [info]	Client "a" s'est logged-in
+[2018-03-05 21:28:10.870] [info]	Reçu une demande de jeu de : a
+[2018-03-05 21:28:10.870] [info]	Envoi d'un game waiting à : a
+[2018-03-05 21:28:10.870] [info]	Envoi d'un game ready à : a
+[2018-03-05 21:28:16.198] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 21:29:04.830] [warning]	Paquet de login reçu
+[2018-03-05 21:29:04.830] [info]	Client "adminc" s'est logged-in
+[2018-03-05 21:29:05.811] [info]	Reçu une demande de jeu de : adminc
+[2018-03-05 21:29:05.811] [info]	Envoi d'un game waiting à : adminc
+[2018-03-05 21:29:05.811] [info]	Envoi d'un game ready à : adminc
+[2018-03-05 21:29:05.829] [warning]	La connexion avec le client "adminc" semble avoir été interrompue !
+[2018-03-05 21:29:41.233] [warning]	Paquet de login reçu
+[2018-03-05 21:29:45.919] [warning]	Paquet de login reçu
+[2018-03-05 21:29:45.919] [info]	Client "thomas" s'est logged-in
+[2018-03-05 21:29:46.821] [info]	Reçu une demande de jeu de : thomas
+[2018-03-05 21:29:46.821] [info]	Envoi d'un game waiting à : thomas
+[2018-03-05 21:29:46.821] [info]	Envoi d'un game ready à : thomas
+[2018-03-05 21:29:51.031] [warning]	La connexion avec le client "thomas" semble avoir été interrompue !
+[2018-03-05 21:29:54.976] [warning]	Paquet de login reçu
+[2018-03-05 21:29:54.976] [info]	Client "abderr" s'est logged-in
+[2018-03-05 21:29:56.764] [info]	Reçu une demande de jeu de : abderr
+[2018-03-05 21:29:56.764] [info]	Envoi d'un game waiting à : abderr
+[2018-03-05 21:29:56.764] [info]	Envoi d'un game ready à : abderr
+[2018-03-05 21:29:56.768] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-05 21:30:52.904] [warning]	Paquet de login reçu
+[2018-03-05 21:30:52.905] [info]	Client "abderr" s'est logged-in
+[2018-03-05 21:31:02.479] [info]	Démarrage serveur
+[2018-03-05 21:31:02.479] [info]	Ecoute des tentatives de connexions
+[2018-03-05 21:31:02.479] [info]	Serveur en attente de connexion client
+[2018-03-05 21:31:08.103] [warning]	Paquet de login reçu
+[2018-03-05 21:31:08.104] [info]	Client "a" s'est logged-in
+[2018-03-05 21:31:10.105] [info]	Reçu une demande de jeu de : a
+[2018-03-05 21:31:10.105] [info]	Envoi d'un game waiting à : a
+[2018-03-05 21:31:10.105] [info]	Envoi d'un game ready à : a
+[2018-03-05 21:31:10.110] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 21:31:51.191] [warning]	Paquet de login reçu
+[2018-03-05 21:31:51.191] [info]	Client "a" s'est logged-in
+[2018-03-05 21:31:52.750] [info]	Reçu une demande de jeu de : a
+[2018-03-05 21:31:52.751] [info]	Envoi d'un game waiting à : a
+[2018-03-05 21:31:52.751] [info]	Envoi d'un game ready à : a
+[2018-03-05 21:31:52.756] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 21:32:11.063] [warning]	Paquet de login reçu
+[2018-03-05 21:32:11.063] [info]	Client "a" s'est logged-in
+[2018-03-05 21:32:12.691] [info]	Reçu une demande de jeu de : a
+[2018-03-05 21:32:12.691] [info]	Envoi d'un game waiting à : a
+[2018-03-05 21:32:12.691] [info]	Envoi d'un game ready à : a
+[2018-03-05 21:32:12.695] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 21:32:18.916] [warning]	Paquet de login reçu
+[2018-03-05 21:32:18.916] [info]	Client "abderr" s'est logged-in
+[2018-03-05 21:32:20.808] [info]	Reçu une demande de jeu de : abderr
+[2018-03-05 21:32:20.808] [info]	Envoi d'un game waiting à : abderr
+[2018-03-05 21:32:20.808] [info]	Envoi d'un game ready à : abderr
+[2018-03-05 21:32:20.811] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-05 21:32:41.157] [info]	Démarrage serveur
+[2018-03-05 21:32:41.157] [info]	Ecoute des tentatives de connexions
+[2018-03-05 21:32:41.157] [info]	Serveur en attente de connexion client
+[2018-03-05 21:33:19.247] [warning]	Paquet de login reçu
+[2018-03-05 21:33:19.248] [info]	Client "a" s'est logged-in
+[2018-03-05 21:33:21.016] [info]	Reçu une demande de jeu de : a
+[2018-03-05 21:33:21.016] [info]	Envoi d'un game waiting à : a
+[2018-03-05 21:33:21.016] [info]	Envoi d'un game ready à : a
+[2018-03-05 21:33:21.020] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 21:34:25.220] [warning]	Paquet de login reçu
+[2018-03-05 21:34:25.220] [info]	Client "a" s'est logged-in
+[2018-03-05 21:34:27.859] [info]	Reçu une demande de jeu de : a
+[2018-03-05 21:34:27.860] [info]	Envoi d'un game waiting à : a
+[2018-03-05 21:34:27.860] [info]	Envoi d'un game ready à : a
+[2018-03-05 21:34:58.022] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 21:35:10.731] [warning]	Paquet de login reçu
+[2018-03-05 21:35:10.731] [info]	Client "a" s'est logged-in
+[2018-03-05 21:35:12.746] [info]	Reçu une demande de jeu de : a
+[2018-03-05 21:35:12.747] [info]	Envoi d'un game waiting à : a
+[2018-03-05 21:35:12.747] [info]	Envoi d'un game ready à : a
+[2018-03-05 21:35:18.800] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 21:35:37.781] [error]	Login interrompu, connexion avec le client perdu
+[2018-03-05 21:37:05.836] [warning]	Paquet de login reçu
+[2018-03-05 21:37:05.836] [info]	Client "a" s'est logged-in
+[2018-03-05 21:42:49.737] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 21:42:54.428] [warning]	Paquet de login reçu
+[2018-03-05 21:42:54.429] [info]	Client "a" s'est logged-in
+[2018-03-05 21:46:05.880] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 21:50:18.836] [warning]	Paquet de login reçu
+[2018-03-05 21:50:18.836] [info]	Client "a" s'est logged-in
+[2018-03-05 21:50:48.424] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 21:50:59.934] [warning]	Paquet de login reçu
+[2018-03-05 21:50:59.934] [info]	Client "a" s'est logged-in
+[2018-03-05 21:51:59.158] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 21:53:02.850] [warning]	Paquet de login reçu
+[2018-03-05 21:53:02.851] [info]	Client "a" s'est logged-in
+[2018-03-05 21:54:15.995] [info]	Reçu une demande de jeu de : a
+[2018-03-05 21:54:15.995] [info]	Envoi d'un game waiting à : a
+[2018-03-05 21:54:15.995] [info]	Envoi d'un game ready à : a
+[2018-03-05 21:54:16.005] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 21:54:23.953] [warning]	Paquet de login reçu
+[2018-03-05 21:54:23.953] [info]	Client "a" s'est logged-in
+[2018-03-05 21:54:26.400] [info]	Reçu une demande de jeu de : a
+[2018-03-05 21:54:26.400] [info]	Envoi d'un game waiting à : a
+[2018-03-05 21:54:26.400] [info]	Envoi d'un game ready à : a
+[2018-03-05 21:54:41.850] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 22:00:45.285] [warning]	Paquet de login reçu
+[2018-03-05 22:00:45.285] [info]	Client "a" s'est logged-in
+[2018-03-05 22:00:46.978] [info]	Reçu une demande de jeu de : a
+[2018-03-05 22:00:46.978] [info]	Envoi d'un game waiting à : a
+[2018-03-05 22:00:46.978] [info]	Envoi d'un game ready à : a
+[2018-03-05 22:00:46.980] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 22:01:17.373] [warning]	Paquet de login reçu
+[2018-03-05 22:01:17.373] [info]	Client "a" s'est logged-in
+[2018-03-05 22:01:20.347] [info]	Reçu une demande de jeu de : a
+[2018-03-05 22:01:20.347] [info]	Envoi d'un game waiting à : a
+[2018-03-05 22:01:20.347] [info]	Envoi d'un game ready à : a
+[2018-03-05 22:01:20.349] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 22:01:48.675] [info]	Démarrage serveur
+[2018-03-05 22:01:48.675] [info]	Ecoute des tentatives de connexions
+[2018-03-05 22:01:48.676] [info]	Serveur en attente de connexion client
+[2018-03-05 22:02:05.358] [warning]	Paquet de login reçu
+[2018-03-05 22:02:05.359] [info]	Client "a" s'est logged-in
+[2018-03-05 22:02:06.935] [info]	Reçu une demande de jeu de : a
+[2018-03-05 22:02:06.935] [info]	Envoi d'un game waiting à : a
+[2018-03-05 22:02:06.935] [info]	Envoi d'un game ready à : a
+[2018-03-05 22:02:06.937] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 22:02:10.704] [info]	Démarrage serveur
+[2018-03-05 22:02:10.704] [info]	Ecoute des tentatives de connexions
+[2018-03-05 22:02:10.704] [info]	Serveur en attente de connexion client
+[2018-03-05 22:02:44.165] [warning]	Paquet de login reçu
+[2018-03-05 22:02:44.165] [info]	Client "abderr" s'est logged-in
+[2018-03-05 22:02:45.362] [info]	Reçu une demande de jeu de : abderr
+[2018-03-05 22:02:45.363] [info]	Envoi d'un game waiting à : abderr
+[2018-03-05 22:02:45.363] [info]	Envoi d'un game ready à : abderr
+[2018-03-05 22:02:45.364] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-05 22:03:28.716] [info]	Démarrage serveur
+[2018-03-05 22:03:28.716] [info]	Ecoute des tentatives de connexions
+[2018-03-05 22:03:28.716] [info]	Serveur en attente de connexion client
+[2018-03-05 22:03:42.878] [warning]	Paquet de login reçu
+[2018-03-05 22:03:42.878] [info]	Client "a" s'est logged-in
+[2018-03-05 22:03:45.976] [info]	Reçu une demande de jeu de : a
+[2018-03-05 22:03:45.976] [info]	Envoi d'un game waiting à : a
+[2018-03-05 22:03:45.976] [info]	Envoi d'un game ready à : a
+[2018-03-05 22:03:45.984] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 22:04:22.725] [info]	Démarrage serveur
+[2018-03-05 22:04:22.726] [info]	Ecoute des tentatives de connexions
+[2018-03-05 22:04:22.726] [info]	Serveur en attente de connexion client
+[2018-03-05 22:04:29.396] [warning]	Paquet de login reçu
+[2018-03-05 22:04:29.396] [info]	Client "a" s'est logged-in
+[2018-03-05 22:04:30.437] [info]	Reçu une demande de jeu de : a
+[2018-03-05 22:04:30.437] [info]	Envoi d'un game waiting à : a
+[2018-03-05 22:04:30.437] [info]	Envoi d'un game ready à : a
+[2018-03-05 22:04:30.438] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 22:04:41.058] [warning]	Paquet de login reçu
+[2018-03-05 22:04:41.058] [info]	Client "abderr" s'est logged-in
+[2018-03-05 22:04:42.567] [info]	Reçu une demande de jeu de : abderr
+[2018-03-05 22:04:42.567] [info]	Envoi d'un game waiting à : abderr
+[2018-03-05 22:04:42.567] [info]	Envoi d'un game ready à : abderr
+[2018-03-05 22:04:42.570] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-05 22:05:37.032] [warning]	Paquet de login reçu
+[2018-03-05 22:05:37.032] [info]	Client "a" s'est logged-in
+[2018-03-05 22:05:39.152] [info]	Reçu une demande de jeu de : a
+[2018-03-05 22:05:39.152] [info]	Envoi d'un game waiting à : a
+[2018-03-05 22:05:39.152] [info]	Envoi d'un game ready à : a
+[2018-03-05 22:05:42.069] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 22:05:46.829] [warning]	Paquet de login reçu
+[2018-03-05 22:05:46.829] [info]	Client "a" s'est logged-in
+[2018-03-05 22:05:48.880] [info]	Reçu une demande de jeu de : a
+[2018-03-05 22:05:48.880] [info]	Envoi d'un game waiting à : a
+[2018-03-05 22:05:48.880] [info]	Envoi d'un game ready à : a
+[2018-03-05 22:05:55.478] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 22:06:53.971] [warning]	Paquet de login reçu
+[2018-03-05 22:06:53.971] [info]	Client "a" s'est logged-in
+[2018-03-05 22:07:01.174] [info]	Reçu une demande de jeu de : a
+[2018-03-05 22:07:01.174] [info]	Envoi d'un game waiting à : a
+[2018-03-05 22:07:01.175] [info]	Envoi d'un game ready à : a
+[2018-03-05 22:07:35.395] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 22:08:42.086] [warning]	Paquet de login reçu
+[2018-03-05 22:08:42.086] [info]	Client "a" s'est logged-in
+[2018-03-05 22:08:44.108] [info]	Reçu une demande de jeu de : a
+[2018-03-05 22:08:44.108] [info]	Envoi d'un game waiting à : a
+[2018-03-05 22:08:44.108] [info]	Envoi d'un game ready à : a
+[2018-03-05 22:08:46.189] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 22:08:49.983] [warning]	Paquet de login reçu
+[2018-03-05 22:08:49.983] [info]	Client "a" s'est logged-in
+[2018-03-05 22:08:51.235] [info]	Reçu une demande de jeu de : a
+[2018-03-05 22:08:51.235] [info]	Envoi d'un game waiting à : a
+[2018-03-05 22:08:51.235] [info]	Envoi d'un game ready à : a
+[2018-03-05 22:08:57.109] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 22:09:00.367] [warning]	Paquet de login reçu
+[2018-03-05 22:09:00.368] [info]	Client "a" s'est logged-in
+[2018-03-05 22:10:32.042] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 22:10:47.344] [warning]	Paquet de login reçu
+[2018-03-05 22:10:47.345] [info]	Client "a" s'est logged-in
+[2018-03-05 22:10:48.939] [info]	Reçu une demande de jeu de : a
+[2018-03-05 22:10:48.939] [info]	Envoi d'un game waiting à : a
+[2018-03-05 22:10:48.939] [info]	Envoi d'un game ready à : a
+[2018-03-05 22:12:44.205] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 22:12:49.170] [warning]	Paquet de login reçu
+[2018-03-05 22:12:49.170] [info]	Client "a" s'est logged-in
+[2018-03-05 22:12:50.161] [info]	Reçu une demande de jeu de : a
+[2018-03-05 22:12:50.161] [info]	Envoi d'un game waiting à : a
+[2018-03-05 22:12:50.161] [info]	Envoi d'un game ready à : a
+[2018-03-05 22:12:52.205] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 22:14:01.420] [warning]	Paquet de login reçu
+[2018-03-05 22:14:01.421] [info]	Client "abderr" s'est logged-in
+[2018-03-05 22:14:02.362] [info]	abderr est dans le chat
+[2018-03-05 22:14:05.074] [info]	abderr a quitter le chat
+[2018-03-05 22:14:07.047] [info]	Reçu une demande de jeu de : abderr
+[2018-03-05 22:14:07.047] [info]	Envoi d'un game waiting à : abderr
+[2018-03-05 22:14:07.047] [info]	Envoi d'un game ready à : abderr
+[2018-03-05 22:15:08.009] [info]	Reçu une demande de jeu de : abderr
+[2018-03-05 22:15:08.009] [info]	Envoi d'un game waiting à : abderr
+[2018-03-05 22:15:08.009] [info]	Envoi d'un game ready à : abderr
+[2018-03-05 22:15:13.858] [error]	Login interrompu, connexion avec le client perdu
+[2018-03-05 22:29:29.747] [info]	Démarrage serveur
+[2018-03-05 22:29:29.759] [info]	Ecoute des tentatives de connexions
+[2018-03-05 22:29:29.759] [info]	Serveur en attente de connexion client
+[2018-03-05 22:29:38.048] [warning]	Paquet de login reçu
+[2018-03-05 22:29:38.049] [info]	Client "a" s'est logged-in
+[2018-03-05 22:29:43.052] [info]	Reçu une demande de jeu de : a
+[2018-03-05 22:29:43.053] [info]	Envoi d'un game waiting à : a
+[2018-03-05 22:29:43.053] [info]	Envoi d'un game ready à : a
+[2018-03-05 22:29:48.136] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 22:29:59.540] [info]	Démarrage serveur
+[2018-03-05 22:29:59.540] [info]	Ecoute des tentatives de connexions
+[2018-03-05 22:29:59.540] [info]	Serveur en attente de connexion client
+[2018-03-05 22:31:33.591] [warning]	Paquet de login reçu
+[2018-03-05 22:31:33.591] [info]	Client "a" s'est logged-in
+[2018-03-05 22:31:36.526] [info]	Reçu une demande de jeu de : a
+[2018-03-05 22:31:36.526] [info]	Envoi d'un game waiting à : a
+[2018-03-05 22:31:36.526] [info]	Envoi d'un game ready à : a
+[2018-03-05 22:31:53.114] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 22:32:28.635] [info]	Démarrage serveur
+[2018-03-05 22:32:28.635] [info]	Ecoute des tentatives de connexions
+[2018-03-05 22:32:28.635] [info]	Serveur en attente de connexion client
+[2018-03-05 22:32:34.366] [warning]	Paquet de login reçu
+[2018-03-05 22:32:34.367] [info]	Client "a" s'est logged-in
+[2018-03-05 22:32:50.095] [info]	Reçu une demande de jeu de : a
+[2018-03-05 22:32:50.095] [info]	Envoi d'un game waiting à : a
+[2018-03-05 22:32:50.095] [info]	Envoi d'un game ready à : a
+[2018-03-05 22:32:59.198] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 22:33:16.449] [warning]	Paquet de login reçu
+[2018-03-05 22:33:19.177] [warning]	Paquet de login reçu
+[2018-03-05 22:33:19.177] [info]	Client "a" s'est logged-in
+[2018-03-05 22:33:32.103] [info]	Reçu une demande de jeu de : a
+[2018-03-05 22:33:32.103] [info]	Envoi d'un game waiting à : a
+[2018-03-05 22:33:32.103] [info]	Envoi d'un game ready à : a
+[2018-03-05 22:34:21.970] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 22:34:42.417] [warning]	Paquet de login reçu
+[2018-03-05 22:34:42.417] [info]	Client "a" s'est logged-in
+[2018-03-05 22:34:44.183] [warning]	La connexion avec le client "a" semble avoir été interrompue !

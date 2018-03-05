@@ -8,20 +8,20 @@ Mode.cpp
 
 void Mode::update_gui_solo(Grid * grid,  Stopper_Thread* stopper){
 
-	display_game->update_main_game_GUI(grid);  // On update l'affichage de la grille
+	display_game->update_main_game_solo_GUI(grid);  // On update l'affichage de la grille
 	
 	while(!stopper->game_is_finish()){
-		display_game->update_next_tetriminos_GUI( grid->get_next_tetriminos());
+		display_game->update_next_tetriminos_solo_GUI( grid->get_next_tetriminos());
 
 		if(not(grid->has_tetriminos_hold())){ 
 
-			display_game->erase_hold_tetriminos_GUI();
+			display_game->erase_hold_tetriminos_solo_GUI();
 		}
 		else{
 
-			display_game->update_hold_tetriminos_GUI(grid->get_hold_tetriminos(),0);
+			display_game->update_hold_tetriminos_solo_GUI(grid->get_hold_tetriminos());
 		}
-		display_game->update_main_game_GUI(grid);
+		display_game->update_main_game_solo_GUI(grid);
 		usleep(100000);
 	}
  }
@@ -31,18 +31,18 @@ void Mode::update_gui_solo(Grid * grid,  Stopper_Thread* stopper){
 void Mode::update_gui_multi(Grid * grid, Grid * other_grid, Stopper_Thread* stopper){
 
 	
-	display_game->update_main_game_GUI(grid, other_grid);  // On update l'affichage de la grille
+	display_game->update_main_game_multi_GUI(grid, other_grid);  // On update l'affichage de la grille
 
 	while(!stopper->game_is_finish()){
-		display_game->update_next_tetriminos_GUI( grid->get_next_tetriminos(), other_grid->get_next_tetriminos());
+		display_game->update_next_tetriminos_multi_GUI( grid->get_next_tetriminos(), other_grid->get_next_tetriminos());
 
 		if(not(grid->has_tetriminos_hold())){ 
 
-			display_game->erase_hold_tetriminos_GUI();
+			display_game->erase_hold_tetriminos_multi_GUI();
 		}
 		else{
 
-			display_game->update_hold_tetriminos_GUI(grid->get_hold_tetriminos(),1);
+			display_game->update_hold_tetriminos_multi_GUI(grid->get_hold_tetriminos());
 		}
 
 		if(not(other_grid->has_tetriminos_hold())){ 
@@ -55,7 +55,7 @@ void Mode::update_gui_multi(Grid * grid, Grid * other_grid, Stopper_Thread* stop
 		}
 
 
-		display_game->update_main_game_GUI(grid,other_grid);
+		display_game->update_main_game_multi_GUI(grid,other_grid);
 		usleep(100000);
 	}
 }

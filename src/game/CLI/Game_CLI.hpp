@@ -29,18 +29,26 @@ class Game_CLI {
 		 ~Game_CLI();
 
 		 void init_colors();
-		 void init_main_game_GUI(int );
-		 void erase_hold_tetriminos_GUI();
-   		 void erase_next_tetriminos_GUI(int );
+		 void init_main_game_solo_GUI();
+		 void init_main_game_multi_GUI();
+
+		 void erase_hold_tetriminos_multi_GUI();
+		 void erase_next_tetriminos_multi_GUI();
+		 void erase_next_tetriminos_other_multi_GUI();
+		 void erase_hold_tetriminos_other_GUI();   		
+   		 void erase_next_tetriminos_solo_GUI();
+   		 void erase_hold_tetriminos_solo_GUI();
+   		 
 		
-   		 void update_main_game_GUI(Grid * grid, Grid * other_grid);
-   		 void update_main_game_GUI(Grid * grid);
-   			
-   		 void update_next_tetriminos_GUI(Tetriminos * next_tetriminos, Tetriminos * next_tetriminos_other);   		
-   		 void erase_hold_tetriminos_other_GUI();
+   		 void update_main_game_multi_GUI(Grid * grid, Grid * other_grid);
+   		 void update_main_game_solo_GUI(Grid * grid);   	
+
+   		 void update_next_tetriminos_multi_GUI(Tetriminos * next_tetriminos, Tetriminos * next_tetriminos_other);   
+   		 void update_next_tetriminos_solo_GUI(Tetriminos * next_tetriminos);	
+
    		 void update_hold_tetriminos_other_GUI(Tetriminos* hold_tetriminos_other);
-   		 void update_hold_tetriminos_GUI(Tetriminos * hold_tetriminos,int);
-   		 void update_next_tetriminos_GUI(Tetriminos * next_tetriminos);
+   		 void update_hold_tetriminos_solo_GUI(Tetriminos * hold_tetriminos);   		
+   		 void update_hold_tetriminos_multi_GUI(Tetriminos * hold_tetriminos);
    	
 
 

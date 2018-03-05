@@ -25,7 +25,7 @@ void Marathon::init_game(bool is_player){
 	
 
 	if(is_player){
-		display_game->init_main_game_GUI(0);
+		display_game->init_main_game_solo_GUI();
 		usleep(2000);
 		std::thread v(&Marathon::update_gui_solo, this, grid, stopper); // Thread pour les inputs du joueur
 		v.detach();

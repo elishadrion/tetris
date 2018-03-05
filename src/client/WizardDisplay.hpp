@@ -12,6 +12,7 @@ class WizardDisplay;
 #include "GameManager.hpp"
 #include "PacketManager.hpp"
 #include "SalonChat.hpp"
+#include "SettingsMenu.hpp"
 
 
 extern GameManager* game_manager;
@@ -30,8 +31,8 @@ public:
     std::string usernameAttribut;
     
     /* Create or remove interface (CLI/GUI) */
-    WizardDisplay() = default;
-    ~WizardDisplay() = default;
+    WizardDisplay();
+    ~WizardDisplay();
 
     void start();
 	void main_menu();

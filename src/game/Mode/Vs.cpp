@@ -26,7 +26,7 @@ void Vs::init_game(bool is_player){
 
 	if(is_player){
 
-		display_game->init_main_game_GUI(1);
+		display_game->init_main_game_multi_GUI();
 		usleep(2000);
 		std::thread v(&Vs::update_gui_multi, this, grid,_other_grid, stopper); // Thread pour les inputs du joueur
 		v.detach();
