@@ -7,14 +7,25 @@ void GameManager::start_game(unsigned _num,int type_game, unsigned seed){
 
 	display_game = new Game_CLI();
 
-	if(type_game==4){ 		
-		_game = new Vs(seed);
+	if(type_game==1){ 		
+		_game = new Classic(seed);
 		_game->init_game(true);
 	}
 
 	else if(type_game ==2){
 
 		_game = new Marathon(seed);
+		_game->init_game(true);
+	}
+	else if(type_game ==3){
+
+		_game = new Sprint(seed);
+		_game->init_game(true);
+	}
+
+	else if(type_game ==4){
+
+		_game = new Vs(seed);
 		_game->init_game(true);
 	}
 
@@ -35,7 +46,7 @@ void player_get_choice_in_game(Grid* grid,Stopper_Thread* stopper) {
 	while(flag = !stopper->game_is_finish()){
 		
 		ch = getch();
-
+		flag = !stopper->game_is_finish();
 		if  (flag and ch == KEY_RIGHT) {
 			game_manager->move_right();
 			grid->current_tetriminos_move_right();

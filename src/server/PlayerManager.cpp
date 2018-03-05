@@ -101,6 +101,7 @@ void PlayerManager::manage_new_player(Player* player, int mode) {
     if(room->is_full()) {
     	broadcast_game_ready(room);
     	start_game(room,mode);
+
     }
     else PacketManager::send_game_waiting(player);
 }
@@ -118,10 +119,39 @@ Room* PlayerManager::find_available_room(int mode) {
 }
 
 void PlayerManager::start_game(Room* room, int mode) {
-    if(mode==4){
+    
+    if(mode==1){
+        room->set_mode(new Classic(room->get_seed()));        
+    }
+    else if(mode ==2){
+        room->set_mode(new Marathon(room->get_seed()));        
+    }
+    else if(mode ==3){
+        room->set_mode(new Sprint(room->get_seed()));        
+    }
+    else if(mode ==4){
         room->set_mode(new Vs(room->get_seed()));        
     }
+
     room->get_mode()->init_game(false);
+    std::thread my(&PlayerManager::info_game, room,room->get_mode()->get_stopper());
+    my.detach();
     
-    
+}
+
+
+
+
+
+void PlayerManager::info_game(Room * room, Stopper_Thread * stopper){
+
+   unsigned time =0;
+   while(!stopper->game_is_finish()){
+
+        sleep(1);
+        time+=1;
+
+   }
+
+    std::cout<<room->get_mode()->get_score_player(1)<<std::endl;   
 }

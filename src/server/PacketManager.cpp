@@ -20,7 +20,7 @@ void PacketManager::manage_packet(Player *player, void* packet) {
         								break;
         case Packet::CHAT_MESSAGE_CONN:	receive_chat_connection(player, reinterpret_cast<Packet::pseudoPacket*>(packet));
         								break;
-        case Packet::CHAT_LOGOUT: receive_logout_chat(player);
+        case Packet::CHAT_LOGOUT:       receive_logout_chat(player);
         								break;
         default :                       WizardLogger::warning("Paquet inconnue reçu: " +
                                                         std::to_string(temp_packet->ID));
@@ -140,6 +140,7 @@ void PacketManager::receive_logout_chat(Player* player){
 void PacketManager::manage_play_request(Player* player,Packet::playRequestPacket* myData) {
     WizardLogger::info("Reçu une demande de jeu de : "+player->get_username());
     PlayerManager::manage_new_player(player,myData->mode);
+
 }
 
 void PacketManager::manage_move_tetriminos_request(Player* player, Packet::intPacket* packet) {
@@ -150,7 +151,7 @@ void PacketManager::manage_move_tetriminos_request(Player* player, Packet::intPa
         
         if (player->get_room()->get_player(0) == player) {
         	player->get_room()->get_player(1)->send_packet(packet, sizeof(*packet));
-        } else {
+       } else {
         	player->get_room()->get_player(0)->send_packet(packet, sizeof(*packet));
         }
 

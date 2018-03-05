@@ -35,6 +35,7 @@ class Mode{
 		virtual ~Mode(){};	
     	virtual void init_game(bool is_player)=0;
     	virtual Grid* get_grid(){return grid;}
+    	int get_score_player(int);
     	virtual Grid* get_other_grid() {return _other_grid;}
     	void update_gui_multi(Grid *, Grid*,Stopper_Thread*);
     	void update_gui_solo(Grid *,  Stopper_Thread* );

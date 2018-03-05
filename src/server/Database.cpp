@@ -92,7 +92,7 @@ void Database::initialiseDatabase(){
   }
 
   // create new global Statistic table
-  result = sqlite3_exec(db, "CREATE TABLE globalStatistic( id_mode INTEGER PRIMARY KEY AUTOINCREMENT, victory INTEGER DEFAULT 0, defeat INTEGER DEFAULT 0)", NULL, 0, &ERRORmsg);
+  result = sqlite3_exec(db, "CREATE TABLE globalStatistic( id_mode INTEGER PRIMARY KEY AUTOINCREMENT, victory INTEGER DEFAULT 0, defeat INTEGER DEFAULT 0, score INTEGER DEFAULT 0, time INTEGER DEFAULT 0, complete_line INTEGER DEFAULT 0)", NULL, 0, &ERRORmsg);
   if(result && ERRORmsg != NULL) {
     printf("Error creating Table : %s\n", sqlite3_errmsg(db));
   }
@@ -226,6 +226,9 @@ std::string Database::getGlobalStatistics(){
   int id2 = 0;
   unsigned char *victory = NULL;
   unsigned char *defeat = NULL;
+  unsigned char *score = NULL;
+  unsigned char *time = NULL;
+  unsigned char *complete_line = NULL;
 
   std::string req = "SELECT * FROM globalStatistic";
   std::string res = "";
@@ -365,23 +368,23 @@ void Database::updateUserNameScore(std::string name, int victoryAdd, int lostAdd
 }
 
 
-void Database::updateGlobalStatistic(int gameMode, int victoryAdd, int lostAdd){
+void Database::updateGlobalStatistic(int gameMode, int victoryAdd, int lostAdd, int score, int time, int completeLine){
   char *ERRORmsg = NULL;
 	int result = 0;
   sqlite3_stmt *stmt;
   std::string req;
 
   if(gameMode==0){
-    req = "UPDATE globalStatistic SET victory = victory + ?, defeat = defeat + ? WHERE id_mode = 1";
+    req = "UPDATE globalStatistic SET victory = victory + ?, defeat = defeat + ?, defeat = score + ?, defeat = time + ?, defeat = complete_line + ? WHERE id_mode = 1";
   }
   else if(gameMode==1){
-    req = "UPDATE globalStatistic SET victory = victory + ?, defeat = defeat + ? WHERE id_mode = 2";
+    req = "UPDATE globalStatistic SET victory = victory + ?, defeat = defeat + ?, defeat = score + ?, defeat = time + ?, defeat = complete_line + ? WHERE id_mode = 2";
   }
   else if(gameMode==2){
-    req = "UPDATE globalStatistic SET victory = victory + ?, defeat = defeat + ? WHERE id_mode = 3";
+    req = "UPDATE globalStatistic SET victory = victory + ?, defeat = defeat + ?, defeat = score + ?, defeat = time + ?, defeat = complete_line + ? WHERE id_mode = 3";
   }
   else if(gameMode==3){
-    req = "UPDATE globalStatistic SET victory = victory + ?, defeat = defeat + ? WHERE id_mode = 4";
+    req = "UPDATE globalStatistic SET victory = victory + ?, defeat = defeat + ?, defeat = score + ?, defeat = time + ?, defeat = complete_line + ?WHERE id_mode = 4";
   }
   else{
     printf("Game mode Error\n");
@@ -394,6 +397,10 @@ void Database::updateGlobalStatistic(int gameMode, int victoryAdd, int lostAdd){
     // bind victoryAdd and lostAdd
     sqlite3_bind_int(stmt, 1, victoryAdd );
     sqlite3_bind_int(stmt, 2, lostAdd );
+    sqlite3_bind_int(stmt, 3, score );
+    sqlite3_bind_int(stmt, 4, time );
+    sqlite3_bind_int(stmt, 5, completeLine );
+
 
 
     // execute

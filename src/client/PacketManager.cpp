@@ -22,7 +22,7 @@ void PacketManager::manage_packet(void* packet) {
                                             break;   
         case Packet::CHAT_MESSAGE_ID:       receive_chat_message(reinterpret_cast<Packet::chatMessagePacket*>(packet)); 
                                             break; 
-        case Packet::CHAT_USERS_ID:       receive_users_name(reinterpret_cast<Packet::usersInChatPacket*>(packet)); 
+        case Packet::CHAT_USERS_ID:        receive_users_name(reinterpret_cast<Packet::usersInChatPacket*>(packet)); 
                                             break;
         case Packet::DISCONNECT_ID :        WizardLogger::warning("Paquet de déconnection reçu");
                                             break;

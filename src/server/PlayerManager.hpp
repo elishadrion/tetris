@@ -11,7 +11,9 @@
 #include "../dependencies/CSVparser/CSVparser.hpp"
 #include "../common/Packet.hpp"
 #include "../common/Random.hpp"
-
+#include "../game/Mode/Classic.hpp"
+#include "../game/Mode/Marathon.hpp"
+#include "../game/Mode/Sprint.hpp"
 #include "../game/Mode/Vs.hpp"
 #include "../game/CLI/Game_CLI.hpp"
 
@@ -35,6 +37,7 @@ namespace PlayerManager {
     Room* find_available_room(int);
     void broadcast_game_ready(Room*);
     void start_game(Room*,int); 
+    void info_game(Room * room, Stopper_Thread * stopper);
 }
 
 #endif /* PLAYERMANAGER_HPP */

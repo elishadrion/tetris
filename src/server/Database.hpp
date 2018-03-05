@@ -27,6 +27,7 @@ class Database {
         //GETTERS
         bool checkNamePassword(std::string name, std::string password);
         bool checkNameExist(std::string name);
+        
         std::string getUserNameFriends(std::string name);
         std::string getLevelFromName(std::string name);
         std::string getAllUser();
@@ -40,7 +41,7 @@ class Database {
         void sendFriendRequest(std::string name, std::string FriendName);
         void confirmFriendRequest(std::string name, std::string FriendName);
         void deleteFriendFromUserName(std::string name, std::string FriendName);
-        void updateGlobalStatistic(int gameMode, int victoryAdd, int lostAdd);
+        void updateGlobalStatistic(int gameMode, int victoryAdd, int lostAdd, int score, int time, int completeLine);
 
 };
 

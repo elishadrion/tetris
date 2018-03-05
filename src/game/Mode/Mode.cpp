@@ -69,7 +69,11 @@ Mode::Mode(bool is_vs, unsigned seed): grid(new Grid(seed)), stopper(new Stopper
 	}
 }
 
+int Mode::get_score_player(int player_nb){
+	if(player_nb == 1){return grid->get_score();}
+	else if(player_nb ==2){return _other_grid->get_score();}
 
+	}
 
 int Mode::tetriminos_dropping(Grid * grid){
 	/*

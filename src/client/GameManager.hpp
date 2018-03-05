@@ -14,6 +14,8 @@ class GameManager;
 #include "../game/Game_system/Grid.hpp"
 #include "../game/Mode/Vs.hpp"
 #include "../game/Mode/Marathon.hpp"
+#include "../game/Mode/Sprint.hpp"
+#include "../game/Mode/Classic.hpp"
 #include "../game/CLI/Game_CLI.hpp"
 
 void player_get_choice_in_game(Grid *, Stopper_Thread*);

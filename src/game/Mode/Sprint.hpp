@@ -15,10 +15,11 @@ class Sprint: public virtual Mode{
 				
 	public:
 		
-		Sprint();
+		Sprint(unsigned);
 		virtual ~Sprint();
 
-		void start() override;
+		virtual void start(Grid *,Grid*, Stopper_Thread*)override;		
+		virtual void init_game(bool is_player)override;
 		
 };
 

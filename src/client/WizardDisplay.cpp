@@ -58,7 +58,11 @@ void WizardDisplay::play(int type_game) {
     
 	PacketManager::send_play_request(type_game);
     //Attend que la room soit complète pour lancer une partie VS
-    pthread_cond_wait(&packetStackCond, &packetStackMutex);
+
+    if(type_game ==4){
+        pthread_cond_wait(&packetStackCond, &packetStackMutex);
+    }
+   
     pthread_cond_wait(&packetStackCond, &packetStackMutex);
     WizardLogger::info("On joue!");
     unsigned seed = reinterpret_cast<long>(packetStack.back());
@@ -274,7 +278,7 @@ void WizardDisplay::choice_game() {
         ++y;
     }
     wrefresh(menu_choice_game);
-        if (choice == 4){
+        if (choice == 1){
             wclear(menu_choice_game);
             clear();
             wrefresh(menu_choice_game);
@@ -286,14 +290,34 @@ void WizardDisplay::choice_game() {
         }
  
         else if (choice == 2){
+            wclear(menu_choice_game);
             clear();
-            play(choice);}
-           
+            wrefresh(menu_choice_game);
+            delwin(menu_choice_game); 
+            endwin();
+            refresh();  
+            play(choice);  
+            break;
+        }
  
         else if (choice == 3){
+            wclear(menu_choice_game);
             clear();
-            play(choice);
-            break;}
+            wrefresh(menu_choice_game);
+            delwin(menu_choice_game); 
+            endwin();
+            refresh();  
+            play(choice);  }
+
+          else if (choice == 4){
+            wclear(menu_choice_game);
+            clear();
+            wrefresh(menu_choice_game);
+            delwin(menu_choice_game); 
+            endwin();
+            refresh();  
+            play(choice);  }
+           
     } 
 
         
