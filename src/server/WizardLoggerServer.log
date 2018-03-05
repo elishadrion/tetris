@@ -4969,3 +4969,11 @@
 [2018-03-05 23:20:49.734] [info]	a est dans le chat
 [2018-03-05 23:20:52.463] [warning]	La connexion avec le client "a" semble avoir été interrompue !
 [2018-03-05 23:20:52.463] [info]	a a quitter le chat
+[2018-03-05 23:31:10.514] [info]	Démarrage serveur
+[2018-03-05 23:31:10.531] [info]	Ecoute des tentatives de connexions
+[2018-03-05 23:31:10.531] [info]	Serveur en attente de connexion client
+[2018-03-05 23:31:16.380] [warning]	Paquet de login reçu
+[2018-03-05 23:31:16.380] [info]	Client "a" s'est logged-in
+[2018-03-05 23:31:17.665] [info]	a est dans le chat
+[2018-03-05 23:31:20.044] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 23:31:20.044] [info]	a a quitter le chat
