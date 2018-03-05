@@ -153,6 +153,7 @@ void WizardDisplay::login() {
 	    if (packetStack.empty()) {
 	        WizardLogger::info("Login réussi");
 	        success = true;	        
+            usernameAttribut = pseudo;
 
 	    } else {
 	        
@@ -162,7 +163,6 @@ void WizardDisplay::login() {
 	    pthread_mutex_unlock(&packetStackMutex);
 
     }
-        usernameAttribut = username;
         
 }
 

@@ -8,8 +8,6 @@
 #include "../common/Constants.hpp"
 #include "../common/WizardLogger.hpp"
 
-//class CacheManager;
-//#include "CacheManager.hpp"
 
 
 class Player {
