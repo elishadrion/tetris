@@ -6,7 +6,6 @@ class Client;
 #include <string>
 
 #include "Connection.hpp"
-#include "CacheManager.hpp"
 #include "Player.hpp"
 #include "../common/WizardLogger.hpp"
 #include "WizardDisplay.hpp"

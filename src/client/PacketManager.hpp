@@ -8,14 +8,13 @@
 #include "WizardDisplay.hpp"
 #include "Player.hpp"
 #include "GameManager.hpp"
-#include "CacheManager.hpp"
 
 #include "SalonChat.hpp"
 
 extern WizardDisplay *display;
 extern GameManager* game_manager;
 extern Connection *conn;
-extern CacheManager *cacheManager;
+
 
 extern SalonChat* salon_chat;
 

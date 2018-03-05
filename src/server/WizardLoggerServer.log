@@ -4868,3 +4868,16 @@
 [2018-03-05 22:34:42.417] [warning]	Paquet de login reçu
 [2018-03-05 22:34:42.417] [info]	Client "a" s'est logged-in
 [2018-03-05 22:34:44.183] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 22:45:44.678] [info]	Démarrage serveur
+[2018-03-05 22:45:44.678] [info]	Ecoute des tentatives de connexions
+[2018-03-05 22:45:44.678] [info]	Serveur en attente de connexion client
+[2018-03-05 22:45:51.673] [warning]	Paquet de login reçu
+[2018-03-05 22:45:51.674] [info]	Client "a" s'est logged-in
+[2018-03-05 22:45:53.843] [info]	Reçu une demande de jeu de : a
+[2018-03-05 22:45:53.843] [info]	Envoi d'un game waiting à : a
+[2018-03-05 22:45:53.843] [info]	Envoi d'un game ready à : a
+[2018-03-05 22:45:55.260] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 22:50:26.488] [info]	Démarrage serveur
+[2018-03-05 22:50:26.488] [info]	Ecoute des tentatives de connexions
+[2018-03-05 22:50:26.488] [info]	Serveur en attente de connexion client
+[2018-03-05 22:50:31.413] [error]	Login interrompu, connexion avec le client perdu
