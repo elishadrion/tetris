@@ -36,11 +36,62 @@ void WizardDisplay::login() {
         
 }
 
+void WizardDisplay::register_user() {
+	bool success = false;
+	std::string username;
+	std::string password;
+    while (!success) {
+		std::cout << "Pour vous enregistez entrer les données demandé" << std::endl;
+    	std::cout << "Votre nom d'utilisateur : ";
+    	std::getline(std::cin, username);
+    	std::cout << "Votre mot de passe : ";
+    	std::getline(std::cin, password);
+        
+       
+
+	    pthread_mutex_lock(&packetStackMutex);
+	    std::cout<<username<<"|"<<password<<"|"<<std::endl;
+	    PacketManager::send_signup_request(username.c_str(), password.c_str());
+	    
+	    pthread_cond_wait(&packetStackCond, &packetStackMutex);
+	         
+	    if (packetStack.empty()) {
+	        WizardLogger::info("Enregistrement réussi");
+	        success = true;
+	    } else {
+	        packetStack.pop_back();
+	    }
+	    pthread_mutex_unlock(&packetStackMutex);
+	    if (success) {std::cout << "Enregistré!" << std::endl;}
+	    else{ std::cout << "pas enregistré!" << std::endl;}
+    }
+    usernameAttribut = username;   
+}
+
+void WizardDisplay::main_menu(){
+	//Menu pour choisir le login ou register
+	std::string choice;
+	while (true) {
+		std::cout << "1: Pour se connecter" << std::endl;
+		std::cout << "2: Pour s'enregistrer" << std::endl;
+	
+		std::getline(std::cin, choice);
+
+		if (choice == "1"){
+			login();
+			menu();
+			break;
+		}if (choice == "2") {
+			register_user();
+			menu();
+			break;
+		}
+	}
+}
 
 
 void WizardDisplay::start() {
-	login();
-	menu();
+	main_menu();
 }
 
 void WizardDisplay::chat() {

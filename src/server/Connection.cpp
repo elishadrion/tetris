@@ -106,6 +106,7 @@ void* Connection::manage_player(void* data) {
 
                 //On détermine si c'est pour le login ou inscription
                 if (packet->ID == Packet::REGIST_REQ_ID) {
+					packet->sockfd = client_socket;
                     new_player = PacketManager::manage_signup_request(packet);
                 } else {
                     packet->sockfd = client_socket;
@@ -129,7 +130,7 @@ void* Connection::manage_player(void* data) {
         WizardLogger::info("Client \""+new_player->get_username()+"\" s'est logged-in");
         send_success(new_player, client_socket);
         usleep(100);
-/*        Packet::packet *endLogin = new Packet::packet();
+		/*Packet::packet *endLogin = new Packet::packet();
         endLogin->ID = Packet::LOGIN_COMPLETE_ID;
         send(client_socket, endLogin, sizeof(Packet::packet), 0);
         delete endLogin;*/

@@ -41,7 +41,7 @@ Player* PlayerManager::login(std::string username, std::string password, int soc
 }
 
 Player* PlayerManager::signup(std::string username, std::string password, int sockfd) {
-
+	WizardLogger::warning("Paquet d'enregistrement reçu");
     Player* player = nullptr;
 
     if(username.size() > MAX_PSEUDO_SIZE) {
@@ -61,7 +61,7 @@ Player* PlayerManager::signup(std::string username, std::string password, int so
 
 void PlayerManager::logout(Player* player) {
     if (player->is_in_chat())
-        PacketManager::receive_logout_chat(player);
+        PacketManager::receive_logout_chat(player); //ENVOI A TOUS LES TCHATCHEUR Qu'il a déco du chat
     for (size_t i = 0; i < g_connected.size(); i++) {
         Player* current = g_connected.at(i);
 

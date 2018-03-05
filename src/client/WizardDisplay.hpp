@@ -34,7 +34,9 @@ public:
     ~WizardDisplay() = default;
 
     void start();
+	void main_menu();
     void login();
+	void register_user();
     void play(int);
     void menu();
     void choice_game();

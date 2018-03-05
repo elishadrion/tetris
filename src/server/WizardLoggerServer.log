@@ -4157,3 +4157,130 @@
 [2018-03-05 13:21:00.590] [info]	Envoi d'un game waiting à : elishac
 [2018-03-05 13:21:00.590] [info]	Envoi d'un game ready à : elishac
 [2018-03-05 13:21:19.091] [warning]	La connexion avec le client "elishac" semble avoir été interrompue !
+[2018-03-05 14:19:50.107] [info]	Démarrage serveur
+[2018-03-05 14:19:50.109] [info]	Ecoute des tentatives de connexions
+[2018-03-05 14:19:50.110] [info]	Serveur en attente de connexion client
+[2018-03-05 14:20:43.674] [error]	Login interrompu, connexion avec le client perdu
+[2018-03-05 14:35:18.076] [warning]	Paquet de login reçu
+[2018-03-05 14:35:18.093] [info]	Client "abderr" s'est logged-in
+[2018-03-05 14:35:20.020] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-05 14:35:28.131] [warning]	Paquet de login reçu
+[2018-03-05 14:35:28.132] [info]	Client "abderr" s'est logged-in
+[2018-03-05 14:35:32.044] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-05 14:43:45.800] [info]	Client "eiman" s'est logged-in
+[2018-03-05 14:43:45.802] [warning]	La connexion avec le client "eiman" semble avoir été interrompue !
+[2018-03-05 14:44:17.023] [warning]	Paquet de login reçu
+[2018-03-05 14:44:17.025] [info]	Client "eiman" s'est logged-in
+[2018-03-05 14:44:20.504] [warning]	La connexion avec le client "eiman" semble avoir été interrompue !
+[2018-03-05 14:44:29.422] [info]	Client "Eiman" s'est logged-in
+[2018-03-05 14:44:29.424] [warning]	La connexion avec le client "Eiman" semble avoir été interrompue !
+[2018-03-05 14:47:07.366] [error]	Login interrompu, connexion avec le client perdu
+[2018-03-05 14:47:52.155] [info]	Client "Abderr" s'est logged-in
+[2018-03-05 14:47:52.156] [warning]	La connexion avec le client "Abderr" semble avoir été interrompue !
+[2018-03-05 14:50:56.310] [info]	Client "Thomas" s'est logged-in
+[2018-03-05 14:50:56.311] [warning]	La connexion avec le client "Thomas" semble avoir été interrompue !
+[2018-03-05 14:52:55.950] [info]	Client "Alexandre" s'est logged-in
+[2018-03-05 14:52:55.952] [warning]	La connexion avec le client "Alexandre" semble avoir été interrompue !
+[2018-03-05 14:57:26.751] [info]	Client "a" s'est logged-in
+[2018-03-05 14:57:26.752] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 14:57:42.982] [warning]	Paquet de login reçu
+[2018-03-05 14:57:42.983] [info]	Client "a" s'est logged-in
+[2018-03-05 14:57:45.254] [info]	a est dans le chat
+[2018-03-05 14:57:46.303] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 14:57:46.308] [info]	a a quitter le chat
+[2018-03-05 15:01:18.425] [error]	Login interrompu, connexion avec le client perdu
+[2018-03-05 15:01:35.155] [info]	Client "b" s'est logged-in
+[2018-03-05 15:01:35.156] [warning]	La connexion avec le client "b" semble avoir été interrompue !
+[2018-03-05 15:03:07.861] [info]	Client "c" s'est logged-in
+[2018-03-05 15:03:07.861] [warning]	La connexion avec le client "c" semble avoir été interrompue !
+[2018-03-05 15:06:00.626] [info]	Client "d" s'est logged-in
+[2018-03-05 15:06:00.627] [warning]	La connexion avec le client "d" semble avoir été interrompue !
+[2018-03-05 15:07:11.122] [info]	Client "e" s'est logged-in
+[2018-03-05 15:07:11.123] [warning]	La connexion avec le client "e" semble avoir été interrompue !
+[2018-03-05 15:08:56.967] [info]	Client "f" s'est logged-in
+[2018-03-05 15:08:56.968] [warning]	La connexion avec le client "f" semble avoir été interrompue !
+[2018-03-05 15:10:04.327] [info]	Client "g" s'est logged-in
+[2018-03-05 15:10:04.328] [warning]	La connexion avec le client "g" semble avoir été interrompue !
+[2018-03-05 15:11:08.750] [info]	Client "h" s'est logged-in
+[2018-03-05 15:11:08.752] [warning]	La connexion avec le client "h" semble avoir été interrompue !
+[2018-03-05 15:49:01.518] [info]	Démarrage serveur
+[2018-03-05 15:49:01.521] [info]	Ecoute des tentatives de connexions
+[2018-03-05 15:49:01.521] [info]	Serveur en attente de connexion client
+[2018-03-05 15:49:35.825] [info]	Démarrage serveur
+[2018-03-05 15:49:35.828] [info]	Ecoute des tentatives de connexions
+[2018-03-05 15:49:35.828] [info]	Serveur en attente de connexion client
+[2018-03-05 15:49:50.755] [error]	Login interrompu, connexion avec le client perdu
+[2018-03-05 15:54:59.231] [info]	Démarrage serveur
+[2018-03-05 15:54:59.233] [info]	Ecoute des tentatives de connexions
+[2018-03-05 15:54:59.233] [info]	Serveur en attente de connexion client
+[2018-03-05 15:55:09.080] [warning]	Paquet d'enregistrement reçu
+[2018-03-05 15:55:21.632] [error]	Login interrompu, connexion avec le client perdu
+[2018-03-05 15:55:29.104] [warning]	Paquet d'enregistrement reçu
+[2018-03-05 15:55:29.162] [info]	Client "i" s'est logged-in
+[2018-03-05 15:55:29.164] [warning]	La connexion avec le client "i" semble avoir été interrompue !
+[2018-03-05 16:00:01.410] [info]	Démarrage serveur
+[2018-03-05 16:00:01.412] [info]	Ecoute des tentatives de connexions
+[2018-03-05 16:00:01.413] [info]	Serveur en attente de connexion client
+[2018-03-05 16:01:34.862] [info]	Démarrage serveur
+[2018-03-05 16:01:34.865] [info]	Ecoute des tentatives de connexions
+[2018-03-05 16:01:34.866] [info]	Serveur en attente de connexion client
+[2018-03-05 16:01:48.987] [warning]	Paquet d'enregistrement reçu
+[2018-03-05 16:01:49.056] [info]	Client "j" s'est logged-in
+[2018-03-05 16:01:50.057] [warning]	La connexion avec le client "j" semble avoir été interrompue !
+[2018-03-05 16:03:16.619] [info]	Démarrage serveur
+[2018-03-05 16:03:16.622] [info]	Ecoute des tentatives de connexions
+[2018-03-05 16:03:16.622] [info]	Serveur en attente de connexion client
+[2018-03-05 16:03:26.386] [warning]	Paquet d'enregistrement reçu
+[2018-03-05 16:03:26.462] [info]	Client "k" s'est logged-in
+[2018-03-05 16:03:36.463] [warning]	La connexion avec le client "k" semble avoir été interrompue !
+[2018-03-05 16:04:43.610] [info]	Démarrage serveur
+[2018-03-05 16:04:43.613] [info]	Ecoute des tentatives de connexions
+[2018-03-05 16:04:43.614] [info]	Serveur en attente de connexion client
+[2018-03-05 16:04:55.273] [warning]	Paquet d'enregistrement reçu
+[2018-03-05 16:05:11.713] [warning]	Paquet d'enregistrement reçu
+[2018-03-05 16:05:11.768] [info]	Client "l" s'est logged-in
+[2018-03-05 16:05:11.768] [warning]	La connexion avec le client "l" semble avoir été interrompue !
+[2018-03-05 16:07:17.239] [info]	Démarrage serveur
+[2018-03-05 16:07:17.241] [info]	Ecoute des tentatives de connexions
+[2018-03-05 16:07:17.242] [info]	Serveur en attente de connexion client
+[2018-03-05 16:07:27.224] [warning]	Paquet d'enregistrement reçu
+[2018-03-05 16:07:27.305] [info]	Client "m" s'est logged-in
+[2018-03-05 16:13:24.053] [info]	Démarrage serveur
+[2018-03-05 16:13:24.055] [info]	Ecoute des tentatives de connexions
+[2018-03-05 16:13:24.056] [info]	Serveur en attente de connexion client
+[2018-03-05 16:13:29.779] [warning]	Paquet de login reçu
+[2018-03-05 16:13:29.797] [info]	Client "thomas" s'est logged-in
+[2018-03-05 16:13:31.547] [info]	Reçu une demande de jeu de : thomas
+[2018-03-05 16:13:31.548] [info]	Envoi d'un game waiting à : thomas
+[2018-03-05 16:13:31.548] [info]	Envoi d'un game ready à : thomas
+[2018-03-05 16:13:41.475] [info]	thomas est dans le chat
+[2018-03-05 16:16:32.929] [info]	Démarrage serveur
+[2018-03-05 16:16:32.932] [info]	Ecoute des tentatives de connexions
+[2018-03-05 16:16:32.932] [info]	Serveur en attente de connexion client
+[2018-03-05 16:16:45.147] [warning]	Paquet de login reçu
+[2018-03-05 16:16:45.164] [info]	Client "a" s'est logged-in
+[2018-03-05 16:16:45.165] [warning]	La connexion avec le client "a" semble avoir été interrompue !
+[2018-03-05 16:23:24.955] [info]	Démarrage serveur
+[2018-03-05 16:23:24.957] [info]	Ecoute des tentatives de connexions
+[2018-03-05 16:23:24.958] [info]	Serveur en attente de connexion client
+[2018-03-05 16:23:33.255] [warning]	Paquet de login reçu
+[2018-03-05 16:24:58.186] [info]	Démarrage serveur
+[2018-03-05 16:24:58.189] [info]	Ecoute des tentatives de connexions
+[2018-03-05 16:24:58.189] [info]	Serveur en attente de connexion client
+[2018-03-05 16:25:11.110] [warning]	Paquet d'enregistrement reçu
+[2018-03-05 16:25:11.181] [info]	Client "n" s'est logged-in
+[2018-03-05 16:25:16.422] [info]	n est dans le chat
+[2018-03-05 16:25:19.358] [warning]	La connexion avec le client "n" semble avoir été interrompue !
+[2018-03-05 16:25:19.362] [info]	n a quitter le chat
+[2018-03-05 16:28:13.016] [info]	Démarrage serveur
+[2018-03-05 16:28:13.019] [info]	Ecoute des tentatives de connexions
+[2018-03-05 16:28:13.019] [info]	Serveur en attente de connexion client
+[2018-03-05 16:28:25.692] [warning]	Paquet de login reçu
+[2018-03-05 16:28:25.710] [info]	Client "abderr" s'est logged-in
+[2018-03-05 16:28:30.212] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-05 16:28:44.052] [warning]	Paquet d'enregistrement reçu
+[2018-03-05 16:28:57.452] [warning]	Paquet d'enregistrement reçu
+[2018-03-05 16:28:57.506] [info]	Client "sony" s'est logged-in
+[2018-03-05 16:29:00.156] [info]	sony est dans le chat
+[2018-03-05 16:29:14.180] [warning]	La connexion avec le client "sony" semble avoir été interrompue !
+[2018-03-05 16:29:14.185] [info]	sony a quitter le chat
