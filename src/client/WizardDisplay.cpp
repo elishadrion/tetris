@@ -153,7 +153,7 @@ void WizardDisplay::login() {
 	    if (packetStack.empty()) {
 	        WizardLogger::info("Login réussi");
 	        success = true;	        
-            usernameAttribut = pseudo;
+            player->set_username(pseudo);
 
 	    } else {
 	        
@@ -299,7 +299,7 @@ void WizardDisplay::register_user() {
 	    pthread_mutex_unlock(&packetStackMutex);
 
     }
-        usernameAttribut = username;   
+        player->set_username(username); 
 }
 
 
@@ -413,9 +413,9 @@ void WizardDisplay::start() {
 }
 
 void WizardDisplay::chat() {
-    PacketManager::send_chat_conn(usernameAttribut.c_str());
+    PacketManager::send_chat_conn(player->get_username().c_str());
     for (int i = 0 ; i < MAX_PSEUDO_SIZE ; ++i) {
-        salon_chat->username[i] = usernameAttribut[i];
+        salon_chat->username[i] = player->get_username()[i];
     }
     salon_chat->startChat();
     //APRES AVOIR FINI IL LANCE LE MENU

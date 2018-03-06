@@ -12,7 +12,7 @@
 
 class Player {
 
-    static Player* instance;
+    Player* instance;
 
     std::string _username;
     unsigned _victories;
@@ -21,21 +21,21 @@ class Player {
 
 
 public:
-    Player(std::string, unsigned, unsigned);
-    
+    Player(std::string username, unsigned victories, unsigned defeats) :
+        _username(username), _victories(victories), _defeats(defeats) {}
+    Player(): _victories(0), _defeats(0) {}
+    ~Player() = default;
+
     /* Setter */
     inline void increment_victories() { _victories++; }
     inline void increment_defeats() { _defeats++; }
+    inline void set_username(std::string username) {_username = username;}
     
     /* Getter */
-    inline std::string get_name() const { return _username; }
+    inline std::string get_username() const { return _username; }
     inline unsigned get_victories() const { return _victories; }
     inline unsigned get_defeats() const { return _defeats; }
 
-    ~Player() = default;
-
-
-    static Player* get_player() { return instance; }
 };
 
 #endif  /* PLAYER_HPP */

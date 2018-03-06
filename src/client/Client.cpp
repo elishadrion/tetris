@@ -4,13 +4,14 @@ Connection *conn;
 WizardDisplay *display;
 Player *player;
 GameManager *game_manager;
-SalonChat *salon_chat = new SalonChat();
+SalonChat *salon_chat;
 Game_CLI * display_game;
 
 
 Client::Client(std::string address) {
     game_manager = new GameManager();
-
+    salon_chat = new SalonChat();
+    player = new Player();
     try {
         WizardLogger::initLogger(false, "WizardLogger");
     } catch (std::exception ex) {
@@ -31,6 +32,8 @@ Client::~Client() {
 	delete display;
 	delete conn;
 	delete game_manager;
+    delete player;
+    delete salon_chat;
 }
 
 void Client::start() {

@@ -10,7 +10,6 @@ class Client;
 #include "../common/WizardLogger.hpp"
 #include "WizardDisplay.hpp"
 #include "GameManager.hpp"
-
 #include "SalonChat.hpp"
 
 class Client {

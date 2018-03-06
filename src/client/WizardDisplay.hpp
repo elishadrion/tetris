@@ -13,10 +13,11 @@ class WizardDisplay;
 #include "PacketManager.hpp"
 #include "SalonChat.hpp"
 #include "SettingsMenu.hpp"
-
+#include "Player.hpp"
 
 extern GameManager* game_manager;
 extern SalonChat* salon_chat;
+extern Player* player;
 
 class WizardDisplay {
 public:
@@ -27,9 +28,7 @@ public:
     std::vector<void*> packetStack;
     std::vector<int> packetErrorStack;
     #endif
-    
-    std::string usernameAttribut;
-    
+        
     /* Create or remove interface (CLI/GUI) */
     WizardDisplay();
     ~WizardDisplay();
