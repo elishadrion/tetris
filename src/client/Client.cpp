@@ -25,7 +25,7 @@ Client::Client(std::string address) {
         std::cerr << "Communication impossible avec le serveur (voir log)" << std::endl;
     }
 	
-	display = new WizardDisplay();
+	display = new CLI();
 }
 
 Client::~Client() {
@@ -37,5 +37,5 @@ Client::~Client() {
 }
 
 void Client::start() {
-	display->start();
+	display->main_menu();
 }

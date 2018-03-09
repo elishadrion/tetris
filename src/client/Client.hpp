@@ -8,7 +8,7 @@ class Client;
 #include "Connection.hpp"
 #include "Player.hpp"
 #include "../common/WizardLogger.hpp"
-#include "WizardDisplay.hpp"
+#include "CLI.hpp"
 #include "GameManager.hpp"
 #include "SalonChat.hpp"
 

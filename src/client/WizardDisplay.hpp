@@ -20,7 +20,9 @@ extern SalonChat* salon_chat;
 extern Player* player;
 
 class WizardDisplay {
+
 public:
+
     #ifndef PACKET_MANAGER_THREAD_SAFE
     #define PACKET_MANAGER_THREAD_SAFE
     pthread_mutex_t packetStackMutex = PTHREAD_MUTEX_INITIALIZER;
@@ -30,20 +32,16 @@ public:
     #endif
         
     /* Create or remove interface (CLI/GUI) */
-    WizardDisplay();
-    ~WizardDisplay();
-
-    void start();
-	void main_menu();
-    void login();
-	void register_user();
-    void play(int);
-    void menu();
-    void choice_game();
+    WizardDisplay(){};    
+    virtual ~WizardDisplay(){};
+    virtual void login()=0;
+    virtual void register_user()=0;
+    virtual void menu()=0; 
+    virtual void main_menu()=0;	
+    virtual void play(int)=0;
+    virtual void choice_game()=0;
+    virtual void chat()=0;
     
-    /* Methode pour le chat */
-    void chat();
-    void addMsgInChat(char*, char*);
 
 };
 

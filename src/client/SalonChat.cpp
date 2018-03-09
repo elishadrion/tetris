@@ -39,7 +39,7 @@ void SalonChat::chatReceiver(char* message, char* sender){
 }
 
 void SalonChat::print_online_users_chat(char* users){
-    //EX DE LA VARIAbLE USERS => "Abderr,Thomas,Elish"
+    
     wclear(user_win);
     box(user_win, 0, 0);
 	int size_of_user = strlen(users);

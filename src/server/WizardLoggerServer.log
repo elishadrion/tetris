@@ -1,0 +1,9 @@
+[2018-03-09 11:28:53.641] [info]	Démarrage serveur
+[2018-03-09 11:28:53.641] [info]	Ecoute des tentatives de connexions
+[2018-03-09 11:28:53.641] [info]	Serveur en attente de connexion client
+[2018-03-09 11:32:11.100] [warning]	Paquet de login reçu
+[2018-03-09 11:32:11.102] [info]	Client "elishac" s'est logged-in
+[2018-03-09 11:32:12.610] [info]	Reçu une demande de jeu de : elishac
+[2018-03-09 11:32:12.611] [info]	Envoi d'un game waiting à : elishac
+[2018-03-09 11:32:12.611] [info]	Envoi d'un game ready à : elishac
+[2018-03-09 11:32:22.710] [warning]	La connexion avec le client "elishac" semble avoir été interrompue !
