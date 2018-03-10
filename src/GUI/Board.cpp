@@ -110,11 +110,6 @@ void Board::color_bloc(sf::Vertex* bloc, unsigned color_num) {
 		bloc[i].color = color;
 }
 
-void Board::color_bloc(sf::Vertex* bloc, Tetriminos* tetriminos) {
-	for (unsigned i = 0; i < 4; i++){
-
-	}
-}
 
 void Board::handle_event(const sf::Event& event) {
 
@@ -124,24 +119,32 @@ void Board::handle_event(const sf::Event& event) {
 			window.close();
 			break;
 
-		// case sf::Event::KeyPressed:
+		case sf::Event::KeyPressed:
 
-		// 	switch(event.key.code) {
-		// 		case sf::Keyboard::Up:
-		// 			move_bloc_up(quad);
-		// 			break;
-		// 		case sf::Keyboard::Down:
-		// 			move_bloc_down(quad);
-		// 			break;
-		// 		case sf::Keyboard::Right:
-		// 			move_bloc_right(quad);
-		// 			break;
-		// 		case sf::Keyboard::Left:
-		// 			move_bloc_left(quad);
-		// 			break;
-		// 	}
-		// 	break;
-		// }
+			switch(event.key.code) {
+				case sf::Keyboard::Down:
+					grid->set_acceleration_quick();
+					break;
+				case sf::Keyboard::Right:
+					grid->current_tetriminos_move_right();
+					break;
+				case sf::Keyboard::Left:
+					grid->current_tetriminos_move_left();
+					break;
+				case sf::Keyboard::Q:
+					grid->current_tetriminos_turn_left();
+					break;
+				case sf::Keyboard::D:
+					grid->current_tetriminos_turn_right();
+					break;
+				case sf::Keyboard::H:
+					grid->set_current_tetriminos_hold();
+					break;
+				case sf::Keyboard::S:
+					grid->current_tetriminos_hard_drop();
+					break;
+			}
+			break;
 	}
 }
 

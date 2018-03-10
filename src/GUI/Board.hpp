@@ -3,7 +3,6 @@
 
 #include <SFML/Graphics.hpp>
 #include "Game_system/Grid.hpp"
-#include "Game_system/Tetriminos.hpp"
 #include "Constants.hpp"
 #include <thread>
 
@@ -25,7 +24,6 @@ class Board {
 		void fill_with_blocs();
 		static sf::Color translate_to_color(unsigned);
 		void color_bloc(sf::Vertex*, unsigned);
-		void color_bloc(sf::Vertex*, Tetriminos*);
 };
 
 #endif
