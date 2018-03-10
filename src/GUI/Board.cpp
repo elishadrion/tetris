@@ -25,10 +25,11 @@ void Board::update_main_game_solo_GUI() {
 		for (unsigned j = 0; j < height; j++) {
 			sf::Vertex* bloc = &vertices[(i + j*width)*4];
 			if (grid->get_tetriminos()->has_block(j,i)) {
+				//std::cout << grid->get_color_of_tetriminos() << std::endl;
 				color_bloc(bloc, grid->get_color_of_tetriminos());
 			}
 			else if (grid->is_empty(j,i) == 0) {
-				color_bloc(bloc, grid->get_color_of_block(i,j));
+				color_bloc(bloc, grid->get_color_of_block(j,i));
 			}
 			else {
 				color_bloc(bloc, 8);
@@ -99,41 +100,20 @@ void Board::fill_with_blocs() {
 			bloc[2].position = sf::Vector2f(x+((i+1)*BLOC_SIZE), y+((j+1)*BLOC_SIZE));
 			//3 coin supérieur droit
 			bloc[3].position = sf::Vector2f(x+(i*BLOC_SIZE), y+((j+1)*BLOC_SIZE));
-			color_bloc(bloc, 1);
 		}
 	}
 }
 
 void Board::color_bloc(sf::Vertex* bloc, unsigned color_num) {
-	sf::Color color;
-	switch (color_num) {
-		case 1:
-			color = sf::Color::White;
-			break;
-		case 2:
-			color = sf::Color::Red;
-			break;
-		case 3:
-			color = sf::Color::Green;
-			break;
-		case 4:
-			color = sf::Color::Blue;
-			break;
-		case 5:
-			color = sf::Color::Yellow;
-			break;
-		case 6:
-			color = sf::Color::Magenta;
-			break;
-		case 7:
-			color = sf::Color::Cyan;
-			break;
-		case 8:
-			color = sf::Color::Black;
-			break;
-	}
+	sf::Color color = translate_to_color(color_num);
 	for (unsigned i = 0; i < 4; i++)
 		bloc[i].color = color;
+}
+
+void Board::color_bloc(sf::Vertex* bloc, Tetriminos* tetriminos) {
+	for (unsigned i = 0; i < 4; i++){
+
+	}
 }
 
 void Board::handle_event(const sf::Event& event) {
@@ -163,4 +143,35 @@ void Board::handle_event(const sf::Event& event) {
 		// 	break;
 		// }
 	}
+}
+
+sf::Color Board::translate_to_color(unsigned color_num) {
+	sf::Color color;
+	switch (color_num) {
+		case 1:
+			color = sf::Color::White;
+			break;
+		case 2:
+			color = sf::Color::Red;
+			break;
+		case 3:
+			color = sf::Color::Green;
+			break;
+		case 4:
+			color = sf::Color::Blue;
+			break;
+		case 5:
+			color = sf::Color::Yellow;
+			break;
+		case 6:
+			color = sf::Color::Magenta;
+			break;
+		case 7:
+			color = sf::Color::Cyan;
+			break;
+		case 8:
+			color = sf::Color::Black;
+			break;
+	}
+	return color;
 }

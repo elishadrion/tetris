@@ -3,7 +3,7 @@
 
 Board* display_game;
 int main() {
-	Mode* game = new Classic(0);
+	Mode* game = new Classic(10);
 	display_game = new Board(800, 600, game->get_grid());
 	game->init_game(true);
 	display_game->start();
