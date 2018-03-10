@@ -3,9 +3,11 @@
 
 Board* display_game;
 int main() {
-	display_game = new Board(800, 600);
 	Mode* game = new Classic(0);
+	display_game = new Board(800, 600, game->get_grid());
 	game->init_game(true);
+	display_game->start();
+	//display_game->start();
 	delete display_game;
 	return 0;
 }

@@ -6,27 +6,6 @@ Mode.cpp
 #include "Mode.hpp"
 
 
-void Mode::update_gui_solo(Grid * grid,  Stopper_Thread* stopper){
-
-	display_game->update_main_game_solo_GUI(grid);  // On update l'affichage de la grille
-	
-	while(!stopper->game_is_finish()){
-		//display_game->update_next_tetriminos_solo_GUI( grid->get_next_tetriminos());
-
-		if(not(grid->has_tetriminos_hold())){ 
-
-			//display_game->erase_hold_tetriminos_solo_GUI();
-		}
-		else{
-
-			//display_game->update_hold_tetriminos_solo_GUI(grid->get_hold_tetriminos());
-		}
-		display_game->update_main_game_solo_GUI(grid);
-		usleep(100000);
-	}
- }
-
-
 Mode::Mode(bool is_vs, unsigned seed): grid(new Grid(seed)), stopper(new Stopper_Thread())  {
 	if (is_vs) {
 		_other_grid = new Grid(seed);

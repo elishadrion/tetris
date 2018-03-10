@@ -7,7 +7,7 @@ Classic.cpp
 #include "Classic.hpp"
 
 
-Classic::Classic(unsigned seed): Mode(true,seed) {
+Classic::Classic(unsigned seed): Mode(false,seed) {
 
 	
 
@@ -22,14 +22,6 @@ void Classic::init_game(bool is_player){
 	 // Graine du randomizer
 	std::thread t(&Classic::start,this,grid, grid, stopper);
 	t.detach();
-	
-
-	if(is_player){
-		display_game->start();
-		usleep(2000);
-		//std::thread v(&Classic::update_gui_solo, this, grid, stopper); // Thread pour les inputs du joueur
-		//v.detach();
-	}
 }
 
 void Classic::start(Grid * grid,Grid * grid_other ,Stopper_Thread* stopper){

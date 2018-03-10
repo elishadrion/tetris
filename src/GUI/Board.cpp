@@ -1,7 +1,7 @@
 #include "Board.hpp"
 
 
-Board::Board(unsigned wwidth, unsigned wheight) {
+Board::Board(unsigned wwidth, unsigned wheight, Grid* _grid): grid(_grid) {
 	vertices.setPrimitiveType(sf::Quads);
 	vertices.resize(width*height*4);
 	fill_with_blocs();
@@ -10,21 +10,19 @@ Board::Board(unsigned wwidth, unsigned wheight) {
 }
 
 void Board::start() {
+	usleep(100);
 	while (window.isOpen()) {
 		sf::Event event;
 		while (window.pollEvent(event)) {
 			handle_event(event);
 		}
-
-		window.clear();
-		window.draw(vertices);
-		window.display();
+		update_main_game_solo_GUI();
 	}
 }
 
-void Board::update_main_game_solo_GUI(Grid* grid) {
-	for (unsigned i = 0; i < 20; i++) {
-		for (unsigned j = 0; j < 10; j++) {
+void Board::update_main_game_solo_GUI() {
+	for (unsigned i = 0; i < width; i++) {
+		for (unsigned j = 0; j < height; j++) {
 			sf::Vertex* bloc = &vertices[(i + j*width)*4];
 			if (grid->get_tetriminos()->has_block(i,j)) {
 				color_bloc(bloc, grid->get_color_of_tetriminos());
@@ -37,6 +35,9 @@ void Board::update_main_game_solo_GUI(Grid* grid) {
 			}
 		}
 	}
+		window.clear();
+		window.draw(vertices);
+		window.display();
 }
 
 bool Board::within_limits(unsigned x, unsigned y) {
@@ -87,8 +88,8 @@ void Board::move_bloc_left(sf::Vertex* bloc) {
 void Board::fill_with_blocs() {
 	unsigned x = limits_x[0];
 	unsigned y = limits_y[0];
-	for (unsigned i = 0; i < 20; i++) {
-		for (unsigned j = 0; j < 10; j++) {
+	for (unsigned i = 0; i < width; i++) {
+		for (unsigned j = 0; j < height; j++) {
 			//bloc courant
 			sf::Vertex* bloc = &vertices[(i + j*width)*4];
 			bloc[0].position = sf::Vector2f(x+(i*BLOC_SIZE), y+(j*BLOC_SIZE));
@@ -98,7 +99,7 @@ void Board::fill_with_blocs() {
 			bloc[2].position = sf::Vector2f(x+((i+1)*BLOC_SIZE), y+((j+1)*BLOC_SIZE));
 			//3 coin supérieur droit
 			bloc[3].position = sf::Vector2f(x+(i*BLOC_SIZE), y+((j+1)*BLOC_SIZE));
-			color_bloc(bloc, 8);
+			color_bloc(bloc, 1);
 		}
 	}
 }
