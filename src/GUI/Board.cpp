@@ -24,10 +24,10 @@ void Board::update_main_game_solo_GUI() {
 	for (unsigned i = 0; i < width; i++) {
 		for (unsigned j = 0; j < height; j++) {
 			sf::Vertex* bloc = &vertices[(i + j*width)*4];
-			if (grid->get_tetriminos()->has_block(i,j)) {
+			if (grid->get_tetriminos()->has_block(j,i)) {
 				color_bloc(bloc, grid->get_color_of_tetriminos());
 			}
-			else if (grid->is_empty(i,j) == 0) {
+			else if (grid->is_empty(j,i) == 0) {
 				color_bloc(bloc, grid->get_color_of_block(i,j));
 			}
 			else {
