@@ -1,9 +1,13 @@
 #include "Board.hpp"
 
 
-Board::Board(unsigned wwidth, unsigned wheight, Grid* _grid): grid(_grid) {
-	vertices.setPrimitiveType(sf::Quads);
-	vertices.resize(width*height*4);
+Board::Board(bool vs, unsigned wwidth, unsigned wheight, Grid* _grid, Grid* _other_grid): vs(vs), grid(_grid), other_grid(_other_grid) {
+	vertices_first_grid.setPrimitiveType(sf::Quads);
+	vertices_first_grid.resize(width*height*4);
+	if (vs) {
+		vertices_second_grid.setPrimitiveType(sf::Quads);
+		vertices_second_grid.resize(width*height*4);
+	}
 	fill_with_blocs();
 	window.create(sf::VideoMode(wwidth, wheight), "Fenêtre");
 	window.setFramerateLimit(60);
@@ -16,74 +20,26 @@ void Board::start() {
 		while (window.pollEvent(event)) {
 			handle_event(event);
 		}
-		update_main_game_solo_GUI();
+		update_display();
 	}
 }
 
-void Board::update_main_game_solo_GUI() {
+void Board::update_display() {
 	for (unsigned i = 0; i < width; i++) {
 		for (unsigned j = 0; j < height; j++) {
-			sf::Vertex* bloc = &vertices[(i + j*width)*4];
-			if (grid->get_tetriminos()->has_block(j,i)) {
-				//std::cout << grid->get_color_of_tetriminos() << std::endl;
-				color_bloc(bloc, grid->get_color_of_tetriminos());
+			sf::Vertex* bloc = &vertices_first_grid[(i + j*width)*4];
+			color_bloc(bloc, grid, i, j);
+			if (vs) {
+				bloc = &vertices_second_grid[(i+j*width)*4];
+				color_bloc(bloc, other_grid, i, j);
 			}
-			else if (grid->is_empty(j,i) == 0) {
-				color_bloc(bloc, grid->get_color_of_block(j,i));
-			}
-			else {
-				color_bloc(bloc, 8);
-			}
+
 		}
 	}
-		window.clear();
-		window.draw(vertices);
-		window.display();
-}
-
-bool Board::within_limits(unsigned x, unsigned y) {
-	bool is_within = true;
-	if (x < limits_x[0] or x > limits_x[1])
-		is_within = false;
-	if (y < limits_y[0] or y > limits_y[1])
-		is_within = false;
-	return is_within;
-}
-
-void Board::move_bloc_up(sf::Vertex* bloc) {
-	bool is_within = within_limits(bloc[0].position.x, bloc[0].position.y-20);
-	if (is_within) {
-		for (unsigned i = 0; i < 4; i++) {
-			bloc[i].position.y -= 20;
-		}
-	}
-}
-
-void Board::move_bloc_down(sf::Vertex* bloc) {
-	bool is_within = within_limits(bloc[0].position.x, bloc[0].position.y+20);
-	if (is_within) {
-		for (unsigned i = 0; i < 4; i++) {
-			bloc[i].position.y += 20;
-		}
-	}
-}
-
-void Board::move_bloc_right(sf::Vertex* bloc) {
-	bool is_within = within_limits(bloc[0].position.x+20, bloc[0].position.y);
-	if (is_within) {
-		for (unsigned i = 0; i < 4; i++) {
-			bloc[i].position.x += 20;
-		}
-	}
-}
-
-void Board::move_bloc_left(sf::Vertex* bloc) {
-	bool is_within = within_limits(bloc[0].position.x-20, bloc[0].position.y);
-	if (is_within) {
-		for (unsigned i = 0; i < 4; i++) {
-			bloc[i].position.x -= 20;
-		}
-	}
+	window.clear();
+	window.draw(vertices_first_grid);
+	window.draw(vertices_second_grid);
+	window.display();
 }
 
 void Board::fill_with_blocs() {
@@ -92,19 +48,41 @@ void Board::fill_with_blocs() {
 	for (unsigned i = 0; i < width; i++) {
 		for (unsigned j = 0; j < height; j++) {
 			//bloc courant
-			sf::Vertex* bloc = &vertices[(i + j*width)*4];
-			bloc[0].position = sf::Vector2f(x+(i*BLOC_SIZE), y+(j*BLOC_SIZE));
+			sf::Vertex* bloc = &vertices_first_grid[(i + j*width)*4];
+			//0 coin supérieur gauche
+			bloc[0].position = sf::Vector2f(limits_x[0]+(i*BLOC_SIZE), limits_y[0]+(j*BLOC_SIZE));
 			//1 coin inférieure gauche
-			bloc[1].position = sf::Vector2f(x+((i+1)*BLOC_SIZE), y+(j*BLOC_SIZE));
+			bloc[1].position = sf::Vector2f(limits_x[0]+((i+1)*BLOC_SIZE), limits_y[0]+(j*BLOC_SIZE));
 			//2 coin inférieur droit
-			bloc[2].position = sf::Vector2f(x+((i+1)*BLOC_SIZE), y+((j+1)*BLOC_SIZE));
+			bloc[2].position = sf::Vector2f(limits_x[0]+((i+1)*BLOC_SIZE), limits_y[0]+((j+1)*BLOC_SIZE));
 			//3 coin supérieur droit
-			bloc[3].position = sf::Vector2f(x+(i*BLOC_SIZE), y+((j+1)*BLOC_SIZE));
+			bloc[3].position = sf::Vector2f(limits_x[0]+(i*BLOC_SIZE), limits_y[0]+((j+1)*BLOC_SIZE));
+			if (vs) {
+				bloc = &vertices_second_grid[(i + j*width)*4];
+				bloc[0].position = sf::Vector2f(limits_x[1]+(i*BLOC_SIZE), limits_y[0]+(j*BLOC_SIZE));
+				//1 coin inférieure gauche
+				bloc[1].position = sf::Vector2f(limits_x[1]+((i+1)*BLOC_SIZE), limits_y[0]+(j*BLOC_SIZE));
+				//2 coin inférieur droit
+				bloc[2].position = sf::Vector2f(limits_x[1]+((i+1)*BLOC_SIZE), limits_y[0]+((j+1)*BLOC_SIZE));
+				//3 coin supérieur droit
+				bloc[3].position = sf::Vector2f(limits_x[1]+(i*BLOC_SIZE), limits_y[0]+((j+1)*BLOC_SIZE));
+			}
 		}
 	}
 }
 
-void Board::color_bloc(sf::Vertex* bloc, unsigned color_num) {
+void Board::color_bloc(sf::Vertex* bloc, Grid* grid, unsigned i, unsigned j) {
+	unsigned color_num;
+	if (grid->get_tetriminos()->has_block(j,i)) {
+		//std::cout << grid->get_color_of_tetriminos() << std::endl;
+		color_num = grid->get_color_of_tetriminos();
+	}
+	else if (grid->is_empty(j,i) == 0) {
+		color_num = grid->get_color_of_block(j,i);
+	}
+	else {
+		color_num = 8;
+	}
 	sf::Color color = translate_to_color(color_num);
 	for (unsigned i = 0; i < 4; i++)
 		bloc[i].color = color;

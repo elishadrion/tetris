@@ -8,22 +8,20 @@
 
 class Board {
 	private:
-		sf::VertexArray vertices;
+		sf::VertexArray vertices_first_grid;
+		sf::VertexArray vertices_second_grid;
 		sf::RenderWindow window;
 		Grid* grid;
+		Grid* other_grid;
+		bool vs;
 	public:
-		Board(unsigned, unsigned, Grid*);
-		void update_main_game_solo_GUI();
-		bool within_limits(unsigned, unsigned);
-		void move_bloc_up(sf::Vertex*);
-		void move_bloc_down(sf::Vertex*);
-		void move_bloc_right(sf::Vertex*);
-		void move_bloc_left(sf::Vertex*);
+		Board(bool, unsigned, unsigned, Grid*, Grid*);
+		void update_display();
 		void start();
 		void handle_event(const sf::Event&);
 		void fill_with_blocs();
 		static sf::Color translate_to_color(unsigned);
-		void color_bloc(sf::Vertex*, unsigned);
+		void color_bloc(sf::Vertex*, Grid*, unsigned, unsigned);
 };
 
 #endif
