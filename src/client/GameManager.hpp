@@ -9,7 +9,7 @@ class GameManager;
 #include "../common/Constants.hpp"
 #include "../common/WizardLogger.hpp"
 #include "PacketManager.hpp"
-
+#include "GUI/Board.hpp"
 
 #include "../game/Game_system/Grid.hpp"
 #include "../game/Mode/Vs.hpp"
@@ -26,8 +26,9 @@ void player_get_choice_in_game(Grid *, Stopper_Thread*);
 
 class GameManager {
 	Mode * _game;
+	bool gui;
 	public:
-	    GameManager() = default;
+	    GameManager(bool _gui): gui(_gui) {}
 	    void start_game(unsigned,int, unsigned);
 	    void move_right();
 	    void move_left();

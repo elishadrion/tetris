@@ -24,7 +24,7 @@ void Classic::init_game(bool is_player){
 	t.detach();
 	
 
-	if(is_player){
+	if(display_game_gui != nullptr and is_player){
 		display_game->init_main_game_solo_GUI();
 		usleep(2000);
 		std::thread v(&Classic::update_gui_solo, this, grid, stopper); // Thread pour les inputs du joueur

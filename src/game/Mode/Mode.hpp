@@ -7,21 +7,26 @@ Mode.hpp
 #ifndef __GAME__HPP__
 #define __GAME__HPP__
 
+class Mode;
+
 #include <unistd.h>
 #include <string.h>
 #include <thread>
 #include <stdlib.h>
 #include <time.h>
 #include "../CLI/Game_CLI.hpp"
+#include "../../client/GUI/Board.hpp"
 #include "../Game_system/Grid.hpp"
 #include "../../common/Packet.hpp"
 #include "../../common/Stopper_Thread.hpp"
 
 
 
-extern Game_CLI *display_game;
+extern Game_CLI* display_game;
+extern Board* display_game_gui;
 
-class Mode{
+
+class Mode {
 
 	protected:
 		

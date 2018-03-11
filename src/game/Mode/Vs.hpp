@@ -6,7 +6,7 @@ Vs.hpp
 
 #ifndef __Vs__HPP__
 #define __Vs__HPP__
-
+class Vs;
 #include "Mode.hpp"
 
 
