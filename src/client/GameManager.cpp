@@ -32,7 +32,8 @@ void GameManager::start_game(unsigned _num,int type_game, unsigned seed){
 	if (gui) {
 		display_game_gui = new Board(type_game == 4, 800, 600, _game->get_grid(), _game->get_other_grid());
 		display_game_gui->start();
-		while (!_game->get_stopper()->game_is_finish());
+		std::thread thread_joueur(player_get_choice_in_game, _game->get_grid(), _game->get_stopper());
+		thread_joueur.join();
 	} else {
 		display_game = new Game_CLI();
 		std::thread thread_joueur(player_get_choice_in_game, _game->get_grid(), _game->get_stopper());

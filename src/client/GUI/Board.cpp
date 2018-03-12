@@ -1,5 +1,5 @@
 #include "Board.hpp"
-extern GameManager* game_manager;
+
 
 Board::Board(bool vs, unsigned wwidth, unsigned wheight, Grid* _grid, Grid* _other_grid): vs(vs), grid(_grid), other_grid(_other_grid) {
 	vertices_first_grid.setPrimitiveType(sf::Quads);

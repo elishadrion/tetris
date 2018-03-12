@@ -6,11 +6,11 @@ CXX= g++
 MAIN= main.cpp
 OUT= main
 CXXFLAGS= -std=c++17 -w -lform -pthread -ggdb3 -Wpedantic -Wall -Wextra -Wconversion -Weffc++ -Wstrict-null-sentinel -Wold-style-cast -Wnoexcept -Wctor-dtor-privacy -Woverloaded-virtual -Wsign-promo -Wzero-as-null-pointer-constant -Wsuggest-final-types -Wsuggest-final-methods -Wsuggest-override
+CXXPOSTFLAGS = -lsfml-graphics -lsfml-window -lsfml-system -lpthread
 all: $(OUT)
 
 $(OUT):		 					Board.o CSVparser.o SettingMenu.o SettingKeys.o Connection.o Player.o PacketManager.o GameManager.o WizardLogger.o CLI.o  Client.o Mode.o Game_CLI.o Grid.o Marathon.o Sprint.o Classic.o Tetriminos.o Block.o Vs.o SalonChat.o $(MAIN)
-	$(CXX) $(CXXFLAGS) $(MAIN) 	Board.o CSVparser.o SettingsMenu.o SettingKeys.o Connection.o Player.o PacketManager.o GameManager.o WizardLogger.o CLI.o Client.o Mode.o Game_CLI.o Grid.o Marathon.o Sprint.o Classic.o Tetriminos.o Block.o Vs.o SalonChat.o -lncurses -lform -o $(OUT)
-
+	$(CXX) $(CXXFLAGS) $(MAIN) 	Board.o CSVparser.o SettingsMenu.o SettingKeys.o Connection.o Player.o PacketManager.o GameManager.o WizardLogger.o CLI.o Client.o Mode.o Game_CLI.o Grid.o Marathon.o Sprint.o Classic.o Tetriminos.o Block.o Vs.o SalonChat.o -lncurses -lform -o $(OUT) $(CXXPOSTFLAGS)
 CSVparser.o: ../dependencies/CSVparser/CSVparser.cpp ../dependencies/CSVparser/CSVparser.hpp
 	$(CXX) $(CXXFLAGS) -c ../dependencies/CSVparser/CSVparser.cpp	
 	

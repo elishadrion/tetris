@@ -7,7 +7,7 @@ Classic.cpp
 #include "Classic.hpp"
 
 
-Classic::Classic(unsigned seed): Mode(true,seed) {
+Classic::Classic(unsigned seed): Mode(false,seed) {
 
 	
 
@@ -24,12 +24,7 @@ void Classic::init_game(bool is_player){
 	t.detach();
 	
 
-	if(display_game_gui != nullptr and is_player){
-		display_game->init_main_game_solo_GUI();
-		usleep(2000);
-		std::thread v(&Classic::update_gui_solo, this, grid, stopper); // Thread pour les inputs du joueur
-		v.detach();
-	}
+
 }
 
 void Classic::start(Grid * grid,Grid * grid_other ,Stopper_Thread* stopper){

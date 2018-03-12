@@ -5,7 +5,7 @@ class Board;
 
 #include <SFML/Graphics.hpp>
 #include "../../game/Game_system/Grid.hpp"
-#include "../GameManager.hpp"
+//#include "../GameManager.hpp"
 #include "Constants.hpp"
 #include <thread>
 

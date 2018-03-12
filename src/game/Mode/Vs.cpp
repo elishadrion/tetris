@@ -23,14 +23,6 @@ void Vs::init_game(bool is_player){
 	std::thread t2(&Vs::start,this, _other_grid,grid, stopper);
 	t.detach();
 	t2.detach();
-
-	if(is_player){
-
-		display_game->init_main_game_multi_GUI();
-		usleep(2000);
-		std::thread v(&Vs::update_gui_multi, this, grid,_other_grid, stopper); // Thread pour les inputs du joueur
-		v.detach();
-	}
 }
 
 void Vs::start(Grid * grid,Grid * other_grid , Stopper_Thread* stopper){

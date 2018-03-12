@@ -6,7 +6,7 @@ Player *player;
 GameManager *game_manager;
 SalonChat *salon_chat;
 Game_CLI * display_game;
-Board* display_game_ui;
+Board* display_game_gui;
 
 Client::Client(std::string address) {
     game_manager = new GameManager(true);
