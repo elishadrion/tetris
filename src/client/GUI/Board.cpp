@@ -2,9 +2,27 @@
 
 
 Board::Board(bool vs, unsigned wwidth, unsigned wheight, Grid* _grid, Grid* _other_grid): vs(vs), grid(_grid), other_grid(_other_grid) {
+	font.loadFromFile("arial.ttf");
+	score_first.setFont(font);
+	lines_completed_first.setFont(font);
+
+	score_first.setString("Score : 0");
+	score_first.setPosition(sf::Vector2f(20, 10));
+	lines_completed_first.setString("Lines : 0");
+	lines_completed_first.setPosition(sf::Vector2f(20, 50));
+
 	vertices_first_grid.setPrimitiveType(sf::Quads);
 	vertices_first_grid.resize(width*height*4);
+
 	if (vs) {
+		score_second.setFont(font);
+		lines_completed_second.setFont(font);
+
+		score_second.setString("Score : 0");
+		score_second.setPosition(sf::Vector2f(20, 90));
+		lines_completed_second.setString("Lines : 0");
+		lines_completed_second.setPosition(sf::Vector2f(20, 130));
+
 		vertices_second_grid.setPrimitiveType(sf::Quads);
 		vertices_second_grid.resize(width*height*4);
 	}
@@ -36,10 +54,19 @@ void Board::update_display() {
 
 		}
 	}
+	score_first.setString("Score : "+ std::to_string(grid->get_score()));
+	lines_completed_first.setString("Lines : "+ std::to_string(grid->get_line_complete()));
 	window.clear();
 	window.draw(vertices_first_grid);
-	if (vs)
+	window.draw(score_first);
+	window.draw(lines_completed_first);
+	if (vs) {
+		score_second.setString("Score : "+ std::to_string(other_grid->get_score()));
+		lines_completed_second.setString("Lines : "+ std::to_string(other_grid->get_line_complete()));
 		window.draw(vertices_second_grid);
+		window.draw(score_second);
+		window.draw(lines_completed_second);
+	}
 	window.display();
 }
 
@@ -131,7 +158,7 @@ void Board::handle_event(const sf::Event& event) {
 					game_manager->move_hold();
 					grid->set_current_tetriminos_hold();
 					break;
-					
+
 				case sf::Keyboard::S:
 					game_manager->move_harddrop();
 					grid->current_tetriminos_hard_drop();
@@ -166,7 +193,7 @@ sf::Color Board::translate_to_color(unsigned color_num) {
 			color = sf::Color::Cyan;
 			break;
 		case 8:
-			color = sf::Color::Black;
+			color = sf::Color(128,128,128);
 			break;
 	}
 	return color;

@@ -13,11 +13,19 @@ extern GameManager* game_manager;
 
 class Board {
 	private:
-		sf::VertexArray vertices_first_grid;
-		sf::VertexArray vertices_second_grid;
-		sf::RenderWindow window;
+		sf::Font font;
+
 		Grid* grid;
+		sf::VertexArray vertices_first_grid;
+		sf::Text score_first;
+		sf::Text lines_completed_first;
+
 		Grid* other_grid;
+		sf::VertexArray vertices_second_grid;
+		sf::Text score_second;
+		sf::Text lines_completed_second;
+
+		sf::RenderWindow window;
 		bool vs;
 	public:
 		Board(bool, unsigned, unsigned, Grid*, Grid*);
