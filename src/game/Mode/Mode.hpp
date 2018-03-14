@@ -15,7 +15,6 @@ class Mode;
 #include <stdlib.h>
 #include <time.h>
 #include "../CLI/Game_CLI.hpp"
-#include "../../client/GUI/Board.hpp"
 #include "../Game_system/Grid.hpp"
 #include "../../common/Packet.hpp"
 #include "../../common/Stopper_Thread.hpp"
@@ -23,7 +22,6 @@ class Mode;
 
 
 extern Game_CLI* display_game;
-extern Board* display_game_gui;
 
 
 class Mode {
