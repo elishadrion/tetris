@@ -14,14 +14,14 @@ class Mode;
 #include <thread>
 #include <stdlib.h>
 #include <time.h>
-#include "../CLI/Game_CLI.hpp"
+
 #include "../Game_system/Grid.hpp"
 #include "../../common/Packet.hpp"
 #include "../../common/Stopper_Thread.hpp"
 
 
 
-extern Game_CLI* display_game;
+// extern Game_CLI* display_game;
 
 
 class Mode {
@@ -40,8 +40,7 @@ class Mode {
     	virtual Grid* get_grid(){return grid;}
     	int get_score_player(int);
     	virtual Grid* get_other_grid() {return _other_grid;}
-    	void update_gui_multi(Grid *, Grid*,Stopper_Thread*);
-    	void update_gui_solo(Grid *,  Stopper_Thread* );
+
 		virtual int tetriminos_dropping(Grid *);
 		void move_tetriminos_first_grid(unsigned);
 		void move_tetriminos_second_grid(unsigned);

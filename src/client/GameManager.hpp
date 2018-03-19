@@ -9,14 +9,15 @@ class GameManager;
 #include "../common/Constants.hpp"
 #include "../common/WizardLogger.hpp"
 #include "PacketManager.hpp"
-#include "GUI/Board.hpp"
+#include "GUI/Board_GUI.hpp"
+#include "CLI/Board_CLI.hpp"
 
 #include "../game/Game_system/Grid.hpp"
 #include "../game/Mode/Vs.hpp"
 #include "../game/Mode/Marathon.hpp"
 #include "../game/Mode/Sprint.hpp"
 #include "../game/Mode/Classic.hpp"
-#include "../game/CLI/Game_CLI.hpp"
+
 
 
 #include "../dependencies/CSVparser/CSVparser.hpp"

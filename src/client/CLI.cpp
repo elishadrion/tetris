@@ -1,5 +1,6 @@
 #include "CLI.hpp"
 
+
 std::string empty_space_string(const char*str, int len ){
 
     char c[len+1];

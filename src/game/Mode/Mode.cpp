@@ -6,61 +6,6 @@ Mode.cpp
 #include "Mode.hpp"
 
 
-void Mode::update_gui_solo(Grid * grid,  Stopper_Thread* stopper){
-
-	display_game->update_main_game_solo_GUI(grid);  // On update l'affichage de la grille
-	
-	while(!stopper->game_is_finish()){
-		display_game->update_next_tetriminos_solo_GUI( grid->get_next_tetriminos());
-
-		if(not(grid->has_tetriminos_hold())){ 
-
-			display_game->erase_hold_tetriminos_solo_GUI();
-		}
-		else{
-
-			display_game->update_hold_tetriminos_solo_GUI(grid->get_hold_tetriminos());
-		}
-		display_game->update_main_game_solo_GUI(grid);
-		usleep(100000);
-	}
- }
-
-
-
-void Mode::update_gui_multi(Grid * grid, Grid * other_grid, Stopper_Thread* stopper){
-
-	
-	display_game->update_main_game_multi_GUI(grid, other_grid);  // On update l'affichage de la grille
-
-	while(!stopper->game_is_finish()){
-		display_game->update_next_tetriminos_multi_GUI( grid->get_next_tetriminos(), other_grid->get_next_tetriminos());
-
-		if(not(grid->has_tetriminos_hold())){ 
-
-			display_game->erase_hold_tetriminos_multi_GUI();
-		}
-		else{
-
-			display_game->update_hold_tetriminos_multi_GUI(grid->get_hold_tetriminos());
-		}
-
-		if(not(other_grid->has_tetriminos_hold())){ 
-
-			display_game->erase_hold_tetriminos_other_GUI();
-		}
-		else{
-
-			display_game->update_hold_tetriminos_other_GUI(other_grid->get_hold_tetriminos());
-		}
-
-
-		display_game->update_main_game_multi_GUI(grid,other_grid);
-		usleep(100000);
-	}
-}
-
-
 
 Mode::Mode(bool is_vs, unsigned seed): grid(new Grid(seed)), stopper(new Stopper_Thread())  {
 	if (is_vs) {
@@ -115,7 +60,7 @@ int Mode::tetriminos_dropping(Grid * grid){
 
 void Mode::move_tetriminos_first_grid(unsigned ID) {
 	
-	//if(grid==_other_grid){exit0();}
+	
 
 	if      (ID == Packet::MOVE_TETRIMINOS_RIGHT) {
 		grid->current_tetriminos_move_right();

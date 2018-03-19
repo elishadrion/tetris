@@ -1,47 +1,37 @@
 #include "GameManager.hpp"
 
-extern Game_CLI * display_game;
+
 extern GameManager* game_manager;
-extern Board* display_game_gui;
+
 
 
 void GameManager::start_game(unsigned _num,int type_game, unsigned seed){
 
-	if(type_game==1){ 		
-		_game = new Classic(seed);
-		_game->init_game(true);
-	}
+	if     (type_game == 1){ _game = new Classic(seed);}
+	else if(type_game == 2){ _game = new Marathon(seed);}
+	else if(type_game == 3){ _game = new Sprint(seed);}
+	else if(type_game == 4){ _game = new Vs(seed);}
 
-	else if(type_game ==2){
-
-		_game = new Marathon(seed);
-		_game->init_game(true);
-	}
-	else if(type_game ==3){
-
-		_game = new Sprint(seed);
-		_game->init_game(true);
-	}
-
-	else if(type_game ==4){
-
-		_game = new Vs(seed);
-		_game->init_game(true);
-	}
+	_game->init_game(true);
 
 	if (gui) {
-		display_game_gui = new Board(type_game == 4, 800, 600, _game->get_grid(), _game->get_other_grid());
-		display_game_gui->start();
-		std::thread thread_joueur(player_get_choice_in_game, _game->get_grid(), _game->get_stopper());
-		thread_joueur.join();
+		Board_GUI * display_game = new Board_GUI(type_game == 4, 800, 600, _game->get_grid(), _game->get_other_grid());
+		display_game->start();
+
+
 	} else {
-		display_game = new Game_CLI();
-		std::thread thread_joueur(player_get_choice_in_game, _game->get_grid(), _game->get_stopper());
-		thread_joueur.join();
+		usleep(5000);
+		Board_CLI * display_game = new Board_CLI(_game->get_grid(), _game->get_other_grid(),_game->get_stopper());		
+		display_game->start();
+		
+
 	}
 
-	if (!gui)
-		delete display_game;
+	std::thread thread_joueur(player_get_choice_in_game, _game->get_grid(), _game->get_stopper());
+	thread_joueur.join();
+
+	
+	//delete display_game;
 	delete _game;
 }
 
@@ -61,6 +51,7 @@ void player_get_choice_in_game(Grid* grid,Stopper_Thread* stopper) {
     int lineNumber = file.rowCount();
 
     for (int i = 0; i < lineNumber; i++) {
+
         std::string keyValue = file[i]["key"];
         int keyNumber = static_cast<char>(std::stoi(file[i]["key_id"]));
 
@@ -93,9 +84,11 @@ void player_get_choice_in_game(Grid* grid,Stopper_Thread* stopper) {
 	while(flag = !stopper->game_is_finish()){
 		
 		ch = getch();
+
 		flag = !stopper->game_is_finish();
 		if  (flag and ch == C_moveRigth) {
 			game_manager->move_right();
+
 			grid->current_tetriminos_move_right();
 
 		}

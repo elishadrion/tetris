@@ -9,8 +9,8 @@ OUT= main
 CXXFLAGS= -std=c++17 -w -pthread -ggdb3 -Wpedantic -Wall -Wextra -Wconversion -Weffc++ -Wstrict-null-sentinel -Wold-style-cast -Wnoexcept -Wctor-dtor-privacy -Woverloaded-virtual -Wsign-promo -Wzero-as-null-pointer-constant -Wsuggest-final-types -Wsuggest-final-methods -Wsuggest-override -ldl -lm
 all: $(OUT)
 
-$(OUT): 					   Game_CLI.o Connection.o Player.o sqlite3.o Database.o PacketManager.o WizardLogger.o PlayerManager.o Room.o Global.o Server.o Mode.o Grid.o Tetriminos.o Block.o Vs.o Sprint.o Classic.o Marathon.o $(MAIN)
-	$(CXX) $(CXXFLAGS) $(MAIN) Game_CLI.o 	Connection.o Player.o sqlite3.o Database.o PacketManager.o WizardLogger.o PlayerManager.o Room.o Global.o Server.o Mode.o Grid.o Tetriminos.o Block.o Vs.o Sprint.o Classic.o Marathon.o -o $(OUT) -lncurses -ldl -lm
+$(OUT): 					   Connection.o Player.o sqlite3.o Database.o PacketManager.o WizardLogger.o PlayerManager.o Room.o Global.o Server.o Mode.o Grid.o Tetriminos.o Block.o Vs.o Sprint.o Classic.o Marathon.o $(MAIN)
+	$(CXX) $(CXXFLAGS) $(MAIN) Connection.o Player.o sqlite3.o Database.o PacketManager.o WizardLogger.o PlayerManager.o Room.o Global.o Server.o Mode.o Grid.o Tetriminos.o Block.o Vs.o Sprint.o Classic.o Marathon.o -o $(OUT) -lncurses -ldl -lm
 	
 sqlite3.o: ./database/sqlite3.c ./database/sqlite3.h
 	gcc -c ./database/sqlite3.c
@@ -57,8 +57,6 @@ Sprint.o: ../game/Mode/Sprint.cpp ../game/Mode/Sprint.hpp
 Classic.o: ../game/Mode/Classic.cpp ../game/Mode/Classic.hpp
 	$(CXX) $(CXXFLAGS) -c ../game/Mode/Classic.cpp
 
-Game_CLI.o: ../game/CLI/Game_CLI.cpp ../game/CLI/Game_CLI.hpp
-	$(CXX) $(CXXFLAGS) -c ../game/CLI/Game_CLI.cpp
 
 
 Grid.o:  ../game/Game_system/Grid.cpp  ../game/Game_system/Grid.hpp

@@ -25,12 +25,12 @@ void Sprint::init_game(bool is_player){
 	t.detach();
 	
 
-	if(is_player){
-		display_game->init_main_game_solo_GUI();
-		usleep(2000);
-		std::thread v(&Sprint::update_gui_solo, this, grid, stopper); // Thread pour les inputs du joueur
-		v.detach();
-	}
+	// if(is_player){
+	// 	display_game->init_main_game_solo_GUI();
+	// 	usleep(2000);
+	// 	std::thread v(&Sprint::update_gui_solo, this, grid, stopper); // Thread pour les inputs du joueur
+	// 	v.detach();
+	// }
 }
 
 
