@@ -14,6 +14,7 @@ Vs::~Vs(){
 
 	delete grid;
 	delete _other_grid;
+	delete stopper;
 	
 }
 

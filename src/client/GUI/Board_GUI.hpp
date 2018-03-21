@@ -17,13 +17,21 @@ class Board_GUI {
 
 		Grid* grid;
 		sf::VertexArray vertices_first_grid;
+		sf::VertexArray vertices_next_tetriminos_first;
+		sf::VertexArray vertices_hold_tetriminos_first;
 		sf::Text score_first;
 		sf::Text lines_completed_first;
+		sf::Text hold_first;
+		sf::Text next_first;
 
 		Grid* other_grid;
 		sf::VertexArray vertices_second_grid;
+		sf::VertexArray vertices_next_tetriminos_second;
+		sf::VertexArray vertices_hold_tetriminos_second;
 		sf::Text score_second;
 		sf::Text lines_completed_second;
+		sf::Text hold_second;
+		sf::Text next_second;
 
 		sf::RenderWindow window;
 		bool vs;
@@ -35,6 +43,12 @@ class Board_GUI {
 		void fill_with_blocs();
 		static sf::Color translate_to_color(unsigned);
 		void color_bloc(sf::Vertex*, Grid*, unsigned, unsigned);
+
+		void update_next_tetriminos_case();
+		void update_hold_tetriminos_case();
+		void update_score_and_lines();
+		void draw_vertices();
+		void draw_text();
 };
 
 #endif

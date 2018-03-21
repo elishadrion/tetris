@@ -67,21 +67,22 @@ void PlayerManager::logout(Player* player) {
 
 	    if (current == player) {
 	        g_connected.erase(g_connected.begin()+i);
+            
+            manage_room();
+            // delete player;
 	        return;
 	    }
     }
+   
 }
 
 Room* PlayerManager::create_new_room(int mode) {
     Room* new_room;
-    if(mode ==4){
-        new_room = new Room(2);
-    }
-    else{
-
-        new_room = new Room(1);
-    }
+    if(mode == 4){ new_room = new Room(2);}
+    else         { new_room = new Room(1);}
     g_rooms.push_back(new_room);
+
+    WizardLogger::info("Room créé");          
     return new_room;
 }
 
@@ -90,6 +91,56 @@ void PlayerManager::broadcast_game_ready(Room* room) {
     for (unsigned i = 0; i < room->get_size(); i++) {
         PacketManager::send_game_ready(room->get_player(i), room->get_seed());
     }
+
+}
+
+void PlayerManager::manage_room(){
+    
+   for (size_t i = 0; i < g_rooms.size(); i++) {
+   
+        Room* current_room = g_rooms.at(i);
+        if(current_room->get_max_size()==2){
+
+            bool flag1 =false;
+            bool flag2 =false;
+
+            for (size_t j = 0; j < g_connected.size(); j++) {
+                Player* current_player = g_connected.at(j);
+                if(current_player == current_room->get_player(0)){
+                    flag1=true;
+                }
+                else if(current_player == current_room->get_player(1)){
+                     flag2=true;
+                }
+
+
+            }
+
+            if(!flag1 or !flag2){
+               current_room->try_stop(); 
+
+            }
+
+
+        }
+
+        else {
+
+            bool flag=false;
+            for (size_t j = 0; j < g_connected.size(); j++) {
+                Player* current_player = g_connected.at(j);
+                if(current_player == current_room->get_player(0)){
+                    flag=true;
+                }
+
+            }
+
+            if(!flag)
+                current_room->try_stop();                
+
+        }
+
+    } 
 
 }
 
@@ -132,10 +183,11 @@ void PlayerManager::start_game(Room* room, int mode) {
     else if(mode ==4){
         room->set_mode(new Vs(room->get_seed()));        
     }
-
+     
     room->get_mode()->init_game(false);
     std::thread my(&PlayerManager::info_game, room,room->get_mode()->get_stopper());
     my.detach();
+    
     
 }
 
@@ -153,5 +205,23 @@ void PlayerManager::info_game(Room * room, Stopper_Thread * stopper){
 
    }
 
-    std::cout<<room->get_mode()->get_score_player(1)<<std::endl;   
+    std::cout<<"le score est de "<<room->get_mode()->get_score_player(1)<<std::endl;
+
+    for (size_t i = 0; i < g_rooms.size(); i++) {
+        Room* current = g_rooms.at(i);
+
+        if (current == room) {
+            g_rooms.erase(g_rooms.begin()+i);   
+            WizardLogger::info("Room "+ std::to_string(i+1)+": arrété"); 
+            delete current;
+           
+
+            
+            return;
+        }
+    } 
+
+
+    
+    
 }

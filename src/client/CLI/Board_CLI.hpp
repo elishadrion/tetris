@@ -10,7 +10,7 @@ vsGUI.hpp
 #include "../GameManager.hpp"
 #include "../../game/Game_system/Grid.hpp"
 #include "../../common/Stopper_Thread.hpp"
-
+#include "../../dependencies/CSVparser/CSVparser.hpp"
 
 extern GameManager* game_manager;
 
@@ -51,7 +51,7 @@ class Board_CLI {
 		
    		 void update_main_game_multi_GUI();
    		 void update_main_game_solo_GUI();   
-   		 void start();	
+   		 void start(int);	
 
    		 void update_next_tetriminos_multi_GUI(Tetriminos * next_tetriminos, Tetriminos * next_tetriminos_other);   
    		 void update_next_tetriminos_solo_GUI(Tetriminos * next_tetriminos);	
@@ -62,6 +62,8 @@ class Board_CLI {
 
    		 void update_gui_solo();
    		 void update_gui_multi();
+
+   		 void player_get_choice_in_game(Grid* grid,Stopper_Thread* stopper);
    	
 
 

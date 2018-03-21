@@ -15,6 +15,7 @@ Sprint::~Sprint(){
 
 
 	delete grid;
+	delete stopper;
 	
 }
 

@@ -9,6 +9,7 @@ class GameManager;
 #include "../common/Constants.hpp"
 #include "../common/WizardLogger.hpp"
 #include "PacketManager.hpp"
+
 #include "GUI/Board_GUI.hpp"
 #include "CLI/Board_CLI.hpp"
 
@@ -20,10 +21,7 @@ class GameManager;
 
 
 
-#include "../dependencies/CSVparser/CSVparser.hpp"
 
-
-void player_get_choice_in_game(Grid *, Stopper_Thread*);
 
 class GameManager {
 	Mode * _game;

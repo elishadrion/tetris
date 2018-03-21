@@ -75,7 +75,7 @@ void SalonChat::startChat(){
 	pthread_t rec;
 	FIELD *field[1];
 	FORM  *form;
-	int ch;
+	int ch =0;
 	int MAX_FIELD = 126;
 	char inputstring[MAX_FIELD], ttime[10], tester[156];
 	
@@ -119,8 +119,9 @@ void SalonChat::startChat(){
 
    
 
-	while((ch = wgetch(input_win)) != 27)
-	{	switch(ch)
+	while((ch = wgetch(input_win)) !=112)
+	{	
+		switch(ch)
 		{
 			case 10:
 				form_driver(form, REQ_VALIDATION);
@@ -148,14 +149,22 @@ void SalonChat::startChat(){
 			case KEY_DC:
 				form_driver(form, REQ_DEL_CHAR);
 				break;
+			case 112:
+				break;
+
+			case 27:
+				break;
 			default:
+
 				form_driver(form, ch);
 				form_driver(form, REQ_DEL_CHAR);
 				break;
 		}
+		//27 escape
 	}
-	if (ch == 27){
+	if (ch == 112){
         PacketManager::send_logout_chat();
+
     }
 
 	/* Unpost form and free the memory */

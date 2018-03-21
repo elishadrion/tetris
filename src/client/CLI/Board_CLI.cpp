@@ -28,12 +28,26 @@ Board_CLI::~Board_CLI(){
 
 }
 
-void Board_CLI::start(){
+void Board_CLI::start(int type_game){
+	if(type_game == 4){
+		usleep(3000);
+		init_main_game_multi_GUI();
+		std::thread myGUI(&Board_CLI::update_gui_multi, this);
+		myGUI.detach();
 
-	init_main_game_solo_GUI();
-	std::thread rat (&Board_CLI::update_gui_solo,this);
-	rat.detach();
+	}
+	else{
+		usleep(3000);
+		init_main_game_solo_GUI();
+		std::thread myGUI (&Board_CLI::update_gui_solo,this);
+		myGUI.detach();
+	}
+
+	std::thread thread_joueur(&Board_CLI::player_get_choice_in_game,this, grid, stopper);
+	thread_joueur.join();
+
 }
+	
 
 
 void Board_CLI::init_colors() {
@@ -147,8 +161,8 @@ void Board_CLI::update_main_game_multi_GUI(){
 	mvprintw(3, 8,"%d", grid->get_level());
 	mvprintw(7, 8,"%d", grid->get_line_complete());
 
-	mvprintw(16, 73,"%d", other_grid->get_score());
-	mvprintw(18, 73,"%d", other_grid->get_level());
+	mvprintw(18, 73,"%d", other_grid->get_score());
+	mvprintw(16, 73,"%d", other_grid->get_level());
 	mvprintw(20, 73,"%d", other_grid->get_line_complete());
 
 	for(int i =0; i < 20; i++){
@@ -504,4 +518,88 @@ void Board_CLI::update_gui_multi(){
 		update_main_game_multi_GUI();
 		usleep(100000);
 	}
+}
+
+
+
+void Board_CLI::player_get_choice_in_game(Grid* grid,Stopper_Thread* stopper) {
+    
+    char C_rotateRigth;
+    char C_rotateLeft;
+    char C_accelerate;
+    char C_moveRigth;
+    char C_moveLeft;
+    char C_hardDrop;
+    char C_hold;
+    
+    const csv::Parser file = csv::Parser("./settings/keys_settings.csv");
+    int lineNumber = file.rowCount();
+
+    for (int i = 0; i < lineNumber; i++) {
+
+        std::string keyValue = file[i]["key"];
+        int keyNumber = static_cast<char>(std::stoi(file[i]["key_id"]));
+
+        if (keyValue == "rotateRigth"){
+        C_rotateRigth = keyNumber;
+        }
+        else if (keyValue == "rotateLeft"){
+        C_rotateLeft = keyNumber;
+        }
+        else if (keyValue == "accelerate"){
+        C_accelerate = keyNumber;
+        }
+        else if (keyValue == "moveRigth"){
+        C_moveRigth = keyNumber;
+        }
+        else if (keyValue == "moveLeft"){
+        C_moveLeft = keyNumber;
+        }
+        else if (keyValue == "hardDrop"){
+        C_hardDrop = keyNumber;
+        }
+        else if (keyValue == "hold"){
+        C_hold = keyNumber;
+        }
+    }
+    
+	int ch;
+	bool flag;
+	
+	while(flag = !stopper->game_is_finish()){
+		
+		ch = getch();
+
+		flag = !stopper->game_is_finish();
+		if  (flag and ch == C_moveRigth) {
+			game_manager->move_right();
+			grid->current_tetriminos_move_right();
+		}
+		else if (flag and ch == C_moveLeft)  {
+			game_manager->move_left();
+			grid->current_tetriminos_move_left();
+		}
+		else if (flag and ch == C_rotateRigth) {
+			game_manager->move_turn_right();
+			grid->current_tetriminos_turn_right();
+		}
+		else if (flag and ch == C_rotateLeft) {
+			game_manager->move_turn_left();
+			grid->current_tetriminos_turn_left();
+		}
+		else if (flag and ch == C_hardDrop)       {
+			game_manager->move_harddrop();
+			grid->current_tetriminos_hard_drop();
+		}
+		else if (flag and ch == C_hold)       {
+			game_manager->move_hold();
+			grid->set_current_tetriminos_hold();
+		}
+		else if (flag and ch ==  C_accelerate) {
+			game_manager->move_drop();
+			grid->set_acceleration_quick();
+		}
+	}
+	// WizardLogger::info("player_get_choice_in_game arrêté!");
+
 }

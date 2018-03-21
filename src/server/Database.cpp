@@ -83,7 +83,7 @@ void Database::initialiseDatabase(){
 
   // create new main users table
   //SQLite AUTOINCREMENT instead of AUTO_INCREMENT
-  result = sqlite3_exec(db, "CREATE TABLE users( id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20), password VARCHAR(64), victory INTEGER DEFAULT 0, defeat INTEGER DEFAULT 0)", NULL, 0, &ERRORmsg);
+  result = sqlite3_exec(db, "CREATE TABLE users( id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20), password VARCHAR(64), score INTEGER DEFAULT 0, time INTEGER DEFAULT 0)", NULL, 0, &ERRORmsg);
   if(result && ERRORmsg != NULL) {
     printf("Error creating main users Table : %s\n", sqlite3_errmsg(db));
   }
@@ -267,7 +267,7 @@ std::string Database::getUserNameStatistics(std::string name){
   unsigned char *victory = NULL;
   unsigned char *defeat = NULL;
 
-  std::string req = "SELECT victory, defeat FROM users WHERE name = ?";
+  std::string req = "SELECT score, time FROM users WHERE name = ?";
   std::string res = "";
 
   resVal = sqlite3_prepare_v2(db, req.c_str(), req.size(), &request, NULL);
@@ -344,7 +344,7 @@ void Database::updateUserNameScore(std::string name, int victoryAdd, int lostAdd
 	int result = 0;
   sqlite3_stmt *stmt;
 
-  char *reg = "UPDATE users SET victory = victory + ?, defeat = defeat + ? WHERE name = ?";
+  char *reg = "UPDATE users SET score = score + ?, time = time + ? WHERE name = ?";
 
   result = sqlite3_prepare_v2(db, reg, strlen(reg), &stmt, NULL);
 

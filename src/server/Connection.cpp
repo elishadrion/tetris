@@ -136,6 +136,7 @@ void* Connection::manage_player(void* data) {
         delete endLogin;*/
         new_player->receive();
         PlayerManager::logout(new_player);
+
     }
 }
 

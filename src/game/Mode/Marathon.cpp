@@ -15,6 +15,7 @@ Marathon::~Marathon(){
 
 
 	delete grid;
+	delete stopper;
 	
 }
 

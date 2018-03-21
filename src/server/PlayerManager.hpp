@@ -31,6 +31,7 @@ namespace PlayerManager {
     Player* signup(std::string, std::string, int);
     Player* login(std::string, std::string, int);
     void manage_new_player(Player*, int);
+    void manage_room();
     void logout(Player*);
     //Gestion des parties
     Room* create_new_room(int);

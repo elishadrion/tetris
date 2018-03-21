@@ -41,6 +41,7 @@ public:
     virtual void play(int)=0;
     virtual void choice_game()=0;
     virtual void chat()=0;
+    virtual void wait_player()=0;
     
 
 };

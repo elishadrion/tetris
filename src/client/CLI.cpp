@@ -26,6 +26,15 @@ CLI::CLI(){
 
 }
 
+
+void CLI::wait_player(){
+
+    clear();
+    mvprintw(LINES /2, COLS/2 -15, "En attente d'un autre joueur ...");
+    refresh();
+
+}
+
 CLI::~CLI(){
     endwin();
 
@@ -33,11 +42,12 @@ CLI::~CLI(){
 
 void CLI::login() {
 
-  clear();
+    clear();    
 	bool success = false;
 	std::string username;
 	std::string password;
     while (!success) {
+        
     	FIELD *field[3];
         FORM  *my_form;
         int ch;
@@ -51,23 +61,23 @@ void CLI::login() {
         /* Initialize few color pairs */
         init_pair(1, COLOR_WHITE, COLOR_BLUE);
         init_pair(2, COLOR_WHITE, COLOR_BLUE);
-        init_pair(2, COLOR_WHITE, COLOR_RED);
+        
 
         /* Initialize the fields */
-        field[0] = new_field(1, 10, 4, 18, 0, 0);
-        field[1] = new_field(1, 10, 6, 18, 0, 0);
+        field[0] = new_field(1, 20, 4, 18, 0, 0);
+        field[1] = new_field(1, 20, 6, 18, 0, 0);
         field[2] = NULL;
 
         /* Set field options */
         set_field_fore(field[0], COLOR_PAIR(1));/* Put the field with blue background */
         set_field_back(field[0], COLOR_PAIR(2));/* and white foreground (characters */
                             /* are printed in white     */
-        field_opts_off(field[0], O_AUTOSKIP);   /* Don't go to next field when this */
+          /* Don't go to next field when this */
                             /* Field is filled up       */
 
-        set_field_fore(field[1], COLOR_PAIR(3));
-        set_field_back(field[1], A_UNDERLINE); 
-        field_opts_off(field[1], O_AUTOSKIP);
+        set_field_fore(field[1], COLOR_PAIR(1));
+        set_field_back(field[1], COLOR_PAIR(2));/* and white foreground (characters */
+        
 
         /* Create the form and post it */
         my_form = new_form(field);
@@ -82,6 +92,7 @@ void CLI::login() {
 
         /* Loop through to get user requests */
         bool flag = false;
+        char password_not_hide[20];
         while(not(flag) and (ch = getch()) )
         {   switch(ch)
             {   case KEY_DOWN:
@@ -108,6 +119,7 @@ void CLI::login() {
                     }
 
                     else{
+                        password_not_hide[index_password]=' ';
                         index_password-=1;
                         len_password-=1;
                     }
@@ -127,13 +139,17 @@ void CLI::login() {
                 default:
                     /* If this is a normal character, it gets */
                     /* Printed                */    
-                    form_driver(my_form, ch);
+                    
                     if(is_pseudo){
+                       
+                        form_driver(my_form, ch);
                         index_pseudo+=1;
                         len_pseudo+=1;
                     }
 
                     else{
+                        password_not_hide[index_password] = ch;
+                        form_driver(my_form, '*');
                         index_password+=1;
                         len_password+=1;
                     }
@@ -143,9 +159,9 @@ void CLI::login() {
 
         }
 
-    
+       
         std::string pseudo = empty_space_string(field_buffer(field[0], 0), len_pseudo);   
-        std::string password = empty_space_string(field_buffer(field[1], 0), len_password);       
+        std::string password = empty_space_string(password_not_hide, len_password);       
 
 	    pthread_mutex_lock(&packetStackMutex);	    
         PacketManager::send_login_request(pseudo.c_str(), password.c_str());	    
@@ -171,11 +187,12 @@ void CLI::login() {
 
 void CLI::register_user() {
 	
-    clear();
+    clear();    
     bool success = false;
     std::string username;
     std::string password;
     while (!success) {
+        
         FIELD *field[3];
         FORM  *my_form;
         int ch;
@@ -186,27 +203,26 @@ void CLI::register_user() {
         int len_password=0;
         int is_pseudo = 1;
 
-
         /* Initialize few color pairs */
         init_pair(1, COLOR_WHITE, COLOR_BLUE);
         init_pair(2, COLOR_WHITE, COLOR_BLUE);
-        init_pair(2, COLOR_WHITE, COLOR_RED);
+        
 
         /* Initialize the fields */
-        field[0] = new_field(1, 10, 4, 18, 0, 0);
-        field[1] = new_field(1, 10, 6, 18, 0, 0);
+        field[0] = new_field(1, 20, 4, 18, 0, 0);
+        field[1] = new_field(1, 20, 6, 18, 0, 0);
         field[2] = NULL;
 
         /* Set field options */
         set_field_fore(field[0], COLOR_PAIR(1));/* Put the field with blue background */
         set_field_back(field[0], COLOR_PAIR(2));/* and white foreground (characters */
                             /* are printed in white     */
-        field_opts_off(field[0], O_AUTOSKIP);   /* Don't go to next field when this */
+          /* Don't go to next field when this */
                             /* Field is filled up       */
 
-        set_field_fore(field[1], COLOR_PAIR(3));
-        set_field_back(field[1], A_UNDERLINE); 
-        field_opts_off(field[1], O_AUTOSKIP);
+        set_field_fore(field[1], COLOR_PAIR(1));
+        set_field_back(field[1], COLOR_PAIR(2));/* and white foreground (characters */
+        
 
         /* Create the form and post it */
         my_form = new_form(field);
@@ -216,11 +232,12 @@ void CLI::register_user() {
         set_current_field(my_form, field[0]); /* Set focus to the colored field */
         mvprintw(4, 10, "Pseudo :");
         mvprintw(6, 10, "Code :");
-        mvprintw(LINES - 2, 0, "Connectez-vous pour commencer à jouer");
+        mvprintw(LINES - 2, 0, "Enrengistrez-vous pour commencer à jouer");
         refresh();
 
         /* Loop through to get user requests */
         bool flag = false;
+        char password_not_hide[20];
         while(not(flag) and (ch = getch()) )
         {   switch(ch)
             {   case KEY_DOWN:
@@ -247,6 +264,7 @@ void CLI::register_user() {
                     }
 
                     else{
+                        password_not_hide[index_password]=' ';
                         index_password-=1;
                         len_password-=1;
                     }
@@ -266,13 +284,17 @@ void CLI::register_user() {
                 default:
                     /* If this is a normal character, it gets */
                     /* Printed                */    
-                    form_driver(my_form, ch);
+                    
                     if(is_pseudo){
+                       
+                        form_driver(my_form, ch);
                         index_pseudo+=1;
                         len_pseudo+=1;
                     }
 
                     else{
+                        password_not_hide[index_password] = ch;
+                        form_driver(my_form, '*');
                         index_password+=1;
                         len_password+=1;
                     }
@@ -280,12 +302,12 @@ void CLI::register_user() {
             }
 
 
-
         }
 
     
         std::string pseudo = empty_space_string(field_buffer(field[0], 0), len_pseudo);   
-        std::string password = empty_space_string(field_buffer(field[1], 0), len_password);       
+        std::string password = empty_space_string(password_not_hide, len_password); 
+
 
         pthread_mutex_lock(&packetStackMutex);     
 	    PacketManager::send_signup_request(username.c_str(), password.c_str());	    
@@ -321,12 +343,10 @@ void CLI::main_menu(){
     
     box(menu_win, 0, 0);
    
+
+    refresh();
     wrefresh(menu_win);
  
-    attron(A_REVERSE);
-    mvprintw(23, 0, "Use arrow keys to move, Press enter to select a choice");
-    attroff(A_REVERSE);
-    refresh();
 
 
     int highlight = 1;
@@ -334,8 +354,8 @@ void CLI::main_menu(){
     int c;
   
     int x, y, i;   
-    x = 2;
-    y = 3;
+    x = (COLS / 2) -15 ;
+    y =  LINES/2 ;
      
     box(menu_win, 0, 0);
     for(i = 0; i < n_choices; ++i){
@@ -375,8 +395,8 @@ void CLI::main_menu(){
         }
         int x, y, i;   
 
-    x = 2;
-    y = 3;
+    x = (COLS / 2) -15 ;
+    y =  LINES/2 ;
  
    
     box(menu_win, 0, 0);
@@ -416,6 +436,7 @@ void CLI::chat() {
     }
     salon_chat->startChat();
     //APRES AVOIR FINI IL LANCE LE MENU
+
     menu();
 }
 
@@ -426,7 +447,9 @@ void CLI::play(int type_game) {
 
     if(type_game ==4){
         pthread_cond_wait(&packetStackCond, &packetStackMutex);
+        wait_player();
     }
+   
 
     pthread_cond_wait(&packetStackCond, &packetStackMutex);
     usleep(20000);

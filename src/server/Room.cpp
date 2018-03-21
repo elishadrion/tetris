@@ -8,6 +8,8 @@ Room::Room(unsigned max): _size(0) {
 }
 
 Room::~Room() {
+
+	delete game;	
 	delete[] _players;
 }
 

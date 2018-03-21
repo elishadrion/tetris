@@ -9,8 +9,8 @@ CXXFLAGS= -std=c++17 -w -lform -pthread -ggdb3 -Wpedantic -Wall -Wextra -Wconver
 CXXPOSTFLAGS = -lsfml-graphics -lsfml-window -lsfml-system -lpthread
 all: $(OUT)
 
-$(OUT):		 					Board_cli.o Board_gui.o CSVparser.o SettingMenu.o SettingKeys.o Connection.o Player.o PacketManager.o GameManager.o WizardLogger.o CLI.o  Client.o Mode.o Game_CLI.o Grid.o Marathon.o Sprint.o Classic.o Tetriminos.o Block.o Vs.o SalonChat.o $(MAIN)
-	$(CXX) $(CXXFLAGS) $(MAIN) 	Board_cli.o Board_gui.o CSVparser.o SettingsMenu.o SettingKeys.o Connection.o Player.o PacketManager.o GameManager.o WizardLogger.o CLI.o Client.o Mode.o Game_CLI.o Grid.o Marathon.o Sprint.o Classic.o Tetriminos.o Block.o Vs.o SalonChat.o -lncurses -lform -o $(OUT) $(CXXPOSTFLAGS)
+$(OUT):		 					Board_CLI.o Board_GUI.o CSVparser.o SettingMenu.o SettingKeys.o Connection.o Player.o PacketManager.o GameManager.o WizardLogger.o CLI.o  Client.o Mode.o  Grid.o Marathon.o Sprint.o Classic.o Tetriminos.o Block.o Vs.o SalonChat.o $(MAIN)
+	$(CXX) $(CXXFLAGS) $(MAIN) 	Board_CLI.o Board_GUI.o CSVparser.o SettingsMenu.o SettingKeys.o Connection.o Player.o PacketManager.o GameManager.o WizardLogger.o CLI.o Client.o Mode.o Grid.o Marathon.o Sprint.o Classic.o Tetriminos.o Block.o Vs.o SalonChat.o -lncurses -lform -o $(OUT) $(CXXPOSTFLAGS)
 CSVparser.o: ../dependencies/CSVparser/CSVparser.cpp ../dependencies/CSVparser/CSVparser.hpp
 	$(CXX) $(CXXFLAGS) -c ../dependencies/CSVparser/CSVparser.cpp	
 	
@@ -38,7 +38,7 @@ SalonChat.o: SalonChat.cpp SalonChat.hpp
 CLI.o: CLI.cpp CLI.hpp
 	$(CXX) $(CXXFLAGS) -c CLI.cpp
 
-Board_gui.o: GUI/Board_GUI.hpp GUI/Board_GUI.cpp
+Board_GUI.o: GUI/Board_GUI.hpp GUI/Board_GUI.cpp
 	$(CXX) $(CXXFLAGS) -c GUI/Board_GUI.cpp
 
 WizardLogger.o: ../common/WizardLogger.cpp ../common/WizardLogger.hpp
@@ -62,7 +62,7 @@ Sprint.o: ../game/Mode/Sprint.cpp ../game/Mode/Sprint.hpp
 Classic.o: ../game/Mode/Classic.cpp ../game/Mode/Classic.hpp
 	$(CXX) $(CXXFLAGS) -c ../game/Mode/Classic.cpp
 
-Board_cli.o: CLI/Board_CLI.cpp CLI/Board_CLI.hpp
+Board_CLI.o: CLI/Board_CLI.cpp CLI/Board_CLI.hpp
 	$(CXX) $(CXXFLAGS) -c CLI/Board_CLI.cpp
 
 Grid.o:  ../game/Game_system/Grid.cpp  ../game/Game_system/Grid.hpp

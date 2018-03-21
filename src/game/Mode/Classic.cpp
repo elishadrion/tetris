@@ -16,6 +16,7 @@ Classic::Classic(unsigned seed): Mode(false,seed) {
 Classic::~Classic(){
 
 	delete grid;
+	delete stopper;
 }
 
 void Classic::init_game(bool is_player){

@@ -36,7 +36,7 @@ int Mode::tetriminos_dropping(Grid * grid){
 
 	usleep(grid->get_acceleration());  
 
-	while(not(tetriminosIsFix)){ 
+	while(!stopper->game_is_finish() and not(tetriminosIsFix)){ 
 		
 		/*
 		On essaye de faire descendre le tétriminos et s'il ne peut plus alors

@@ -5,7 +5,7 @@
 
 class Player;
 #include "Player.hpp"
-#include<sys/time.h>
+#include <sys/time.h>
 #include "../game/Mode/Mode.hpp"
 
 
@@ -31,6 +31,8 @@ class Room {
 		Mode* get_mode(){return game;}
 		Player* get_player(unsigned i) {return _players[i];}
 		void add_player(Player* player);
+		void try_stop(){ game->get_stopper()->game_finish();}
+		
 		void move_tetriminos(Player* player, unsigned movej) {
 			if (_players[0] == player) {game->move_tetriminos_first_grid(movej);}
 			else {game->move_tetriminos_second_grid(movej);}

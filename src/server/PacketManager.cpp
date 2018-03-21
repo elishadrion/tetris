@@ -40,6 +40,7 @@ Player* PacketManager::manage_signup_request(Packet::loginRequestPacket* packet)
 
 void PacketManager::manage_disconnect_request(Player* player) {
     PlayerManager::logout(player);
+    
 }
 
 //===========================CHAT==========================================
