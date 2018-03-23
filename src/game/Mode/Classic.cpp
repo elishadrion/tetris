@@ -16,7 +16,7 @@ Classic::Classic(unsigned seed): Mode(false,seed) {
 Classic::~Classic(){
 
 	delete grid;
-	delete stopper;
+	//delete stopper;
 }
 
 void Classic::init_game(bool is_player){
@@ -46,10 +46,18 @@ void Classic::start(Grid * grid,Grid * grid_other ,Stopper_Thread* stopper){
 		line_complete += tetriminos_dropping(grid);		
 		gridOverload = grid->is_overload();
 		
-	
 		
 	}
+
 	stopper->game_finish();
 			
 }
 
+bool Classic::is_winner(){
+	/*	
+	Cette fonction lance une partie classique de tetris.
+	Sans objectif, on perd quand un tétriminos est hors de la grille.		
+	*/
+	 
+	return false;
+}

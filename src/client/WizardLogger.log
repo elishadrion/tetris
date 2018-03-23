@@ -1,1345 +1,1292 @@
-[2018-03-19 21:25:24.460] [info]	Démarrage du client
-[2018-03-19 21:25:28.770] [info]	Login réussi
-[2018-03-19 21:25:29.707] [info]	Reçu un game waiting du serveur
-[2018-03-19 21:25:29.708] [info]	Reçu un game ready du serveur
-[2018-03-19 21:25:29.728] [info]	On joue!
-[2018-03-19 21:27:42.491] [info]	Démarrage du client
-[2018-03-19 21:27:46.337] [info]	Login réussi
-[2018-03-19 21:27:48.844] [info]	Reçu un game waiting du serveur
-[2018-03-19 21:27:48.844] [info]	Reçu un game ready du serveur
-[2018-03-19 21:27:48.864] [info]	On joue!
-[2018-03-19 21:33:30.574] [info]	Démarrage du client
-[2018-03-19 21:33:35.613] [info]	Login réussi
-[2018-03-19 21:33:37.146] [info]	Reçu un game waiting du serveur
-[2018-03-19 21:33:37.167] [info]	On joue!
-[2018-03-19 21:34:10.113] [info]	Démarrage du client
-[2018-03-19 21:34:14.592] [info]	Démarrage du client
-[2018-03-19 21:34:18.743] [info]	Login réussi
-[2018-03-19 21:34:19.551] [info]	Reçu un game waiting du serveur
-[2018-03-19 21:34:19.552] [info]	Reçu un game ready du serveur
-[2018-03-19 21:34:19.571] [info]	On joue!
-[2018-03-19 21:35:31.064] [info]	Démarrage du client
-[2018-03-19 21:35:34.690] [info]	Login réussi
-[2018-03-19 21:35:35.675] [info]	Reçu un game waiting du serveur
-[2018-03-19 21:35:35.675] [info]	Reçu un game ready du serveur
-[2018-03-19 21:35:35.695] [info]	On joue!
-[2018-03-19 21:36:19.414] [info]	Démarrage du client
-[2018-03-19 21:36:24.247] [info]	Login réussi
-[2018-03-19 21:36:25.337] [info]	Reçu un game waiting du serveur
-[2018-03-19 21:36:25.338] [info]	Reçu un game ready du serveur
-[2018-03-19 21:36:25.357] [info]	On joue!
-[2018-03-19 21:37:45.045] [info]	Démarrage du client
-[2018-03-19 21:37:49.351] [info]	Login réussi
-[2018-03-19 21:37:50.435] [info]	Reçu un game waiting du serveur
-[2018-03-19 21:37:50.435] [info]	Reçu un game ready du serveur
-[2018-03-19 21:37:50.456] [info]	On joue!
-[2018-03-19 21:39:07.632] [info]	Démarrage du client
-[2018-03-19 21:39:11.055] [info]	Login réussi
-[2018-03-19 21:39:15.378] [info]	Reçu un game waiting du serveur
-[2018-03-19 21:39:15.379] [info]	Reçu un game ready du serveur
-[2018-03-19 21:39:15.398] [info]	On joue!
-[2018-03-19 21:39:42.365] [info]	Démarrage du client
-[2018-03-19 21:39:46.136] [info]	Login réussi
-[2018-03-19 21:39:46.946] [info]	Reçu un game waiting du serveur
-[2018-03-19 21:39:46.947] [info]	Reçu un game ready du serveur
-[2018-03-19 21:39:46.967] [info]	On joue!
-[2018-03-20 07:17:56.704] [info]	Démarrage du client
-[2018-03-20 07:18:06.580] [info]	Login réussi
-[2018-03-20 07:18:07.570] [info]	Reçu un game waiting du serveur
-[2018-03-20 07:18:07.571] [info]	Reçu un game ready du serveur
-[2018-03-20 07:18:07.591] [info]	On joue!
-[2018-03-20 07:20:12.444] [info]	Démarrage du client
-[2018-03-20 07:20:17.258] [info]	Login réussi
-[2018-03-20 07:20:18.298] [info]	Reçu un game waiting du serveur
-[2018-03-20 07:20:18.298] [info]	Reçu un game ready du serveur
-[2018-03-20 07:20:18.318] [info]	On joue!
-[2018-03-20 07:21:29.363] [info]	Démarrage du client
-[2018-03-20 07:21:34.101] [info]	Login réussi
-[2018-03-20 07:21:34.883] [info]	Reçu un game waiting du serveur
-[2018-03-20 07:21:34.883] [info]	Reçu un game ready du serveur
-[2018-03-20 07:21:34.903] [info]	On joue!
-[2018-03-20 07:23:03.423] [info]	Démarrage du client
-[2018-03-20 07:23:08.084] [info]	Login réussi
-[2018-03-20 07:23:09.307] [info]	Reçu un game waiting du serveur
-[2018-03-20 07:23:09.307] [info]	Reçu un game ready du serveur
-[2018-03-20 07:23:09.327] [info]	On joue!
-[2018-03-20 07:24:26.478] [info]	Démarrage du client
-[2018-03-20 07:24:30.329] [info]	Login réussi
-[2018-03-20 07:24:31.461] [info]	Reçu un game waiting du serveur
-[2018-03-20 07:24:31.461] [info]	Reçu un game ready du serveur
-[2018-03-20 07:24:31.482] [info]	On joue!
-[2018-03-20 07:33:25.617] [info]	Démarrage du client
-[2018-03-20 07:33:29.209] [info]	Login réussi
-[2018-03-20 07:33:29.933] [info]	Reçu un game waiting du serveur
-[2018-03-20 07:33:29.933] [info]	Reçu un game ready du serveur
-[2018-03-20 07:33:29.954] [info]	On joue!
-[2018-03-20 07:35:22.188] [info]	Démarrage du client
-[2018-03-20 07:35:25.411] [info]	Login réussi
-[2018-03-20 07:35:26.102] [info]	Reçu un game waiting du serveur
-[2018-03-20 07:35:26.102] [info]	Reçu un game ready du serveur
-[2018-03-20 07:35:26.122] [info]	On joue!
-[2018-03-20 07:37:02.779] [info]	Démarrage du client
-[2018-03-20 07:37:06.372] [info]	Login réussi
-[2018-03-20 07:37:06.983] [info]	Reçu un game waiting du serveur
-[2018-03-20 07:37:06.983] [info]	Reçu un game ready du serveur
-[2018-03-20 07:37:07.003] [info]	On joue!
-[2018-03-20 07:38:54.349] [info]	Démarrage du client
-[2018-03-20 07:38:58.893] [info]	Login réussi
-[2018-03-20 07:38:59.930] [info]	Reçu un game waiting du serveur
-[2018-03-20 07:38:59.930] [info]	Reçu un game ready du serveur
-[2018-03-20 07:38:59.950] [info]	On joue!
-[2018-03-20 07:42:24.326] [info]	Démarrage du client
-[2018-03-20 07:42:28.970] [info]	Login réussi
-[2018-03-20 07:42:29.789] [info]	Reçu un game waiting du serveur
-[2018-03-20 07:42:29.790] [info]	Reçu un game ready du serveur
-[2018-03-20 07:42:29.810] [info]	On joue!
-[2018-03-20 07:47:07.716] [info]	Démarrage du client
-[2018-03-20 07:47:11.152] [info]	Login réussi
-[2018-03-20 07:47:12.220] [info]	Reçu un game waiting du serveur
-[2018-03-20 07:47:12.220] [info]	Reçu un game ready du serveur
-[2018-03-20 07:47:12.240] [info]	On joue!
-[2018-03-20 07:50:39.376] [info]	Démarrage du client
-[2018-03-20 07:50:42.805] [info]	Login réussi
-[2018-03-20 07:50:44.626] [info]	Reçu un game waiting du serveur
-[2018-03-20 07:50:44.626] [info]	Reçu un game ready du serveur
-[2018-03-20 07:50:44.646] [info]	On joue!
-[2018-03-20 07:51:54.629] [info]	Démarrage du client
-[2018-03-20 07:51:58.999] [info]	Login réussi
-[2018-03-20 07:51:59.691] [info]	Reçu un game waiting du serveur
-[2018-03-20 07:51:59.692] [info]	Reçu un game ready du serveur
-[2018-03-20 07:51:59.712] [info]	On joue!
-[2018-03-20 07:52:31.285] [info]	Démarrage du client
-[2018-03-20 07:52:37.085] [info]	Login réussi
-[2018-03-20 07:52:37.811] [info]	Reçu un game waiting du serveur
-[2018-03-20 07:52:37.812] [info]	Reçu un game ready du serveur
-[2018-03-20 07:52:37.832] [info]	On joue!
-[2018-03-20 07:54:12.809] [info]	Démarrage du client
-[2018-03-20 07:54:16.295] [info]	Login réussi
-[2018-03-20 07:54:17.375] [info]	Reçu un game waiting du serveur
-[2018-03-20 07:54:17.375] [info]	Reçu un game ready du serveur
-[2018-03-20 07:54:17.395] [info]	On joue!
-[2018-03-20 08:05:40.468] [info]	Démarrage du client
-[2018-03-20 08:05:46.672] [info]	Login réussi
-[2018-03-20 08:05:47.620] [info]	Reçu un game waiting du serveur
-[2018-03-20 08:05:47.621] [info]	Reçu un game ready du serveur
-[2018-03-20 08:05:47.641] [info]	On joue!
-[2018-03-20 08:13:32.598] [info]	Démarrage du client
-[2018-03-20 08:13:36.204] [info]	Login réussi
-[2018-03-20 08:13:36.947] [info]	Reçu un game waiting du serveur
-[2018-03-20 08:13:36.947] [info]	Reçu un game ready du serveur
-[2018-03-20 08:13:36.967] [info]	On joue!
-[2018-03-20 08:13:56.082] [info]	Démarrage du client
-[2018-03-20 08:14:06.290] [info]	Login réussi
-[2018-03-20 08:14:08.158] [info]	Reçu un game waiting du serveur
-[2018-03-20 08:14:08.158] [info]	Reçu un game ready du serveur
-[2018-03-20 08:14:08.178] [info]	On joue!
-[2018-03-20 08:14:20.026] [info]	player_get_choice_in_game arrêté!
-[2018-03-20 08:16:20.932] [info]	Démarrage du client
-[2018-03-20 08:16:24.699] [info]	Login réussi
-[2018-03-20 08:16:25.819] [info]	Reçu un game waiting du serveur
-[2018-03-20 08:16:25.840] [info]	On joue!
-[2018-03-20 08:16:50.632] [info]	Démarrage du client
-[2018-03-20 08:16:53.793] [info]	Login réussi
-[2018-03-20 08:16:54.439] [info]	Reçu un game waiting du serveur
-[2018-03-20 08:16:54.459] [info]	On joue!
-[2018-03-20 08:17:01.027] [info]	Démarrage du client
-[2018-03-20 08:17:07.444] [info]	Login réussi
-[2018-03-20 08:17:08.642] [info]	Reçu un game waiting du serveur
-[2018-03-20 08:17:08.642] [info]	Reçu un game ready du serveur
-[2018-03-20 08:17:08.663] [info]	On joue!
-[2018-03-20 08:18:37.957] [info]	Démarrage du client
-[2018-03-20 08:18:41.540] [info]	Login réussi
-[2018-03-20 08:18:42.346] [info]	Reçu un game waiting du serveur
-[2018-03-20 08:18:42.346] [info]	Reçu un game ready du serveur
-[2018-03-20 08:18:42.366] [info]	On joue!
-[2018-03-20 08:21:40.254] [info]	Démarrage du client
-[2018-03-20 08:21:43.966] [info]	Login réussi
-[2018-03-20 08:21:44.894] [info]	Reçu un game waiting du serveur
-[2018-03-20 08:21:44.895] [info]	Reçu un game ready du serveur
-[2018-03-20 08:21:44.915] [info]	On joue!
-[2018-03-20 08:22:00.549] [info]	player_get_choice_in_game arrêté!
-[2018-03-20 08:29:24.191] [info]	Démarrage du client
-[2018-03-20 08:29:28.689] [info]	Login réussi
-[2018-03-20 08:29:32.192] [info]	Reçu un game waiting du serveur
-[2018-03-20 08:29:32.193] [info]	Reçu un game ready du serveur
-[2018-03-20 08:29:32.212] [info]	On joue!
-[2018-03-20 08:29:50.798] [info]	Démarrage du client
-[2018-03-20 08:29:55.282] [info]	Login réussi
-[2018-03-20 08:29:56.772] [info]	Reçu un game waiting du serveur
-[2018-03-20 08:29:56.773] [info]	Reçu un game ready du serveur
-[2018-03-20 08:29:56.793] [info]	On joue!
-[2018-03-20 08:30:05.331] [info]	Démarrage du client
-[2018-03-20 08:30:10.237] [info]	Login réussi
-[2018-03-20 08:30:11.773] [info]	Reçu un game waiting du serveur
-[2018-03-20 08:30:11.773] [info]	Reçu un game ready du serveur
-[2018-03-20 08:30:11.793] [info]	On joue!
-[2018-03-20 08:31:51.936] [info]	Démarrage du client
-[2018-03-20 08:31:55.640] [info]	Login réussi
-[2018-03-20 08:31:56.292] [info]	Reçu un game waiting du serveur
-[2018-03-20 08:31:56.293] [info]	Reçu un game ready du serveur
-[2018-03-20 08:31:56.313] [info]	On joue!
-[2018-03-20 08:32:34.475] [info]	player_get_choice_in_game arrêté!
-[2018-03-20 08:37:08.543] [info]	Démarrage du client
-[2018-03-20 08:37:12.139] [info]	Login réussi
-[2018-03-20 08:37:13.216] [info]	Reçu un game waiting du serveur
-[2018-03-20 08:37:13.216] [info]	Reçu un game ready du serveur
-[2018-03-20 08:37:13.237] [info]	On joue!
-[2018-03-20 08:42:13.664] [info]	Démarrage du client
-[2018-03-20 08:42:17.590] [info]	Login réussi
-[2018-03-20 08:42:18.826] [info]	Reçu un game waiting du serveur
-[2018-03-20 08:42:18.826] [info]	Reçu un game ready du serveur
-[2018-03-20 08:42:18.846] [info]	On joue!
-[2018-03-20 08:44:58.187] [info]	Démarrage du client
-[2018-03-20 08:45:01.634] [info]	Login réussi
-[2018-03-20 08:45:02.477] [info]	Reçu un game waiting du serveur
-[2018-03-20 08:45:02.477] [info]	Reçu un game ready du serveur
-[2018-03-20 08:45:02.497] [info]	On joue!
-[2018-03-20 08:45:09.881] [info]	Démarrage du client
-[2018-03-20 08:45:13.981] [info]	Login réussi
-[2018-03-20 08:45:14.606] [info]	Reçu un game waiting du serveur
-[2018-03-20 08:45:14.606] [info]	Reçu un game ready du serveur
-[2018-03-20 08:45:14.626] [info]	On joue!
-[2018-03-20 08:45:20.465] [info]	Démarrage du client
-[2018-03-20 08:45:23.859] [info]	Login réussi
-[2018-03-20 08:45:24.734] [info]	Reçu un game waiting du serveur
-[2018-03-20 08:45:24.734] [info]	Reçu un game ready du serveur
-[2018-03-20 08:45:24.755] [info]	On joue!
-[2018-03-20 08:45:32.291] [info]	Démarrage du client
-[2018-03-20 08:45:39.913] [info]	Démarrage du client
-[2018-03-20 08:45:43.711] [info]	Login réussi
-[2018-03-20 08:45:45.140] [info]	Reçu un game waiting du serveur
-[2018-03-20 08:45:45.140] [info]	Reçu un game ready du serveur
-[2018-03-20 08:45:45.160] [info]	On joue!
-[2018-03-20 08:45:50.272] [info]	Démarrage du client
-[2018-03-20 08:45:54.893] [info]	Login réussi
-[2018-03-20 08:45:55.660] [info]	Reçu un game waiting du serveur
-[2018-03-20 08:45:55.661] [info]	Reçu un game ready du serveur
-[2018-03-20 08:45:55.681] [info]	On joue!
-[2018-03-20 08:45:57.948] [info]	Démarrage du client
-[2018-03-20 08:46:04.734] [info]	Login réussi
-[2018-03-20 08:46:05.268] [info]	Reçu un game waiting du serveur
-[2018-03-20 08:46:05.268] [info]	Reçu un game ready du serveur
-[2018-03-20 08:46:05.288] [info]	On joue!
-[2018-03-20 08:47:57.922] [info]	Démarrage du client
-[2018-03-20 08:48:01.142] [info]	Login réussi
-[2018-03-20 08:48:02.971] [info]	Reçu un game waiting du serveur
-[2018-03-20 08:48:02.971] [info]	Reçu un game ready du serveur
-[2018-03-20 08:48:02.992] [info]	On joue!
-[2018-03-20 08:48:05.267] [info]	Démarrage du client
-[2018-03-20 08:48:08.754] [info]	Login réussi
-[2018-03-20 08:48:09.576] [info]	Reçu un game waiting du serveur
-[2018-03-20 08:48:09.576] [info]	Reçu un game ready du serveur
-[2018-03-20 08:48:09.596] [info]	On joue!
-[2018-03-20 08:48:12.453] [info]	Démarrage du client
-[2018-03-20 08:48:16.851] [info]	Login réussi
-[2018-03-20 08:48:17.356] [info]	Reçu un game waiting du serveur
-[2018-03-20 08:48:17.356] [info]	Reçu un game ready du serveur
-[2018-03-20 08:48:17.377] [info]	On joue!
-[2018-03-20 08:54:05.971] [info]	Démarrage du client
-[2018-03-20 08:54:10.577] [info]	Login réussi
-[2018-03-20 08:54:11.492] [info]	Reçu un game waiting du serveur
-[2018-03-20 08:54:11.492] [info]	Reçu un game ready du serveur
-[2018-03-20 08:54:11.513] [info]	On joue!
-[2018-03-20 08:54:14.534] [info]	Démarrage du client
-[2018-03-20 08:54:18.774] [info]	Login réussi
-[2018-03-20 08:54:21.082] [info]	Reçu un game waiting du serveur
-[2018-03-20 08:54:21.103] [info]	On joue!
-[2018-03-20 08:56:58.767] [info]	Démarrage du client
-[2018-03-20 08:57:03.277] [info]	Login réussi
-[2018-03-20 08:57:04.601] [info]	Reçu un game waiting du serveur
-[2018-03-20 08:57:04.601] [info]	Reçu un game ready du serveur
-[2018-03-20 08:57:04.622] [info]	On joue!
-[2018-03-20 08:57:07.930] [info]	Démarrage du client
-[2018-03-20 08:57:12.878] [info]	Login réussi
-[2018-03-20 08:57:14.979] [info]	Reçu un game waiting du serveur
-[2018-03-20 08:57:14.979] [info]	Reçu un game ready du serveur
-[2018-03-20 08:57:15.000] [info]	On joue!
-[2018-03-20 09:05:41.751] [info]	Démarrage du client
-[2018-03-20 09:05:45.108] [info]	Login réussi
-[2018-03-20 09:05:46.714] [info]	Reçu un game waiting du serveur
-[2018-03-20 09:05:46.714] [info]	Reçu un game ready du serveur
-[2018-03-20 09:05:46.734] [info]	On joue!
-[2018-03-20 09:06:53.577] [info]	Démarrage du client
-[2018-03-20 09:06:56.983] [info]	Login réussi
-[2018-03-20 09:06:57.695] [info]	Reçu un game waiting du serveur
-[2018-03-20 09:06:57.695] [info]	Reçu un game ready du serveur
-[2018-03-20 09:06:57.715] [info]	On joue!
-[2018-03-20 09:07:38.626] [info]	Démarrage du client
-[2018-03-20 09:07:43.105] [info]	Login réussi
-[2018-03-20 09:07:43.793] [info]	Reçu un game waiting du serveur
-[2018-03-20 09:07:43.793] [info]	Reçu un game ready du serveur
-[2018-03-20 09:07:43.813] [info]	On joue!
-[2018-03-20 09:07:47.845] [info]	Démarrage du client
-[2018-03-20 09:07:51.769] [info]	Login réussi
-[2018-03-20 09:07:53.359] [info]	Reçu un game waiting du serveur
-[2018-03-20 09:07:53.359] [info]	Reçu un game ready du serveur
-[2018-03-20 09:07:53.380] [info]	On joue!
-[2018-03-20 09:07:59.976] [info]	Démarrage du client
-[2018-03-20 09:08:17.163] [info]	Login réussi
-[2018-03-20 09:08:17.954] [info]	Reçu un game waiting du serveur
-[2018-03-20 09:08:17.955] [info]	Reçu un game ready du serveur
-[2018-03-20 09:08:17.975] [info]	On joue!
-[2018-03-20 09:08:51.365] [info]	Démarrage du client
-[2018-03-20 09:08:54.813] [info]	Login réussi
-[2018-03-20 09:08:55.666] [info]	Reçu un game waiting du serveur
-[2018-03-20 09:08:55.666] [info]	Reçu un game ready du serveur
-[2018-03-20 09:08:55.686] [info]	On joue!
-[2018-03-20 09:11:14.939] [info]	Démarrage du client
-[2018-03-20 09:11:35.142] [info]	Démarrage du client
-[2018-03-20 09:11:39.156] [info]	Login réussi
-[2018-03-20 09:11:40.947] [info]	Reçu un game waiting du serveur
-[2018-03-20 09:11:40.947] [info]	Reçu un game ready du serveur
-[2018-03-20 09:11:40.967] [info]	On joue!
-[2018-03-20 09:12:02.884] [info]	Démarrage du client
-[2018-03-20 09:12:07.590] [info]	Login réussi
-[2018-03-20 09:12:09.921] [info]	Reçu un game waiting du serveur
-[2018-03-20 09:12:09.922] [info]	Reçu un game ready du serveur
-[2018-03-20 09:12:09.942] [info]	On joue!
-[2018-03-20 09:12:11.883] [info]	Démarrage du client
-[2018-03-20 09:12:16.072] [info]	Login réussi
-[2018-03-20 09:12:17.040] [info]	Reçu un game waiting du serveur
-[2018-03-20 09:12:17.040] [info]	Reçu un game ready du serveur
-[2018-03-20 09:12:17.060] [info]	On joue!
-[2018-03-20 09:12:20.758] [info]	Démarrage du client
-[2018-03-20 09:12:31.149] [info]	Login réussi
-[2018-03-20 09:12:33.933] [info]	Reçu un game waiting du serveur
-[2018-03-20 09:12:33.933] [info]	Reçu un game ready du serveur
-[2018-03-20 09:12:33.954] [info]	On joue!
-[2018-03-20 09:13:04.561] [info]	Démarrage du client
-[2018-03-20 09:13:08.088] [info]	Login réussi
-[2018-03-20 09:13:08.960] [info]	Reçu un game waiting du serveur
-[2018-03-20 09:13:08.960] [info]	Reçu un game ready du serveur
-[2018-03-20 09:13:08.980] [info]	On joue!
-[2018-03-20 09:13:23.638] [info]	Démarrage du client
-[2018-03-20 09:13:27.521] [info]	Login réussi
-[2018-03-20 09:13:28.369] [info]	Reçu un game waiting du serveur
-[2018-03-20 09:13:28.369] [info]	Reçu un game ready du serveur
-[2018-03-20 09:13:28.389] [info]	On joue!
-[2018-03-20 09:14:11.804] [info]	Démarrage du client
-[2018-03-20 09:14:16.042] [info]	Login réussi
-[2018-03-20 09:14:16.647] [info]	Reçu un game waiting du serveur
-[2018-03-20 09:14:16.648] [info]	Reçu un game ready du serveur
-[2018-03-20 09:14:16.668] [info]	On joue!
-[2018-03-20 09:14:19.435] [info]	Démarrage du client
-[2018-03-20 09:14:22.903] [info]	Login réussi
-[2018-03-20 09:14:23.449] [info]	Reçu un game waiting du serveur
-[2018-03-20 09:14:23.449] [info]	Reçu un game ready du serveur
-[2018-03-20 09:14:23.469] [info]	On joue!
-[2018-03-20 09:14:25.883] [info]	Démarrage du client
-[2018-03-20 09:14:29.624] [info]	Login réussi
-[2018-03-20 09:14:30.206] [info]	Reçu un game waiting du serveur
-[2018-03-20 09:14:30.206] [info]	Reçu un game ready du serveur
-[2018-03-20 09:14:30.226] [info]	On joue!
-[2018-03-20 09:15:07.976] [info]	Démarrage du client
-[2018-03-20 09:15:11.265] [info]	Login réussi
-[2018-03-20 09:15:12.414] [info]	Reçu un game waiting du serveur
-[2018-03-20 09:15:12.414] [info]	Reçu un game ready du serveur
-[2018-03-20 09:15:12.434] [info]	On joue!
-[2018-03-20 09:15:14.366] [info]	Démarrage du client
-[2018-03-20 09:15:18.410] [info]	Login réussi
-[2018-03-20 09:15:19.448] [info]	Reçu un game waiting du serveur
-[2018-03-20 09:15:19.448] [info]	Reçu un game ready du serveur
-[2018-03-20 09:15:19.468] [info]	On joue!
-[2018-03-20 09:38:55.541] [info]	Démarrage du client
-[2018-03-20 09:39:12.009] [info]	Démarrage du client
-[2018-03-20 09:39:16.914] [info]	Login réussi
-[2018-03-20 09:39:17.783] [info]	Reçu un game waiting du serveur
-[2018-03-20 09:39:17.783] [info]	Reçu un game ready du serveur
-[2018-03-20 09:39:17.804] [info]	On joue!
-[2018-03-20 09:39:23.405] [info]	Démarrage du client
-[2018-03-20 09:39:27.049] [info]	Login réussi
-[2018-03-20 09:39:27.994] [info]	Reçu un game waiting du serveur
-[2018-03-20 09:39:28.015] [info]	On joue!
-[2018-03-20 09:40:06.727] [info]	Démarrage du client
-[2018-03-20 09:40:09.836] [info]	Login réussi
-[2018-03-20 09:40:10.378] [info]	Reçu un game waiting du serveur
-[2018-03-20 09:40:10.379] [info]	Reçu un game ready du serveur
-[2018-03-20 09:40:10.399] [info]	On joue!
-[2018-03-20 09:40:13.492] [info]	Démarrage du client
-[2018-03-20 09:40:19.650] [info]	Login réussi
-[2018-03-20 09:40:20.144] [info]	Reçu un game waiting du serveur
-[2018-03-20 09:40:20.144] [info]	Reçu un game ready du serveur
-[2018-03-20 09:40:20.164] [info]	On joue!
-[2018-03-20 10:04:13.320] [info]	Démarrage du client
-[2018-03-20 10:04:16.298] [info]	Login réussi
-[2018-03-20 10:04:16.963] [info]	Reçu un game waiting du serveur
-[2018-03-20 10:04:16.963] [info]	Reçu un game ready du serveur
-[2018-03-20 10:04:16.983] [info]	On joue!
-[2018-03-20 10:04:19.788] [info]	Démarrage du client
-[2018-03-20 10:04:23.570] [info]	Login réussi
-[2018-03-20 10:04:24.776] [info]	Reçu un game waiting du serveur
-[2018-03-20 10:04:24.776] [info]	Reçu un game ready du serveur
-[2018-03-20 10:04:24.797] [info]	On joue!
-[2018-03-20 10:04:26.994] [info]	Démarrage du client
-[2018-03-20 10:04:33.024] [info]	Login réussi
-[2018-03-20 10:04:33.792] [info]	Reçu un game waiting du serveur
-[2018-03-20 10:04:33.792] [info]	Reçu un game ready du serveur
-[2018-03-20 10:04:33.812] [info]	On joue!
-[2018-03-20 10:04:59.034] [info]	Démarrage du client
-[2018-03-20 10:05:06.126] [info]	Login réussi
-[2018-03-20 10:05:06.826] [info]	Reçu un game waiting du serveur
-[2018-03-20 10:05:06.827] [info]	Reçu un game ready du serveur
-[2018-03-20 10:05:06.847] [info]	On joue!
-[2018-03-20 10:05:21.361] [info]	Démarrage du client
-[2018-03-20 10:05:35.882] [info]	Login réussi
-[2018-03-20 10:05:37.128] [info]	Reçu un game waiting du serveur
-[2018-03-20 10:05:37.129] [info]	Reçu un game ready du serveur
-[2018-03-20 10:05:37.149] [info]	On joue!
-[2018-03-20 10:05:40.861] [info]	Démarrage du client
-[2018-03-20 10:05:50.649] [info]	Login réussi
-[2018-03-20 10:05:51.541] [info]	Reçu un game waiting du serveur
-[2018-03-20 10:05:51.541] [info]	Reçu un game ready du serveur
-[2018-03-20 10:05:51.561] [info]	On joue!
-[2018-03-20 10:10:06.303] [info]	Démarrage du client
-[2018-03-20 10:10:09.574] [info]	Login réussi
-[2018-03-20 10:10:10.257] [info]	Reçu un game waiting du serveur
-[2018-03-20 10:10:10.257] [info]	Reçu un game ready du serveur
-[2018-03-20 10:10:10.278] [info]	On joue!
-[2018-03-20 10:10:13.169] [info]	Démarrage du client
-[2018-03-20 10:10:19.101] [info]	Login réussi
-[2018-03-20 10:10:19.929] [info]	Reçu un game waiting du serveur
-[2018-03-20 10:10:19.929] [info]	Reçu un game ready du serveur
-[2018-03-20 10:10:19.950] [info]	On joue!
-[2018-03-20 10:34:06.722] [info]	Démarrage du client
-[2018-03-20 10:34:13.023] [info]	Login réussi
-[2018-03-20 10:34:13.660] [info]	Reçu un game waiting du serveur
-[2018-03-20 10:34:13.660] [info]	Reçu un game ready du serveur
-[2018-03-20 10:34:13.680] [info]	On joue!
-[2018-03-20 10:34:16.817] [info]	Démarrage du client
-[2018-03-20 10:34:25.980] [info]	Login réussi
-[2018-03-20 10:34:26.988] [info]	Reçu un game waiting du serveur
-[2018-03-20 10:34:26.989] [info]	Reçu un game ready du serveur
-[2018-03-20 10:34:27.009] [info]	On joue!
-[2018-03-20 10:34:32.078] [info]	Démarrage du client
-[2018-03-20 10:34:38.306] [info]	Login réussi
-[2018-03-20 10:34:39.182] [info]	Reçu un game waiting du serveur
-[2018-03-20 10:34:39.182] [info]	Reçu un game ready du serveur
-[2018-03-20 10:34:39.202] [info]	On joue!
-[2018-03-20 10:43:41.003] [info]	Démarrage du client
-[2018-03-20 10:43:44.366] [info]	Login réussi
-[2018-03-20 10:43:44.946] [info]	Reçu un game waiting du serveur
-[2018-03-20 10:43:44.947] [info]	Reçu un game ready du serveur
-[2018-03-20 10:43:44.967] [info]	On joue!
-[2018-03-20 10:43:50.410] [info]	Démarrage du client
-[2018-03-20 10:44:01.706] [info]	Login réussi
-[2018-03-20 10:44:03.806] [info]	Reçu un game waiting du serveur
-[2018-03-20 10:44:03.806] [info]	Reçu un game ready du serveur
-[2018-03-20 10:44:03.827] [info]	On joue!
-[2018-03-20 10:45:23.239] [info]	Démarrage du client
-[2018-03-20 10:45:27.072] [info]	Login réussi
-[2018-03-20 10:45:28.232] [info]	Reçu un game waiting du serveur
-[2018-03-20 10:45:28.233] [info]	Reçu un game ready du serveur
-[2018-03-20 10:45:28.253] [info]	On joue!
-[2018-03-20 10:45:30.564] [info]	Démarrage du client
-[2018-03-20 10:45:44.199] [info]	Login réussi
-[2018-03-20 10:45:44.804] [info]	Reçu un game waiting du serveur
-[2018-03-20 10:45:44.804] [info]	Reçu un game ready du serveur
-[2018-03-20 10:45:44.824] [info]	On joue!
-[2018-03-20 10:47:00.096] [info]	Démarrage du client
-[2018-03-20 10:47:12.456] [info]	Démarrage du client
-[2018-03-20 10:49:21.786] [info]	Démarrage du client
-[2018-03-20 10:49:25.263] [info]	Login réussi
-[2018-03-20 10:49:26.014] [info]	Reçu un game waiting du serveur
-[2018-03-20 10:49:26.014] [info]	Reçu un game ready du serveur
-[2018-03-20 10:49:26.034] [info]	On joue!
-[2018-03-20 10:49:29.309] [info]	Démarrage du client
-[2018-03-20 10:49:36.552] [info]	Login réussi
-[2018-03-20 10:50:02.379] [info]	Reçu un game waiting du serveur
-[2018-03-20 10:50:02.380] [info]	Reçu un game ready du serveur
-[2018-03-20 10:50:02.399] [info]	On joue!
-[2018-03-20 10:51:10.393] [info]	Démarrage du client
-[2018-03-20 10:51:15.534] [info]	Login réussi
-[2018-03-20 10:51:16.248] [info]	Reçu un game waiting du serveur
-[2018-03-20 10:51:16.249] [info]	Reçu un game ready du serveur
-[2018-03-20 10:51:16.269] [info]	On joue!
-[2018-03-20 10:51:18.986] [info]	Démarrage du client
-[2018-03-20 10:51:26.540] [info]	Login réussi
-[2018-03-20 10:51:28.538] [info]	Reçu un game waiting du serveur
-[2018-03-20 10:51:28.538] [info]	Reçu un game ready du serveur
-[2018-03-20 10:51:28.559] [info]	On joue!
-[2018-03-20 10:52:09.739] [info]	Démarrage du client
-[2018-03-20 10:52:16.061] [info]	Login réussi
-[2018-03-20 10:52:17.676] [info]	Reçu un game waiting du serveur
-[2018-03-20 10:52:17.678] [info]	Reçu un game ready du serveur
-[2018-03-20 10:52:17.697] [info]	On joue!
-[2018-03-20 10:53:06.508] [info]	Démarrage du client
-[2018-03-20 10:53:09.969] [info]	Login réussi
-[2018-03-20 10:53:10.820] [info]	Reçu un game waiting du serveur
-[2018-03-20 10:53:10.821] [info]	Reçu un game ready du serveur
-[2018-03-20 10:53:10.841] [info]	On joue!
-[2018-03-20 10:54:57.711] [info]	Démarrage du client
-[2018-03-20 10:55:01.199] [info]	Login réussi
-[2018-03-20 10:55:01.896] [info]	Reçu un game waiting du serveur
-[2018-03-20 10:55:01.896] [info]	Reçu un game ready du serveur
-[2018-03-20 10:55:01.917] [info]	On joue!
-[2018-03-20 10:55:33.499] [info]	Démarrage du client
-[2018-03-20 10:55:41.080] [info]	Démarrage du client
-[2018-03-20 10:55:44.323] [info]	Login réussi
-[2018-03-20 10:55:45.032] [info]	Reçu un game waiting du serveur
-[2018-03-20 10:55:45.032] [info]	Reçu un game ready du serveur
-[2018-03-20 10:55:45.053] [info]	On joue!
-[2018-03-20 10:57:33.723] [info]	Démarrage du client
-[2018-03-20 10:57:36.960] [info]	Login réussi
-[2018-03-20 10:57:37.827] [info]	Reçu un game waiting du serveur
-[2018-03-20 10:57:37.828] [info]	Reçu un game ready du serveur
-[2018-03-20 10:57:37.848] [info]	On joue!
-[2018-03-20 10:57:48.531] [info]	Démarrage du client
-[2018-03-20 10:57:54.360] [info]	Login réussi
-[2018-03-20 10:57:55.981] [info]	Reçu un game waiting du serveur
-[2018-03-20 10:57:55.981] [info]	Reçu un game ready du serveur
-[2018-03-20 10:57:56.002] [info]	On joue!
-[2018-03-20 10:59:37.728] [info]	Démarrage du client
-[2018-03-20 10:59:41.728] [info]	Login réussi
-[2018-03-20 10:59:42.446] [info]	Reçu un game waiting du serveur
-[2018-03-20 10:59:42.446] [info]	Reçu un game ready du serveur
-[2018-03-20 10:59:42.467] [info]	On joue!
-[2018-03-20 10:59:54.748] [info]	Démarrage du client
-[2018-03-20 10:59:59.380] [info]	Login réussi
-[2018-03-20 11:00:00.180] [info]	Reçu un game waiting du serveur
-[2018-03-20 11:00:00.180] [info]	Reçu un game ready du serveur
-[2018-03-20 11:00:00.200] [info]	On joue!
-[2018-03-20 11:01:44.685] [info]	Démarrage du client
-[2018-03-20 11:01:48.627] [info]	Login réussi
-[2018-03-20 11:01:49.647] [info]	Reçu un game waiting du serveur
-[2018-03-20 11:01:49.647] [info]	Reçu un game ready du serveur
-[2018-03-20 11:01:49.668] [info]	On joue!
-[2018-03-20 11:24:20.123] [info]	Démarrage du client
-[2018-03-20 11:24:23.516] [info]	Login réussi
-[2018-03-20 11:24:24.693] [info]	Reçu un game waiting du serveur
-[2018-03-20 11:24:24.693] [info]	Reçu un game ready du serveur
-[2018-03-20 11:24:24.713] [info]	On joue!
-[2018-03-20 11:24:30.561] [info]	Démarrage du client
-[2018-03-20 11:24:33.854] [info]	Login réussi
-[2018-03-20 11:24:34.458] [info]	Reçu un game waiting du serveur
-[2018-03-20 11:24:34.458] [info]	Reçu un game ready du serveur
-[2018-03-20 11:24:34.479] [info]	On joue!
-[2018-03-20 11:24:44.520] [info]	Démarrage du client
-[2018-03-20 11:25:15.049] [info]	Login réussi
-[2018-03-20 11:25:15.971] [info]	Reçu un game waiting du serveur
-[2018-03-20 11:25:15.971] [info]	Reçu un game ready du serveur
-[2018-03-20 11:25:15.992] [info]	On joue!
-[2018-03-20 11:33:46.937] [info]	Démarrage du client
-[2018-03-20 11:33:56.572] [info]	Login réussi
-[2018-03-20 11:33:57.531] [info]	Reçu un game waiting du serveur
-[2018-03-20 11:33:57.531] [info]	Reçu un game ready du serveur
-[2018-03-20 11:33:57.552] [info]	On joue!
-[2018-03-20 11:34:35.299] [info]	Démarrage du client
-[2018-03-20 11:34:39.514] [info]	Login réussi
-[2018-03-20 11:34:40.425] [info]	Reçu un game waiting du serveur
-[2018-03-20 11:34:40.425] [info]	Reçu un game ready du serveur
-[2018-03-20 11:34:40.446] [info]	On joue!
-[2018-03-20 11:37:55.016] [info]	Démarrage du client
-[2018-03-20 11:38:09.177] [info]	Login réussi
-[2018-03-20 11:38:09.945] [info]	Reçu un game waiting du serveur
-[2018-03-20 11:38:09.945] [info]	Reçu un game ready du serveur
-[2018-03-20 11:38:09.966] [info]	On joue!
-[2018-03-20 11:38:21.551] [info]	Démarrage du client
-[2018-03-20 11:38:25.750] [info]	Login réussi
-[2018-03-20 11:38:26.597] [info]	Reçu un game waiting du serveur
-[2018-03-20 11:38:26.597] [info]	Reçu un game ready du serveur
-[2018-03-20 11:38:26.618] [info]	On joue!
-[2018-03-20 11:38:43.957] [info]	Démarrage du client
-[2018-03-20 11:38:57.226] [info]	Login réussi
-[2018-03-20 11:38:59.004] [info]	Reçu un game waiting du serveur
-[2018-03-20 11:38:59.005] [info]	Reçu un game ready du serveur
-[2018-03-20 11:38:59.025] [info]	On joue!
-[2018-03-20 11:39:19.740] [info]	Démarrage du client
-[2018-03-20 11:39:25.439] [info]	Login réussi
-[2018-03-20 11:39:27.614] [info]	Reçu un game waiting du serveur
-[2018-03-20 11:39:27.614] [info]	Reçu un game ready du serveur
-[2018-03-20 11:39:27.634] [info]	On joue!
-[2018-03-20 11:39:36.541] [info]	Démarrage du client
-[2018-03-20 11:39:44.225] [info]	Login réussi
-[2018-03-20 11:39:45.656] [info]	Reçu un game waiting du serveur
-[2018-03-20 11:39:45.656] [info]	Reçu un game ready du serveur
-[2018-03-20 11:39:45.676] [info]	On joue!
-[2018-03-20 11:39:57.740] [info]	Démarrage du client
-[2018-03-20 11:40:08.620] [info]	Login réussi
-[2018-03-20 11:40:11.714] [info]	Reçu un game waiting du serveur
-[2018-03-20 11:40:11.714] [info]	Reçu un game ready du serveur
-[2018-03-20 11:40:11.734] [info]	On joue!
-[2018-03-20 11:45:11.759] [info]	Démarrage du client
-[2018-03-20 11:45:16.539] [info]	Login réussi
-[2018-03-20 11:45:17.345] [info]	Reçu un game waiting du serveur
-[2018-03-20 11:45:17.345] [info]	Reçu un game ready du serveur
-[2018-03-20 11:45:17.366] [info]	On joue!
-[2018-03-20 11:45:20.933] [info]	Démarrage du client
-[2018-03-20 11:45:27.847] [info]	Login réussi
-[2018-03-20 11:45:28.584] [info]	Reçu un game waiting du serveur
-[2018-03-20 11:45:28.584] [info]	Reçu un game ready du serveur
-[2018-03-20 11:45:28.604] [info]	On joue!
-[2018-03-20 11:45:34.123] [info]	Démarrage du client
-[2018-03-20 11:45:39.024] [info]	Login réussi
-[2018-03-20 11:45:39.646] [info]	Reçu un game waiting du serveur
-[2018-03-20 11:45:39.667] [info]	On joue!
-[2018-03-20 13:24:49.328] [info]	Démarrage du client
-[2018-03-20 13:24:53.874] [info]	Login réussi
-[2018-03-20 13:24:54.680] [info]	Reçu un game waiting du serveur
-[2018-03-20 13:24:54.681] [info]	Reçu un game ready du serveur
-[2018-03-20 13:25:03.642] [info]	Démarrage du client
-[2018-03-20 13:25:08.389] [info]	Login réussi
-[2018-03-20 13:25:09.320] [info]	Reçu un game waiting du serveur
-[2018-03-20 13:25:09.320] [info]	Reçu un game ready du serveur
-[2018-03-20 13:25:41.996] [info]	Démarrage du client
-[2018-03-20 13:25:47.329] [info]	Démarrage du client
-[2018-03-20 13:25:50.555] [info]	Login réussi
-[2018-03-20 13:25:51.945] [info]	Reçu un game waiting du serveur
-[2018-03-20 13:25:51.945] [info]	Reçu un game ready du serveur
-[2018-03-20 13:25:51.966] [info]	On joue!
-[2018-03-20 13:26:03.866] [info]	Démarrage du client
-[2018-03-20 13:26:08.867] [info]	Login réussi
-[2018-03-20 13:26:09.766] [info]	Reçu un game waiting du serveur
-[2018-03-20 13:26:09.766] [info]	Reçu un game ready du serveur
-[2018-03-20 13:26:09.787] [info]	On joue!
-[2018-03-20 13:26:14.643] [info]	Démarrage du client
-[2018-03-20 13:26:19.807] [info]	Login réussi
-[2018-03-20 13:26:29.931] [info]	Reçu un game waiting du serveur
-[2018-03-20 13:26:29.931] [info]	Reçu un game ready du serveur
-[2018-03-20 13:26:29.952] [info]	On joue!
-[2018-03-20 13:27:11.966] [info]	Démarrage du client
-[2018-03-20 13:27:16.192] [info]	Login réussi
-[2018-03-20 13:27:17.182] [info]	Reçu un game waiting du serveur
-[2018-03-20 13:27:17.182] [info]	Reçu un game ready du serveur
-[2018-03-20 13:27:17.203] [info]	On joue!
-[2018-03-20 13:27:24.555] [info]	Démarrage du client
-[2018-03-20 13:27:31.501] [info]	Login réussi
-[2018-03-20 13:27:32.342] [info]	Reçu un game waiting du serveur
-[2018-03-20 13:27:32.342] [info]	Reçu un game ready du serveur
-[2018-03-20 13:27:32.362] [info]	On joue!
-[2018-03-20 13:27:40.115] [info]	Démarrage du client
-[2018-03-20 13:27:47.597] [info]	Login réussi
-[2018-03-20 13:27:48.301] [info]	Reçu un game waiting du serveur
-[2018-03-20 13:27:48.302] [info]	Reçu un game ready du serveur
-[2018-03-20 13:27:48.322] [info]	On joue!
-[2018-03-20 13:29:16.988] [info]	Démarrage du client
-[2018-03-20 13:29:20.667] [info]	Login réussi
-[2018-03-20 13:29:24.614] [info]	Reçu un game waiting du serveur
-[2018-03-20 13:29:24.614] [info]	Reçu un game ready du serveur
-[2018-03-20 13:29:24.634] [info]	On joue!
-[2018-03-20 13:29:53.765] [info]	Démarrage du client
-[2018-03-20 13:29:58.402] [info]	Login réussi
-[2018-03-20 13:29:59.425] [info]	Reçu un game waiting du serveur
-[2018-03-20 13:29:59.425] [info]	Reçu un game ready du serveur
-[2018-03-20 13:29:59.446] [info]	On joue!
-[2018-03-20 13:34:34.840] [info]	Démarrage du client
-[2018-03-20 13:34:39.269] [info]	Login réussi
-[2018-03-20 13:34:40.010] [info]	Reçu un game waiting du serveur
-[2018-03-20 13:34:40.010] [info]	Reçu un game ready du serveur
-[2018-03-20 13:34:40.030] [info]	On joue!
-[2018-03-20 13:35:23.114] [info]	Démarrage du client
-[2018-03-20 13:35:26.940] [info]	Login réussi
-[2018-03-20 13:35:27.826] [info]	Reçu un game waiting du serveur
-[2018-03-20 13:35:27.826] [info]	Reçu un game ready du serveur
-[2018-03-20 13:35:35.407] [info]	Démarrage du client
-[2018-03-20 13:35:41.392] [info]	Login réussi
-[2018-03-20 13:35:42.136] [info]	Reçu un game waiting du serveur
-[2018-03-20 13:35:42.157] [info]	On joue!
-[2018-03-20 13:36:20.088] [info]	Démarrage du client
-[2018-03-20 13:36:25.861] [info]	Démarrage du client
-[2018-03-20 13:36:42.916] [info]	Démarrage du client
-[2018-03-20 13:36:48.134] [info]	Login réussi
-[2018-03-20 13:36:48.992] [info]	Reçu un game waiting du serveur
-[2018-03-20 13:36:48.993] [info]	Reçu un game ready du serveur
-[2018-03-20 13:36:49.013] [info]	On joue!
-[2018-03-20 13:36:54.563] [info]	Démarrage du client
-[2018-03-20 13:36:55.979] [info]	Démarrage du client
-[2018-03-20 13:37:07.007] [info]	Démarrage du client
-[2018-03-20 13:37:23.112] [info]	Login réussi
-[2018-03-20 13:37:37.883] [info]	Reçu un game waiting du serveur
-[2018-03-20 13:37:37.883] [info]	Reçu un game ready du serveur
-[2018-03-20 13:37:37.904] [info]	On joue!
-[2018-03-20 13:56:21.327] [info]	Démarrage du client
-[2018-03-20 13:56:26.120] [info]	Login réussi
-[2018-03-20 13:56:27.394] [info]	Reçu un game waiting du serveur
-[2018-03-20 13:56:27.394] [info]	Reçu un game ready du serveur
-[2018-03-20 13:56:27.415] [info]	On joue!
-[2018-03-20 13:56:37.359] [info]	Démarrage du client
-[2018-03-20 13:56:49.638] [info]	Login réussi
-[2018-03-20 13:56:50.966] [info]	Reçu un game waiting du serveur
-[2018-03-20 13:56:50.986] [info]	On joue!
-[2018-03-20 13:57:17.456] [info]	Démarrage du client
-[2018-03-20 13:57:32.155] [info]	Login réussi
-[2018-03-20 13:57:35.439] [info]	Reçu un game waiting du serveur
-[2018-03-20 13:57:35.439] [info]	Reçu un game ready du serveur
-[2018-03-20 13:57:35.460] [info]	On joue!
-[2018-03-20 13:59:06.405] [info]	Démarrage du client
-[2018-03-20 13:59:14.385] [info]	Démarrage du client
-[2018-03-20 13:59:19.001] [info]	Login réussi
-[2018-03-20 13:59:20.050] [info]	Reçu un game waiting du serveur
-[2018-03-20 13:59:20.050] [info]	Reçu un game ready du serveur
-[2018-03-20 13:59:20.071] [info]	On joue!
-[2018-03-20 13:59:23.229] [info]	Démarrage du client
-[2018-03-20 13:59:32.408] [info]	Login réussi
-[2018-03-20 13:59:35.483] [info]	Reçu un game waiting du serveur
-[2018-03-20 13:59:35.483] [info]	Reçu un game ready du serveur
-[2018-03-20 13:59:35.503] [info]	On joue!
-[2018-03-20 13:59:40.206] [info]	Démarrage du client
-[2018-03-20 13:59:46.796] [info]	Login réussi
-[2018-03-20 13:59:49.240] [info]	Reçu un game waiting du serveur
-[2018-03-20 13:59:49.240] [info]	Reçu un game ready du serveur
-[2018-03-20 13:59:49.260] [info]	On joue!
-[2018-03-20 14:00:10.394] [info]	Démarrage du client
-[2018-03-20 14:00:26.978] [info]	Login réussi
-[2018-03-20 14:00:31.897] [info]	Reçu un game waiting du serveur
-[2018-03-20 14:00:31.918] [info]	On joue!
-[2018-03-20 14:00:35.078] [info]	Démarrage du client
-[2018-03-20 14:00:42.155] [info]	Login réussi
-[2018-03-20 14:00:43.608] [info]	Reçu un game waiting du serveur
-[2018-03-20 14:00:43.609] [info]	Reçu un game ready du serveur
-[2018-03-20 14:00:43.629] [info]	On joue!
-[2018-03-20 14:03:00.988] [info]	Démarrage du client
-[2018-03-20 14:03:04.387] [info]	Login réussi
-[2018-03-20 14:03:05.438] [info]	Reçu un game waiting du serveur
-[2018-03-20 14:03:05.458] [info]	On joue!
-[2018-03-20 14:03:09.116] [info]	Démarrage du client
-[2018-03-20 14:03:17.423] [info]	Login réussi
-[2018-03-20 14:03:18.282] [info]	Reçu un game waiting du serveur
-[2018-03-20 14:03:18.282] [info]	Reçu un game ready du serveur
-[2018-03-20 14:03:18.302] [info]	On joue!
-[2018-03-20 15:00:20.873] [info]	Démarrage du client
-[2018-03-20 15:00:41.747] [info]	Login réussi
-[2018-03-20 15:00:44.864] [info]	Reçu un game waiting du serveur
-[2018-03-20 15:00:49.708] [info]	Démarrage du client
-[2018-03-20 15:00:53.942] [info]	Démarrage du client
-[2018-03-20 15:01:03.550] [info]	Démarrage du client
-[2018-03-20 15:01:10.000] [info]	Login réussi
-[2018-03-20 15:01:11.204] [info]	Reçu un game waiting du serveur
-[2018-03-20 15:01:11.205] [info]	Reçu un game ready du serveur
-[2018-03-20 15:01:11.225] [info]	On joue!
-[2018-03-20 15:01:38.102] [info]	Démarrage du client
-[2018-03-20 15:01:43.658] [info]	Login réussi
-[2018-03-20 15:01:45.220] [info]	Reçu un game waiting du serveur
-[2018-03-20 15:01:45.220] [info]	Reçu un game ready du serveur
-[2018-03-20 15:01:45.240] [info]	On joue!
-[2018-03-20 15:05:14.909] [info]	Démarrage du client
-[2018-03-20 15:05:18.378] [info]	Login réussi
-[2018-03-20 15:05:19.570] [info]	Reçu un game waiting du serveur
-[2018-03-20 15:05:19.570] [info]	Reçu un game ready du serveur
-[2018-03-20 15:05:19.591] [info]	On joue!
-[2018-03-20 15:05:58.719] [info]	Démarrage du client
-[2018-03-20 15:06:03.982] [info]	Login réussi
-[2018-03-20 15:06:04.929] [info]	Reçu un game waiting du serveur
-[2018-03-20 15:06:04.929] [info]	Reçu un game ready du serveur
-[2018-03-20 15:06:04.949] [info]	On joue!
-[2018-03-20 15:06:19.650] [info]	Démarrage du client
-[2018-03-20 15:06:31.591] [info]	Login réussi
-[2018-03-20 15:06:33.266] [info]	Reçu un game waiting du serveur
-[2018-03-20 15:06:33.266] [info]	Reçu un game ready du serveur
-[2018-03-20 15:06:33.286] [info]	On joue!
-[2018-03-20 15:08:02.005] [info]	Démarrage du client
-[2018-03-20 15:08:04.080] [info]	Démarrage du client
-[2018-03-20 15:08:08.971] [info]	Démarrage du client
-[2018-03-20 15:08:14.567] [info]	Login réussi
-[2018-03-20 15:08:15.424] [info]	Reçu un game waiting du serveur
-[2018-03-20 15:08:15.425] [info]	Reçu un game ready du serveur
-[2018-03-20 15:08:15.445] [info]	On joue!
-[2018-03-21 08:22:45.242] [info]	Démarrage du client
-[2018-03-21 08:22:51.450] [info]	Login réussi
-[2018-03-21 08:22:52.464] [info]	Reçu un game waiting du serveur
-[2018-03-21 08:22:52.464] [info]	Reçu un game ready du serveur
-[2018-03-21 08:22:52.484] [info]	On joue!
-[2018-03-21 08:22:59.179] [info]	Démarrage du client
-[2018-03-21 08:23:03.742] [info]	Login réussi
-[2018-03-21 08:23:04.489] [info]	Reçu un game waiting du serveur
-[2018-03-21 08:23:04.489] [info]	Reçu un game ready du serveur
-[2018-03-21 08:23:04.509] [info]	On joue!
-[2018-03-21 08:23:08.018] [info]	Démarrage du client
-[2018-03-21 08:23:12.036] [info]	Login réussi
-[2018-03-21 08:23:12.905] [info]	Reçu un game waiting du serveur
-[2018-03-21 08:23:12.905] [info]	Reçu un game ready du serveur
-[2018-03-21 08:23:12.926] [info]	On joue!
-[2018-03-21 08:32:29.592] [info]	Démarrage du client
-[2018-03-21 08:32:33.719] [info]	Login réussi
-[2018-03-21 08:32:34.542] [info]	Reçu un game waiting du serveur
-[2018-03-21 08:32:34.542] [info]	Reçu un game ready du serveur
-[2018-03-21 08:32:34.562] [info]	On joue!
-[2018-03-21 08:32:38.499] [info]	Démarrage du client
-[2018-03-21 08:32:42.073] [info]	Login réussi
-[2018-03-21 08:32:42.942] [info]	Reçu un game waiting du serveur
-[2018-03-21 08:32:42.942] [info]	Reçu un game ready du serveur
-[2018-03-21 08:32:42.962] [info]	On joue!
-[2018-03-21 08:34:08.636] [info]	Démarrage du client
-[2018-03-21 08:34:12.914] [info]	Login réussi
-[2018-03-21 08:34:13.740] [info]	Reçu un game waiting du serveur
-[2018-03-21 08:34:13.740] [info]	Reçu un game ready du serveur
-[2018-03-21 08:34:13.760] [info]	On joue!
-[2018-03-21 08:34:16.481] [info]	Démarrage du client
-[2018-03-21 08:34:21.757] [info]	Login réussi
-[2018-03-21 08:34:22.709] [info]	Reçu un game waiting du serveur
-[2018-03-21 08:34:22.709] [info]	Reçu un game ready du serveur
-[2018-03-21 08:34:22.730] [info]	On joue!
-[2018-03-21 08:34:25.820] [info]	Démarrage du client
-[2018-03-21 08:34:35.871] [info]	Login réussi
-[2018-03-21 08:34:36.483] [info]	Reçu un game waiting du serveur
-[2018-03-21 08:34:36.484] [info]	Reçu un game ready du serveur
-[2018-03-21 08:34:36.504] [info]	On joue!
-[2018-03-21 08:34:50.764] [info]	Démarrage du client
-[2018-03-21 08:34:57.003] [info]	Login réussi
-[2018-03-21 08:34:57.851] [info]	Reçu un game waiting du serveur
-[2018-03-21 08:34:57.851] [info]	Reçu un game ready du serveur
-[2018-03-21 08:34:57.872] [info]	On joue!
-[2018-03-21 08:35:52.428] [info]	Démarrage du client
-[2018-03-21 08:35:55.761] [info]	Login réussi
-[2018-03-21 08:35:56.769] [info]	Reçu un game waiting du serveur
-[2018-03-21 08:35:56.770] [info]	Reçu un game ready du serveur
-[2018-03-21 08:35:56.790] [info]	On joue!
-[2018-03-21 08:36:03.736] [info]	Démarrage du client
-[2018-03-21 08:36:08.081] [info]	Login réussi
-[2018-03-21 08:36:09.024] [info]	Reçu un game waiting du serveur
-[2018-03-21 08:36:09.024] [info]	Reçu un game ready du serveur
-[2018-03-21 08:36:09.044] [info]	On joue!
-[2018-03-21 08:38:51.022] [info]	Démarrage du client
-[2018-03-21 08:38:54.339] [info]	Login réussi
-[2018-03-21 08:38:55.410] [info]	Reçu un game waiting du serveur
-[2018-03-21 08:38:55.410] [info]	Reçu un game ready du serveur
-[2018-03-21 08:38:55.430] [info]	On joue!
-[2018-03-21 08:38:58.085] [info]	Démarrage du client
-[2018-03-21 08:39:01.660] [info]	Login réussi
-[2018-03-21 08:39:02.356] [info]	Reçu un game waiting du serveur
-[2018-03-21 08:39:02.356] [info]	Reçu un game ready du serveur
-[2018-03-21 08:39:02.376] [info]	On joue!
-[2018-03-21 08:39:05.656] [info]	Démarrage du client
-[2018-03-21 08:39:11.852] [info]	Login réussi
-[2018-03-21 08:39:12.526] [info]	Reçu un game waiting du serveur
-[2018-03-21 08:39:12.526] [info]	Reçu un game ready du serveur
-[2018-03-21 08:39:12.546] [info]	On joue!
-[2018-03-21 08:54:52.401] [info]	Démarrage du client
-[2018-03-21 08:54:57.719] [info]	Login réussi
-[2018-03-21 08:54:58.815] [info]	Reçu un game waiting du serveur
-[2018-03-21 08:54:58.815] [info]	Reçu un game ready du serveur
-[2018-03-21 08:54:58.835] [info]	On joue!
-[2018-03-21 08:55:10.590] [info]	Démarrage du client
-[2018-03-21 08:55:19.157] [info]	Login réussi
-[2018-03-21 08:55:20.065] [info]	Reçu un game waiting du serveur
-[2018-03-21 08:55:20.065] [info]	Reçu un game ready du serveur
-[2018-03-21 08:55:20.085] [info]	On joue!
-[2018-03-21 08:55:34.634] [info]	player_get_choice_in_game arrêté!
-[2018-03-21 08:57:04.532] [info]	Reçu un game waiting du serveur
-[2018-03-21 08:57:04.553] [info]	On joue!
-[2018-03-21 09:08:14.022] [info]	Démarrage du client
-[2018-03-21 09:08:20.362] [info]	Login réussi
-[2018-03-21 09:08:21.147] [info]	Reçu un game waiting du serveur
-[2018-03-21 09:08:21.147] [info]	Reçu un game ready du serveur
-[2018-03-21 09:08:21.167] [info]	On joue!
-[2018-03-21 09:08:27.875] [info]	Démarrage du client
-[2018-03-21 09:08:37.593] [info]	Login réussi
-[2018-03-21 09:08:38.933] [info]	Reçu un game waiting du serveur
-[2018-03-21 09:08:38.933] [info]	Reçu un game ready du serveur
-[2018-03-21 09:08:38.954] [info]	On joue!
-[2018-03-21 09:09:01.592] [info]	Démarrage du client
-[2018-03-21 09:09:07.843] [info]	Démarrage du client
-[2018-03-21 09:09:14.484] [info]	Login réussi
-[2018-03-21 09:09:15.280] [info]	Reçu un game waiting du serveur
-[2018-03-21 09:09:15.280] [info]	Reçu un game ready du serveur
-[2018-03-21 09:09:15.300] [info]	On joue!
-[2018-03-21 09:09:21.415] [info]	Démarrage du client
-[2018-03-21 09:11:11.330] [info]	Login réussi
-[2018-03-21 09:11:12.373] [info]	Reçu un game waiting du serveur
-[2018-03-21 09:11:12.373] [info]	Reçu un game ready du serveur
-[2018-03-21 09:11:12.394] [info]	On joue!
-[2018-03-21 09:11:19.379] [info]	Démarrage du client
-[2018-03-21 09:11:29.869] [info]	Démarrage du client
-[2018-03-21 09:11:33.364] [info]	Login réussi
-[2018-03-21 09:11:34.672] [info]	Reçu un game waiting du serveur
-[2018-03-21 09:11:34.672] [info]	Reçu un game ready du serveur
-[2018-03-21 09:11:34.692] [info]	On joue!
-[2018-03-21 09:19:31.734] [info]	Démarrage du client
-[2018-03-21 09:19:42.246] [info]	Login réussi
-[2018-03-21 09:19:43.235] [info]	Reçu un game waiting du serveur
-[2018-03-21 09:19:43.236] [info]	Reçu un game ready du serveur
-[2018-03-21 09:19:43.256] [info]	On joue!
-[2018-03-21 09:22:15.746] [info]	Démarrage du client
-[2018-03-21 09:22:34.567] [info]	Démarrage du client
-[2018-03-21 09:22:37.891] [info]	Login réussi
-[2018-03-21 09:22:39.417] [info]	Reçu un game waiting du serveur
-[2018-03-21 09:22:39.417] [info]	Reçu un game ready du serveur
-[2018-03-21 09:22:39.438] [info]	On joue!
-[2018-03-21 09:22:47.709] [info]	Démarrage du client
-[2018-03-21 09:22:52.907] [info]	Démarrage du client
-[2018-03-21 09:22:57.790] [info]	Login réussi
-[2018-03-21 09:22:58.759] [info]	Reçu un game waiting du serveur
-[2018-03-21 09:22:58.759] [info]	Reçu un game ready du serveur
-[2018-03-21 09:22:58.779] [info]	On joue!
-[2018-03-21 09:57:48.842] [info]	Démarrage du client
-[2018-03-21 09:58:13.991] [info]	Démarrage du client
-[2018-03-21 09:58:17.901] [info]	Login réussi
-[2018-03-21 09:58:19.116] [info]	Reçu un game waiting du serveur
-[2018-03-21 09:58:19.137] [info]	On joue!
-[2018-03-21 09:58:25.147] [info]	Démarrage du client
-[2018-03-21 09:58:29.527] [info]	Login réussi
-[2018-03-21 09:58:30.568] [info]	Reçu un game waiting du serveur
-[2018-03-21 09:58:30.575] [info]	Reçu un game ready du serveur
-[2018-03-21 09:58:30.595] [info]	On joue!
-[2018-03-21 10:01:11.185] [info]	Démarrage du client
-[2018-03-21 10:01:15.963] [info]	Login réussi
-[2018-03-21 10:01:16.951] [info]	Reçu un game waiting du serveur
-[2018-03-21 10:01:16.951] [info]	Reçu un game ready du serveur
-[2018-03-21 10:01:16.971] [info]	On joue!
-[2018-03-21 10:17:05.758] [info]	Démarrage du client
-[2018-03-21 10:19:27.733] [info]	Démarrage du client
-[2018-03-21 10:19:31.843] [info]	Login réussi
-[2018-03-21 10:19:32.653] [info]	Reçu un game waiting du serveur
-[2018-03-21 10:19:32.653] [info]	Reçu un game ready du serveur
-[2018-03-21 10:19:32.674] [info]	On joue!
-[2018-03-21 10:38:46.546] [info]	Démarrage du client
-[2018-03-21 10:38:50.518] [info]	Login réussi
-[2018-03-21 10:38:51.573] [info]	Reçu un game waiting du serveur
-[2018-03-21 10:38:51.573] [info]	Reçu un game ready du serveur
-[2018-03-21 10:38:51.593] [info]	On joue!
-[2018-03-21 10:48:05.159] [info]	Démarrage du client
-[2018-03-21 10:48:09.788] [info]	Login réussi
-[2018-03-21 10:48:10.647] [info]	Reçu un game waiting du serveur
-[2018-03-21 10:48:10.667] [info]	On joue!
-[2018-03-21 10:48:12.696] [info]	Démarrage du client
-[2018-03-21 10:48:17.295] [info]	Login réussi
-[2018-03-21 10:48:18.040] [info]	Reçu un game waiting du serveur
-[2018-03-21 10:48:18.040] [info]	Reçu un game ready du serveur
-[2018-03-21 10:48:18.061] [info]	On joue!
-[2018-03-21 10:49:58.166] [info]	Démarrage du client
-[2018-03-21 10:50:01.467] [info]	Login réussi
-[2018-03-21 10:50:02.199] [info]	Reçu un game waiting du serveur
-[2018-03-21 10:50:02.199] [info]	Reçu un game ready du serveur
-[2018-03-21 10:50:02.219] [info]	On joue!
-[2018-03-21 10:50:12.374] [info]	player_get_choice_in_game arrêté!
-[2018-03-21 10:53:06.363] [info]	Démarrage du client
-[2018-03-21 10:53:10.338] [info]	Login réussi
-[2018-03-21 10:53:11.070] [info]	Reçu un game waiting du serveur
-[2018-03-21 10:53:11.070] [info]	Reçu un game ready du serveur
-[2018-03-21 10:53:11.091] [info]	On joue!
-[2018-03-21 10:54:01.340] [info]	Démarrage du client
-[2018-03-21 10:54:04.539] [info]	Login réussi
-[2018-03-21 10:54:05.159] [info]	Reçu un game waiting du serveur
-[2018-03-21 10:54:05.159] [info]	Reçu un game ready du serveur
-[2018-03-21 10:54:05.180] [info]	On joue!
-[2018-03-21 10:54:21.131] [info]	Reçu un game waiting du serveur
-[2018-03-21 10:54:21.131] [info]	Reçu un game ready du serveur
-[2018-03-21 10:54:21.151] [info]	On joue!
-[2018-03-21 10:54:48.824] [info]	Démarrage du client
-[2018-03-21 10:54:52.386] [info]	Login réussi
-[2018-03-21 10:54:53.452] [info]	Reçu un game waiting du serveur
-[2018-03-21 10:54:53.452] [info]	Reçu un game ready du serveur
-[2018-03-21 10:54:53.472] [info]	On joue!
-[2018-03-21 11:00:28.225] [info]	Démarrage du client
-[2018-03-21 11:00:31.858] [info]	Login réussi
-[2018-03-21 11:00:33.990] [info]	Reçu un game waiting du serveur
-[2018-03-21 11:00:40.550] [info]	Démarrage du client
-[2018-03-21 11:00:47.884] [info]	Login réussi
-[2018-03-21 11:00:49.735] [info]	Reçu un game waiting du serveur
-[2018-03-21 11:00:49.735] [info]	Reçu un game ready du serveur
-[2018-03-21 11:00:49.736] [info]	Reçu un game ready du serveur
-[2018-03-21 11:00:49.755] [info]	On joue!
-[2018-03-21 11:00:49.756] [info]	On joue!
-[2018-03-21 13:29:40.618] [info]	Démarrage du client
-[2018-03-21 13:29:45.500] [info]	Login réussi
-[2018-03-21 13:29:49.234] [info]	Reçu un game waiting du serveur
-[2018-03-21 13:29:49.235] [info]	Reçu un game ready du serveur
-[2018-03-21 13:29:49.255] [info]	On joue!
-[2018-03-21 13:41:41.864] [info]	Démarrage du client
-[2018-03-21 13:41:46.072] [info]	Login réussi
-[2018-03-21 13:41:48.662] [info]	Reçu un game waiting du serveur
-[2018-03-21 13:41:48.662] [info]	Reçu un game ready du serveur
-[2018-03-21 13:41:48.683] [info]	On joue!
-[2018-03-21 13:42:43.155] [info]	Paquet de chat reçu
-[2018-03-21 13:42:44.647] [info]	Paquet de chat reçu
-[2018-03-21 13:42:47.126] [info]	Paquet de chat reçu
-[2018-03-21 13:42:48.920] [info]	Paquet de chat reçu
-[2018-03-21 13:42:50.565] [info]	Paquet de chat reçu
-[2018-03-21 13:42:58.192] [info]	Reçu un game waiting du serveur
-[2018-03-21 13:42:58.192] [info]	Reçu un game ready du serveur
-[2018-03-21 13:42:58.213] [info]	On joue!
-[2018-03-21 13:44:58.551] [info]	Paquet de chat reçu
-[2018-03-21 13:45:04.133] [info]	Paquet de chat reçu
-[2018-03-21 13:45:05.811] [info]	Paquet de chat reçu
-[2018-03-21 13:45:15.567] [info]	Démarrage du client
-[2018-03-21 13:45:20.141] [info]	Login réussi
-[2018-03-21 13:45:21.794] [info]	Paquet de chat reçu
-[2018-03-21 13:45:23.001] [info]	Paquet de chat reçu
-[2018-03-21 13:45:23.858] [info]	Paquet de chat reçu
-[2018-03-21 13:45:24.568] [info]	Paquet de chat reçu
-[2018-03-21 13:45:34.013] [info]	Reçu un game waiting du serveur
-[2018-03-21 13:45:34.013] [info]	Reçu un game ready du serveur
-[2018-03-21 13:45:34.033] [info]	On joue!
-[2018-03-21 13:46:06.291] [info]	Démarrage du client
-[2018-03-21 13:46:09.924] [info]	Login réussi
-[2018-03-21 13:46:15.666] [info]	Paquet de chat reçu
-[2018-03-21 13:46:16.706] [info]	Paquet de chat reçu
-[2018-03-21 13:46:17.401] [info]	Paquet de chat reçu
-[2018-03-21 13:46:17.963] [info]	Paquet de chat reçu
-[2018-03-21 13:46:20.635] [info]	Paquet de chat reçu
-[2018-03-21 13:46:21.501] [info]	Paquet de chat reçu
-[2018-03-21 13:46:23.195] [info]	Paquet de chat reçu
-[2018-03-21 13:46:24.186] [info]	Paquet de chat reçu
-[2018-03-21 13:46:25.759] [info]	Paquet de chat reçu
-[2018-03-21 13:47:01.048] [info]	Démarrage du client
-[2018-03-21 13:47:04.784] [info]	Login réussi
-[2018-03-21 13:47:09.398] [info]	Reçu un game waiting du serveur
-[2018-03-21 13:47:09.398] [info]	Reçu un game ready du serveur
-[2018-03-21 13:47:09.418] [info]	On joue!
-[2018-03-21 13:47:28.890] [info]	Démarrage du client
-[2018-03-21 13:47:41.606] [info]	Login réussi
-[2018-03-21 13:47:45.073] [info]	Paquet de chat reçu
-[2018-03-21 13:47:45.964] [info]	Paquet de chat reçu
-[2018-03-21 13:47:46.618] [info]	Paquet de chat reçu
-[2018-03-21 13:48:06.008] [info]	Paquet de chat reçu
-[2018-03-21 13:48:06.548] [info]	Paquet de chat reçu
-[2018-03-21 13:48:06.979] [info]	Paquet de chat reçu
-[2018-03-21 13:48:07.469] [info]	Paquet de chat reçu
-[2018-03-21 13:48:09.379] [info]	Reçu un game waiting du serveur
-[2018-03-21 13:48:09.399] [info]	On joue!
-[2018-03-21 13:48:16.620] [info]	Démarrage du client
-[2018-03-21 13:48:20.864] [info]	Login réussi
-[2018-03-21 13:48:43.279] [info]	Paquet de chat reçu
-[2018-03-21 13:48:44.497] [info]	Paquet de chat reçu
-[2018-03-21 13:48:45.480] [info]	Paquet de chat reçu
-[2018-03-21 13:48:47.524] [info]	Reçu un game waiting du serveur
-[2018-03-21 13:48:47.544] [info]	On joue!
-[2018-03-21 13:51:35.585] [info]	Démarrage du client
-[2018-03-21 13:51:39.134] [info]	Login réussi
-[2018-03-21 13:51:39.911] [info]	Reçu un game waiting du serveur
-[2018-03-21 13:51:39.912] [info]	Reçu un game ready du serveur
-[2018-03-21 13:51:39.932] [info]	On joue!
-[2018-03-21 13:52:05.976] [info]	Paquet de chat reçu
-[2018-03-21 13:52:07.384] [info]	Paquet de chat reçu
-[2018-03-21 13:52:19.443] [info]	Reçu un game waiting du serveur
-[2018-03-21 13:52:19.443] [info]	Reçu un game ready du serveur
-[2018-03-21 13:52:19.463] [info]	On joue!
-[2018-03-21 13:52:22.547] [info]	Démarrage du client
-[2018-03-21 13:59:34.602] [info]	Login réussi
-[2018-03-21 13:59:36.334] [info]	Reçu un game waiting du serveur
-[2018-03-21 13:59:36.334] [info]	Reçu un game ready du serveur
-[2018-03-21 13:59:36.354] [info]	On joue!
-[2018-03-21 13:59:51.955] [info]	Paquet de chat reçu
-[2018-03-21 13:59:59.247] [info]	Paquet de chat reçu
-[2018-03-21 14:04:20.515] [info]	Démarrage du client
-[2018-03-21 14:04:23.606] [info]	Login réussi
-[2018-03-21 14:04:24.585] [info]	Paquet de chat reçu
-[2018-03-21 14:06:19.263] [info]	Démarrage du client
-[2018-03-21 14:06:25.527] [info]	Démarrage du client
-[2018-03-21 14:06:28.775] [info]	Login réussi
-[2018-03-21 14:06:30.035] [info]	Paquet de chat reçu
-[2018-03-21 14:07:25.121] [info]	Démarrage du client
-[2018-03-21 14:07:28.023] [info]	Login réussi
-[2018-03-21 14:07:28.982] [info]	Paquet de chat reçu
-[2018-03-21 14:07:30.134] [info]	Paquet de chat reçu
-[2018-03-21 14:07:30.822] [info]	Paquet de chat reçu
-[2018-03-21 14:07:59.575] [info]	Démarrage du client
-[2018-03-21 14:08:08.382] [info]	Login réussi
-[2018-03-21 14:08:12.480] [info]	Paquet de chat reçu
-[2018-03-21 14:08:13.308] [info]	Paquet de chat reçu
-[2018-03-21 14:08:31.787] [info]	Démarrage du client
-[2018-03-21 14:08:35.092] [info]	Login réussi
-[2018-03-21 14:08:35.980] [info]	Paquet de chat reçu
-[2018-03-21 14:08:38.765] [info]	Paquet de chat reçu
-[2018-03-21 14:08:39.929] [info]	Paquet de chat reçu
-[2018-03-21 14:08:42.604] [info]	Démarrage du client
-[2018-03-21 14:08:47.758] [info]	Login réussi
-[2018-03-21 14:08:48.564] [info]	Paquet de chat reçu
-[2018-03-21 14:08:51.030] [info]	Paquet de chat reçu
-[2018-03-21 14:08:53.317] [info]	Paquet de chat reçu
-[2018-03-21 14:08:55.246] [info]	Paquet de chat reçu
-[2018-03-21 14:10:11.422] [info]	Démarrage du client
-[2018-03-21 14:10:14.681] [info]	Login réussi
-[2018-03-21 14:10:15.415] [info]	Paquet de chat reçu
-[2018-03-21 14:10:18.287] [info]	Paquet de chat reçu
-[2018-03-21 14:10:23.914] [info]	Paquet de chat reçu
-[2018-03-21 14:10:24.894] [info]	Paquet de chat reçu
-[2018-03-21 14:10:29.741] [info]	Paquet de chat reçu
-[2018-03-21 14:10:49.493] [info]	Démarrage du client
-[2018-03-21 14:10:57.439] [info]	Login réussi
-[2018-03-21 14:10:58.552] [info]	Paquet de chat reçu
-[2018-03-21 14:11:11.958] [info]	Paquet de chat reçu
-[2018-03-21 14:11:13.417] [info]	Paquet de chat reçu
-[2018-03-21 14:11:18.530] [info]	Démarrage du client
-[2018-03-21 14:11:25.170] [info]	Login réussi
-[2018-03-21 14:11:26.119] [info]	Paquet de chat reçu
-[2018-03-21 14:11:26.120] [info]	Paquet de chat reçu
-[2018-03-21 14:11:27.899] [info]	Paquet de chat reçu
-[2018-03-21 14:11:27.899] [info]	Paquet de chat reçu
-[2018-03-21 14:11:32.292] [info]	Paquet de chat reçu
-[2018-03-21 14:11:32.292] [info]	Paquet de chat reçu
-[2018-03-21 14:11:33.365] [info]	Paquet de chat reçu
-[2018-03-21 14:11:33.365] [info]	Paquet de chat reçu
-[2018-03-21 14:11:39.475] [info]	Paquet de chat reçu
-[2018-03-21 14:14:08.309] [info]	Démarrage du client
-[2018-03-21 14:14:16.839] [info]	Login réussi
-[2018-03-21 14:14:17.625] [info]	Paquet de chat reçu
-[2018-03-21 14:14:18.848] [info]	Paquet de chat reçu
-[2018-03-21 14:14:19.489] [info]	Paquet de chat reçu
-[2018-03-21 14:14:24.879] [info]	Paquet de chat reçu
-[2018-03-21 14:14:30.014] [info]	Paquet de chat reçu
-[2018-03-21 14:14:57.602] [info]	Paquet de chat reçu
-[2018-03-21 14:14:59.171] [info]	Paquet de chat reçu
-[2018-03-21 14:14:59.718] [info]	Paquet de chat reçu
-[2018-03-21 14:15:07.037] [info]	Paquet de chat reçu
-[2018-03-21 14:15:07.702] [info]	Paquet de chat reçu
-[2018-03-21 14:15:08.151] [info]	Paquet de chat reçu
-[2018-03-21 14:15:08.693] [info]	Paquet de chat reçu
-[2018-03-21 14:15:09.215] [info]	Paquet de chat reçu
-[2018-03-21 14:15:09.715] [info]	Paquet de chat reçu
-[2018-03-21 14:15:10.489] [info]	Paquet de chat reçu
-[2018-03-21 14:15:11.073] [info]	Paquet de chat reçu
-[2018-03-21 14:15:11.555] [info]	Paquet de chat reçu
-[2018-03-21 14:15:12.022] [info]	Paquet de chat reçu
-[2018-03-21 14:15:12.492] [info]	Paquet de chat reçu
-[2018-03-21 14:15:12.942] [info]	Paquet de chat reçu
-[2018-03-21 14:15:14.885] [info]	Paquet de chat reçu
-[2018-03-21 14:16:29.607] [info]	Démarrage du client
-[2018-03-21 14:16:35.285] [info]	Login réussi
-[2018-03-21 14:16:36.467] [info]	Paquet de chat reçu
-[2018-03-21 14:16:37.449] [info]	Paquet de chat reçu
-[2018-03-21 14:16:38.034] [info]	Paquet de chat reçu
-[2018-03-21 14:16:53.705] [info]	Paquet de chat reçu
-[2018-03-21 14:16:54.511] [info]	Paquet de chat reçu
-[2018-03-21 14:16:55.104] [info]	Paquet de chat reçu
-[2018-03-21 14:16:55.613] [info]	Paquet de chat reçu
-[2018-03-21 14:16:56.094] [info]	Paquet de chat reçu
-[2018-03-21 14:16:56.585] [info]	Paquet de chat reçu
-[2018-03-21 14:16:57.096] [info]	Paquet de chat reçu
-[2018-03-21 14:16:57.637] [info]	Paquet de chat reçu
-[2018-03-21 14:16:58.129] [info]	Paquet de chat reçu
-[2018-03-21 14:16:58.980] [info]	Paquet de chat reçu
-[2018-03-21 14:16:59.550] [info]	Paquet de chat reçu
-[2018-03-21 14:17:02.256] [info]	Paquet de chat reçu
-[2018-03-21 14:18:23.298] [info]	Démarrage du client
-[2018-03-21 14:18:26.718] [info]	Login réussi
-[2018-03-21 14:18:27.615] [info]	Paquet de chat reçu
-[2018-03-21 14:18:28.516] [info]	Paquet de chat reçu
-[2018-03-21 14:18:29.334] [info]	Paquet de chat reçu
-[2018-03-21 14:18:30.017] [info]	Paquet de chat reçu
-[2018-03-21 14:18:30.689] [info]	Paquet de chat reçu
-[2018-03-21 14:18:38.319] [info]	Reçu un game waiting du serveur
-[2018-03-21 14:18:38.339] [info]	On joue!
-[2018-03-21 14:25:08.019] [info]	Démarrage du client
-[2018-03-21 14:25:12.377] [info]	Login réussi
-[2018-03-21 14:25:13.820] [info]	Paquet de chat reçu
-[2018-03-21 14:25:59.887] [info]	Démarrage du client
-[2018-03-21 14:26:04.079] [info]	Login réussi
-[2018-03-21 14:26:05.078] [info]	Paquet de chat reçu
-[2018-03-21 14:26:07.837] [info]	Paquet de chat reçu
-[2018-03-21 14:26:10.128] [info]	Paquet de chat reçu
-[2018-03-21 14:26:11.783] [info]	Paquet de chat reçu
-[2018-03-21 14:26:21.455] [info]	Paquet de chat reçu
-[2018-03-21 14:27:05.848] [info]	Démarrage du client
-[2018-03-21 14:27:10.411] [info]	Login réussi
-[2018-03-21 14:27:11.624] [info]	Paquet de chat reçu
-[2018-03-21 14:29:02.177] [info]	Paquet de chat reçu
-[2018-03-21 14:29:03.347] [info]	Paquet de chat reçu
-[2018-03-21 14:29:04.106] [info]	Paquet de chat reçu
-[2018-03-21 14:29:04.677] [info]	Paquet de chat reçu
-[2018-03-21 14:29:05.373] [info]	Paquet de chat reçu
-[2018-03-21 14:29:05.875] [info]	Paquet de chat reçu
-[2018-03-21 14:29:06.375] [info]	Paquet de chat reçu
-[2018-03-21 14:29:07.036] [info]	Paquet de chat reçu
-[2018-03-21 14:29:07.526] [info]	Paquet de chat reçu
-[2018-03-21 14:30:50.917] [info]	Démarrage du client
-[2018-03-21 14:30:56.239] [info]	Login réussi
-[2018-03-21 14:30:57.034] [info]	Paquet de chat reçu
-[2018-03-21 14:30:58.128] [info]	Paquet de chat reçu
-[2018-03-21 14:30:58.702] [info]	Paquet de chat reçu
-[2018-03-21 14:30:59.885] [info]	Paquet de chat reçu
-[2018-03-21 14:42:44.618] [info]	Démarrage du client
-[2018-03-21 14:42:50.303] [info]	Login réussi
-[2018-03-21 14:42:51.424] [info]	Paquet de chat reçu
-[2018-03-21 14:42:52.862] [info]	Paquet de chat reçu
-[2018-03-21 14:42:53.976] [info]	Paquet de chat reçu
-[2018-03-21 14:42:55.490] [info]	Paquet de chat reçu
-[2018-03-21 14:43:32.122] [info]	Démarrage du client
-[2018-03-21 14:43:36.009] [info]	Login réussi
-[2018-03-21 14:43:37.114] [info]	Paquet de chat reçu
-[2018-03-21 14:43:38.074] [info]	Paquet de chat reçu
-[2018-03-21 14:43:39.201] [info]	Paquet de chat reçu
-[2018-03-21 14:43:40.120] [info]	Paquet de chat reçu
-[2018-03-21 14:43:47.498] [info]	Paquet de chat reçu
-[2018-03-21 14:43:48.601] [info]	Paquet de chat reçu
-[2018-03-21 14:43:49.540] [info]	Paquet de chat reçu
-[2018-03-21 14:43:50.878] [info]	Paquet de chat reçu
-[2018-03-21 14:45:03.357] [info]	Démarrage du client
-[2018-03-21 14:45:11.107] [info]	Login réussi
-[2018-03-21 14:45:12.034] [info]	Paquet de chat reçu
-[2018-03-21 14:45:13.508] [info]	Paquet de chat reçu
-[2018-03-21 14:46:09.644] [info]	Démarrage du client
-[2018-03-21 14:46:13.226] [info]	Login réussi
-[2018-03-21 14:46:13.986] [info]	Paquet de chat reçu
-[2018-03-21 14:46:22.009] [info]	Démarrage du client
-[2018-03-21 14:46:27.075] [info]	Login réussi
-[2018-03-21 14:46:27.861] [info]	Paquet de chat reçu
-[2018-03-21 14:57:13.452] [info]	Démarrage du client
-[2018-03-21 14:57:16.693] [info]	Login réussi
-[2018-03-21 14:57:17.448] [info]	Paquet de chat reçu
-[2018-03-21 14:57:42.598] [info]	Démarrage du client
-[2018-03-21 14:57:52.440] [info]	Login réussi
-[2018-03-21 14:57:53.215] [info]	Paquet de chat reçu
-[2018-03-21 14:57:55.759] [info]	Paquet de chat reçu
-[2018-03-21 14:58:00.685] [info]	Paquet de chat reçu
-[2018-03-21 14:58:01.809] [info]	Paquet de chat reçu
-[2018-03-21 14:58:12.230] [info]	Paquet de chat reçu
-[2018-03-21 15:01:44.479] [info]	Démarrage du client
-[2018-03-21 15:01:47.827] [info]	Login réussi
-[2018-03-21 15:01:49.534] [info]	Paquet de chat reçu
-[2018-03-21 15:02:03.881] [info]	Paquet de chat reçu
-[2018-03-21 15:02:07.354] [info]	Paquet de chat reçu
-[2018-03-21 15:02:30.981] [info]	Reçu un game waiting du serveur
-[2018-03-21 15:02:31.001] [info]	On joue!
-[2018-03-21 15:11:58.312] [info]	Démarrage du client
-[2018-03-21 15:12:02.891] [info]	Login réussi
-[2018-03-21 15:12:14.229] [info]	Paquet de chat reçu
-[2018-03-21 15:12:17.786] [info]	Paquet de chat reçu
-[2018-03-21 15:12:19.218] [info]	Paquet de chat reçu
-[2018-03-21 15:12:22.702] [info]	Reçu un game waiting du serveur
-[2018-03-21 15:12:22.702] [info]	Reçu un game ready du serveur
-[2018-03-21 15:12:22.722] [info]	On joue!
-[2018-03-21 15:12:48.782] [info]	Paquet de chat reçu
-[2018-03-21 15:12:56.415] [info]	Paquet de chat reçu
-[2018-03-21 15:12:57.508] [info]	Paquet de chat reçu
-[2018-03-21 15:12:58.542] [info]	Paquet de chat reçu
-[2018-03-21 15:13:02.372] [info]	Reçu un game waiting du serveur
-[2018-03-21 15:13:02.372] [info]	Reçu un game ready du serveur
-[2018-03-21 15:13:02.393] [info]	On joue!
-[2018-03-21 15:13:07.217] [info]	Démarrage du client
-[2018-03-21 15:13:13.267] [info]	Login réussi
-[2018-03-21 15:13:24.589] [info]	Paquet de chat reçu
-[2018-03-21 15:13:35.586] [info]	Paquet de chat reçu
-[2018-03-21 15:13:39.927] [info]	Paquet de chat reçu
-[2018-03-21 15:13:43.712] [info]	Paquet de chat reçu
-[2018-03-21 15:13:50.188] [info]	Paquet de chat reçu
-[2018-03-21 15:13:55.329] [info]	Reçu un game waiting du serveur
-[2018-03-21 15:13:55.329] [info]	Reçu un game ready du serveur
-[2018-03-21 15:13:55.349] [info]	On joue!
-[2018-03-21 15:21:37.741] [info]	Démarrage du client
-[2018-03-21 15:21:41.110] [info]	Login réussi
-[2018-03-21 15:21:42.667] [info]	Paquet de chat reçu
-[2018-03-21 15:21:48.902] [info]	Paquet de chat reçu
-[2018-03-21 15:21:53.793] [info]	Paquet de chat reçu
-[2018-03-21 15:21:55.509] [info]	Paquet de chat reçu
-[2018-03-21 15:22:07.562] [info]	Reçu un game waiting du serveur
-[2018-03-21 15:22:07.562] [info]	Reçu un game ready du serveur
-[2018-03-21 15:22:07.583] [info]	On joue!
-[2018-03-21 15:22:34.830] [info]	Paquet de chat reçu
-[2018-03-21 15:22:40.292] [info]	Paquet de chat reçu
-[2018-03-21 15:22:41.632] [info]	Paquet de chat reçu
-[2018-03-21 15:22:43.583] [info]	Paquet de chat reçu
-[2018-03-21 15:22:45.339] [info]	Paquet de chat reçu
-[2018-03-21 15:44:52.126] [info]	Démarrage du client
-[2018-03-21 15:44:59.906] [info]	Login réussi
-[2018-03-21 15:45:00.695] [info]	Paquet de chat reçu
-[2018-03-21 15:45:05.782] [info]	Paquet de chat reçu
-[2018-03-21 15:45:07.446] [info]	Paquet de chat reçu
-[2018-03-21 15:45:10.045] [info]	Reçu un game waiting du serveur
-[2018-03-21 15:45:10.045] [info]	Reçu un game ready du serveur
-[2018-03-21 15:45:10.066] [info]	On joue!
-[2018-03-21 15:45:15.405] [info]	Démarrage du client
-[2018-03-21 15:45:18.417] [info]	Login réussi
-[2018-03-21 15:45:20.876] [info]	Reçu un game waiting du serveur
-[2018-03-21 15:45:20.896] [info]	On joue!
-[2018-03-21 15:45:23.147] [info]	Démarrage du client
-[2018-03-21 15:45:26.813] [info]	Login réussi
-[2018-03-21 15:45:27.894] [info]	Reçu un game waiting du serveur
-[2018-03-21 15:45:27.895] [info]	Reçu un game ready du serveur
-[2018-03-21 15:45:27.915] [info]	On joue!
-[2018-03-21 15:47:04.477] [info]	Démarrage du client
-[2018-03-21 15:47:07.548] [info]	Login réussi
-[2018-03-21 15:47:10.912] [info]	Reçu un game waiting du serveur
-[2018-03-21 15:47:10.932] [info]	On joue!
-[2018-03-21 15:47:29.883] [info]	Démarrage du client
-[2018-03-21 15:47:34.287] [info]	Login réussi
-[2018-03-21 15:47:35.258] [info]	Reçu un game waiting du serveur
-[2018-03-21 15:47:35.258] [info]	Reçu un game ready du serveur
-[2018-03-21 15:47:35.279] [info]	On joue!
-[2018-03-21 15:47:38.744] [info]	Démarrage du client
-[2018-03-21 15:47:42.090] [info]	Login réussi
-[2018-03-21 15:47:42.889] [info]	Reçu un game waiting du serveur
-[2018-03-21 15:47:42.889] [info]	Reçu un game ready du serveur
-[2018-03-21 15:47:42.910] [info]	On joue!
-[2018-03-21 15:47:44.606] [info]	Démarrage du client
-[2018-03-21 15:47:51.611] [info]	Login réussi
-[2018-03-21 15:47:52.315] [info]	Reçu un game waiting du serveur
-[2018-03-21 15:47:52.316] [info]	Reçu un game ready du serveur
-[2018-03-21 15:47:52.336] [info]	On joue!
-[2018-03-21 15:47:53.433] [info]	Démarrage du client
-[2018-03-21 15:47:57.265] [info]	Login réussi
-[2018-03-21 15:47:58.327] [info]	Reçu un game waiting du serveur
-[2018-03-21 15:47:58.327] [info]	Reçu un game ready du serveur
-[2018-03-21 15:47:58.348] [info]	On joue!
-[2018-03-21 15:50:15.410] [info]	Démarrage du client
-[2018-03-21 15:51:56.640] [info]	Login réussi
-[2018-03-21 15:51:59.954] [info]	Reçu un game waiting du serveur
-[2018-03-21 15:51:59.954] [info]	Reçu un game ready du serveur
-[2018-03-21 15:51:59.974] [info]	On joue!
-[2018-03-21 15:52:34.633] [info]	Reçu un game waiting du serveur
-[2018-03-21 15:52:34.652] [info]	On joue!
-[2018-03-21 15:57:33.898] [info]	Démarrage du client
-[2018-03-21 15:57:38.703] [info]	Login réussi
-[2018-03-21 15:57:39.558] [info]	Reçu un game waiting du serveur
-[2018-03-21 15:57:39.558] [info]	Reçu un game ready du serveur
-[2018-03-21 15:57:39.578] [info]	On joue!
-[2018-03-21 15:58:07.794] [info]	Paquet de chat reçu
-[2018-03-21 15:58:07.795] [warning]	Paquet inconnue reçu: 32539
-[2018-03-21 15:58:07.795] [warning]	Paquet inconnue reçu: 160
-[2018-03-21 15:58:07.795] [info]	Reçu un game waiting du serveur
-[2018-03-21 15:58:07.815] [info]	On joue!
-[2018-03-21 16:08:23.441] [info]	Démarrage du client
-[2018-03-21 16:08:28.118] [info]	Login réussi
-[2018-03-21 16:08:30.191] [info]	Reçu un game waiting du serveur
-[2018-03-21 16:08:30.192] [info]	Reçu un game ready du serveur
-[2018-03-21 16:08:30.212] [info]	On joue!
-[2018-03-21 16:08:41.177] [info]	Reçu un game waiting du serveur
-[2018-03-21 16:08:41.196] [info]	On joue!
-[2018-03-21 16:09:05.370] [info]	Reçu un game ready du serveur
-[2018-03-21 16:09:05.390] [info]	On joue!
-[2018-03-21 16:09:16.208] [info]	Démarrage du client
-[2018-03-21 16:09:21.493] [info]	Login réussi
-[2018-03-21 16:09:22.924] [info]	Reçu un game waiting du serveur
-[2018-03-21 16:09:22.924] [info]	Reçu un game ready du serveur
-[2018-03-21 16:09:22.944] [info]	On joue!
-[2018-03-21 16:23:05.310] [info]	Reçu un game waiting du serveur
-[2018-03-21 16:23:05.310] [info]	Reçu un game ready du serveur
-[2018-03-21 16:23:05.330] [info]	On joue!
-[2018-03-21 16:23:33.997] [info]	Reçu un game waiting du serveur
-[2018-03-21 16:23:34.016] [info]	On joue!
-[2018-03-21 16:23:46.334] [info]	Reçu un game waiting du serveur
-[2018-03-21 16:23:46.354] [info]	On joue!
-[2018-03-21 16:23:55.451] [info]	Reçu un game ready du serveur
-[2018-03-21 16:23:55.471] [info]	On joue!
-[2018-03-21 16:24:06.385] [info]	Reçu un game waiting du serveur
-[2018-03-21 16:24:06.385] [info]	Reçu un game waiting du serveur
-[2018-03-21 16:24:06.405] [info]	On joue!
-[2018-03-21 16:24:16.087] [info]	Reçu un game ready du serveur
-[2018-03-21 16:24:16.107] [info]	On joue!
-[2018-03-21 16:24:38.489] [info]	Reçu un game waiting du serveur
-[2018-03-21 16:24:38.489] [info]	Reçu un game waiting du serveur
-[2018-03-21 16:24:38.509] [info]	On joue!
-[2018-03-21 16:26:18.599] [info]	Reçu un game ready du serveur
-[2018-03-21 16:26:18.600] [info]	Reçu un game waiting du serveur
-[2018-03-21 16:26:18.620] [info]	On joue!
-[2018-03-21 16:26:28.912] [info]	Reçu un game ready du serveur
-[2018-03-21 16:26:28.913] [info]	Reçu un game waiting du serveur
-[2018-03-21 16:26:28.932] [info]	On joue!
-[2018-03-21 16:26:45.882] [info]	Reçu un game ready du serveur
-[2018-03-21 16:26:45.883] [info]	Reçu un game waiting du serveur
-[2018-03-21 16:26:45.902] [info]	On joue!
-[2018-03-21 16:27:03.191] [info]	Reçu un game ready du serveur
-[2018-03-21 16:27:03.211] [info]	On joue!
-[2018-03-21 16:27:10.434] [info]	Démarrage du client
-[2018-03-21 16:27:15.283] [info]	Login réussi
-[2018-03-21 16:27:16.272] [info]	Reçu un game waiting du serveur
-[2018-03-21 16:27:16.272] [info]	Reçu un game ready du serveur
-[2018-03-21 16:27:16.292] [info]	On joue!
-[2018-03-21 16:39:30.597] [info]	Reçu un game waiting du serveur
-[2018-03-21 16:39:30.598] [info]	Reçu un game ready du serveur
-[2018-03-21 16:39:30.618] [info]	On joue!
-[2018-03-21 17:04:25.008] [info]	Reçu un game waiting du serveur
-[2018-03-21 17:04:25.028] [info]	On joue!
-[2018-03-21 18:12:05.791] [info]	Démarrage du client
-[2018-03-21 18:12:09.577] [info]	Login réussi
-[2018-03-21 18:12:10.462] [info]	Reçu un game waiting du serveur
-[2018-03-21 18:12:10.462] [info]	Reçu un game ready du serveur
-[2018-03-21 18:12:10.483] [info]	On joue!
-[2018-03-21 18:15:04.910] [info]	Démarrage du client
-[2018-03-21 18:16:32.784] [info]	Login réussi
-[2018-03-21 18:16:33.877] [info]	Reçu un game waiting du serveur
-[2018-03-21 18:16:33.898] [info]	On joue!
-[2018-03-21 18:16:45.541] [info]	Démarrage du client
-[2018-03-21 18:16:52.943] [info]	Login réussi
-[2018-03-21 18:16:54.779] [info]	Reçu un game waiting du serveur
-[2018-03-21 18:16:54.779] [info]	Reçu un game ready du serveur
-[2018-03-21 18:16:54.799] [info]	On joue!
+[2018-03-21 18:43:23.788] [info]	Démarrage du client
+[2018-03-21 18:43:27.678] [info]	Login réussi
+[2018-03-21 18:43:28.495] [info]	Reçu un game waiting du serveur
+[2018-03-21 18:43:28.495] [info]	Reçu un game ready du serveur
+[2018-03-21 18:43:28.516] [info]	On joue!
+[2018-03-21 18:49:58.502] [info]	Démarrage du client
+[2018-03-21 18:50:03.704] [info]	Login réussi
+[2018-03-21 18:50:04.763] [info]	Reçu un game waiting du serveur
+[2018-03-21 18:50:04.784] [info]	On joue!
+[2018-03-21 18:50:23.181] [info]	Démarrage du client
+[2018-03-21 18:50:27.295] [info]	Login réussi
+[2018-03-21 18:50:28.549] [info]	Reçu un game waiting du serveur
+[2018-03-21 18:50:28.549] [info]	Reçu un game ready du serveur
+[2018-03-21 18:50:28.570] [info]	On joue!
+[2018-03-21 20:07:35.911] [info]	Démarrage du client
+[2018-03-21 20:24:47.377] [info]	Démarrage du client
+[2018-03-21 20:24:55.237] [info]	Login réussi
+[2018-03-21 20:24:56.516] [info]	Reçu un game waiting du serveur
+[2018-03-21 20:24:56.517] [info]	Reçu un game ready du serveur
+[2018-03-21 20:24:56.537] [info]	On joue!
+[2018-03-21 20:28:22.680] [info]	Démarrage du client
+[2018-03-21 20:28:26.534] [info]	Login réussi
+[2018-03-21 20:28:27.523] [info]	Reçu un game waiting du serveur
+[2018-03-21 20:28:27.523] [info]	Reçu un game ready du serveur
+[2018-03-21 20:28:27.543] [info]	On joue!
+[2018-03-21 20:51:36.290] [info]	Démarrage du client
+[2018-03-21 20:51:41.054] [info]	Login réussi
+[2018-03-21 20:51:42.025] [info]	Reçu un game waiting du serveur
+[2018-03-21 20:51:42.045] [info]	On joue!
+[2018-03-21 20:51:47.014] [info]	Démarrage du client
+[2018-03-21 20:51:52.423] [info]	Login réussi
+[2018-03-21 20:51:53.546] [info]	Reçu un game waiting du serveur
+[2018-03-21 20:51:53.546] [info]	Reçu un game ready du serveur
+[2018-03-21 20:52:20.244] [info]	Démarrage du client
+[2018-03-21 20:52:23.890] [info]	Login réussi
+[2018-03-21 20:52:24.511] [info]	Reçu un game waiting du serveur
+[2018-03-21 20:52:24.511] [info]	Reçu un game ready du serveur
+[2018-03-21 20:52:24.532] [info]	On joue!
+[2018-03-21 20:55:27.727] [info]	Reçu un game waiting du serveur
+[2018-03-21 20:55:27.747] [info]	On joue!
+[2018-03-21 20:57:40.327] [info]	Démarrage du client
+[2018-03-21 20:57:44.025] [info]	Login réussi
+[2018-03-21 20:57:44.879] [info]	Reçu un game waiting du serveur
+[2018-03-21 20:57:44.879] [info]	Reçu un game ready du serveur
+[2018-03-21 20:57:44.899] [info]	On joue!
+[2018-03-21 21:02:39.909] [info]	Démarrage du client
+[2018-03-21 21:02:43.884] [info]	Login réussi
+[2018-03-21 21:02:44.554] [info]	Reçu un game waiting du serveur
+[2018-03-21 21:02:44.555] [info]	Reçu un game ready du serveur
+[2018-03-21 21:02:44.575] [info]	On joue!
+[2018-03-21 21:25:41.397] [info]	Démarrage du client
+[2018-03-21 21:26:55.057] [info]	Démarrage du client
+[2018-03-21 21:26:58.408] [info]	Login réussi
+[2018-03-21 21:26:59.438] [info]	Reçu un game waiting du serveur
+[2018-03-21 21:26:59.439] [info]	Reçu un game ready du serveur
+[2018-03-21 21:26:59.459] [info]	On joue!
+[2018-03-21 21:28:18.495] [info]	Démarrage du client
+[2018-03-21 21:28:23.507] [info]	Login réussi
+[2018-03-21 21:28:24.597] [info]	Reçu un game waiting du serveur
+[2018-03-21 21:28:24.598] [info]	Reçu un game ready du serveur
+[2018-03-21 21:28:24.618] [info]	On joue!
+[2018-03-21 21:29:05.025] [info]	Démarrage du client
+[2018-03-21 21:29:11.654] [info]	Login réussi
+[2018-03-21 21:29:12.244] [info]	Reçu un game waiting du serveur
+[2018-03-21 21:29:12.244] [info]	Reçu un game ready du serveur
+[2018-03-21 21:29:12.264] [info]	On joue!
+[2018-03-21 21:30:26.691] [info]	Démarrage du client
+[2018-03-21 21:30:31.212] [info]	Login réussi
+[2018-03-21 21:30:31.757] [info]	Reçu un game waiting du serveur
+[2018-03-21 21:30:31.757] [info]	Reçu un game ready du serveur
+[2018-03-21 21:30:31.777] [info]	On joue!
+[2018-03-21 21:31:40.074] [info]	Démarrage du client
+[2018-03-21 21:31:44.628] [info]	Login réussi
+[2018-03-21 21:31:45.505] [info]	Reçu un game waiting du serveur
+[2018-03-21 21:31:45.505] [info]	Reçu un game ready du serveur
+[2018-03-21 21:31:45.525] [info]	On joue!
+[2018-03-21 21:32:51.672] [info]	Démarrage du client
+[2018-03-21 21:33:04.247] [info]	Login réussi
+[2018-03-21 21:33:06.307] [info]	Reçu un game waiting du serveur
+[2018-03-21 21:33:06.308] [info]	Reçu un game ready du serveur
+[2018-03-21 21:33:06.328] [info]	On joue!
+[2018-03-21 21:37:54.546] [info]	Démarrage du client
+[2018-03-21 21:37:57.897] [info]	Login réussi
+[2018-03-21 21:37:58.629] [info]	Reçu un game waiting du serveur
+[2018-03-21 21:37:58.630] [info]	Reçu un game ready du serveur
+[2018-03-21 21:37:58.650] [info]	On joue!
+[2018-03-21 21:38:23.891] [info]	Reçu un game waiting du serveur
+[2018-03-21 21:38:23.891] [info]	Reçu un game ready du serveur
+[2018-03-21 21:38:23.911] [info]	On joue!
+[2018-03-21 21:38:47.289] [info]	Démarrage du client
+[2018-03-21 21:38:51.295] [info]	Login réussi
+[2018-03-21 21:38:54.332] [info]	Reçu un game waiting du serveur
+[2018-03-21 21:38:54.333] [info]	Reçu un game ready du serveur
+[2018-03-21 21:38:54.353] [info]	On joue!
+[2018-03-21 21:39:55.555] [info]	Démarrage du client
+[2018-03-21 21:39:59.639] [info]	Login réussi
+[2018-03-21 21:40:00.475] [info]	Reçu un game waiting du serveur
+[2018-03-21 21:40:00.475] [info]	Reçu un game ready du serveur
+[2018-03-21 21:40:00.495] [info]	On joue!
+[2018-03-21 21:40:17.443] [info]	Reçu un game waiting du serveur
+[2018-03-21 21:40:17.462] [info]	On joue!
+[2018-03-21 21:44:00.355] [info]	Démarrage du client
+[2018-03-21 21:44:04.573] [info]	Login réussi
+[2018-03-21 21:44:05.858] [info]	Reçu un game waiting du serveur
+[2018-03-21 21:44:05.859] [info]	Reçu un game ready du serveur
+[2018-03-21 21:44:05.879] [info]	On joue!
+[2018-03-21 21:51:29.395] [info]	Démarrage du client
+[2018-03-21 21:51:34.716] [info]	Login réussi
+[2018-03-21 21:51:35.549] [info]	Reçu un game waiting du serveur
+[2018-03-21 21:51:35.549] [info]	Reçu un game ready du serveur
+[2018-03-21 21:51:35.569] [info]	On joue!
+[2018-03-21 22:00:53.980] [info]	Démarrage du client
+[2018-03-21 22:00:57.431] [info]	Login réussi
+[2018-03-21 22:00:58.240] [info]	Reçu un game waiting du serveur
+[2018-03-21 22:00:58.241] [info]	Reçu un game ready du serveur
+[2018-03-21 22:00:58.261] [info]	On joue!
+[2018-03-21 22:04:24.646] [info]	Démarrage du client
+[2018-03-21 22:04:28.320] [info]	Login réussi
+[2018-03-21 22:04:29.312] [info]	Reçu un game waiting du serveur
+[2018-03-21 22:04:29.312] [info]	Reçu un game ready du serveur
+[2018-03-21 22:04:29.332] [info]	On joue!
+[2018-03-21 22:04:37.056] [info]	Démarrage du client
+[2018-03-21 22:04:41.854] [info]	Login réussi
+[2018-03-21 22:04:42.990] [info]	Reçu un game waiting du serveur
+[2018-03-21 22:04:42.990] [info]	Reçu un game ready du serveur
+[2018-03-21 22:04:43.010] [info]	On joue!
+[2018-03-21 22:05:46.381] [info]	Démarrage du client
+[2018-03-21 22:05:52.700] [info]	Démarrage du client
+[2018-03-21 22:05:55.821] [info]	Login réussi
+[2018-03-21 22:05:56.431] [info]	Reçu un game waiting du serveur
+[2018-03-21 22:05:56.431] [info]	Reçu un game ready du serveur
+[2018-03-21 22:06:04.383] [info]	Démarrage du client
+[2018-03-21 22:06:08.129] [info]	Login réussi
+[2018-03-21 22:06:08.759] [info]	Reçu un game waiting du serveur
+[2018-03-21 22:06:08.759] [info]	Reçu un game ready du serveur
+[2018-03-21 22:06:08.779] [info]	On joue!
+[2018-03-21 22:12:43.080] [info]	Démarrage du client
+[2018-03-21 22:12:46.378] [info]	Login réussi
+[2018-03-21 22:12:47.133] [info]	Reçu un game waiting du serveur
+[2018-03-21 22:12:47.134] [info]	Reçu un game ready du serveur
+[2018-03-21 22:12:47.154] [info]	On joue!
+[2018-03-21 22:13:55.048] [info]	Démarrage du client
+[2018-03-21 22:13:58.444] [info]	Login réussi
+[2018-03-21 22:13:59.096] [info]	Reçu un game waiting du serveur
+[2018-03-21 22:13:59.096] [info]	Reçu un game ready du serveur
+[2018-03-21 22:13:59.116] [info]	On joue!
+[2018-03-21 22:17:47.902] [info]	Démarrage du client
+[2018-03-21 22:17:59.554] [info]	Démarrage du client
+[2018-03-21 22:18:03.461] [info]	Login réussi
+[2018-03-21 22:18:04.412] [info]	Reçu un game waiting du serveur
+[2018-03-21 22:18:04.413] [info]	Reçu un game ready du serveur
+[2018-03-21 22:18:04.433] [info]	On joue!
+[2018-03-21 22:18:48.854] [info]	Démarrage du client
+[2018-03-21 22:18:53.726] [info]	Login réussi
+[2018-03-21 22:18:54.369] [info]	Reçu un game waiting du serveur
+[2018-03-21 22:18:54.369] [info]	Reçu un game ready du serveur
+[2018-03-21 22:18:54.389] [info]	On joue!
+[2018-03-21 22:21:40.809] [info]	Démarrage du client
+[2018-03-21 22:21:44.499] [info]	Login réussi
+[2018-03-21 22:21:45.407] [info]	Reçu un game waiting du serveur
+[2018-03-21 22:21:45.407] [info]	Reçu un game ready du serveur
+[2018-03-21 22:21:45.427] [info]	On joue!
+[2018-03-21 22:23:47.541] [info]	Démarrage du client
+[2018-03-21 22:23:56.639] [info]	Login réussi
+[2018-03-21 22:24:10.285] [info]	Reçu un game waiting du serveur
+[2018-03-21 22:24:10.285] [info]	Reçu un game ready du serveur
+[2018-03-21 22:24:10.306] [info]	On joue!
+[2018-03-21 22:24:25.419] [info]	player_get_choice_in_game arrêté!
+[2018-03-21 22:25:28.724] [info]	Démarrage du client
+[2018-03-21 22:25:33.785] [info]	Démarrage du client
+[2018-03-21 22:25:38.141] [info]	Login réussi
+[2018-03-21 22:25:39.914] [info]	Reçu un game waiting du serveur
+[2018-03-21 22:25:39.914] [info]	Reçu un game ready du serveur
+[2018-03-21 22:25:39.934] [info]	On joue!
+[2018-03-21 22:25:51.404] [info]	player_get_choice_in_game arrêté!
+[2018-03-21 22:26:56.653] [info]	Démarrage du client
+[2018-03-21 22:27:00.059] [info]	Démarrage du client
+[2018-03-21 22:27:17.626] [info]	Démarrage du client
+[2018-03-21 22:27:21.363] [info]	Login réussi
+[2018-03-21 22:27:22.486] [info]	Reçu un game waiting du serveur
+[2018-03-21 22:27:22.486] [info]	Reçu un game ready du serveur
+[2018-03-21 22:27:22.506] [info]	On joue!
+[2018-03-21 22:27:46.699] [info]	Démarrage du client
+[2018-03-21 22:27:51.489] [info]	Login réussi
+[2018-03-21 22:27:52.704] [info]	Reçu un game waiting du serveur
+[2018-03-21 22:27:52.704] [info]	Reçu un game ready du serveur
+[2018-03-21 22:27:52.725] [info]	On joue!
+[2018-03-21 22:28:12.374] [info]	Reçu un game waiting du serveur
+[2018-03-21 22:28:12.374] [info]	Reçu un game ready du serveur
+[2018-03-21 22:28:12.394] [info]	On joue!
+[2018-03-21 22:28:58.614] [info]	Reçu un game waiting du serveur
+[2018-03-21 22:28:58.614] [info]	Reçu un game ready du serveur
+[2018-03-21 22:28:58.634] [info]	On joue!
+[2018-03-21 22:29:14.985] [info]	Démarrage du client
+[2018-03-21 22:29:18.383] [info]	Login réussi
+[2018-03-21 22:29:19.485] [info]	Reçu un game waiting du serveur
+[2018-03-21 22:29:19.505] [info]	On joue!
+[2018-03-21 22:29:22.155] [info]	Démarrage du client
+[2018-03-21 22:29:26.094] [info]	Login réussi
+[2018-03-21 22:29:26.817] [info]	Reçu un game waiting du serveur
+[2018-03-21 22:29:26.817] [info]	Reçu un game ready du serveur
+[2018-03-21 22:29:26.837] [info]	On joue!
+[2018-03-21 22:31:35.453] [info]	Démarrage du client
+[2018-03-21 22:31:39.202] [info]	Login réussi
+[2018-03-21 22:31:40.009] [info]	Reçu un game waiting du serveur
+[2018-03-21 22:31:40.010] [info]	Reçu un game ready du serveur
+[2018-03-21 22:31:40.030] [info]	On joue!
+[2018-03-21 22:34:05.910] [info]	Démarrage du client
+[2018-03-21 22:34:14.297] [info]	Démarrage du client
+[2018-03-21 22:34:21.258] [info]	Démarrage du client
+[2018-03-21 22:34:24.704] [info]	Login réussi
+[2018-03-21 22:34:25.426] [info]	Reçu un game waiting du serveur
+[2018-03-21 22:34:25.427] [info]	Reçu un game ready du serveur
+[2018-03-21 22:34:25.447] [info]	On joue!
+[2018-03-21 22:36:07.952] [info]	Démarrage du client
+[2018-03-21 22:36:23.986] [info]	Démarrage du client
+[2018-03-21 22:36:31.435] [info]	Démarrage du client
+[2018-03-21 22:37:12.131] [info]	Démarrage du client
+[2018-03-21 22:37:17.885] [info]	Login réussi
+[2018-03-21 22:37:20.790] [info]	Reçu un game waiting du serveur
+[2018-03-21 22:37:20.790] [info]	Reçu un game ready du serveur
+[2018-03-21 22:37:20.811] [info]	On joue!
+[2018-03-21 22:39:20.695] [info]	Démarrage du client
+[2018-03-21 22:39:24.475] [info]	Login réussi
+[2018-03-21 22:39:25.546] [info]	Paquet de chat reçu
+[2018-03-21 22:39:31.288] [info]	Paquet de chat reçu
+[2018-03-21 22:39:32.820] [info]	Paquet de chat reçu
+[2018-03-21 22:40:00.988] [info]	Reçu un game waiting du serveur
+[2018-03-21 22:40:00.989] [info]	Reçu un game ready du serveur
+[2018-03-21 22:40:01.009] [info]	On joue!
+[2018-03-21 22:40:26.087] [info]	Paquet de chat reçu
+[2018-03-21 22:40:26.088] [warning]	Paquet inconnue reçu: 32661
+[2018-03-21 22:40:26.088] [warning]	Paquet inconnue reçu: 160
+[2018-03-21 22:40:26.088] [info]	Reçu un game waiting du serveur
+[2018-03-21 22:40:26.108] [info]	On joue!
+[2018-03-21 22:40:45.251] [info]	Paquet de chat reçu
+[2018-03-21 22:40:45.251] [warning]	Paquet inconnue reçu: 0
+[2018-03-21 22:40:45.251] [info]	Reçu un game waiting du serveur
+[2018-03-21 22:40:45.271] [info]	On joue!
+[2018-03-21 22:40:59.700] [info]	Démarrage du client
+[2018-03-21 22:41:04.957] [info]	Login réussi
+[2018-03-21 22:41:08.091] [info]	Reçu un game waiting du serveur
+[2018-03-21 22:41:08.091] [info]	Reçu un game ready du serveur
+[2018-03-21 22:41:08.112] [info]	On joue!
+[2018-03-21 22:41:21.434] [info]	Démarrage du client
+[2018-03-21 22:45:09.846] [info]	Démarrage du client
+[2018-03-21 22:45:13.797] [info]	Login réussi
+[2018-03-21 22:45:14.622] [info]	Reçu un game waiting du serveur
+[2018-03-21 22:45:14.622] [info]	Reçu un game ready du serveur
+[2018-03-21 22:45:14.642] [info]	On joue!
+[2018-03-21 22:58:06.677] [info]	Démarrage du client
+[2018-03-21 22:58:11.507] [info]	Démarrage du client
+[2018-03-21 22:58:17.225] [info]	Login réussi
+[2018-03-21 22:58:17.914] [info]	Reçu un game waiting du serveur
+[2018-03-21 22:58:17.915] [info]	Reçu un game ready du serveur
+[2018-03-21 22:58:17.935] [info]	On joue!
+[2018-03-21 23:00:10.300] [info]	Démarrage du client
+[2018-03-21 23:00:13.804] [info]	Login réussi
+[2018-03-21 23:00:14.498] [info]	Reçu un game waiting du serveur
+[2018-03-21 23:00:14.498] [info]	Reçu un game ready du serveur
+[2018-03-21 23:00:14.518] [info]	On joue!
+[2018-03-21 23:04:30.584] [info]	Démarrage du client
+[2018-03-21 23:04:34.782] [info]	Démarrage du client
+[2018-03-21 23:04:40.135] [info]	Login réussi
+[2018-03-21 23:04:41.696] [info]	Reçu un game waiting du serveur
+[2018-03-21 23:04:47.982] [info]	Login réussi
+[2018-03-21 23:04:49.676] [info]	Reçu un game waiting du serveur
+[2018-03-21 23:04:49.676] [info]	Reçu un game ready du serveur
+[2018-03-21 23:04:49.677] [info]	Reçu un game ready du serveur
+[2018-03-21 23:04:49.697] [info]	On joue!
+[2018-03-21 23:04:49.697] [info]	On joue!
+[2018-03-21 23:11:49.949] [info]	Démarrage du client
+[2018-03-21 23:11:53.842] [info]	Login réussi
+[2018-03-21 23:11:55.308] [info]	Reçu un game waiting du serveur
+[2018-03-21 23:11:57.438] [info]	Démarrage du client
+[2018-03-21 23:12:04.972] [info]	Login réussi
+[2018-03-21 23:12:06.463] [info]	Reçu un game waiting du serveur
+[2018-03-21 23:12:06.463] [info]	Reçu un game ready du serveur
+[2018-03-21 23:12:06.484] [info]	On joue!
+[2018-03-21 23:12:53.576] [info]	Démarrage du client
+[2018-03-21 23:12:57.409] [info]	Login réussi
+[2018-03-21 23:12:59.824] [info]	Reçu un game waiting du serveur
+[2018-03-21 23:13:03.781] [info]	Démarrage du client
+[2018-03-21 23:13:08.220] [info]	Login réussi
+[2018-03-21 23:13:10.146] [info]	Reçu un game waiting du serveur
+[2018-03-21 23:13:10.146] [info]	Reçu un game ready du serveur
+[2018-03-21 23:13:10.166] [info]	On joue!
+[2018-03-21 23:13:28.410] [info]	Reçu un game waiting du serveur
+[2018-03-21 23:13:28.410] [info]	Reçu un game ready du serveur
+[2018-03-21 23:13:28.410] [info]	Reçu un game ready du serveur
+[2018-03-21 23:13:28.431] [info]	On joue!
+[2018-03-21 23:14:03.880] [info]	Démarrage du client
+[2018-03-21 23:14:08.808] [info]	Login réussi
+[2018-03-21 23:14:10.377] [info]	Reçu un game waiting du serveur
+[2018-03-21 23:14:15.190] [info]	Démarrage du client
+[2018-03-21 23:14:19.583] [info]	Login réussi
+[2018-03-21 23:14:20.973] [info]	Reçu un game waiting du serveur
+[2018-03-21 23:14:20.973] [info]	Reçu un game ready du serveur
+[2018-03-21 23:14:20.973] [info]	Reçu un game ready du serveur
+[2018-03-21 23:14:20.994] [info]	On joue!
+[2018-03-22 09:39:27.849] [info]	Démarrage du client
+[2018-03-22 09:39:31.569] [info]	Login réussi
+[2018-03-22 09:39:32.988] [info]	Reçu un game waiting du serveur
+[2018-03-22 09:39:41.688] [info]	Démarrage du client
+[2018-03-22 09:39:45.325] [info]	Login réussi
+[2018-03-22 09:39:46.805] [info]	Reçu un game waiting du serveur
+[2018-03-22 09:39:46.806] [info]	Reçu un game ready du serveur
+[2018-03-22 09:39:46.806] [info]	Reçu un game ready du serveur
+[2018-03-22 09:39:46.826] [info]	On joue!
+[2018-03-22 09:39:46.827] [info]	On joue!
+[2018-03-22 09:41:27.009] [info]	Démarrage du client
+[2018-03-22 09:41:31.965] [info]	Login réussi
+[2018-03-22 09:41:33.333] [info]	Reçu un game waiting du serveur
+[2018-03-22 09:41:33.333] [info]	Reçu un game ready du serveur
+[2018-03-22 09:41:33.353] [info]	On joue!
+[2018-03-22 09:41:38.447] [info]	Démarrage du client
+[2018-03-22 09:41:42.943] [info]	Login réussi
+[2018-03-22 09:41:44.944] [info]	Reçu un game waiting du serveur
+[2018-03-22 09:41:44.944] [info]	Reçu un game ready du serveur
+[2018-03-22 09:41:44.964] [info]	On joue!
+[2018-03-22 09:41:52.701] [info]	Démarrage du client
+[2018-03-22 09:41:57.265] [info]	Login réussi
+[2018-03-22 09:41:58.042] [info]	Reçu un game waiting du serveur
+[2018-03-22 09:41:58.043] [info]	Reçu un game ready du serveur
+[2018-03-22 09:41:58.063] [info]	On joue!
+[2018-03-22 09:43:06.966] [info]	Démarrage du client
+[2018-03-22 09:43:16.723] [info]	Login réussi
+[2018-03-22 09:43:17.693] [info]	Reçu un game waiting du serveur
+[2018-03-22 09:43:17.694] [info]	Reçu un game ready du serveur
+[2018-03-22 09:43:17.714] [info]	On joue!
+[2018-03-22 09:43:28.349] [info]	Démarrage du client
+[2018-03-22 09:43:32.488] [info]	Login réussi
+[2018-03-22 09:43:33.455] [info]	Reçu un game waiting du serveur
+[2018-03-22 09:43:33.455] [info]	Reçu un game ready du serveur
+[2018-03-22 09:43:33.476] [info]	On joue!
+[2018-03-22 09:43:45.745] [info]	Reçu un game waiting du serveur
+[2018-03-22 09:43:45.745] [info]	Reçu un game ready du serveur
+[2018-03-22 09:43:45.765] [info]	On joue!
+[2018-03-22 09:43:58.776] [info]	Reçu un game waiting du serveur
+[2018-03-22 09:43:58.776] [info]	Reçu un game ready du serveur
+[2018-03-22 09:43:58.796] [info]	On joue!
+[2018-03-22 09:48:51.309] [info]	Démarrage du client
+[2018-03-22 09:48:56.872] [info]	Login réussi
+[2018-03-22 09:48:57.985] [info]	Reçu un game waiting du serveur
+[2018-03-22 09:48:57.985] [info]	Reçu un game ready du serveur
+[2018-03-22 09:48:58.005] [info]	On joue!
+[2018-03-22 09:49:05.417] [info]	Démarrage du client
+[2018-03-22 09:49:11.293] [info]	Login réussi
+[2018-03-22 09:49:12.649] [info]	Reçu un game waiting du serveur
+[2018-03-22 09:49:12.670] [info]	On joue!
+[2018-03-22 09:49:28.156] [info]	Démarrage du client
+[2018-03-22 09:49:35.849] [info]	Login réussi
+[2018-03-22 09:49:37.137] [info]	Reçu un game waiting du serveur
+[2018-03-22 09:49:37.138] [info]	Reçu un game ready du serveur
+[2018-03-22 09:49:37.157] [info]	On joue!
+[2018-03-22 09:49:58.773] [info]	Démarrage du client
+[2018-03-22 09:50:03.490] [info]	Login réussi
+[2018-03-22 09:50:04.212] [info]	Reçu un game waiting du serveur
+[2018-03-22 09:50:04.212] [info]	Reçu un game ready du serveur
+[2018-03-22 09:50:04.233] [info]	On joue!
+[2018-03-22 09:50:11.015] [info]	Démarrage du client
+[2018-03-22 09:50:14.995] [info]	Login réussi
+[2018-03-22 09:50:16.771] [info]	Reçu un game waiting du serveur
+[2018-03-22 09:50:21.366] [info]	Démarrage du client
+[2018-03-22 09:50:26.915] [info]	Login réussi
+[2018-03-22 09:50:30.635] [info]	Reçu un game ready du serveur
+[2018-03-22 09:50:30.635] [info]	Reçu un game waiting du serveur
+[2018-03-22 09:50:30.655] [info]	On joue!
+[2018-03-22 09:55:37.586] [info]	Démarrage du client
+[2018-03-22 09:55:41.508] [info]	Login réussi
+[2018-03-22 09:55:42.475] [info]	Reçu un game waiting du serveur
+[2018-03-22 09:55:42.475] [info]	Reçu un game ready du serveur
+[2018-03-22 09:55:42.496] [info]	On joue!
+[2018-03-22 10:00:07.508] [info]	Démarrage du client
+[2018-03-22 10:00:10.672] [info]	Login réussi
+[2018-03-22 10:00:11.335] [info]	Reçu un game waiting du serveur
+[2018-03-22 10:00:11.335] [info]	Reçu un game ready du serveur
+[2018-03-22 10:00:11.355] [info]	On joue!
+[2018-03-22 10:00:16.387] [info]	Démarrage du client
+[2018-03-22 10:00:20.264] [info]	Login réussi
+[2018-03-22 10:00:21.091] [info]	Reçu un game waiting du serveur
+[2018-03-22 10:00:21.111] [info]	On joue!
+[2018-03-22 10:00:29.083] [info]	Démarrage du client
+[2018-03-22 10:00:54.764] [info]	Login réussi
+[2018-03-22 10:00:56.109] [info]	Reçu un game waiting du serveur
+[2018-03-22 10:00:56.110] [info]	Reçu un game ready du serveur
+[2018-03-22 10:00:56.130] [info]	On joue!
+[2018-03-22 10:01:01.339] [info]	Démarrage du client
+[2018-03-22 10:01:05.394] [info]	Login réussi
+[2018-03-22 10:01:05.987] [info]	Reçu un game waiting du serveur
+[2018-03-22 10:01:05.987] [info]	Reçu un game ready du serveur
+[2018-03-22 10:01:06.007] [info]	On joue!
+[2018-03-22 10:09:05.931] [info]	Démarrage du client
+[2018-03-22 10:09:09.934] [info]	Login réussi
+[2018-03-22 10:09:10.790] [info]	Reçu un game waiting du serveur
+[2018-03-22 10:09:10.791] [info]	Reçu un game ready du serveur
+[2018-03-22 10:09:10.811] [info]	On joue!
+[2018-03-22 10:13:04.241] [info]	Démarrage du client
+[2018-03-22 10:13:07.979] [info]	Login réussi
+[2018-03-22 10:13:09.029] [info]	Reçu un game waiting du serveur
+[2018-03-22 10:13:09.029] [info]	Reçu un game ready du serveur
+[2018-03-22 10:13:09.049] [info]	On joue!
+[2018-03-22 10:14:42.143] [info]	Démarrage du client
+[2018-03-22 10:14:45.338] [info]	Login réussi
+[2018-03-22 10:14:46.043] [info]	Reçu un game waiting du serveur
+[2018-03-22 10:14:46.043] [info]	Reçu un game ready du serveur
+[2018-03-22 10:14:46.064] [info]	On joue!
+[2018-03-22 10:14:49.954] [info]	Démarrage du client
+[2018-03-22 10:14:54.073] [info]	Login réussi
+[2018-03-22 10:14:55.647] [info]	Reçu un game waiting du serveur
+[2018-03-22 10:14:55.648] [info]	Reçu un game ready du serveur
+[2018-03-22 10:14:55.668] [info]	On joue!
+[2018-03-22 10:15:01.967] [info]	Démarrage du client
+[2018-03-22 10:15:06.234] [info]	Login réussi
+[2018-03-22 10:15:07.430] [info]	Reçu un game waiting du serveur
+[2018-03-22 10:15:07.430] [info]	Reçu un game ready du serveur
+[2018-03-22 10:15:07.451] [info]	On joue!
+[2018-03-22 10:15:14.709] [info]	Démarrage du client
+[2018-03-22 10:15:19.996] [info]	Login réussi
+[2018-03-22 10:15:21.066] [info]	Reçu un game waiting du serveur
+[2018-03-22 10:15:21.066] [info]	Reçu un game ready du serveur
+[2018-03-22 10:15:21.087] [info]	On joue!
+[2018-03-22 10:15:29.690] [info]	Démarrage du client
+[2018-03-22 10:15:34.213] [info]	Login réussi
+[2018-03-22 10:15:34.950] [info]	Reçu un game waiting du serveur
+[2018-03-22 10:15:34.950] [info]	Reçu un game ready du serveur
+[2018-03-22 10:15:34.970] [info]	On joue!
+[2018-03-22 10:15:38.422] [info]	Démarrage du client
+[2018-03-22 10:15:43.185] [info]	Login réussi
+[2018-03-22 10:15:43.911] [info]	Reçu un game waiting du serveur
+[2018-03-22 10:15:43.911] [info]	Reçu un game ready du serveur
+[2018-03-22 10:15:43.931] [info]	On joue!
+[2018-03-22 10:17:40.974] [info]	Démarrage du client
+[2018-03-22 10:17:43.940] [info]	Login réussi
+[2018-03-22 10:17:44.479] [info]	Reçu un game waiting du serveur
+[2018-03-22 10:17:44.479] [info]	Reçu un game ready du serveur
+[2018-03-22 10:17:44.499] [info]	On joue!
+[2018-03-22 10:18:17.459] [info]	Démarrage du client
+[2018-03-22 10:18:24.572] [info]	Login réussi
+[2018-03-22 10:18:25.289] [info]	Reçu un game waiting du serveur
+[2018-03-22 10:18:25.289] [info]	Reçu un game ready du serveur
+[2018-03-22 10:18:25.309] [info]	On joue!
+[2018-03-22 10:18:30.087] [info]	Démarrage du client
+[2018-03-22 10:18:39.169] [info]	Login réussi
+[2018-03-22 10:18:40.110] [info]	Reçu un game waiting du serveur
+[2018-03-22 10:18:40.110] [info]	Reçu un game ready du serveur
+[2018-03-22 10:18:40.131] [info]	On joue!
+[2018-03-22 10:18:45.754] [info]	Démarrage du client
+[2018-03-22 10:18:49.465] [info]	Login réussi
+[2018-03-22 10:18:50.632] [info]	Reçu un game waiting du serveur
+[2018-03-22 10:18:50.632] [info]	Reçu un game ready du serveur
+[2018-03-22 10:18:50.652] [info]	On joue!
+[2018-03-22 10:18:55.294] [info]	Démarrage du client
+[2018-03-22 10:18:58.540] [info]	Login réussi
+[2018-03-22 10:18:59.644] [info]	Reçu un game waiting du serveur
+[2018-03-22 10:18:59.645] [info]	Reçu un game ready du serveur
+[2018-03-22 10:18:59.665] [info]	On joue!
+[2018-03-22 10:22:33.708] [info]	Démarrage du client
+[2018-03-22 10:22:36.997] [info]	Login réussi
+[2018-03-22 10:22:42.955] [info]	Reçu un game waiting du serveur
+[2018-03-22 10:22:42.955] [info]	Reçu un game ready du serveur
+[2018-03-22 10:22:42.975] [info]	On joue!
+[2018-03-22 10:22:52.798] [info]	Démarrage du client
+[2018-03-22 10:22:56.623] [info]	Login réussi
+[2018-03-22 10:22:57.442] [info]	Reçu un game waiting du serveur
+[2018-03-22 10:22:57.442] [info]	Reçu un game ready du serveur
+[2018-03-22 10:22:57.462] [info]	On joue!
+[2018-03-22 10:23:00.331] [info]	Démarrage du client
+[2018-03-22 10:23:04.331] [info]	Login réussi
+[2018-03-22 10:23:05.894] [info]	Reçu un game waiting du serveur
+[2018-03-22 10:23:05.894] [info]	Reçu un game ready du serveur
+[2018-03-22 10:23:05.914] [info]	On joue!
+[2018-03-22 10:23:17.251] [info]	Démarrage du client
+[2018-03-22 10:23:22.026] [info]	Login réussi
+[2018-03-22 10:23:22.836] [info]	Reçu un game waiting du serveur
+[2018-03-22 10:23:22.836] [info]	Reçu un game ready du serveur
+[2018-03-22 10:23:22.856] [info]	On joue!
+[2018-03-22 10:23:27.603] [info]	Démarrage du client
+[2018-03-22 11:02:48.482] [info]	Démarrage du client
+[2018-03-22 11:02:52.215] [info]	Login réussi
+[2018-03-22 11:02:52.825] [info]	Reçu un game waiting du serveur
+[2018-03-22 11:02:52.826] [info]	Reçu un game ready du serveur
+[2018-03-22 11:02:52.846] [info]	On joue!
+[2018-03-22 11:04:25.624] [info]	Démarrage du client
+[2018-03-22 11:04:31.283] [info]	Démarrage du client
+[2018-03-22 11:04:34.235] [info]	Login réussi
+[2018-03-22 11:04:35.009] [info]	Reçu un game waiting du serveur
+[2018-03-22 11:04:35.009] [info]	Reçu un game ready du serveur
+[2018-03-22 11:04:35.030] [info]	On joue!
+[2018-03-22 11:04:40.152] [info]	Démarrage du client
+[2018-03-22 11:04:43.776] [info]	Login réussi
+[2018-03-22 11:04:44.326] [info]	Reçu un game waiting du serveur
+[2018-03-22 11:04:44.326] [info]	Reçu un game ready du serveur
+[2018-03-22 11:04:44.346] [info]	On joue!
+[2018-03-22 11:04:47.308] [info]	Démarrage du client
+[2018-03-22 11:04:53.821] [info]	Login réussi
+[2018-03-22 11:04:54.507] [info]	Reçu un game waiting du serveur
+[2018-03-22 11:04:54.507] [info]	Reçu un game ready du serveur
+[2018-03-22 11:04:54.527] [info]	On joue!
+[2018-03-22 11:05:19.498] [info]	Démarrage du client
+[2018-03-22 11:05:31.803] [info]	Login réussi
+[2018-03-22 11:05:32.641] [info]	Reçu un game waiting du serveur
+[2018-03-22 11:05:32.641] [info]	Reçu un game ready du serveur
+[2018-03-22 11:05:32.661] [info]	On joue!
+[2018-03-22 11:05:38.694] [info]	Démarrage du client
+[2018-03-22 11:05:43.693] [info]	Login réussi
+[2018-03-22 11:05:44.284] [info]	Reçu un game waiting du serveur
+[2018-03-22 11:05:44.285] [info]	Reçu un game ready du serveur
+[2018-03-22 11:05:44.305] [info]	On joue!
+[2018-03-22 11:05:47.404] [info]	Démarrage du client
+[2018-03-22 11:05:54.155] [info]	Login réussi
+[2018-03-22 11:05:54.716] [info]	Reçu un game waiting du serveur
+[2018-03-22 11:05:54.716] [info]	Reçu un game ready du serveur
+[2018-03-22 11:05:54.737] [info]	On joue!
+[2018-03-22 11:05:59.970] [info]	Démarrage du client
+[2018-03-22 11:06:06.214] [info]	Login réussi
+[2018-03-22 11:06:07.051] [info]	Reçu un game waiting du serveur
+[2018-03-22 11:06:07.051] [info]	Reçu un game ready du serveur
+[2018-03-22 11:06:07.071] [info]	On joue!
+[2018-03-22 11:06:11.223] [info]	Démarrage du client
+[2018-03-22 11:06:16.764] [info]	Login réussi
+[2018-03-22 11:06:17.389] [info]	Reçu un game waiting du serveur
+[2018-03-22 11:06:17.389] [info]	Reçu un game ready du serveur
+[2018-03-22 11:06:17.410] [info]	On joue!
+[2018-03-22 11:06:28.680] [info]	Démarrage du client
+[2018-03-22 11:06:34.776] [info]	Login réussi
+[2018-03-22 11:06:35.408] [info]	Reçu un game waiting du serveur
+[2018-03-22 11:06:35.408] [info]	Reçu un game ready du serveur
+[2018-03-22 11:06:35.428] [info]	On joue!
+[2018-03-22 11:12:37.053] [info]	Démarrage du client
+[2018-03-22 11:12:46.008] [info]	Démarrage du client
+[2018-03-22 11:14:42.737] [info]	Démarrage du client
+[2018-03-22 11:14:46.219] [info]	Login réussi
+[2018-03-22 11:14:55.789] [info]	Reçu un game waiting du serveur
+[2018-03-22 11:14:55.790] [info]	Reçu un game ready du serveur
+[2018-03-22 11:14:55.810] [info]	On joue!
+[2018-03-22 11:15:00.253] [info]	Démarrage du client
+[2018-03-22 11:15:04.516] [info]	Login réussi
+[2018-03-22 11:15:05.151] [info]	Reçu un game waiting du serveur
+[2018-03-22 11:15:05.151] [info]	Reçu un game ready du serveur
+[2018-03-22 11:15:05.172] [info]	On joue!
+[2018-03-22 11:15:09.613] [info]	Démarrage du client
+[2018-03-22 11:15:14.493] [info]	Login réussi
+[2018-03-22 11:15:15.054] [info]	Reçu un game waiting du serveur
+[2018-03-22 11:15:15.054] [info]	Reçu un game ready du serveur
+[2018-03-22 11:15:15.074] [info]	On joue!
+[2018-03-22 11:17:37.643] [info]	Démarrage du client
+[2018-03-22 11:17:40.916] [info]	Login réussi
+[2018-03-22 11:17:41.583] [info]	Reçu un game waiting du serveur
+[2018-03-22 11:17:41.583] [info]	Reçu un game ready du serveur
+[2018-03-22 11:17:41.604] [info]	On joue!
+[2018-03-22 11:18:56.122] [info]	Démarrage du client
+[2018-03-22 11:18:59.309] [info]	Login réussi
+[2018-03-22 11:18:59.930] [info]	Reçu un game waiting du serveur
+[2018-03-22 11:18:59.930] [info]	Reçu un game ready du serveur
+[2018-03-22 11:18:59.950] [info]	On joue!
+[2018-03-22 11:29:16.890] [info]	Démarrage du client
+[2018-03-22 11:29:20.224] [info]	Login réussi
+[2018-03-22 11:29:20.864] [info]	Reçu un game waiting du serveur
+[2018-03-22 11:29:20.865] [info]	Reçu un game ready du serveur
+[2018-03-22 11:29:20.885] [info]	On joue!
+[2018-03-22 11:29:26.640] [info]	Démarrage du client
+[2018-03-22 11:29:30.111] [info]	Login réussi
+[2018-03-22 11:29:30.794] [info]	Reçu un game waiting du serveur
+[2018-03-22 11:29:30.794] [info]	Reçu un game ready du serveur
+[2018-03-22 11:29:30.814] [info]	On joue!
+[2018-03-22 11:44:25.303] [info]	Démarrage du client
+[2018-03-22 11:44:28.593] [info]	Login réussi
+[2018-03-22 11:44:29.061] [info]	Reçu un game waiting du serveur
+[2018-03-22 11:44:29.082] [info]	On joue!
+[2018-03-22 11:44:32.286] [info]	Démarrage du client
+[2018-03-22 11:44:37.970] [info]	Login réussi
+[2018-03-22 11:44:38.459] [info]	Reçu un game waiting du serveur
+[2018-03-22 11:44:38.460] [info]	Reçu un game ready du serveur
+[2018-03-22 11:44:38.480] [info]	On joue!
+[2018-03-22 11:44:46.298] [info]	Démarrage du client
+[2018-03-22 11:44:49.286] [info]	Login réussi
+[2018-03-22 11:44:50.014] [info]	Reçu un game waiting du serveur
+[2018-03-22 11:44:50.014] [info]	Reçu un game ready du serveur
+[2018-03-22 11:44:50.035] [info]	On joue!
+[2018-03-22 11:45:01.058] [info]	Démarrage du client
+[2018-03-22 11:45:08.588] [info]	Démarrage du client
+[2018-03-22 11:45:12.825] [info]	Login réussi
+[2018-03-22 11:45:13.404] [info]	Reçu un game waiting du serveur
+[2018-03-22 11:45:13.404] [info]	Reçu un game ready du serveur
+[2018-03-22 11:45:13.424] [info]	On joue!
+[2018-03-22 13:12:18.104] [info]	Démarrage du client
+[2018-03-22 13:13:24.991] [info]	Login réussi
+[2018-03-22 13:13:25.847] [info]	Reçu un game waiting du serveur
+[2018-03-22 13:13:25.848] [info]	Reçu un game ready du serveur
+[2018-03-22 13:13:25.868] [info]	On joue!
+[2018-03-22 13:13:40.668] [info]	Reçu un game waiting du serveur
+[2018-03-22 13:13:40.689] [info]	On joue!
+[2018-03-22 13:17:15.433] [info]	Reçu un game waiting du serveur
+[2018-03-22 13:17:15.433] [info]	Reçu un game ready du serveur
+[2018-03-22 13:17:15.454] [info]	On joue!
+[2018-03-22 13:17:31.954] [info]	Reçu un game waiting du serveur
+[2018-03-22 13:17:31.974] [info]	On joue!
+[2018-03-22 13:17:38.762] [info]	Démarrage du client
+[2018-03-22 13:17:43.336] [info]	Login réussi
+[2018-03-22 13:17:44.144] [info]	Reçu un game waiting du serveur
+[2018-03-22 13:17:44.144] [info]	Reçu un game ready du serveur
+[2018-03-22 13:17:44.164] [info]	On joue!
+[2018-03-22 13:17:51.151] [info]	Démarrage du client
+[2018-03-22 13:18:06.920] [info]	Login réussi
+[2018-03-22 13:18:28.836] [info]	Reçu un game waiting du serveur
+[2018-03-22 13:18:28.836] [info]	Reçu un game ready du serveur
+[2018-03-22 13:18:28.856] [info]	On joue!
+[2018-03-22 14:37:23.713] [info]	Démarrage du client
+[2018-03-22 14:37:27.028] [info]	Login réussi
+[2018-03-22 14:37:27.592] [info]	Reçu un game waiting du serveur
+[2018-03-22 14:37:27.612] [info]	On joue!
+[2018-03-22 15:31:51.266] [info]	Démarrage du client
+[2018-03-22 15:36:30.831] [info]	Démarrage du client
+[2018-03-22 15:36:35.367] [info]	Login réussi
+[2018-03-22 15:36:36.027] [info]	Reçu un game waiting du serveur
+[2018-03-22 15:36:36.027] [info]	Reçu un game ready du serveur
+[2018-03-22 15:36:36.047] [info]	On joue!
+[2018-03-22 15:36:45.200] [info]	Démarrage du client
+[2018-03-22 15:36:49.997] [info]	Login réussi
+[2018-03-22 15:36:51.093] [info]	Reçu un game waiting du serveur
+[2018-03-22 15:36:51.093] [info]	Reçu un game ready du serveur
+[2018-03-22 15:36:51.114] [info]	On joue!
+[2018-03-22 15:36:56.933] [info]	Démarrage du client
+[2018-03-22 15:37:01.275] [info]	Login réussi
+[2018-03-22 15:37:02.048] [info]	Reçu un game waiting du serveur
+[2018-03-22 15:37:02.049] [info]	Reçu un game ready du serveur
+[2018-03-22 15:37:02.069] [info]	On joue!
+[2018-03-22 15:37:13.927] [info]	Démarrage du client
+[2018-03-22 15:37:14.710] [info]	Démarrage du client
+[2018-03-22 15:37:15.388] [info]	Démarrage du client
+[2018-03-22 15:37:16.382] [info]	Démarrage du client
+[2018-03-22 15:37:18.120] [info]	Démarrage du client
+[2018-03-22 15:37:18.960] [info]	Démarrage du client
+[2018-03-22 15:37:19.470] [info]	Démarrage du client
+[2018-03-22 15:48:58.391] [info]	Démarrage du client
+[2018-03-22 15:49:01.566] [info]	Login réussi
+[2018-03-22 15:49:02.226] [info]	Reçu un game waiting du serveur
+[2018-03-22 15:49:02.226] [info]	Reçu un game ready du serveur
+[2018-03-22 15:49:02.247] [info]	On joue!
+[2018-03-22 15:49:21.703] [info]	Reçu un game waiting du serveur
+[2018-03-22 15:49:21.703] [info]	Reçu un game ready du serveur
+[2018-03-22 15:49:21.724] [info]	On joue!
+[2018-03-22 15:49:46.733] [info]	Reçu un game waiting du serveur
+[2018-03-22 15:49:46.733] [info]	Reçu un game ready du serveur
+[2018-03-22 15:49:46.753] [info]	On joue!
+[2018-03-22 16:16:54.961] [info]	Reçu un game waiting du serveur
+[2018-03-22 16:16:54.961] [info]	Reçu un game ready du serveur
+[2018-03-22 16:16:54.981] [info]	On joue!
+[2018-03-22 16:17:01.290] [info]	Démarrage du client
+[2018-03-22 16:17:10.564] [info]	Login réussi
+[2018-03-22 16:17:11.136] [info]	Reçu un game waiting du serveur
+[2018-03-22 16:17:11.136] [info]	Reçu un game ready du serveur
+[2018-03-22 16:17:11.156] [info]	On joue!
+[2018-03-22 16:17:19.905] [info]	Démarrage du client
+[2018-03-22 16:17:24.156] [info]	Login réussi
+[2018-03-22 16:17:24.769] [info]	Reçu un game waiting du serveur
+[2018-03-22 16:17:24.769] [info]	Reçu un game ready du serveur
+[2018-03-22 16:17:24.790] [info]	On joue!
+[2018-03-22 16:22:01.189] [info]	Démarrage du client
+[2018-03-22 16:22:11.359] [info]	Login réussi
+[2018-03-22 16:22:12.012] [info]	Reçu un game waiting du serveur
+[2018-03-22 16:22:12.012] [info]	Reçu un game ready du serveur
+[2018-03-22 16:22:12.032] [info]	On joue!
+[2018-03-22 16:23:17.548] [info]	Démarrage du client
+[2018-03-22 16:23:22.370] [info]	Login réussi
+[2018-03-22 16:23:23.096] [info]	Reçu un game waiting du serveur
+[2018-03-22 16:23:23.096] [info]	Reçu un game ready du serveur
+[2018-03-22 16:23:23.116] [info]	On joue!
+[2018-03-22 16:23:26.435] [info]	Démarrage du client
+[2018-03-22 16:23:30.305] [info]	Login réussi
+[2018-03-22 16:23:31.181] [info]	Reçu un game waiting du serveur
+[2018-03-22 16:23:31.182] [info]	Reçu un game ready du serveur
+[2018-03-22 16:23:31.202] [info]	On joue!
+[2018-03-22 16:23:35.202] [info]	Démarrage du client
+[2018-03-22 16:23:46.622] [info]	Login réussi
+[2018-03-22 16:23:47.327] [info]	Reçu un game waiting du serveur
+[2018-03-22 16:23:47.327] [info]	Reçu un game ready du serveur
+[2018-03-22 16:23:47.348] [info]	On joue!
+[2018-03-22 16:26:15.958] [info]	Démarrage du client
+[2018-03-22 16:26:19.537] [info]	Login réussi
+[2018-03-22 16:26:20.282] [info]	Reçu un game waiting du serveur
+[2018-03-22 16:26:20.282] [info]	Reçu un game ready du serveur
+[2018-03-22 16:26:20.302] [info]	On joue!
+[2018-03-22 16:26:22.455] [info]	Démarrage du client
+[2018-03-22 16:26:27.620] [info]	Login réussi
+[2018-03-22 16:26:28.962] [info]	Reçu un game waiting du serveur
+[2018-03-22 16:26:28.962] [info]	Reçu un game ready du serveur
+[2018-03-22 16:26:39.029] [info]	Démarrage du client
+[2018-03-22 16:26:43.169] [info]	Login réussi
+[2018-03-22 16:26:44.070] [info]	Reçu un game waiting du serveur
+[2018-03-22 16:26:44.070] [info]	Reçu un game ready du serveur
+[2018-03-22 16:26:44.091] [info]	On joue!
+[2018-03-22 16:27:45.466] [info]	Démarrage du client
+[2018-03-22 16:27:49.202] [info]	Login réussi
+[2018-03-22 16:27:50.538] [info]	Reçu un game waiting du serveur
+[2018-03-22 16:27:50.559] [info]	On joue!
+[2018-03-22 16:30:19.263] [info]	Démarrage du client
+[2018-03-22 16:30:22.644] [info]	Login réussi
+[2018-03-22 16:30:23.286] [info]	Reçu un game waiting du serveur
+[2018-03-22 16:30:23.286] [info]	Reçu un game ready du serveur
+[2018-03-22 16:30:23.306] [info]	On joue!
+[2018-03-22 16:30:26.282] [info]	Démarrage du client
+[2018-03-22 16:30:29.800] [info]	Login réussi
+[2018-03-22 16:30:30.527] [info]	Reçu un game waiting du serveur
+[2018-03-22 16:30:30.527] [info]	Reçu un game ready du serveur
+[2018-03-22 16:30:30.547] [info]	On joue!
+[2018-03-22 16:30:34.704] [info]	Démarrage du client
+[2018-03-22 16:30:39.428] [info]	Login réussi
+[2018-03-22 16:30:40.039] [info]	Reçu un game waiting du serveur
+[2018-03-22 16:30:40.039] [info]	Reçu un game ready du serveur
+[2018-03-22 16:30:40.059] [info]	On joue!
+[2018-03-22 16:30:42.748] [info]	Démarrage du client
+[2018-03-22 16:30:43.954] [info]	Démarrage du client
+[2018-03-22 17:46:38.664] [info]	Démarrage du client
+[2018-03-22 17:46:42.049] [info]	Login réussi
+[2018-03-22 17:46:42.811] [info]	Reçu un game waiting du serveur
+[2018-03-22 17:46:42.811] [info]	Reçu un game ready du serveur
+[2018-03-22 17:46:42.832] [info]	On joue!
+[2018-03-22 17:46:45.090] [info]	Démarrage du client
+[2018-03-22 17:46:49.280] [info]	Login réussi
+[2018-03-22 17:46:49.964] [info]	Reçu un game waiting du serveur
+[2018-03-22 17:46:49.964] [info]	Reçu un game ready du serveur
+[2018-03-22 17:46:49.984] [info]	On joue!
+[2018-03-22 17:46:52.389] [info]	Démarrage du client
+[2018-03-22 17:46:56.177] [info]	Login réussi
+[2018-03-22 17:46:56.797] [info]	Reçu un game waiting du serveur
+[2018-03-22 17:46:56.798] [info]	Reçu un game ready du serveur
+[2018-03-22 17:46:56.818] [info]	On joue!
+[2018-03-22 17:47:56.706] [info]	Démarrage du client
+[2018-03-22 17:48:00.411] [info]	Login réussi
+[2018-03-22 17:48:01.034] [info]	Reçu un game waiting du serveur
+[2018-03-22 17:48:01.034] [info]	Reçu un game ready du serveur
+[2018-03-22 17:48:01.054] [info]	On joue!
+[2018-03-22 17:48:04.256] [info]	Démarrage du client
+[2018-03-22 17:48:07.589] [info]	Login réussi
+[2018-03-22 17:48:08.175] [info]	Reçu un game waiting du serveur
+[2018-03-22 17:48:08.176] [info]	Reçu un game ready du serveur
+[2018-03-22 17:48:08.196] [info]	On joue!
+[2018-03-22 17:48:10.111] [info]	Démarrage du client
+[2018-03-22 17:48:13.745] [info]	Login réussi
+[2018-03-22 17:48:14.276] [info]	Reçu un game waiting du serveur
+[2018-03-22 17:48:14.277] [info]	Reçu un game ready du serveur
+[2018-03-22 17:48:14.297] [info]	On joue!
+[2018-03-22 17:48:16.778] [info]	Démarrage du client
+[2018-03-22 17:49:11.407] [info]	Démarrage du client
+[2018-03-22 17:49:16.407] [info]	Login réussi
+[2018-03-22 17:49:16.933] [info]	Reçu un game waiting du serveur
+[2018-03-22 17:49:16.933] [info]	Reçu un game ready du serveur
+[2018-03-22 17:49:16.953] [info]	On joue!
+[2018-03-22 17:49:20.067] [info]	Démarrage du client
+[2018-03-22 17:49:23.066] [info]	Login réussi
+[2018-03-22 17:49:23.665] [info]	Reçu un game waiting du serveur
+[2018-03-22 17:49:23.665] [info]	Reçu un game ready du serveur
+[2018-03-22 17:49:23.686] [info]	On joue!
+[2018-03-22 17:49:28.583] [info]	Démarrage du client
+[2018-03-22 17:49:34.415] [info]	Login réussi
+[2018-03-22 17:49:37.521] [info]	Reçu un game waiting du serveur
+[2018-03-22 17:49:37.521] [info]	Reçu un game ready du serveur
+[2018-03-22 17:49:37.541] [info]	On joue!
+[2018-03-22 20:00:37.395] [info]	Démarrage du client
+[2018-03-22 20:00:40.551] [info]	Login réussi
+[2018-03-22 20:00:41.138] [info]	Reçu un game waiting du serveur
+[2018-03-22 20:00:41.139] [info]	Reçu un game ready du serveur
+[2018-03-22 20:00:41.158] [info]	On joue!
+[2018-03-22 20:00:46.068] [info]	Démarrage du client
+[2018-03-22 20:00:49.185] [info]	Login réussi
+[2018-03-22 20:00:49.757] [info]	Reçu un game waiting du serveur
+[2018-03-22 20:00:49.757] [info]	Reçu un game ready du serveur
+[2018-03-22 20:01:06.658] [info]	Démarrage du client
+[2018-03-22 20:01:12.583] [info]	Login réussi
+[2018-03-22 20:01:13.154] [info]	Reçu un game waiting du serveur
+[2018-03-22 20:01:13.154] [info]	Reçu un game ready du serveur
+[2018-03-22 20:01:13.174] [info]	On joue!
+[2018-03-22 20:01:16.070] [info]	Démarrage du client
+[2018-03-22 20:01:20.865] [info]	Login réussi
+[2018-03-22 20:01:21.527] [info]	Reçu un game waiting du serveur
+[2018-03-22 20:01:21.527] [info]	Reçu un game ready du serveur
+[2018-03-22 20:01:21.547] [info]	On joue!
+[2018-03-22 20:01:25.679] [info]	Démarrage du client
+[2018-03-22 20:01:50.547] [info]	Login réussi
+[2018-03-22 20:01:51.315] [info]	Reçu un game waiting du serveur
+[2018-03-22 20:01:51.316] [info]	Reçu un game ready du serveur
+[2018-03-22 20:01:51.336] [info]	On joue!
+[2018-03-22 20:02:05.585] [info]	Reçu un game waiting du serveur
+[2018-03-22 20:02:05.585] [info]	Reçu un game ready du serveur
+[2018-03-22 20:02:05.605] [info]	On joue!
+[2018-03-22 20:04:53.938] [info]	Démarrage du client
+[2018-03-22 20:04:57.541] [info]	Login réussi
+[2018-03-22 20:04:58.121] [info]	Reçu un game waiting du serveur
+[2018-03-22 20:04:58.121] [info]	Reçu un game ready du serveur
+[2018-03-22 20:04:58.141] [info]	On joue!
+[2018-03-22 20:05:01.827] [info]	Démarrage du client
+[2018-03-22 20:05:07.391] [info]	Login réussi
+[2018-03-22 20:05:08.025] [info]	Reçu un game waiting du serveur
+[2018-03-22 20:05:08.025] [info]	Reçu un game ready du serveur
+[2018-03-22 20:05:08.045] [info]	On joue!
+[2018-03-22 20:05:10.443] [info]	Démarrage du client
+[2018-03-22 20:05:15.997] [info]	Login réussi
+[2018-03-22 20:05:16.657] [info]	Reçu un game waiting du serveur
+[2018-03-22 20:05:16.658] [info]	Reçu un game ready du serveur
+[2018-03-22 20:05:16.678] [info]	On joue!
+[2018-03-22 20:05:19.733] [info]	Démarrage du client
+[2018-03-22 20:05:35.590] [info]	Login réussi
+[2018-03-22 20:05:36.313] [info]	Reçu un game waiting du serveur
+[2018-03-22 20:05:36.313] [info]	Reçu un game ready du serveur
+[2018-03-22 20:05:36.334] [info]	On joue!
+[2018-03-22 20:05:50.224] [info]	Démarrage du client
+[2018-03-22 20:05:53.398] [info]	Login réussi
+[2018-03-22 20:05:53.939] [info]	Reçu un game waiting du serveur
+[2018-03-22 20:05:53.939] [info]	Reçu un game ready du serveur
+[2018-03-22 20:05:53.960] [info]	On joue!
+[2018-03-22 20:08:11.360] [info]	Démarrage du client
+[2018-03-22 20:08:14.339] [info]	Login réussi
+[2018-03-22 20:08:14.827] [info]	Reçu un game waiting du serveur
+[2018-03-22 20:08:14.847] [info]	On joue!
+[2018-03-22 20:08:19.921] [info]	Démarrage du client
+[2018-03-22 20:08:32.399] [info]	Login réussi
+[2018-03-22 20:08:32.941] [info]	Reçu un game waiting du serveur
+[2018-03-22 20:08:32.941] [info]	Reçu un game ready du serveur
+[2018-03-22 20:08:32.961] [info]	On joue!
+[2018-03-22 20:08:35.841] [info]	Démarrage du client
+[2018-03-22 20:08:40.753] [info]	Login réussi
+[2018-03-22 20:08:41.427] [info]	Reçu un game waiting du serveur
+[2018-03-22 20:08:41.427] [info]	Reçu un game ready du serveur
+[2018-03-22 20:08:41.447] [info]	On joue!
+[2018-03-22 20:11:45.115] [info]	Démarrage du client
+[2018-03-22 20:11:49.034] [info]	Login réussi
+[2018-03-22 20:11:49.603] [info]	Reçu un game waiting du serveur
+[2018-03-22 20:11:49.603] [info]	Reçu un game ready du serveur
+[2018-03-22 20:11:58.259] [info]	Démarrage du client
+[2018-03-22 20:12:03.354] [info]	Login réussi
+[2018-03-22 20:12:04.060] [info]	Reçu un game waiting du serveur
+[2018-03-22 20:12:04.060] [info]	Reçu un game ready du serveur
+[2018-03-22 20:12:04.081] [info]	On joue!
+[2018-03-22 20:12:07.389] [info]	Démarrage du client
+[2018-03-22 20:12:10.393] [info]	Login réussi
+[2018-03-22 20:12:10.994] [info]	Reçu un game waiting du serveur
+[2018-03-22 20:12:10.994] [info]	Reçu un game ready du serveur
+[2018-03-22 20:12:11.014] [info]	On joue!
+[2018-03-22 21:01:14.965] [info]	Démarrage du client
+[2018-03-22 21:01:19.007] [info]	Login réussi
+[2018-03-22 21:01:20.777] [info]	Reçu un game waiting du serveur
+[2018-03-22 21:01:24.356] [info]	Démarrage du client
+[2018-03-22 21:01:27.715] [info]	Login réussi
+[2018-03-22 21:01:30.183] [info]	Reçu un game waiting du serveur
+[2018-03-22 21:01:30.183] [info]	Reçu un game ready du serveur
+[2018-03-22 21:01:30.184] [info]	Reçu un game ready du serveur
+[2018-03-22 21:01:30.204] [info]	On joue!
+[2018-03-22 21:01:30.204] [info]	On joue!
+[2018-03-22 22:11:38.356] [info]	Démarrage du client
+[2018-03-22 22:11:43.100] [info]	Login réussi
+[2018-03-22 22:11:50.074] [info]	Reçu un game waiting du serveur
+[2018-03-22 22:11:53.594] [info]	Démarrage du client
+[2018-03-22 22:11:57.024] [info]	Login réussi
+[2018-03-22 22:11:58.790] [info]	Reçu un game waiting du serveur
+[2018-03-22 22:11:58.791] [info]	Reçu un game ready du serveur
+[2018-03-22 22:11:58.791] [info]	Reçu un game ready du serveur
+[2018-03-22 22:11:58.811] [info]	On joue!
+[2018-03-22 22:19:51.198] [info]	Démarrage du client
+[2018-03-22 22:20:15.048] [info]	Démarrage du client
+[2018-03-22 22:20:21.566] [info]	Démarrage du client
+[2018-03-22 22:20:26.685] [info]	Login réussi
+[2018-03-22 22:20:28.350] [info]	Reçu un game waiting du serveur
+[2018-03-22 22:20:33.356] [info]	Démarrage du client
+[2018-03-22 22:20:37.342] [info]	Login réussi
+[2018-03-22 22:20:39.009] [info]	Reçu un game waiting du serveur
+[2018-03-22 22:20:39.009] [info]	Reçu un game ready du serveur
+[2018-03-22 22:20:39.009] [info]	Reçu un game ready du serveur
+[2018-03-22 22:20:39.030] [info]	On joue!
+[2018-03-22 22:22:18.950] [info]	Démarrage du client
+[2018-03-22 22:22:25.581] [info]	Démarrage du client
+[2018-03-22 22:22:42.386] [info]	Démarrage du client
+[2018-03-22 22:22:46.033] [info]	Login réussi
+[2018-03-22 22:22:47.818] [info]	Reçu un game waiting du serveur
+[2018-03-22 22:22:51.893] [info]	Démarrage du client
+[2018-03-22 22:22:57.138] [info]	Login réussi
+[2018-03-22 22:22:58.448] [info]	Reçu un game waiting du serveur
+[2018-03-22 22:22:58.448] [info]	Reçu un game ready du serveur
+[2018-03-22 22:22:58.449] [info]	Reçu un game ready du serveur
+[2018-03-22 22:22:58.469] [info]	On joue!
+[2018-03-22 22:22:58.469] [info]	On joue!
+[2018-03-22 22:23:24.925] [info]	Reçu un game waiting du serveur
+[2018-03-22 22:23:28.355] [info]	Reçu un game waiting du serveur
+[2018-03-22 22:23:28.355] [info]	Reçu un game ready du serveur
+[2018-03-22 22:23:28.356] [info]	Reçu un game ready du serveur
+[2018-03-22 22:23:28.376] [info]	On joue!
+[2018-03-22 22:23:28.376] [info]	On joue!
+[2018-03-22 22:23:46.209] [info]	Paquet de chat reçu
+[2018-03-22 22:23:51.225] [info]	Paquet de chat reçu
+[2018-03-22 22:23:51.226] [info]	Paquet de chat reçu
+[2018-03-22 22:23:54.021] [info]	Paquet de chat reçu
+[2018-03-22 22:23:54.021] [info]	Paquet de chat reçu
+[2018-03-22 22:23:58.376] [info]	Paquet de chat reçu
+[2018-03-22 22:23:58.376] [info]	Paquet de chat reçu
+[2018-03-22 22:24:00.351] [info]	Paquet de chat reçu
+[2018-03-22 22:24:04.502] [info]	Reçu un game waiting du serveur
+[2018-03-22 22:24:07.556] [info]	Reçu un game waiting du serveur
+[2018-03-22 22:24:07.556] [info]	Reçu un game ready du serveur
+[2018-03-22 22:24:07.556] [info]	Reçu un game ready du serveur
+[2018-03-22 22:24:07.576] [info]	On joue!
+[2018-03-22 22:24:07.577] [info]	On joue!
+[2018-03-22 22:24:21.263] [info]	Reçu un game waiting du serveur
+[2018-03-22 22:24:21.263] [info]	Reçu un game ready du serveur
+[2018-03-22 22:24:21.284] [info]	On joue!
+[2018-03-22 22:26:38.114] [info]	Démarrage du client
+[2018-03-22 22:26:41.428] [info]	Login réussi
+[2018-03-22 22:26:42.031] [info]	Reçu un game waiting du serveur
+[2018-03-22 22:26:42.032] [info]	Reçu un game ready du serveur
+[2018-03-22 22:26:42.052] [info]	On joue!
+[2018-03-22 22:26:45.096] [info]	Démarrage du client
+[2018-03-22 22:26:49.504] [info]	Login réussi
+[2018-03-22 22:26:50.149] [info]	Reçu un game waiting du serveur
+[2018-03-22 22:26:50.150] [info]	Reçu un game ready du serveur
+[2018-03-22 22:26:50.170] [info]	On joue!
+[2018-03-22 22:26:53.455] [info]	Démarrage du client
+[2018-03-22 22:27:01.731] [info]	Login réussi
+[2018-03-22 22:27:02.263] [info]	Reçu un game waiting du serveur
+[2018-03-22 22:27:02.263] [info]	Reçu un game ready du serveur
+[2018-03-22 22:27:02.283] [info]	On joue!
+[2018-03-22 22:27:04.648] [info]	Démarrage du client
+[2018-03-22 22:27:08.466] [info]	Login réussi
+[2018-03-22 22:27:09.078] [info]	Reçu un game waiting du serveur
+[2018-03-22 22:27:09.099] [info]	On joue!
+[2018-03-22 23:28:03.763] [info]	Démarrage du client
+[2018-03-22 23:28:07.276] [info]	Login réussi
+[2018-03-22 23:28:08.700] [info]	Paquet de chat reçu
+[2018-03-22 23:28:10.386] [info]	Paquet de chat reçu
+[2018-03-22 23:28:42.883] [info]	Démarrage du client
+[2018-03-22 23:28:47.426] [info]	Login réussi
+[2018-03-22 23:28:49.284] [info]	Reçu un game waiting du serveur
+[2018-03-22 23:40:36.188] [info]	Démarrage du client
+[2018-03-22 23:40:41.791] [info]	Login réussi
+[2018-03-22 23:40:43.763] [info]	Reçu un game waiting du serveur
+[2018-03-22 23:40:43.763] [info]	Reçu un game ready du serveur
+[2018-03-22 23:40:43.764] [info]	Reçu un game ready du serveur
+[2018-03-22 23:40:43.784] [info]	On joue!
+[2018-03-22 23:40:43.785] [info]	On joue!
+[2018-03-23 07:12:32.149] [info]	Démarrage du client
+[2018-03-23 07:12:38.344] [info]	Login réussi
+[2018-03-23 07:12:40.049] [info]	Reçu un game waiting du serveur
+[2018-03-23 07:13:35.681] [info]	Démarrage du client
+[2018-03-23 07:13:40.695] [info]	Login réussi
+[2018-03-23 07:13:42.707] [info]	Reçu un game waiting du serveur
+[2018-03-23 07:13:42.707] [info]	Reçu un game ready du serveur
+[2018-03-23 07:13:42.707] [info]	Reçu un game ready du serveur
+[2018-03-23 07:13:42.728] [info]	On joue!
+[2018-03-23 07:13:42.728] [info]	On joue!
+[2018-03-23 07:15:41.085] [info]	Reçu un game waiting du serveur
+[2018-03-23 07:15:43.612] [info]	Reçu un game waiting du serveur
+[2018-03-23 07:15:43.613] [info]	Reçu un game ready du serveur
+[2018-03-23 07:15:43.613] [info]	Reçu un game ready du serveur
+[2018-03-23 07:15:43.633] [info]	On joue!
+[2018-03-23 07:15:43.633] [info]	On joue!
+[2018-03-23 07:16:26.937] [info]	Démarrage du client
+[2018-03-23 07:16:30.571] [info]	Login réussi
+[2018-03-23 07:16:33.122] [info]	Reçu un game waiting du serveur
+[2018-03-23 07:16:35.881] [info]	Démarrage du client
+[2018-03-23 07:16:40.062] [info]	Login réussi
+[2018-03-23 07:16:42.124] [info]	Reçu un game waiting du serveur
+[2018-03-23 07:16:42.124] [info]	Reçu un game ready du serveur
+[2018-03-23 07:16:42.124] [info]	Reçu un game ready du serveur
+[2018-03-23 07:16:42.144] [info]	On joue!
+[2018-03-23 07:16:42.145] [info]	On joue!
+[2018-03-23 07:25:46.988] [info]	Démarrage du client
+[2018-03-23 07:25:50.361] [info]	Login réussi
+[2018-03-23 07:25:54.797] [info]	Reçu un game waiting du serveur
+[2018-03-23 07:25:59.993] [info]	Démarrage du client
+[2018-03-23 07:26:03.809] [info]	Login réussi
+[2018-03-23 07:26:05.526] [info]	Reçu un game waiting du serveur
+[2018-03-23 07:26:05.526] [info]	Reçu un game ready du serveur
+[2018-03-23 07:26:05.527] [info]	Reçu un game ready du serveur
+[2018-03-23 07:26:05.547] [info]	On joue!
+[2018-03-23 07:26:05.547] [info]	On joue!
+[2018-03-23 07:43:27.986] [info]	Démarrage du client
+[2018-03-23 07:43:31.437] [info]	Login réussi
+[2018-03-23 07:43:32.938] [info]	Reçu un game waiting du serveur
+[2018-03-23 07:43:38.161] [info]	Démarrage du client
+[2018-03-23 07:43:41.109] [info]	Login réussi
+[2018-03-23 07:43:42.702] [info]	Reçu un game waiting du serveur
+[2018-03-23 07:43:42.702] [info]	Reçu un game ready du serveur
+[2018-03-23 07:43:42.702] [info]	Reçu un game ready du serveur
+[2018-03-23 07:43:42.723] [info]	On joue!
+[2018-03-23 07:43:42.723] [info]	On joue!
+[2018-03-23 08:18:17.544] [info]	Démarrage du client
+[2018-03-23 08:18:21.906] [info]	Login réussi
+[2018-03-23 08:18:23.692] [info]	Reçu un game waiting du serveur
+[2018-03-23 08:18:39.490] [info]	Démarrage du client
+[2018-03-23 08:18:46.062] [info]	Login réussi
+[2018-03-23 08:18:47.931] [info]	Reçu un game waiting du serveur
+[2018-03-23 08:18:47.931] [info]	Reçu un game ready du serveur
+[2018-03-23 08:18:47.951] [info]	On joue!
+[2018-03-23 08:21:25.293] [info]	Démarrage du client
+[2018-03-23 08:21:29.049] [info]	Démarrage du client
+[2018-03-23 08:21:43.764] [info]	Login réussi
+[2018-03-23 08:21:45.571] [info]	Reçu un game waiting du serveur
+[2018-03-23 08:21:48.428] [info]	Démarrage du client
+[2018-03-23 08:22:13.623] [info]	Démarrage du client
+[2018-03-23 08:22:16.862] [info]	Login réussi
+[2018-03-23 08:22:18.860] [info]	Reçu un game waiting du serveur
+[2018-03-23 08:22:27.372] [info]	Démarrage du client
+[2018-03-23 08:22:36.040] [info]	Login réussi
+[2018-03-23 08:22:37.622] [info]	Reçu un game waiting du serveur
+[2018-03-23 08:22:37.622] [info]	Reçu un game ready du serveur
+[2018-03-23 08:22:37.623] [info]	Reçu un game ready du serveur
+[2018-03-23 08:22:37.643] [info]	On joue!
+[2018-03-23 08:22:37.643] [info]	On joue!
+[2018-03-23 08:43:50.376] [info]	Démarrage du client
+[2018-03-23 08:43:55.602] [info]	Login réussi
+[2018-03-23 08:43:57.451] [info]	Reçu un game waiting du serveur
+[2018-03-23 08:44:00.559] [info]	Démarrage du client
+[2018-03-23 08:44:04.093] [info]	Login réussi
+[2018-03-23 08:44:06.179] [info]	Reçu un game waiting du serveur
+[2018-03-23 08:44:06.180] [info]	Reçu un game ready du serveur
+[2018-03-23 08:44:06.180] [info]	Reçu un game ready du serveur
+[2018-03-23 08:44:06.200] [info]	On joue!
+[2018-03-23 08:44:06.201] [info]	On joue!
+[2018-03-23 08:51:12.661] [info]	Démarrage du client
+[2018-03-23 08:51:15.879] [info]	Démarrage du client
+[2018-03-23 08:51:29.577] [info]	Démarrage du client
+[2018-03-23 08:51:32.873] [info]	Login réussi
+[2018-03-23 08:51:34.941] [info]	Reçu un game waiting du serveur
+[2018-03-23 08:51:38.739] [info]	Démarrage du client
+[2018-03-23 08:51:42.723] [info]	Login réussi
+[2018-03-23 08:51:45.704] [info]	Reçu un game waiting du serveur
+[2018-03-23 08:51:45.704] [info]	Reçu un game ready du serveur
+[2018-03-23 08:51:45.704] [info]	Reçu un game ready du serveur
+[2018-03-23 08:51:45.724] [info]	On joue!
+[2018-03-23 08:51:45.725] [info]	On joue!
+[2018-03-23 08:56:53.873] [info]	Démarrage du client
+[2018-03-23 08:56:58.149] [info]	Login réussi
+[2018-03-23 08:57:11.414] [info]	Reçu un game waiting du serveur
+[2018-03-23 08:57:11.415] [info]	Reçu un game ready du serveur
+[2018-03-23 08:57:11.435] [info]	On joue!
+[2018-03-23 08:57:24.693] [info]	Paquet de chat reçu
+[2018-03-23 08:57:27.020] [info]	Paquet de chat reçu
+[2018-03-23 08:57:28.472] [info]	Paquet de chat reçu
+[2018-03-23 08:57:29.921] [info]	Paquet de chat reçu
+[2018-03-23 08:57:31.635] [info]	Paquet de chat reçu
+[2018-03-23 09:06:38.364] [info]	Démarrage du client
+[2018-03-23 09:06:43.218] [info]	Login réussi
+[2018-03-23 09:06:45.977] [info]	Reçu un game waiting du serveur
+[2018-03-23 09:06:51.965] [info]	Démarrage du client
+[2018-03-23 09:06:55.983] [info]	Login réussi
+[2018-03-23 09:06:58.512] [info]	Reçu un game waiting du serveur
+[2018-03-23 09:06:58.513] [info]	Reçu un game ready du serveur
+[2018-03-23 09:06:58.513] [info]	Reçu un game ready du serveur
+[2018-03-23 09:06:58.533] [info]	On joue!
+[2018-03-23 09:06:58.534] [info]	On joue!
+[2018-03-23 09:08:36.273] [info]	Démarrage du client
+[2018-03-23 09:08:40.537] [info]	Login réussi
+[2018-03-23 09:08:57.915] [info]	Reçu un game waiting du serveur
+[2018-03-23 09:09:04.017] [info]	Démarrage du client
+[2018-03-23 09:09:15.675] [info]	Login réussi
+[2018-03-23 09:09:17.454] [info]	Reçu un game waiting du serveur
+[2018-03-23 09:09:17.455] [info]	Reçu un game ready du serveur
+[2018-03-23 09:09:17.455] [info]	Reçu un game ready du serveur
+[2018-03-23 09:09:17.475] [info]	On joue!
+[2018-03-23 09:09:17.476] [info]	On joue!
+[2018-03-23 09:38:22.213] [info]	Démarrage du client
+[2018-03-23 09:38:26.411] [info]	Login réussi
+[2018-03-23 09:38:27.719] [info]	Reçu un game waiting du serveur
+[2018-03-23 09:38:27.719] [info]	Reçu un game ready du serveur
+[2018-03-23 09:38:27.740] [info]	On joue!
+[2018-03-23 09:39:19.532] [info]	fichier de settings modifié
+[2018-03-23 09:39:36.044] [info]	Démarrage du client
+[2018-03-23 09:39:39.506] [info]	Login réussi
+[2018-03-23 09:39:43.277] [info]	Reçu un game waiting du serveur
+[2018-03-23 09:39:43.277] [info]	Reçu un game ready du serveur
+[2018-03-23 09:39:43.298] [info]	On joue!
+[2018-03-23 09:44:44.570] [info]	Démarrage du client
+[2018-03-23 09:44:49.533] [info]	Démarrage du client
+[2018-03-23 09:44:54.064] [info]	Login réussi
+[2018-03-23 09:44:54.787] [info]	Reçu un game waiting du serveur
+[2018-03-23 09:44:54.787] [info]	Reçu un game ready du serveur
+[2018-03-23 09:44:54.807] [info]	On joue!
+[2018-03-23 09:45:37.711] [info]	Démarrage du client
+[2018-03-23 09:45:42.236] [info]	Démarrage du client
+[2018-03-23 09:46:05.066] [info]	Démarrage du client
+[2018-03-23 09:46:10.992] [info]	Démarrage du client
+[2018-03-23 09:50:50.646] [info]	Démarrage du client
+[2018-03-23 09:58:13.672] [info]	Démarrage du client
+[2018-03-23 10:03:25.268] [info]	Démarrage du client
+[2018-03-23 10:03:30.435] [info]	Démarrage du client
+[2018-03-23 10:03:34.891] [info]	Login réussi
+[2018-03-23 10:03:35.582] [info]	Reçu un game waiting du serveur
+[2018-03-23 10:03:35.583] [info]	Reçu un game ready du serveur
+[2018-03-23 10:03:35.603] [info]	On joue!
+[2018-03-23 10:10:19.190] [info]	Démarrage du client
+[2018-03-23 10:10:41.311] [info]	Démarrage du client
+[2018-03-23 10:10:45.375] [info]	Login réussi
+[2018-03-23 10:10:46.610] [info]	Reçu un game waiting du serveur
+[2018-03-23 10:10:46.610] [info]	Reçu un game ready du serveur
+[2018-03-23 10:10:46.630] [info]	On joue!
+[2018-03-23 10:11:07.011] [info]	Reçu un game waiting du serveur
+[2018-03-23 10:11:07.031] [info]	On joue!
+[2018-03-23 10:12:19.851] [info]	Démarrage du client
+[2018-03-23 10:12:24.805] [info]	Login réussi
+[2018-03-23 10:12:25.703] [info]	Reçu un game waiting du serveur
+[2018-03-23 10:12:25.703] [info]	Reçu un game ready du serveur
+[2018-03-23 10:12:25.724] [info]	On joue!
+[2018-03-23 10:13:28.722] [info]	Démarrage du client
+[2018-03-23 10:13:32.491] [info]	Login réussi
+[2018-03-23 10:13:46.747] [info]	Reçu un game waiting du serveur
+[2018-03-23 10:13:46.747] [info]	Reçu un game ready du serveur
+[2018-03-23 10:13:46.767] [info]	On joue!
+[2018-03-23 10:17:41.833] [info]	Démarrage du client
+[2018-03-23 10:17:45.466] [info]	Login réussi
+[2018-03-23 10:17:46.420] [info]	Paquet de chat reçu
+[2018-03-23 10:17:54.365] [info]	Paquet de chat reçu
+[2018-03-23 10:17:58.231] [info]	Reçu un game waiting du serveur
+[2018-03-23 10:17:58.231] [info]	Reçu un game ready du serveur
+[2018-03-23 10:17:58.251] [info]	On joue!
+[2018-03-23 10:20:08.158] [info]	Démarrage du client
+[2018-03-23 10:20:12.533] [info]	Démarrage du client
+[2018-03-23 10:20:19.343] [info]	Démarrage du client
+[2018-03-23 10:20:24.323] [info]	Login réussi
+[2018-03-23 10:20:25.194] [info]	Reçu un game waiting du serveur
+[2018-03-23 10:20:25.194] [info]	Reçu un game ready du serveur
+[2018-03-23 10:20:25.214] [info]	On joue!
+[2018-03-23 10:21:42.725] [info]	Démarrage du client
+[2018-03-23 10:21:46.242] [info]	Login réussi
+[2018-03-23 10:21:47.871] [info]	Reçu un game waiting du serveur
+[2018-03-23 10:21:47.872] [info]	Reçu un game ready du serveur
+[2018-03-23 10:21:47.891] [info]	On joue!
+[2018-03-23 10:23:59.324] [info]	Démarrage du client
+[2018-03-23 10:24:06.123] [info]	Démarrage du client
+[2018-03-23 10:24:09.322] [info]	Login réussi
+[2018-03-23 10:24:10.058] [info]	Reçu un game waiting du serveur
+[2018-03-23 10:24:10.058] [info]	Reçu un game ready du serveur
+[2018-03-23 10:24:10.079] [info]	On joue!
+[2018-03-23 10:24:49.954] [info]	Démarrage du client
+[2018-03-23 10:24:52.939] [info]	Login réussi
+[2018-03-23 10:24:53.584] [info]	Reçu un game waiting du serveur
+[2018-03-23 10:24:53.584] [info]	Reçu un game ready du serveur
+[2018-03-23 10:24:53.604] [info]	On joue!
+[2018-03-23 10:25:13.261] [info]	Démarrage du client
+[2018-03-23 10:25:21.988] [info]	Login réussi
+[2018-03-23 10:25:23.226] [info]	Reçu un game waiting du serveur
+[2018-03-23 10:25:23.227] [info]	Reçu un game ready du serveur
+[2018-03-23 10:25:23.247] [info]	On joue!
+[2018-03-23 13:42:27.373] [info]	Démarrage du client
+[2018-03-23 13:42:30.681] [info]	Login réussi
+[2018-03-23 13:42:31.564] [info]	Reçu un game waiting du serveur
+[2018-03-23 13:42:31.585] [info]	On joue!
+[2018-03-23 13:42:36.030] [info]	Démarrage du client
+[2018-03-23 13:42:42.106] [info]	Login réussi
+[2018-03-23 13:42:42.709] [info]	Reçu un game waiting du serveur
+[2018-03-23 13:42:42.710] [info]	Reçu un game ready du serveur
+[2018-03-23 13:42:42.730] [info]	On joue!
+[2018-03-23 13:44:28.412] [info]	Démarrage du client
+[2018-03-23 13:44:32.610] [info]	Login réussi
+[2018-03-23 13:44:33.716] [info]	Reçu un game waiting du serveur
+[2018-03-23 13:44:33.716] [info]	Reçu un game ready du serveur
+[2018-03-23 13:44:33.736] [info]	On joue!
+[2018-03-23 13:45:38.014] [info]	Démarrage du client
+[2018-03-23 13:45:41.858] [info]	Login réussi
+[2018-03-23 13:45:42.533] [info]	Reçu un game waiting du serveur
+[2018-03-23 13:45:42.533] [info]	Reçu un game ready du serveur
+[2018-03-23 13:45:42.553] [info]	On joue!
+[2018-03-23 14:10:57.269] [info]	Démarrage du client
+[2018-03-23 14:11:01.070] [info]	Login réussi
+[2018-03-23 14:11:06.540] [info]	Reçu un game waiting du serveur
+[2018-03-23 14:11:06.540] [info]	Reçu un game ready du serveur
+[2018-03-23 14:11:06.560] [info]	On joue!
+[2018-03-23 14:29:54.902] [info]	Démarrage du client
+[2018-03-23 14:30:07.310] [info]	Login réussi
+[2018-03-23 14:30:08.034] [info]	Reçu un game waiting du serveur
+[2018-03-23 14:30:08.055] [info]	On joue!
+[2018-03-23 14:30:10.021] [info]	Démarrage du client
+[2018-03-23 14:30:13.375] [info]	Login réussi
+[2018-03-23 14:30:14.111] [info]	Reçu un game waiting du serveur
+[2018-03-23 14:30:14.111] [info]	Reçu un game ready du serveur
+[2018-03-23 14:30:14.131] [info]	On joue!
+[2018-03-23 14:30:27.928] [info]	Reçu un game waiting du serveur
+[2018-03-23 14:30:27.948] [info]	On joue!
+[2018-03-23 14:38:56.862] [info]	Démarrage du client
+[2018-03-23 14:39:00.228] [info]	Login réussi
+[2018-03-23 14:39:01.210] [info]	Reçu un game waiting du serveur
+[2018-03-23 14:39:01.230] [info]	On joue!
+[2018-03-23 14:39:02.917] [info]	Démarrage du client
+[2018-03-23 14:39:08.922] [info]	Login réussi
+[2018-03-23 14:39:09.729] [info]	Reçu un game waiting du serveur
+[2018-03-23 14:39:09.729] [info]	Reçu un game ready du serveur
+[2018-03-23 14:39:09.750] [info]	On joue!
+[2018-03-23 14:41:17.276] [info]	Démarrage du client
+[2018-03-23 14:41:21.348] [info]	Login réussi
+[2018-03-23 14:41:21.998] [info]	Reçu un game waiting du serveur
+[2018-03-23 14:41:21.998] [info]	Reçu un game ready du serveur
+[2018-03-23 14:41:22.019] [info]	On joue!
+[2018-03-23 14:42:34.158] [info]	Démarrage du client
+[2018-03-23 14:42:38.902] [info]	Login réussi
+[2018-03-23 14:42:39.790] [info]	Reçu un game waiting du serveur
+[2018-03-23 14:42:39.790] [info]	Reçu un game ready du serveur
+[2018-03-23 14:42:39.810] [info]	On joue!
+[2018-03-23 14:43:39.104] [info]	Démarrage du client
+[2018-03-23 14:43:42.594] [info]	Login réussi
+[2018-03-23 14:43:43.680] [info]	Reçu un game waiting du serveur
+[2018-03-23 14:43:43.680] [info]	Reçu un game ready du serveur
+[2018-03-23 14:43:43.700] [info]	On joue!
+[2018-03-23 14:44:42.263] [info]	Démarrage du client
+[2018-03-23 14:44:46.468] [info]	Login réussi
+[2018-03-23 14:44:47.662] [info]	Reçu un game waiting du serveur
+[2018-03-23 14:44:47.662] [info]	Reçu un game ready du serveur
+[2018-03-23 14:44:47.682] [info]	On joue!
+[2018-03-23 14:45:51.745] [info]	Démarrage du client
+[2018-03-23 14:45:54.847] [info]	Login réussi
+[2018-03-23 14:45:55.550] [info]	Reçu un game waiting du serveur
+[2018-03-23 14:45:55.550] [info]	Reçu un game ready du serveur
+[2018-03-23 14:45:55.570] [info]	On joue!
+[2018-03-23 14:46:51.718] [info]	Démarrage du client
+[2018-03-23 14:46:54.992] [info]	Login réussi
+[2018-03-23 14:46:57.006] [info]	Reçu un game waiting du serveur
+[2018-03-23 14:46:57.006] [info]	Reçu un game ready du serveur
+[2018-03-23 14:46:57.027] [info]	On joue!
+[2018-03-23 14:53:29.905] [info]	Démarrage du client
+[2018-03-23 14:53:33.961] [info]	Login réussi
+[2018-03-23 14:54:16.172] [info]	Reçu un game waiting du serveur
+[2018-03-23 14:54:16.193] [info]	On joue!
+[2018-03-23 14:54:21.385] [info]	Démarrage du client
+[2018-03-23 14:54:29.015] [info]	Login réussi
+[2018-03-23 14:54:39.078] [info]	Reçu un game waiting du serveur
+[2018-03-23 14:54:39.078] [info]	Reçu un game ready du serveur
+[2018-03-23 14:54:39.098] [info]	On joue!
+[2018-03-23 14:54:59.671] [info]	Démarrage du client
+[2018-03-23 14:55:06.648] [info]	Login réussi
+[2018-03-23 14:55:07.669] [info]	Reçu un game waiting du serveur
+[2018-03-23 14:55:07.669] [info]	Reçu un game ready du serveur
+[2018-03-23 14:55:07.690] [info]	On joue!
+[2018-03-23 14:55:20.594] [info]	Reçu un game waiting du serveur
+[2018-03-23 14:55:20.613] [info]	On joue!
+[2018-03-23 14:56:11.527] [info]	Démarrage du client
+[2018-03-23 14:56:15.019] [info]	Login réussi
+[2018-03-23 14:56:16.195] [info]	Reçu un game waiting du serveur
+[2018-03-23 14:56:16.195] [info]	Reçu un game ready du serveur
+[2018-03-23 14:56:16.215] [info]	On joue!
+[2018-03-23 15:08:24.743] [info]	Démarrage du client
+[2018-03-23 15:08:28.176] [info]	Login réussi
+[2018-03-23 15:08:29.317] [info]	Reçu un game waiting du serveur
+[2018-03-23 15:08:29.317] [info]	Reçu un game ready du serveur
+[2018-03-23 15:08:29.337] [info]	On joue!
+[2018-03-23 15:08:55.090] [info]	Démarrage du client
+[2018-03-23 15:14:41.864] [info]	Démarrage du client
+[2018-03-23 15:14:46.275] [info]	Login réussi
+[2018-03-23 15:14:47.382] [info]	Reçu un game waiting du serveur
+[2018-03-23 15:14:47.382] [info]	Reçu un game ready du serveur
+[2018-03-23 15:14:47.402] [info]	On joue!
+[2018-03-23 15:14:53.660] [info]	Démarrage du client
+[2018-03-23 15:14:58.237] [info]	Login réussi
+[2018-03-23 15:15:00.872] [info]	Reçu un game waiting du serveur
+[2018-03-23 15:15:00.872] [info]	Reçu un game ready du serveur
+[2018-03-23 15:15:00.892] [info]	On joue!
+[2018-03-23 15:16:54.174] [info]	Démarrage du client
+[2018-03-23 15:16:57.640] [info]	Login réussi
+[2018-03-23 15:17:00.737] [info]	Reçu un game waiting du serveur
+[2018-03-23 15:17:00.738] [info]	Reçu un game ready du serveur
+[2018-03-23 15:17:00.757] [info]	On joue!
+[2018-03-23 15:21:07.489] [info]	Démarrage du client
+[2018-03-23 15:21:14.955] [info]	Login réussi
+[2018-03-23 15:21:19.034] [info]	Reçu un game waiting du serveur
+[2018-03-23 15:21:19.034] [info]	Reçu un game ready du serveur
+[2018-03-23 15:21:19.054] [info]	On joue!
+[2018-03-23 15:22:12.811] [info]	Démarrage du client
+[2018-03-23 15:22:17.974] [info]	Login réussi
+[2018-03-23 15:22:21.822] [info]	Reçu un game waiting du serveur
+[2018-03-23 15:22:21.822] [info]	Reçu un game ready du serveur
+[2018-03-23 15:22:21.842] [info]	On joue!
+[2018-03-23 15:24:36.322] [info]	Démarrage du client
+[2018-03-23 15:24:43.653] [info]	Login réussi
+[2018-03-23 15:24:44.460] [info]	Reçu un game waiting du serveur
+[2018-03-23 15:24:44.460] [info]	Reçu un game ready du serveur
+[2018-03-23 15:24:44.480] [info]	On joue!
+[2018-03-23 15:26:04.487] [info]	Démarrage du client
+[2018-03-23 15:26:46.945] [info]	Démarrage du client
+[2018-03-23 15:27:47.547] [info]	Démarrage du client
+[2018-03-23 15:28:01.401] [info]	Démarrage du client
+[2018-03-23 15:29:08.931] [info]	Démarrage du client
+[2018-03-23 15:29:13.293] [info]	Login réussi
+[2018-03-23 15:30:39.477] [info]	Démarrage du client
+[2018-03-23 15:30:45.720] [info]	Login réussi
+[2018-03-23 15:30:48.685] [info]	Reçu un game waiting du serveur
+[2018-03-23 15:30:48.685] [info]	Reçu un game ready du serveur
+[2018-03-23 15:30:48.705] [info]	On joue!
+[2018-03-23 15:31:09.410] [info]	Reçu un game waiting du serveur
+[2018-03-23 15:31:09.410] [info]	Reçu un game ready du serveur
+[2018-03-23 15:31:09.430] [info]	On joue!
+[2018-03-23 15:34:55.753] [info]	Démarrage du client
+[2018-03-23 15:35:01.967] [info]	Démarrage du client
+[2018-03-23 15:35:06.448] [info]	Login réussi
+[2018-03-23 15:35:07.459] [info]	Reçu un game waiting du serveur
+[2018-03-23 15:35:07.459] [info]	Reçu un game ready du serveur
+[2018-03-23 15:35:07.479] [info]	On joue!

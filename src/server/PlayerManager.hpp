@@ -24,6 +24,7 @@ class Player;
 #include "Player.hpp"
 #include "Global.hpp"
 
+
 namespace PlayerManager {
     //Gestion du joueur
     bool player_connected(const std::string&);

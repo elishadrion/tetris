@@ -2,6 +2,7 @@
 #define GAMEMANAGER_HPP
 
 class GameManager;
+struct info_game;
 
 #include <vector>
 #include <string>
@@ -20,15 +21,24 @@ class GameManager;
 #include "../game/Mode/Classic.hpp"
 
 
+struct info_game{
 
+    bool winner;
+    int score;
+    int level;
+    int line_complete;
+    int time;
+};
 
 
 class GameManager {
+
+
 	Mode * _game;
 	bool gui;
 	public:
 	    GameManager(bool _gui): gui(_gui) {}
-	    void start_game(unsigned,int, unsigned);
+	    info_game start_game(unsigned,int, unsigned);
 	    void move_right();
 	    void move_left();
 	    void move_turn_right();
@@ -37,6 +47,9 @@ class GameManager {
 	    void move_harddrop();
 	    void move_drop();
 	    Mode * get_game(){return _game;}
+
+	    
+		
 
 };
 

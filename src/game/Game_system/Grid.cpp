@@ -12,7 +12,7 @@ std::mutex mtx;
 
 Grid::Grid(unsigned seed) :  _grid(nullptr),_current_tetriminos(nullptr), _next_tetriminos(nullptr),
 				_hold_tetriminos(nullptr),_number_generator( new Random(seed)),_acceleration(300000),
-				_score(0), _level(0),_line_complete(0),_line_stack(0) {
+				_score(0), _level(0),_line_complete(0),_line_stack(0){
 	/*
 	On construit une grille de 20 x 10.
 	Une grille d'objet de type "Block" vide.
@@ -40,7 +40,12 @@ Grid::~Grid(){
 		delete[] _grid[i];								
 	}
 	delete[] _grid;
+	if(_hold_tetriminos){delete _hold_tetriminos;}
+	delete _current_tetriminos;
+	delete _number_generator;
+
 }
+
 
 Tetriminos * Grid::get_tetriminos()const{
 
@@ -338,6 +343,7 @@ int Grid::check_lines(){
 
 	}	
 		_line_complete += line_counter;
+		
 		return line_counter;
 
 }
@@ -420,44 +426,29 @@ void Grid::set_current_tetriminos_hold(){
 	Cette fonction permet de conserver le tétriminos courant.
 	*/
 
-	if( not(_hold_tetriminos )){
+	if(not(_hold_tetriminos )){
 
 		_hold_tetriminos = _current_tetriminos;
 		_current_tetriminos = _next_tetriminos;
 		_next_tetriminos = new Tetriminos(_number_generator->nextInt());
 
 		int color ;
-
-		for(int i=0; i<4; i++){
-		 	
-		 	color = _hold_tetriminos->get_color_of_block(0)-1;
-
-		 	_hold_tetriminos->set_coord_of_block(i, TEMPLATE_TETRIMINOS[color][i][0],
-		 										    TEMPLATE_TETRIMINOS[color][i][1]);
-		 }
-		
+		color = _hold_tetriminos->get_color_of_block(0)-1;
+		delete _hold_tetriminos;
+		_hold_tetriminos = new Tetriminos(color);
 
 	}
-
-
-
 	else{
 
-		delete _next_tetriminos;
-		_next_tetriminos = _current_tetriminos;
+
+		delete _current_tetriminos;
 		_current_tetriminos = _hold_tetriminos;
 		_hold_tetriminos = nullptr;
-		
 
 		int color ;
-
 		color = _current_tetriminos->get_color_of_block(0)-1;
 		delete(_current_tetriminos);
 		_current_tetriminos = new Tetriminos(color);
-		color = _next_tetriminos->get_color_of_block(0) -1;
-		delete(_next_tetriminos);
-		_next_tetriminos = new Tetriminos(color);
-
 		
 
 	}
@@ -466,9 +457,8 @@ void Grid::set_current_tetriminos_hold(){
 
 
 int Grid::get_acceleration()const{ return _acceleration;}
-void Grid::set_acceleration(int acceleration) { _acceleration =acceleration;}
+void Grid::set_acceleration(int acceleration) { _acceleration = acceleration;}
 void Grid::set_acceleration_quick(){set_acceleration(87654);}
-
 
 void Grid::tetriminos_generator(){
 	/*	
@@ -482,7 +472,7 @@ void Grid::tetriminos_generator(){
 		_current_tetriminos = new Tetriminos(color);
 	}
 	else{
-
+		delete _current_tetriminos;
 		_current_tetriminos = _next_tetriminos;
 	}
 

@@ -10,9 +10,9 @@ Grid.hpp
 #include "Tetriminos.hpp"
 #include <mutex>
 #include <fstream>
-#include<iostream>
+#include <iostream>
 #include <sys/time.h>
-#include<math.h>
+#include <math.h>
 #include "../../common/Random.hpp"
 
 
@@ -34,6 +34,7 @@ class Grid{
 		int _level;
 		int _line_complete;
 		int _line_stack;
+
 
 	public:
 
@@ -71,8 +72,7 @@ class Grid{
 		int  check_lines();		
 		bool tetriminos_try_drop();
 		bool has_tetriminos_hold()const;
-		void tetriminos_generator();
-		
+		void tetriminos_generator();		
 
 		void current_tetriminos_move_right();
 		void current_tetriminos_move_left();
@@ -84,6 +84,7 @@ class Grid{
 
 		void update_score_level();
 		void add_line(int line);
+		void add_line_complete(int lines);
 
 
 

@@ -57,8 +57,6 @@ Sprint.o: ../game/Mode/Sprint.cpp ../game/Mode/Sprint.hpp
 Classic.o: ../game/Mode/Classic.cpp ../game/Mode/Classic.hpp
 	$(CXX) $(CXXFLAGS) -c ../game/Mode/Classic.cpp
 
-
-
 Grid.o:  ../game/Game_system/Grid.cpp  ../game/Game_system/Grid.hpp
 	$(CXX) $(CXXFLAGS) -c  ../game/Game_system/Grid.cpp
 

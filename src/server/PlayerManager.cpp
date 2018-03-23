@@ -66,10 +66,11 @@ void PlayerManager::logout(Player* player) {
         Player* current = g_connected.at(i);
 
 	    if (current == player) {
-	        g_connected.erase(g_connected.begin()+i);
-            
+	        g_connected.erase(g_connected.begin()+i);            
             manage_room();
-            // delete player;
+            try{
+                delete player;
+            }catch (int e){}
 	        return;
 	    }
     }
@@ -82,7 +83,7 @@ Room* PlayerManager::create_new_room(int mode) {
     else         { new_room = new Room(1);}
     g_rooms.push_back(new_room);
 
-    WizardLogger::info("Room créé");          
+    WizardLogger::info("Room créé ; mode ID: "+ std::to_string(mode));          
     return new_room;
 }
 
@@ -153,6 +154,7 @@ void PlayerManager::manage_new_player(Player* player, int mode) {
     	broadcast_game_ready(room);
     	start_game(room,mode);
 
+
     }
     else PacketManager::send_game_waiting(player);
 }
@@ -183,17 +185,14 @@ void PlayerManager::start_game(Room* room, int mode) {
     else if(mode ==4){
         room->set_mode(new Vs(room->get_seed()));        
     }
-     
+    usleep(20000); 
     room->get_mode()->init_game(false);
-    std::thread my(&PlayerManager::info_game, room,room->get_mode()->get_stopper());
+
+    std::thread my(&PlayerManager::info_game, room,room->get_mode()->get_stopper());  
     my.detach();
     
     
 }
-
-
-
-
 
 void PlayerManager::info_game(Room * room, Stopper_Thread * stopper){
 
@@ -204,7 +203,7 @@ void PlayerManager::info_game(Room * room, Stopper_Thread * stopper){
         time+=1;
 
    }
-
+   
     std::cout<<"le score est de "<<room->get_mode()->get_score_player(1)<<std::endl;
 
     for (size_t i = 0; i < g_rooms.size(); i++) {
@@ -212,11 +211,8 @@ void PlayerManager::info_game(Room * room, Stopper_Thread * stopper){
 
         if (current == room) {
             g_rooms.erase(g_rooms.begin()+i);   
-            WizardLogger::info("Room "+ std::to_string(i+1)+": arrété"); 
-            delete current;
-           
-
-            
+            //delete current;
+            WizardLogger::info("Room "+ std::to_string(i+1)+": arrété avec succès"); 
             return;
         }
     } 

@@ -38,6 +38,7 @@ public:
     virtual void register_user()=0;
     virtual void menu()=0; 
     virtual void main_menu()=0;	
+    virtual void end_game(info_game)=0;
     virtual void play(int)=0;
     virtual void choice_game()=0;
     virtual void chat()=0;

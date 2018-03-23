@@ -14,7 +14,7 @@ Vs::~Vs(){
 
 	delete grid;
 	delete _other_grid;
-	delete stopper;
+	//delete stopper;
 	
 }
 
@@ -26,7 +26,7 @@ void Vs::init_game(bool is_player){
 	t2.detach();
 }
 
-void Vs::start(Grid * grid,Grid * other_grid , Stopper_Thread* stopper){
+void Vs::start(Grid * grid, Grid * other_grid , Stopper_Thread* stopper){
 	/*	
 	Cette fonction lance une partie classique de tetris.
 	Sans objectif, on perd quand un tétriminos est hors de la grille.		
@@ -42,11 +42,21 @@ void Vs::start(Grid * grid,Grid * other_grid , Stopper_Thread* stopper){
 		if(line_complete>=2){other_grid->add_line(line_complete);}		
 		gridOverload = grid->is_overload();		
 		
-		delete grid->get_tetriminos();
 		
 	}
-
+	
 	stopper->game_finish();
 }
+
+bool Vs::is_winner(){
+	/*	
+	Cette fonction lance une partie classique de tetris.
+	Sans objectif, on perd quand un tétriminos est hors de la grille.		
+	*/
+	
+	if(_other_grid->is_overload()){ return true;}
+	return false;
+}
+
 
 

@@ -18,6 +18,7 @@ class CLI: public virtual WizardDisplay{
 	    virtual void menu()override; 
 	    virtual void main_menu()override;	
 	    virtual void play(int)override;
+	    virtual void end_game(info_game) override;
 	    virtual void choice_game()override;
 	    virtual void chat()override;
 	    virtual void wait_player()override;

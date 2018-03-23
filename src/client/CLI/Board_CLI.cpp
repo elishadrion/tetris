@@ -37,14 +37,14 @@ void Board_CLI::start(int type_game){
 
 	}
 	else{
-		usleep(3000);
+		usleep(30000);
 		init_main_game_solo_GUI();
 		std::thread myGUI (&Board_CLI::update_gui_solo,this);
 		myGUI.detach();
 	}
-
+	
 	std::thread thread_joueur(&Board_CLI::player_get_choice_in_game,this, grid, stopper);
-	thread_joueur.join();
+	thread_joueur.detach();
 
 }
 	
@@ -64,6 +64,8 @@ void Board_CLI::init_colors() {
 	init_pair(7, -1, COLOR_WHITE);
 	init_pair(8, -1, -1);
 	init_pair(9, -1, COLOR_BLACK);
+	attron(A_BOLD | COLOR_PAIR(8));	
+
 	
 }
 

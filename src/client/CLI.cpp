@@ -1,4 +1,5 @@
 #include "CLI.hpp"
+#include<iostream>
 
 
 std::string empty_space_string(const char*str, int len ){
@@ -19,10 +20,10 @@ CLI::CLI(){
 
     initscr();
     start_color();
+    timeout(-1);
     noecho();    // On cache les inputs du terminal.
     curs_set(0); // On cac
     keypad(stdscr, TRUE);
-       
 
 }
 
@@ -458,10 +459,39 @@ void CLI::play(int type_game) {
     packetStack.pop_back();
     unsigned num = reinterpret_cast<long>(packetStack.back());
     packetStack.pop_back();    
-    game_manager->start_game(num,type_game, seed);
+    timeout(10);
+    struct info_game myInfo = game_manager->start_game(num,type_game, seed);
+    timeout(-1);
+    end_game(myInfo);
+   
+}
+
+
+void CLI::end_game(info_game myInfo) {
+
+    clear();
+
+    
+    if(myInfo.winner){
+        mvprintw(2, 6, "Bravo vous avez gagné ! ");
+    }
+    else{
+         mvprintw(2, 6, "Dommage vous avez perdu! ");
+    }
+
+    mvprintw(5, 6, "Voici vos statistiques");
+    mvprintw(8,6, "  * Score: ");mvprintw(8, 17,"%d",myInfo.score);
+    mvprintw(9,6,"  * Level:"); mvprintw(9,17,"%d", myInfo.level);
+    mvprintw(10,6,"  * Lignes complétées: "); mvprintw(10,31,"%d", myInfo.line_complete);
+
+    mvprintw(20, 6, "Click sur une touche pour continuer ! ");
+    
+    refresh();
+    getch();
     menu();
 
 }
+
 
 void CLI::menu() {
 
@@ -469,9 +499,9 @@ void CLI::menu() {
     bool is_on_button = true;
      
     char *choices[] = { "PLAY GAME",
-                    "CHAT",
-                    "SETTINGS",
-                	"EXIT"
+                        "CHAT",
+                        "SETTINGS",
+                	    "EXIT"
                   };
     int n_choices = sizeof(choices) / sizeof(char *);
 
@@ -565,6 +595,7 @@ void CLI::menu() {
             }
         else if (choice == 4){
         	clear();
+            endwin();
         	break;
             }
         

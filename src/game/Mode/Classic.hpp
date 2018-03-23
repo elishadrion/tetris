@@ -19,6 +19,7 @@ class Classic: public virtual Mode{
 		virtual ~Classic();	
 		virtual void start(Grid *,Grid*, Stopper_Thread*)override;		
 		virtual void init_game(bool is_player)override;
+		virtual bool is_winner()override;	
 
 
 };
