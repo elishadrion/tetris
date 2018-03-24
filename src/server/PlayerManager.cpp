@@ -160,13 +160,14 @@ void PlayerManager::manage_new_player(Player* player, int mode) {
 }
 
 Room* PlayerManager::find_available_room(int mode) {
-    for (auto it = g_rooms.begin(); it != g_rooms.end(); it++) {
-        if (mode == 4 and (*it)->get_max_size() ==2 and !(*it)->is_full()) {
-            return *it;
+
+    if(mode ==4){
+        for (auto it = g_rooms.begin(); it != g_rooms.end(); it++) {
+            if ((*it)->get_max_size() ==2 and !(*it)->is_full()) {
+                return *it;
+            }        
         }
-        else if ((*it)->get_max_size() == 1 and !(*it)->is_full()) {
-            return *it;
-        }
+
     }
     return nullptr;
 }

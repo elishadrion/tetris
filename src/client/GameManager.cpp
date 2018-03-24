@@ -10,7 +10,7 @@ info_game GameManager::start_game(unsigned _num,int type_game, unsigned seed){
 	else if(type_game == 3){ _game = new Sprint(seed);}
 	else if(type_game == 4){ _game = new Vs(seed);}
 	
-	usleep(20000);
+	usleep(30000);
 	_game->init_game(true);
 
 
@@ -35,7 +35,7 @@ info_game GameManager::start_game(unsigned _num,int type_game, unsigned seed){
 	myInfo.score = _game->get_grid()->get_score();
 	myInfo.line_complete = _game->get_grid()->get_line_complete();
 	myInfo.level = _game->get_grid()->get_level();
-
+	usleep(50000);
 	delete _game;
 	return myInfo;
 	

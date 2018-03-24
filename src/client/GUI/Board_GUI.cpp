@@ -284,37 +284,37 @@ void Board_GUI::handle_event(const sf::Event& event) {
 			switch(event.key.code) {
 
 				case sf::Keyboard::Down:
-					
+					game_manager->move_drop();
 					grid->set_acceleration_quick();
 					break;
 
 				case sf::Keyboard::Right:
-					
+					game_manager->move_right();
 					grid->current_tetriminos_move_right();
 					break;
 
 				case sf::Keyboard::Left:
-					
+					game_manager->move_left();
 					grid->current_tetriminos_move_left();
 					break;
 
 				case sf::Keyboard::Q:
-					
+					game_manager->move_turn_left();
 					grid->current_tetriminos_turn_left();
 					break;
 
 				case sf::Keyboard::D:
-					
+					game_manager->move_turn_right();
 					grid->current_tetriminos_turn_right();
 					break;
 
 				case sf::Keyboard::H:
-					
+					game_manager->move_hold();
 					grid->set_current_tetriminos_hold();
 					break;
 
 				case sf::Keyboard::S:
-					
+					game_manager->move_harddrop();
 					grid->current_tetriminos_hard_drop();
 					break;
 			}

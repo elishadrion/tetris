@@ -453,7 +453,7 @@ void CLI::play(int type_game) {
    
 
     pthread_cond_wait(&packetStackCond, &packetStackMutex);
-    usleep(20000);
+    //usleep(20000);
     WizardLogger::info("On joue!");
     unsigned seed = reinterpret_cast<long>(packetStack.back());
     packetStack.pop_back();
