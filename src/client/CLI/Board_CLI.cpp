@@ -30,15 +30,16 @@ Board_CLI::~Board_CLI(){
 
 void Board_CLI::start(int type_game){
 	if(type_game == 4){
-		usleep(3000);
-		init_main_game_multi_GUI();
+		
+		
+		
 		std::thread myGUI(&Board_CLI::update_gui_multi, this);
 		myGUI.detach();
 
 	}
 	else{
-		usleep(30000);
-		init_main_game_solo_GUI();
+
+		
 		std::thread myGUI (&Board_CLI::update_gui_solo,this);
 		myGUI.detach();
 	}
@@ -470,7 +471,10 @@ void Board_CLI::update_main_game_solo_GUI(){
 
 void Board_CLI::update_gui_solo(){
 
+	usleep(30000);
+	init_main_game_solo_GUI();
 	update_main_game_solo_GUI();  // On update l'affichage de la grille
+
 	
 	while(!stopper->game_is_finish()){
 		update_next_tetriminos_solo_GUI( grid->get_next_tetriminos());
@@ -492,7 +496,8 @@ void Board_CLI::update_gui_solo(){
 
 void Board_CLI::update_gui_multi(){
 
-	
+	usleep(30000);
+	init_main_game_multi_GUI();
 	update_main_game_multi_GUI();  // On update l'affichage de la grille
 
 	while(!stopper->game_is_finish()){
@@ -525,7 +530,7 @@ void Board_CLI::update_gui_multi(){
 
 
 void Board_CLI::player_get_choice_in_game(Grid* grid,Stopper_Thread* stopper) {
-    
+    usleep(30000);
     char C_rotateRigth;
     char C_rotateLeft;
     char C_accelerate;

@@ -30,25 +30,28 @@ public:
         CHAT_MESSAGE_CONN = 19,
         CHAT_USERS_ID = 20,
         CHAT_LOGOUT = 21,
+        USERS_ID = 22,
+        FRIENDS_ID = 23,
+        STATISTIC_ID = 24
 
     };
-    
+
     /* Default size of all packets (without data) */
     static const int packetSize = sizeof(int);
-    
+
     /* Default packet struct (without data member) */
     typedef struct {
         int ID;
         int size = 0;
     } packet;
-    
+
     /* Packet with only int */
     typedef struct {
         int ID;
         int size = sizeof(int);
         int data;
     } intPacket;
-    
+
     /* Packet with only pseudo */
     typedef struct {
         int ID;
@@ -86,7 +89,7 @@ public:
         int size = sizeof(playerData);
         playerData data; /* We define it but we must include it */
     } playerInfoPacket;
-    
+
 //=========================JEU==================================
 
     typedef struct {
@@ -109,14 +112,45 @@ public:
         int size = (sizeof(char)*MAX_MESSAGE_SIZE)+(sizeof(char)*MAX_PSEUDO_SIZE);
         char sender[MAX_PSEUDO_SIZE];
         char message[MAX_MESSAGE_SIZE];
-        
+
     } chatMessagePacket;
-    
+
     typedef struct {
         int ID = CHAT_USERS_ID;
         int size = (sizeof(char)*USERS_IN_CHAT);
         char users_char[USERS_IN_CHAT];
     } usersInChatPacket;
+
+
+    //=========================Users transfert==================================
+        typedef struct {
+            int ID = USERS_ID;
+            int size = (sizeof(char)*MAX_USERS);
+            char users_list[MAX_USERS];
+
+        } usersPacket;
+
+    //=========================Friends Manager==================================
+
+            typedef struct {
+                int ID = FRIENDS_ID;
+                int action; // 1 to add friendName, 2 to delete friendName from our friends
+                int size = (sizeof(char)*USERS_IN_CHAT);
+                char sender[MAX_PSEUDO_SIZE];
+                char friendName[MAX_PSEUDO_SIZE];
+            } friendRequestPacket; // for sender statistics
+
+
+    //=========================Statistic==================================
+
+        typedef struct {
+            int ID = STATISTIC_ID;
+            int size = (sizeof(char)*USERS_IN_CHAT);
+            char sender[MAX_PSEUDO_SIZE];
+            char statistic[MAX_MESSAGE_SIZE];
+        } statisticRequestPacket; // for sender statistics
+
+
 
     static const int packetMaxSize = sizeof(usersInChatPacket);
 

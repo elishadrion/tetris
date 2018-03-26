@@ -26,18 +26,18 @@ class SalonChat;
 
 
 class SalonChat {
-    
+
     WINDOW *msg_win_chat,*user_win,*input_win;
-    
+
 public:
 
-    
-    
+
+
     SalonChat() = default;
     ~SalonChat() = default;
-    
+
     char username[MAX_PSEUDO_SIZE];
-    
+
     char* trim_whitespaces(char *str);
 
     void chatReceiver(char* , char* );

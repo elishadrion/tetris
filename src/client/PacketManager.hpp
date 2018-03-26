@@ -10,6 +10,7 @@
 #include "GameManager.hpp"
 
 #include "SalonChat.hpp"
+#include "FriendsManager.hpp"
 
 extern WizardDisplay *display;
 extern GameManager* game_manager;
@@ -17,6 +18,7 @@ extern Connection *conn;
 
 
 extern SalonChat* salon_chat;
+extern FriendsManager *friends_manager;
 
 
 namespace PacketManager {
@@ -34,9 +36,9 @@ namespace PacketManager {
     //Partie prête
     void game_ready(Packet::playApprovalPacket*);
     void manage_move_tetriminos_request(Packet::intPacket*);
-    
+
     //=============================CHAT=====================================
-    
+
     void receive_chat_message(Packet::chatMessagePacket*);
     void send_chat_conn(const char*);
     void send_chat_message(const char*, const char*);

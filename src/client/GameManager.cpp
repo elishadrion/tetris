@@ -9,10 +9,9 @@ info_game GameManager::start_game(unsigned _num,int type_game, unsigned seed){
 	else if(type_game == 2){ _game = new Marathon(seed);}
 	else if(type_game == 3){ _game = new Sprint(seed);}
 	else if(type_game == 4){ _game = new Vs(seed);}
-	
 	usleep(30000);
-	_game->init_game(true);
 
+	_game->init_game(true);
 
 	if (gui) {
 
@@ -22,12 +21,12 @@ info_game GameManager::start_game(unsigned _num,int type_game, unsigned seed){
 		delete display_game;
 
 	} else {
-		
-		Board_CLI * display_game = new Board_CLI(_game->get_grid(), _game->get_other_grid(),_game->get_stopper());		
+
+		Board_CLI * display_game = new Board_CLI(_game->get_grid(), _game->get_other_grid(),_game->get_stopper());
 		display_game->start(type_game);
 		while(!_game->get_stopper()->game_is_finish()){}
 		delete display_game;
-		
+
 	}
 
 	struct info_game myInfo;
@@ -38,7 +37,7 @@ info_game GameManager::start_game(unsigned _num,int type_game, unsigned seed){
 	usleep(50000);
 	delete _game;
 	return myInfo;
-	
+
 }
 
 

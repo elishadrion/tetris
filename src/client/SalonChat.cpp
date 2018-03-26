@@ -26,20 +26,20 @@ char* SalonChat::trim_whitespaces(char *str)
 
 void SalonChat::chatReceiver(char* message, char* sender){
     char ttime[10];
-    
+
     struct tm *akttime;
     time_t second;
     time(&second);
-    
+
     akttime = localtime(&second);
     strftime(ttime, 10, "%H:%M:%S", akttime);
     wprintw(msg_win_chat, "<%s> %s : %s\n", ttime, sender, message);
     wrefresh(msg_win_chat);
-    
+
 }
 
 void SalonChat::print_online_users_chat(char* users){
-    
+
     wclear(user_win);
     box(user_win, 0, 0);
 	int size_of_user = strlen(users);
@@ -67,8 +67,8 @@ void SalonChat::print_online_users_chat(char* users){
 	}
 	mvwprintw(user_win,line,1,"%s",tmp);
 	wrefresh(user_win);
-    
-    
+
+
 }
 
 void SalonChat::startChat(){
@@ -78,10 +78,10 @@ void SalonChat::startChat(){
 	int ch =0;
 	int MAX_FIELD = 126;
 	char inputstring[MAX_FIELD], ttime[10], tester[156];
-	
+
 	initscr();
 	keypad(stdscr, TRUE);
-    
+
     attron(A_REVERSE);
     mvprintw(0, 0, "Utiliser ESC pour quitter le chat");
     attroff(A_REVERSE);
@@ -94,13 +94,13 @@ void SalonChat::startChat(){
 	box(input_win, 0, 0);
 
 	scrollok(msg_win_chat, TRUE);
-	
+
 	wrefresh(msg_win_chat);
 	wrefresh(user_win);
 
 	field[0] = new_field(2, 78, 0, 0, 0, 0);
 	field[1] = NULL;
-	
+
 	form = new_form(field);
     keypad(input_win, TRUE);
     set_form_win(form, input_win);
@@ -117,16 +117,16 @@ void SalonChat::startChat(){
 	/*char* bidon pour tester un buffer vide */
 	snprintf(tester, MAX_FIELD, "%s", trim_whitespaces(field_buffer(field[0], 0)));
 
-   
+
 
 	while((ch = wgetch(input_win)) !=112)
-	{	
+	{
 		switch(ch)
 		{
 			case 10:
 				form_driver(form, REQ_VALIDATION);
 				snprintf(inputstring, MAX_FIELD, "%s", trim_whitespaces(field_buffer(field[0], 0)));
-				
+
 				if (strcmp(inputstring,tester) != 0) //Pour pas send des messages vide
 				{
 	                PacketManager::send_chat_message(username,inputstring);
@@ -168,6 +168,5 @@ void SalonChat::startChat(){
     }
 
 	/* Unpost form and free the memory */
-	
-}
 
+}

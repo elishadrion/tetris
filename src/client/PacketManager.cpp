@@ -19,10 +19,10 @@ void PacketManager::manage_packet(void* packet) {
         case Packet::GAME_READY_ID:         game_ready(reinterpret_cast<Packet::playApprovalPacket*>(packet));
                                             break;
         case Packet::MOVE_TETRIMINOS:       manage_move_tetriminos_request(reinterpret_cast<Packet::intPacket*>(packet));
-                                            break;   
-        case Packet::CHAT_MESSAGE_ID:       receive_chat_message(reinterpret_cast<Packet::chatMessagePacket*>(packet)); 
-                                            break; 
-        case Packet::CHAT_USERS_ID:        receive_users_name(reinterpret_cast<Packet::usersInChatPacket*>(packet)); 
+                                            break;
+        case Packet::CHAT_MESSAGE_ID:       receive_chat_message(reinterpret_cast<Packet::chatMessagePacket*>(packet));
+                                            break;
+        case Packet::CHAT_USERS_ID:        receive_users_name(reinterpret_cast<Packet::usersInChatPacket*>(packet));
                                             break;
         case Packet::DISCONNECT_ID :        WizardLogger::warning("Paquet de déconnection reçu");
                                             break;
@@ -126,7 +126,7 @@ void PacketManager::send_chat_conn(const char *user) {
 void PacketManager::receive_chat_message(Packet::chatMessagePacket* packet) {
     WizardLogger::info("Paquet de chat reçu");
     salon_chat->chatReceiver(packet->message,packet->sender);
-   
+
 }
 
 void PacketManager::send_chat_message(const char *user, const char *msg){
@@ -141,7 +141,20 @@ void PacketManager::send_chat_message(const char *user, const char *msg){
     conn->send_packet(chat_send_msg_to_server, sizeof(*chat_send_msg_to_server));
     delete chat_send_msg_to_server;
 }
-
+/*
+void PacketManager::send_friend_request(int action_type, const char *sender, const char *friend_name){
+    Packet::chatMessagePacket* chat_send_msg_to_server = new Packet::chatMessagePacket();
+    for (int i = 0 ; i < MAX_PSEUDO_SIZE ; ++i) {
+        chat_send_msg_to_server->sender[i] = user[i];
+    }
+    for (int i = 0 ; i < MAX_MESSAGE_SIZE ; ++i) {
+        chat_send_msg_to_server->message[i] = msg[i];
+    }
+    chat_send_msg_to_server->ID = Packet::CHAT_MESSAGE_ID;
+    conn->send_packet(chat_send_msg_to_server, sizeof(*chat_send_msg_to_server));
+    delete chat_send_msg_to_server;
+}
+*/
 void PacketManager::receive_users_name(Packet::usersInChatPacket* packet){
     salon_chat->print_online_users_chat(packet->users_char);
 }
@@ -171,4 +184,3 @@ void PacketManager::send_move_tetriminos(int _data) {
     conn->send_packet(packet, sizeof(*packet));
     delete packet;
 }
-

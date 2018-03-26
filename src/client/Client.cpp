@@ -5,10 +5,12 @@ WizardDisplay *display;
 Player *player;
 GameManager *game_manager;
 SalonChat *salon_chat;
+FriendsManager *friends_manager;
 
 
 Client::Client(std::string address) {
     game_manager = new GameManager(false);
+    friends_manager = new FriendsManager();
     salon_chat = new SalonChat();
     player = new Player();
     try {
@@ -23,13 +25,15 @@ Client::Client(std::string address) {
     } catch (...) {
         std::cerr << "Communication impossible avec le serveur (voir log)" << std::endl;
     }
-	
+
 	display = new CLI();
 }
 
 Client::~Client() {
 	delete display;
 	delete conn;
+  delete friends_manager;
+
 	delete game_manager;
     delete player;
     delete salon_chat;

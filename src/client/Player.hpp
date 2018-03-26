@@ -30,7 +30,7 @@ public:
     inline void increment_victories() { _victories++; }
     inline void increment_defeats() { _defeats++; }
     inline void set_username(std::string username) {_username = username;}
-    
+
     /* Getter */
     inline std::string get_username() const { return _username; }
     inline unsigned get_victories() const { return _victories; }

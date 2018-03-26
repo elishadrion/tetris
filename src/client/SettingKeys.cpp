@@ -46,7 +46,7 @@ SettingKeys::SettingKeys(){
 }
 
 void SettingKeys::dispalyCurrentKeys(){
-    
+
         printw("---- Current Keys Setings ----\n");
         printw(" - rotateRigth : %c      - moveLeft : %c \n", static_cast<char>(std::stoi(C_rotateRigth)), static_cast<char>(std::stoi(C_moveLeft)));
         printw(" - rotateLeft : %c       - hardDrop : %c \n", static_cast<char>(std::stoi(C_rotateLeft)), static_cast<char>(std::stoi(C_hardDrop)));
@@ -86,9 +86,9 @@ void SettingKeys::hold(std::string keyID){
 
 void SettingKeys::saveSettings(){
   // save in csv file new settings
-  
+
   WizardLogger::info("fichier de settings modifié");
-    
+
   std::ofstream ofs;
 
   ofs.open("./settings/keys_settings.csv", std::ofstream::out | std::ofstream::trunc);
@@ -102,4 +102,3 @@ void SettingKeys::saveSettings(){
   ofs<<"hold,"<<C_hold<<"\n";
   ofs.close();
 }
-

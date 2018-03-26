@@ -1,0 +1,341 @@
+#include "FriendsManager.hpp"
+
+extern FriendsManager *friends_manager;
+
+
+
+void FriendsManager::showOption(){
+  printw("******* Friends manager *******\n");
+  printw("0 : back to menu\n");
+  printw("1 : Display all my friends\n");
+	printw("2 : Add new friend\n");
+	printw("3 : Delete friend\n");
+}
+
+
+void FriendsManager::displayFriendsMenu(){
+	std::string ch;
+	initscr();
+	while (1) {
+		showOption();
+		refresh();
+
+		while (1) {
+			ch = getch();
+			if(ch == "0"){
+				break;
+			}
+			else if(ch == "1"){
+				clear();
+				displayAllFriends();
+				break;
+			}
+			else if(ch == "2"){
+				clear();
+				displayAddFriend();
+				break;
+			}
+			else if(ch == "3"){
+				clear();
+				displayDeleteFriend();
+				break;
+			}
+			else{
+				clear();
+				break;
+			}
+		}
+		if(ch == "0"){
+			clear();
+			break;
+		}
+	}
+}
+
+
+void FriendsManager::displayAllFriends(){
+		std::string ch;
+		while (1) {
+			printw("******* All my friends *******\n");
+			printw("0 : go back\n");
+
+			refresh();
+
+			while (1) {
+				ch = getch();
+				if(ch == "0"){
+					break;
+				}
+				else{
+					clear();
+					break;
+				}
+			}
+			if(ch == "0"){
+				clear();
+				break;
+			}
+		}
+
+
+}
+
+
+
+
+void FriendsManager::displayAddFriend(){
+
+    std::string input;
+
+
+    printw("******* Enter name of the user that you want to add to your friends (ENTER to validate , ESC to go back) *******\n");
+
+    refresh();
+
+
+    nocbreak();
+    echo();
+
+
+    int ch = getch();
+
+    //get user name
+    while ( ch != '\n' && ch != 27)
+    {
+        input.push_back( ch );
+        ch = getch();
+    }
+
+
+    if(ch == '\n'){
+
+
+    }
+
+    clear();
+
+    cbreak();
+}
+
+
+void FriendsManager::displayDeleteFriend(){
+    std::string input;
+
+
+
+    printw("******* Enter name of the friend that you want to remove (ENTER to validate , ESC to go back) *******\n");
+
+    refresh();
+
+
+    nocbreak();
+    echo();
+
+
+    int ch = getch();
+
+    while ( ch != '\n' && ch != 27)
+    {
+        input.push_back( ch );
+        ch = getch();
+    }
+
+
+    if(ch == '\n'){
+
+    }
+
+    else if (ch == 27) {
+      /* code */
+    }
+    clear();
+
+    cbreak();
+
+}
+
+
+
+/*
+void FriendsManager::addFriend(char *Name);
+
+void FriendsManager::deleteFriend(char *Name);
+
+
+
+
+
+
+
+
+
+
+char* SalonChat::trim_whitespaces(char *str)
+{
+	char *end;
+
+	// trim leading space
+	while(isspace(*str))
+		str++;
+
+	if(*str == 0) // all spaces?
+		return str;
+
+	// trim trailing space
+	end = str + strnlen(str, 128) - 1;
+
+	while(end > str && isspace(*end))
+		end--;
+
+	// write new null terminator
+	*(end+1) = '\0';
+
+	return str;
+}
+
+void SalonChat::chatReceiver(char* message, char* sender){
+    char ttime[10];
+
+    struct tm *akttime;
+    time_t second;
+    time(&second);
+
+    akttime = localtime(&second);
+    strftime(ttime, 10, "%H:%M:%S", akttime);
+    wprintw(msg_win_chat, "<%s> %s : %s\n", ttime, sender, message);
+    wrefresh(msg_win_chat);
+
+}
+
+void SalonChat::print_online_users_chat(char* users){
+
+    wclear(user_win);
+    box(user_win, 0, 0);
+	int size_of_user = strlen(users);
+	char tmp[8];
+	memset(tmp,0,sizeof(tmp));
+	int j = 0;
+	int line = 1;
+
+
+	for (int b=0; b < size_of_user;b++){
+		if(users[b] != ','){
+			if (j<8){
+				tmp[j] = users[b];
+				j++;
+			}
+		}
+		else{
+            tmp[j]= '\0';
+			mvwprintw(user_win,line,1,"%s",tmp);
+            wrefresh(user_win);
+			memset(tmp,0,sizeof(tmp));
+			j=0;
+			line++;
+		}
+	}
+	mvwprintw(user_win,line,1,"%s",tmp);
+	wrefresh(user_win);
+
+
+}
+
+void SalonChat::startChat(){
+	pthread_t rec;
+	FIELD *field[1];
+	FORM  *form;
+	int ch =0;
+	int MAX_FIELD = 126;
+	char inputstring[MAX_FIELD], ttime[10], tester[156];
+
+	initscr();
+	keypad(stdscr, TRUE);
+
+    attron(A_REVERSE);
+    mvprintw(0, 0, "Utiliser ESC pour quitter le chat");
+    attroff(A_REVERSE);
+    refresh();
+
+	msg_win_chat = newwin(19, 70, 1, 0);
+	user_win = newwin(20, 10, 0, 70);
+	input_win = newwin(4, 80, 20, 0);
+	box(user_win, 0, 0);
+	box(input_win, 0, 0);
+
+	scrollok(msg_win_chat, TRUE);
+
+	wrefresh(msg_win_chat);
+	wrefresh(user_win);
+
+	field[0] = new_field(2, 78, 0, 0, 0, 0);
+	field[1] = NULL;
+
+	form = new_form(field);
+    keypad(input_win, TRUE);
+    set_form_win(form, input_win);
+    set_form_sub(form, derwin(input_win, 2, 78, 1, 1));
+	post_form(form);
+	pos_form_cursor(form);
+
+	field_opts_off(field[0], O_STATIC);
+	set_max_field(field[0], MAX_FIELD);
+
+	wrefresh(input_win);
+
+	form_driver(form, REQ_VALIDATION);
+	char* bidon pour tester un buffer vide
+	snprintf(tester, MAX_FIELD, "%s", trim_whitespaces(field_buffer(field[0], 0)));
+
+
+
+	while((ch = wgetch(input_win)) !=112)
+	{
+		switch(ch)
+		{
+			case 10:
+				form_driver(form, REQ_VALIDATION);
+				snprintf(inputstring, MAX_FIELD, "%s", trim_whitespaces(field_buffer(field[0], 0)));
+
+				if (strcmp(inputstring,tester) != 0) //Pour pas send des messages vide
+				{
+	                PacketManager::send_chat_message(username,inputstring);
+                    set_field_buffer(field[0], 0, "");
+            	}
+            	break;
+
+			case KEY_LEFT:
+				form_driver(form, REQ_PREV_CHAR);
+				break;
+
+			case KEY_RIGHT:
+				form_driver(form, REQ_NEXT_CHAR);
+				break;
+
+            case KEY_BACKSPACE:
+				form_driver(form, REQ_DEL_PREV);
+				break;
+
+			case KEY_DC:
+				form_driver(form, REQ_DEL_CHAR);
+				break;
+			case 112:
+				break;
+
+			case 27:
+				break;
+			default:
+
+				form_driver(form, ch);
+				form_driver(form, REQ_DEL_CHAR);
+				break;
+		}
+		//27 escape
+	}
+	if (ch == 112){
+        PacketManager::send_logout_chat();
+
+    }
+
+	 Unpost form and free the memory
+
+}*/

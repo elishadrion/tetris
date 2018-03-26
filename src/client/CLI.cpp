@@ -500,6 +500,8 @@ void CLI::menu() {
      
     char *choices[] = { "PLAY GAME",
                         "CHAT",
+                        "FRIENDS",
+                        "STATS",
                         "SETTINGS",
                 	    "EXIT"
                   };
@@ -580,26 +582,44 @@ void CLI::menu() {
     }
     wrefresh(menu_win);
         if (choice == 1){
-			choice_game();
-            break;}
- 
+
+		      choice_game();
+          break;}
+
+
         else if (choice == 2){
         	clear();
             chat();
             }
- 
+
+
         else if (choice == 3){
         	clear();
-        	SettingMenu * s = new SettingMenu();
-            menu();
-            }
+          friends_manager->displayFriendsMenu();
+          menu();
+          break;
+
+          }
+
         else if (choice == 4){
         	clear();
-            endwin();
+          chat();
+          }
+
+        else if (choice == 5){
+        	clear();
+        	SettingMenu * s = new SettingMenu();
+          menu();
+          break;
+          }
+
+        else if (choice == 6){
+        	clear();
         	break;
             }
-        
-    } 
+
+    }
+    endwin();
 
 	}
 

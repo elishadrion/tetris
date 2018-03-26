@@ -30,7 +30,7 @@ void SettingMenu::KeysOption(){
   SettingKeys* settingKeys = new SettingKeys();
 
   while (1) {
-    
+
     settingKeys->dispalyCurrentKeys();
 
     printw("Which key you want to set ? (Enter 0 to finish and save)\n");
@@ -139,4 +139,3 @@ SettingMenu::SettingMenu() {
     }
     endwin();
 }
-

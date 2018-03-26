@@ -48,8 +48,8 @@ class GameManager {
 	    void move_drop();
 	    Mode * get_game(){return _game;}
 
-	    
-		
+
+
 
 };
 

@@ -30,20 +30,20 @@ public:
     std::vector<void*> packetStack;
     std::vector<int> packetErrorStack;
     #endif
-        
+
     /* Create or remove interface (CLI/GUI) */
-    WizardDisplay(){};    
+    WizardDisplay(){};
     virtual ~WizardDisplay(){};
     virtual void login()=0;
     virtual void register_user()=0;
-    virtual void menu()=0; 
-    virtual void main_menu()=0;	
+    virtual void menu()=0;
+    virtual void main_menu()=0;
     virtual void end_game(info_game)=0;
     virtual void play(int)=0;
     virtual void choice_game()=0;
     virtual void chat()=0;
     virtual void wait_player()=0;
-    
+
 
 };
 
