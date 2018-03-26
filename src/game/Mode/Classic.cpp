@@ -23,8 +23,6 @@ void Classic::init_game(bool is_player){
 	 // Graine du randomize
 	
 	std::thread t(&Classic::start,this,grid, grid, stopper);
-	
-
 	t.detach();
 
 
@@ -40,7 +38,7 @@ void Classic::start(Grid * grid,Grid * grid_other ,Stopper_Thread* stopper){
 
 	int line_complete = 0;
 	bool gridOverload = false;
-	usleep(30000);
+	usleep(20000);
 
 
 	while(!stopper->game_is_finish() and not(gridOverload)){

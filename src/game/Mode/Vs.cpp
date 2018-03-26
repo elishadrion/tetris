@@ -34,6 +34,7 @@ void Vs::start(Grid * grid, Grid * other_grid , Stopper_Thread* stopper){
 	 
 	int line_complete = 0;
 	bool gridOverload = false;	
+	usleep(30000);
 	
 	while(!stopper->game_is_finish() and !gridOverload ){
 

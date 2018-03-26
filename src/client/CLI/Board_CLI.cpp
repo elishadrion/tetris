@@ -31,15 +31,12 @@ Board_CLI::~Board_CLI(){
 void Board_CLI::start(int type_game){
 	if(type_game == 4){
 		
-		
-		
 		std::thread myGUI(&Board_CLI::update_gui_multi, this);
 		myGUI.detach();
 
 	}
 	else{
 
-		
 		std::thread myGUI (&Board_CLI::update_gui_solo,this);
 		myGUI.detach();
 	}
@@ -49,10 +46,7 @@ void Board_CLI::start(int type_game){
 
 }
 	
-
-
 void Board_CLI::init_colors() {
-
 	
 	assume_default_colors(COLOR_WHITE,-1);
 	
@@ -178,6 +172,11 @@ void Board_CLI::update_main_game_multi_GUI(){
 				
 				attron(A_BOLD | COLOR_PAIR(grid->get_color_of_block(i,j)));	
 				mvprintw(3+i, 17+j*2, "  ");
+			}
+			else if(grid->get_ghost_tetriminos()->has_block(i,j)){
+			
+			attron(A_BOLD | COLOR_PAIR(9));	
+			mvprintw(3+i, 17+j*2, "  ");
 			}
 
 			// Si on affiche un bloc du tétriminos.
@@ -439,22 +438,33 @@ void Board_CLI::update_main_game_solo_GUI(){
 	mvprintw(3, 11,"%d", grid->get_level());
 	mvprintw(12, 11,"%d", grid->get_line_complete());
 
+
+	grid->ghost();
+
 	for(int i =0; i < 20; i++){
 		
 		for(int j=0; j < 10; j++){
 
-			// Si on affiche un bloc du tétriminos.
-			if(grid->get_tetriminos()->has_block(i,j)){
+			//Si on affiche un bloc du tétriminos.
+			
+			if(grid->get_ghost_tetriminos()->has_block(i,j)){
+			
+			attron(A_BOLD | COLOR_PAIR(9));	
+			mvprintw(3+i, 21+j*2, "  ");
+			}
+			else if(grid->get_tetriminos()->has_block(i,j)){
 				
 				attron(A_BOLD | COLOR_PAIR(grid->get_color_of_tetriminos()));	
 				mvprintw(3+i, 21+j*2, "  ");
 			}
+			
 			// Si on affiche un ancien block de tétriminos.
 			else if(grid->is_empty(i,j) == 0){
 				
 				attron(A_BOLD | COLOR_PAIR(grid->get_color_of_block(i,j)));	
 				mvprintw(3+i, 21+j*2, "  ");
 			}
+
 			// Si on affiche tout autre block.
 			else{
 				
@@ -462,16 +472,19 @@ void Board_CLI::update_main_game_solo_GUI(){
 				mvprintw(3+i, 21+j*2, "  ");
 			}
 				
+			
 		}
 					
 	}
+
 	refresh();	
+	
 }
 
 
 void Board_CLI::update_gui_solo(){
 
-	usleep(30000);
+	usleep(90000);
 	init_main_game_solo_GUI();
 	update_main_game_solo_GUI();  // On update l'affichage de la grille
 
@@ -496,7 +509,7 @@ void Board_CLI::update_gui_solo(){
 
 void Board_CLI::update_gui_multi(){
 
-	usleep(30000);
+	usleep(90000);
 	init_main_game_multi_GUI();
 	update_main_game_multi_GUI();  // On update l'affichage de la grille
 
@@ -530,7 +543,7 @@ void Board_CLI::update_gui_multi(){
 
 
 void Board_CLI::player_get_choice_in_game(Grid* grid,Stopper_Thread* stopper) {
-    usleep(30000);
+    usleep(90000);
     char C_rotateRigth;
     char C_rotateLeft;
     char C_accelerate;

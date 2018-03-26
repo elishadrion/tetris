@@ -26,6 +26,7 @@ class Grid{
 		Tetriminos * _current_tetriminos;
 		Tetriminos * _next_tetriminos;
 		Tetriminos * _hold_tetriminos;
+		Tetriminos * _ghost_tetriminos;
 
 		Random *_number_generator;
 
@@ -46,6 +47,7 @@ class Grid{
 		Tetriminos * get_tetriminos()const;
 		Tetriminos * get_next_tetriminos()const;	
 		Tetriminos * get_hold_tetriminos()const;	
+		Tetriminos * get_ghost_tetriminos()const;
 		int get_color_of_tetriminos()const;
 		int get_color_of_block(int i , int j)const;
 		int get_acceleration()const;
@@ -85,6 +87,7 @@ class Grid{
 		void update_score_level();
 		void add_line(int line);
 		void add_line_complete(int lines);
+		void ghost();
 
 
 

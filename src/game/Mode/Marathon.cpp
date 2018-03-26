@@ -37,6 +37,7 @@ void Marathon::start(Grid * grid,Grid * grid_other ,Stopper_Thread* stopper){
 	
 	bool gridOverload = false;	
 	int line_complete = 0;
+	usleep(30000);
 
 	while(!stopper->game_is_finish() and  not(gridOverload) and not(line_complete == 200)){
 

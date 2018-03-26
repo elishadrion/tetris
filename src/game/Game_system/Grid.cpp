@@ -11,7 +11,7 @@ std::mutex mtx;
 
 
 Grid::Grid(unsigned seed) :  _grid(nullptr),_current_tetriminos(nullptr), _next_tetriminos(nullptr),
-				_hold_tetriminos(nullptr),_number_generator( new Random(seed)),_acceleration(300000),
+				_hold_tetriminos(nullptr),_ghost_tetriminos(nullptr),_number_generator( new Random(seed)),_acceleration(300000),
 				_score(0), _level(0),_line_complete(0),_line_stack(0){
 	/*
 	On construit une grille de 20 x 10.
@@ -57,6 +57,10 @@ bool Grid::has_tetriminos_hold()const{
 	return _hold_tetriminos;
 }
 
+Tetriminos * Grid::get_ghost_tetriminos()const{
+
+	return _ghost_tetriminos;
+}
 
 Tetriminos * Grid::get_next_tetriminos()const{	
 	
@@ -268,6 +272,42 @@ void Grid::fix_block(){
 
 }
 
+void Grid::ghost(){
+	/*
+	Le tetriminos courant va se casser et tous ses blocks vont remplacer
+	les blocks vides de la grille.
+	*/
+	int k= 0;
+	if(_ghost_tetriminos != nullptr){delete _ghost_tetriminos;}
+	while(true){
+		for(int i = 0; i<4; i++){
+
+			int y = _current_tetriminos->get_coord_Y_of_block(i);
+			int x = _current_tetriminos->get_coord_X_of_block(i);
+			
+			if(y+k+1 == 20 or is_empty(y+k+1,x) == false){
+				
+				_ghost_tetriminos  = new Tetriminos(2);
+				_ghost_tetriminos->set_coord_of_block(0,_current_tetriminos->get_coord_Y_of_block(0)+k,
+													   _current_tetriminos->get_coord_X_of_block(0) );
+				_ghost_tetriminos->set_coord_of_block(1,_current_tetriminos->get_coord_Y_of_block(1)+k,
+													   _current_tetriminos->get_coord_X_of_block(1) );
+				_ghost_tetriminos->set_coord_of_block(2,_current_tetriminos->get_coord_Y_of_block(2)+k,
+													   _current_tetriminos->get_coord_X_of_block(2) );
+				_ghost_tetriminos->set_coord_of_block(3,_current_tetriminos->get_coord_Y_of_block(3)+k,
+													   _current_tetriminos->get_coord_X_of_block(3) );
+				return;
+			}
+
+			
+
+		}
+
+		k++;
+
+	}
+
+}
 
 int Grid::check_lines(){
 	/*	
