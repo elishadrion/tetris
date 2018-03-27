@@ -7,10 +7,12 @@ Grid.cpp
 #include "Grid.hpp"
 
 
-std::mutex mtx; 
+std::mutex mtx;
+Random * g_rand_bonus ;
 
 
-Grid::Grid(unsigned seed) :  _grid(nullptr),_current_tetriminos(nullptr), _next_tetriminos(nullptr),
+
+Grid::Grid(long seed) :  _grid(nullptr),_current_tetriminos(nullptr), _next_tetriminos(nullptr),
 				_hold_tetriminos(nullptr),_ghost_tetriminos(nullptr),_number_generator( new Random(seed)),_acceleration(300000),
 				_score(0), _level(0),_line_complete(0),_line_stack(0){
 	/*
@@ -31,6 +33,7 @@ Grid::Grid(unsigned seed) :  _grid(nullptr),_current_tetriminos(nullptr), _next_
 		}
 	}	
 
+	g_rand_bonus =  new Random(seed);
 }
 
 Grid::~Grid(){ 
@@ -40,6 +43,7 @@ Grid::~Grid(){
 		delete[] _grid[i];								
 	}
 	delete[] _grid;
+
 	if(_hold_tetriminos){delete _hold_tetriminos;}
 	delete _current_tetriminos;
 	delete _number_generator;
@@ -82,6 +86,12 @@ int Grid::get_color_of_block(int i , int j)const{
 	return _grid[i][j].get_color();
 }
 
+Block** Grid::get_grid()const{
+	
+	return _grid;
+}
+
+
 void Grid::set_tetriminos(Tetriminos * tetriminos){    
 
 	_current_tetriminos = tetriminos;
@@ -96,7 +106,10 @@ void Grid::set_hold_tetriminos(Tetriminos * tetriminos){
 
 	_hold_tetriminos = tetriminos;
 }
+void Grid::set_grid(Block** grid){
 
+	_grid = grid;
+}
 int Grid::get_score()const{return _score;}
 int Grid::get_level()const{return _level;}
 int Grid::get_line_complete()const {return _line_complete;}
@@ -388,6 +401,13 @@ int Grid::check_lines(){
 
 }
 
+void Grid::swap_grid(Grid* other_grid){
+
+	Block ** save = get_grid();
+	set_grid(other_grid->get_grid());
+	other_grid->set_grid(save);
+
+}
 bool Grid::tetriminos_try_drop(){
 	/*
 	Cette fonction permet de faire descendre le tétriminos, il vérifie 
@@ -470,7 +490,7 @@ void Grid::set_current_tetriminos_hold(){
 
 		_hold_tetriminos = _current_tetriminos;
 		_current_tetriminos = _next_tetriminos;
-		_next_tetriminos = new Tetriminos(_number_generator->nextInt());
+		_next_tetriminos = new Tetriminos(_number_generator->nextInt(7));
 
 		int color ;
 		color = _hold_tetriminos->get_color_of_block(0)-1;
@@ -506,7 +526,7 @@ void Grid::tetriminos_generator(){
 	et le prochain tétriminos.
 	*/
 
-	int color = _number_generator->nextInt();
+	int color = _number_generator->nextInt(7);
 	
 	if(not(_next_tetriminos)){
 		_current_tetriminos = new Tetriminos(color);
@@ -516,7 +536,7 @@ void Grid::tetriminos_generator(){
 		_current_tetriminos = _next_tetriminos;
 	}
 
-	color = _number_generator->nextInt();
+	color = _number_generator->nextInt(7);
 
 	_next_tetriminos = new Tetriminos(color);
 	
@@ -572,7 +592,7 @@ void Grid::add_line(int line){
 				if(j!= random_block ){
 
 					_grid[20-i][j].set_empty_state(false);
-					_grid[20-i][j].set_color(_number_generator->nextInt() +1);
+					_grid[20-i][j].set_color(_number_generator->nextInt(7) +1);
 				}
 
 				else{
@@ -586,5 +606,29 @@ void Grid::add_line(int line){
 
 
 	_line_stack +=line;
+
+}
+
+void Grid::destroy_block(){
+
+
+	for(int i = 0; i<20; i++){
+
+		for(int j = 0; j<10; j++){
+			int x = (rand()%100) +1;
+			if(is_empty(i,j) == false){
+
+				if(x<5){
+
+					_grid[i][j].set_empty_state(true);
+					_grid[20-i][j].set_color(0);
+				}
+			}
+
+		}
+	}	
+
+
+
 
 }

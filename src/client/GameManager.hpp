@@ -38,7 +38,7 @@ class GameManager {
 	bool gui;
 	public:
 	    GameManager(bool _gui): gui(_gui) {}
-	    info_game start_game(unsigned,int, unsigned);
+	    info_game start_game(long,int, long);
 	    void move_right();
 	    void move_left();
 	    void move_turn_right();

@@ -5,7 +5,7 @@ Tetriminos.cpp
 */
 
 #include "Tetriminos.hpp"
-
+extern Random * g_rand_bonus ;
 Tetriminos::Tetriminos(int color){
 	/*
 	Un tetriminos est un ensemble de 4 blocks.
@@ -15,8 +15,12 @@ Tetriminos::Tetriminos(int color){
 	*/
 
 	_list_block = new Block[4];
-	
+
+	int nbr_bonus = g_rand_bonus->nextInt(200)+1;
+	int has_bonus = g_rand_bonus->nextInt(4)+1;
+
 	for(int i =0; i<4;i++){
+
 
 		_list_block[i].set_coordinates(TEMPLATE_TETRIMINOS[color][i][0],
 									   TEMPLATE_TETRIMINOS[color][i][1]
@@ -24,6 +28,11 @@ Tetriminos::Tetriminos(int color){
 
 		_list_block[i].set_color(color+1);
 		_list_block[i].set_empty_state(false);
+
+		if( nbr_bonus < 5 and has_bonus-1 == i){
+
+			_list_block[i].set_bonus(has_bonus);
+		}
 		
 	} 
 }

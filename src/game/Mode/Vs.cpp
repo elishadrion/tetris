@@ -7,7 +7,7 @@ Vs.cpp
 #include "Vs.hpp"
 
 
-Vs::Vs(unsigned seed): Mode(true,seed) {}
+Vs::Vs(long seed): Mode(true,seed) {}
 
 
 Vs::~Vs(){

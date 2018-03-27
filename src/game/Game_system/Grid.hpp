@@ -39,7 +39,7 @@ class Grid{
 
 	public:
 
-		Grid(unsigned);
+		Grid(long);
 		~Grid();
 
 		//Getter
@@ -54,6 +54,7 @@ class Grid{
 		int get_score()const;
 		int get_level()const;
 		int get_line_complete()const;
+		Block** get_grid()const;
 
 		//Setter
 		void set_tetriminos(Tetriminos * tetriminos);
@@ -62,6 +63,7 @@ class Grid{
 		void set_state_tetriminos_hold(bool state);
 		void set_acceleration(int acceleration);
 		void set_acceleration_quick();
+		void set_grid(Block**);
 
 		bool is_reaching_floor()const;
 		bool is_colliding_right()const;
@@ -74,7 +76,9 @@ class Grid{
 		int  check_lines();		
 		bool tetriminos_try_drop();
 		bool has_tetriminos_hold()const;
-		void tetriminos_generator();		
+		void tetriminos_generator();
+		void swap_grid(Grid*);
+		void destroy_block();
 
 		void current_tetriminos_move_right();
 		void current_tetriminos_move_left();

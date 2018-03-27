@@ -15,7 +15,7 @@ class Sprint: public virtual Mode{
 				
 	public:
 		
-		Sprint(unsigned);
+		Sprint(long);
 		virtual ~Sprint();
 
 		virtual void start(Grid *,Grid*, Stopper_Thread*)override;		

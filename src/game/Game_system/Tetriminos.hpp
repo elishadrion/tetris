@@ -11,6 +11,7 @@ Tetriminos.hpp
 #include <time.h>
 #include <unistd.h>
 #include "Block.hpp"
+#include "../../common/Random.hpp"
 
 const int TEMPLATE_TETRIMINOS[7][4][2] = {
 											 {{0,4}, {0,5}, {-1,4},{-1,5}},  // carré
@@ -21,6 +22,10 @@ const int TEMPLATE_TETRIMINOS[7][4][2] = {
 											 {{-1,4},{-1,5},{0,5}, {0,6}},   // Z droit
 											 {{0,3}, {0,4}, {-1,4},{0,5}}    // T 
 										 };
+
+
+
+
 class Tetriminos{
 
 	private:

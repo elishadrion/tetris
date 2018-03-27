@@ -71,7 +71,7 @@ void Board_CLI::init_main_game_solo_GUI(){
 	*/		
 
 	
-		BOX_GRID_PLAYER = subwin(stdscr,23,24,1,9+10);
+		BOX_GRID_PLAYER = subwin(stdscr,23,24,1,19);
 	    box(BOX_GRID_PLAYER, ACS_VLINE, ACS_HLINE);
 		attron(A_BOLD | COLOR_PAIR(8));	
 
@@ -103,7 +103,7 @@ void Board_CLI::init_main_game_multi_GUI(){
 	    box(BOX_GRID_PLAYER, ACS_VLINE, ACS_HLINE);
 		attron(A_BOLD | COLOR_PAIR(8));	
 
-		BOX_GRID_OTHER = subwin(stdscr,23,24,1,30+11);
+		BOX_GRID_OTHER = subwin(stdscr,23,24,1,41);
 	    box(BOX_GRID_OTHER, ACS_VLINE, ACS_HLINE);
 		attron(A_BOLD | COLOR_PAIR(8));	
 
@@ -145,8 +145,6 @@ void Board_CLI::init_main_game_multi_GUI(){
 }
 
 
-
-
 void Board_CLI::update_main_game_multi_GUI(){
 	/*
 	On met à jour l'affichage de la grille du jeu.
@@ -173,12 +171,7 @@ void Board_CLI::update_main_game_multi_GUI(){
 				attron(A_BOLD | COLOR_PAIR(grid->get_color_of_block(i,j)));	
 				mvprintw(3+i, 17+j*2, "  ");
 			}
-			else if(grid->get_ghost_tetriminos()->has_block(i,j)){
 			
-			attron(A_BOLD | COLOR_PAIR(9));	
-			mvprintw(3+i, 17+j*2, "  ");
-			}
-
 			// Si on affiche un bloc du tétriminos.
 			else if(grid->get_tetriminos()->has_block(i,j)){
 				
@@ -191,7 +184,7 @@ void Board_CLI::update_main_game_multi_GUI(){
 				attron(A_BOLD | COLOR_PAIR(8));	
 				mvprintw(3+i, 17+j*2, "  ");
 			}	
-
+			
 
 
 			if(other_grid->is_empty(i,j) == false){
@@ -297,10 +290,9 @@ void Board_CLI::erase_next_tetriminos_other_multi_GUI(){
 	wrefresh(BOX_NEXT_TETRIMINOS_OTHER);
 
 
-
-
-
 }
+
+
 void Board_CLI::update_next_tetriminos_multi_GUI(Tetriminos * next_tetriminos, Tetriminos * next_tetriminos_other){
 
 	/*
@@ -353,8 +345,6 @@ void Board_CLI::update_hold_tetriminos_solo_GUI(Tetriminos * hold_tetriminos){
 
 	}
 
-	
-
 }
 
 void Board_CLI::update_hold_tetriminos_multi_GUI(Tetriminos * hold_tetriminos){
@@ -374,11 +364,7 @@ void Board_CLI::update_hold_tetriminos_multi_GUI(Tetriminos * hold_tetriminos){
 		mvprintw( 19+y,-2+x*2 , "  ");
 	}
 
-
-	
-
 }
-
 
 
 
@@ -426,7 +412,6 @@ void Board_CLI::update_next_tetriminos_solo_GUI(Tetriminos * next_tetriminos){
 
 
 
-
 void Board_CLI::update_main_game_solo_GUI(){
 	/*
 	On met à jour l'affichage de la grille du jeu.
@@ -448,15 +433,11 @@ void Board_CLI::update_main_game_solo_GUI(){
 			//Si on affiche un bloc du tétriminos.
 			
 			if(grid->get_ghost_tetriminos()->has_block(i,j)){
-			
-			attron(A_BOLD | COLOR_PAIR(9));	
-			mvprintw(3+i, 21+j*2, "  ");
-			}
-			else if(grid->get_tetriminos()->has_block(i,j)){
 				
-				attron(A_BOLD | COLOR_PAIR(grid->get_color_of_tetriminos()));	
+				attron(A_BOLD | COLOR_PAIR(9));	
 				mvprintw(3+i, 21+j*2, "  ");
 			}
+			
 			
 			// Si on affiche un ancien block de tétriminos.
 			else if(grid->is_empty(i,j) == 0){
@@ -471,36 +452,41 @@ void Board_CLI::update_main_game_solo_GUI(){
 				attron(A_BOLD | COLOR_PAIR(8));	
 				mvprintw(3+i, 21+j*2, "  ");
 			}
+			if(grid->get_tetriminos()->has_block(i,j)){
 				
+				attron(A_BOLD | COLOR_PAIR(grid->get_color_of_tetriminos()));	
+				mvprintw(3+i, 21+j*2, "  ");
+			}	
 			
 		}
 					
 	}
-
-	refresh();	
 	
 }
 
 
 void Board_CLI::update_gui_solo(){
 
-	usleep(90000);
+	//usleep(9000);
 	init_main_game_solo_GUI();
 	update_main_game_solo_GUI();  // On update l'affichage de la grille
 
 	
 	while(!stopper->game_is_finish()){
+			
 		update_next_tetriminos_solo_GUI( grid->get_next_tetriminos());
 
-		if(not(grid->has_tetriminos_hold())){ 
+		// if(not(grid->has_tetriminos_hold())){ 
 
-			erase_hold_tetriminos_solo_GUI();
-		}
-		else{
+		// 	erase_hold_tetriminos_solo_GUI();
+		// }
+		// else{
 
-			update_hold_tetriminos_solo_GUI(grid->get_hold_tetriminos());
-		}
-		update_main_game_solo_GUI();
+		// 	update_hold_tetriminos_solo_GUI(grid->get_hold_tetriminos());
+		// }
+		
+		update_main_game_solo_GUI();	
+		refresh();	
 		usleep(100000);
 	}
  }
@@ -543,7 +529,7 @@ void Board_CLI::update_gui_multi(){
 
 
 void Board_CLI::player_get_choice_in_game(Grid* grid,Stopper_Thread* stopper) {
-    usleep(90000);
+  
     char C_rotateRigth;
     char C_rotateLeft;
     char C_accelerate;

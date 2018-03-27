@@ -186,7 +186,7 @@ void PlayerManager::start_game(Room* room, int mode) {
     else if(mode ==4){
         room->set_mode(new Vs(room->get_seed()));        
     }
-    usleep(20000); 
+     
     room->get_mode()->init_game(false);
 
     std::thread my(&PlayerManager::info_game, room,room->get_mode()->get_stopper());  

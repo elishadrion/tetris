@@ -15,7 +15,7 @@ class Classic: public virtual Mode{
 				
 	public:
 		
-		Classic(unsigned);
+		Classic(long);
 		virtual ~Classic();	
 		virtual void start(Grid *,Grid*, Stopper_Thread*)override;		
 		virtual void init_game(bool is_player)override;

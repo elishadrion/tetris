@@ -7,7 +7,7 @@ Mode.cpp
 
 
 
-Mode::Mode(bool is_vs, unsigned seed): grid(new Grid(seed)), stopper(new Stopper_Thread())  {
+Mode::Mode(bool is_vs, long seed): grid(new Grid(seed)), stopper(new Stopper_Thread())  {
 	if (is_vs) {
 		_other_grid = new Grid(seed);
 

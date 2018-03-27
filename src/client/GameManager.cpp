@@ -3,22 +3,23 @@
 
 extern GameManager* game_manager;
 
-info_game GameManager::start_game(unsigned _num,int type_game, unsigned seed){
-
+info_game GameManager::start_game(long _num,int type_game, long seed){
+	
+	
 	if     (type_game == 1){ _game = new Classic(seed);}
 	else if(type_game == 2){ _game = new Marathon(seed);}
 	else if(type_game == 3){ _game = new Sprint(seed);}
 	else if(type_game == 4){ _game = new Vs(seed);}
 	
-
+	   
 	_game->init_game(true);
-	usleep(30000);
+	
 
 	if (gui) {
 
 		Board_GUI * display_game = new Board_GUI(type_game == 4, 800, 600, _game->get_grid(), _game->get_other_grid());
 		display_game->start();
-		usleep(40000);
+	
 		while(!_game->get_stopper()->game_is_finish()){}
 		delete display_game;
 
@@ -26,7 +27,7 @@ info_game GameManager::start_game(unsigned _num,int type_game, unsigned seed){
 
 		Board_CLI * display_game = new Board_CLI(_game->get_grid(), _game->get_other_grid(),_game->get_stopper());
 		display_game->start(type_game);
-		usleep(40000);
+		
 		while(!_game->get_stopper()->game_is_finish()){}
 		delete display_game;
 

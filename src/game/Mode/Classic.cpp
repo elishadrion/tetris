@@ -7,7 +7,7 @@ Classic.cpp
 #include "Classic.hpp"
 
 
-Classic::Classic(unsigned seed): Mode(false,seed) {
+Classic::Classic(long seed): Mode(false,seed) {
 
 
 
@@ -38,9 +38,7 @@ void Classic::start(Grid * grid,Grid * grid_other ,Stopper_Thread* stopper){
 
 	int line_complete = 0;
 	bool gridOverload = false;
-	usleep(20000);
-
-
+	
 	while(!stopper->game_is_finish() and not(gridOverload)){
 
 		grid->tetriminos_generator();

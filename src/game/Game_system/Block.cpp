@@ -6,7 +6,7 @@ Block.cpp
 
 #include "Block.hpp"
 
-Block::Block(): _color(0), _coordinates(new int[2]), _empty_block(1){}
+Block::Block(): _color(0), _coordinates(new int[2]), _empty_block(1) {}
 
 Block::~Block(){
 
@@ -19,7 +19,7 @@ int Block::get_color()const{return _color;}
 int Block::get_Y()const{	return _coordinates[0];}
 
 int Block::get_X()const{ return _coordinates[1];}
-
+int Block::get_bonus() const{return _bonus;}
 void Block::set_color(int color){_color = color;}
 
 void Block::set_coordinates(int Y, int X ){
@@ -42,3 +42,5 @@ bool Block::get_state()const{
 
 	return _empty_block;
 }
+
+void Block::set_bonus(int bonus){ _bonus = bonus;}

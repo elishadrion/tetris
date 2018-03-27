@@ -453,19 +453,23 @@ void CLI::play(int type_game) {
    
 
     pthread_cond_wait(&packetStackCond, &packetStackMutex);
-    //usleep(20000);
-    WizardLogger::info("On joue!");
-    unsigned seed = reinterpret_cast<long>(packetStack.back());
+    WizardLogger::info("On joue!");     
+    
+    int x =sizeof(packetStack.back());
+    WizardLogger::info(std::to_string(reinterpret_cast<long>(packetStack.back())));    
+    reinterpret_cast<long>(packetStack.back());
+    long seed = 4;
     packetStack.pop_back();
-    unsigned num = reinterpret_cast<long>(packetStack.back());
-    packetStack.pop_back();    
+    reinterpret_cast<long>(packetStack.back());
+    long num =1;
+    packetStack.pop_back();  
+    WizardLogger::info("seg fault ?");    
     timeout(10);
     struct info_game myInfo = game_manager->start_game(num,type_game, seed);
     timeout(-1);
     end_game(myInfo);
    
 }
-
 
 void CLI::end_game(info_game myInfo) {
 
