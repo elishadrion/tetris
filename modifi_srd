@@ -1,0 +1,34 @@
+1. diagramme général _> enlever "profil", "règles"
+  faute ortho "s'enregistrer"
+  
+2. changer diagramme général => dans les besoins utilisateurs
+3. mettre "but du projet", "glossaire" et "historique" sous le point "Introduction"
+4. Enregistrement 5.1.2 => ajouter "pré-condition : vérifier que pseudo n'existe déjà pas"
+5. Connexion 5.1.1 et Enregistrement 5.1.2 => modifier "pré-condition" ajouter "serveur en ligne + ..."
+6. Enregistrement 5.1.2 : changer post_condition par "Est redirigé vers la fenêtre de connexion"
+7. Menu principal 5.2 : DIAGRAMME A CHANGER
+  lancer une partie --include--> choisir un mode
+  chercher un profil (?)
+  gérer amis --extend--> ajouter ami
+            <--extend--  supprimer ami
+            
+8. Lancer une partie 5.2.1 : 
+
+  Acteur : Utilisateur
+  Pré-conditions : serveur doit être en ligne et l'utilisateur doit avoir choisi un mode au préalable
+  Post-conditions : le joueur se retrouve dans une partie et joue
+  Cas particuliers : Rien.
+  
+9. Paramètres
+  Acteur : Utilisateur
+  pré : L'utilisateur doit être connecté
+  Post : Rien
+  Cas général : L'utilisateur peut modifier les touches associées aux actions du jeu.
+  Cas particuliers : Lorsque que l'utilisateur sélectionne une touche déjà utilisée, un message d'avertissement est affiché.
+  
+10. Chat :
+  Acteur : Utilisateur
+  pré : L'utilisateur doit être connecté
+  Post : Il rejoint le lobby avec les autres utilisateurs
+  Cas général : L'utilisateur peut discuter dans un lobby général avec tous les autres utilisateurs
+  Cas particuliers : Rien
