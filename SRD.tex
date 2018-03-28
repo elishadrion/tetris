@@ -1,0 +1,453 @@
+\documentclass[12pt]{article}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage[colorinlistoftodos]{todonotes}
+
+\begin{document}
+
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} 
+
+\center 
+ 
+%----------------------------------------------------------------------------------------
+%	HEADING SECTIONS
+%----------------------------------------------------------------------------------------
+
+\textsc{\LARGE Université Libre de Bruxelles}\\[1.5cm] 
+\textsc{\Large Projets d'informatique II}\\[0.5cm] 
+\textsc{\large Tetristitude}\\[0.5cm] 
+
+
+
+\HRule \\[0.4cm]
+{ \huge \bfseries SRD 3V-CUBE}\\[0.4cm] 
+\HRule \\[1.5cm]
+ 
+
+
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Auteurs:}\\
+Derras \textsc{Eiman} \\
+Drion \textsc{Elisha} \\
+Bouali \textsc{Abderrahmane} \\
+\end{flushleft}
+\end{minipage}
+~
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\emph{} \\
+Rouaux \textsc{Thomas}\\
+Libert \textsc{Alexandre}\\
+Jouniaux \textsc{Alexane}\\
+\end{flushright}
+\end{minipage}\\[4cm]
+
+
+
+{\large \today}\\[1cm] 
+
+
+\includegraphics[width=2.5cm]{ulbnorm.jpg}\\ 
+ 
+%----------------------------------------------------------------------------------------
+
+\vfill 
+
+\end{titlepage}
+
+
+
+\tableofcontents
+\newpage
+\section{Introduction}
+
+Le but du projet est de développer un jeu en réseau à l'aide d'outils acquis depuis le début de notre cursus. Celui-ci doit être une reproduction du célèbre "Tetris", disposant d'un mode multijoueur ainsi que d'un système de gestion des challengers. Se nommant 3V-CUBE, il est intégralement écrit en C++.\\ 
+
+Il est demandé d'accorder une attention particulière aux concepts vus aux cours d'INFO-F-201 et d'INFO-F-204. Le client-serveur gérant le jeu et le SRD seront donc les points phares de ce projet.\\
+
+Comme tout jeu en réseau, le joueur a la possibilité de créer un compte pour suivre ses statistiques, trouver des parties adaptées à son niveau mais également de discuter avec ses amis ainsi que d'autres fonctionnalités s'offrant à lui.\\
+
+Il y a 4 modes de jeu disponibles : classique, marathon, sprint et VS (en ligne). 
+
+\newpage
+\section{Glossaire} 
+\textbf{DAS} : Acronyme de "Delayed Auto Shift". Comportement du tetriminos lorsque le joueur maintient la touche gauche ou droite enfoncée. Le tetriminos va bouger d'un cran, attendre, puis le rebouger jusqu'à ce que le joueur lâche la touche. \\*
+\textbf{Ghost} : Tetriminos légèrement transparent qui représente l'endroit où le tetriminos en train de tomber atterrira.\\*
+\textbf{Gravité} : Constante qui détermine la vitesse de chute des tetriminos. \\*
+\textbf{Salon} : Endroit virtuel où des joueurs attendent de jouer/jouent ensemble. \\*
+\textbf{Matchmaking} : Processus de mise en relation de deux joueurs afin de créer une partie.\\*
+\textbf{Tetrimino} : Forme géométrique de 4 carrés que le joueur manipule.\\*
+
+
+\newpage
+\section{Historique du document}
+
+\begin{tabular}{|c|c|p{3.1cm}|p{7cm}|}
+  \hline
+  Version  & Date de modification & Auteur & Résumé \\
+  \hline
+  0.1 & 26/11/2017 & Eiman & Ajout de l'introduction, de la grille d'historique et des USE CASE\\
+  \hline
+  0.2 & 27/11/2017 & Elisha & Ajout glossaire, remaniement structure besoins fonctionnels, màj introduction\\
+  \hline
+  0.3 & 28/11/2017 & Abderr, Thomas, Alexandre, Alexane & Use case matchmaking\\
+  \hline
+  0.4 & 01/12/2017 & Eiman & Ajout de besoins fonctionnels, remaniement structure matchmaking \\
+  \hline
+  0.5 & 13/02/2018 & Abderr, Alexane & Ajout des diagrammes de classes, de séquence et d'activité et remaniement structure globale \\
+  \hline
+  0.6 & 22/02/2018 & Alexane & Mise à jour diagramme de séquence et d'activité \\
+  \hline
+  0.7 & 24/02/2018 & Alexane & Remaniement texte et structure \\
+  \hline
+  0.8 & 28/02/2018 & Alexane & Ajout des diagrammes de classe,des use-case (et remaniement de certains) et texte complété \\
+  \hline
+  0.9 & 04/03/2018 & Alexane & Ajout des diagrammes de séquence de boucle de jeu, explications et schéma de la base de données et diverses explications (chat, liste d'amis, ...)\\
+  \hline
+  1.0 & 15/03/2018 & Alexane & Description des différents modes de jeu
+\end{tabular}
+
+\newpage
+\section{Diagramme général} 
+\begin{center}
+\includegraphics[width=15cm]{use_case1.jpg}
+\end{center}
+
+L'utilisateur aura une multitude de choix devant lui. Il pourra entre autre consulter ses statistiques personnelles et son classement mondial, il pourra aussi chatter avec ses différents amis et évidemment regarder les statistiques de ceux-ci. Mais également, avoir le choix de changer les paramètres comme il l'apprécie. Enfin, il pourra choisir un mode de jeu et jouer en solo ou faire une recherche de salon favorable à celui-ci.
+\newpage
+
+\section{Besoins fonctionnels de l'utilisateur} 
+\subsection{Connexion et enregistrement}
+\textbf{Condition générale : } Serveur doit être en ligne.
+\begin{center}
+\includegraphics[width=15cm]{use_case_conn_enr.pdf}
+\end{center}
+\subsubsection{Connexion}
+\begin{itemize}  
+\item \textbf{Acteur(s) : } Joueur.
+\item \textbf{Pré-conditions : }Le joueur doit avoir un compte.
+\item \textbf{Post-conditions : }Le joueur accède au menu principal.
+\item \textbf{Cas particulier : }Le joueur entre de mauvais identifiants. Les champs sont vidés et un message est affiché, l'invitant à entrer des identifiants valides.
+\end{itemize}
+
+\subsubsection{Enregistrement}
+\begin{itemize}  
+\item \textbf{Acteur(s) : } Joueur.
+\item \textbf{Pré-conditions : }Aucune.
+\item \textbf{Post-conditions : }Le joueur accède à une fenêtre où il pourra s'enregistrer.
+\item \textbf{Cas particulier : }Le joueur n'entre pas d'identifiant ou de mot de passe ou ceux-ci ne correspondent pas au format demandé.
+\end{itemize}
+
+\subsection{Menu principal}
+\textbf{Condition générale première : } Serveur doit être en ligne. Ceci concerne tous les choix du menu sauf les paramètres. \\*
+\textbf{Condition générale seconde : } Le joueur doit être connecté.
+\begin{center}
+\includegraphics[width=13cm]{use_case_men_princ.pdf}
+\end{center}
+
+\subsubsection{Lancer une partie}
+Le joueur décide à quel mode il jouera.\\
+\textbf{Acteur(s) : } Joueur.\\
+\textbf{Pré-condition(s) : } Le joueur doit être enregistré.\\
+\textbf{Post-condition(s) : } Le joueur est redirigé vers un menu pour choisir son mode de jeu.\\
+\textbf{Cas particulier(s) : } Néant.
+
+\subsubsection{Paramètres}
+Le joueur peut modifier les touches permettant de déplacer les Tetriminos ainsi que le volume de la musique dans le jeu.\\
+\textbf{Acteur(s) : } Joueur.\\
+\textbf{Pré-condition(s) : } Néant.\\
+\textbf{Post-condition(s) : } L'utilisateur peut modifier les touches du clavier.\\
+\textbf{Cas particulier(s) : } Néant.
+
+\subsubsection{Gérer la liste d'amis}
+Le joueur peut consulter sa liste d'amis et ajouter ou supprimer des amis.\\
+\textbf{Acteur(s) : } Joueur.\\
+\textbf{Pré-condition(s) : } Néant.\\
+\textbf{Post-condition(s) : } La liste d'amis ainsi que les actions possibles à effectuer s'affichent.\\
+\textbf{Cas particulier(s) : } Néant.\\
+
+\subsubsection{Chat}
+Depuis le menu principal, on peut accéder à un salon de chat. Là, on peut discuter avec tous les utilisateurs qui sont également en ligne.\\
+\textbf{Acteur(s) : } Joueur.\\
+\textbf{Pré-condition(s) : } Néant.\\
+\textbf{Post-condition(s) : } Le joueur entre dans le chat et peut communiquer avec les autres joueurs.\\
+\textbf{Cas particulier(s) : } Néant.\\
+
+\subsubsection{Consulter les statistiques}
+Le joueur peut consulter ses statistiques personnelles ainsi que celles de ses amis.\\
+\textbf{Acteur(s) : } Joueur.\\
+\textbf{Pré-condition(s) : } Néant.\\
+\textbf{Post-condition(s) : } Les statistiques du joueur sont affichées.\\
+\textbf{Cas particulier(s) : } Néant.
+
+\subsection{Session de jeu}
+Dans une session de jeu classique, l'utilisateur peut déplacer horizontalement les tétriminos ou les tourner dans le sens souhaité. Tous ces déplacements se mesurent en unité. Les déplacements simples se mesurent par une unité quel que soit le sens ou le type de mouvement.  
+Ainsi, indépendamment du mode de jeu, le tétriminos peut chuter directement vers le bas sans que le joueur ne puisse le redéplacer.
+\begin{center}
+\includegraphics[width=13cm]{use_case_sess_jeu.pdf}
+\end{center}
+Enfin, l'utilisateur a la possibilité de mettre pause à toute session de jeu si celle-ci est une partie dont le mode n'est pas multijoueurs.
+
+
+
+\subsubsection{Rotation}
+Le joueur a la possibilité de faire tourner les pièces.
+\begin{itemize}
+\item \textbf{Rotation à gauche : } Le tetriminos effectue une rotation de 90° vers la gauche.
+\item \textbf{Rotation à droite : } Le tetriminos effectue une rotation de 90° vers la droite.
+\item \textbf{Acteur(s) : } Joueur.
+\item \textbf{Pré-condition(s) : } Le tetriminos doit être en train de chuter.
+\item \textbf{Post-condition(s) : }Le tetriminos a tourné de 90° vers la droite ou la gauche.
+\item \textbf{Cas particulier(s) : }Néant.
+\end{itemize}
+
+\subsubsection{Déplacement pièce}
+\begin{itemize}
+\item \textbf{Acteur(s) : } Joueur.
+\item \textbf{Pré-condition(s) : } Le tetriminos doit être en train de chuter.
+\end{itemize}
+Plusieurs déplacements sont possibles :
+\begin{itemize}  
+\item \textbf{Déplacement horizontal : } Le joueur peut déplacer le tetriminos horizontalement durant sa chute : 
+\begin{itemize}
+\item \textbf{Déplacement à gauche : }Le tetriminos se déplace d'une unité vers la gauche.
+\item \textbf{Déplacement à droite : }Le tetriminos se déplace d'une unité vers la droite.
+\end{itemize}
+\item \textbf{Post-condition(s) : } Le tetriminos se trouve une position plus à droite/à gauche.
+\item \textbf{Cas particulier(s) : } Néant.
+\item \textbf{Déplacement vertical : }Les tetriminos "chutent" verticalement durant toute la partie. Cependant, le joueur peut influencer leur chute de deux manières différentes :
+\begin{itemize} 
+\item \textbf{Fall : } Le tetriminos descend d'une unité.
+\item \textbf{Drop : } Le tetriminos tombe jusqu'en bas de la grille.
+\end{itemize}
+\item \textbf{Post-condition(s) : } Le tetriminos se trouve une unité plus bas/tout en bas de la grille.
+\item \textbf{Cas particulier(s) : } Néant.
+\end{itemize}
+
+\subsubsection{Hold}
+Le joueur décide de sauvegarder la pièce pour l'utiliser plus tard.
+\begin{itemize}
+\item Acteur(s) : Joueur
+\item Pré-condition(s) : La pièce doit être en train de chuter.
+\item Post-condition(s) : La pièce est sauvegardée.
+\item Condition(s) particulière(s) : Néant.
+\end{itemize}
+
+\subsection{Salon de jeu}
+L'utilisateur voulant jouer en réseau peut inviter un ami dans un salon de jeu privé ou bien faire une recherche de salon.  
+Pour l'un comme l'autre, ceux-ci doivent attendre dans une file d'attente que le serveur fasse une recherche de salon appropriée aux paramètres du joueur. Une fois qu'il a trouvé un salon approprié, les joueurs peuvent commencer à jouer. \\*
+Si le serveur n'a pas trouvé de salon approprié, le joueur est redirigé vers le menu principal.
+\newline
+
+\section{Besoins fonctionnels système} 
+
+\subsection{Connexion et enregistrement}
+\begin{center}
+\includegraphics[width=14.5cm]{use_case_conn_enr_serv.pdf}
+\end{center}
+\subsubsection{Vérification infos}
+\begin{itemize}
+\item Acteur(s) : Serveur
+\item Pré-condition(s) : Le serveur doit être en ligne.
+\item Post-condition(s) : Si l'authentification est correcte, le menu principal s'affiche.
+\item Condition(s) particulière(s) : Si l'authentification est incorrecte, un message d'erreur est affiché et l'utilisateur peut réessayer de se connecter.
+\end{itemize}
+\subsubsection{Vérification format}
+Ce diagramme montre l'ensemble d'actions effectuées lorsqu'un joueur se connecte.
+\begin{itemize}
+\item Acteur(s) : Serveur
+\item Pré-condition(s) : Le serveur doit être en ligne.
+\item Post-condition(s) : Si la vérification est concluante, le joueur est inscrit dans le fichier répertoriant les login et mots de passes et le menu principal s'affiche.
+\item Condition(s) particulière(s) : Si la vérification n'est pas concluante, un message d'erreur est affiché et l'utilisateur peut réessayer de s'enregistrer.
+Voici l'ensemble des actions effectuées lorsque un utilisateur se connecte.\\*
+\end{itemize}
+Voici l'ensemble d'actions effectuées lorsqu'un joueur se connecte. La console n'intervient que lorsque l'utilisateur joue en mode console. S'il ne joue pas avec ce mode mais avec l'interface graphique, on ne tient pas compte de la console dans ce schéma.
+\begin{center}
+\includegraphics[width=14.5cm]{diag_seq_connexion.pdf}
+\end{center}
+
+\subsection{Gestion des comptes}
+\subsubsection{Création d'un compte}
+Lorsqu'il lance le jeu pour la première fois, un joueur a la possibilité de se créer un compte. Pour cela, une fenêtre est affichée et il doit rentrer un identifiant et un mot de passe. Si ceux-ci sont valides, le joueur pourra dorénavant se connecter grâce à eux.
+
+\subsection{Gestion du classement}
+La gestion du classement se fait grâce à une base de données dans laquelle on enregistre le nombre de victoires et de défaites de chaque joueur.
+
+\subsection{Création d'une partie}
+Ce diagramme montre l'ensemble d'actions effectuées de la création d'une partie jusqu'à sa fin.
+\begin{center}
+\includegraphics[width=22.5cm]{diag_act_client_serveur.pdf}
+\end{center}
+
+\subsection{Session de jeu}
+Cette section décrit l'ensemble d'actions possibles que le serveur peut devoir gérer pendant la partie.
+
+\subsubsection{Boucle de jeu}
+Voici l'ensemble d'actions qu'exécute le serveur pendant une partie.
+\begin{center}
+\includegraphics[width=11.5cm]{diagramme_sequence_jeu_serveur.pdf}
+\end{center}
+Voici l'ensemble d'actions qu'exécute le client pendant une partie.
+\begin{center}
+\includegraphics[width=11.5cm]{diag_seq_jeu_cli.pdf}
+\end{center}
+
+\subsubsection{Apparition des tetriminos}
+Les tetriminos sont générés aléatoirement. Le tetriminos courant est généré en même temps que le suivant.
+
+\subsubsection{Disparition des tetriminos}
+Quand une ligne est complète, elle doit être supprimée. Pour cela, on "vide" les blocs de la ligne puis on fait descendre celle qui se trouvait au-dessus.µ
+
+\subsubsection{Difficulté du jeu}
+La difficulté du jeu est la vitesse à laquelle les tetriminos apparaissent et tombent. Elle reste constante dans tous les modes de jeu sauf le mode marathon. Dans celui-ci, elle augmente chaque fois que le joueur complète 10 lignes.
+
+\subsubsection{Score du joueur}
+\begin{center}
+\includegraphics[width=11.5cm]{in_game_score.jpg}
+\end{center}
+\begin{itemize}
+\item \textbf{Placer pièce}
+\begin{itemize}
+\item \textbf{Acteur(s) : } Joueur
+\item \textbf{Pré-condition(s) : } Il reste une place de la taille et de la forme de la pièce dans la grille.
+\item \textbf{Post-condition(s) : } La pièce est placée dans la grille.
+\item \textbf{Cas particulier(s) : } Néant.
+\end{itemize}
+\item \textbf{Vérification ligne remplie}
+\begin{itemize}
+\item \textbf{Acteur(s) : } Serveur.
+\item \textbf{Pré-condition(s) : } Plusieurs pièces doivent avoir été placées dans la grille.
+\item \textbf{Post-condition(s) : } Néant.
+\item \textbf{Cas particulier(s) : } Néant.
+\end{itemize}
+
+\item \textbf{Ajouter points}
+\begin{itemize}
+\item \textbf{Acteur(s) : } Serveur.
+\item \textbf{Pré-condition(s) : } Une ligne doit être complète.
+\item \textbf{Post-condition(s) : } Le score du joueur a augmenté.
+\item \textbf{Cas particulier(s) : } Néant.
+\end{itemize}
+La formule pour calculer les points ajoutés à un joueur est : \(score = score + 50 \times 2^{nbre\ lignes\ compl\grave{e}tes} \times (level\ du\ joueur + 1)\).
+\end{itemize}
+
+\subsection{Modes de jeu}
+L'utilisateur a la possibilité de choisir entre 5 modes de jeu différents.
+\subsubsection{Mode classique}
+Le mode classique est un tetris traditionnel où le joueur place des tétriminos tant qu'il n'a pas dépassé la grille de jeu. 
+\subsubsection{Mode marathon}
+Dans le mode marathon, le but du joueur est de terminer 200 lignes au plus vite. Chaque 10 lignes, la gravité s'intensifie et les tetriminos chuteront donc plus vite. Dans ce mode, il n'y a pas que le score qui compte, le temps joue également.
+\subsubsection{Mode sprint}
+Le mode sprint suit les mêmes règles que le mode classique, le but étant de terminer au plus vite 40 lignes.
+\subsubsection{Mode VS}
+Dans le mode VS, deux joueurs s'affrontent à Tetris. Chaque joueur a deux grilles sur son écran : la sienne et celle de son adversaire. Ce mode de jeu suit les mêmes règles que le mode classique. Le premier joueur qui place un tétriminos dépassant sa grille a perdu et l'autre est donc déclaré gagnant. 
+\subsubsection{Mode Power Up}
+Ce mode se joue également à deux. Il suit les mêmes règles que le mode VS, la différence étant l'apparition de bonus dans la grille dans certains tetriminos. Voici une description de ces bonus :
+\begin{enumerate}
+\item Switch screen : Les stacks des deux adversaires sont échangés.
+\item Ghost stack : Le stack de l'adversaire devient invisible pendant un certain temps.
+\item Switch keys : Les touches gauches et droites de l'adversaire sont inversées pendant un certain temps.
+\item Bomb : Détruit certains blocs du stack.
+\end{enumerate}
+
+\subsection{Salon de jeu}
+Le joueur a également la possibilité de jouer en mode multijoueurs. Le serveur va donc remplir les mêmes fonctions que dans une partie classique.
+Quand un joueur veut faire une partie en multijoueur, le serveur cherche un salon avec une place de libre. Dès qu'il en trouve un, il ajoute le joueur dedans et la partie commence. S'il n'y en a pas de libre, le serveur crée un salon et le joueur doit alors attendre qu'un autre joueur le rejoigne.
+\subsubsection{Création d'une partie multijoueur}
+\begin{center}
+\includegraphics[width=11cm]{matchmaking.jpg}
+\end{center}
+\begin{itemize}
+
+\item \textbf{Ajout dans la file d'attente  }
+\begin{itemize}
+\item \textbf{Acteur(s) :} Serveur.
+\item \textbf{Pré-condition(s) : }Serveur doit être connecté. La liste d'attente ne doit pas être pleine.
+\item \textbf{Post-condition(s) : } Le joueur est ajouté à la liste d'attente.
+\item \textbf{Condition(s) particulière(s) : } Néant.
+\end{itemize}
+
+\item \textbf{Trouver un adversaire  }
+\begin{itemize}
+\item \textbf{Acteur(s) : } Serveur.
+\item \textbf{Pré-condition(s) : } On doit avoir deux joueurs de même niveau dans la file d'attente.
+\item \textbf{Post-condition(s) : } On a bien deux joueurs pour la partie multijoueur.
+\item \textbf{Condition(s) particulière(s) : } Si on ne trouve pas d'adversaire, on retourne au menu principal.
+\end{itemize}
+\end{itemize}
+\subsubsection{Choix du vainqueur}
+Le vainqueur est le joueur ayant remporté le plus de points et donc rempli le plus de lignes de la grille.
+
+\newpage
+
+\section{Besoins non fonctionnels}
+\subsection{Utilisateur}
+
+Il a des besoins essentiels qui permettent une expérience utilisateur des plus agréables tout au long de sa période de jeu.
+
+\begin{itemize}
+\item L'utilisateur est déconnecté après une inactivité trop étendue.
+\item Le jeu en ligne se veut réactif en évitant le moins de latence possible.
+\item L'interface se veut épurée rendant l'utilisation très interactive.
+\end{itemize}
+
+\subsection{Système}
+\begin{itemize}
+\item Le code se veut facilement maintenable.
+\item Le projet sera codé dans le langage C++, un langage orienté objet qui a été exigé par les assistants. 
+\item Pour le stockage de données, nous avons privilégié le langage mysql.
+\item La gestion des données sensibles des utilisateurs doivent être pour la plupart, cryptées afin d'assurer une sécurité permanente.
+\item Le jeu peut s'exécuter sur plusieurs types de machines de façon à garder une expérience minimale acceptable.
+\end{itemize}
+
+\section{Design du système}
+Le système comprend un client et un serveur. 
+
+\subsection{Client}
+Voici le diagramme de classes du client. Il représente la structure uniquement. Le serveur contient également les fonctionnalités se rapportant au système d'amis, une partie du chat et les paramètres des touches de jeu. Ces fonctionnalités ne faisant pas partie vraiment de la structure, elles ne sont pas représentées dans ce diagramme.
+\begin{center}
+\includegraphics[width=11.5cm]{diag_clas_cli.pdf}
+\end{center}
+
+\subsection{Serveur}
+Voici le diagramme de classes du serveur.
+\begin{center}
+\includegraphics[width=11.5cm]{diag_clas_serv.pdf}
+\end{center}
+
+\subsection{Jeu}
+Voici un diagramme de classes représentant le jeu. Le mode classique peut être remplacé par n'importe quel mode. Les getters et setters ont parfois été omis dans les classes par soucis de clarté du schéma.
+\begin{center}
+\includegraphics[width=11.5cm]{diag_clas_jeu.pdf}
+\end{center}
+
+
+\subsection{Base de données}
+Les données sont stockées dans une base de données SQLite qui contient différentes tables dont la description va suivre. Le choix de SQLite a été fait car il permet d'utiliser le langage SQL. Celui-ci permet de manipuler simplement les données en C++.\\*
+Tout d'abord, une table principale users qui stocke tous les noms d'utilisateurs et les mots de passe associés. Les mots de passes sont hachés. Elle contient également le score et le temps
+\begin{center}
+\includegraphics[width=5.5cm]{bdd_users.png}
+\end{center}
+Ensuite, une table globalStatistic qui contient le nombre de victoires et de défaites pour les 4 modes de jeu différents.
+\begin{center}
+\includegraphics[width=5.5cm]{bdd_globalStatistic.png}
+\end{center}
+Enfin, pour chaque utilisateur, on crée une autre table où seront stockés les amis des utilisateurs ainsi que les demandes d'amis en attente.
+Un utilisateur peut envoyer une demande d'amis à n'importe quel joueur. Dans la base de données, l'utilisateur qui envoie une demande verra dans sa table 
+une nouvelle ligne nommée "friends" où on trouvera le nom de la personne qui l'a demandé en ami et la ligne "status" sera égale à 0 (demande d'amis).
+La personne que l'on a demandé en ami aura une nouvelle ligne dans sa table avec le nom de la personne qui l'a demandé en ami et la ligne "status" sera égale à 2.
+Une fois la demande d'amis accepetée, le "status" de la personne qui a fait la demande d'amis passe à 1.
+
+\subsection{Interface}
+
+\subsubsection{Interface console}
+Le jeu peut se jouer en mode console. La librairie utilisée est ncurses. C'est la classe GUI qui gère l'affichage des différents menus et du jeu.
+\end{document}
+
+
