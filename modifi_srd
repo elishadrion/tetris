@@ -19,5 +19,16 @@
   Post-conditions : le joueur se retrouve dans une partie et joue
   Cas particuliers : Rien.
   
-d
+9. Paramètres
+  Acteur : Utilisateur
+  pré : L'utilisateur doit être connecté
+  Post : Rien
+  Cas général : L'utilisateur peut modifier les touches associées aux actions du jeu.
+  Cas particuliers : Lorsque que l'utilisateur sélectionne une touche déjà utilisée, un message d'avertissement est affiché.
   
+10. Chat :
+  Acteur : Utilisateur
+  pré : L'utilisateur doit être connecté
+  Post : Il rejoint le lobby avec les autres utilisateurs
+  Cas général : L'utilisateur peut discuter dans un lobby général avec tous les autres utilisateurs
+  Cas particuliers : Rien
