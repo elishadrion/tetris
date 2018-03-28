@@ -151,13 +151,14 @@ bool Database::checkNamePassword(std::string name, std::string password){
 
 
 
-std::string Database::getUserNameFriends(std::string name){
+char * Database::getUserNameFriends(std::string name){
   int resVal = 0;
   sqlite3_stmt *request;
   int id2 = 0;
   unsigned char *friendName = NULL;
+  std::string status = "";
 
-  std::string req = "SELECT * FROM "+name;
+  std::string req = "SELECT * FROM '"+name+"'";
   std::string res = "";
 
   resVal = sqlite3_prepare_v2(db, req.c_str(), req.size(), &request, NULL);
@@ -173,19 +174,59 @@ std::string Database::getUserNameFriends(std::string name){
                 id2 = sqlite3_column_int(request, 0);
 
                 friendName = (unsigned char *)sqlite3_column_text(request, 1);
-        printf("Recuperation de l'ami numéro %d : \n ami : %s \n", id2, friendName);
-        res = res+"\t"+std::string(reinterpret_cast<char*>(friendName));
+                status = std::string(reinterpret_cast<char*>((unsigned char *)sqlite3_column_text(request, 2)));
+        if(status=="1"){
+          res = res+"    "+std::string(reinterpret_cast<char*>(friendName));
+          res = res+"     \n";
+        }
 
       }
     }
     sqlite3_finalize(request);
   }
 
-  return res;
+  return strdup(res.c_str());
+}
+
+char * Database::getUserNameFriendsRequests(std::string name){
+  int resVal = 0;
+  sqlite3_stmt *request;
+  int id2 = 0;
+  unsigned char *friendName = NULL;
+  std::string status = "";
+
+  std::string req = "SELECT * FROM '"+name+"'";
+  std::string res = "";
+
+  resVal = sqlite3_prepare_v2(db, req.c_str(), req.size(), &request, NULL);
+
+  if (!resVal){
+
+    while (resVal == SQLITE_OK || resVal == SQLITE_ROW){
+
+            resVal = sqlite3_step(request);
+
+      if (resVal == SQLITE_OK || resVal == SQLITE_ROW ){
+
+                id2 = sqlite3_column_int(request, 0);
+
+                friendName = (unsigned char *)sqlite3_column_text(request, 1);
+                status = std::string(reinterpret_cast<char*>((unsigned char *)sqlite3_column_text(request, 2)));
+        if(status=="2"){
+          res = res+"    "+std::string(reinterpret_cast<char*>(friendName));
+          res = res+"     \n";
+        }
+
+      }
+    }
+    sqlite3_finalize(request);
+  }
+
+  return strdup(res.c_str());
 }
 
 
-std::string Database::getAllUser(){
+char * Database::getAllUser(){
   int resVal = 0;
   sqlite3_stmt *request;
   int id2 = 0;
@@ -207,33 +248,85 @@ std::string Database::getAllUser(){
                 id2 = sqlite3_column_int(request, 0);
 
                 name = (unsigned char *)sqlite3_column_text(request, 1);
-        printf("Recuperation de l'ami numéro %d : \n ami : %s \n", id2, name);
-        res = res+"\t"+std::string(reinterpret_cast<char*>(name));
+        res = res+"    "+std::string(reinterpret_cast<char*>(name));
+        res = res+"\n";
 
       }
     }
     sqlite3_finalize(request);
   }
+  printf("Recuperation finie \n");
 
-  return res;
+  return strdup(res.c_str());
 }
 
 
+char * Database::getAllUsersStatistics(){
 
-std::string Database::getGlobalStatistics(){
+      int resVal = 0;
+      sqlite3_stmt *request;
+      int id2 = 0;
+      unsigned char *score = NULL;
+      unsigned char *times = NULL;
+      unsigned char *name = NULL;
+
+
+      std::string req = "SELECT score, time, name FROM users";
+      std::string res = "\n";
+
+      resVal = sqlite3_prepare_v2(db, req.c_str(), req.size(), &request, NULL);
+
+      if (!resVal){
+
+        while (resVal == SQLITE_OK || resVal == SQLITE_ROW){
+
+                resVal = sqlite3_step(request);
+
+          if (resVal == SQLITE_OK || resVal == SQLITE_ROW ){
+
+
+                    id2 = sqlite3_column_int(request, 0);
+
+
+                    score = (unsigned char *)sqlite3_column_text(request, 0);
+                    times = (unsigned char *)sqlite3_column_text(request, 1);
+                    name = (unsigned char *)sqlite3_column_text(request, 2);
+
+                    res = res+std::string(reinterpret_cast<char*>(name))+" :";
+
+                    res = res+"\n";
+
+
+                    res = res+"   score : "+std::string(reinterpret_cast<char*>(score));
+                    res = res+"   time : "+std::string(reinterpret_cast<char*>(times));
+
+                    res = res+"\n";
+
+          }
+        }
+        sqlite3_finalize(request);
+      }
+
+      return strdup(res.c_str());
+
+}
+
+char *  Database::getGlobalStatistics(){
   int resVal = 0;
   sqlite3_stmt *request;
   int id2 = 0;
   unsigned char *victory = NULL;
   unsigned char *defeat = NULL;
   unsigned char *score = NULL;
-  unsigned char *time = NULL;
+  unsigned char *times = NULL;
   unsigned char *complete_line = NULL;
 
   std::string req = "SELECT * FROM globalStatistic";
   std::string res = "";
 
   resVal = sqlite3_prepare_v2(db, req.c_str(), req.size(), &request, NULL);
+
+  int counter = 0;
 
   if (!resVal){
 
@@ -245,27 +338,49 @@ std::string Database::getGlobalStatistics(){
 
                 id2 = sqlite3_column_int(request, 0);
 
-                victory = (unsigned char *)sqlite3_column_text(request, 1);
-                defeat = (unsigned char *)sqlite3_column_text(request, 2);
 
-        printf("Recuperation de l'ami numéro %d : \t ami : %s ami : %s\n", id2, victory, defeat);
-        res = res+std::string(reinterpret_cast<char*>(victory))+"\t"+std::string(reinterpret_cast<char*>(defeat))+"\n";
+                score = (unsigned char *)sqlite3_column_text(request, 3);
+                times = (unsigned char *)sqlite3_column_text(request, 4);
+
+                res = res+"\n";
+
+                if(counter == 0){
+                  res = res+"Classic : ";
+                }
+                else if(counter == 1){
+                  res = res+"Marathon : ";
+                }
+                else if(counter == 2){
+                  res = res+"Sprint :    ";
+                }
+                else if(counter == 3){
+                  res = res+"VS  :      ";
+                }
+
+                res = res+"\n";
+
+                res = res+"   score : "+std::string(reinterpret_cast<char*>(score));
+                res = res+"   time : "+std::string(reinterpret_cast<char*>(times));
+
+                res = res+"\n";
+
+                counter++;
 
       }
     }
     sqlite3_finalize(request);
   }
 
-  return res;
+  return strdup(res.c_str());
 }
 
 
-std::string Database::getUserNameStatistics(std::string name){
+char *  Database::getUserNameStatistics(std::string name){
   int resVal = 0;
   sqlite3_stmt *request;
   int id2 = 0;
-  unsigned char *victory = NULL;
-  unsigned char *defeat = NULL;
+  unsigned char *score = NULL;
+  unsigned char *times = NULL;
 
   std::string req = "SELECT score, time FROM users WHERE name = ?";
   std::string res = "";
@@ -282,20 +397,29 @@ std::string Database::getUserNameStatistics(std::string name){
 
       if (resVal == SQLITE_OK || resVal == SQLITE_ROW ){
 
+
                 id2 = sqlite3_column_int(request, 0);
 
-                victory = (unsigned char *)sqlite3_column_text(request, 0);
-                defeat = (unsigned char *)sqlite3_column_text(request, 1);
 
-        printf("Recuperation de l'ami numéro %d : \t ami : %s ami : %s\n", id2, victory, defeat);
-        res = res+std::string(reinterpret_cast<char*>(victory))+"\t"+std::string(reinterpret_cast<char*>(defeat))+"\n";
+                score = (unsigned char *)sqlite3_column_text(request, 0);
+                times = (unsigned char *)sqlite3_column_text(request, 1);
+
+                res = res+"\n";
+
+                res = res+name;
+
+                res = res+"   score : "+std::string(reinterpret_cast<char*>(score));
+                res = res+"   time : "+std::string(reinterpret_cast<char*>(times));
+
+                res = res+"\n";
 
       }
     }
     sqlite3_finalize(request);
   }
+  printf("Recuperation 2 \n");
 
-  return res;
+  return strdup(res.c_str());
 }
 
 
@@ -422,6 +546,7 @@ void Database::sendFriendRequest(std::string name, std::string FriendName){
 	int result = 0;
   sqlite3_stmt *stmt;
   std::string req = "INSERT INTO "+name+"(friends, status) VALUES(?, ?)";
+
   result = sqlite3_prepare_v2(db, req.c_str(), req.size(), &stmt, NULL);
 	if (!result){
     // bind friend name
@@ -433,10 +558,29 @@ void Database::sendFriendRequest(std::string name, std::string FriendName){
     result = sqlite3_step(stmt);
 
     if(result) {
-      printf("Friend added : %s  %i\n", FriendName.c_str(), result);
     }
     else {
-      printf("Friend not added : %s  %i\n", FriendName.c_str(), result);
+    }
+    sqlite3_finalize(stmt);
+	}
+
+
+	result = 0;
+  req = "INSERT INTO "+FriendName+"(friends, status) VALUES(?, ?)";
+
+  result = sqlite3_prepare_v2(db, req.c_str(), req.size(), &stmt, NULL);
+	if (!result){
+    // bind friend name
+    sqlite3_bind_text(stmt, 1, name.c_str() , name.size(), 0);
+    sqlite3_bind_int(stmt, 2, 2);
+
+
+    // execute
+    result = sqlite3_step(stmt);
+
+    if(result) {
+    }
+    else {
     }
     sqlite3_finalize(stmt);
 	}
@@ -448,7 +592,7 @@ void Database::confirmFriendRequest(std::string name, std::string FriendName){
   char *ERRORmsg = NULL;
 	int result = 0;
   sqlite3_stmt *stmt;
-  std::string req = "UPDATE "+name+"SET status = 1 WHERE friends = ? ";
+  std::string req = "UPDATE "+name+" SET status = 1 WHERE friends = ? ";
   result = sqlite3_prepare_v2(db, req.c_str(), req.size(), &stmt, NULL);
 	if (!result){
     // bind friend name
@@ -465,6 +609,25 @@ void Database::confirmFriendRequest(std::string name, std::string FriendName){
     }
     sqlite3_finalize(stmt);
 	}
+
+  result = 0;
+  req = "UPDATE "+FriendName+" SET status = 1 WHERE friends = ? ";
+  result = sqlite3_prepare_v2(db, req.c_str(), req.size(), &stmt, NULL);
+  if (!result){
+    // bind friend name
+    sqlite3_bind_text(stmt, 1, name.c_str() , name.size(), 0);
+
+    // execute
+    result = sqlite3_step(stmt);
+
+    if(result) {
+      printf("Friend added : %s  %i\n", FriendName.c_str(), result);
+    }
+    else {
+      printf("Friend not added : %s  %i\n", FriendName.c_str(), result);
+    }
+    sqlite3_finalize(stmt);
+  }
 }
 
 
@@ -472,12 +635,35 @@ void Database::confirmFriendRequest(std::string name, std::string FriendName){
     char *ERRORmsg = NULL;
   	int result = 0;
     sqlite3_stmt *stmt;
+
     std::string req = "DELETE FROM "+name+" WHERE friends = ?";
 
     result = sqlite3_prepare_v2(db, req.c_str(), req.size(), &stmt, NULL);
   	if (!result){
       // bind friend name
       sqlite3_bind_text(stmt, 1, FriendName.c_str() , FriendName.size(), 0);
+
+
+      // execute
+      result = sqlite3_step(stmt);
+
+      if(result) {
+        printf("Friend deleted : %s  %i\n", FriendName.c_str(), result);
+      }
+      else {
+        printf("Friend not deleted : %s  %i\n", FriendName.c_str(), result);
+      }
+      sqlite3_finalize(stmt);
+  	}
+
+    result = 0;
+
+     req = "DELETE FROM "+FriendName+" WHERE friends = ?";
+
+    result = sqlite3_prepare_v2(db, req.c_str(), req.size(), &stmt, NULL);
+  	if (!result){
+      // bind friend name
+      sqlite3_bind_text(stmt, 1, name.c_str() , name.size(), 0);
 
 
       // execute
@@ -569,5 +755,3 @@ void Database::prettyPrint(){
 
 
 }
-
-

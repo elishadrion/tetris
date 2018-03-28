@@ -145,9 +145,8 @@ public:
 
         typedef struct {
             int ID = STATISTIC_ID;
+            int action; 
             int size = (sizeof(char)*USERS_IN_CHAT);
-            char sender[MAX_PSEUDO_SIZE];
-            char statistic[MAX_MESSAGE_SIZE];
         } statisticRequestPacket; // for sender statistics
 
 

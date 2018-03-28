@@ -12,6 +12,8 @@ class WizardDisplay;
 #include "GameManager.hpp"
 #include "PacketManager.hpp"
 #include "SalonChat.hpp"
+#include "StatisticsManager.hpp"
+#include "FriendsManager.hpp"
 #include "SettingsMenu.hpp"
 #include "Player.hpp"
 

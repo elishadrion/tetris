@@ -27,13 +27,16 @@ class Database {
         //GETTERS
         bool checkNamePassword(std::string name, std::string password);
         bool checkNameExist(std::string name);
-        
-        std::string getUserNameFriends(std::string name);
+
+        char * getUserNameFriends(std::string name);
+        char * getUserNameFriendsRequests(std::string name);
+
         std::string getLevelFromName(std::string name);
-        std::string getAllUser();
-        std::string getGlobalStatistics();
-        std::string getUserNameStatistics(std::string name);
-        
+        char * getAllUser();
+        char * getGlobalStatistics();
+        char * getUserNameStatistics(std::string name);
+        char * getAllUsersStatistics();
+
 
         //SETTERS
         void registerUser(std::string name, std::string password);

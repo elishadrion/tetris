@@ -16,7 +16,7 @@ Classic::Classic(long seed): Mode(false,seed) {
 Classic::~Classic(){
 
 	delete grid;
-	//delete stopper;
+	delete stopper;
 }
 
 void Classic::init_game(bool is_player){

@@ -11,7 +11,9 @@ class Client;
 #include "CLI.hpp"
 #include "GameManager.hpp"
 #include "SalonChat.hpp"
+#include "StatisticsManager.hpp"
 #include "FriendsManager.hpp"
+
 
 class Client {
 	public:

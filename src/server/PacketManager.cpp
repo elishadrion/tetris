@@ -22,6 +22,10 @@ void PacketManager::manage_packet(Player *player, void* packet) {
         								break;
         case Packet::CHAT_LOGOUT:       receive_logout_chat(player);
         								break;
+        case Packet::FRIENDS_ID:       receive_friend_request(player, reinterpret_cast<Packet::friendRequestPacket*>(packet));
+        								break;
+        case Packet::STATISTIC_ID:       receive_stat_request(player, reinterpret_cast<Packet::statisticRequestPacket*>(packet));
+        								break;
         default :                       WizardLogger::warning("Paquet inconnue reçu: " +
                                                         std::to_string(temp_packet->ID));
                                         break;
@@ -40,7 +44,7 @@ Player* PacketManager::manage_signup_request(Packet::loginRequestPacket* packet)
 
 void PacketManager::manage_disconnect_request(Player* player) {
     PlayerManager::logout(player);
-    
+
 }
 
 //===========================CHAT==========================================
@@ -55,7 +59,7 @@ void PacketManager::receive_chat_connection(Player* player, Packet::pseudoPacket
             strcat(user, i->get_username().c_str());
         }
     }
-    
+
     for (auto &i : g_connected){
         if (i->get_username() == player->get_username()){
             //Met l'utilisateur dans le chat (in chat)
@@ -71,22 +75,23 @@ void PacketManager::receive_chat_connection(Player* player, Packet::pseudoPacket
             strcat(packetAllUser->message, " s est connecté dans le chat");
             i->send_packet(packetAllUser, sizeof(*packetAllUser));
             delete packetAllUser;
-            
+
             usleep(500); // TRES SALE COMME FONCTION CAR SINON LES DEUX SEND NE SONT PAS EXECUTER
-            
-            
+
+
             //REFRESH LES UTILISATEUR CONNECTE
             Packet::usersInChatPacket* packetRefreshUsers= new Packet::usersInChatPacket();
 
             for (int m = 0 ; m < USERS_IN_CHAT ; ++m) {
                 packetRefreshUsers->users_char[m] = user[m];
             }
-            
+
             i->send_packet(packetRefreshUsers, sizeof(*packetRefreshUsers));
             delete packetRefreshUsers;
         }
     }
 }
+
 
 void PacketManager::receive_chat_message(Player* player, Packet::chatMessagePacket* packet){
     for (auto &i : g_connected){
@@ -96,9 +101,11 @@ void PacketManager::receive_chat_message(Player* player, Packet::chatMessagePack
     }
 }
 
+
 void PacketManager::receive_logout_chat(Player* player){
     //
     WizardLogger::info(player->get_username() +" a quitter le chat");
+
     player->set_in_chat_off();
     //MET DANS USER TT LES PERSONNES CONNECTE
     char user[USERS_IN_CHAT];
@@ -109,7 +116,7 @@ void PacketManager::receive_logout_chat(Player* player){
             strcat(user, i->get_username().c_str());
         }
     }
-    
+
     //ENVOI A TT LES USERS LA NOUVELLE LISTE DES USER ONLINE
     //-------PREPARATION DU PACKET MESSAGE DE DECONNECTION
     Packet::chatMessagePacket* packetAllUser = new Packet::chatMessagePacket();
@@ -131,7 +138,154 @@ void PacketManager::receive_logout_chat(Player* player){
         }
     }
     delete packetRefreshUsers;
-    delete packetAllUser;  
+    delete packetAllUser;
+}
+
+
+void PacketManager::receive_friend_request(Player* player, Packet::friendRequestPacket* packet){
+    //
+    WizardLogger::info(player->get_username() +" a envoyé une requête d'ami");
+
+    if (packet->action == 0){ // get all users
+      char * users =  db->getAllUser();
+      WizardLogger::info(player->get_username() +" Recupération de tout les utilisateurs finie");
+
+
+      Packet::usersPacket* usersPacket= new Packet::usersPacket();
+
+      for (int m = 0 ; m < sizeof(char)*MAX_USERS ; ++m) {
+
+          usersPacket->users_list[m] = users[m];
+      }
+      WizardLogger::info(player->get_username() +" Envoie de tous les utilisateurs");
+
+      player->send_packet(usersPacket, sizeof(*usersPacket));
+
+
+    }
+    else if (packet->action == 1) { // add friends
+      if(std::string(reinterpret_cast<char*>(packet->friendName)).length()>0){
+        db->sendFriendRequest(player->get_username(),std::string(reinterpret_cast<char*>(packet->friendName)));
+      }
+      WizardLogger::info(player->get_username() +" Envoie requête d'amis");
+
+
+    }
+    else if (packet->action == 2) { // remove friends
+      if(std::string(reinterpret_cast<char*>(packet->friendName)).length()>0){
+        db->deleteFriendFromUserName(player->get_username(),std::string(reinterpret_cast<char*>(packet->friendName)));
+      }
+      WizardLogger::info(player->get_username() +" Envoie suppression d'amis");
+
+    }
+    else if (packet->action == 3){ // get all friends request
+      char * users =  db->getUserNameFriendsRequests(player->get_username());
+      WizardLogger::info(player->get_username() +" Recupération de toutes les demandes d'amis");
+
+
+      Packet::usersPacket* usersPacket= new Packet::usersPacket();
+
+      for (int m = 0 ; m < sizeof(char)*MAX_USERS ; ++m) {
+
+          usersPacket->users_list[m] = users[m];
+      }
+      WizardLogger::info(player->get_username() +" Envoie de toutes les demandes d'amis");
+
+      player->send_packet(usersPacket, sizeof(*usersPacket));
+
+
+
+    }
+    else if (packet->action == 4){ // get all users
+      char * users =  db->getUserNameFriends(player->get_username());
+      WizardLogger::info(player->get_username() +" Recupération des amis finie");
+
+      printf("res AMIS%s\n",users );
+
+
+      Packet::usersPacket* usersPacket= new Packet::usersPacket();
+
+      for (int m = 0 ; m < sizeof(char)*MAX_USERS ; ++m) {
+
+          usersPacket->users_list[m] = users[m];
+      }
+      WizardLogger::info(player->get_username() +" Envoie de tous ses amis");
+
+      player->send_packet(usersPacket, sizeof(*usersPacket));
+
+
+    }
+    else if (packet->action == 5) { // comfirm friend request
+      if(std::string(reinterpret_cast<char*>(packet->friendName)).length()>0){
+        db->confirmFriendRequest(player->get_username(),std::string(reinterpret_cast<char*>(packet->friendName)));
+      }
+      WizardLogger::info(player->get_username() +" Accepte demande amis");
+
+    }
+
+}
+
+
+
+
+//===========================STAT==========================================
+
+void PacketManager::receive_stat_request(Player* player, Packet::statisticRequestPacket* packet){
+    //
+    WizardLogger::info(player->get_username() +" a envoyé une requête de stat");
+
+    if (packet->action == 0){
+
+      char * users =  db->getUserNameStatistics(player->get_username());
+      WizardLogger::info(player->get_username() +" Recupération de ses stats");
+
+
+      Packet::usersPacket* usersPacket= new Packet::usersPacket();
+
+      for (int m = 0 ; m < sizeof(char)*MAX_USERS ; ++m) {
+
+          usersPacket->users_list[m] = users[m];
+      }
+      WizardLogger::info(player->get_username() +" Envoie de tous les stats");
+
+      player->send_packet(usersPacket, sizeof(*usersPacket));
+
+
+    }
+    else if (packet->action == 1) {
+      char * users =  db->getGlobalStatistics();
+      WizardLogger::info(player->get_username() +" Recupération de ses stats");
+
+
+      Packet::usersPacket* usersPacket= new Packet::usersPacket();
+
+      for (int m = 0 ; m < sizeof(char)*MAX_USERS ; ++m) {
+
+          usersPacket->users_list[m] = users[m];
+      }
+      WizardLogger::info(player->get_username() +" Envoie de tous les stats");
+
+      player->send_packet(usersPacket, sizeof(*usersPacket));
+
+
+    }
+    else if (packet->action == 2) {
+      char * users =  db->getAllUsersStatistics();
+      WizardLogger::info(player->get_username() +" Recupération de tout les stats ");
+
+
+      Packet::usersPacket* usersPacket= new Packet::usersPacket();
+
+      for (int m = 0 ; m < sizeof(char)*MAX_USERS ; ++m) {
+
+          usersPacket->users_list[m] = users[m];
+      }
+      WizardLogger::info(player->get_username() +" Envoie de tous les stats");
+
+      player->send_packet(usersPacket, sizeof(*usersPacket));
+
+
+    }
 }
 
 
@@ -149,7 +303,7 @@ void PacketManager::manage_move_tetriminos_request(Player* player, Packet::intPa
     player->get_room()->move_tetriminos(player, packet->data);
     //On envoie le move à l'autre joueur
     if(player->get_room()->get_max_size()==2){
-        
+
         if (player->get_room()->get_player(0) == player) {
         	player->get_room()->get_player(1)->send_packet(packet, sizeof(*packet));
        } else {

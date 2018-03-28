@@ -1,6 +1,9 @@
 #include "CLI.hpp"
 #include<iostream>
 
+#include "StatisticsManager.hpp"
+
+extern StatisticsManager *statistics_manager;
 
 std::string empty_space_string(const char*str, int len ){
 
@@ -11,8 +14,8 @@ std::string empty_space_string(const char*str, int len ){
 
     }
     c[len]='\0';
-    std::string v(c);   
-    
+    std::string v(c);
+
     return v;
 }
 
@@ -43,12 +46,11 @@ CLI::~CLI(){
 
 void CLI::login() {
 
-    clear();    
+    clear();
 	bool success = false;
-	std::string username;
 	std::string password;
     while (!success) {
-        
+
     	FIELD *field[3];
         FORM  *my_form;
         int ch;
@@ -62,7 +64,7 @@ void CLI::login() {
         /* Initialize few color pairs */
         init_pair(1, COLOR_WHITE, COLOR_BLUE);
         init_pair(2, COLOR_WHITE, COLOR_BLUE);
-        
+
 
         /* Initialize the fields */
         field[0] = new_field(1, 20, 4, 18, 0, 0);
@@ -78,13 +80,13 @@ void CLI::login() {
 
         set_field_fore(field[1], COLOR_PAIR(1));
         set_field_back(field[1], COLOR_PAIR(2));/* and white foreground (characters */
-        
+
 
         /* Create the form and post it */
         my_form = new_form(field);
         post_form(my_form);
         refresh();
-        
+
         set_current_field(my_form, field[0]); /* Set focus to the colored field */
         mvprintw(4, 10, "Pseudo :");
         mvprintw(6, 10, "Code :");
@@ -102,11 +104,11 @@ void CLI::login() {
                     is_pseudo=0;
                     /* Go to the end of the present buffer */
                     /* Leaves nicely at the last character */
-                    
+
                     break;
                 case KEY_UP:
                     /* Go to previous field */
-                    
+
                     set_current_field(my_form, field[0]);
                     is_pseudo =1;
                     break;
@@ -139,10 +141,10 @@ void CLI::login() {
 
                 default:
                     /* If this is a normal character, it gets */
-                    /* Printed                */    
-                    
+                    /* Printed                */
+
                     if(is_pseudo){
-                       
+
                         form_driver(my_form, ch);
                         index_pseudo+=1;
                         len_pseudo+=1;
@@ -160,40 +162,40 @@ void CLI::login() {
 
         }
 
-       
-        std::string pseudo = empty_space_string(field_buffer(field[0], 0), len_pseudo);   
-        std::string password = empty_space_string(password_not_hide, len_password);       
 
-	    pthread_mutex_lock(&packetStackMutex);	    
-        PacketManager::send_login_request(pseudo.c_str(), password.c_str());	    
+        std::string pseudo = empty_space_string(field_buffer(field[0], 0), len_pseudo);
+        std::string password = empty_space_string(password_not_hide, len_password);
+
+	    pthread_mutex_lock(&packetStackMutex);
+        PacketManager::send_login_request(pseudo.c_str(), password.c_str());
 	    pthread_cond_wait(&packetStackCond, &packetStackMutex);
-	         
+
 	    if (packetStack.empty()) {
 	        WizardLogger::info("Login réussi");
-	        success = true;	        
+	        success = true;
             player->set_username(pseudo);
 
 	    } else {
-	        
+
 	        packetStack.pop_back();
 	    }
 
 	    pthread_mutex_unlock(&packetStackMutex);
 
     }
-        
+
 }
 
 
 
 void CLI::register_user() {
-	
-    clear();    
+
+    clear();
     bool success = false;
-    std::string username;
+    std::string pseudo;
     std::string password;
     while (!success) {
-        
+
         FIELD *field[3];
         FORM  *my_form;
         int ch;
@@ -207,7 +209,7 @@ void CLI::register_user() {
         /* Initialize few color pairs */
         init_pair(1, COLOR_WHITE, COLOR_BLUE);
         init_pair(2, COLOR_WHITE, COLOR_BLUE);
-        
+
 
         /* Initialize the fields */
         field[0] = new_field(1, 20, 4, 18, 0, 0);
@@ -223,13 +225,13 @@ void CLI::register_user() {
 
         set_field_fore(field[1], COLOR_PAIR(1));
         set_field_back(field[1], COLOR_PAIR(2));/* and white foreground (characters */
-        
+
 
         /* Create the form and post it */
         my_form = new_form(field);
         post_form(my_form);
         refresh();
-        
+
         set_current_field(my_form, field[0]); /* Set focus to the colored field */
         mvprintw(4, 10, "Pseudo :");
         mvprintw(6, 10, "Code :");
@@ -247,11 +249,11 @@ void CLI::register_user() {
                     is_pseudo=0;
                     /* Go to the end of the present buffer */
                     /* Leaves nicely at the last character */
-                    
+
                     break;
                 case KEY_UP:
                     /* Go to previous field */
-                    
+
                     set_current_field(my_form, field[0]);
                     is_pseudo =1;
                     break;
@@ -284,10 +286,10 @@ void CLI::register_user() {
 
                 default:
                     /* If this is a normal character, it gets */
-                    /* Printed                */    
-                    
+                    /* Printed                */
+
                     if(is_pseudo){
-                       
+
                         form_driver(my_form, ch);
                         index_pseudo+=1;
                         len_pseudo+=1;
@@ -305,15 +307,15 @@ void CLI::register_user() {
 
         }
 
-    
-        std::string pseudo = empty_space_string(field_buffer(field[0], 0), len_pseudo);   
-        std::string password = empty_space_string(password_not_hide, len_password); 
+
+        pseudo = empty_space_string(field_buffer(field[0], 0), len_pseudo);
+        std::string password = empty_space_string(password_not_hide, len_password);
 
 
-        pthread_mutex_lock(&packetStackMutex);     
-	    PacketManager::send_signup_request(username.c_str(), password.c_str());	    
+        pthread_mutex_lock(&packetStackMutex);
+	    PacketManager::send_signup_request(pseudo.c_str(), password.c_str());
 	    pthread_cond_wait(&packetStackCond, &packetStackMutex);
-	         
+
 	    if (packetStack.empty()) {
 	        WizardLogger::info("Enregistrement réussi");
 	        success = true;
@@ -323,7 +325,7 @@ void CLI::register_user() {
 	    pthread_mutex_unlock(&packetStackMutex);
 
     }
-        player->set_username(username); 
+        player->set_username(pseudo);
 }
 
 
@@ -332,32 +334,32 @@ void CLI::main_menu(){
 
     clear();
     bool is_on_button = true;
-     
+
     char *choices[] = { "Se connecter",
                         "S'enrengistrer"
                   };
     int n_choices = sizeof(choices) / sizeof(char *);
 
-    
+
     WINDOW *menu_win;
     menu_win = newwin(24, 80, 0, 0);
-    
+
     box(menu_win, 0, 0);
-   
+
 
     refresh();
     wrefresh(menu_win);
- 
+
 
 
     int highlight = 1;
     int choice = 0;
     int c;
-  
-    int x, y, i;   
+
+    int x, y, i;
     x = (COLS / 2) -15 ;
     y =  LINES/2 ;
-     
+
     box(menu_win, 0, 0);
     for(i = 0; i < n_choices; ++i){
         if(highlight == i + 1){ /* High light the present choice */
@@ -374,7 +376,7 @@ void CLI::main_menu(){
         c = getch();
         switch(c){
             case KEY_UP:
-            
+
                 if(highlight == 1)
                     highlight = n_choices;
                 else
@@ -394,12 +396,12 @@ void CLI::main_menu(){
 
 
         }
-        int x, y, i;   
+        int x, y, i;
 
     x = (COLS / 2) -15 ;
     y =  LINES/2 ;
- 
-   
+
+
     box(menu_win, 0, 0);
     for(i = 0; i < n_choices; ++i){
         if(highlight == i + 1){ /* High light the present choice */
@@ -417,16 +419,16 @@ void CLI::main_menu(){
             login();
             menu();
             break;}
- 
+
         else if (choice == 2){
-            
+
            register_user();
            menu();
            break;
-             
+
             }
- 
-    } 
+
+    }
 }
 
 
@@ -441,6 +443,7 @@ void CLI::chat() {
     menu();
 }
 
+
 void CLI::play(int type_game) {
 
     PacketManager::send_play_request(type_game);
@@ -450,32 +453,33 @@ void CLI::play(int type_game) {
         pthread_cond_wait(&packetStackCond, &packetStackMutex);
         wait_player();
     }
-   
+
 
     pthread_cond_wait(&packetStackCond, &packetStackMutex);
-    WizardLogger::info("On joue!");     
-    
-    int x =sizeof(packetStack.back());
-    WizardLogger::info(std::to_string(reinterpret_cast<long>(packetStack.back())));    
-    reinterpret_cast<long>(packetStack.back());
-    long seed = 4;
+    //usleep(10000);
+
+    while(packetStack.size() == 0){};
+    WizardLogger::info("On joue!");
+
+    //int x =sizeof(packetStack.back());
+    //WizardLogger::info(std::to_string(reinterpret_cast<long>(packetStack.back())));
+    long seed = reinterpret_cast<long>(packetStack.back());
     packetStack.pop_back();
-    reinterpret_cast<long>(packetStack.back());
-    long num =1;
-    packetStack.pop_back();  
-    WizardLogger::info("seg fault ?");    
+    long num = reinterpret_cast<long>(packetStack.back());
+    packetStack.pop_back();
+    WizardLogger::info("seg fault ?");
     timeout(10);
     struct info_game myInfo = game_manager->start_game(num,type_game, seed);
     timeout(-1);
     end_game(myInfo);
-   
+
 }
 
 void CLI::end_game(info_game myInfo) {
 
     clear();
 
-    
+
     if(myInfo.winner){
         mvprintw(2, 6, "Bravo vous avez gagné ! ");
     }
@@ -489,7 +493,7 @@ void CLI::end_game(info_game myInfo) {
     mvprintw(10,6,"  * Lignes complétées: "); mvprintw(10,31,"%d", myInfo.line_complete);
 
     mvprintw(20, 6, "Click sur une touche pour continuer ! ");
-    
+
     refresh();
     getch();
     menu();
@@ -501,7 +505,7 @@ void CLI::menu() {
 
     clear();
     bool is_on_button = true;
-     
+
     char *choices[] = { "PLAY GAME",
                         "CHAT",
                         "FRIENDS",
@@ -511,12 +515,12 @@ void CLI::menu() {
                   };
     int n_choices = sizeof(choices) / sizeof(char *);
 
-	
+
     WINDOW *menu_win;
-    menu_win = newwin(24, 80, 0, 0);    
+    menu_win = newwin(24, 80, 0, 0);
     box(menu_win, 0, 0);
     wrefresh(menu_win);
- 
+
     attron(A_REVERSE);
     mvprintw(23, 0, "Use arrow keys to move, Press enter to select a choice");
     attroff(A_REVERSE);
@@ -526,11 +530,11 @@ void CLI::menu() {
 	int highlight = 1;
     int choice = 0;
     int c;
-  
-    int x, y, i;   
+
+    int x, y, i;
     x = 2;
     y = 3;
-     
+
     box(menu_win, 0, 0);
     for(i = 0; i < n_choices; ++i){
         if(highlight == i + 1){ /* High light the present choice */
@@ -547,7 +551,7 @@ void CLI::menu() {
         c = getch();
         switch(c){
             case KEY_UP:
-            
+
                 if(highlight == 1)
                     highlight = n_choices;
                 else
@@ -567,12 +571,12 @@ void CLI::menu() {
 
 
         }
-        int x, y, i;   
+        int x, y, i;
 
     x = 2;
     y = 3;
- 
-   
+
+
     box(menu_win, 0, 0);
     for(i = 0; i < n_choices; ++i){
         if(highlight == i + 1){ /* High light the present choice */
@@ -607,7 +611,9 @@ void CLI::menu() {
 
         else if (choice == 4){
         	clear();
-          chat();
+          statistics_manager->displayStatisticsMenu();
+          menu();
+          break;
           }
 
         else if (choice == 5){
@@ -634,7 +640,7 @@ void CLI::choice_game() {
     clear();
     refresh();
     bool is_on_button = true;
-     
+
     char *choices[] = { "Classic",
                         "Marathon",
                         "Sprint",
@@ -650,7 +656,7 @@ void CLI::choice_game() {
     box(menu_choice_game, 0, 0);
     keypad(stdscr, TRUE);
     wrefresh(menu_choice_game);
- 
+
     attron(A_REVERSE);
     mvprintw(23, 0, "Use arrow keys to move, Press enter to select a choice");
     attroff(A_REVERSE);
@@ -660,11 +666,11 @@ void CLI::choice_game() {
     int highlight = 1;
     int choice = 0;
     int c;
-  
-    int x, y, i;   
+
+    int x, y, i;
     x = 2;
     y = 3;
-     
+
     box(menu_choice_game, 0, 0);
     for(i = 0; i < n_choices; ++i){
         if(highlight == i + 1){ /* High light the present choice */
@@ -699,12 +705,12 @@ void CLI::choice_game() {
             default:
                 break;
         }
-        int x, y, i;   
+        int x, y, i;
 
     x = 2;
     y = 3;
- 
-   
+
+
     box(menu_choice_game, 0, 0);
     for(i = 0; i < n_choices; ++i){
         if(highlight == i + 1){ /* High light the present choice */
@@ -718,27 +724,27 @@ void CLI::choice_game() {
     }
     wrefresh(menu_choice_game);
         if (choice == 1){
-          
-            play(choice);              
+
+            play(choice);
            break;
         }
- 
+
         else if (choice == 2){
-           
-            play(choice);  
+
+            play(choice);
             break;
         }
- 
+
         else if (choice == 3){
-             
-            play(choice); 
+
+            play(choice);
             break; }
 
           else if (choice == 4){
-            
-            play(choice); 
+
+            play(choice);
             break; }
-           
-    } 
+
+    }
 
     }

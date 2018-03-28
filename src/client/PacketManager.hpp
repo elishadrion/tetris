@@ -1,5 +1,13 @@
+#ifndef PACKETMANAGER_HPP
+#define PACKETMANAGER_HPP
+
+
 #include <string>
 #include <vector>
+
+#include "SalonChat.hpp"
+#include "StatisticsManager.hpp"
+#include "FriendsManager.hpp"
 
 #include "../common/Constants.hpp"
 #include "../common/Packet.hpp"
@@ -7,18 +15,16 @@
 #include "Connection.hpp"
 #include "WizardDisplay.hpp"
 #include "Player.hpp"
-#include "GameManager.hpp"
 
-#include "SalonChat.hpp"
-#include "FriendsManager.hpp"
+
 
 extern WizardDisplay *display;
 extern GameManager* game_manager;
 extern Connection *conn;
-
+extern FriendsManager *friends_manager;
+extern StatisticsManager *statistics_manager;
 
 extern SalonChat* salon_chat;
-extern FriendsManager *friends_manager;
 
 
 namespace PacketManager {
@@ -56,8 +62,13 @@ namespace PacketManager {
     //===================JEU===========================
     void send_move_tetriminos(int);
 
+    //===================FRIENDS==========================
+    void send_friend_request(int action_type, const char *friend_name);
 
+    void send_stat_request(int action_type);
 
-
+    void receive_users_list(Packet::usersPacket* packet);
 
 }
+
+#endif

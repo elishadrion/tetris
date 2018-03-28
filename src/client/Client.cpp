@@ -6,11 +6,13 @@ Player *player;
 GameManager *game_manager;
 SalonChat *salon_chat;
 FriendsManager *friends_manager;
+StatisticsManager *statistics_manager;
 
 
 Client::Client(std::string address) {
     game_manager = new GameManager(false);
     friends_manager = new FriendsManager();
+    statistics_manager = new StatisticsManager();
     salon_chat = new SalonChat();
     player = new Player();
     try {
@@ -33,7 +35,7 @@ Client::~Client() {
 	delete display;
 	delete conn;
   delete friends_manager;
-
+  delete statistics_manager;
 	delete game_manager;
     delete player;
     delete salon_chat;

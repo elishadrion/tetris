@@ -16,16 +16,16 @@
 #include <menu.h>
 #include <time.h> //
 #include <locale> //
+class FriendsManager;
 
 #include "../common/WizardLogger.hpp"
 #include "../common/Constants.hpp"
+#include "PacketManager.hpp"
 
 
 class FriendsManager {
 
   public:
-
-
 
     FriendsManager() = default;
     ~FriendsManager() = default;
@@ -40,6 +40,9 @@ class FriendsManager {
 
     void showOption();
 
+    void printAllUsers(char *allUsers);
+
+    void displayFirendsRequests();
 
     void addFriend(char *Name);
 

@@ -467,7 +467,7 @@ void Board_CLI::update_main_game_solo_GUI(){
 
 void Board_CLI::update_gui_solo(){
 
-	//usleep(9000);
+	usleep(90000);
 	init_main_game_solo_GUI();
 	update_main_game_solo_GUI();  // On update l'affichage de la grille
 
@@ -476,17 +476,17 @@ void Board_CLI::update_gui_solo(){
 			
 		update_next_tetriminos_solo_GUI( grid->get_next_tetriminos());
 
-		// if(not(grid->has_tetriminos_hold())){ 
+		if(not(grid->has_tetriminos_hold())){ 
 
-		// 	erase_hold_tetriminos_solo_GUI();
-		// }
-		// else{
+			erase_hold_tetriminos_solo_GUI();
+		}
+		else{
 
-		// 	update_hold_tetriminos_solo_GUI(grid->get_hold_tetriminos());
-		// }
+			update_hold_tetriminos_solo_GUI(grid->get_hold_tetriminos());
+		}
 		
 		update_main_game_solo_GUI();	
-		refresh();	
+		//refresh();	
 		usleep(100000);
 	}
  }
