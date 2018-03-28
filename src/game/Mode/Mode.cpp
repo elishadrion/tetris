@@ -50,6 +50,8 @@ int Mode::tetriminos_dropping(Grid * grid){
 			tetriminosIsFix = true;
 		}
 
+		
+
 		usleep(grid->get_acceleration());
 
 	}
@@ -83,6 +85,10 @@ void Mode::move_tetriminos_first_grid(unsigned ID) {
 	else if (ID == Packet::MOVE_TETRIMINOS_DROP) {
 		grid->set_acceleration_quick();
 	}
+	else if (ID == Packet::Packet::USE_BONUS) {
+		grid->use_bonus();
+	}
+
 }
 
 void Mode::move_tetriminos_second_grid(unsigned ID) {
@@ -106,6 +112,9 @@ void Mode::move_tetriminos_second_grid(unsigned ID) {
 	}
 	else if (ID == Packet::MOVE_TETRIMINOS_DROP) {
 		_other_grid->set_acceleration_quick();
+	}
+	else if (ID == Packet::Packet::USE_BONUS) {
+		_other_grid->use_bonus();
 	}
 }
 

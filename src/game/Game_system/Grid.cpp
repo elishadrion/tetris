@@ -13,8 +13,10 @@ Random * g_rand_bonus ;
 
 
 Grid::Grid(long seed) :  _grid(nullptr),_current_tetriminos(nullptr), _next_tetriminos(nullptr),
-				_hold_tetriminos(nullptr),_ghost_tetriminos(nullptr),_number_generator( new Random(seed)),_acceleration(300000),
-				_score(0), _level(0),_line_complete(0),_line_stack(0){
+				_hold_tetriminos(nullptr),_ghost_tetriminos(nullptr),_number_generator( new Random(seed)),
+				_destroy_block_generator(new Random(seed)),_acceleration(300000),
+				_score(0), _level(0),_line_complete(0),_line_stack(0),_bonus(0),_stack_blank(false), _controller_inverse(false),
+				_use_bonus(false){
 	/*
 	On construit une grille de 20 x 10.
 	Une grille d'objet de type "Block" vide.
@@ -51,6 +53,7 @@ Grid::~Grid(){
 }
 
 
+
 Tetriminos * Grid::get_tetriminos()const{
 
 	return _current_tetriminos;
@@ -80,7 +83,10 @@ int Grid::get_color_of_tetriminos()const{
 
 	return _current_tetriminos->get_color_of_block(0);
 }
+int Grid::get_bonus()const{
 
+	return _bonus;
+}
 int Grid::get_color_of_block(int i , int j)const{
 
 	return _grid[i][j].get_color();
@@ -110,6 +116,17 @@ void Grid::set_grid(Block** grid){
 
 	_grid = grid;
 }
+
+void Grid::set_state_stack_blank(bool state){
+	_stack_blank = state;
+
+}
+
+void Grid::set_state_controller_inverse(bool state){
+
+	_controller_inverse = state;
+}
+
 int Grid::get_score()const{return _score;}
 int Grid::get_level()const{return _level;}
 int Grid::get_line_complete()const {return _line_complete;}
@@ -171,6 +188,16 @@ bool Grid::is_colliding_right()const {
 	}
 	return cantMove;
 	
+}
+
+bool Grid::is_stack_blank()const{
+
+	return _stack_blank;
+}
+
+bool Grid::is_controller_inverse()const{
+
+	return _controller_inverse;
 }
 
 bool Grid::is_colliding_left() const{
@@ -279,6 +306,8 @@ void Grid::fix_block(){
 
 			// On met la couleur de ces blocks aux couleurs du tétriminos.
 			_grid[y][x].set_color(_current_tetriminos->get_color_of_block(i));
+
+			_grid[y][x].set_bonus(_current_tetriminos->get_bonus_of_block(i));
 		}
 
 	}
@@ -338,7 +367,7 @@ int Grid::check_lines(){
 	for(int i = 0; i< 20; i++){
 
 		for(int j = 0; j<10; j++){
-
+			
 			// si un block est vide alors la ligne ne peut etre complète.
 			if( _grid[i][j].is_empty() ){ line_complete = false;}
 		}
@@ -355,6 +384,9 @@ int Grid::check_lines(){
 
 				_grid[i][j].set_empty_state(true);
 				_grid[i][j].set_color(0);
+				
+
+			
 				
 			}
 
@@ -389,6 +421,11 @@ int Grid::check_lines(){
 					color = _grid[i-1][j].get_color();
 					_grid[i][j].set_color(color);
 					_grid[i-1][j].set_color(0);
+
+					if(_bonus ==0 and  _grid[i][j].get_bonus()  != 0 and _grid[i][j].get_bonus() < 5){
+
+						_bonus = _grid[i][j].get_bonus();
+					}
 				}					
 					
 			}			
@@ -479,6 +516,13 @@ void Grid::current_tetriminos_turn_right(){
 		{_current_tetriminos->turn(matRotation);};
 
 
+}
+
+void Grid::use_bonus(){
+
+	if(_bonus !=0){
+		_use_bonus = true;
+	}
 }
 
 void Grid::set_current_tetriminos_hold(){
@@ -615,7 +659,7 @@ void Grid::destroy_block(){
 	for(int i = 0; i<20; i++){
 
 		for(int j = 0; j<10; j++){
-			int x = (rand()%100) +1;
+			int x = (_destroy_block_generator->nextInt(100)) +1;
 			if(is_empty(i,j) == false){
 
 				if(x<5){
@@ -630,5 +674,55 @@ void Grid::destroy_block(){
 
 
 
+
+}
+
+
+void Grid::hide_stack(Grid * other_grid){
+
+	other_grid->set_state_stack_blank(true);
+	sleep(5);
+	other_grid->set_state_stack_blank(false);
+	
+
+}
+
+void Grid::inverse_controller(Grid * other_grid){
+
+	set_state_controller_inverse(true);
+	sleep(5);
+	set_state_controller_inverse(false);
+
+}
+
+
+void Grid::active_bonus(Grid * other_grid){
+
+	if(_use_bonus ==true and _bonus!= 0){
+
+		if(_bonus == 1){
+
+			swap_grid(other_grid);
+		}
+		else if(_bonus ==2){
+
+			hide_stack(other_grid);
+
+		}
+
+		else if(_bonus ==3){
+
+			inverse_controller(other_grid);
+		}
+		else if(_bonus==4){
+
+			destroy_block();
+
+		}
+
+		_use_bonus = false; 
+		_bonus = 0;
+
+	}
 
 }

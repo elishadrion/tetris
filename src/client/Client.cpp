@@ -34,8 +34,8 @@ Client::Client(std::string address) {
 Client::~Client() {
 	delete display;
 	delete conn;
-  delete friends_manager;
-  delete statistics_manager;
+    delete friends_manager;
+    delete statistics_manager;
 	delete game_manager;
     delete player;
     delete salon_chat;

@@ -7,14 +7,14 @@ Vs.cpp
 #include "PowerUp.hpp"
 
 
-PowerUp::PowerUp(unsigned seed): Mode(true,seed) {}
+PowerUp::PowerUp(long seed): Mode(true,seed) {}
 
 
 PowerUp::~PowerUp(){
 
 	delete grid;
 	delete _other_grid;
-	//delete stopper;
+	delete stopper;
 	
 }
 
@@ -40,9 +40,9 @@ void PowerUp::start(Grid * grid, Grid * other_grid , Stopper_Thread* stopper){
 
 		grid->tetriminos_generator();
 		line_complete = tetriminos_dropping(grid);
+		grid->active_bonus(other_grid);
 		if(line_complete>=2){other_grid->add_line(line_complete);}		
-		gridOverload = grid->is_overload();		
-		
+		gridOverload = grid->is_overload();				
 		
 	}
 	

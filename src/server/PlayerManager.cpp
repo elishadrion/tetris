@@ -79,7 +79,7 @@ void PlayerManager::logout(Player* player) {
 
 Room* PlayerManager::create_new_room(int mode) {
     Room* new_room;
-    if(mode == 4){ new_room = new Room(2);}
+    if(mode == 4 or mode == 5){ new_room = new Room(2);}
     else         { new_room = new Room(1);}
     g_rooms.push_back(new_room);
 
@@ -152,14 +152,13 @@ void PlayerManager::manage_new_player(Player* player, int mode) {
     	broadcast_game_ready(room);
     	start_game(room,mode);
 
-
     }
     else PacketManager::send_game_waiting(player);
 }
 
 Room* PlayerManager::find_available_room(int mode) {
 
-    if(mode ==4){
+    if(mode ==4 or mode ==5){
         for (auto it = g_rooms.begin(); it != g_rooms.end(); it++) {
             if ((*it)->get_max_size() ==2 and !(*it)->is_full()) {
                 return *it;
@@ -183,6 +182,9 @@ void PlayerManager::start_game(Room* room, int mode) {
     }
     else if(mode ==4){
         room->set_mode(new Vs(room->get_seed()));
+    }
+    else if(mode ==5){
+        room->set_mode(new PowerUp(room->get_seed()));
     }
     room->get_mode()->init_game(false);
 
@@ -209,6 +211,8 @@ void PlayerManager::info_game(Room * room, Stopper_Thread * stopper){
 
         if (current == room) {
             g_rooms.erase(g_rooms.begin()+i);
+            usleep(200000);
+            WizardLogger::info("try room stop");
             delete current;
             WizardLogger::info("Room "+ std::to_string(i+1)+": arrété avec succès");
             return;

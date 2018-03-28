@@ -6,7 +6,7 @@ Block.cpp
 
 #include "Block.hpp"
 
-Block::Block(): _color(0), _coordinates(new int[2]), _empty_block(1) {}
+Block::Block(): _color(0), _coordinates(new int[2]), _empty_block(1), _bonus(0) {}
 
 Block::~Block(){
 

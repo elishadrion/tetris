@@ -6237,3 +6237,1138 @@
 [2018-03-28 08:47:29.820] [info]	Envoi d'un game ready à : all
 [2018-03-28 08:47:38.821] [info]	Room 1: arrété avec succès
 [2018-03-28 08:47:40.808] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 09:56:16.812] [info]	Démarrage serveur
+[2018-03-28 09:56:16.812] [info]	Ecoute des tentatives de connexions
+[2018-03-28 09:56:16.812] [info]	Serveur en attente de connexion client
+[2018-03-28 09:56:33.774] [warning]	Paquet de login reçu
+[2018-03-28 09:56:33.776] [info]	Client "all" s'est logged-in
+[2018-03-28 09:56:35.223] [info]	Reçu une demande de jeu de : all
+[2018-03-28 09:56:35.223] [info]	Room créé ; mode ID: 1
+[2018-03-28 09:56:35.223] [info]	Envoi d'un game waiting à : all
+[2018-03-28 09:56:35.224] [info]	Envoi d'un game ready à : all
+[2018-03-28 09:56:41.661] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 09:56:42.225] [info]	Room 1: arrété avec succès
+[2018-03-28 09:56:59.887] [warning]	Paquet de login reçu
+[2018-03-28 09:57:04.506] [warning]	Paquet de login reçu
+[2018-03-28 09:57:04.507] [info]	Client "abderr" s'est logged-in
+[2018-03-28 09:57:12.097] [info]	Reçu une demande de jeu de : abderr
+[2018-03-28 09:57:12.097] [info]	Room créé ; mode ID: 3
+[2018-03-28 09:57:12.097] [info]	Envoi d'un game waiting à : abderr
+[2018-03-28 09:57:12.098] [info]	Envoi d'un game ready à : abderr
+[2018-03-28 09:57:14.366] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-28 09:57:15.099] [info]	Room 1: arrété avec succès
+[2018-03-28 09:57:35.600] [info]	Démarrage serveur
+[2018-03-28 09:57:35.600] [info]	Ecoute des tentatives de connexions
+[2018-03-28 09:57:35.600] [info]	Serveur en attente de connexion client
+[2018-03-28 09:58:05.898] [error]	Login interrompu, connexion avec le client perdu
+[2018-03-28 09:59:17.454] [info]	Démarrage serveur
+[2018-03-28 09:59:17.454] [info]	Ecoute des tentatives de connexions
+[2018-03-28 09:59:17.454] [info]	Serveur en attente de connexion client
+[2018-03-28 09:59:26.726] [error]	Login interrompu, connexion avec le client perdu
+[2018-03-28 10:00:10.405] [error]	Login interrompu, connexion avec le client perdu
+[2018-03-28 10:01:08.208] [error]	Login interrompu, connexion avec le client perdu
+[2018-03-28 10:15:32.302] [info]	Démarrage serveur
+[2018-03-28 10:15:32.302] [info]	Ecoute des tentatives de connexions
+[2018-03-28 10:15:32.302] [info]	Serveur en attente de connexion client
+[2018-03-28 10:15:37.921] [warning]	Paquet de login reçu
+[2018-03-28 10:15:37.923] [info]	Client "all" s'est logged-in
+[2018-03-28 10:15:39.412] [info]	Reçu une demande de jeu de : all
+[2018-03-28 10:15:39.412] [info]	Room créé ; mode ID: 1
+[2018-03-28 10:15:39.412] [info]	Envoi d'un game waiting à : all
+[2018-03-28 10:15:39.413] [info]	Envoi d'un game ready à : all
+[2018-03-28 10:15:52.372] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 10:15:52.415] [info]	Room 1: arrété avec succès
+[2018-03-28 10:17:00.772] [info]	Démarrage serveur
+[2018-03-28 10:17:00.772] [info]	Ecoute des tentatives de connexions
+[2018-03-28 10:17:00.772] [info]	Serveur en attente de connexion client
+[2018-03-28 10:17:04.953] [warning]	Paquet de login reçu
+[2018-03-28 10:17:04.955] [info]	Client "all" s'est logged-in
+[2018-03-28 10:17:05.417] [info]	Reçu une demande de jeu de : all
+[2018-03-28 10:17:05.418] [info]	Room créé ; mode ID: 1
+[2018-03-28 10:17:05.418] [info]	Envoi d'un game waiting à : all
+[2018-03-28 10:17:05.418] [info]	Envoi d'un game ready à : all
+[2018-03-28 10:17:17.076] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 10:17:17.420] [info]	Room 1: arrété avec succès
+[2018-03-28 10:20:20.488] [info]	Démarrage serveur
+[2018-03-28 10:20:20.489] [info]	Ecoute des tentatives de connexions
+[2018-03-28 10:20:20.489] [info]	Serveur en attente de connexion client
+[2018-03-28 10:20:24.209] [warning]	Paquet de login reçu
+[2018-03-28 10:20:24.210] [info]	Client "all" s'est logged-in
+[2018-03-28 10:20:24.906] [info]	Reçu une demande de jeu de : all
+[2018-03-28 10:20:24.906] [info]	Room créé ; mode ID: 1
+[2018-03-28 10:20:24.906] [info]	Envoi d'un game waiting à : all
+[2018-03-28 10:20:24.906] [info]	Envoi d'un game ready à : all
+[2018-03-28 10:20:37.662] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 10:20:37.908] [info]	Room 1: arrété avec succès
+[2018-03-28 10:26:26.165] [info]	Démarrage serveur
+[2018-03-28 10:26:26.165] [info]	Ecoute des tentatives de connexions
+[2018-03-28 10:26:26.165] [info]	Serveur en attente de connexion client
+[2018-03-28 10:26:31.363] [error]	Login interrompu, connexion avec le client perdu
+[2018-03-28 10:26:47.823] [warning]	Paquet de login reçu
+[2018-03-28 10:26:47.824] [info]	Client "all" s'est logged-in
+[2018-03-28 10:26:49.095] [info]	Reçu une demande de jeu de : all
+[2018-03-28 10:26:49.095] [info]	Room créé ; mode ID: 1
+[2018-03-28 10:26:49.095] [info]	Envoi d'un game waiting à : all
+[2018-03-28 10:26:49.096] [info]	Envoi d'un game ready à : all
+[2018-03-28 10:27:00.098] [info]	Room 1: arrété avec succès
+[2018-03-28 10:27:02.713] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 10:27:05.129] [error]	Login interrompu, connexion avec le client perdu
+[2018-03-28 10:27:44.943] [error]	Login interrompu, connexion avec le client perdu
+[2018-03-28 10:27:56.424] [warning]	Paquet de login reçu
+[2018-03-28 10:27:56.425] [info]	Client "all" s'est logged-in
+[2018-03-28 10:27:57.238] [info]	Reçu une demande de jeu de : all
+[2018-03-28 10:27:57.238] [info]	Room créé ; mode ID: 1
+[2018-03-28 10:27:57.238] [info]	Envoi d'un game waiting à : all
+[2018-03-28 10:27:57.239] [info]	Envoi d'un game ready à : all
+[2018-03-28 10:28:36.753] [info]	Démarrage serveur
+[2018-03-28 10:28:36.753] [info]	Ecoute des tentatives de connexions
+[2018-03-28 10:28:36.753] [info]	Serveur en attente de connexion client
+[2018-03-28 10:29:18.695] [error]	Login interrompu, connexion avec le client perdu
+[2018-03-28 10:35:31.668] [warning]	Paquet de login reçu
+[2018-03-28 10:35:35.645] [warning]	Paquet de login reçu
+[2018-03-28 10:35:35.646] [info]	Client "all" s'est logged-in
+[2018-03-28 10:35:39.663] [info]	Reçu une demande de jeu de : all
+[2018-03-28 10:35:39.664] [info]	Room créé ; mode ID: 1
+[2018-03-28 10:35:39.664] [info]	Envoi d'un game waiting à : all
+[2018-03-28 10:35:39.664] [info]	Envoi d'un game ready à : all
+[2018-03-28 10:35:55.666] [info]	Room 1: arrété avec succès
+[2018-03-28 10:35:59.390] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 10:44:48.571] [info]	Démarrage serveur
+[2018-03-28 10:44:48.571] [info]	Ecoute des tentatives de connexions
+[2018-03-28 10:44:48.571] [info]	Serveur en attente de connexion client
+[2018-03-28 10:45:01.993] [warning]	Paquet de login reçu
+[2018-03-28 10:45:04.942] [warning]	Paquet de login reçu
+[2018-03-28 10:45:04.942] [info]	Client "all" s'est logged-in
+[2018-03-28 10:45:06.896] [info]	Reçu une demande de jeu de : all
+[2018-03-28 10:45:06.904] [info]	Room créé ; mode ID: 4
+[2018-03-28 10:45:06.904] [info]	Envoi d'un game waiting à : all
+[2018-03-28 10:45:17.279] [warning]	Paquet de login reçu
+[2018-03-28 10:45:17.279] [info]	Client "eiman" s'est logged-in
+[2018-03-28 10:45:19.424] [info]	Reçu une demande de jeu de : eiman
+[2018-03-28 10:45:19.424] [info]	Envoi d'un game waiting à : eiman
+[2018-03-28 10:45:19.425] [info]	Envoi d'un game ready à : all
+[2018-03-28 10:45:19.425] [info]	Envoi d'un game ready à : eiman
+[2018-03-28 10:45:22.931] [warning]	La connexion avec le client "eiman" semble avoir été interrompue !
+[2018-03-28 10:45:23.625] [info]	Room 1: arrété avec succès
+[2018-03-28 11:32:11.320] [info]	Démarrage serveur
+[2018-03-28 11:32:11.320] [info]	Ecoute des tentatives de connexions
+[2018-03-28 11:32:11.320] [info]	Serveur en attente de connexion client
+[2018-03-28 11:32:20.047] [warning]	Paquet de login reçu
+[2018-03-28 11:32:20.048] [info]	Client "all" s'est logged-in
+[2018-03-28 11:32:22.820] [info]	Reçu une demande de jeu de : all
+[2018-03-28 11:32:22.820] [info]	Room créé ; mode ID: 1
+[2018-03-28 11:32:22.827] [info]	Envoi d'un game waiting à : all
+[2018-03-28 11:32:22.827] [info]	Envoi d'un game ready à : all
+[2018-03-28 11:32:31.362] [info]	Démarrage serveur
+[2018-03-28 11:32:31.362] [info]	Ecoute des tentatives de connexions
+[2018-03-28 11:32:31.362] [info]	Serveur en attente de connexion client
+[2018-03-28 11:32:36.351] [warning]	Paquet de login reçu
+[2018-03-28 11:32:36.353] [info]	Client "all" s'est logged-in
+[2018-03-28 11:32:37.065] [info]	Reçu une demande de jeu de : all
+[2018-03-28 11:32:37.066] [info]	Room créé ; mode ID: 1
+[2018-03-28 11:32:37.066] [info]	Envoi d'un game waiting à : all
+[2018-03-28 11:32:37.066] [info]	Envoi d'un game ready à : all
+[2018-03-28 11:37:47.691] [info]	Démarrage serveur
+[2018-03-28 11:37:47.691] [info]	Ecoute des tentatives de connexions
+[2018-03-28 11:37:47.691] [info]	Serveur en attente de connexion client
+[2018-03-28 11:37:53.695] [warning]	Paquet de login reçu
+[2018-03-28 11:37:53.697] [info]	Client "all" s'est logged-in
+[2018-03-28 11:37:54.164] [info]	Reçu une demande de jeu de : all
+[2018-03-28 11:37:54.164] [info]	Room créé ; mode ID: 1
+[2018-03-28 11:37:54.165] [info]	Envoi d'un game waiting à : all
+[2018-03-28 11:37:54.165] [info]	Envoi d'un game ready à : all
+[2018-03-28 11:52:38.801] [info]	Démarrage serveur
+[2018-03-28 11:52:38.801] [info]	Ecoute des tentatives de connexions
+[2018-03-28 11:52:38.801] [info]	Serveur en attente de connexion client
+[2018-03-28 11:52:42.695] [warning]	Paquet de login reçu
+[2018-03-28 11:52:42.696] [info]	Client "all" s'est logged-in
+[2018-03-28 11:52:43.187] [info]	Reçu une demande de jeu de : all
+[2018-03-28 11:52:43.187] [info]	Room créé ; mode ID: 1
+[2018-03-28 11:52:43.187] [info]	Envoi d'un game waiting à : all
+[2018-03-28 11:52:43.187] [info]	Envoi d'un game ready à : all
+[2018-03-28 11:53:20.443] [info]	Démarrage serveur
+[2018-03-28 11:53:20.443] [info]	Ecoute des tentatives de connexions
+[2018-03-28 11:53:20.443] [info]	Serveur en attente de connexion client
+[2018-03-28 11:53:25.491] [warning]	Paquet de login reçu
+[2018-03-28 11:53:25.492] [info]	Client "all" s'est logged-in
+[2018-03-28 11:53:41.826] [info]	all a envoyé une requête d'ami
+[2018-03-28 11:53:41.827] [info]	all Recupération de tout les utilisateurs finie
+[2018-03-28 11:53:41.827] [info]	all Envoie de tous les utilisateurs
+[2018-03-28 11:53:46.787] [info]	all a envoyé une requête d'ami
+[2018-03-28 11:53:46.794] [info]	all Envoie requête d'amis
+[2018-03-28 11:54:06.385] [info]	Reçu une demande de jeu de : all
+[2018-03-28 11:54:06.385] [info]	Room créé ; mode ID: 1
+[2018-03-28 11:54:06.385] [info]	Envoi d'un game waiting à : all
+[2018-03-28 11:54:06.385] [info]	Envoi d'un game ready à : all
+[2018-03-28 11:54:10.978] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 11:54:11.586] [info]	Room 1: arrété avec succès
+[2018-03-28 11:57:15.021] [info]	Démarrage serveur
+[2018-03-28 11:57:15.022] [info]	Ecoute des tentatives de connexions
+[2018-03-28 11:57:15.022] [info]	Serveur en attente de connexion client
+[2018-03-28 11:57:21.200] [warning]	Paquet de login reçu
+[2018-03-28 11:57:22.599] [warning]	Paquet de login reçu
+[2018-03-28 11:57:22.599] [info]	Client "all" s'est logged-in
+[2018-03-28 11:57:23.099] [info]	Reçu une demande de jeu de : all
+[2018-03-28 11:57:23.100] [info]	Room créé ; mode ID: 1
+[2018-03-28 11:57:23.100] [info]	Envoi d'un game waiting à : all
+[2018-03-28 11:57:23.100] [info]	Envoi d'un game ready à : all
+[2018-03-28 11:57:25.890] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 11:57:26.301] [info]	Room 1: arrété avec succès
+[2018-03-28 11:57:31.836] [warning]	Paquet de login reçu
+[2018-03-28 11:57:31.836] [info]	Client "eiman" s'est logged-in
+[2018-03-28 11:57:32.458] [info]	Reçu une demande de jeu de : eiman
+[2018-03-28 11:57:32.458] [info]	Room créé ; mode ID: 1
+[2018-03-28 11:57:32.458] [info]	Envoi d'un game waiting à : eiman
+[2018-03-28 11:57:32.459] [info]	Envoi d'un game ready à : eiman
+[2018-03-28 11:57:49.661] [info]	Room 1: arrété avec succès
+[2018-03-28 11:57:52.632] [info]	Reçu une demande de jeu de : eiman
+[2018-03-28 11:57:52.632] [info]	Room créé ; mode ID: 3
+[2018-03-28 11:57:52.632] [info]	Envoi d'un game waiting à : eiman
+[2018-03-28 11:57:52.632] [info]	Envoi d'un game ready à : eiman
+[2018-03-28 11:58:06.824] [warning]	La connexion avec le client "eiman" semble avoir été interrompue !
+[2018-03-28 11:58:07.834] [info]	Room 1: arrété avec succès
+[2018-03-28 11:58:11.054] [warning]	Paquet de login reçu
+[2018-03-28 11:58:11.054] [info]	Client "abderr" s'est logged-in
+[2018-03-28 11:58:12.780] [info]	Reçu une demande de jeu de : abderr
+[2018-03-28 11:58:12.780] [info]	Room créé ; mode ID: 3
+[2018-03-28 11:58:12.780] [info]	Envoi d'un game waiting à : abderr
+[2018-03-28 11:58:12.781] [info]	Envoi d'un game ready à : abderr
+[2018-03-28 11:58:15.656] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-28 12:01:26.726] [info]	Démarrage serveur
+[2018-03-28 12:01:26.726] [info]	Ecoute des tentatives de connexions
+[2018-03-28 12:01:26.726] [info]	Serveur en attente de connexion client
+[2018-03-28 12:01:35.731] [warning]	Paquet de login reçu
+[2018-03-28 12:01:35.733] [info]	Client "all" s'est logged-in
+[2018-03-28 12:01:36.385] [info]	Reçu une demande de jeu de : all
+[2018-03-28 12:01:36.385] [info]	Room créé ; mode ID: 1
+[2018-03-28 12:01:36.385] [info]	Envoi d'un game waiting à : all
+[2018-03-28 12:01:36.385] [info]	Envoi d'un game ready à : all
+[2018-03-28 12:01:38.714] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 12:01:39.587] [info]	try room stop
+[2018-03-28 12:01:39.587] [info]	Room 1: arrété avec succès
+[2018-03-28 12:01:49.700] [warning]	Paquet de login reçu
+[2018-03-28 12:01:49.700] [info]	Client "abderr" s'est logged-in
+[2018-03-28 12:01:50.273] [info]	Reçu une demande de jeu de : abderr
+[2018-03-28 12:01:50.273] [info]	Room créé ; mode ID: 1
+[2018-03-28 12:01:50.273] [info]	Envoi d'un game waiting à : abderr
+[2018-03-28 12:01:50.273] [info]	Envoi d'un game ready à : abderr
+[2018-03-28 12:01:52.639] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-28 12:01:53.474] [info]	try room stop
+[2018-03-28 12:01:53.474] [info]	Room 1: arrété avec succès
+[2018-03-28 12:03:30.275] [info]	Démarrage serveur
+[2018-03-28 12:03:30.275] [info]	Ecoute des tentatives de connexions
+[2018-03-28 12:03:30.276] [info]	Serveur en attente de connexion client
+[2018-03-28 12:03:34.649] [warning]	Paquet de login reçu
+[2018-03-28 12:03:34.650] [info]	Client "all" s'est logged-in
+[2018-03-28 12:03:36.310] [info]	Reçu une demande de jeu de : all
+[2018-03-28 12:03:36.311] [info]	Room créé ; mode ID: 1
+[2018-03-28 12:03:36.311] [info]	Envoi d'un game waiting à : all
+[2018-03-28 12:03:36.311] [info]	Envoi d'un game ready à : all
+[2018-03-28 12:03:37.941] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 12:03:38.512] [info]	try room stop
+[2018-03-28 12:03:38.512] [info]	Room 1: arrété avec succès
+[2018-03-28 12:03:41.975] [warning]	Paquet de login reçu
+[2018-03-28 12:03:41.976] [info]	Client "abderr" s'est logged-in
+[2018-03-28 12:03:46.353] [info]	Reçu une demande de jeu de : abderr
+[2018-03-28 12:03:46.354] [info]	Room créé ; mode ID: 1
+[2018-03-28 12:03:46.354] [info]	Envoi d'un game waiting à : abderr
+[2018-03-28 12:03:46.354] [info]	Envoi d'un game ready à : abderr
+[2018-03-28 12:03:55.924] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-28 12:03:56.555] [info]	try room stop
+[2018-03-28 12:03:56.556] [info]	Room 1: arrété avec succès
+[2018-03-28 12:05:01.234] [info]	Démarrage serveur
+[2018-03-28 12:05:01.234] [info]	Ecoute des tentatives de connexions
+[2018-03-28 12:05:01.234] [info]	Serveur en attente de connexion client
+[2018-03-28 12:05:10.373] [warning]	Paquet de login reçu
+[2018-03-28 12:05:10.374] [info]	Client "all" s'est logged-in
+[2018-03-28 12:05:11.458] [info]	Reçu une demande de jeu de : all
+[2018-03-28 12:05:11.458] [info]	Room créé ; mode ID: 1
+[2018-03-28 12:05:11.458] [info]	Envoi d'un game waiting à : all
+[2018-03-28 12:05:11.458] [info]	Envoi d'un game ready à : all
+[2018-03-28 12:05:17.124] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 12:05:17.660] [info]	try room stop
+[2018-03-28 12:05:17.660] [info]	Room 1: arrété avec succès
+[2018-03-28 12:07:41.138] [info]	Démarrage serveur
+[2018-03-28 12:07:41.138] [info]	Ecoute des tentatives de connexions
+[2018-03-28 12:07:41.138] [info]	Serveur en attente de connexion client
+[2018-03-28 12:07:45.034] [error]	Login interrompu, connexion avec le client perdu
+[2018-03-28 12:07:48.069] [warning]	Paquet de login reçu
+[2018-03-28 12:07:48.070] [info]	Client "all" s'est logged-in
+[2018-03-28 12:07:48.753] [info]	Reçu une demande de jeu de : all
+[2018-03-28 12:07:48.753] [info]	Room créé ; mode ID: 1
+[2018-03-28 12:07:48.753] [info]	Envoi d'un game waiting à : all
+[2018-03-28 12:07:48.753] [info]	Envoi d'un game ready à : all
+[2018-03-28 12:07:55.186] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 12:07:55.955] [info]	try room stop
+[2018-03-28 12:07:55.956] [info]	Room 1: arrété avec succès
+[2018-03-28 12:18:56.769] [info]	Démarrage serveur
+[2018-03-28 12:18:56.770] [info]	Ecoute des tentatives de connexions
+[2018-03-28 12:18:56.770] [info]	Serveur en attente de connexion client
+[2018-03-28 12:19:02.317] [warning]	Paquet de login reçu
+[2018-03-28 12:19:02.318] [info]	Client "all" s'est logged-in
+[2018-03-28 12:19:02.807] [info]	Reçu une demande de jeu de : all
+[2018-03-28 12:19:02.807] [info]	Room créé ; mode ID: 1
+[2018-03-28 12:19:02.807] [info]	Envoi d'un game waiting à : all
+[2018-03-28 12:19:02.807] [info]	Envoi d'un game ready à : all
+[2018-03-28 12:19:20.457] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 12:19:21.010] [info]	try room stop
+[2018-03-28 12:19:21.010] [info]	Room 1: arrété avec succès
+[2018-03-28 12:20:00.069] [info]	Démarrage serveur
+[2018-03-28 12:20:00.069] [info]	Ecoute des tentatives de connexions
+[2018-03-28 12:20:00.069] [info]	Serveur en attente de connexion client
+[2018-03-28 12:20:05.545] [warning]	Paquet de login reçu
+[2018-03-28 12:20:05.547] [info]	Client "all" s'est logged-in
+[2018-03-28 12:20:06.118] [info]	Reçu une demande de jeu de : all
+[2018-03-28 12:20:06.118] [info]	Room créé ; mode ID: 1
+[2018-03-28 12:20:06.118] [info]	Envoi d'un game waiting à : all
+[2018-03-28 12:20:06.118] [info]	Envoi d'un game ready à : all
+[2018-03-28 12:20:19.321] [info]	try room stop
+[2018-03-28 12:20:19.321] [info]	Room 1: arrété avec succès
+[2018-03-28 12:20:20.054] [info]	Reçu une demande de jeu de : all
+[2018-03-28 12:20:20.054] [info]	Room créé ; mode ID: 1
+[2018-03-28 12:20:20.054] [info]	Envoi d'un game waiting à : all
+[2018-03-28 12:20:20.054] [info]	Envoi d'un game ready à : all
+[2018-03-28 12:20:22.040] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 12:20:22.255] [info]	try room stop
+[2018-03-28 12:20:22.255] [info]	Room 1: arrété avec succès
+[2018-03-28 12:20:26.208] [warning]	Paquet de login reçu
+[2018-03-28 12:20:27.691] [warning]	Paquet de login reçu
+[2018-03-28 12:20:29.018] [warning]	Paquet de login reçu
+[2018-03-28 12:20:29.018] [info]	Client "all" s'est logged-in
+[2018-03-28 12:20:29.446] [info]	Reçu une demande de jeu de : all
+[2018-03-28 12:20:29.446] [info]	Room créé ; mode ID: 1
+[2018-03-28 12:20:29.446] [info]	Envoi d'un game waiting à : all
+[2018-03-28 12:20:29.446] [info]	Envoi d'un game ready à : all
+[2018-03-28 12:20:36.227] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 12:20:36.647] [info]	try room stop
+[2018-03-28 12:20:36.654] [info]	Room 1: arrété avec succès
+[2018-03-28 12:22:16.155] [info]	Démarrage serveur
+[2018-03-28 12:22:16.155] [info]	Ecoute des tentatives de connexions
+[2018-03-28 12:22:16.155] [info]	Serveur en attente de connexion client
+[2018-03-28 12:22:20.282] [warning]	Paquet de login reçu
+[2018-03-28 12:22:20.284] [info]	Client "all" s'est logged-in
+[2018-03-28 12:22:20.997] [info]	Reçu une demande de jeu de : all
+[2018-03-28 12:22:20.997] [info]	Room créé ; mode ID: 1
+[2018-03-28 12:22:20.997] [info]	Envoi d'un game waiting à : all
+[2018-03-28 12:22:20.997] [info]	Envoi d'un game ready à : all
+[2018-03-28 12:22:52.201] [info]	try room stop
+[2018-03-28 12:22:52.201] [info]	Room 1: arrété avec succès
+[2018-03-28 12:24:18.982] [info]	Démarrage serveur
+[2018-03-28 12:24:18.983] [info]	Ecoute des tentatives de connexions
+[2018-03-28 12:24:18.983] [info]	Serveur en attente de connexion client
+[2018-03-28 12:24:23.430] [warning]	Paquet de login reçu
+[2018-03-28 12:24:23.431] [info]	Client "all" s'est logged-in
+[2018-03-28 12:24:24.092] [info]	Reçu une demande de jeu de : all
+[2018-03-28 12:24:24.093] [info]	Room créé ; mode ID: 1
+[2018-03-28 12:24:24.093] [info]	Envoi d'un game waiting à : all
+[2018-03-28 12:24:24.093] [info]	Envoi d'un game ready à : all
+[2018-03-28 12:24:32.506] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 12:24:33.295] [info]	try room stop
+[2018-03-28 12:24:33.295] [info]	Room 1: arrété avec succès
+[2018-03-28 12:27:20.108] [info]	Démarrage serveur
+[2018-03-28 12:27:20.109] [info]	Ecoute des tentatives de connexions
+[2018-03-28 12:27:20.109] [info]	Serveur en attente de connexion client
+[2018-03-28 12:27:23.908] [warning]	Paquet de login reçu
+[2018-03-28 12:27:23.909] [info]	Client "all" s'est logged-in
+[2018-03-28 12:27:24.642] [info]	Reçu une demande de jeu de : all
+[2018-03-28 12:27:24.642] [info]	Room créé ; mode ID: 1
+[2018-03-28 12:27:24.648] [info]	Envoi d'un game waiting à : all
+[2018-03-28 12:27:24.649] [info]	Envoi d'un game ready à : all
+[2018-03-28 12:27:36.851] [info]	try room stop
+[2018-03-28 12:27:36.851] [info]	Room 1: arrété avec succès
+[2018-03-28 12:27:38.579] [info]	Reçu une demande de jeu de : all
+[2018-03-28 12:27:38.579] [info]	Room créé ; mode ID: 1
+[2018-03-28 12:27:38.579] [info]	Envoi d'un game waiting à : all
+[2018-03-28 12:27:38.579] [info]	Envoi d'un game ready à : all
+[2018-03-28 12:27:39.972] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 12:27:40.780] [info]	try room stop
+[2018-03-28 12:27:40.781] [info]	Room 1: arrété avec succès
+[2018-03-28 12:27:43.232] [warning]	Paquet de login reçu
+[2018-03-28 12:27:43.232] [info]	Client "all" s'est logged-in
+[2018-03-28 12:27:43.722] [info]	Reçu une demande de jeu de : all
+[2018-03-28 12:27:43.722] [info]	Room créé ; mode ID: 1
+[2018-03-28 12:27:43.722] [info]	Envoi d'un game waiting à : all
+[2018-03-28 12:27:43.722] [info]	Envoi d'un game ready à : all
+[2018-03-28 12:27:54.924] [info]	try room stop
+[2018-03-28 12:27:54.925] [info]	Room 1: arrété avec succès
+[2018-03-28 12:29:02.769] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 12:29:16.576] [info]	Démarrage serveur
+[2018-03-28 12:29:16.576] [info]	Ecoute des tentatives de connexions
+[2018-03-28 12:29:16.576] [info]	Serveur en attente de connexion client
+[2018-03-28 12:29:21.224] [warning]	Paquet de login reçu
+[2018-03-28 12:29:21.224] [info]	Client "all" s'est logged-in
+[2018-03-28 12:29:22.540] [info]	Reçu une demande de jeu de : all
+[2018-03-28 12:29:22.540] [info]	Room créé ; mode ID: 1
+[2018-03-28 12:29:22.541] [info]	Envoi d'un game waiting à : all
+[2018-03-28 12:29:22.541] [info]	Envoi d'un game ready à : all
+[2018-03-28 12:29:27.553] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 12:29:28.742] [info]	try room stop
+[2018-03-28 12:29:28.742] [info]	Room 1: arrété avec succès
+[2018-03-28 12:30:07.625] [info]	Démarrage serveur
+[2018-03-28 12:30:07.625] [info]	Ecoute des tentatives de connexions
+[2018-03-28 12:30:07.625] [info]	Serveur en attente de connexion client
+[2018-03-28 12:30:20.551] [info]	Démarrage serveur
+[2018-03-28 12:30:20.552] [info]	Ecoute des tentatives de connexions
+[2018-03-28 12:30:20.552] [info]	Serveur en attente de connexion client
+[2018-03-28 12:30:27.296] [warning]	Paquet de login reçu
+[2018-03-28 12:30:27.298] [info]	Client "all" s'est logged-in
+[2018-03-28 12:30:31.399] [info]	Reçu une demande de jeu de : all
+[2018-03-28 12:30:31.399] [info]	Room créé ; mode ID: 1
+[2018-03-28 12:30:31.399] [info]	Envoi d'un game waiting à : all
+[2018-03-28 12:30:31.399] [info]	Envoi d'un game ready à : all
+[2018-03-28 12:30:58.180] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 12:30:58.603] [info]	try room stop
+[2018-03-28 12:30:58.603] [info]	Room 1: arrété avec succès
+[2018-03-28 12:31:54.243] [info]	Démarrage serveur
+[2018-03-28 12:31:54.244] [info]	Ecoute des tentatives de connexions
+[2018-03-28 12:31:54.244] [info]	Serveur en attente de connexion client
+[2018-03-28 12:31:59.169] [warning]	Paquet de login reçu
+[2018-03-28 12:31:59.171] [info]	Client "all" s'est logged-in
+[2018-03-28 12:31:59.832] [info]	Reçu une demande de jeu de : all
+[2018-03-28 12:31:59.832] [info]	Room créé ; mode ID: 1
+[2018-03-28 12:31:59.832] [info]	Envoi d'un game waiting à : all
+[2018-03-28 12:31:59.833] [info]	Envoi d'un game ready à : all
+[2018-03-28 12:32:08.075] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 12:32:09.034] [info]	try room stop
+[2018-03-28 12:32:09.035] [info]	Room 1: arrété avec succès
+[2018-03-28 12:42:49.327] [info]	Démarrage serveur
+[2018-03-28 12:42:49.327] [info]	Ecoute des tentatives de connexions
+[2018-03-28 12:42:49.327] [info]	Serveur en attente de connexion client
+[2018-03-28 12:42:53.664] [warning]	Paquet de login reçu
+[2018-03-28 12:42:53.665] [info]	Client "all" s'est logged-in
+[2018-03-28 12:42:54.430] [info]	Reçu une demande de jeu de : all
+[2018-03-28 12:42:54.431] [info]	Room créé ; mode ID: 1
+[2018-03-28 12:42:54.431] [info]	Envoi d'un game waiting à : all
+[2018-03-28 12:42:54.431] [info]	Envoi d'un game ready à : all
+[2018-03-28 12:42:59.461] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 12:43:00.634] [info]	try room stop
+[2018-03-28 12:43:00.634] [info]	Room 1: arrété avec succès
+[2018-03-28 12:45:55.205] [info]	Démarrage serveur
+[2018-03-28 12:45:55.205] [info]	Ecoute des tentatives de connexions
+[2018-03-28 12:45:55.205] [info]	Serveur en attente de connexion client
+[2018-03-28 12:46:02.692] [warning]	Paquet de login reçu
+[2018-03-28 12:46:02.694] [info]	Client "all" s'est logged-in
+[2018-03-28 12:46:03.111] [info]	Reçu une demande de jeu de : all
+[2018-03-28 12:46:03.112] [info]	Room créé ; mode ID: 1
+[2018-03-28 12:46:03.112] [info]	Envoi d'un game waiting à : all
+[2018-03-28 12:46:03.112] [info]	Envoi d'un game ready à : all
+[2018-03-28 12:46:04.476] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 12:46:05.314] [info]	try room stop
+[2018-03-28 12:46:05.314] [info]	Room 1: arrété avec succès
+[2018-03-28 12:46:07.734] [warning]	Paquet de login reçu
+[2018-03-28 12:46:07.742] [info]	Client "all" s'est logged-in
+[2018-03-28 12:46:08.073] [info]	Reçu une demande de jeu de : all
+[2018-03-28 12:46:08.073] [info]	Room créé ; mode ID: 1
+[2018-03-28 12:46:08.073] [info]	Envoi d'un game waiting à : all
+[2018-03-28 12:46:08.073] [info]	Envoi d'un game ready à : all
+[2018-03-28 12:46:13.641] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 12:46:14.274] [info]	try room stop
+[2018-03-28 12:46:14.274] [info]	Room 1: arrété avec succès
+[2018-03-28 12:49:58.198] [info]	Démarrage serveur
+[2018-03-28 12:49:58.198] [info]	Ecoute des tentatives de connexions
+[2018-03-28 12:49:58.198] [info]	Serveur en attente de connexion client
+[2018-03-28 12:50:03.051] [warning]	Paquet de login reçu
+[2018-03-28 12:50:03.051] [info]	Client "all" s'est logged-in
+[2018-03-28 12:50:03.530] [info]	Reçu une demande de jeu de : all
+[2018-03-28 12:50:03.530] [info]	Room créé ; mode ID: 1
+[2018-03-28 12:50:03.537] [info]	Envoi d'un game waiting à : all
+[2018-03-28 12:50:03.537] [info]	Envoi d'un game ready à : all
+[2018-03-28 12:50:11.984] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 12:50:12.738] [info]	try room stop
+[2018-03-28 12:50:12.738] [info]	Room 1: arrété avec succès
+[2018-03-28 12:51:08.602] [info]	Démarrage serveur
+[2018-03-28 12:51:08.602] [info]	Ecoute des tentatives de connexions
+[2018-03-28 12:51:08.602] [info]	Serveur en attente de connexion client
+[2018-03-28 12:51:13.035] [warning]	Paquet de login reçu
+[2018-03-28 12:51:13.036] [info]	Client "all" s'est logged-in
+[2018-03-28 12:51:13.567] [info]	Reçu une demande de jeu de : all
+[2018-03-28 12:51:13.567] [info]	Room créé ; mode ID: 1
+[2018-03-28 12:51:13.567] [info]	Envoi d'un game waiting à : all
+[2018-03-28 12:51:13.567] [info]	Envoi d'un game ready à : all
+[2018-03-28 12:51:22.880] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 12:51:23.768] [info]	try room stop
+[2018-03-28 12:51:23.768] [info]	Room 1: arrété avec succès
+[2018-03-28 12:51:54.285] [info]	Démarrage serveur
+[2018-03-28 12:51:54.286] [info]	Ecoute des tentatives de connexions
+[2018-03-28 12:51:54.286] [info]	Serveur en attente de connexion client
+[2018-03-28 12:51:58.669] [warning]	Paquet de login reçu
+[2018-03-28 12:51:58.670] [info]	Client "all" s'est logged-in
+[2018-03-28 12:51:59.170] [info]	Reçu une demande de jeu de : all
+[2018-03-28 12:51:59.170] [info]	Room créé ; mode ID: 1
+[2018-03-28 12:51:59.171] [info]	Envoi d'un game waiting à : all
+[2018-03-28 12:51:59.171] [info]	Envoi d'un game ready à : all
+[2018-03-28 12:52:13.352] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 12:52:14.373] [info]	try room stop
+[2018-03-28 12:52:14.374] [info]	Room 1: arrété avec succès
+[2018-03-28 12:52:36.653] [info]	Démarrage serveur
+[2018-03-28 12:52:36.653] [info]	Ecoute des tentatives de connexions
+[2018-03-28 12:52:36.653] [info]	Serveur en attente de connexion client
+[2018-03-28 12:52:44.440] [warning]	Paquet de login reçu
+[2018-03-28 12:52:44.441] [info]	Client "all" s'est logged-in
+[2018-03-28 12:52:45.163] [info]	Reçu une demande de jeu de : all
+[2018-03-28 12:52:45.163] [info]	Room créé ; mode ID: 1
+[2018-03-28 12:52:45.170] [info]	Envoi d'un game waiting à : all
+[2018-03-28 12:52:45.170] [info]	Envoi d'un game ready à : all
+[2018-03-28 12:53:23.123] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 12:53:23.374] [info]	try room stop
+[2018-03-28 12:53:23.374] [info]	Room 1: arrété avec succès
+[2018-03-28 13:50:11.543] [info]	Démarrage serveur
+[2018-03-28 13:50:11.543] [info]	Ecoute des tentatives de connexions
+[2018-03-28 13:50:11.544] [info]	Serveur en attente de connexion client
+[2018-03-28 13:50:19.764] [warning]	Paquet de login reçu
+[2018-03-28 13:50:21.969] [warning]	Paquet de login reçu
+[2018-03-28 13:50:21.969] [info]	Client "all" s'est logged-in
+[2018-03-28 13:50:23.532] [info]	Reçu une demande de jeu de : all
+[2018-03-28 13:50:23.532] [info]	Room créé ; mode ID: 1
+[2018-03-28 13:50:23.532] [info]	Envoi d'un game waiting à : all
+[2018-03-28 13:50:23.532] [info]	Envoi d'un game ready à : all
+[2018-03-28 13:51:11.313] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 13:51:11.737] [info]	try room stop
+[2018-03-28 13:51:11.738] [info]	Room 1: arrété avec succès
+[2018-03-28 13:55:40.196] [info]	Démarrage serveur
+[2018-03-28 13:55:40.196] [info]	Ecoute des tentatives de connexions
+[2018-03-28 13:55:40.196] [info]	Serveur en attente de connexion client
+[2018-03-28 13:55:45.550] [warning]	Paquet de login reçu
+[2018-03-28 13:55:45.552] [info]	Client "all" s'est logged-in
+[2018-03-28 13:55:46.131] [info]	Reçu une demande de jeu de : all
+[2018-03-28 13:55:46.132] [info]	Room créé ; mode ID: 1
+[2018-03-28 13:55:46.132] [info]	Envoi d'un game waiting à : all
+[2018-03-28 13:55:46.132] [info]	Envoi d'un game ready à : all
+[2018-03-28 13:56:17.873] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 13:56:18.335] [info]	try room stop
+[2018-03-28 13:56:18.336] [info]	Room 1: arrété avec succès
+[2018-03-28 13:57:42.256] [info]	Démarrage serveur
+[2018-03-28 13:57:42.257] [info]	Ecoute des tentatives de connexions
+[2018-03-28 13:57:42.257] [info]	Serveur en attente de connexion client
+[2018-03-28 13:57:47.327] [warning]	Paquet de login reçu
+[2018-03-28 13:57:47.335] [info]	Client "all" s'est logged-in
+[2018-03-28 13:57:47.796] [info]	Reçu une demande de jeu de : all
+[2018-03-28 13:57:47.796] [info]	Room créé ; mode ID: 1
+[2018-03-28 13:57:47.796] [info]	Envoi d'un game waiting à : all
+[2018-03-28 13:57:47.796] [info]	Envoi d'un game ready à : all
+[2018-03-28 13:58:07.210] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 13:58:07.999] [info]	try room stop
+[2018-03-28 13:58:07.999] [info]	Room 1: arrété avec succès
+[2018-03-28 14:03:54.681] [info]	Démarrage serveur
+[2018-03-28 14:03:54.681] [info]	Ecoute des tentatives de connexions
+[2018-03-28 14:03:54.681] [info]	Serveur en attente de connexion client
+[2018-03-28 14:03:58.950] [warning]	Paquet de login reçu
+[2018-03-28 14:03:58.952] [info]	Client "all" s'est logged-in
+[2018-03-28 14:03:59.440] [info]	Reçu une demande de jeu de : all
+[2018-03-28 14:03:59.440] [info]	Room créé ; mode ID: 1
+[2018-03-28 14:03:59.441] [info]	Envoi d'un game waiting à : all
+[2018-03-28 14:03:59.441] [info]	Envoi d'un game ready à : all
+[2018-03-28 14:04:57.712] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 14:04:58.647] [info]	try room stop
+[2018-03-28 14:04:58.647] [info]	Room 1: arrété avec succès
+[2018-03-28 14:07:58.046] [info]	Démarrage serveur
+[2018-03-28 14:07:58.046] [info]	Ecoute des tentatives de connexions
+[2018-03-28 14:07:58.046] [info]	Serveur en attente de connexion client
+[2018-03-28 14:08:10.548] [warning]	Paquet de login reçu
+[2018-03-28 14:08:10.550] [info]	Client "all" s'est logged-in
+[2018-03-28 14:08:10.979] [info]	Reçu une demande de jeu de : all
+[2018-03-28 14:08:10.980] [info]	Room créé ; mode ID: 1
+[2018-03-28 14:08:10.980] [info]	Envoi d'un game waiting à : all
+[2018-03-28 14:08:10.980] [info]	Envoi d'un game ready à : all
+[2018-03-28 14:08:23.076] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 14:08:24.182] [info]	try room stop
+[2018-03-28 14:08:24.182] [info]	Room 1: arrété avec succès
+[2018-03-28 14:10:40.220] [info]	Démarrage serveur
+[2018-03-28 14:10:40.220] [info]	Ecoute des tentatives de connexions
+[2018-03-28 14:10:40.220] [info]	Serveur en attente de connexion client
+[2018-03-28 14:10:44.409] [warning]	Paquet de login reçu
+[2018-03-28 14:10:44.410] [info]	Client "all" s'est logged-in
+[2018-03-28 14:10:48.039] [info]	Reçu une demande de jeu de : all
+[2018-03-28 14:10:48.039] [info]	Room créé ; mode ID: 1
+[2018-03-28 14:10:48.040] [info]	Envoi d'un game waiting à : all
+[2018-03-28 14:10:48.040] [info]	Envoi d'un game ready à : all
+[2018-03-28 14:10:52.142] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 14:10:53.241] [info]	try room stop
+[2018-03-28 14:10:53.248] [info]	Room 1: arrété avec succès
+[2018-03-28 14:11:34.628] [info]	Démarrage serveur
+[2018-03-28 14:11:34.628] [info]	Ecoute des tentatives de connexions
+[2018-03-28 14:11:34.628] [info]	Serveur en attente de connexion client
+[2018-03-28 14:11:39.049] [warning]	Paquet de login reçu
+[2018-03-28 14:11:39.051] [info]	Client "all" s'est logged-in
+[2018-03-28 14:11:39.429] [info]	Reçu une demande de jeu de : all
+[2018-03-28 14:11:39.429] [info]	Room créé ; mode ID: 1
+[2018-03-28 14:11:39.430] [info]	Envoi d'un game waiting à : all
+[2018-03-28 14:11:39.430] [info]	Envoi d'un game ready à : all
+[2018-03-28 14:11:48.692] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 14:11:49.631] [info]	try room stop
+[2018-03-28 14:11:49.631] [info]	Room 1: arrété avec succès
+[2018-03-28 14:12:03.337] [info]	Démarrage serveur
+[2018-03-28 14:12:03.337] [info]	Ecoute des tentatives de connexions
+[2018-03-28 14:12:03.337] [info]	Serveur en attente de connexion client
+[2018-03-28 14:12:09.731] [warning]	Paquet de login reçu
+[2018-03-28 14:12:12.530] [warning]	Paquet de login reçu
+[2018-03-28 14:12:12.530] [info]	Client "all" s'est logged-in
+[2018-03-28 14:12:13.002] [info]	Reçu une demande de jeu de : all
+[2018-03-28 14:12:13.002] [info]	Room créé ; mode ID: 1
+[2018-03-28 14:12:13.002] [info]	Envoi d'un game waiting à : all
+[2018-03-28 14:12:13.002] [info]	Envoi d'un game ready à : all
+[2018-03-28 14:12:37.945] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 14:12:38.205] [info]	try room stop
+[2018-03-28 14:12:38.206] [info]	Room 1: arrété avec succès
+[2018-03-28 14:20:28.692] [info]	Démarrage serveur
+[2018-03-28 14:20:28.692] [info]	Ecoute des tentatives de connexions
+[2018-03-28 14:20:28.692] [info]	Serveur en attente de connexion client
+[2018-03-28 14:20:32.795] [warning]	Paquet de login reçu
+[2018-03-28 14:20:32.797] [info]	Client "all" s'est logged-in
+[2018-03-28 14:20:33.172] [info]	Reçu une demande de jeu de : all
+[2018-03-28 14:20:33.172] [info]	Room créé ; mode ID: 1
+[2018-03-28 14:20:33.172] [info]	Envoi d'un game waiting à : all
+[2018-03-28 14:20:33.172] [info]	Envoi d'un game ready à : all
+[2018-03-28 14:20:42.536] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 14:20:43.374] [info]	try room stop
+[2018-03-28 14:20:43.374] [info]	Room 1: arrété avec succès
+[2018-03-28 14:22:34.576] [info]	Démarrage serveur
+[2018-03-28 14:22:34.576] [info]	Ecoute des tentatives de connexions
+[2018-03-28 14:22:34.576] [info]	Serveur en attente de connexion client
+[2018-03-28 14:22:42.726] [warning]	Paquet de login reçu
+[2018-03-28 14:22:42.735] [info]	Client "all" s'est logged-in
+[2018-03-28 14:22:43.094] [info]	Reçu une demande de jeu de : all
+[2018-03-28 14:22:43.094] [info]	Room créé ; mode ID: 1
+[2018-03-28 14:22:43.094] [info]	Envoi d'un game waiting à : all
+[2018-03-28 14:22:43.094] [info]	Envoi d'un game ready à : all
+[2018-03-28 14:23:26.735] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 14:23:27.298] [info]	try room stop
+[2018-03-28 14:23:27.299] [info]	Room 1: arrété avec succès
+[2018-03-28 14:29:10.195] [info]	Démarrage serveur
+[2018-03-28 14:29:10.196] [info]	Ecoute des tentatives de connexions
+[2018-03-28 14:29:10.196] [info]	Serveur en attente de connexion client
+[2018-03-28 14:29:14.301] [warning]	Paquet de login reçu
+[2018-03-28 14:29:14.303] [info]	Client "all" s'est logged-in
+[2018-03-28 14:29:14.853] [info]	Reçu une demande de jeu de : all
+[2018-03-28 14:29:14.854] [info]	Room créé ; mode ID: 1
+[2018-03-28 14:29:14.854] [info]	Envoi d'un game waiting à : all
+[2018-03-28 14:29:14.854] [info]	Envoi d'un game ready à : all
+[2018-03-28 14:29:33.918] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 14:29:35.056] [info]	try room stop
+[2018-03-28 14:29:35.057] [info]	Room 1: arrété avec succès
+[2018-03-28 14:31:55.236] [info]	Démarrage serveur
+[2018-03-28 14:31:55.236] [info]	Ecoute des tentatives de connexions
+[2018-03-28 14:31:55.236] [info]	Serveur en attente de connexion client
+[2018-03-28 14:31:59.724] [warning]	Paquet de login reçu
+[2018-03-28 14:31:59.726] [info]	Client "all" s'est logged-in
+[2018-03-28 14:32:00.306] [info]	Reçu une demande de jeu de : all
+[2018-03-28 14:32:00.306] [info]	Room créé ; mode ID: 1
+[2018-03-28 14:32:00.307] [info]	Envoi d'un game waiting à : all
+[2018-03-28 14:32:00.307] [info]	Envoi d'un game ready à : all
+[2018-03-28 14:32:14.879] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 14:32:15.509] [info]	try room stop
+[2018-03-28 14:32:15.509] [info]	Room 1: arrété avec succès
+[2018-03-28 14:32:19.804] [warning]	Paquet de login reçu
+[2018-03-28 14:32:21.579] [warning]	Paquet de login reçu
+[2018-03-28 14:32:21.579] [info]	Client "all" s'est logged-in
+[2018-03-28 14:32:22.163] [info]	Reçu une demande de jeu de : all
+[2018-03-28 14:32:22.164] [info]	Room créé ; mode ID: 1
+[2018-03-28 14:32:22.164] [info]	Envoi d'un game waiting à : all
+[2018-03-28 14:32:22.164] [info]	Envoi d'un game ready à : all
+[2018-03-28 14:32:49.980] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 14:32:50.368] [info]	try room stop
+[2018-03-28 14:32:50.368] [info]	Room 1: arrété avec succès
+[2018-03-28 17:04:20.302] [info]	Démarrage serveur
+[2018-03-28 17:04:20.303] [info]	Ecoute des tentatives de connexions
+[2018-03-28 17:04:20.303] [info]	Serveur en attente de connexion client
+[2018-03-28 17:04:37.748] [warning]	Paquet de login reçu
+[2018-03-28 17:04:41.687] [warning]	Paquet de login reçu
+[2018-03-28 17:04:41.688] [info]	Client "all" s'est logged-in
+[2018-03-28 17:04:42.107] [info]	Reçu une demande de jeu de : all
+[2018-03-28 17:04:42.107] [info]	Room créé ; mode ID: 1
+[2018-03-28 17:04:42.108] [info]	Envoi d'un game waiting à : all
+[2018-03-28 17:04:42.108] [info]	Envoi d'un game ready à : all
+[2018-03-28 17:04:48.805] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 17:04:49.310] [info]	try room stop
+[2018-03-28 17:04:49.310] [info]	Room 1: arrété avec succès
+[2018-03-28 17:39:36.065] [info]	Démarrage serveur
+[2018-03-28 17:39:36.065] [info]	Ecoute des tentatives de connexions
+[2018-03-28 17:39:36.065] [info]	Serveur en attente de connexion client
+[2018-03-28 17:39:47.203] [warning]	Paquet de login reçu
+[2018-03-28 17:39:47.204] [info]	Client "all" s'est logged-in
+[2018-03-28 17:39:50.465] [info]	Reçu une demande de jeu de : all
+[2018-03-28 17:39:50.465] [info]	Room créé ; mode ID: 5
+[2018-03-28 17:39:50.465] [info]	Envoi d'un game waiting à : all
+[2018-03-28 17:39:50.465] [info]	Envoi d'un game ready à : all
+[2018-03-28 17:40:01.072] [info]	Démarrage serveur
+[2018-03-28 17:40:01.073] [info]	Ecoute des tentatives de connexions
+[2018-03-28 17:40:01.073] [info]	Serveur en attente de connexion client
+[2018-03-28 17:40:05.034] [warning]	Paquet de login reçu
+[2018-03-28 17:40:06.474] [warning]	Paquet de login reçu
+[2018-03-28 17:40:06.474] [info]	Client "all" s'est logged-in
+[2018-03-28 17:40:07.046] [info]	Reçu une demande de jeu de : all
+[2018-03-28 17:40:07.046] [info]	Room créé ; mode ID: 1
+[2018-03-28 17:40:07.047] [info]	Envoi d'un game waiting à : all
+[2018-03-28 17:40:07.047] [info]	Envoi d'un game ready à : all
+[2018-03-28 17:40:08.744] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 17:40:09.248] [info]	try room stop
+[2018-03-28 17:40:09.248] [info]	Room 1: arrété avec succès
+[2018-03-28 17:40:11.235] [warning]	Paquet de login reçu
+[2018-03-28 17:40:11.236] [info]	Client "all" s'est logged-in
+[2018-03-28 17:40:11.708] [info]	Reçu une demande de jeu de : all
+[2018-03-28 17:40:11.708] [info]	Room créé ; mode ID: 1
+[2018-03-28 17:40:11.715] [info]	Envoi d'un game waiting à : all
+[2018-03-28 17:40:11.715] [info]	Envoi d'un game ready à : all
+[2018-03-28 17:40:23.917] [info]	try room stop
+[2018-03-28 17:40:23.917] [info]	Room 1: arrété avec succès
+[2018-03-28 17:40:27.092] [info]	Reçu une demande de jeu de : all
+[2018-03-28 17:40:27.093] [info]	Room créé ; mode ID: 5
+[2018-03-28 17:40:27.093] [info]	Envoi d'un game waiting à : all
+[2018-03-28 17:40:27.093] [info]	Envoi d'un game ready à : all
+[2018-03-28 17:40:35.264] [info]	Démarrage serveur
+[2018-03-28 17:40:35.264] [info]	Ecoute des tentatives de connexions
+[2018-03-28 17:40:35.264] [info]	Serveur en attente de connexion client
+[2018-03-28 17:40:40.411] [warning]	Paquet de login reçu
+[2018-03-28 17:40:40.412] [info]	Client "all" s'est logged-in
+[2018-03-28 17:40:41.964] [info]	Reçu une demande de jeu de : all
+[2018-03-28 17:40:41.964] [info]	Room créé ; mode ID: 4
+[2018-03-28 17:40:41.965] [info]	Envoi d'un game waiting à : all
+[2018-03-28 17:40:43.083] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 17:40:45.923] [info]	Démarrage serveur
+[2018-03-28 17:40:45.927] [info]	Ecoute des tentatives de connexions
+[2018-03-28 17:40:45.928] [info]	Serveur en attente de connexion client
+[2018-03-28 17:40:51.159] [warning]	Paquet de login reçu
+[2018-03-28 17:40:51.167] [info]	Client "all" s'est logged-in
+[2018-03-28 17:40:54.360] [info]	Reçu une demande de jeu de : all
+[2018-03-28 17:40:54.360] [info]	Room créé ; mode ID: 5
+[2018-03-28 17:40:54.361] [info]	Envoi d'un game waiting à : all
+[2018-03-28 17:40:54.361] [info]	Envoi d'un game ready à : all
+[2018-03-28 17:42:49.797] [info]	Démarrage serveur
+[2018-03-28 17:42:49.798] [info]	Ecoute des tentatives de connexions
+[2018-03-28 17:42:49.798] [info]	Serveur en attente de connexion client
+[2018-03-28 17:43:03.747] [warning]	Paquet de login reçu
+[2018-03-28 17:43:03.749] [info]	Client "all" s'est logged-in
+[2018-03-28 17:43:07.215] [info]	Reçu une demande de jeu de : all
+[2018-03-28 17:43:07.216] [info]	Room créé ; mode ID: 3
+[2018-03-28 17:43:07.223] [info]	Envoi d'un game waiting à : all
+[2018-03-28 17:43:07.223] [info]	Envoi d'un game ready à : all
+[2018-03-28 17:43:20.425] [info]	try room stop
+[2018-03-28 17:43:20.425] [info]	Room 1: arrété avec succès
+[2018-03-28 17:43:23.613] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 17:50:04.641] [info]	Démarrage serveur
+[2018-03-28 17:50:04.641] [info]	Ecoute des tentatives de connexions
+[2018-03-28 17:50:04.641] [info]	Serveur en attente de connexion client
+[2018-03-28 17:50:09.081] [warning]	Paquet de login reçu
+[2018-03-28 17:50:09.083] [info]	Client "all" s'est logged-in
+[2018-03-28 17:50:09.619] [info]	Reçu une demande de jeu de : all
+[2018-03-28 17:50:09.620] [info]	Room créé ; mode ID: 1
+[2018-03-28 17:50:09.620] [info]	Envoi d'un game waiting à : all
+[2018-03-28 17:50:09.620] [info]	Envoi d'un game ready à : all
+[2018-03-28 17:50:18.822] [info]	try room stop
+[2018-03-28 17:50:18.822] [info]	Room 1: arrété avec succès
+[2018-03-28 17:50:20.973] [info]	Reçu une demande de jeu de : all
+[2018-03-28 17:50:20.973] [info]	Room créé ; mode ID: 5
+[2018-03-28 17:50:20.973] [info]	Envoi d'un game waiting à : all
+[2018-03-28 17:50:29.934] [warning]	Paquet de login reçu
+[2018-03-28 17:50:29.935] [info]	Client "abderr" s'est logged-in
+[2018-03-28 17:50:31.513] [info]	Reçu une demande de jeu de : abderr
+[2018-03-28 17:50:31.513] [info]	Envoi d'un game waiting à : abderr
+[2018-03-28 17:50:31.513] [info]	Envoi d'un game ready à : all
+[2018-03-28 17:50:31.513] [info]	Envoi d'un game ready à : abderr
+[2018-03-28 17:50:44.885] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 17:50:45.667] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-28 17:50:45.716] [info]	try room stop
+[2018-03-28 17:50:45.716] [info]	Room 1: arrété avec succès
+[2018-03-28 18:20:12.931] [info]	Démarrage serveur
+[2018-03-28 18:20:12.931] [info]	Ecoute des tentatives de connexions
+[2018-03-28 18:20:12.931] [info]	Serveur en attente de connexion client
+[2018-03-28 18:20:35.710] [warning]	Paquet de login reçu
+[2018-03-28 18:20:35.711] [info]	Client "all" s'est logged-in
+[2018-03-28 18:20:38.541] [info]	Reçu une demande de jeu de : all
+[2018-03-28 18:20:38.541] [info]	Room créé ; mode ID: 5
+[2018-03-28 18:20:38.542] [info]	Envoi d'un game waiting à : all
+[2018-03-28 18:20:43.988] [warning]	Paquet de login reçu
+[2018-03-28 18:20:43.988] [info]	Client "abderr" s'est logged-in
+[2018-03-28 18:20:45.584] [info]	Reçu une demande de jeu de : abderr
+[2018-03-28 18:20:45.584] [info]	Envoi d'un game waiting à : abderr
+[2018-03-28 18:20:45.585] [info]	Envoi d'un game ready à : all
+[2018-03-28 18:20:45.585] [info]	Envoi d'un game ready à : abderr
+[2018-03-28 18:21:30.327] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 18:21:30.789] [info]	try room stop
+[2018-03-28 18:21:30.790] [info]	Room 1: arrété avec succès
+[2018-03-28 18:21:35.812] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-28 18:27:07.947] [info]	Démarrage serveur
+[2018-03-28 18:27:07.948] [info]	Ecoute des tentatives de connexions
+[2018-03-28 18:27:07.948] [info]	Serveur en attente de connexion client
+[2018-03-28 18:27:18.173] [warning]	Paquet de login reçu
+[2018-03-28 18:27:18.174] [info]	Client "all" s'est logged-in
+[2018-03-28 18:27:19.877] [info]	Reçu une demande de jeu de : all
+[2018-03-28 18:27:19.877] [info]	Room créé ; mode ID: 5
+[2018-03-28 18:27:19.877] [info]	Envoi d'un game waiting à : all
+[2018-03-28 18:27:27.490] [warning]	Paquet de login reçu
+[2018-03-28 18:27:27.491] [info]	Client "abderr" s'est logged-in
+[2018-03-28 18:27:29.148] [info]	Reçu une demande de jeu de : abderr
+[2018-03-28 18:27:29.148] [info]	Envoi d'un game waiting à : abderr
+[2018-03-28 18:27:29.148] [info]	Envoi d'un game ready à : all
+[2018-03-28 18:27:29.148] [info]	Envoi d'un game ready à : abderr
+[2018-03-28 18:28:16.357] [info]	try room stop
+[2018-03-28 18:28:16.357] [info]	Room 1: arrété avec succès
+[2018-03-28 18:31:14.940] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-28 18:36:10.917] [info]	Démarrage serveur
+[2018-03-28 18:36:10.917] [info]	Ecoute des tentatives de connexions
+[2018-03-28 18:36:10.917] [info]	Serveur en attente de connexion client
+[2018-03-28 18:36:15.365] [warning]	Paquet de login reçu
+[2018-03-28 18:36:15.367] [info]	Client "all" s'est logged-in
+[2018-03-28 18:36:17.248] [info]	Reçu une demande de jeu de : all
+[2018-03-28 18:36:17.248] [info]	Room créé ; mode ID: 5
+[2018-03-28 18:36:17.248] [info]	Envoi d'un game waiting à : all
+[2018-03-28 18:36:24.337] [warning]	Paquet de login reçu
+[2018-03-28 18:36:27.728] [warning]	Paquet de login reçu
+[2018-03-28 18:36:27.728] [info]	Client "eiman" s'est logged-in
+[2018-03-28 18:36:43.546] [info]	Reçu une demande de jeu de : eiman
+[2018-03-28 18:36:43.546] [info]	Envoi d'un game waiting à : eiman
+[2018-03-28 18:36:43.546] [info]	Envoi d'un game ready à : all
+[2018-03-28 18:36:43.546] [info]	Envoi d'un game ready à : eiman
+[2018-03-28 18:37:03.317] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 18:37:03.749] [info]	try room stop
+[2018-03-28 18:37:03.749] [info]	Room 1: arrété avec succès
+[2018-03-28 18:37:04.028] [warning]	La connexion avec le client "eiman" semble avoir été interrompue !
+[2018-03-28 18:38:32.449] [info]	Démarrage serveur
+[2018-03-28 18:38:32.449] [info]	Ecoute des tentatives de connexions
+[2018-03-28 18:38:32.449] [info]	Serveur en attente de connexion client
+[2018-03-28 18:38:36.978] [warning]	Paquet de login reçu
+[2018-03-28 18:38:36.980] [info]	Client "all" s'est logged-in
+[2018-03-28 18:38:39.387] [info]	Reçu une demande de jeu de : all
+[2018-03-28 18:38:39.387] [info]	Room créé ; mode ID: 5
+[2018-03-28 18:38:39.387] [info]	Envoi d'un game waiting à : all
+[2018-03-28 18:38:45.574] [warning]	Paquet de login reçu
+[2018-03-28 18:38:45.575] [info]	Client "eiman" s'est logged-in
+[2018-03-28 18:38:47.325] [info]	Reçu une demande de jeu de : eiman
+[2018-03-28 18:38:47.325] [info]	Envoi d'un game waiting à : eiman
+[2018-03-28 18:38:47.325] [info]	Envoi d'un game ready à : all
+[2018-03-28 18:38:47.325] [info]	Envoi d'un game ready à : eiman
+[2018-03-28 18:38:56.202] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 18:38:56.526] [info]	try room stop
+[2018-03-28 18:38:56.526] [info]	Room 1: arrété avec succès
+[2018-03-28 18:38:56.999] [warning]	La connexion avec le client "eiman" semble avoir été interrompue !
+[2018-03-28 18:40:44.076] [info]	Démarrage serveur
+[2018-03-28 18:40:44.076] [info]	Ecoute des tentatives de connexions
+[2018-03-28 18:40:44.076] [info]	Serveur en attente de connexion client
+[2018-03-28 18:40:51.418] [warning]	Paquet de login reçu
+[2018-03-28 18:40:51.420] [info]	Client "all" s'est logged-in
+[2018-03-28 18:40:54.146] [info]	Reçu une demande de jeu de : all
+[2018-03-28 18:40:54.146] [info]	Room créé ; mode ID: 5
+[2018-03-28 18:40:54.146] [info]	Envoi d'un game waiting à : all
+[2018-03-28 18:41:00.605] [warning]	Paquet de login reçu
+[2018-03-28 18:41:03.263] [warning]	Paquet de login reçu
+[2018-03-28 18:41:03.264] [info]	Client "abderr" s'est logged-in
+[2018-03-28 18:41:05.444] [info]	Reçu une demande de jeu de : abderr
+[2018-03-28 18:41:05.444] [info]	Envoi d'un game waiting à : abderr
+[2018-03-28 18:41:05.445] [info]	Envoi d'un game ready à : all
+[2018-03-28 18:41:05.445] [info]	Envoi d'un game ready à : abderr
+[2018-03-28 18:41:19.025] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-28 18:41:19.647] [info]	try room stop
+[2018-03-28 18:41:19.647] [info]	Room 1: arrété avec succès
+[2018-03-28 21:21:04.401] [info]	Démarrage serveur
+[2018-03-28 21:21:04.402] [info]	Ecoute des tentatives de connexions
+[2018-03-28 21:21:04.402] [info]	Serveur en attente de connexion client
+[2018-03-28 21:21:08.610] [warning]	Paquet de login reçu
+[2018-03-28 21:21:08.619] [info]	Client "all" s'est logged-in
+[2018-03-28 21:21:10.172] [info]	Reçu une demande de jeu de : all
+[2018-03-28 21:21:10.172] [info]	Room créé ; mode ID: 1
+[2018-03-28 21:21:10.172] [info]	Envoi d'un game waiting à : all
+[2018-03-28 21:21:10.172] [info]	Envoi d'un game ready à : all
+[2018-03-28 21:21:20.374] [info]	try room stop
+[2018-03-28 21:21:20.374] [info]	Room 1: arrété avec succès
+[2018-03-28 21:21:24.481] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 21:21:35.442] [warning]	Paquet de login reçu
+[2018-03-28 21:21:35.442] [info]	Client "all" s'est logged-in
+[2018-03-28 21:21:38.110] [info]	Reçu une demande de jeu de : all
+[2018-03-28 21:21:38.110] [info]	Room créé ; mode ID: 5
+[2018-03-28 21:21:38.110] [info]	Envoi d'un game waiting à : all
+[2018-03-28 21:21:48.448] [warning]	Paquet de login reçu
+[2018-03-28 21:21:56.974] [warning]	Paquet de login reçu
+[2018-03-28 21:21:56.975] [info]	Client "thomas" s'est logged-in
+[2018-03-28 21:21:58.924] [info]	Reçu une demande de jeu de : thomas
+[2018-03-28 21:21:58.925] [info]	Envoi d'un game waiting à : thomas
+[2018-03-28 21:21:58.925] [info]	Envoi d'un game ready à : all
+[2018-03-28 21:21:58.925] [info]	Envoi d'un game ready à : thomas
+[2018-03-28 21:22:10.276] [warning]	La connexion avec le client "thomas" semble avoir été interrompue !
+[2018-03-28 21:22:11.127] [info]	try room stop
+[2018-03-28 21:22:11.127] [info]	Room 1: arrété avec succès
+[2018-03-28 21:26:20.852] [info]	Démarrage serveur
+[2018-03-28 21:26:20.852] [info]	Ecoute des tentatives de connexions
+[2018-03-28 21:26:20.852] [info]	Serveur en attente de connexion client
+[2018-03-28 21:26:29.625] [warning]	Paquet de login reçu
+[2018-03-28 21:26:29.626] [info]	Client "all" s'est logged-in
+[2018-03-28 21:26:31.986] [info]	Reçu une demande de jeu de : all
+[2018-03-28 21:26:31.987] [info]	Room créé ; mode ID: 5
+[2018-03-28 21:26:31.987] [info]	Envoi d'un game waiting à : all
+[2018-03-28 21:26:38.724] [warning]	Paquet de login reçu
+[2018-03-28 21:26:38.725] [info]	Client "eiman" s'est logged-in
+[2018-03-28 21:26:48.256] [info]	Reçu une demande de jeu de : eiman
+[2018-03-28 21:26:48.256] [info]	Envoi d'un game waiting à : eiman
+[2018-03-28 21:26:48.256] [info]	Envoi d'un game ready à : all
+[2018-03-28 21:26:48.256] [info]	Envoi d'un game ready à : eiman
+[2018-03-28 21:27:21.460] [info]	try room stop
+[2018-03-28 21:27:21.460] [info]	Room 1: arrété avec succès
+[2018-03-28 21:32:44.079] [info]	Reçu une demande de jeu de : eiman
+[2018-03-28 21:32:44.079] [info]	Room créé ; mode ID: 5
+[2018-03-28 21:32:44.079] [info]	Envoi d'un game waiting à : eiman
+[2018-03-28 21:32:49.659] [info]	Reçu une demande de jeu de : all
+[2018-03-28 21:32:49.659] [info]	Envoi d'un game waiting à : all
+[2018-03-28 21:32:49.659] [info]	Envoi d'un game ready à : eiman
+[2018-03-28 21:32:49.659] [info]	Envoi d'un game ready à : all
+[2018-03-28 21:33:00.096] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 21:33:00.861] [info]	try room stop
+[2018-03-28 21:33:00.861] [info]	Room 1: arrété avec succès
+[2018-03-28 22:04:40.868] [info]	Démarrage serveur
+[2018-03-28 22:04:40.868] [info]	Ecoute des tentatives de connexions
+[2018-03-28 22:04:40.869] [info]	Serveur en attente de connexion client
+[2018-03-28 22:04:49.977] [error]	Login interrompu, connexion avec le client perdu
+[2018-03-28 22:05:27.798] [warning]	Paquet de login reçu
+[2018-03-28 22:05:27.800] [info]	Client "all" s'est logged-in
+[2018-03-28 22:05:28.688] [info]	Reçu une demande de jeu de : all
+[2018-03-28 22:05:28.688] [info]	Room créé ; mode ID: 1
+[2018-03-28 22:05:28.688] [info]	Envoi d'un game waiting à : all
+[2018-03-28 22:05:28.688] [info]	Envoi d'un game ready à : all
+[2018-03-28 22:05:28.780] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 22:05:29.890] [info]	try room stop
+[2018-03-28 22:06:27.847] [info]	Démarrage serveur
+[2018-03-28 22:06:27.847] [info]	Ecoute des tentatives de connexions
+[2018-03-28 22:06:27.847] [info]	Serveur en attente de connexion client
+[2018-03-28 22:06:38.460] [warning]	Paquet de login reçu
+[2018-03-28 22:06:38.462] [info]	Client "all" s'est logged-in
+[2018-03-28 22:06:38.879] [info]	Reçu une demande de jeu de : all
+[2018-03-28 22:06:38.879] [info]	Room créé ; mode ID: 1
+[2018-03-28 22:06:38.879] [info]	Envoi d'un game waiting à : all
+[2018-03-28 22:06:38.880] [info]	Envoi d'un game ready à : all
+[2018-03-28 22:06:38.972] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 22:06:40.081] [info]	try room stop
+[2018-03-28 22:07:04.959] [info]	Démarrage serveur
+[2018-03-28 22:07:04.960] [info]	Ecoute des tentatives de connexions
+[2018-03-28 22:07:04.960] [info]	Serveur en attente de connexion client
+[2018-03-28 22:07:12.512] [warning]	Paquet de login reçu
+[2018-03-28 22:07:14.835] [warning]	Paquet de login reçu
+[2018-03-28 22:07:14.835] [info]	Client "all" s'est logged-in
+[2018-03-28 22:07:15.324] [info]	Reçu une demande de jeu de : all
+[2018-03-28 22:07:15.325] [info]	Room créé ; mode ID: 1
+[2018-03-28 22:07:15.325] [info]	Envoi d'un game waiting à : all
+[2018-03-28 22:07:15.325] [info]	Envoi d'un game ready à : all
+[2018-03-28 22:07:17.509] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 22:07:18.526] [info]	try room stop
+[2018-03-28 22:07:18.526] [info]	Room 1: arrété avec succès
+[2018-03-28 22:08:13.628] [info]	Démarrage serveur
+[2018-03-28 22:08:13.628] [info]	Ecoute des tentatives de connexions
+[2018-03-28 22:08:13.628] [info]	Serveur en attente de connexion client
+[2018-03-28 22:08:17.870] [warning]	Paquet de login reçu
+[2018-03-28 22:08:17.872] [info]	Client "all" s'est logged-in
+[2018-03-28 22:08:18.311] [info]	Reçu une demande de jeu de : all
+[2018-03-28 22:08:18.312] [info]	Room créé ; mode ID: 1
+[2018-03-28 22:08:18.312] [info]	Envoi d'un game waiting à : all
+[2018-03-28 22:08:18.312] [info]	Envoi d'un game ready à : all
+[2018-03-28 22:09:03.516] [info]	try room stop
+[2018-03-28 22:09:03.516] [info]	Room 1: arrété avec succès
+[2018-03-28 22:09:11.208] [info]	Reçu une demande de jeu de : all
+[2018-03-28 22:09:11.208] [info]	Room créé ; mode ID: 5
+[2018-03-28 22:09:11.209] [info]	Envoi d'un game waiting à : all
+[2018-03-28 22:09:41.776] [warning]	Paquet de login reçu
+[2018-03-28 22:09:41.776] [info]	Client "eiman" s'est logged-in
+[2018-03-28 22:09:47.638] [info]	Reçu une demande de jeu de : eiman
+[2018-03-28 22:09:47.638] [info]	Envoi d'un game waiting à : eiman
+[2018-03-28 22:09:47.638] [info]	Envoi d'un game ready à : all
+[2018-03-28 22:09:47.638] [info]	Envoi d'un game ready à : eiman
+[2018-03-28 22:10:26.841] [info]	try room stop
+[2018-03-28 22:10:26.841] [info]	Room 1: arrété avec succès
+[2018-03-28 22:11:00.116] [info]	Reçu une demande de jeu de : eiman
+[2018-03-28 22:11:00.116] [info]	Room créé ; mode ID: 5
+[2018-03-28 22:11:00.116] [info]	Envoi d'un game waiting à : eiman
+[2018-03-28 22:11:02.696] [info]	Reçu une demande de jeu de : all
+[2018-03-28 22:11:02.697] [info]	Envoi d'un game waiting à : all
+[2018-03-28 22:11:02.697] [info]	Envoi d'un game ready à : eiman
+[2018-03-28 22:11:02.697] [info]	Envoi d'un game ready à : all
+[2018-03-28 22:11:06.222] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 22:11:06.898] [info]	try room stop
+[2018-03-28 22:11:06.898] [info]	Room 1: arrété avec succès
+[2018-03-28 22:45:49.256] [info]	Démarrage serveur
+[2018-03-28 22:45:49.256] [info]	Ecoute des tentatives de connexions
+[2018-03-28 22:45:49.256] [info]	Serveur en attente de connexion client
+[2018-03-28 22:45:53.562] [warning]	Paquet de login reçu
+[2018-03-28 22:45:53.563] [info]	Client "all" s'est logged-in
+[2018-03-28 22:45:54.358] [info]	Reçu une demande de jeu de : all
+[2018-03-28 22:45:54.358] [info]	Room créé ; mode ID: 1
+[2018-03-28 22:45:54.358] [info]	Envoi d'un game waiting à : all
+[2018-03-28 22:45:54.358] [info]	Envoi d'un game ready à : all
+[2018-03-28 22:46:08.560] [info]	try room stop
+[2018-03-28 22:46:08.561] [info]	Room 1: arrété avec succès
+[2018-03-28 22:46:10.905] [info]	Reçu une demande de jeu de : all
+[2018-03-28 22:46:10.906] [info]	Room créé ; mode ID: 5
+[2018-03-28 22:46:10.906] [info]	Envoi d'un game waiting à : all
+[2018-03-28 22:46:38.835] [warning]	Paquet de login reçu
+[2018-03-28 22:46:38.835] [info]	Client "eiman" s'est logged-in
+[2018-03-28 22:46:40.754] [info]	Reçu une demande de jeu de : eiman
+[2018-03-28 22:46:40.754] [info]	Envoi d'un game waiting à : eiman
+[2018-03-28 22:46:40.754] [info]	Envoi d'un game ready à : all
+[2018-03-28 22:46:40.754] [info]	Envoi d'un game ready à : eiman
+[2018-03-28 22:47:21.958] [info]	try room stop
+[2018-03-28 22:47:21.958] [info]	Room 1: arrété avec succès
+[2018-03-28 22:52:42.934] [info]	Démarrage serveur
+[2018-03-28 22:52:42.934] [info]	Ecoute des tentatives de connexions
+[2018-03-28 22:52:42.935] [info]	Serveur en attente de connexion client
+[2018-03-28 22:53:33.363] [warning]	Paquet de login reçu
+[2018-03-28 22:53:33.365] [info]	Client "all" s'est logged-in
+[2018-03-28 22:53:35.222] [info]	Reçu une demande de jeu de : all
+[2018-03-28 22:53:35.222] [info]	Room créé ; mode ID: 5
+[2018-03-28 22:53:35.222] [info]	Envoi d'un game waiting à : all
+[2018-03-28 22:53:50.717] [warning]	Paquet de login reçu
+[2018-03-28 22:53:50.718] [info]	Client "eiman" s'est logged-in
+[2018-03-28 22:53:52.855] [info]	Reçu une demande de jeu de : eiman
+[2018-03-28 22:53:52.856] [info]	Envoi d'un game waiting à : eiman
+[2018-03-28 22:53:52.856] [info]	Envoi d'un game ready à : all
+[2018-03-28 22:53:52.856] [info]	Envoi d'un game ready à : eiman
+[2018-03-28 22:54:25.772] [warning]	La connexion avec le client "eiman" semble avoir été interrompue !
+[2018-03-28 22:54:26.059] [info]	try room stop
+[2018-03-28 22:54:26.059] [info]	Room 1: arrété avec succès
+[2018-03-28 22:55:07.836] [info]	Démarrage serveur
+[2018-03-28 22:55:07.836] [info]	Ecoute des tentatives de connexions
+[2018-03-28 22:55:07.836] [info]	Serveur en attente de connexion client
+[2018-03-28 22:55:15.562] [warning]	Paquet de login reçu
+[2018-03-28 22:55:15.564] [info]	Client "all" s'est logged-in
+[2018-03-28 22:55:17.462] [info]	Reçu une demande de jeu de : all
+[2018-03-28 22:55:17.462] [info]	Room créé ; mode ID: 5
+[2018-03-28 22:55:17.463] [info]	Envoi d'un game waiting à : all
+[2018-03-28 22:55:24.386] [warning]	Paquet de login reçu
+[2018-03-28 22:55:24.386] [info]	Client "eiman" s'est logged-in
+[2018-03-28 22:55:25.957] [info]	Reçu une demande de jeu de : eiman
+[2018-03-28 22:55:25.957] [info]	Envoi d'un game waiting à : eiman
+[2018-03-28 22:55:25.958] [info]	Envoi d'un game ready à : all
+[2018-03-28 22:55:25.958] [info]	Envoi d'un game ready à : eiman
+[2018-03-28 22:55:53.675] [warning]	La connexion avec le client "eiman" semble avoir été interrompue !
+[2018-03-28 22:55:54.160] [info]	try room stop
+[2018-03-28 22:55:54.160] [info]	Room 1: arrété avec succès
+[2018-03-28 22:58:48.290] [info]	Démarrage serveur
+[2018-03-28 22:58:48.290] [info]	Ecoute des tentatives de connexions
+[2018-03-28 22:58:48.290] [info]	Serveur en attente de connexion client
+[2018-03-28 22:59:05.216] [warning]	Paquet de login reçu
+[2018-03-28 22:59:05.217] [info]	Client "all" s'est logged-in
+[2018-03-28 22:59:08.016] [info]	Reçu une demande de jeu de : all
+[2018-03-28 22:59:08.017] [info]	Room créé ; mode ID: 5
+[2018-03-28 22:59:08.017] [info]	Envoi d'un game waiting à : all
+[2018-03-28 22:59:22.724] [warning]	Paquet de login reçu
+[2018-03-28 22:59:22.724] [info]	Client "abderr" s'est logged-in
+[2018-03-28 22:59:28.009] [info]	Reçu une demande de jeu de : abderr
+[2018-03-28 22:59:28.009] [info]	Envoi d'un game waiting à : abderr
+[2018-03-28 22:59:28.009] [info]	Envoi d'un game ready à : all
+[2018-03-28 22:59:28.009] [info]	Envoi d'un game ready à : abderr
+[2018-03-28 22:59:50.374] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 22:59:51.211] [info]	try room stop
+[2018-03-28 22:59:51.211] [info]	Room 1: arrété avec succès
+[2018-03-28 23:00:09.095] [warning]	La connexion avec le client "abderr" semble avoir été interrompue !
+[2018-03-28 23:01:48.689] [info]	Démarrage serveur
+[2018-03-28 23:01:48.689] [info]	Ecoute des tentatives de connexions
+[2018-03-28 23:01:48.689] [info]	Serveur en attente de connexion client
+[2018-03-28 23:01:53.862] [warning]	Paquet de login reçu
+[2018-03-28 23:01:53.863] [info]	Client "all" s'est logged-in
+[2018-03-28 23:01:55.385] [info]	Reçu une demande de jeu de : all
+[2018-03-28 23:01:55.385] [info]	Room créé ; mode ID: 5
+[2018-03-28 23:01:55.385] [info]	Envoi d'un game waiting à : all
+[2018-03-28 23:02:19.336] [warning]	Paquet de login reçu
+[2018-03-28 23:02:23.260] [warning]	Paquet de login reçu
+[2018-03-28 23:02:23.260] [info]	Client "eiman" s'est logged-in
+[2018-03-28 23:02:49.390] [info]	Reçu une demande de jeu de : eiman
+[2018-03-28 23:02:49.391] [info]	Envoi d'un game waiting à : eiman
+[2018-03-28 23:02:49.391] [info]	Envoi d'un game ready à : all
+[2018-03-28 23:02:49.391] [info]	Envoi d'un game ready à : eiman
+[2018-03-28 23:03:33.596] [info]	try room stop
+[2018-03-28 23:03:33.596] [info]	Room 1: arrété avec succès
+[2018-03-28 23:12:12.564] [warning]	La connexion avec le client "eiman" semble avoir été interrompue !
+[2018-03-28 23:12:16.848] [info]	Démarrage serveur
+[2018-03-28 23:12:16.848] [info]	Ecoute des tentatives de connexions
+[2018-03-28 23:12:16.848] [info]	Serveur en attente de connexion client
+[2018-03-28 23:12:21.321] [error]	Login interrompu, connexion avec le client perdu
+[2018-03-28 23:13:13.106] [info]	Démarrage serveur
+[2018-03-28 23:13:13.107] [info]	Ecoute des tentatives de connexions
+[2018-03-28 23:13:13.108] [info]	Serveur en attente de connexion client
+[2018-03-28 23:13:25.153] [warning]	Paquet de login reçu
+[2018-03-28 23:13:25.154] [info]	Client "all" s'est logged-in
+[2018-03-28 23:13:25.634] [info]	Reçu une demande de jeu de : all
+[2018-03-28 23:13:25.635] [info]	Room créé ; mode ID: 1
+[2018-03-28 23:13:25.635] [info]	Envoi d'un game waiting à : all
+[2018-03-28 23:13:25.635] [info]	Envoi d'un game ready à : all
+[2018-03-28 23:13:34.836] [info]	try room stop
+[2018-03-28 23:13:34.836] [info]	Room 1: arrété avec succès
+[2018-03-28 23:13:37.079] [info]	Reçu une demande de jeu de : all
+[2018-03-28 23:13:37.080] [info]	Room créé ; mode ID: 5
+[2018-03-28 23:13:37.080] [info]	Envoi d'un game waiting à : all
+[2018-03-28 23:13:56.568] [warning]	Paquet de login reçu
+[2018-03-28 23:13:56.568] [info]	Client "eiman" s'est logged-in
+[2018-03-28 23:13:58.612] [info]	Reçu une demande de jeu de : eiman
+[2018-03-28 23:13:58.612] [info]	Envoi d'un game waiting à : eiman
+[2018-03-28 23:13:58.612] [info]	Envoi d'un game ready à : all
+[2018-03-28 23:13:58.613] [info]	Envoi d'un game ready à : eiman
+[2018-03-28 23:14:38.817] [info]	try room stop
+[2018-03-28 23:14:38.817] [info]	Room 1: arrété avec succès
+[2018-03-28 23:15:54.402] [warning]	La connexion avec le client "eiman" semble avoir été interrompue !
+[2018-03-28 23:16:07.301] [info]	Démarrage serveur
+[2018-03-28 23:16:07.302] [info]	Ecoute des tentatives de connexions
+[2018-03-28 23:16:07.302] [info]	Serveur en attente de connexion client
+[2018-03-28 23:22:39.163] [warning]	Paquet de login reçu
+[2018-03-28 23:22:39.164] [info]	Client "all" s'est logged-in
+[2018-03-28 23:22:41.044] [info]	Reçu une demande de jeu de : all
+[2018-03-28 23:22:41.044] [info]	Room créé ; mode ID: 5
+[2018-03-28 23:22:41.044] [info]	Envoi d'un game waiting à : all
+[2018-03-28 23:22:47.814] [warning]	Paquet de login reçu
+[2018-03-28 23:22:50.361] [warning]	Paquet de login reçu
+[2018-03-28 23:22:50.362] [info]	Client "eiman" s'est logged-in
+[2018-03-28 23:22:52.757] [info]	Reçu une demande de jeu de : eiman
+[2018-03-28 23:22:52.757] [info]	Envoi d'un game waiting à : eiman
+[2018-03-28 23:22:52.757] [info]	Envoi d'un game ready à : all
+[2018-03-28 23:22:52.757] [info]	Envoi d'un game ready à : eiman
+[2018-03-28 23:23:32.963] [info]	try room stop
+[2018-03-28 23:23:32.963] [info]	Room 1: arrété avec succès
+[2018-03-28 23:24:11.416] [warning]	La connexion avec le client "eiman" semble avoir été interrompue !
+[2018-03-28 23:24:33.821] [info]	Démarrage serveur
+[2018-03-28 23:24:33.821] [info]	Ecoute des tentatives de connexions
+[2018-03-28 23:24:33.822] [info]	Serveur en attente de connexion client
+[2018-03-28 23:24:37.920] [warning]	Paquet de login reçu
+[2018-03-28 23:24:37.921] [info]	Client "all" s'est logged-in
+[2018-03-28 23:24:40.177] [info]	Reçu une demande de jeu de : all
+[2018-03-28 23:24:40.177] [info]	Room créé ; mode ID: 5
+[2018-03-28 23:24:40.177] [info]	Envoi d'un game waiting à : all
+[2018-03-28 23:25:11.031] [warning]	Paquet de login reçu
+[2018-03-28 23:25:15.812] [warning]	Paquet de login reçu
+[2018-03-28 23:25:17.612] [warning]	Paquet de login reçu
+[2018-03-28 23:25:19.297] [warning]	Paquet de login reçu
+[2018-03-28 23:25:23.525] [warning]	Paquet de login reçu
+[2018-03-28 23:25:23.526] [info]	Client "eiman" s'est logged-in
+[2018-03-28 23:25:25.432] [info]	Reçu une demande de jeu de : eiman
+[2018-03-28 23:25:25.432] [info]	Envoi d'un game waiting à : eiman
+[2018-03-28 23:25:25.432] [info]	Envoi d'un game ready à : all
+[2018-03-28 23:25:25.432] [info]	Envoi d'un game ready à : eiman
+[2018-03-28 23:25:45.661] [warning]	La connexion avec le client "eiman" semble avoir été interrompue !
+[2018-03-28 23:25:46.635] [info]	try room stop
+[2018-03-28 23:25:46.635] [info]	Room 1: arrété avec succès
+[2018-03-28 23:26:29.156] [info]	Démarrage serveur
+[2018-03-28 23:26:29.156] [info]	Ecoute des tentatives de connexions
+[2018-03-28 23:26:29.156] [info]	Serveur en attente de connexion client
+[2018-03-28 23:26:34.648] [error]	Login interrompu, connexion avec le client perdu
+[2018-03-28 23:26:39.974] [warning]	Paquet de login reçu
+[2018-03-28 23:26:39.975] [info]	Client "all" s'est logged-in
+[2018-03-28 23:26:41.910] [info]	Reçu une demande de jeu de : all
+[2018-03-28 23:26:41.910] [info]	Room créé ; mode ID: 5
+[2018-03-28 23:26:41.911] [info]	Envoi d'un game waiting à : all
+[2018-03-28 23:26:48.525] [warning]	Paquet de login reçu
+[2018-03-28 23:26:48.526] [info]	Client "eiman" s'est logged-in
+[2018-03-28 23:26:50.412] [info]	Reçu une demande de jeu de : eiman
+[2018-03-28 23:26:50.412] [info]	Envoi d'un game waiting à : eiman
+[2018-03-28 23:26:50.412] [info]	Envoi d'un game ready à : all
+[2018-03-28 23:26:50.412] [info]	Envoi d'un game ready à : eiman
+[2018-03-28 23:26:56.803] [warning]	La connexion avec le client "eiman" semble avoir été interrompue !
+[2018-03-28 23:26:57.529] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 23:27:29.247] [info]	Démarrage serveur
+[2018-03-28 23:27:29.247] [info]	Ecoute des tentatives de connexions
+[2018-03-28 23:27:29.247] [info]	Serveur en attente de connexion client
+[2018-03-28 23:27:57.494] [warning]	Paquet de login reçu
+[2018-03-28 23:27:57.495] [info]	Client "all" s'est logged-in
+[2018-03-28 23:27:58.925] [info]	Reçu une demande de jeu de : all
+[2018-03-28 23:27:58.926] [info]	Room créé ; mode ID: 5
+[2018-03-28 23:27:58.926] [info]	Envoi d'un game waiting à : all
+[2018-03-28 23:29:34.918] [warning]	Paquet de login reçu
+[2018-03-28 23:29:34.918] [info]	Client "abderr" s'est logged-in
+[2018-03-28 23:29:36.738] [info]	Reçu une demande de jeu de : abderr
+[2018-03-28 23:29:36.738] [info]	Envoi d'un game waiting à : abderr
+[2018-03-28 23:29:36.739] [info]	Envoi d'un game ready à : all
+[2018-03-28 23:29:36.739] [info]	Envoi d'un game ready à : abderr
+[2018-03-28 23:29:54.776] [warning]	La connexion avec le client "all" semble avoir été interrompue !
+[2018-03-28 23:29:55.941] [info]	try room stop
+[2018-03-28 23:29:55.941] [info]	Room 1: arrété avec succès

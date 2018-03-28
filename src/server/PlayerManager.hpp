@@ -15,6 +15,7 @@
 #include "../game/Mode/Marathon.hpp"
 #include "../game/Mode/Sprint.hpp"
 #include "../game/Mode/Vs.hpp"
+#include "../game/Mode/PowerUp.hpp"
 
 
 

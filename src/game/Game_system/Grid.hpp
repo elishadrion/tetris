@@ -29,12 +29,19 @@ class Grid{
 		Tetriminos * _ghost_tetriminos;
 
 		Random *_number_generator;
+		Random *_destroy_block_generator;
 
 		int _acceleration;
 		int _score;
 		int _level;
 		int _line_complete;
 		int _line_stack;
+		int _bonus;
+
+		bool _stack_blank;
+		bool _controller_inverse;
+
+		bool _use_bonus;
 
 
 	public:
@@ -53,6 +60,7 @@ class Grid{
 		int get_acceleration()const;
 		int get_score()const;
 		int get_level()const;
+		int get_bonus()const;
 		int get_line_complete()const;
 		Block** get_grid()const;
 
@@ -64,6 +72,9 @@ class Grid{
 		void set_acceleration(int acceleration);
 		void set_acceleration_quick();
 		void set_grid(Block**);
+		void set_state_stack_blank(bool);
+		void set_state_controller_inverse(bool);
+
 
 		bool is_reaching_floor()const;
 		bool is_colliding_right()const;
@@ -71,6 +82,8 @@ class Grid{
 		bool is_colliding_rotation(int rotationMat[2][2])const;
 		bool is_empty(int i, int j)const;
 		bool is_overload()const;
+		bool is_stack_blank()const;
+		bool is_controller_inverse()const;
 
 		void fix_block();
 		int  check_lines();		
@@ -79,6 +92,10 @@ class Grid{
 		void tetriminos_generator();
 		void swap_grid(Grid*);
 		void destroy_block();
+		void active_bonus(Grid * other_grid);
+		void inverse_controller(Grid * other_grid);
+		void hide_stack(Grid * other_grid);
+
 
 		void current_tetriminos_move_right();
 		void current_tetriminos_move_left();
@@ -86,6 +103,7 @@ class Grid{
 		void current_tetriminos_turn_left();		
 		void current_tetriminos_hard_drop();
 		void set_current_tetriminos_hold();
+		void use_bonus();
 
 
 		void update_score_level();

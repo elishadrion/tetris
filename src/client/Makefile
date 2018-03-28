@@ -9,8 +9,8 @@ CXXFLAGS= -std=c++17 -w -lform -pthread -ggdb3 -Wpedantic -Wall -Wextra -Wconver
 CXXPOSTFLAGS = -lsfml-graphics -lsfml-window -lsfml-system -lpthread
 all: $(OUT)
 
-$(OUT):		 					Board_CLI.o Board_GUI.o CSVparser.o SettingMenu.o SettingKeys.o Connection.o Player.o PacketManager.o GameManager.o WizardLogger.o CLI.o  Client.o Mode.o  Grid.o Marathon.o Sprint.o Classic.o Tetriminos.o Block.o Vs.o SalonChat.o FriendsManager.o StatisticsManager.o $(MAIN)
-	$(CXX) $(CXXFLAGS) $(MAIN) 	Board_CLI.o Board_GUI.o CSVparser.o SettingsMenu.o SettingKeys.o Connection.o Player.o PacketManager.o GameManager.o WizardLogger.o CLI.o Client.o Mode.o Grid.o Marathon.o Sprint.o Classic.o Tetriminos.o Block.o Vs.o SalonChat.o FriendsManager.o StatisticsManager.o -lncurses -lform -o $(OUT) $(CXXPOSTFLAGS)
+$(OUT):		 					Board_CLI.o CSVparser.o SettingMenu.o SettingKeys.o Connection.o Player.o PacketManager.o GameManager.o WizardLogger.o CLI.o  Client.o Mode.o  Grid.o Marathon.o Sprint.o PowerUp.o Classic.o Tetriminos.o Block.o Vs.o SalonChat.o FriendsManager.o StatisticsManager.o $(MAIN)
+	$(CXX) $(CXXFLAGS) $(MAIN) 	Board_CLI.o CSVparser.o SettingsMenu.o SettingKeys.o Connection.o Player.o PacketManager.o GameManager.o WizardLogger.o CLI.o Client.o Mode.o Grid.o Marathon.o Sprint.o PowerUp.o Classic.o Tetriminos.o Block.o Vs.o SalonChat.o FriendsManager.o StatisticsManager.o -lncurses -lform -o $(OUT) $(CXXPOSTFLAGS)
 CSVparser.o: ../dependencies/CSVparser/CSVparser.cpp ../dependencies/CSVparser/CSVparser.hpp
 	$(CXX) $(CXXFLAGS) -c ../dependencies/CSVparser/CSVparser.cpp	
 	
@@ -70,6 +70,9 @@ Classic.o: ../game/Mode/Classic.cpp ../game/Mode/Classic.hpp
 
 Board_CLI.o: CLI/Board_CLI.cpp CLI/Board_CLI.hpp
 	$(CXX) $(CXXFLAGS) -c CLI/Board_CLI.cpp
+
+PowerUp.o: ../game/Mode/PowerUp.cpp ../game/Mode/PowerUp.hpp
+	$(CXX) $(CXXFLAGS) -c ../game/Mode/PowerUp.cpp
 
 Grid.o:  ../game/Game_system/Grid.cpp  ../game/Game_system/Grid.hpp
 	$(CXX) $(CXXFLAGS) -c  ../game/Game_system/Grid.cpp

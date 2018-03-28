@@ -42,6 +42,7 @@ class Tetriminos{
 		int get_coord_X_of_block(int block)const;
 		int get_coord_Y_of_block(int block )const;
 		int get_color_of_block(int block)const;
+		int get_bonus_of_block(int block)const;
 
 		//Setter
 		void set_coord_of_block(int block, int y, int x);

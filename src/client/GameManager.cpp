@@ -10,6 +10,7 @@ info_game GameManager::start_game(long _num,int type_game, long seed){
 	else if(type_game == 2){ _game = new Marathon(seed);}
 	else if(type_game == 3){ _game = new Sprint(seed);}
 	else if(type_game == 4){ _game = new Vs(seed);}
+	else if(type_game == 5){ _game = new PowerUp(seed);}
 	
 	   
 	_game->init_game(true);
@@ -18,12 +19,7 @@ info_game GameManager::start_game(long _num,int type_game, long seed){
 	
 	if (gui) {
 
-		Board_GUI * display_game = new Board_GUI(type_game == 4, 800, 600, _game->get_grid(), _game->get_other_grid());
-		display_game->start();
-	
-		while(!_game->get_stopper()->game_is_finish()){}
-		usleep(50000);
-		delete display_game;
+		
 
 	} else {
 
@@ -31,7 +27,7 @@ info_game GameManager::start_game(long _num,int type_game, long seed){
 		display_game->start(type_game);
 		
 		while(!_game->get_stopper()->game_is_finish()){}
-		usleep(200000);
+		usleep(400000);
 		delete display_game;
 
 	}
@@ -78,3 +74,8 @@ void GameManager::move_harddrop() {
 void GameManager::move_drop() {
 	PacketManager::send_move_tetriminos(Packet::MOVE_TETRIMINOS_DROP);
 }
+
+void GameManager::bonus() {
+	PacketManager::send_move_tetriminos(Packet::USE_BONUS);
+}
+

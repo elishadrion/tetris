@@ -27,6 +27,7 @@ CLI::CLI(){
     noecho();    // On cache les inputs du terminal.
     curs_set(0); // On cac
     keypad(stdscr, TRUE);
+    assume_default_colors(COLOR_CYAN,-1);
 
 }
 
@@ -47,6 +48,8 @@ CLI::~CLI(){
 void CLI::login() {
 
     clear();
+  
+    curs_set(1);
 	bool success = false;
 	std::string password;
     while (!success) {
@@ -88,6 +91,7 @@ void CLI::login() {
         refresh();
 
         set_current_field(my_form, field[0]); /* Set focus to the colored field */
+        
         mvprintw(4, 10, "Pseudo :");
         mvprintw(6, 10, "Code :");
         mvprintw(LINES - 2, 0, "Connectez-vous pour commencer à jouer");
@@ -184,6 +188,8 @@ void CLI::login() {
 
     }
 
+     curs_set(0);
+
 }
 
 
@@ -191,9 +197,11 @@ void CLI::login() {
 void CLI::register_user() {
 
     clear();
+
     bool success = false;
     std::string pseudo;
     std::string password;
+     curs_set(1);
     while (!success) {
 
         FIELD *field[3];
@@ -326,6 +334,7 @@ void CLI::register_user() {
 
     }
         player->set_username(pseudo);
+        curs_set(0);
 }
 
 
@@ -334,7 +343,7 @@ void CLI::main_menu(){
 
     clear();
     bool is_on_button = true;
-
+     
     char *choices[] = { "Se connecter",
                         "S'enrengistrer"
                   };
@@ -449,7 +458,7 @@ void CLI::play(int type_game) {
     PacketManager::send_play_request(type_game);
     //Attend que la room soit complète pour lancer une partie VS
 
-    if(type_game ==4){
+    if(type_game ==4 or type_game == 5){
         pthread_cond_wait(&packetStackCond, &packetStackMutex);
         wait_player();
     }
@@ -478,6 +487,7 @@ void CLI::play(int type_game) {
 void CLI::end_game(info_game myInfo) {
 
     clear();
+     
 
 
     if(myInfo.winner){
@@ -514,7 +524,7 @@ void CLI::menu() {
                 	    "EXIT"
                   };
     int n_choices = sizeof(choices) / sizeof(char *);
-
+     
 
     WINDOW *menu_win;
     menu_win = newwin(24, 80, 0, 0);
@@ -644,17 +654,17 @@ void CLI::choice_game() {
     char *choices[] = { "Classic",
                         "Marathon",
                         "Sprint",
-                        "VS"
+                        "VS",
+                        "Power UP"
                   };
     int n_choices = sizeof(choices) / sizeof(char *);
-
-    initscr();
+    
+    //initscr();
     WINDOW *menu_choice_game;
     menu_choice_game = newwin(24, 80, 0, 0);
     noecho();    // On cache les inputs du terminal.
     curs_set(0); // On cac
     box(menu_choice_game, 0, 0);
-    keypad(stdscr, TRUE);
     wrefresh(menu_choice_game);
 
     attron(A_REVERSE);
@@ -741,6 +751,11 @@ void CLI::choice_game() {
             break; }
 
           else if (choice == 4){
+
+            play(choice);
+            break;
+        }
+         else if (choice == 5){
 
             play(choice);
             break; }

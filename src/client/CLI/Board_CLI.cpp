@@ -24,12 +24,13 @@ Board_CLI::~Board_CLI(){
 	delwin(BOX_NEXT_TETRIMINOS_OTHER);
 	delwin(BOX_HOLD_TETRIMINOS_OTHER);
 	delwin(BOX_NEXT_TETRIMINOS_OTHER);
+	delwin(BOX_BONUS);
 	
 
 }
 
 void Board_CLI::start(int type_game){
-	if(type_game == 4){
+	if(type_game == 4 or type_game == 5){
 		
 		std::thread myGUI(&Board_CLI::update_gui_multi, this);
 		myGUI.detach();
@@ -59,9 +60,7 @@ void Board_CLI::init_colors() {
 	init_pair(7, -1, COLOR_WHITE);
 	init_pair(8, -1, -1);
 	init_pair(9, -1, COLOR_BLACK);
-	attron(A_BOLD | COLOR_PAIR(8));	
-
-	
+		
 }
 
 
@@ -70,10 +69,10 @@ void Board_CLI::init_main_game_solo_GUI(){
 	Cette fonction affiche toute l'interface du jeu fonctionel de tetris.
 	*/		
 
-	
+		attron(A_BOLD | COLOR_PAIR(8));	
 		BOX_GRID_PLAYER = subwin(stdscr,23,24,1,19);
 	    box(BOX_GRID_PLAYER, ACS_VLINE, ACS_HLINE);
-		attron(A_BOLD | COLOR_PAIR(8));	
+		
 
 		// Création de la grille de jeu
 	   	
@@ -89,23 +88,23 @@ void Board_CLI::init_main_game_solo_GUI(){
 	    box(BOX_HOLD_TETRIMINOS, ACS_VLINE, ACS_HLINE);
 	    mvprintw(11, 54, "Hold");
 	    
-	    attron(A_BOLD | COLOR_PAIR(8));	
+	    //attron(A_BOLD | COLOR_PAIR(8));	
 		mvprintw(3, 3, "LEVEL :");
 		mvprintw(5, 3, "SCORE :");
 		mvprintw(12, 3, "LINES :");
-
+		attroff(A_BOLD | COLOR_PAIR(8));
+		refresh();	
 }
 
 void Board_CLI::init_main_game_multi_GUI(){
 	
-
-		BOX_GRID_PLAYER = subwin(stdscr,23,24,1,5+10);
-	    box(BOX_GRID_PLAYER, ACS_VLINE, ACS_HLINE);
 		attron(A_BOLD | COLOR_PAIR(8));	
+		BOX_GRID_PLAYER = subwin(stdscr,23,24,1,15);
+	    box(BOX_GRID_PLAYER, ACS_VLINE, ACS_HLINE);
+		
 
 		BOX_GRID_OTHER = subwin(stdscr,23,24,1,41);
-	    box(BOX_GRID_OTHER, ACS_VLINE, ACS_HLINE);
-		attron(A_BOLD | COLOR_PAIR(8));	
+	    box(BOX_GRID_OTHER, ACS_VLINE, ACS_HLINE);	
 
 
 	   	// Création box du prochain tétriminos
@@ -132,17 +131,23 @@ void Board_CLI::init_main_game_multi_GUI(){
 	    mvprintw(10, 39, "VS");
 
 
-	    attron(A_BOLD | COLOR_PAIR(8));	
 		mvprintw(3, 1, "LEVEL :");
 		mvprintw(5, 1, "SCORE :");
 		mvprintw(7, 1, "LINES :");
 
 		mvprintw(16, 66, "LEVEL :");
 		mvprintw(18, 66, "SCORE :");
-		mvprintw(20, 66, "LINES :");	
+		mvprintw(20, 66, "LINES :");
 
+
+		BOX_BONUS = subwin(stdscr,4,12,8,1);
+	    box(BOX_BONUS, ACS_VLINE, ACS_HLINE);
+	    mvprintw(9,5, "BONUS");
+		
+
+		attroff(A_BOLD | COLOR_PAIR(8));	
 		refresh();
-}
+		}
 
 
 void Board_CLI::update_main_game_multi_GUI(){
@@ -160,16 +165,30 @@ void Board_CLI::update_main_game_multi_GUI(){
 	mvprintw(16, 73,"%d", other_grid->get_level());
 	mvprintw(20, 73,"%d", other_grid->get_line_complete());
 
+	int bonus = grid->get_bonus();
+	if(bonus == 1){
+		mvprintw(10,5, "BONUS");		
+	}
+
+	attroff(A_BOLD | COLOR_PAIR(8));	
 	for(int i =0; i < 20; i++){
 		
 		for(int j=0; j < 10; j++){
 			
 			
 			// Si on affiche un ancien block de tétriminos.
-			if(grid->is_empty(i,j) == false){
+			if(grid->is_empty(i,j) == false and !grid->is_stack_blank()){
 				
 				attron(A_BOLD | COLOR_PAIR(grid->get_color_of_block(i,j)));	
 				mvprintw(3+i, 17+j*2, "  ");
+				attroff(A_BOLD | COLOR_PAIR(grid->get_color_of_block(i,j)));	
+			}
+
+			else if(grid->is_empty(i,j) == false and grid->is_stack_blank()){
+				
+				attron(A_BOLD | COLOR_PAIR(8));	
+				mvprintw(3+i, 17+j*2, "  ");
+				attron(A_BOLD | COLOR_PAIR(8));		
 			}
 			
 			// Si on affiche un bloc du tétriminos.
@@ -177,12 +196,15 @@ void Board_CLI::update_main_game_multi_GUI(){
 				
 				attron(A_BOLD | COLOR_PAIR(grid->get_color_of_tetriminos()));	
 				mvprintw(3+i, 17+j*2, "  ");
+				attroff(A_BOLD | COLOR_PAIR(grid->get_color_of_tetriminos()));	
 			}
 			// Si on affiche tout autre block.
 			else{
 				
 				attron(A_BOLD | COLOR_PAIR(8));	
 				mvprintw(3+i, 17+j*2, "  ");
+				attroff(A_BOLD | COLOR_PAIR(8));	
+
 			}	
 			
 
@@ -191,6 +213,14 @@ void Board_CLI::update_main_game_multi_GUI(){
 				
 				attron(A_BOLD | COLOR_PAIR(other_grid->get_color_of_block(i,j)));	
 				mvprintw(3+i, 43+j*2, "  ");
+				attroff(A_BOLD | COLOR_PAIR(other_grid->get_color_of_block(i,j)));	
+			}
+
+			else if(grid->is_empty(i,j) == false and other_grid->is_stack_blank()){
+				
+				attron(A_BOLD | COLOR_PAIR(8));	
+				mvprintw(3+i, 43+j*2, "  ");
+				attron(A_BOLD | COLOR_PAIR(8));		
 			}
 
 			// Si on affiche un bloc du tétriminos.
@@ -198,12 +228,14 @@ void Board_CLI::update_main_game_multi_GUI(){
 				
 				attron(A_BOLD | COLOR_PAIR(other_grid->get_color_of_tetriminos()));	
 				mvprintw(3+i, 43+j*2, "  ");
+				attroff(A_BOLD | COLOR_PAIR(other_grid->get_color_of_tetriminos()));	
 			}
 			// Si on affiche tout autre block.
 			else{
 				
 				attron(A_BOLD | COLOR_PAIR(8));	
 				mvprintw(3+i, 43+j*2, "  ");
+				attroff(A_BOLD | COLOR_PAIR(8));	
 			}			
 			
 				
@@ -225,6 +257,7 @@ void Board_CLI::erase_hold_tetriminos_solo_GUI(){
 	attron(A_BOLD | COLOR_PAIR(8));	
 	mvprintw(11, 54, "Hold");
 	wrefresh(BOX_HOLD_TETRIMINOS);
+	attroff(A_BOLD | COLOR_PAIR(8));	
 
 }
 
@@ -238,6 +271,7 @@ void Board_CLI::erase_next_tetriminos_solo_GUI(){
 	attron(A_BOLD | COLOR_PAIR(8));	
 	mvprintw(5, 54, "Next");
 	wrefresh(BOX_NEXT_TETRIMINOS);
+	attroff(A_BOLD | COLOR_PAIR(8));	
 
 
 }
@@ -252,7 +286,7 @@ void Board_CLI::erase_next_tetriminos_multi_GUI(){
 	attron(A_BOLD | COLOR_PAIR(8));	
 	mvprintw(16, 6, "Next");
 	wrefresh(BOX_NEXT_TETRIMINOS);	
-
+	attroff(A_BOLD | COLOR_PAIR(8));	
 }
 
 void Board_CLI::erase_hold_tetriminos_other_GUI(){
@@ -265,6 +299,7 @@ void Board_CLI::erase_hold_tetriminos_other_GUI(){
 	attron(A_BOLD | COLOR_PAIR(8));	
 	mvprintw(13, 71, "Hold");
 	wrefresh(BOX_HOLD_TETRIMINOS_OTHER);
+	attroff(A_BOLD | COLOR_PAIR(8));	
 
 }
 
@@ -278,6 +313,7 @@ void Board_CLI::erase_hold_tetriminos_multi_GUI(){
 	attron(A_BOLD | COLOR_PAIR(8));	
 	mvprintw(19, 7, "Hold");
 	wrefresh(BOX_HOLD_TETRIMINOS);
+	attron(A_BOLD | COLOR_PAIR(8));	
 
 }
 
@@ -288,7 +324,7 @@ void Board_CLI::erase_next_tetriminos_other_multi_GUI(){
 	attron(A_BOLD | COLOR_PAIR(8));	
 	mvprintw(7, 71, "Next");
 	wrefresh(BOX_NEXT_TETRIMINOS_OTHER);
-
+	attroff(A_BOLD | COLOR_PAIR(8));	
 
 }
 
@@ -312,12 +348,14 @@ void Board_CLI::update_next_tetriminos_multi_GUI(Tetriminos * next_tetriminos, T
 
 		attron(A_BOLD | COLOR_PAIR(next_tetriminos->get_color_of_block(0)));
 		mvprintw( 14+y,-2+x*2 , "  ");
+		attroff(A_BOLD | COLOR_PAIR(next_tetriminos->get_color_of_block(0)));
 
 		y = next_tetriminos_other->get_coord_Y_of_block(i);
         x = next_tetriminos_other->get_coord_X_of_block(i);
 
 		attron(A_BOLD | COLOR_PAIR(next_tetriminos_other->get_color_of_block(0)));
 		mvprintw( 5+y,63+x*2 , "  ");
+		attroff(A_BOLD | COLOR_PAIR(next_tetriminos_other->get_color_of_block(0)));
 	}
 
 
@@ -341,6 +379,7 @@ void Board_CLI::update_hold_tetriminos_solo_GUI(Tetriminos * hold_tetriminos){
 
 			attron(A_BOLD | COLOR_PAIR(hold_tetriminos->get_color_of_block(0)));
 			mvprintw( 9+y,46+x*2 , "  ");
+			attroff(A_BOLD | COLOR_PAIR(hold_tetriminos->get_color_of_block(0)));
 		}
 
 	}
@@ -362,6 +401,7 @@ void Board_CLI::update_hold_tetriminos_multi_GUI(Tetriminos * hold_tetriminos){
 
 		attron(A_BOLD | COLOR_PAIR(hold_tetriminos->get_color_of_block(0)));
 		mvprintw( 19+y,-2+x*2 , "  ");
+		attroff(A_BOLD | COLOR_PAIR(hold_tetriminos->get_color_of_block(0)));
 	}
 
 }
@@ -383,6 +423,7 @@ void Board_CLI::update_hold_tetriminos_other_GUI(Tetriminos* hold_tetriminos_oth
 
 			attron(A_BOLD | COLOR_PAIR(hold_tetriminos_other->get_color_of_block(0)));
 			mvprintw( 11+y,63+x*2 , "  ");
+			attroff(A_BOLD | COLOR_PAIR(hold_tetriminos_other->get_color_of_block(0)));
 
 		}
 
@@ -405,6 +446,7 @@ void Board_CLI::update_next_tetriminos_solo_GUI(Tetriminos * next_tetriminos){
 
 		attron(A_BOLD | COLOR_PAIR(next_tetriminos->get_color_of_block(0)));
 		mvprintw( 3+y,46+x*2 , "  ");
+		attroff(A_BOLD | COLOR_PAIR(next_tetriminos->get_color_of_block(0)));
 	}
 
 
@@ -422,7 +464,7 @@ void Board_CLI::update_main_game_solo_GUI(){
 	mvprintw(5, 11,"%d", grid->get_score());
 	mvprintw(3, 11,"%d", grid->get_level());
 	mvprintw(12, 11,"%d", grid->get_line_complete());
-
+	attroff(A_BOLD | COLOR_PAIR(8));	
 
 	grid->ghost();
 
@@ -436,6 +478,7 @@ void Board_CLI::update_main_game_solo_GUI(){
 				
 				attron(A_BOLD | COLOR_PAIR(9));	
 				mvprintw(3+i, 21+j*2, "  ");
+				attroff(A_BOLD | COLOR_PAIR(9));	
 			}
 			
 			
@@ -444,6 +487,7 @@ void Board_CLI::update_main_game_solo_GUI(){
 				
 				attron(A_BOLD | COLOR_PAIR(grid->get_color_of_block(i,j)));	
 				mvprintw(3+i, 21+j*2, "  ");
+				attroff(A_BOLD | COLOR_PAIR(grid->get_color_of_block(i,j)));	
 			}
 
 			// Si on affiche tout autre block.
@@ -451,11 +495,13 @@ void Board_CLI::update_main_game_solo_GUI(){
 				
 				attron(A_BOLD | COLOR_PAIR(8));	
 				mvprintw(3+i, 21+j*2, "  ");
+				attroff(A_BOLD | COLOR_PAIR(8));	
 			}
 			if(grid->get_tetriminos()->has_block(i,j)){
 				
 				attron(A_BOLD | COLOR_PAIR(grid->get_color_of_tetriminos()));	
 				mvprintw(3+i, 21+j*2, "  ");
+				attroff(A_BOLD | COLOR_PAIR(grid->get_color_of_tetriminos()));	
 			}	
 			
 		}
@@ -576,6 +622,15 @@ void Board_CLI::player_get_choice_in_game(Grid* grid,Stopper_Thread* stopper) {
 		
 		ch = getch();
 
+		if (grid->is_controller_inverse()){
+			if(ch == C_moveRigth)
+				{ch = C_moveLeft;}
+
+			else if(ch == C_moveLeft )
+				{ch = C_moveRigth;}
+
+		}
+
 		flag = !stopper->game_is_finish();
 		if  (flag and ch == C_moveRigth) {
 			game_manager->move_right();
@@ -601,10 +656,12 @@ void Board_CLI::player_get_choice_in_game(Grid* grid,Stopper_Thread* stopper) {
 			game_manager->move_hold();
 			grid->set_current_tetriminos_hold();
 		}
-		else if (flag and ch ==  C_accelerate) {
-			game_manager->move_drop();
-			grid->set_acceleration_quick();
+		else if (flag and ch ==  'b') {
+			game_manager->bonus();
+			grid->use_bonus();
 		}
+
+
 	}
 	// WizardLogger::info("player_get_choice_in_game arrêté!");
 

@@ -40,6 +40,7 @@ Tetriminos::Tetriminos(int color){
 
 Tetriminos::~Tetriminos(){
 
+
 	delete[] _list_block;
 
 }
@@ -68,6 +69,10 @@ int Tetriminos::get_color_of_block(int block)const{
 	return _list_block[block].get_color();
 }
 
+int Tetriminos::get_bonus_of_block(int block)const{
+
+	return _list_block[block].get_bonus();
+}
 
 void Tetriminos::set_coord_of_block(int block, int y, int x){ 
 	/*

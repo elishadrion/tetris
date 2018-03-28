@@ -28,7 +28,7 @@ void PacketManager::manage_packet(void* packet) {
                                             break;
         case Packet::DISCONNECT_ID :        WizardLogger::warning("Paquet de déconnection reçu");
                                             break;
-				case Packet::USERS_ID :        			receive_users_list(reinterpret_cast<Packet::usersPacket*>(packet));
+				case Packet::USERS_ID :     receive_users_list(reinterpret_cast<Packet::usersPacket*>(packet));
                                             break;
         default :                           WizardLogger::warning("Paquet inconnue reçu: " +
                                                         std::to_string(temp_packet->ID));
