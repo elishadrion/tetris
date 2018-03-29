@@ -706,13 +706,13 @@ void Grid::active_bonus(Grid * other_grid){
 		}
 		else if(_bonus ==2){
 
-			hide_stack(other_grid);
+			std::thread thread_C (&Grid::hide_stack,this, other_grid);
 
 		}
 
 		else if(_bonus ==3){
-
-			inverse_controller(other_grid);
+			std::thread thread_C (&Grid::inverse_controller,this, other_grid);
+			
 		}
 		else if(_bonus==4){
 

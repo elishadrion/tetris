@@ -20,6 +20,7 @@ Vs::~Vs(){
 
 void Vs::init_game(bool is_player){
 	 // Graine du randomizer
+	usleep(20000);
 	std::thread t(&Vs::start,this,grid,_other_grid ,stopper);
 	std::thread t2(&Vs::start,this, _other_grid,grid, stopper);
 	t.detach();
@@ -34,7 +35,7 @@ void Vs::start(Grid * grid, Grid * other_grid , Stopper_Thread* stopper){
 	 
 	int line_complete = 0;
 	bool gridOverload = false;	
-	usleep(30000);
+	
 	
 	while(!stopper->game_is_finish() and !gridOverload ){
 

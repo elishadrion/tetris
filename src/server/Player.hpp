@@ -36,7 +36,7 @@ class Player {
         //Player(nlohmann::json&, int sockfd = 0);
         //CONSTRUCTEUR ET DESTRUCTEUR
         Player(std::string username, int sockfd): _username(username), _sockfd(sockfd),_in_chat(0) {}
-        virtual ~Player() {close(_sockfd); delete _room;}
+        virtual ~Player() {close(_sockfd);}
         //GETTERS
         inline int get_sockfd() const {return _sockfd;}
         inline Player* get_player_ptr() {return this;}

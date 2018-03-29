@@ -27,7 +27,7 @@ CLI::CLI(){
     noecho();    // On cache les inputs du terminal.
     curs_set(0); // On cac
     keypad(stdscr, TRUE);
-    assume_default_colors(COLOR_CYAN,-1);
+    
 
 }
 
@@ -465,9 +465,9 @@ void CLI::play(int type_game) {
 
 
     pthread_cond_wait(&packetStackCond, &packetStackMutex);
-    //usleep(10000);
+    usleep(10000);
 
-    while(packetStack.size() == 0){};
+    while(packetStack.size() != 2){};
     WizardLogger::info("On joue!");
 
     //int x =sizeof(packetStack.back());
@@ -487,9 +487,7 @@ void CLI::play(int type_game) {
 void CLI::end_game(info_game myInfo) {
 
     clear();
-     
-
-
+ 
     if(myInfo.winner){
         mvprintw(2, 6, "Bravo vous avez gagné ! ");
     }

@@ -79,7 +79,7 @@ void SalonChat::startChat(){
 	int MAX_FIELD = 126;
 	char inputstring[MAX_FIELD], ttime[10], tester[156];
 
-	initscr();
+	
 	keypad(stdscr, TRUE);
 
     attron(A_REVERSE);
@@ -149,8 +149,7 @@ void SalonChat::startChat(){
 			case KEY_DC:
 				form_driver(form, REQ_DEL_CHAR);
 				break;
-			case 112:
-				break;
+		
 
 			case 27:
 				break;
@@ -162,7 +161,7 @@ void SalonChat::startChat(){
 		}
 		//27 escape
 	}
-	if (ch == 112){
+	if (ch == 27){
         PacketManager::send_logout_chat();
 
     }

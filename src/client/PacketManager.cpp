@@ -18,6 +18,9 @@ void PacketManager::manage_packet(void* packet) {
                                             break;
         case Packet::GAME_WAITING_ID:       game_waiting();
                                             break;
+        case Packet::GAME_STOP_ERROR_ID:    game_stop_now();
+                                            break;
+
         case Packet::GAME_READY_ID:         game_ready(reinterpret_cast<Packet::playApprovalPacket*>(packet));
                                             break;
         case Packet::MOVE_TETRIMINOS:       manage_move_tetriminos_request(reinterpret_cast<Packet::intPacket*>(packet));
@@ -65,6 +68,12 @@ void PacketManager::send_login_request(const char *pseudo, const char *password)
 
     conn->send_packet(loginPacket, sizeof(*loginPacket));
     delete loginPacket;
+}
+
+void PacketManager::game_stop_now(){
+
+      game_manager->get_game()->get_stopper()->game_finish(); 
+
 }
 
 void PacketManager::send_signup_request(const char *pseudo, const char *password) {
@@ -228,7 +237,6 @@ void PacketManager::receive_users_name(Packet::usersInChatPacket* packet){
 
 void PacketManager::receive_users_list(Packet::usersPacket* packet){
 	WizardLogger::info("received Users List");
-
 	WizardLogger::info(packet->users_list);
 
 	friends_manager->printAllUsers(packet->users_list);

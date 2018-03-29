@@ -1,9 +1,10 @@
 #include "Room.hpp"
 
-Room::Room(unsigned max): _size(0) {
+Room::Room(unsigned max): _size(0) ,game(nullptr){
 	srand(time(NULL));
 	_seed = rand();
 	_players = new Player*[max];
+	for(int i = 0; i<max;i++){ _players[i] = nullptr;}
 	_max_size = max;
 }
 

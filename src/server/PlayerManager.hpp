@@ -41,6 +41,7 @@ namespace PlayerManager {
     void broadcast_game_ready(Room*);
     void start_game(Room*,int); 
     void info_game(Room * room, Stopper_Thread * stopper);
+    void try_stop_room(Room * room);
 }
 
 #endif /* PLAYERMANAGER_HPP */

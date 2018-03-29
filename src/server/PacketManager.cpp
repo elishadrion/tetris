@@ -22,6 +22,7 @@ void PacketManager::manage_packet(Player *player, void* packet) {
         								break;
         case Packet::CHAT_LOGOUT:       receive_logout_chat(player);
         								break;
+
         case Packet::FRIENDS_ID:       receive_friend_request(player, reinterpret_cast<Packet::friendRequestPacket*>(packet));
         								break;
         case Packet::STATISTIC_ID:       receive_stat_request(player, reinterpret_cast<Packet::statisticRequestPacket*>(packet));
@@ -323,6 +324,22 @@ void PacketManager::send_game_waiting(Player* player) {
     packet->ID = Packet::GAME_WAITING_ID;
     player->send_packet(packet, sizeof(*packet));
     delete packet;
+}
+
+
+void PacketManager::send_game_stopping(Player* player) {
+    
+
+
+    Packet::packet* packet = new  Packet::packet();
+
+    packet->ID = Packet::GAME_STOP_ERROR_ID;
+
+    /* Send and free */
+    player->send_packet(packet, sizeof(*packet));
+    delete packet;
+
+
 }
 
 void PacketManager::send_game_ready(Player* player, unsigned seed) {

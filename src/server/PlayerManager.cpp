@@ -117,7 +117,11 @@ void PlayerManager::manage_room(){
             }
 
             if(!flag1 or !flag2){
-               current_room->try_stop();
+                 current_room->try_stop();
+                 try_stop_room(current_room);
+                 //PacketManager::send_game_stopping(current_room->get_player(0));
+                 //PacketManager::send_game_stopping(current_room->get_player(1));
+
 
             }
 
@@ -136,10 +140,13 @@ void PlayerManager::manage_room(){
 
             if(!flag)
                 current_room->try_stop();
+                try_stop_room(current_room);
 
         }
 
     }
+
+  
 
 }
 
@@ -194,9 +201,26 @@ void PlayerManager::start_game(Room* room, int mode) {
 
 }
 
+void PlayerManager::try_stop_room(Room * room){
+    usleep(200000);
+    for (size_t i = 0; i < g_rooms.size(); i++) {
+        Room* current = g_rooms.at(i);
+
+        if (current == room) {
+            g_rooms.erase(g_rooms.begin()+i);
+            usleep(200000);
+
+            delete current;
+            WizardLogger::info("Room "+ std::to_string(i+1)+": arrété avec succès");
+            return;
+        }
+    }
+}
+
 void PlayerManager::info_game(Room * room, Stopper_Thread * stopper){
 
    unsigned time =0;
+   usleep(20000);
    while(!stopper->game_is_finish()){
 
         sleep(1);
@@ -204,22 +228,9 @@ void PlayerManager::info_game(Room * room, Stopper_Thread * stopper){
 
    }
 
-    std::cout<<"le score est de "<<room->get_mode()->get_score_player(1)<<std::endl;
+    //std::cout<<"le score est de "<<room->get_mode()->get_score_player(1)<<std::endl;
+    db->updateUserNameScore(room->get_player(0)->get_username(),room->get_mode()->get_score_player(1), time);
 
-    for (size_t i = 0; i < g_rooms.size(); i++) {
-        Room* current = g_rooms.at(i);
-
-        if (current == room) {
-            g_rooms.erase(g_rooms.begin()+i);
-            usleep(200000);
-            WizardLogger::info("try room stop");
-            delete current;
-            WizardLogger::info("Room "+ std::to_string(i+1)+": arrété avec succès");
-            return;
-        }
-    }
-
-
-
+    try_stop_room(room);
 
 }

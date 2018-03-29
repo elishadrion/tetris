@@ -36,11 +36,11 @@ class Database {
         char * getGlobalStatistics();
         char * getUserNameStatistics(std::string name);
         char * getAllUsersStatistics();
-
+    
 
         //SETTERS
         void registerUser(std::string name, std::string password);
-        void updateUserNameScore(std::string name, int victoryAdd, int lostAdd);
+        void updateUserNameScore(std::string , int , unsigned );
         void sendFriendRequest(std::string name, std::string FriendName);
         void confirmFriendRequest(std::string name, std::string FriendName);
         void deleteFriendFromUserName(std::string name, std::string FriendName);

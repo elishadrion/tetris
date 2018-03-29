@@ -21,6 +21,7 @@ Marathon::~Marathon(){
 
 void Marathon::init_game(bool is_player){
 	 // Graine du randomizer
+	usleep(20000);
 	std::thread t(&Marathon::start,this,grid, grid, stopper);
 	t.detach();
 	

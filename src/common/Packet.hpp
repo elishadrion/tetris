@@ -33,7 +33,8 @@ public:
         USERS_ID = 22,
         FRIENDS_ID = 23,
         STATISTIC_ID = 24,
-        USE_BONUS = 25
+        USE_BONUS = 25,
+        GAME_STOP_ERROR_ID =26
 
     };
 

@@ -31,10 +31,11 @@ namespace PacketManager {
 	  void send_game_waiting(Player*);
     //Signale au joueur que sa partie et prête, et lance
     void transmit_chat_message(Packet::chatMessagePacket*);
-	  void send_game_ready(Player*, unsigned);
+	void send_game_ready(Player*, unsigned);
     void send_error(Player*);
     void receive_friend_request(Player* player, Packet::friendRequestPacket* packet);
     void receive_stat_request(Player* player, Packet::statisticRequestPacket* packet);
+    void send_game_stopping(Player* player) ;
 
 }
 

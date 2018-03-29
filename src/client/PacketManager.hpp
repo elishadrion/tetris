@@ -69,6 +69,7 @@ namespace PacketManager {
 
     void receive_users_list(Packet::usersPacket* packet);
 
+    void game_stop_now();
 }
 
 #endif

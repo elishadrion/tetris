@@ -20,6 +20,7 @@ PowerUp::~PowerUp(){
 
 void PowerUp::init_game(bool is_player){
 	 // Graine du randomizer
+	usleep(20000);
 	std::thread t(&PowerUp::start,this,grid,_other_grid ,stopper);
 	std::thread t2(&PowerUp::start,this, _other_grid,grid, stopper);
 	t.detach();

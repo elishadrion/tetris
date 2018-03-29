@@ -31,7 +31,10 @@ class Room {
 		Mode* get_mode(){return game;}
 		Player* get_player(unsigned i) {return _players[i];}
 		void add_player(Player* player);
-		void try_stop(){ game->get_stopper()->game_finish();}
+		void try_stop(){ 
+			if(game!= nullptr){
+			game->get_stopper()->game_finish();}
+		}
 		
 		void move_tetriminos(Player* player, unsigned movej) {
 			if (_players[0] == player) {game->move_tetriminos_first_grid(movej);}

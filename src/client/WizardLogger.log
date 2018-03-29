@@ -902,3 +902,138 @@ all   score : 0   time : 0
 [2018-03-28 23:29:36.739] [info]	seg fault ?
 [2018-03-28 23:29:36.739] [info]	Reçu un game ready du serveur
 [2018-03-28 23:29:36.740] [info]	game lancé!
+[2018-03-29 08:59:23.447] [info]	Démarrage du client
+[2018-03-29 08:59:25.636] [info]	Login réussi
+[2018-03-29 08:59:26.506] [info]	Reçu un game waiting du serveur
+[2018-03-29 08:59:26.507] [info]	Reçu un game ready du serveur
+[2018-03-29 08:59:26.507] [info]	On joue!
+[2018-03-29 08:59:26.507] [info]	seg fault ?
+[2018-03-29 08:59:26.507] [info]	game lancé!
+[2018-03-29 09:04:52.324] [info]	Démarrage du client
+[2018-03-29 09:04:59.815] [info]	Login réussi
+[2018-03-29 09:05:03.658] [info]	Reçu un game waiting du serveur
+[2018-03-29 09:07:20.082] [info]	Démarrage du client
+[2018-03-29 09:07:28.261] [info]	Login réussi
+[2018-03-29 09:07:29.128] [info]	Reçu un game waiting du serveur
+[2018-03-29 09:07:29.129] [info]	Reçu un game ready du serveur
+[2018-03-29 09:07:29.139] [info]	On joue!
+[2018-03-29 09:07:29.139] [info]	seg fault ?
+[2018-03-29 09:07:29.160] [info]	game lancé!
+[2018-03-29 09:08:12.146] [info]	Démarrage du client
+[2018-03-29 09:08:16.531] [info]	Login réussi
+[2018-03-29 09:08:17.319] [info]	Reçu un game waiting du serveur
+[2018-03-29 09:08:17.320] [info]	Reçu un game ready du serveur
+[2018-03-29 09:08:17.330] [info]	On joue!
+[2018-03-29 09:08:17.330] [info]	seg fault ?
+[2018-03-29 09:08:17.351] [info]	game lancé!
+[2018-03-29 09:09:34.456] [info]	Démarrage du client
+[2018-03-29 09:10:01.787] [info]	Démarrage du client
+[2018-03-29 09:10:05.232] [info]	Login réussi
+[2018-03-29 09:10:06.996] [info]	Reçu un game waiting du serveur
+[2018-03-29 09:10:06.996] [info]	Reçu un game ready du serveur
+[2018-03-29 09:10:07.007] [info]	On joue!
+[2018-03-29 09:10:07.007] [info]	seg fault ?
+[2018-03-29 09:10:07.028] [info]	game lancé!
+[2018-03-29 09:11:15.817] [info]	Démarrage du client
+[2018-03-29 09:11:19.155] [info]	Login réussi
+[2018-03-29 09:11:20.372] [info]	Reçu un game waiting du serveur
+[2018-03-29 09:11:20.373] [info]	Reçu un game ready du serveur
+[2018-03-29 09:11:20.383] [info]	On joue!
+[2018-03-29 09:11:20.383] [info]	seg fault ?
+[2018-03-29 09:11:20.404] [info]	game lancé!
+[2018-03-29 09:11:43.552] [info]	stat action type  :0
+[2018-03-29 09:11:43.561] [info]	received Users List
+[2018-03-29 09:11:43.561] [info]	
+eiman   score : 3086   time : 139
+
+[2018-03-29 09:12:14.951] [info]	Démarrage du client
+[2018-03-29 09:12:23.262] [info]	Login réussi
+[2018-03-29 09:12:25.659] [info]	Reçu un game waiting du serveur
+[2018-03-29 09:12:31.685] [info]	Démarrage du client
+[2018-03-29 09:12:35.990] [info]	Login réussi
+[2018-03-29 09:12:36.685] [info]	Reçu un game waiting du serveur
+[2018-03-29 09:12:36.685] [info]	Reçu un game ready du serveur
+[2018-03-29 09:12:36.695] [info]	On joue!
+[2018-03-29 09:12:36.695] [info]	seg fault ?
+[2018-03-29 09:12:36.716] [info]	game lancé!
+[2018-03-29 09:14:22.965] [info]	Démarrage du client
+[2018-03-29 09:14:32.141] [info]	Démarrage du client
+[2018-03-29 09:14:37.611] [info]	Login réussi
+[2018-03-29 09:14:38.113] [info]	Reçu un game waiting du serveur
+[2018-03-29 09:14:38.113] [info]	Reçu un game ready du serveur
+[2018-03-29 09:14:38.123] [info]	On joue!
+[2018-03-29 09:14:38.123] [info]	seg fault ?
+[2018-03-29 09:14:38.144] [info]	game lancé!
+[2018-03-29 09:16:40.381] [info]	Démarrage du client
+[2018-03-29 09:16:43.876] [info]	Démarrage du client
+[2018-03-29 09:16:48.735] [info]	Login réussi
+[2018-03-29 09:16:49.746] [info]	Reçu un game waiting du serveur
+[2018-03-29 09:16:49.746] [info]	Reçu un game ready du serveur
+[2018-03-29 09:16:49.757] [info]	On joue!
+[2018-03-29 09:16:49.757] [info]	seg fault ?
+[2018-03-29 09:16:49.777] [info]	game lancé!
+[2018-03-29 09:17:10.267] [info]	Paquet de chat reçu
+[2018-03-29 09:17:10.267] [warning]	Paquet inconnue reçu: 32646
+[2018-03-29 09:17:10.267] [warning]	Paquet inconnue reçu: 500
+[2018-03-29 09:17:10.267] [warning]	Paquet inconnue reçu: 160
+[2018-03-29 09:17:10.267] [info]	Reçu un game waiting du serveur
+[2018-03-29 09:17:10.268] [info]	Reçu un game ready du serveur
+[2018-03-29 09:17:10.278] [info]	On joue!
+[2018-03-29 09:17:10.278] [info]	seg fault ?
+[2018-03-29 09:17:10.299] [info]	game lancé!
+[2018-03-29 09:20:19.177] [info]	Démarrage du client
+[2018-03-29 09:20:28.823] [info]	Login réussi
+[2018-03-29 09:20:29.897] [info]	Reçu un game waiting du serveur
+[2018-03-29 09:20:29.897] [info]	Reçu un game ready du serveur
+[2018-03-29 09:20:29.908] [info]	On joue!
+[2018-03-29 09:20:29.908] [info]	seg fault ?
+[2018-03-29 09:20:29.928] [info]	game lancé!
+[2018-03-29 09:21:14.205] [info]	Démarrage du client
+[2018-03-29 09:21:18.086] [info]	Démarrage du client
+[2018-03-29 09:21:22.248] [info]	Login réussi
+[2018-03-29 09:21:25.169] [info]	Reçu un game waiting du serveur
+[2018-03-29 09:21:28.777] [info]	Démarrage du client
+[2018-03-29 09:38:03.691] [info]	Démarrage du client
+[2018-03-29 09:38:13.217] [info]	Login réussi
+[2018-03-29 09:38:13.702] [info]	Reçu un game waiting du serveur
+[2018-03-29 09:38:13.702] [info]	Reçu un game ready du serveur
+[2018-03-29 09:38:13.712] [info]	On joue!
+[2018-03-29 09:38:13.713] [info]	seg fault ?
+[2018-03-29 09:38:13.733] [info]	game lancé!
+[2018-03-29 09:38:25.386] [info]	Reçu un game waiting du serveur
+[2018-03-29 09:38:39.026] [info]	Démarrage du client
+[2018-03-29 09:39:15.230] [info]	Démarrage du client
+[2018-03-29 09:39:19.951] [info]	Login réussi
+[2018-03-29 09:39:22.408] [info]	Reçu un game waiting du serveur
+[2018-03-29 09:40:22.137] [info]	Démarrage du client
+[2018-03-29 09:40:24.487] [info]	Démarrage du client
+[2018-03-29 09:40:28.226] [info]	Démarrage du client
+[2018-03-29 09:40:31.820] [info]	Login réussi
+[2018-03-29 09:40:33.430] [info]	Reçu un game waiting du serveur
+[2018-03-29 09:40:47.076] [info]	Démarrage du client
+[2018-03-29 09:40:53.897] [info]	Login réussi
+[2018-03-29 09:40:55.714] [info]	Reçu un game waiting du serveur
+[2018-03-29 09:40:55.714] [info]	Reçu un game ready du serveur
+[2018-03-29 09:40:55.714] [info]	Reçu un game ready du serveur
+[2018-03-29 09:40:55.724] [info]	On joue!
+[2018-03-29 09:40:55.725] [info]	seg fault ?
+[2018-03-29 09:40:55.725] [info]	On joue!
+[2018-03-29 09:40:55.725] [info]	seg fault ?
+[2018-03-29 09:40:55.745] [info]	game lancé!
+[2018-03-29 09:40:55.745] [info]	game lancé!
+[2018-03-29 09:41:32.220] [info]	Démarrage du client
+[2018-03-29 09:41:38.372] [info]	Login réussi
+[2018-03-29 09:41:39.936] [info]	Reçu un game waiting du serveur
+[2018-03-29 09:52:40.839] [info]	Démarrage du client
+[2018-03-29 09:52:44.009] [info]	Login réussi
+[2018-03-29 09:52:45.796] [info]	Reçu un game waiting du serveur
+[2018-03-29 09:55:44.832] [info]	Démarrage du client
+[2018-03-29 09:55:48.760] [info]	Login réussi
+[2018-03-29 09:55:51.222] [info]	Reçu un game waiting du serveur
+[2018-03-29 09:56:50.454] [info]	Démarrage du client
+[2018-03-29 09:56:53.913] [info]	Login réussi
+[2018-03-29 09:56:54.593] [info]	Reçu un game waiting du serveur
+[2018-03-29 09:56:54.593] [info]	Reçu un game ready du serveur
+[2018-03-29 09:56:54.603] [info]	On joue!
+[2018-03-29 09:56:54.603] [info]	seg fault ?
+[2018-03-29 09:56:54.624] [info]	game lancé!

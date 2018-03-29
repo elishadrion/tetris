@@ -22,6 +22,7 @@ Sprint::~Sprint(){
 
 void Sprint::init_game(bool is_player){
 	 // Graine du randomizer
+	usleep(20000);
 	std::thread t(&Sprint::start,this,grid, grid, stopper);
 	t.detach();
 

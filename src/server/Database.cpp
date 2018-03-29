@@ -463,7 +463,7 @@ void Database::registerUser(std::string name, std::string password){
 
 
 
-void Database::updateUserNameScore(std::string name, int victoryAdd, int lostAdd){
+void Database::updateUserNameScore(std::string name, int victoryAdd, unsigned lostAdd){
   char *ERRORmsg = NULL;
 	int result = 0;
   sqlite3_stmt *stmt;
@@ -498,17 +498,17 @@ void Database::updateGlobalStatistic(int gameMode, int victoryAdd, int lostAdd, 
   sqlite3_stmt *stmt;
   std::string req;
 
-  if(gameMode==0){
-    req = "UPDATE globalStatistic SET victory = victory + ?, defeat = defeat + ?, defeat = score + ?, defeat = time + ?, defeat = complete_line + ? WHERE id_mode = 1";
+if(gameMode==0){
+    req = "UPDATE globalStatistic SET victory = victory + ?, defeat = defeat + ?, score = score + ?, time = time + ?, complete_line = complete_line + ? WHERE id_mode = 1";
   }
   else if(gameMode==1){
-    req = "UPDATE globalStatistic SET victory = victory + ?, defeat = defeat + ?, defeat = score + ?, defeat = time + ?, defeat = complete_line + ? WHERE id_mode = 2";
+    req = "UPDATE globalStatistic SET victory = victory + ?, defeat = defeat + ?, score = score + ?, time = time + ?, complete_line = complete_line + ? WHERE id_mode = 2";
   }
   else if(gameMode==2){
-    req = "UPDATE globalStatistic SET victory = victory + ?, defeat = defeat + ?, defeat = score + ?, defeat = time + ?, defeat = complete_line + ? WHERE id_mode = 3";
+    req = "UPDATE globalStatistic SET victory = victory + ?, defeat = defeat + ?, score = score + ?, time = time + ?, complete_line = complete_line + ? WHERE id_mode = 3";
   }
   else if(gameMode==3){
-    req = "UPDATE globalStatistic SET victory = victory + ?, defeat = defeat + ?, defeat = score + ?, defeat = time + ?, defeat = complete_line + ?WHERE id_mode = 4";
+    req = "UPDATE globalStatistic SET victory = victory + ?, defeat = defeat + ?, score = score + ?, time = time + ?, complete_line = complete_line + ?WHERE id_mode = 4";
   }
   else{
     printf("Game mode Error\n");

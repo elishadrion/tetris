@@ -12,6 +12,7 @@ Grid.hpp
 #include <fstream>
 #include <iostream>
 #include <sys/time.h>
+#include <thread>
 #include <math.h>
 #include "../../common/Random.hpp"
 

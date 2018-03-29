@@ -21,7 +21,7 @@ Classic::~Classic(){
 
 void Classic::init_game(bool is_player){
 	 // Graine du randomize
-	
+	usleep(20000);
 	std::thread t(&Classic::start,this,grid, grid, stopper);
 	t.detach();
 
